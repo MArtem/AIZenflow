@@ -1,0 +1,595 @@
+{
+  "schema_version": 1,
+  "task_id": "delivery-pilot-01",
+  "case_id": "DEV-C01",
+  "model": "gpt-6.1-sol",
+  "reasoning": "medium",
+  "mode": "эконом",
+  "start_utc": "2026-10-06T22:54:52+00:00",
+  "start_precision": "first observed clock immediately after initial bootstrap read; sub-second pre-clock duration UNKNOWN",
+  "end_utc": "2026-10-06T22:57:09.997865+00:00",
+  "elapsed_seconds": 137.997865,
+  "timeout_seconds": 600,
+  "within_timeout": true,
+  "actual_reads_in_order": [
+    {
+      "order": 1,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 2,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/AGENTS.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 3,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/handoff.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 4,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/plan.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/input.json",
+      "kind": "full-content"
+    },
+    {
+      "order": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+      "kind": "full-content",
+      "note": "Initial displayed output truncated; repaired by later complete read."
+    },
+    {
+      "order": 7,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 8,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 9,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 10,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 11,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 12,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 18,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/KNOWLEDGE_ROUTER.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/PROJECT_MODE.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 21,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/QUALITY_STANDARD.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 22,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/EVIDENCE_POLICY.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 23,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/PROJECT_FACTS.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 24,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/REPOSITORY_INSPECTION.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/RISK_AND_EVIDENCE.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 26,
+      "path": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui/CountriesSwiftUI/Utilities/CancelBag.swift",
+      "kind": "exact-git-blob",
+      "note": "9eca97b8cfff96a14084b564b1fefd949c93d232:CountriesSwiftUI/Utilities/CancelBag.swift; source SHA256, Git blob SHA1 and length matched input."
+    },
+    {
+      "order": 27,
+      "path": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui/CountriesSwiftUI/Utilities/Loadable.swift",
+      "kind": "exact-git-blob",
+      "note": "9eca97b8cfff96a14084b564b1fefd949c93d232:CountriesSwiftUI/Utilities/Loadable.swift; source SHA256, Git blob SHA1 and length matched input."
+    },
+    {
+      "order": 28,
+      "path": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui/CountriesSwiftUI/Interactors/ImagesInteractor.swift",
+      "kind": "exact-git-blob",
+      "note": "9eca97b8cfff96a14084b564b1fefd949c93d232:CountriesSwiftUI/Interactors/ImagesInteractor.swift; source SHA256, Git blob SHA1 and length matched input."
+    },
+    {
+      "order": 29,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/REVIEW_GUIDE.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 30,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 31,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 32,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 33,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 34,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+      "kind": "full-content"
+    },
+    {
+      "order": 35,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+      "kind": "heading-and-keyword-search",
+      "note": "rg headings/cancellation/unstructured; bounded reference selection"
+    },
+    {
+      "order": 36,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "kind": "full-content",
+      "note": "Complete reread repairs displayed truncation in combined output."
+    },
+    {
+      "order": 37,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+      "kind": "line-range",
+      "note": "lines 8-50 only"
+    },
+    {
+      "order": 38,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+      "kind": "full-content",
+      "note": "Complete reread repairs initial displayed truncation."
+    },
+    {
+      "order": 39,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/input.json",
+      "kind": "structured-read",
+      "note": "Used for expected hashes and ledger metadata only."
+    },
+    {
+      "order": 40,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/KNOWLEDGE_ROUTER.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 41,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/PROJECT_MODE.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 42,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/QUALITY_STANDARD.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 43,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/EVIDENCE_POLICY.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 44,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/PROJECT_FACTS.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 45,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/REPOSITORY_INSPECTION.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 46,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/RISK_AND_EVIDENCE.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 47,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/REVIEW_GUIDE.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 48,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 49,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 50,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 51,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 52,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 53,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 54,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 55,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 56,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 57,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 58,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 59,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 60,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "kind": "hash-read"
+    },
+    {
+      "order": 61,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "kind": "hash-read"
+    }
+  ],
+  "ordering": [
+    {
+      "stage": "canonical bootstrap",
+      "before": "project reads"
+    },
+    {
+      "stage": "scoped context and baseline/router/Level0",
+      "before": "source review"
+    },
+    {
+      "stage": "payload entry/router and task-only ON/common guidance",
+      "before": "source reads"
+    },
+    {
+      "stage": "exact source reads and local candidate facts",
+      "before": "supporting payload review/concurrency routes"
+    },
+    {
+      "stage": "payload reference adjudication and bounded canonical review/deep concurrency",
+      "before": "final finding decision"
+    },
+    {
+      "stage": "hash verification",
+      "before": "output recording"
+    }
+  ],
+  "route_selection": {
+    "entry": "payload/KNOWLEDGE_ROUTER.md",
+    "mode": "task-only explicit ON; actual project mode untouched",
+    "supporting_routes": [
+      "19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md"
+    ],
+    "max_supporting_routes_per_stage": 2,
+    "direct_canonical_library_read": false
+  },
+  "decision_timing": {
+    "local_candidate": "after exact source read, before payload supporting route read",
+    "final_adjudication": "after payload supporting routes and normative concurrency range, before evidence writes",
+    "final_utc": "2026-10-06T22:57:09.997865+00:00",
+    "finding_ids": [
+      "F1"
+    ],
+    "confirmed_observations": [
+      "O1"
+    ],
+    "current_screen_race": "UNKNOWN"
+  },
+  "source": {
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui",
+    "commit": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+    "files": [
+      {
+        "path": "CountriesSwiftUI/Utilities/CancelBag.swift",
+        "git_blob_sha": "5a8ea025854a8d73491d37eebb371b17e58cb99d",
+        "sha256": "4bb77e9a8f941f5196131a7ef1c3c3ec59adb7c05a14c3e4d44a42408b358aef",
+        "bytes": 738,
+        "hashes_match": true
+      },
+      {
+        "path": "CountriesSwiftUI/Utilities/Loadable.swift",
+        "git_blob_sha": "42232f948fe5ca86755f922dc8ecfc07b4c8d151",
+        "sha256": "0b0a4fd12ff944addbab221d1ccaa48fe5f18e51b995c5635c5399f73ef573e8",
+        "bytes": 3549,
+        "hashes_match": true
+      },
+      {
+        "path": "CountriesSwiftUI/Interactors/ImagesInteractor.swift",
+        "git_blob_sha": "4857fac37f609657484ce160edd823a058868172",
+        "sha256": "2b627ca2ff42f330f3222fb4d4d994262fff33575f93f50064ce3c9f75c1b979",
+        "bytes": 866,
+        "hashes_match": true
+      }
+    ]
+  },
+  "payload_hashes": [
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/KNOWLEDGE_ROUTER.md",
+      "sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+      "expected_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/PROJECT_MODE.md",
+      "sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+      "expected_sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/QUALITY_STANDARD.md",
+      "sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "expected_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/EVIDENCE_POLICY.md",
+      "sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "expected_sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/PROJECT_FACTS.md",
+      "sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+      "expected_sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/REPOSITORY_INSPECTION.md",
+      "sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+      "expected_sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/RISK_AND_EVIDENCE.md",
+      "sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+      "expected_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/REVIEW_GUIDE.md",
+      "sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "expected_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+      "expected_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/payload/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "sha256": "351a09664eb87142644e9e088885cfaf7ce176e6767b61902a205507224a68fe",
+      "expected_sha256": "351a09664eb87142644e9e088885cfaf7ce176e6767b61902a205507224a68fe",
+      "match": true
+    }
+  ],
+  "canonical_kb_hashes": [
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "expected_sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "expected_sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "expected_sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "expected_sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "expected_sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "expected_sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "expected_sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "expected_sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "expected_sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "expected_sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "sha256": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+      "expected_sha256": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+      "match": true
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "expected_sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "match": true
+    }
+  ],
+  "payload_preserved": true,
+  "canonical_available": true,
+  "canonical_revision": "UNKNOWN",
+  "host_facts": "UNKNOWN",
+  "CODEX_HOME": "UNKNOWN",
+  "token_usage": "UNKNOWN",
+  "weekly_usage": "UNKNOWN",
+  "checks": {
+    "source_hashes": "MATCH",
+    "selected_payload_hashes": "MATCH",
+    "supplied_kb_hashes": "MATCH",
+    "static_reasoning": "COMPLETED_E1",
+    "build": "NOT_RUN",
+    "tests": "NOT_RUN",
+    "Simulator": "NOT_RUN",
+    "runtime": "NOT_RUN",
+    "git_diff_check": "NOT_RUN_NO_PATCH",
+    "iPad": "OMITTED_BY_USER",
+    "physical_device": "OMITTED_BY_USER",
+    "actual_VoiceOver": "OMITTED_BY_USER"
+  },
+  "forbidden_actions_performed": [],
+  "forbidden_actions_not_performed": [
+    "source changes",
+    "payload changes",
+    "tests/builds/runtime/Simulator",
+    "network/MCP",
+    "host/config/secrets reads",
+    "Git mutations",
+    "child agents",
+    "ancestor task plans/handoffs",
+    "parent transcript inspection",
+    "curator/oracle/sealed data",
+    "other attempts",
+    "direct canonical Library",
+    "actual project mode handler access"
+  ],
+  "deviations": [
+    "Initial combined tool output display truncated baseline AGENTS and review checklist; complete reads repaired display coverage.",
+    "Broad README/AGENT_RULES references skipped under explicit bounded scope and router sole-entry policy.",
+    "Task plan/handoff not updated: only review.md and ledger.json writes authorized.",
+    "Canonical revision and host/usage facts deliberately UNKNOWN, outside selected read envelope."
+  ],
+  "unknowns": [
+    "current-screen cancellation reachability and visible race",
+    "ImagesWebRepository cancellation/return behavior",
+    "actor ownership and compiler/Swift/settings/deployment/targets",
+    "full real-code recall",
+    "runtime/type verification"
+  ],
+  "writes": [
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/output/review.md",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-01/attempt-01/output/ledger.json"
+  ]
+}

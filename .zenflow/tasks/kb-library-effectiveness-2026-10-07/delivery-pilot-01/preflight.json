@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "DISPATCHED",
+  "created_utc": "2026-10-06T22:54:33.403651+00:00",
+  "grant": "User: разрешаю, 2026-10-07; exactly two fresh GPT-6.1 Sol/medium read-only executors; own evidence writes",
+  "contract": "Identical source/task/KB/tool/time inputs, only A34 vs C35 payload differs; candidate recipe must arrive before decision; no claim of full benefit or OS blind isolation",
+  "attempts": {
+    "attempt-01": "A",
+    "attempt-02": "C"
+  },
+  "source_verified": true,
+  "kb_hashes": {
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e"
+  },
+  "input_hashes": {
+    "attempt-01": "1a527d50ab4206e88b37d9827fb3de2fa344b75f2aedd52c9022b2332ef23cf7",
+    "attempt-02": "1b917fc26cf40b418cd9fada1cebbec578efdf2d4c0e32356f458a3774e45055"
+  },
+  "limits": {
+    "per_attempt_seconds": 600,
+    "overall_minutes": "20–30 estimated",
+    "tokens": "UNKNOWN"
+  },
+  "acceptance": "Both satisfy scope/time; C consults selected module before decision when trigger matches; grade using public DEV-C01 oracle only after outputs; no unsupported app-race claims; compare useful correct findings and unsupported/unknown claims. Equal outcomes are not proof of benefit.",
+  "confounds": [
+    "Only one public development task, one run per arm",
+    "Coordinator unblinded and module author",
+    "Task contract already states cancellation requirements, reducing marginal-room sensitivity",
+    "Procedural separation only; shared filesystem and canonical instruction paths",
+    "No runtime and full real-code recall UNKNOWN"
+  ],
+  "holdout": "NOT_READ",
+  "full_C_and_dataset": "NOT_FROZEN",
+  "prior_Swift_evidence": "Reused, no rerun",
+  "dispatch_recorded_utc": "2026-10-06T22:55:16.235390+00:00",
+  "agents": {
+    "attempt-01": "/root/delivery_review_01",
+    "attempt-02": "/root/delivery_review_02"
+  },
+  "original_source_state": {
+    "Countries": {
+      "HEAD": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+      "status": ""
+    },
+    "Ghibli": {
+      "HEAD": "9e647491fa7d39d58971dadf86c9faa5c6a08e43",
+      "status": ""
+    },
+    "Firefox": {
+      "HEAD": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+      "status": ""
+    }
+  },
+  "shared_envelope_parity": "PASS except payload content and own directory paths",
+  "scoped_instruction_hashes": {
+    "AGENTS.md": "44f699bc72fdf35f4221c4c95ecb348c98f7bb2357641d6c2370aee5ec5b10e6",
+    "plan.md": "cf0e19cf2c36bb94528aa10c97874a6dfd3c0e7d79fb9e13758df4ef0c0ddfbd",
+    "handoff.md": "ef1589110a97aa1fa82bb42ae1059245e5bafe1968697d33d5c3d9b691aa7dae"
+  }
+}

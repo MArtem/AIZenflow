@@ -1,6 +1,7 @@
 # Proposed next gate: bounded A/C delivery pilot
 
-Status: PREPARED_NOT_AUTHORIZED. The completed Swift grant is not permission for these workers.
+Status: AUTHORIZED_AND_COMPLETED on user approval, 2026-10-07. Exactly two workers consumed.
+Historical proposal below; results: ../delivery-pilot-01/results.md. No renewal or new worker grant.
 Purpose: test whether the recipe actually reaches the decision before work and changes the useful
 review, rather than publishing another unconsumed document. This is a delivery calibration, not
 holdout or proof of whole-system benefit. Do not freeze full C or tune on holdout.

@@ -14,18 +14,18 @@ Canonical: `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/kb-library
 - [x] P0: scope/permissions, baseline, исходные проблемы — ACCEPTED_STATIC/SCOPED; [receipt](baseline-permissions.json).
 - [x] P1: scoped audit, выбор V2 и контракты слоёв — ACCEPTED_SCOPED как дизайн; [контракт](v2-contract-and-evaluation-preparation.md).
 - [ ] P2.1–P2.3: IN_PROGRESS; разрешённый куратор `/root/p2_case_curator` завершён, один fresh-context Sol6.1/medium, до 60 минут. Parent не читает sealed holdout. [Протокол](evaluation-protocol-draft.md) DRAFT_NOT_FROZEN; полный dataset/oracle/isolation ещё не приняты.
-- [ ] P2.4 initial: curator preparation завершена; CXL-01 prototype 30–60 минут разрешён и выполнен. Delivery workers/budget ещё не приняты.
+- [ ] P2.4 initial: curator and CXL prototype complete; exactly two authorized delivery workers completed. Future execution requires a new bounded decision.
 - [ ] P3: качество и адресность базы знаний — NOT_STARTED.
 - [x] CXL-01 bounded prototype: module + routing + 8 Swift checks завершены как candidate.
 - [ ] P4: PARTIAL — CXL-01 module candidate подготовлен; exact example parity, type-check и 8/8 local model PASS. App adoption/delivery benefit NOT_MEASURED; остальные темы не начаты.
-- [ ] P5: доставка, failure cases, наблюдаемость — NOT_STARTED.
+- [ ] P5: PARTIAL - pilot01 delivered the module before final review verdict; A/C scoped outcomes tied. v0.2 review slice prepared, delivery NOT_RUN.
 - [ ] P2.4 final: восемь delivery-попыток, стоимость, бюджет основной серии — NOT_STARTED.
 - [ ] P6: development, ограниченные исправления, frozen C — NOT_STARTED.
 - [ ] P7: независимый holdout, анализ, решение — NOT_STARTED.
 - [ ] P8: обычный workflow, публикация, обратимость — NOT_STARTED.
 - [ ] P9: поддержка, итог и закрытие — NOT_STARTED.
 
-Следующий безопасный шаг: exact final-diff review и публикация CXL-01/curator evidence; затем предложенный ограниченный A/C delivery pilot. Его новые executors ещё не разрешены. Полезные найденные изменения коммитить по прямому указанию пользователя; постоянные разрешения не запрашивать повторно.
+Next safe step: final review/publication of pilot01 and v0.2; then a bounded constrained-fix/clean-control decision. The two-executor grant is consumed.
 
 Найденные четыре dirty файла Ghibli проверены и сохранены локальным коммитом `9e647491fa7d39d58971dadf86c9faa5c6a08e43`, ветка `codex/preserve-ghibli-favorites-20261007`; checkout чистый. Origin upstream gahntpo, не пользовательский publication target; push не выполнен. Исходный evaluation HEAD `524c4348…` сохранён. Runtime evidence в этом блоке NOT_RUN.
 
@@ -46,3 +46,25 @@ CXL-01: 8/8 local model PASS; candidate, benefit NOT_MEASURED. [Evidence](cxl01-
 Новый module/router не скопирован в active app payloads и не меняет их pins/modes. Следующий этап:
 проверить доставку candidate C и определить ограниченный fresh-context A/C pilot; новые execution
 workers/agents и их бюджет требуют конкретного решения, не следуют из Swift grant.
+
+## Delivery pilot 01 and candidate v0.2
+
+- [x] User authorized exactly two fresh read-only GPT-6.1 Sol/medium executors, 600s each; grant consumed.
+- [x] A34/C35 and shared source/task/required-KB envelopes verified; original projects unchanged.
+- [x] Both reviews received; public DEV-C01 oracle read only after both outputs completed.
+- [x] Module delivery PASS before final adjudication; scoped static outcomes 1/1 versus 1/1;
+  zero incremental confirmed defects/capabilities. Severity headings are not extra discoveries.
+- [x] v0.2: review slice 499 words versus full v0.1 module 1265; exact checked Swift example retained.
+  Task-history link removed from reusable boundary. Required normative KB reads unchanged.
+- [ ] v0.2 delivery/benefit NOT_RUN/NOT_ESTABLISHED; active app payloads/pins/modes untouched.
+
+[Results](delivery-pilot-01/results.md), [adjudication](delivery-pilot-01/adjudication.json),
+[future candidate pin](cxl01-evidence/candidate-payload-v0.2.json). The v0.1 pin remains historical
+pilot01 input, not a live v0.2 manifest. Observed 138/132s do not establish efficiency: partial
+startup clocks, single attempts, extra selected KB reads differ, token cost UNKNOWN. Grader is
+unblinded module author; procedural separation only, holdout unopened. Swift8 PASS reused because
+exact code is unchanged. This tie does not close P6/P7 or justify topic expansion/rollout.
+Next experiment should check a bounded fix plus clean control, with explicit workers/check grants
+and resolution of existing eligibility. Avoid simply repeating the same prompted review.
+
+Prepared next decision: [Firefox constrained-fix + success-control proposal](delivery-pilot-02-proposal/README.md), exactly four fresh Sol6.1/medium executors, 600s each, 40-minute total cap; no original source changes/app builds/runtime/network/MCP. NOT_AUTHORIZED.

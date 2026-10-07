@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "status": "DELIVERY_PASS_SCOPED_OUTCOME_TIE_BENEFIT_NOT_ESTABLISHED",
+  "graded_utc": "2026-10-06T23:00:18.938100+00:00",
+  "grader": "parent module author, unblinded; not independent",
+  "oracle": "public development DEV-C01 only, read after both final outputs; reasoning-checked not executable",
+  "oracle_sha256": "ff582da942178fd60403245390f7076b6ce3118e6316c1ec860947a6d3755bde",
+  "attempts": [
+    {
+      "arm": "A",
+      "attempt": "attempt-01",
+      "model": "gpt-6.1-sol",
+      "reasoning": "medium",
+      "elapsed_observed_seconds": 137.997865,
+      "invocation_start_precision": "partial initial startup excluded; full elapsed UNKNOWN",
+      "within_cap": "PASS observed window; completion under coordinator interval",
+      "scoped_semantic_success": "PASS_STATIC",
+      "mandatory_checks": {
+        "empty_bag": "PASS explicitly discussed",
+        "externally_retained_generic_cancellation": "PASS missing cancel invocation demonstrated",
+        "success_and_generic_failure_publication": "PASS exact sites and ordering traced",
+        "screen_claim_calibration": "PASS actual caller/UX UNKNOWN"
+      },
+      "confirmed_primary_contract_defects": 1,
+      "confirmed_publication_capabilities": 1,
+      "disproved_claim_FP": 0,
+      "independent_second_defect": "UNKNOWN; C P2 publication label is not additional detected behavior",
+      "source_runtime": "NOT_RUN",
+      "full_recall": "UNKNOWN",
+      "usage": "UNKNOWN",
+      "payload_count": 34,
+      "output_hashes": {
+        "review.md": "ce54de9c21387d3446f5c179f8825991e8ffe882c8d55ef326c3bc7d59db9a43",
+        "ledger.json": "0e1011ee951987ea7455805c04c24489921491d2a61963209ae679cbfb71a56e"
+      },
+      "content_unique_kb_paths": [
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+      ],
+      "content_payload_paths": [
+        "03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+        "19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+        "EVIDENCE_POLICY.md",
+        "KNOWLEDGE_ROUTER.md",
+        "PROJECT_FACTS.md",
+        "PROJECT_MODE.md",
+        "QUALITY_STANDARD.md",
+        "REPOSITORY_INSPECTION.md",
+        "REVIEW_GUIDE.md",
+        "RISK_AND_EVIDENCE.md"
+      ],
+      "module_delivery": "NOT_APPLICABLE_BASELINE"
+    },
+    {
+      "arm": "C",
+      "attempt": "attempt-02",
+      "model": "gpt-6.1-sol",
+      "reasoning": "medium",
+      "elapsed_observed_seconds": 132.027789,
+      "invocation_start_precision": "partial initial startup excluded; full elapsed UNKNOWN",
+      "within_cap": "PASS observed window; completion under coordinator interval",
+      "scoped_semantic_success": "PASS_STATIC",
+      "mandatory_checks": {
+        "empty_bag": "PASS explicitly discussed",
+        "externally_retained_generic_cancellation": "PASS missing cancel invocation demonstrated",
+        "success_and_generic_failure_publication": "PASS exact sites and ordering traced",
+        "screen_claim_calibration": "PASS actual caller/UX UNKNOWN"
+      },
+      "confirmed_primary_contract_defects": 1,
+      "confirmed_publication_capabilities": 1,
+      "disproved_claim_FP": 0,
+      "independent_second_defect": "UNKNOWN; C P2 publication label is not additional detected behavior",
+      "source_runtime": "NOT_RUN",
+      "full_recall": "UNKNOWN",
+      "usage": "UNKNOWN",
+      "payload_count": 35,
+      "output_hashes": {
+        "review.md": "4cdc800dcfd059f38e938e56a6e2197e7e199e5e3f913b4454f5e0be37fb0e07",
+        "ledger.json": "2e33684e9bb028af2a72e1fd62030ac2d2abb010ab43c4caffe4fed6fac8a6af"
+      },
+      "content_unique_kb_paths": [
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/SOURCE_OF_TRUTH_MAP.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+        "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+      ],
+      "content_payload_paths": [
+        "03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+        "03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+        "19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+        "EVIDENCE_POLICY.md",
+        "KNOWLEDGE_ROUTER.md",
+        "PROJECT_FACTS.md",
+        "PROJECT_MODE.md",
+        "QUALITY_STANDARD.md",
+        "REPOSITORY_INSPECTION.md",
+        "REVIEW_GUIDE.md",
+        "RISK_AND_EVIDENCE.md"
+      ],
+      "module_delivery": "PASS before final adjudication per ledger"
+    }
+  ],
+  "comparison": {
+    "success_A": 1,
+    "success_C": 1,
+    "incremental_confirmed_defects_C": 0,
+    "incremental_confirmed_publication_capabilities_C": 0,
+    "incremental_proven_quality": "NONE_OBSERVED",
+    "time_effect": "NOT_ESTABLISHED; one run, partial invocation clocks, unequal selected extra KB reads",
+    "usage_cost": "UNKNOWN",
+    "module_increment": "11 selected Library documents in C versus 10 in A; short route to be prepared before content expansion"
+  },
+  "integrity": "PASS original project HEAD/status, inputs, full payload manifests and required KB pins unchanged; executor scope compliance from ledgers/output paths, not OS enforcement",
+  "actual_extra_kb_selection": {
+    "A": [],
+    "C": [
+      "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+      "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/SOURCE_OF_TRUTH_MAP.md"
+    ]
+  },
+  "limitations": [
+    "Only one public development task, one run per arm",
+    "Coordinator unblinded and module author",
+    "Task contract already states cancellation requirements, reducing marginal-room sensitivity",
+    "Procedural separation only; shared filesystem and canonical instruction paths",
+    "No runtime and full real-code recall UNKNOWN",
+    "Actual extra KB reads differ, although available canonical inputs were shared; do not treat observed 138/132 seconds as a controlled efficiency effect",
+    "No independent grader; disputed second-defect severity remains UNKNOWN, not counted as TP or FP",
+    "Read-only review does not establish implementation delivery/fix correctness"
+  ],
+  "holdout": "NOT_READ",
+  "decision": "Reduce review read slice and retain full checked implementation example. Do not expand module topics or claim rollout readiness from this tie. Next worker dispatch requires new explicit approval."
+}

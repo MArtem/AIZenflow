@@ -1,6 +1,6 @@
 # Handoff: улучшение KB + Library
 
-2026-10-07. **IN_PROGRESS; P0/P1 scoped preparation выполнены, V2 принят; P2 IN_PROGRESS, experimental runs NOT_STARTED.**
+2026-10-07. **IN_PROGRESS; P0/P1 scoped preparation выполнены, V2 принят; P2 IN_PROGRESS, pilot01 DONE: delivery PASS, outcomes TIED; full experiments NOT_FROZEN.**
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**: canonical bootstrap → baseline/router → Level 0 → текущие plan/handoff → применимые routes/overlays. После восстановления читать адресно, без повторных полных проходов.
 
@@ -37,3 +37,24 @@ CXL-01: 8/8 local model PASS; candidate, benefit NOT_MEASURED. [Evidence](cxl01-
 Новый module/router не скопирован в active app payloads и не меняет их pins/modes. Следующий этап:
 проверить доставку candidate C и определить ограниченный fresh-context A/C pilot; новые execution
 workers/agents и их бюджет требуют конкретного решения, не следуют из Swift grant.
+
+## Latest boundary: pilot01 and v0.2
+
+User authorized exactly two fresh read-only Sol6.1/medium executors, 600s each.
+/root/delivery_review_01 and /root/delivery_review_02 completed; grant consumed. A34 baseline
+versus C35 v0.1, identical required KB/source/task envelope. C consulted module before final
+verdict; both scoped static success, zero incremental confirmed findings. Two C P2 headings
+versus A P2+observation do not establish gain; independent publication-defect severity UNKNOWN.
+Observed 138/132s are not an efficiency effect; tokens UNKNOWN, unblinded parent grader and
+selected extra KB paths differ. [Results](delivery-pilot-01/results.md). Original project
+HEAD/status unchanged; holdout NOT_READ.
+
+v0.2 prepared within V2: bounded review slice (499 words), exact full checked example unchanged;
+reusable task-history link removed. New hashes: cxl01-evidence/candidate-payload-v0.2.json.
+Old candidate-payload.json and pilot01 snapshots are immutable historical v0.1 inputs.
+v0.2 delivery/benefit NOT_RUN/NOT_ESTABLISHED; no app pins/modes/source changes, no new
+runtime/agent grant. Preserve raw outputs and their severity labels without claiming a gain.
+Next: publish this boundary, then bounded fix + clean control; new workers/checks and eligibility
+need their respective decisions. Do not blindly repeat this review or expand module topics.
+
+Prepared next decision: [Firefox constrained-fix + success-control proposal](delivery-pilot-02-proposal/README.md), exactly four fresh Sol6.1/medium executors, 600s each, 40-minute total cap; no original source changes/app builds/runtime/network/MCP. NOT_AUTHORIZED.

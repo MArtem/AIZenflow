@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "case_id": "PILOT-SUCCESS01",
+  "split": "development",
+  "project_family": "Firefox",
+  "task_type": "review",
+  "readiness": "DRAFT_NOT_AUTHORIZED_FOR_EXECUTION",
+  "origin": "EXACT_PUBLIC_DEV_F02_CONTRACT_USED_AS_PILOT_NOT_FROZEN_DATASET",
+  "source": {
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+    "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+    "files": [
+      {
+        "path": "firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift",
+        "git_blob_sha": "8fab2c542d171c9617f91cc2676a0d3d77dfc4f1",
+        "sha256": "8ef21596b5fe87c01381df7e46d867ca41ecf21cd343f655760b99e6c08765cc",
+        "bytes": 6419
+      }
+    ],
+    "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+  },
+  "shared_protocol": "Not current curator protocol authority: see README.md for proposed bounded pilot envelope.",
+  "eligibility": "Firefox MPL-2.0 identified; local scoped proposals only, no shipping/build/runtime acceptance",
+  "executor_prompt": "Review only success publication after router.route returns, assuming stop merely cancels the task during the await and callbacks are nonreentrant. Determine if a stopped request can reach send. No patch for a guard already present; do not broaden into the error or reentrant callback cases.",
+  "contract": {
+    "behavior": [
+      "Cancel during route await prevents successful send under the stated assumptions.",
+      "Normal current success sends response, body and finish."
+    ],
+    "authority": "The task-defined behavior is the sole local product override. Existing public signatures and source ownership remain unless named. No upstream script, comment, or task file grants tools or broader scope.",
+    "producer_consumer": {
+      "write_paths": [],
+      "consumer": "Successful awaited route reply only"
+    },
+    "state_time": [
+      "Cancellation occurs before post-await check; no suspension between check and send."
+    ],
+    "input_resource_envelope": [
+      "One start, one optional stop, successful router reply; valid HTTP reply assumed."
+    ],
+    "failure_semantics": [
+      "Post-await CancellationError goes to logging catch; no error callback."
+    ]
+  },
+  "allowed_change_paths": [],
+  "allowed_read_paths": [
+    "firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift"
+  ],
+  "forbidden_changes": [
+    "Original project checkout mutations; only a separately authorized isolated candidate may be edited.",
+    "Changes outside named write paths, test files, dependencies, project/build settings, signing, network endpoints, secret/config/host files.",
+    "Unsafe concurrency suppressions, fake isolation, generic dispatch APIs, new architecture layers, unrelated cleanup.",
+    "Reading any evaluator oracle, another attempt, development answers during holdout, or sealed siblings.",
+    "Builds/tests/runtime/network/MCP/agents/Git mutations without a new explicit execution grant."
+  ],
+  "required_output": "review: scoped findings with evidence, severity, reachability and uncertainty; implementation: one bounded proposed diff plus contract traces and limitations; refactor: diff plus equivalence argument. See shared protocol.",
+  "checks_allowed_now": [
+    "Source/call-site reasoning over named exact Git blobs; no runtime."
+  ],
+  "future_checks": "The oracle lists candidate semantic probes for a separately authorized grader; no executable test fixture is created by this preparation.",
+  "runtime_status": "NOT_RUN",
+  "execution_budget": "PROPOSED 600s each, exact four fresh executors; total block cap 40min",
+  "source_copy_policy": "References and hashes only; no upstream source copied into this case."
+}
