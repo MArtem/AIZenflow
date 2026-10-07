@@ -13,7 +13,7 @@ Read only newly relevant material after this chain; the full historical plan is 
 - Model GPT-6.1 Sol/medium; persistent mode эконом. Goal: improve joint quality/efficiency, not prove Library separately at any cost.
 - Source, rules, modes and Git state must be revalidated before reuse. Last pilot publication: AIZenflow `6995fb8c4…`, Documentation `5c57b4e87…`, both main/development synchronized then. These are historical receipts, not the next HEAD.
 - Human authorizes useful commits/pushes during work and final consolidation into main/development. Preserve foreign edits/history; no force/reset/clean. Do not occupy main in service aizenflow-pr11-merge. User main checkout is new-task-be0b; update only after current clean/identity checks.
-- Project work only `/Users/Artem/.zenflow`, shell login:false. No secrets/host/config/installers/automations. Agents/MCP require specific human decision; all six delivery executor grants and one curator grant are consumed. No new agent/MCP grant.
+- Project work only `/Users/Artem/.zenflow`, shell login:false. No secrets/host/config/installers/automations. Agents/MCP require specific human decision; all eight delivery/diagnostic executor grants and one curator grant are consumed. No new agent/MCP grant.
 - Current KB-first block is documentation/static only; no test writing, builds/typecheck/runtime/Simulator/source changes. Prior Swift and older Simulator grants are not reusable. iPad/physical-device/actual VoiceOver verification OMITTED_BY_USER for all tasks.
 
 ## Current results and invalidation
@@ -35,3 +35,5 @@ Ghibli four pre-existing dirty files preserved locally `9e647491…` on codex/pr
 Full approved criteria: [joint-improvement-plan.md](joint-improvement-plan.md); current checklist [plan.md](plan.md). Old new-task-be0b cycle remains closed OPTIONAL_EXPERIMENTAL; this program does not reopen it.
 
 KB-first02: [common-loop consolidation](kb-first-02/README.md) static parity accepted; repeated contract/review text delegated to canonical engineering standard, unique Library challenges retained. Runtime/agent/pin grants unchanged; outcome benefit unmeasured.
+
+[KB reading diagnostic01](kb-reading-pilot-01/results.md): authorized2fresh workers completed, grant consumed;4/4 documentation requirements both. Observed12036→11506words dominated by router-index breadth, not causal saving. No source/runtime/holdout. Keep addressed static improvements, stop text-only/repeat-diagnostic loop; next actual engineering outcome evaluation requires concrete scope/budget and independent evidence decision. Full plan remains incomplete.

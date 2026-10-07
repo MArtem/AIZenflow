@@ -1,0 +1,711 @@
+{
+  "attempt": "attempt-01",
+  "model": "gpt-6.1-sol",
+  "reasoning": "medium",
+  "mode": "эконом",
+  "session": "Q1–Q4 one session, not independent trials",
+  "started_at": "2026-10-07T23:09:40+00:00",
+  "finished_at": "2026-10-07T23:12:22.053187+00:00",
+  "elapsed_seconds": 162.053187,
+  "limit_seconds": 600,
+  "tokens": "UNKNOWN",
+  "canonical_available": true,
+  "canonical_revision": "UNKNOWN",
+  "host_config_code_home": "UNKNOWN; not inspected",
+  "read_events": [
+    {
+      "order": 1,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/AGENTS.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          1
+        ]
+      ],
+      "content_bytes_loaded": 227,
+      "content_words_loaded": 26,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ],
+      "note": "Initial own packet content read before canonical bootstrap; no project mutation occurred before authority load."
+    },
+    {
+      "order": 2,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/handoff.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          1
+        ]
+      ],
+      "content_bytes_loaded": 326,
+      "content_words_loaded": 29,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ],
+      "note": "Initial own packet content read before canonical bootstrap; no project mutation occurred before authority load."
+    },
+    {
+      "order": 3,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/plan.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          1
+        ]
+      ],
+      "content_bytes_loaded": 240,
+      "content_words_loaded": 31,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ],
+      "note": "Initial own packet content read before canonical bootstrap; no project mutation occurred before authority load."
+    },
+    {
+      "order": 4,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/input.json",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          32
+        ]
+      ],
+      "content_bytes_loaded": 5026,
+      "content_words_loaded": 296,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ],
+      "note": "Initial own packet content read before canonical bootstrap; no project mutation occurred before authority load."
+    },
+    {
+      "order": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          83
+        ]
+      ],
+      "content_bytes_loaded": 5070,
+      "content_words_loaded": 640,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ]
+    },
+    {
+      "order": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          145
+        ]
+      ],
+      "content_bytes_loaded": 13748,
+      "content_words_loaded": 1774,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ]
+    },
+    {
+      "order": 7,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          117
+        ]
+      ],
+      "content_bytes_loaded": 11011,
+      "content_words_loaded": 962,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ]
+    },
+    {
+      "order": 8,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          110
+        ]
+      ],
+      "content_bytes_loaded": 7507,
+      "content_words_loaded": 993,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ]
+    },
+    {
+      "order": 9,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          78
+        ]
+      ],
+      "content_bytes_loaded": 8381,
+      "content_words_loaded": 1201,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ]
+    },
+    {
+      "order": 10,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          239
+        ]
+      ],
+      "content_bytes_loaded": 15851,
+      "content_words_loaded": 2244,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ]
+    },
+    {
+      "order": 11,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          34
+        ]
+      ],
+      "content_bytes_loaded": 1046,
+      "content_words_loaded": 131,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ]
+    },
+    {
+      "order": 12,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          25
+        ]
+      ],
+      "content_bytes_loaded": 916,
+      "content_words_loaded": 130,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ]
+    },
+    {
+      "order": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/standard.md",
+      "kind": "hash_only",
+      "bytes_hashed": 2091,
+      "content_bytes_loaded": 0,
+      "content_words_loaded": 0,
+      "exact_event_timestamp": "UNKNOWN",
+      "note": "Raw bytes processed by SHA-256; content not presented or semantically read in this event."
+    },
+    {
+      "order": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/deep.md",
+      "kind": "hash_only",
+      "bytes_hashed": 4874,
+      "content_bytes_loaded": 0,
+      "content_words_loaded": 0,
+      "exact_event_timestamp": "UNKNOWN",
+      "note": "Raw bytes processed by SHA-256; content not presented or semantically read in this event."
+    },
+    {
+      "order": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/quality.md",
+      "kind": "hash_only",
+      "bytes_hashed": 5238,
+      "content_bytes_loaded": 0,
+      "content_words_loaded": 0,
+      "exact_event_timestamp": "UNKNOWN",
+      "note": "Raw bytes processed by SHA-256; content not presented or semantically read in this event."
+    },
+    {
+      "order": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/review.md",
+      "kind": "hash_only",
+      "bytes_hashed": 3080,
+      "content_bytes_loaded": 0,
+      "content_words_loaded": 0,
+      "exact_event_timestamp": "UNKNOWN",
+      "note": "Raw bytes processed by SHA-256; content not presented or semantically read in this event."
+    },
+    {
+      "order": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/router.md",
+      "kind": "hash_only",
+      "bytes_hashed": 9873,
+      "content_bytes_loaded": 0,
+      "content_words_loaded": 0,
+      "exact_event_timestamp": "UNKNOWN",
+      "note": "Raw bytes processed by SHA-256; content not presented or semantically read in this event."
+    },
+    {
+      "order": 18,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/concurrency_route.md",
+      "kind": "hash_only",
+      "bytes_hashed": 4367,
+      "content_bytes_loaded": 0,
+      "content_words_loaded": 0,
+      "exact_event_timestamp": "UNKNOWN",
+      "note": "Raw bytes processed by SHA-256; content not presented or semantically read in this event."
+    },
+    {
+      "order": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/router.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          79
+        ]
+      ],
+      "content_bytes_loaded": 9873,
+      "content_words_loaded": 1001,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ]
+    },
+    {
+      "order": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/concurrency_route.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          52
+        ]
+      ],
+      "content_bytes_loaded": 4367,
+      "content_words_loaded": 583,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ]
+    },
+    {
+      "order": 21,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/review.md",
+      "kind": "heading_scan",
+      "content_bytes_loaded": 104,
+      "content_words_loaded": 18,
+      "note": "rg headings only; observed tool output display order. File/line prefixes excluded from content counts."
+    },
+    {
+      "order": 22,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/deep.md",
+      "kind": "heading_scan",
+      "content_bytes_loaded": 255,
+      "content_words_loaded": 41,
+      "note": "rg headings only; observed tool output display order. File/line prefixes excluded from content counts."
+    },
+    {
+      "order": 23,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/standard.md",
+      "kind": "heading_scan",
+      "content_bytes_loaded": 98,
+      "content_words_loaded": 16,
+      "note": "rg headings only; observed tool output display order. File/line prefixes excluded from content counts."
+    },
+    {
+      "order": 24,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/quality.md",
+      "kind": "heading_scan",
+      "content_bytes_loaded": 42,
+      "content_words_loaded": 7,
+      "note": "rg headings only; observed tool output display order. File/line prefixes excluded from content counts."
+    },
+    {
+      "order": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/standard.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          31
+        ]
+      ],
+      "content_bytes_loaded": 2091,
+      "content_words_loaded": 284,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ],
+      "note": "nl line-number decoration excluded from content counts."
+    },
+    {
+      "order": 26,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/deep.md",
+      "kind": "semantic_ranges",
+      "line_ranges": [
+        [
+          1,
+          38
+        ],
+        [
+          49,
+          51
+        ],
+        [
+          61,
+          67
+        ]
+      ],
+      "content_bytes_loaded": 3138,
+      "content_words_loaded": 427,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ]
+    },
+    {
+      "order": 27,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/review.md",
+      "kind": "semantic_ranges",
+      "line_ranges": [
+        [
+          1,
+          35
+        ],
+        [
+          44,
+          48
+        ]
+      ],
+      "content_bytes_loaded": 2650,
+      "content_words_loaded": 357,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ],
+      "note": "Command requested 44–49; file ends at 48."
+    },
+    {
+      "order": 28,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/quality.md",
+      "kind": "semantic_full",
+      "line_ranges": [
+        [
+          1,
+          69
+        ]
+      ],
+      "content_bytes_loaded": 5238,
+      "content_words_loaded": 672,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ],
+      "note": "nl decoration excluded."
+    },
+    {
+      "order": 29,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/deep.md",
+      "kind": "semantic_ranges",
+      "line_ranges": [
+        [
+          39,
+          45
+        ]
+      ],
+      "content_bytes_loaded": 398,
+      "content_words_loaded": 56,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ],
+      "note": "Q2 addition"
+    },
+    {
+      "order": 30,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/deep.md",
+      "kind": "semantic_ranges",
+      "line_ranges": [
+        [
+          52,
+          60
+        ]
+      ],
+      "content_bytes_loaded": 654,
+      "content_words_loaded": 82,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ],
+      "note": "Q3 addition"
+    },
+    {
+      "order": 31,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/deep.md",
+      "kind": "semantic_ranges",
+      "line_ranges": [
+        [
+          46,
+          48
+        ]
+      ],
+      "content_bytes_loaded": 299,
+      "content_words_loaded": 35,
+      "exact_event_timestamp": "UNKNOWN",
+      "timestamp_window": [
+        "2026-10-07 23:09:40 UTC",
+        "2026-10-07 23:12:08 UTC"
+      ],
+      "note": "Q4 addition"
+    },
+    {
+      "order": 32,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/router.md",
+      "kind": "count_only",
+      "content_bytes_loaded": 0,
+      "content_words_loaded": 0,
+      "note": "Local program computed lines/words/bytes without presenting file content; not an additional semantic read."
+    },
+    {
+      "order": 33,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/concurrency_route.md",
+      "kind": "count_only",
+      "content_bytes_loaded": 0,
+      "content_words_loaded": 0,
+      "note": "Local program computed lines/words/bytes without presenting file content; not an additional semantic read."
+    },
+    {
+      "order": 34,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/quality.md",
+      "kind": "count_only",
+      "content_bytes_loaded": 0,
+      "content_words_loaded": 0,
+      "note": "Local program computed lines/words/bytes without presenting file content; not an additional semantic read."
+    },
+    {
+      "order": 35,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/review.md",
+      "kind": "count_only",
+      "content_bytes_loaded": 0,
+      "content_words_loaded": 0,
+      "note": "Local program computed lines/words/bytes without presenting file content; not an additional semantic read."
+    },
+    {
+      "order": 36,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/standard.md",
+      "kind": "count_only",
+      "content_bytes_loaded": 0,
+      "content_words_loaded": 0,
+      "note": "Local program computed lines/words/bytes without presenting file content; not an additional semantic read."
+    },
+    {
+      "order": 37,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-01/reference/deep.md",
+      "kind": "count_only",
+      "content_bytes_loaded": 0,
+      "content_words_loaded": 0,
+      "note": "Local program computed lines/words/bytes without presenting file content; not an additional semantic read."
+    }
+  ],
+  "reference_hash_validation": {
+    "standard.md": {
+      "sha256": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+      "bytes_hashed": 2091,
+      "matches_expected": true
+    },
+    "deep.md": {
+      "sha256": "a56683e093d9b8bde8184eea527e079ad87e155abcf1e9a3712ac3c3611b27d2",
+      "bytes_hashed": 4874,
+      "matches_expected": true
+    },
+    "quality.md": {
+      "sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "bytes_hashed": 5238,
+      "matches_expected": true
+    },
+    "review.md": {
+      "sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "bytes_hashed": 3080,
+      "matches_expected": true
+    },
+    "router.md": {
+      "sha256": "686940a4afcf7e6da06c28a02f0e0c5f610229f67dcaf89194109b07c9c5ee59",
+      "bytes_hashed": 9873,
+      "matches_expected": true
+    },
+    "concurrency_route.md": {
+      "sha256": "574d540dfe1c00b740b2931597b1a9d363b155e7280207e0e45d588b338838b6",
+      "bytes_hashed": 4367,
+      "matches_expected": true
+    }
+  },
+  "semantic_content_totals_with_repeated_heading_reads": {
+    "bytes": 98556,
+    "words": 12036
+  },
+  "count_method": "UTF-8 source content bytes; whitespace-delimited words; no tool prefixes/line-number decoration. Per-event exact timestamps unavailable, overall UTC bounded. Ledger accounting reads file bytes locally to count/hash; no new content presentation. This write program also read allowed files for accounting, excluded from semantic totals.",
+  "selected_sections_by_question": {
+    "Q1": {
+      "standard.md": [
+        [
+          1,
+          31
+        ]
+      ],
+      "deep.md": [
+        [
+          1,
+          38
+        ],
+        [
+          49,
+          51
+        ],
+        [
+          61,
+          67
+        ]
+      ],
+      "quality.md": [
+        [
+          1,
+          69
+        ]
+      ],
+      "review.md": [
+        [
+          1,
+          35
+        ],
+        [
+          44,
+          48
+        ]
+      ],
+      "router.md": [
+        [
+          1,
+          79
+        ]
+      ],
+      "concurrency_route.md": [
+        [
+          1,
+          52
+        ]
+      ],
+      "missing": "CXL-01 Select before deciding a change through Mechanism, excluding Checked example"
+    },
+    "Q2": {
+      "new_deep.md": [
+        [
+          39,
+          45
+        ]
+      ],
+      "reuse": "Q1 isolation/lifetime/ordering and authority"
+    },
+    "Q3": {
+      "new_deep.md": [
+        [
+          52,
+          60
+        ]
+      ],
+      "reuse": "Core Model/Isolation Design; standard profile facts; current prohibitions",
+      "missing": "live toolchain profile/compiler/source evidence"
+    },
+    "Q4": {
+      "new_deep.md": [
+        [
+          46,
+          48
+        ]
+      ],
+      "reuse": "Q1 cancellation publication; Q2 callbacks; applicable Q3 isolation/profile facts",
+      "invalidated": "Q1-only scope coverage; no engineering PASS existed"
+    }
+  },
+  "omitted_reference_sections": {
+    "deep.md": [
+      [
+        68,
+        72
+      ]
+    ],
+    "review.md": [
+      [
+        36,
+        43
+      ]
+    ],
+    "reason": "External primary source links and design-to-iOS details not relevant/permitted"
+  },
+  "verdict": "Documentation answer complete; project correctness UNVERIFIED / INSUFFICIENT_EVIDENCE",
+  "tool_permissions_inherited": false,
+  "library_on_inherited": false,
+  "pass_inherited": false,
+  "outputs": [
+    "output/report.md",
+    "output/ledger.json"
+  ],
+  "checks_not_run": [
+    "source review",
+    "build",
+    "tests",
+    "typecheck",
+    "runtime",
+    "network",
+    "MCP",
+    "Git",
+    "host/config"
+  ],
+  "scope_violations": "No forbidden path or action used. Initial own-packet read preceded bootstrap as directed by parent; recorded explicitly, not represented as bootstrap-first content chronology."
+}

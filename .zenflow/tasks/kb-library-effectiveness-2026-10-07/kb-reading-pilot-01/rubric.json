@@ -1,0 +1,29 @@
+{
+  "frozen_before_dispatch": true,
+  "Q1": [
+    "owned task retention/cancellation trigger",
+    "success+generic failure publication contract",
+    "cooperative cancellation not undo",
+    "ordering/reentrancy/current identity, no automatic defect",
+    "missing project facts unknown"
+  ],
+  "Q2": [
+    "exactly once incl synchronous callback",
+    "cancel underlying producer ownership",
+    "registration lifetime",
+    "isolation/thread semantics"
+  ],
+  "Q3": [
+    "mutable state owner+Sendable boundary",
+    "compiler/language/strict/default/upcoming separate",
+    "no unchecked/unsafe/preconcurrency/fakeactor suppressions",
+    "no compilePASS"
+  ],
+  "Q4": [
+    "expand callbacks+streams sections",
+    "buffers/fanout/backpressure/termination",
+    "prior read/verdict scope invalidation",
+    "no inherited runtime/tool/ON/PASS"
+  ],
+  "acceptance": "all mandatory constraints, current authority preserved, actual reads match claims; narrower irrelevant content is diagnostic only. Parent unblinded, no causal outcome/time/token proof. Tie/failure stops text-only expansion."
+}

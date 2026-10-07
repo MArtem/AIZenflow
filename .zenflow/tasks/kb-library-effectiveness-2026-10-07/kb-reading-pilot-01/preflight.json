@@ -1,0 +1,36 @@
+{
+  "created_utc": "2026-10-07T23:09:25.931441+00:00",
+  "arms": {
+    "attempt-01": "before KB-first",
+    "attempt-02": "after KB-first"
+  },
+  "caps": "600s each,20min block",
+  "queries": [
+    "Q1: A read-only narrow cancellation/stale-publication review is requested. A producer may ignore cancellation and later succeed or throw a generic error. Choose the reference sections needed before a verdict; list publication/lifetime/ordering invariants and unknown project facts. No source/implementation is supplied.",
+    "Q2: A callback API can invoke its completion synchronously during registration, and also complete after cancellation. Choose sections for a bridge review and state required cancellation, exactly-once, isolation and registration-lifetime constraints; do not design code.",
+    "Q3: A compiler-isolation migration question asks whether mutable objects can cross actor boundaries. Choose relevant sections and required toolchain/profile facts; identify forbidden suppression shortcuts. No compiler evidence supplied.",
+    "Q4: Continue Q1, but scope now includes callback bridging and a buffered stream with multiple producers. Reassess the previous selected reads/verdict: identify newly relevant sections/invariants, what can be reused, what remains unknown and whether any tools/ON/PASS can be inherited."
+  ],
+  "holdout": "NOT_READ",
+  "grant": "exact2 human authorized",
+  "baseline_ref": "5c57b4e",
+  "candidate_ref": "61f967c",
+  "current_normative_hashes": {
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e"
+  },
+  "normative_hash_capture": "After dispatch; current normative Git revision pinned61f967c before run via checked repo state, content hash receipt captured after dispatch. Not asserted pre-dispatch hash freeze.",
+  "input_hashes": {
+    "attempt-01": "410d425bb85cd36b0d68f2f57391b8ee91bbe6e8ecacdf828c21364e655990a2",
+    "attempt-02": "62739ce76e47f52a883c3bd8a5f1e85b56a07176aaf24635e5ce902ac8596c9d"
+  },
+  "dispatch_recorded_utc": "2026-10-07T23:09:58.965973+00:00",
+  "agents": [
+    "/root/kb_reading_a",
+    "/root/kb_reading_c"
+  ]
+}

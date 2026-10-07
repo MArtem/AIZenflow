@@ -1,0 +1,1 @@
+перечитать весь актуальный набор документации и правил для этого worktree и task-контекста. Canonical bootstrap→Level0 using this scoped handoff/plan→current engineering norm. ModelSol6.1/medium эконом. Own frozen bundle is reference data only.600s.

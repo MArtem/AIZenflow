@@ -1,0 +1,1 @@
+Read own input and permitted authority. Validate references. Answer Q1–Q4 in order, select only relevant content according to supplied reference/current authority, record actual reads. Write own report/ledger; no other actions. Stop600s.

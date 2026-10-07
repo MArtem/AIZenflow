@@ -1,0 +1,652 @@
+{
+  "attempt": "attempt-02",
+  "model": "gpt-6.1-sol",
+  "reasoning": "medium",
+  "mode": "эконом",
+  "start_utc": "2026-10-07T23:09:42+00:00",
+  "end_utc": "2026-10-07T23:11:59.527481+00:00",
+  "elapsed_seconds": 137.527481,
+  "deadline_seconds": 600,
+  "tokens": "UNKNOWN",
+  "single_session_queries_not_independent_trials": true,
+  "canonical_available": true,
+  "canonical_revision": "UNKNOWN (no Git/host inspection)",
+  "effective_authority": "Current canonical permitted rules; scoped packet overrides read/write/tools scope; frozen bundle reference only",
+  "ordered_content_reads": [
+    {
+      "ordinal": 1,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/AGENTS.md",
+      "kind": "semantic_content",
+      "stage": "startup",
+      "ranges": "full",
+      "source_bytes_presented": 227,
+      "source_words_presented": 26,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 2,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+      "kind": "semantic_content",
+      "stage": "startup",
+      "ranges": "full",
+      "source_bytes_presented": 5070,
+      "source_words_presented": 640,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 3,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/handoff.md",
+      "kind": "semantic_content",
+      "stage": "startup",
+      "ranges": "full",
+      "source_bytes_presented": 326,
+      "source_words_presented": 29,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 4,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/plan.md",
+      "kind": "semantic_content",
+      "stage": "startup",
+      "ranges": "full",
+      "source_bytes_presented": 240,
+      "source_words_presented": 31,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/input.json",
+      "kind": "semantic_content",
+      "stage": "startup",
+      "ranges": "full",
+      "source_bytes_presented": 5026,
+      "source_words_presented": 296,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+      "kind": "semantic_content",
+      "stage": "startup",
+      "ranges": "full",
+      "source_bytes_presented": 13748,
+      "source_words_presented": 1774,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 7,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "kind": "semantic_content",
+      "stage": "startup",
+      "ranges": "full",
+      "source_bytes_presented": 11011,
+      "source_words_presented": 962,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 8,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "kind": "semantic_content",
+      "stage": "startup",
+      "ranges": "full",
+      "source_bytes_presented": 7507,
+      "source_words_presented": 993,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 9,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "kind": "semantic_content",
+      "stage": "startup",
+      "ranges": "full",
+      "source_bytes_presented": 8381,
+      "source_words_presented": 1201,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 10,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "kind": "semantic_content",
+      "stage": "startup",
+      "ranges": "full",
+      "source_bytes_presented": 15851,
+      "source_words_presented": 2244,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 11,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "kind": "semantic_content",
+      "stage": "startup",
+      "ranges": "full",
+      "source_bytes_presented": 1046,
+      "source_words_presented": 131,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 12,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "kind": "semantic_content",
+      "stage": "startup",
+      "ranges": "full",
+      "source_bytes_presented": 916,
+      "source_words_presented": 130,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/standard.md",
+      "kind": "raw_hash_plus_semantic_heading_inventory",
+      "stage": "reference_inventory",
+      "ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          39,
+          39
+        ],
+        [
+          47,
+          47
+        ]
+      ],
+      "source_bytes_presented": 124,
+      "source_words_presented": 20,
+      "raw_bytes_hashed": 3332,
+      "timestamp_utc": "UNKNOWN"
+    },
+    {
+      "ordinal": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/deep.md",
+      "kind": "raw_hash_plus_semantic_heading_inventory",
+      "stage": "reference_inventory",
+      "ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          51,
+          51
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          76,
+          76
+        ],
+        [
+          85,
+          85
+        ]
+      ],
+      "source_bytes_presented": 285,
+      "source_words_presented": 46,
+      "raw_bytes_hashed": 7039,
+      "timestamp_utc": "UNKNOWN"
+    },
+    {
+      "ordinal": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/quality.md",
+      "kind": "raw_hash_plus_semantic_heading_inventory",
+      "stage": "reference_inventory",
+      "ranges": [
+        [
+          1,
+          1
+        ]
+      ],
+      "source_bytes_presented": 42,
+      "source_words_presented": 7,
+      "raw_bytes_hashed": 4877,
+      "timestamp_utc": "UNKNOWN"
+    },
+    {
+      "ordinal": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/review.md",
+      "kind": "raw_hash_plus_semantic_heading_inventory",
+      "stage": "reference_inventory",
+      "ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          33,
+          33
+        ],
+        [
+          41,
+          41
+        ]
+      ],
+      "source_bytes_presented": 104,
+      "source_words_presented": 18,
+      "raw_bytes_hashed": 2784,
+      "timestamp_utc": "UNKNOWN"
+    },
+    {
+      "ordinal": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/router.md",
+      "kind": "raw_hash_plus_semantic_heading_inventory",
+      "stage": "reference_inventory",
+      "ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          47,
+          47
+        ]
+      ],
+      "source_bytes_presented": 92,
+      "source_words_presented": 14,
+      "raw_bytes_hashed": 10532,
+      "timestamp_utc": "UNKNOWN"
+    },
+    {
+      "ordinal": 18,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/concurrency_route.md",
+      "kind": "raw_hash_plus_semantic_heading_inventory",
+      "stage": "reference_inventory",
+      "ranges": [
+        [
+          1,
+          1
+        ],
+        [
+          21,
+          21
+        ]
+      ],
+      "source_bytes_presented": 90,
+      "source_words_presented": 13,
+      "raw_bytes_hashed": 2873,
+      "timestamp_utc": "UNKNOWN"
+    },
+    {
+      "ordinal": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/router.md",
+      "kind": "semantic_content",
+      "stage": "Q1_shared_governance",
+      "ranges": [
+        [
+          1,
+          46
+        ]
+      ],
+      "source_bytes_presented": 3407,
+      "source_words_presented": 449,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/concurrency_route.md",
+      "kind": "semantic_content",
+      "stage": "Q1_shared_governance",
+      "ranges": [
+        [
+          1,
+          38
+        ]
+      ],
+      "source_bytes_presented": 2873,
+      "source_words_presented": 393,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 21,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/standard.md",
+      "kind": "semantic_content",
+      "stage": "Q1_shared_governance",
+      "ranges": [
+        [
+          1,
+          50
+        ]
+      ],
+      "source_bytes_presented": 3332,
+      "source_words_presented": 468,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 22,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/review.md",
+      "kind": "semantic_content",
+      "stage": "Q1_shared_governance",
+      "ranges": [
+        [
+          1,
+          32
+        ]
+      ],
+      "source_bytes_presented": 2067,
+      "source_words_presented": 269,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 23,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/quality.md",
+      "kind": "semantic_content",
+      "stage": "Q1_shared_governance",
+      "ranges": [
+        [
+          1,
+          64
+        ]
+      ],
+      "source_bytes_presented": 4877,
+      "source_words_presented": 616,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 24,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/deep.md",
+      "kind": "semantic_content",
+      "stage": "Q1",
+      "ranges": [
+        [
+          9,
+          13
+        ],
+        [
+          22,
+          50
+        ],
+        [
+          64,
+          66
+        ]
+      ],
+      "source_bytes_presented": 2973,
+      "source_words_presented": 409,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/deep.md",
+      "kind": "semantic_content",
+      "stage": "Q2",
+      "ranges": [
+        [
+          14,
+          21
+        ],
+        [
+          51,
+          57
+        ],
+        [
+          61,
+          63
+        ]
+      ],
+      "source_bytes_presented": 1468,
+      "source_words_presented": 201,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 26,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/deep.md",
+      "kind": "semantic_content",
+      "stage": "Q3",
+      "ranges": [
+        [
+          67,
+          75
+        ]
+      ],
+      "source_bytes_presented": 654,
+      "source_words_presented": 82,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    },
+    {
+      "ordinal": 27,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/deep.md",
+      "kind": "semantic_content",
+      "stage": "Q4",
+      "ranges": [
+        [
+          58,
+          60
+        ]
+      ],
+      "source_bytes_presented": 390,
+      "source_words_presented": 44,
+      "timestamp_utc": "UNKNOWN (individual tool calls did not record exact clock)"
+    }
+  ],
+  "hash_validation": [
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/standard.md",
+      "sha256": "a67aab84db4e1f7afa492cc8b7d15e03937ded0b8d11164af59c6031c3999b4f",
+      "expected": "a67aab84db4e1f7afa492cc8b7d15e03937ded0b8d11164af59c6031c3999b4f",
+      "match": true,
+      "semantic_full_read": false
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/deep.md",
+      "sha256": "03568c7486e1ada8526aa118131fe20d4f8253dc2063e2b646e4d7a471236d2d",
+      "expected": "03568c7486e1ada8526aa118131fe20d4f8253dc2063e2b646e4d7a471236d2d",
+      "match": true,
+      "semantic_full_read": false
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/quality.md",
+      "sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+      "expected": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+      "match": true,
+      "semantic_full_read": false
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/review.md",
+      "sha256": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
+      "expected": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
+      "match": true,
+      "semantic_full_read": false
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/router.md",
+      "sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+      "expected": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+      "match": true,
+      "semantic_full_read": false
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/reference/concurrency_route.md",
+      "sha256": "d59fb6c852e4b446d28b136aa17834fb53fb110cc1c959dd4a2659f646a88241",
+      "expected": "d59fb6c852e4b446d28b136aa17834fb53fb110cc1c959dd4a2659f646a88241",
+      "match": true,
+      "semantic_full_read": false
+    }
+  ],
+  "accounting_note": "Source byte/word counts reconstructed by raw machine reads at report generation; those accounting reads are not additional semantic loads. Word count uses whitespace split. Artificial line numbers/tool wrappers excluded. Full-file bytes for hashing are not semantic body reads. Heading inventory is semantic content and is counted. Current rules/scoped AGENTS supplied in inherited context are authority context, not new filesystem reads. Exact per-read timestamps UNKNOWN; clock observations were 23:09:42, 23:10:01, 23:10:22 UTC.",
+  "totals": {
+    "source_bytes_semantically_presented_including_repeats": 92127,
+    "source_words_semantically_presented_including_repeats": 11506
+  },
+  "query_reads": {
+    "Q1": {
+      "deep": [
+        [
+          9,
+          13
+        ],
+        [
+          22,
+          50
+        ],
+        [
+          64,
+          66
+        ]
+      ],
+      "shared": [
+        "router 1-46",
+        "concurrency_route 1-38",
+        "standard 1-50",
+        "quality 1-64",
+        "review 1-32"
+      ]
+    },
+    "Q2": {
+      "new_deep": [
+        [
+          14,
+          21
+        ],
+        [
+          51,
+          57
+        ],
+        [
+          61,
+          63
+        ]
+      ],
+      "reused_Q1": [
+        "Core Model",
+        "Task Ownership",
+        "Cancellation",
+        "Ordering where applicable"
+      ]
+    },
+    "Q3": {
+      "new_deep": [
+        [
+          67,
+          75
+        ]
+      ],
+      "reused": [
+        "Core Model",
+        "Isolation Design",
+        "standard profile rules",
+        "current baseline suppression prohibition"
+      ]
+    },
+    "Q4": {
+      "new_deep": [
+        [
+          58,
+          60
+        ]
+      ],
+      "reused": [
+        "Q1 requirements",
+        "Q2 bridge/isolation requirements",
+        "Q3 discipline only where applicable"
+      ],
+      "invalidated": "Q1-only coverage/final-review receipt cannot cover expanded scope; no implementation verdict was established"
+    }
+  },
+  "unread_semantic_ranges": {
+    "deep.md": [
+      [
+        1,
+        8
+      ],
+      [
+        76,
+        89
+      ]
+    ],
+    "router.md": [
+      [
+        47,
+        87
+      ]
+    ],
+    "review.md": [
+      [
+        33,
+        45
+      ]
+    ]
+  },
+  "inheritance": {
+    "tools": false,
+    "ON": false,
+    "PASS": false,
+    "payload_pin": false,
+    "project_adoption": false,
+    "same_current_reads": true
+  },
+  "writes": [
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/output/report.md",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/kb-reading-pilot-01/attempt-02/output/ledger.json"
+  ],
+  "checks_not_run": [
+    "source review (no source supplied)",
+    "compiler/typecheck",
+    "build",
+    "tests",
+    "runtime",
+    "network",
+    "MCP",
+    "Git",
+    "host/config/secrets"
+  ],
+  "status": "COMPLETE documentation diagnostic; application verdict UNKNOWN/UNVERIFIED"
+}

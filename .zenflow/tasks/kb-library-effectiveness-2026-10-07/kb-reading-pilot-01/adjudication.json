@@ -1,0 +1,45 @@
+{
+  "status": "COMPLETE_DIAGNOSTIC_SCOPED",
+  "mandatory_query_checks": {
+    "A": "4/4 PASS_STATIC_DOCUMENTATION",
+    "C": "4/4 PASS_STATIC_DOCUMENTATION"
+  },
+  "reading": {
+    "A_total_words": 12036,
+    "C_total_words": 11506,
+    "A_reference_words": 3579,
+    "C_reference_words": 3049,
+    "shared_words_each": 8457,
+    "observed_total_reduction_percent": 4.4,
+    "observed_reference_reduction_percent": 14.81,
+    "range_word_counts": "parent independently recomputed all reference semantic ranges/headings PASS",
+    "router_index_sensitivity": {
+      "C_skipped_index_words": 641,
+      "C_if_full_router_loaded": 12147,
+      "difference_vs_A_if_full_router": 111,
+      "interpretation": "Observed reading delta is dominated by different router-index breadth; not isolated consolidation effect or causal savings."
+    }
+  },
+  "behavior": "Both select required invariants and broaden on scope change; new route skips unrelated testing/source sections and treats missing CXL as optional, old route reports required slice unavailable rather than false PASS. No app verdict or inherited ON/tools/PASS.",
+  "elapsed_reported": [
+    162.053187,
+    137.527481
+  ],
+  "timing": "Single sessions, individual read timestamps unavailable; no efficiency claim",
+  "tokens": "UNKNOWN",
+  "grant": "exact2 consumed; total8delivery/diagnostic executors consumed",
+  "holdout": "NOT_READ",
+  "runtime": "NOT_RUN",
+  "source": "NOT_READ/UNCHANGED",
+  "limitations": [
+    "unblinded parent author/grader",
+    "four related questions in one session per arm",
+    "equal explicit prompts constrain outcomes",
+    "both bundles omit optional/required linked CXL and profile data",
+    "mandatory current norm hashes recorded after dispatch, unchanged afterward",
+    "procedural shared filesystem isolation, no tool transcript security audit",
+    "source sizes not actual subscription tokens",
+    "different router-index breadth dominates delta"
+  ],
+  "decision": "Keep static KB-first improvements as addressed optional system, no claim benefit established. Stop general text-polish/repeat-pilot loop; next meaningful step is actual engineering outcome evaluation with separately approved scope/budget/independent evidence. Full P3/P6/P7 still partial."
+}

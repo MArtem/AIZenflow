@@ -1,0 +1,1 @@
+Apply canonical bootstrap first. Current scoped task handoff/plan are siblings. Exact read/write boundary in input.json. Only output/ writes; no parent task, other attempt, oracles, source/runtime/network/MCP/Git/child agents.
