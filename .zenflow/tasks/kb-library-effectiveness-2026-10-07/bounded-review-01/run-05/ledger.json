@@ -1,0 +1,490 @@
+{
+  "schema_version": 1,
+  "case_id": "H-bb4fd3190170",
+  "model": "GPT-6.1 Sol",
+  "reasoning": "medium",
+  "mode": "\u044d\u043a\u043e\u043d\u043e\u043c",
+  "start_utc": "2026-10-08T19:45:12.294061+00:00",
+  "start_basis": "dispatch timestamp; local tool start was later",
+  "end_utc": "2026-10-08T19:47:32.263926+00:00",
+  "elapsed_seconds": 139.969865,
+  "cap_seconds": 600,
+  "tokens": "UNKNOWN",
+  "canonical_available": true,
+  "canonical_revision": "UNKNOWN",
+  "host_facts": "UNKNOWN; prohibited",
+  "reference_revision": "5c57b4e87e7450486329de1599b5d53ef85a9acf",
+  "source_checks": [
+    {
+      "order": 21,
+      "path": "BrowserKit/Sources/TabDataStore/TabDataStore.swift",
+      "repository": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+      "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+      "git_blob_sha": "e07e6fd2e7fe64e87608433fc2f9e7826bfa3c4d",
+      "expected_git_blob_sha": "e07e6fd2e7fe64e87608433fc2f9e7826bfa3c4d",
+      "sha256": "a4349eb587e23b33f0879e51cb530d1ec02b0602b262ca16e92fc77b601683c0",
+      "expected_sha256": "a4349eb587e23b33f0879e51cb530d1ec02b0602b262ca16e92fc77b601683c0",
+      "bytes": 11736,
+      "hash_match": true,
+      "sections_presented": "full with line numbers"
+    },
+    {
+      "order": 22,
+      "path": "BrowserKit/Sources/TabDataStore/WindowData.swift",
+      "repository": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+      "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+      "git_blob_sha": "13a1a442ee5b2f757c228cc31f26451db7400e19",
+      "expected_git_blob_sha": "13a1a442ee5b2f757c228cc31f26451db7400e19",
+      "sha256": "8305f1a64c2b7db473f364629a05e6994614e6e160deed65b7135f74b4cde473",
+      "expected_sha256": "8305f1a64c2b7db473f364629a05e6994614e6e160deed65b7135f74b4cde473",
+      "bytes": 956,
+      "hash_match": true,
+      "sections_presented": "full with line numbers"
+    },
+    {
+      "order": 23,
+      "path": "BrowserKit/Sources/TabDataStore/TabFileManager.swift",
+      "repository": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+      "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+      "git_blob_sha": "7d1955b19d910f96fd87d385f314773a595d2895",
+      "expected_git_blob_sha": "7d1955b19d910f96fd87d385f314773a595d2895",
+      "sha256": "3b8391dab7e1cebe772139837ac956e5833269cb054e1346ab8da10923f84564",
+      "expected_sha256": "3b8391dab7e1cebe772139837ac956e5833269cb054e1346ab8da10923f84564",
+      "bytes": 6678,
+      "hash_match": true,
+      "sections_presented": "full with line numbers"
+    }
+  ],
+  "ordered_reads": [
+    {
+      "order": 1,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/AGENTS.md",
+      "sha256": "8ab7ab028fe153e137728a1e270497c6a953f8613adbe3290305534773d81b9d",
+      "sections_presented": "full"
+    },
+    {
+      "order": 2,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+      "sha256": "8b68feb4e406a9b34063d83a95bfbba98eae0b0de4d27c9d8cfce49ead4106da",
+      "sections_presented": "full",
+      "expected_sha256": "8b68feb4e406a9b34063d83a95bfbba98eae0b0de4d27c9d8cfce49ead4106da",
+      "hash_match": true
+    },
+    {
+      "order": 3,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/handoff.md",
+      "sha256": "3af739071d0eef527129dde6168e95f034ad5fc87b10278bd999700ab8defce7",
+      "sections_presented": "full"
+    },
+    {
+      "order": 4,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/plan.md",
+      "sha256": "34c0eb9a681a8dea37bd6e285be3ab2e9b02cf46fcb8ab7a135736f03ceaeab6",
+      "sections_presented": "full"
+    },
+    {
+      "order": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/input.json",
+      "sha256": "2b5d650ec95d425ad7668e309597753919723fea074e6f27f8c653071e81c2d3",
+      "sections_presented": "full"
+    },
+    {
+      "order": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+      "sha256": "bff707271c5baf9c7f5b7baba791d8733928884f548461dd6efba2f703a0074d",
+      "sections_presented": "full",
+      "expected_sha256": "bff707271c5baf9c7f5b7baba791d8733928884f548461dd6efba2f703a0074d",
+      "hash_match": true
+    },
+    {
+      "order": 7,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "sections_presented": "partial initial combined output",
+      "expected_sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "hash_match": true
+    },
+    {
+      "order": 8,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/case-input.json",
+      "sha256": "0e97879690be6ee72b20aff519e4d69a2bd1329359e77f0b9e8e30212cb659ac",
+      "sections_presented": "partial initial combined output"
+    },
+    {
+      "order": 9,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/payload.json",
+      "sha256": "0e65cf48ff7905f74bcf2399fbc12f1cb6bc58f51483cf9215eb518d816b7975",
+      "sections_presented": "partial initial combined output"
+    },
+    {
+      "order": 10,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/case-input.json",
+      "sha256": "0e97879690be6ee72b20aff519e4d69a2bd1329359e77f0b9e8e30212cb659ac",
+      "sections_presented": "full"
+    },
+    {
+      "order": 11,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "sections_presented": "full",
+      "expected_sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "hash_match": true
+    },
+    {
+      "order": 12,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/payload.json",
+      "sha256": "0e65cf48ff7905f74bcf2399fbc12f1cb6bc58f51483cf9215eb518d816b7975",
+      "sections_presented": "metadata excluding files/common_normative_hashes"
+    },
+    {
+      "order": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "sections_presented": "full",
+      "expected_sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "hash_match": true
+    },
+    {
+      "order": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "sections_presented": "full",
+      "expected_sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "hash_match": true
+    },
+    {
+      "order": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "sections_presented": "full",
+      "expected_sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "hash_match": true
+    },
+    {
+      "order": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "sections_presented": "partial initial combined output",
+      "expected_sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "hash_match": true
+    },
+    {
+      "order": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/KNOWLEDGE_ROUTER.md",
+      "sha256": "686940a4afcf7e6da06c28a02f0e0c5f610229f67dcaf89194109b07c9c5ee59",
+      "sections_presented": "partial initial combined output",
+      "expected_sha256": "686940a4afcf7e6da06c28a02f0e0c5f610229f67dcaf89194109b07c9c5ee59",
+      "hash_match": true
+    },
+    {
+      "order": 18,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/QUALITY_STANDARD.md",
+      "sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "sections_presented": "full",
+      "expected_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "hash_match": true
+    },
+    {
+      "order": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/EVIDENCE_POLICY.md",
+      "sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "sections_presented": "full",
+      "expected_sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "hash_match": true
+    },
+    {
+      "order": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/REVIEW_GUIDE.md",
+      "sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "sections_presented": "full",
+      "expected_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "hash_match": true
+    },
+    {
+      "order": 21,
+      "path": "BrowserKit/Sources/TabDataStore/TabDataStore.swift",
+      "repository": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+      "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+      "git_blob_sha": "e07e6fd2e7fe64e87608433fc2f9e7826bfa3c4d",
+      "expected_git_blob_sha": "e07e6fd2e7fe64e87608433fc2f9e7826bfa3c4d",
+      "sha256": "a4349eb587e23b33f0879e51cb530d1ec02b0602b262ca16e92fc77b601683c0",
+      "expected_sha256": "a4349eb587e23b33f0879e51cb530d1ec02b0602b262ca16e92fc77b601683c0",
+      "bytes": 11736,
+      "hash_match": true,
+      "sections_presented": "full with line numbers"
+    },
+    {
+      "order": 22,
+      "path": "BrowserKit/Sources/TabDataStore/WindowData.swift",
+      "repository": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+      "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+      "git_blob_sha": "13a1a442ee5b2f757c228cc31f26451db7400e19",
+      "expected_git_blob_sha": "13a1a442ee5b2f757c228cc31f26451db7400e19",
+      "sha256": "8305f1a64c2b7db473f364629a05e6994614e6e160deed65b7135f74b4cde473",
+      "expected_sha256": "8305f1a64c2b7db473f364629a05e6994614e6e160deed65b7135f74b4cde473",
+      "bytes": 956,
+      "hash_match": true,
+      "sections_presented": "full with line numbers"
+    },
+    {
+      "order": 23,
+      "path": "BrowserKit/Sources/TabDataStore/TabFileManager.swift",
+      "repository": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+      "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+      "git_blob_sha": "7d1955b19d910f96fd87d385f314773a595d2895",
+      "expected_git_blob_sha": "7d1955b19d910f96fd87d385f314773a595d2895",
+      "sha256": "3b8391dab7e1cebe772139837ac956e5833269cb054e1346ab8da10923f84564",
+      "expected_sha256": "3b8391dab7e1cebe772139837ac956e5833269cb054e1346ab8da10923f84564",
+      "bytes": 6678,
+      "hash_match": true,
+      "sections_presented": "full with line numbers"
+    },
+    {
+      "order": 24,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "sections_presented": "full",
+      "expected_sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "hash_match": true
+    },
+    {
+      "order": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "sections_presented": "full",
+      "expected_sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "hash_match": true
+    },
+    {
+      "order": 26,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "sections_presented": "full",
+      "expected_sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "hash_match": true
+    },
+    {
+      "order": 27,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "sections_presented": "full",
+      "expected_sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "hash_match": true
+    },
+    {
+      "order": 28,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "sections_presented": "full",
+      "expected_sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "hash_match": true
+    },
+    {
+      "order": 29,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "sections_presented": "full",
+      "expected_sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "hash_match": true
+    },
+    {
+      "order": 30,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "sha256": "a67aab84db4e1f7afa492cc8b7d15e03937ded0b8d11164af59c6031c3999b4f",
+      "sections_presented": "full"
+    },
+    {
+      "order": 31,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+      "sha256": "a6209270d5b765e1fb330deb136923578150e3f13f6e799d03292417e317431e",
+      "sections_presented": "full"
+    },
+    {
+      "order": 32,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+      "sha256": "78f8ac22f81bc93c9cb48cf7e91d9eb6be02e3c0189a9e2e64521e772dd56bd1",
+      "sections_presented": "full"
+    },
+    {
+      "order": 33,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/KNOWLEDGE_ROUTER.md",
+      "sha256": "686940a4afcf7e6da06c28a02f0e0c5f610229f67dcaf89194109b07c9c5ee59",
+      "sections_presented": "full",
+      "expected_sha256": "686940a4afcf7e6da06c28a02f0e0c5f610229f67dcaf89194109b07c9c5ee59",
+      "hash_match": true
+    },
+    {
+      "order": 34,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+      "sections_presented": "full",
+      "expected_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+      "hash_match": true
+    },
+    {
+      "order": 35,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "sha256": "574d540dfe1c00b740b2931597b1a9d363b155e7280207e0e45d588b338838b6",
+      "sections_presented": "full",
+      "expected_sha256": "574d540dfe1c00b740b2931597b1a9d363b155e7280207e0e45d588b338838b6",
+      "hash_match": true
+    },
+    {
+      "order": 36,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+      "sections_presented": "full",
+      "expected_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+      "hash_match": true
+    },
+    {
+      "order": 37,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "sections_presented": "full",
+      "expected_sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "hash_match": true
+    },
+    {
+      "order": 38,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_STATE_DOCUMENTATION_STANDARD.md",
+      "sha256": "9ea405d83511fa61d389721912075a216c5ab80e38cc0b39cc1489de61eb7eb6",
+      "sections_presented": "full"
+    },
+    {
+      "order": 39,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "sha256": "3fee8b075a697968f284507298c6d5179934a320084615fe6810bb25402ec75e",
+      "sections_presented": "full"
+    },
+    {
+      "order": 40,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+      "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf",
+      "sections_presented": "partial combined output; full subsequently presented"
+    },
+    {
+      "order": 41,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+      "sha256": "2189b7d9195fca3d3e9a4d10d96b67bde92c21877ebf52bfec853b2195a77495",
+      "sections_presented": "full"
+    },
+    {
+      "order": 42,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+      "sha256": "03568c7486e1ada8526aa118131fe20d4f8253dc2063e2b646e4d7a471236d2d",
+      "sections_presented": "Core Model; Isolation Design; Task Ownership; Cancellation; Ordering And Stale Results; Swift 6.x Discipline"
+    },
+    {
+      "order": 43,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+      "sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
+      "sections_presented": "Select before deciding a change through Mechanism; stopped before Checked example",
+      "expected_sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
+      "hash_match": true
+    },
+    {
+      "order": 44,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+      "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf",
+      "sections_presented": "full"
+    },
+    {
+      "order": 45,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+      "sha256": "07fa5b6a52feaf3583bf5bfbb18f5ad6d0ff62888f7864c12ef84f89e6b29278",
+      "sections_presented": "matching severity/confidence/evidence/readiness lines with surrounding context"
+    },
+    {
+      "order": 46,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+      "sha256": "2b097fafeba023364924527c2ff672e9e688cf67ec3d0db67536b195b49e5783",
+      "sections_presented": "matching severity/confidence/evidence/readiness lines with surrounding context"
+    },
+    {
+      "order": 47,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/payload.json",
+      "sha256": "0e65cf48ff7905f74bcf2399fbc12f1cb6bc58f51483cf9215eb518d816b7975",
+      "sections_presented": "metadata reread by output-generation script; not presented again"
+    },
+    {
+      "order": 48,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/case-input.json",
+      "sha256": "0e97879690be6ee72b20aff519e4d69a2bd1329359e77f0b9e8e30212cb659ac",
+      "sections_presented": "metadata reread by output-generation script; not presented again"
+    },
+    {
+      "order": 49,
+      "path": "BrowserKit/Sources/TabDataStore/TabDataStore.swift",
+      "repository": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+      "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+      "git_blob_sha": "e07e6fd2e7fe64e87608433fc2f9e7826bfa3c4d",
+      "expected_git_blob_sha": "e07e6fd2e7fe64e87608433fc2f9e7826bfa3c4d",
+      "sha256": "a4349eb587e23b33f0879e51cb530d1ec02b0602b262ca16e92fc77b601683c0",
+      "expected_sha256": "a4349eb587e23b33f0879e51cb530d1ec02b0602b262ca16e92fc77b601683c0",
+      "bytes": 11736,
+      "hash_match": true,
+      "sections_presented": "full blob bytes rehashed by output-generation script; not presented again"
+    },
+    {
+      "order": 50,
+      "path": "BrowserKit/Sources/TabDataStore/WindowData.swift",
+      "repository": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+      "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+      "git_blob_sha": "13a1a442ee5b2f757c228cc31f26451db7400e19",
+      "expected_git_blob_sha": "13a1a442ee5b2f757c228cc31f26451db7400e19",
+      "sha256": "8305f1a64c2b7db473f364629a05e6994614e6e160deed65b7135f74b4cde473",
+      "expected_sha256": "8305f1a64c2b7db473f364629a05e6994614e6e160deed65b7135f74b4cde473",
+      "bytes": 956,
+      "hash_match": true,
+      "sections_presented": "full blob bytes rehashed by output-generation script; not presented again"
+    },
+    {
+      "order": 51,
+      "path": "BrowserKit/Sources/TabDataStore/TabFileManager.swift",
+      "repository": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+      "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+      "git_blob_sha": "7d1955b19d910f96fd87d385f314773a595d2895",
+      "expected_git_blob_sha": "7d1955b19d910f96fd87d385f314773a595d2895",
+      "sha256": "3b8391dab7e1cebe772139837ac956e5833269cb054e1346ab8da10923f84564",
+      "expected_sha256": "3b8391dab7e1cebe772139837ac956e5833269cb054e1346ab8da10923f84564",
+      "bytes": 6678,
+      "hash_match": true,
+      "sections_presented": "full blob bytes rehashed by output-generation script; not presented again"
+    }
+  ],
+  "permitted_static_checks": [
+    "exact git show reads of three named source blobs",
+    "Git blob SHA1, SHA256 and byte-count comparisons",
+    "assigned reference SHA256 comparisons",
+    "source-only two-call ordering and write-identity reasoning"
+  ],
+  "not_run": [
+    "build",
+    "tests",
+    "typecheck",
+    "runtime",
+    "network",
+    "MCP",
+    "source status/diff",
+    "unlisted callers",
+    "Git mutation"
+  ],
+  "deviations_limits": [
+    "Initial combined outputs were truncated; required decision documents were subsequently presented fully or in selected slices. Payload manifest was initially partially displayed; only selected reference content was opened.",
+    "Review/concurrency and subsequent data route were printed in one tool output; treated as two sequential conceptual passes, no broadened source reads.",
+    "Current baseline router takes priority over subordinate always-read index language; no broad README library inventory loaded.",
+    "Canonical Git revision and current caller frequency UNKNOWN; no host or source status inspection.",
+    "No runtime reproduction, whole-target safety, production or recall claims."
+  ],
+  "outputs": [
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/report.md",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/ledger.json",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/plan.md"
+  ],
+  "artifact_check": {
+    "report_nonempty": true,
+    "plan_completed": true,
+    "ledger_json_valid": true
+  }
+}

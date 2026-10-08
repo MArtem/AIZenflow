@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "phase": "PHASE2_COMPLETE",
+  "status": "GRADING_COMPLETE_WITH_LIMITS",
+  "content_grades_sha256": "0e98215ccdbac22c1ad392829f9787e99fee5c7dcb38829d32c90e203b9a88b4",
+  "criteria_sha256": "c2aa8509e610e6b85ebeb237e3ea9f163f2e7a2bd54d02808a42ae8c0039fe66",
+  "content_grades_changed_after_audit": false,
+  "objective_invalidation": [],
+  "results": [
+    {
+      "judging_id": "J-54e9ac5df656",
+      "case_id": "H-a2dd3511e6fa",
+      "outcome": "SUCCESS",
+      "content_grade": "SUCCESS",
+      "mandatory_requirements": "MET",
+      "confirmed_required_findings": 0,
+      "correct_clean_control": true,
+      "confirmed_substantial_false_positives": 0,
+      "missed_mandatory_requirements": 0,
+      "dispute": null,
+      "process_evidence": {
+        "status": "HASH_CONSISTENT_SELF_REPORTED_PROCESS",
+        "case_input_hash": "8e8b9613352ca51a2bbd3d08e6ab18a948e533024de193f6cdfd68eabe8a149a",
+        "payload_manifest_hash": "52d38f8aebe76c389d618292dbab2d43751e3a8080c8a2abf0ea2063739dbeab",
+        "ledger_hash": "f3ecfbfa50234d1897af4f34d696c49c57584c9997edc6c9edaccf4161d24c1b",
+        "common_normative_read_identities": 13,
+        "source_identities": "MATCH_PINNED_CASE",
+        "assigned_advice_identities": "MATCH_FROZEN_PAYLOAD",
+        "cap": "WITHIN_600S_SELF_REPORTED",
+        "elapsed_seconds_self_reported": 104.586555,
+        "deviations": [
+          "Initial combined baseline/router/manifest output was tool-truncated; router remainder explicitly reread; manifest only metadata, not a claim to all payload content reading",
+          "Budget starts at supplied dispatch UTC because actual first-tool UTC was not separately captured",
+          "Source exact blob identity verification repeated during ledger construction without widening scope"
+        ],
+        "prohibited_actions": "NOT_DECLARED; ABSENCE_NOT_INDEPENDENTLY_PROVEN",
+        "evidence_limit": "Self-reported ordered reads plus content-hash consistency, not OS/tool-transport audit."
+      }
+    },
+    {
+      "judging_id": "J-63c071e01817",
+      "case_id": "H-bb4fd3190170",
+      "outcome": "SUCCESS",
+      "content_grade": "SUCCESS",
+      "mandatory_requirements": "MET",
+      "confirmed_required_findings": 1,
+      "correct_clean_control": null,
+      "confirmed_substantial_false_positives": 0,
+      "missed_mandatory_requirements": 0,
+      "dispute": null,
+      "process_evidence": {
+        "status": "HASH_CONSISTENT_SELF_REPORTED_PROCESS",
+        "case_input_hash": "0e97879690be6ee72b20aff519e4d69a2bd1329359e77f0b9e8e30212cb659ac",
+        "payload_manifest_hash": "52d38f8aebe76c389d618292dbab2d43751e3a8080c8a2abf0ea2063739dbeab",
+        "ledger_hash": "7c688593132c08f6c6ddf70e0c08dcd8a2dd6dbbd50bccea18671d02818d38ac",
+        "common_normative_read_identities": 13,
+        "source_identities": "MATCH_PINNED_CASE",
+        "assigned_advice_identities": "MATCH_FROZEN_PAYLOAD",
+        "cap": "WITHIN_600S_SELF_REPORTED",
+        "elapsed_seconds_self_reported": 148.227043,
+        "deviations": [
+          "Combined documentation outputs were truncated; required omitted text was obtained in focused reads.",
+          "Old review prompt suggests full docs index/AGENT_RULES intake; current compact router and explicit task-only boundaries govern instead; unrelated orientation corpus was not loaded."
+        ],
+        "prohibited_actions": "NOT_DECLARED; ABSENCE_NOT_INDEPENDENTLY_PROVEN",
+        "evidence_limit": "Self-reported ordered reads plus content-hash consistency, not OS/tool-transport audit."
+      }
+    },
+    {
+      "judging_id": "J-664fe73d9635",
+      "case_id": "H-66c215148f01",
+      "outcome": "SUCCESS",
+      "content_grade": "SUCCESS",
+      "mandatory_requirements": "MET",
+      "confirmed_required_findings": 1,
+      "correct_clean_control": null,
+      "confirmed_substantial_false_positives": 0,
+      "missed_mandatory_requirements": 0,
+      "dispute": null,
+      "process_evidence": {
+        "status": "HASH_CONSISTENT_SELF_REPORTED_PROCESS",
+        "case_input_hash": "18685af0535ea273587cbabc27e6496bc32c3b4a7a8d393589230d06eae5f646",
+        "payload_manifest_hash": "52d38f8aebe76c389d618292dbab2d43751e3a8080c8a2abf0ea2063739dbeab",
+        "ledger_hash": "c59aeb2e066ee23ac5349c89da55f34ad67f28dba9ce02df43f67af49f105558",
+        "common_normative_read_identities": 13,
+        "source_identities": "MATCH_PINNED_CASE",
+        "assigned_advice_identities": "MATCH_FROZEN_PAYLOAD",
+        "cap": "WITHIN_600S_SELF_REPORTED",
+        "elapsed_seconds_self_reported": 151.183308,
+        "deviations": [
+          "Only assigned payload and own task docs; no siblings, parent task history, oracle, current source/status/diff or unlisted callers.",
+          "Source blob checks repeated once in ledger generation; no wider source read.",
+          "Initial combined output truncated; router reread completely; payload manifest only (not all snapshot contents) presented/parsed.",
+          "Canonical Git revision, host facts, CODEX_HOME and compiler profile UNKNOWN; no host/config inspection.",
+          "No patch, tests/build/typecheck/runtime/network/MCP/children/Library modes or Git mutations.",
+          "No whole-target safety, production-readiness or UI behavior claim."
+        ],
+        "prohibited_actions": "NOT_DECLARED; ABSENCE_NOT_INDEPENDENTLY_PROVEN",
+        "evidence_limit": "Self-reported ordered reads plus content-hash consistency, not OS/tool-transport audit."
+      }
+    },
+    {
+      "judging_id": "J-79a01f2737c9",
+      "case_id": "H-bb4fd3190170",
+      "outcome": "SUCCESS",
+      "content_grade": "SUCCESS",
+      "mandatory_requirements": "MET",
+      "confirmed_required_findings": 1,
+      "correct_clean_control": null,
+      "confirmed_substantial_false_positives": 0,
+      "missed_mandatory_requirements": 0,
+      "dispute": null,
+      "process_evidence": {
+        "status": "HASH_CONSISTENT_SELF_REPORTED_PROCESS",
+        "case_input_hash": "0e97879690be6ee72b20aff519e4d69a2bd1329359e77f0b9e8e30212cb659ac",
+        "payload_manifest_hash": "0e65cf48ff7905f74bcf2399fbc12f1cb6bc58f51483cf9215eb518d816b7975",
+        "ledger_hash": "8d13999ccd2040355bb8e4db2239f8a4583279ab8b5067c00e8a82da16ceb176",
+        "common_normative_read_identities": 13,
+        "source_identities": "MATCH_PINNED_CASE",
+        "assigned_advice_identities": "MATCH_FROZEN_PAYLOAD",
+        "cap": "WITHIN_600S_SELF_REPORTED",
+        "elapsed_seconds_self_reported": 139.969865,
+        "deviations": [
+          "Initial combined outputs were truncated; required decision documents were subsequently presented fully or in selected slices. Payload manifest was initially partially displayed; only selected reference content was opened.",
+          "Review/concurrency and subsequent data route were printed in one tool output; treated as two sequential conceptual passes, no broadened source reads.",
+          "Current baseline router takes priority over subordinate always-read index language; no broad README library inventory loaded.",
+          "Canonical Git revision and current caller frequency UNKNOWN; no host or source status inspection.",
+          "No runtime reproduction, whole-target safety, production or recall claims."
+        ],
+        "prohibited_actions": "NOT_DECLARED; ABSENCE_NOT_INDEPENDENTLY_PROVEN",
+        "evidence_limit": "Self-reported ordered reads plus content-hash consistency, not OS/tool-transport audit."
+      }
+    },
+    {
+      "judging_id": "J-a4c778ece9c6",
+      "case_id": "H-66c215148f01",
+      "outcome": "SUCCESS",
+      "content_grade": "SUCCESS",
+      "mandatory_requirements": "MET",
+      "confirmed_required_findings": 1,
+      "correct_clean_control": null,
+      "confirmed_substantial_false_positives": 0,
+      "missed_mandatory_requirements": 0,
+      "dispute": null,
+      "process_evidence": {
+        "status": "HASH_CONSISTENT_SELF_REPORTED_PROCESS",
+        "case_input_hash": "18685af0535ea273587cbabc27e6496bc32c3b4a7a8d393589230d06eae5f646",
+        "payload_manifest_hash": "0e65cf48ff7905f74bcf2399fbc12f1cb6bc58f51483cf9215eb518d816b7975",
+        "ledger_hash": "6cb0d6861aa8b4d9f71ca725395c532a244dcd88990d55cb08ff028632869922",
+        "common_normative_read_identities": 13,
+        "source_identities": "MATCH_PINNED_CASE",
+        "assigned_advice_identities": "MATCH_FROZEN_PAYLOAD",
+        "cap": "WITHIN_600S_SELF_REPORTED",
+        "elapsed_seconds_self_reported": 136.358501,
+        "deviations": [
+          "Source caller/deployment/runtime evidence outside named scope UNKNOWN",
+          "No shared protocol/parent/sibling/oracle/other payload inspected",
+          "No full-source/current status or diff reads",
+          "Router authority prevents automatic docs README corpus read; broad production checklist interpreted within explicit bounded scope",
+          "No skills outside .zenflow loaded; exact task canonical/payload reference boundary retained",
+          "Canonical revision, host and CODEX_HOME UNKNOWN",
+          "No whole-target safety, production, recall or observed UI claim",
+          "No git diff --check: source diff/status prohibited; only own reporting artifacts changed"
+        ],
+        "prohibited_actions": "NOT_DECLARED; ABSENCE_NOT_INDEPENDENTLY_PROVEN",
+        "evidence_limit": "Self-reported ordered reads plus content-hash consistency, not OS/tool-transport audit."
+      }
+    },
+    {
+      "judging_id": "J-b6ccda7dc70f",
+      "case_id": "H-0e20313934a1",
+      "outcome": "SUCCESS",
+      "content_grade": "SUCCESS",
+      "mandatory_requirements": "MET",
+      "confirmed_required_findings": 0,
+      "correct_clean_control": true,
+      "confirmed_substantial_false_positives": 0,
+      "missed_mandatory_requirements": 0,
+      "dispute": null,
+      "process_evidence": {
+        "status": "HASH_CONSISTENT_SELF_REPORTED_PROCESS",
+        "case_input_hash": "5d02fad7090332df797ac70ae4fb66fa49b432f3a1256081aa687a3b0720a1c3",
+        "payload_manifest_hash": "0e65cf48ff7905f74bcf2399fbc12f1cb6bc58f51483cf9215eb518d816b7975",
+        "ledger_hash": "fec2b80620f15e3ec72087ad8c2905f0b559653088519057276b6416f24c6ba6",
+        "common_normative_read_identities": 13,
+        "source_identities": "MATCH_PINNED_CASE",
+        "assigned_advice_identities": "MATCH_FROZEN_PAYLOAD",
+        "cap": "WITHIN_600S_SELF_REPORTED",
+        "elapsed_seconds_self_reported": 138.38,
+        "deviations": [
+          "Initial combined output was truncated; router and case-input were subsequently read separately. Payload file is a manifest; only selected document contents were presented.",
+          "Complete compact current concurrency deep reference was presented instead of extracting only task-selected sections; no unrelated reference corpus was read."
+        ],
+        "prohibited_actions": "NOT_DECLARED; ABSENCE_NOT_INDEPENDENTLY_PROVEN",
+        "evidence_limit": "Self-reported ordered reads plus content-hash consistency, not OS/tool-transport audit."
+      }
+    },
+    {
+      "judging_id": "J-c6d78b57f2a8",
+      "case_id": "H-a2dd3511e6fa",
+      "outcome": "SUCCESS",
+      "content_grade": "SUCCESS",
+      "mandatory_requirements": "MET",
+      "confirmed_required_findings": 0,
+      "correct_clean_control": true,
+      "confirmed_substantial_false_positives": 0,
+      "missed_mandatory_requirements": 0,
+      "dispute": null,
+      "process_evidence": {
+        "status": "HASH_CONSISTENT_SELF_REPORTED_PROCESS",
+        "case_input_hash": "8e8b9613352ca51a2bbd3d08e6ab18a948e533024de193f6cdfd68eabe8a149a",
+        "payload_manifest_hash": "0e65cf48ff7905f74bcf2399fbc12f1cb6bc58f51483cf9215eb518d816b7975",
+        "ledger_hash": "c76ad2ee82e47c60c561383908569637b04f3fd41d0fbab444ee894e473732cb",
+        "common_normative_read_identities": 13,
+        "source_identities": "MATCH_PINNED_CASE",
+        "assigned_advice_identities": "MATCH_FROZEN_PAYLOAD",
+        "cap": "WITHIN_600S_SELF_REPORTED",
+        "elapsed_seconds_self_reported": 119.684881,
+        "deviations": [
+          "Initial combined output truncated; required router and exact case input subsequently fully re-presented.",
+          "Read ledger reconstructed from ordered tool presentations; hashes computed at ledger creation. Sources were re-read by exact approved Git object only for ledger identity.",
+          "Broad production index/whole-project expansion omitted under overriding bounded task contract."
+        ],
+        "prohibited_actions": "NOT_DECLARED; ABSENCE_NOT_INDEPENDENTLY_PROVEN",
+        "evidence_limit": "Self-reported ordered reads plus content-hash consistency, not OS/tool-transport audit."
+      }
+    },
+    {
+      "judging_id": "J-f8989688f6b0",
+      "case_id": "H-0e20313934a1",
+      "outcome": "SUCCESS",
+      "content_grade": "SUCCESS",
+      "mandatory_requirements": "MET",
+      "confirmed_required_findings": 0,
+      "correct_clean_control": true,
+      "confirmed_substantial_false_positives": 0,
+      "missed_mandatory_requirements": 0,
+      "dispute": null,
+      "process_evidence": {
+        "status": "HASH_CONSISTENT_SELF_REPORTED_PROCESS",
+        "case_input_hash": "5d02fad7090332df797ac70ae4fb66fa49b432f3a1256081aa687a3b0720a1c3",
+        "payload_manifest_hash": "52d38f8aebe76c389d618292dbab2d43751e3a8080c8a2abf0ea2063739dbeab",
+        "ledger_hash": "f5684171b1cf5962d3e7afe74d3e238dedd296119158f473724d5b5a94af0f05",
+        "common_normative_read_identities": 13,
+        "source_identities": "MATCH_PINNED_CASE",
+        "assigned_advice_identities": "MATCH_FROZEN_PAYLOAD",
+        "cap": "WITHIN_600S_SELF_REPORTED",
+        "elapsed_seconds_self_reported": 133.137034,
+        "deviations": [
+          "Initial combined result was truncated; router and case re-presented fully; payload presented selectively, not claimed fully read",
+          "No oracle/shared protocol/parent/sibling/other payload reads",
+          "Current canonical revision UNKNOWN; actual read hashes recorded",
+          "No missing caller/schema evidence filled by speculation",
+          "No optional CXL mechanism selected for synchronous boundary",
+          "Broad production prompt inventory and expanded source tracing limited by explicit task scope"
+        ],
+        "prohibited_actions": "NOT_DECLARED; ABSENCE_NOT_INDEPENDENTLY_PROVEN",
+        "evidence_limit": "Self-reported ordered reads plus content-hash consistency, not OS/tool-transport audit."
+      }
+    }
+  ],
+  "aggregate": {
+    "attempts": 8,
+    "success": 8,
+    "failure": 0,
+    "dispute": 0,
+    "confirmed_required_finding_instances": 4,
+    "correct_clean_control_instances": 4,
+    "confirmed_substantial_false_positives": 0,
+    "missed_mandatory_requirements": 0,
+    "pairs": 4,
+    "tied_pairs": 4,
+    "descriptive_protocol_outcome": "NOT_ESTABLISHED",
+    "reason": "All paired attempts succeed; predeclared two-win threshold cannot be met."
+  },
+  "limitations": [
+    "Static evidence E1 only; runtime/tests/build/typecheck NOT_RUN.",
+    "Worker read ledgers are self-reported and hash-checkable, not OS/tool-transport audit proof.",
+    "Randomized IDs and redacted revision headers reduce arm cues; routing prose can reveal semantic cues, so complete blinding is not guaranteed.",
+    "Common current norms neutralize substantive knowledge differences; residual manipulation is advice routing/delivery only.",
+    "No whole-target safety, review recall, causal efficacy, time/token/money savings or original P7 acceptance.",
+    "One attempt per arm/case; no repeats or correction retries.",
+    "Actual production occurrence and caller frequency UNKNOWN.",
+    "iPad/physical-device/actual VoiceOver verification OMITTED_BY_USER."
+  ],
+  "grading_notes": [
+    "Equivalent formulations were accepted against predispatch semantic criteria.",
+    "Severity calibration differs between one pair; frozen rubric required grounded impact and scoped uncertainty, not an exact severity value. This does not change success or add false positives.",
+    "Conditional backup discussion remains one supported root-cause finding, not extra recall credit.",
+    "Truncated presentations were self-reported as supplemented; hashes verify content identity, not presentation completeness.",
+    "Some ledgers reconstruct read order and rehash source for recording; dispatch-based time includes startup and is approximate.",
+    "One declaration notes practical slice presentation before completion of canonical deep sections; record as sequencing deviation, not an answer defect or new scope authorization.",
+    "No confirmed authority/scope breach is evidenced in supplied materials; no independent absence claim."
+  ],
+  "docs_route": "Current previously loaded Level 0 and task-relevant evaluation/review/concurrency/task-state/completion; no broad reread.",
+  "context_health": "контекст обновлять не нужно",
+  "model": "GPT-6.1 Sol/medium",
+  "mode": "эконом"
+}

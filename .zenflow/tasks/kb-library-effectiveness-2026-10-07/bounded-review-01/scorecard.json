@@ -1,0 +1,62 @@
+{
+  "status": "NOT_ESTABLISHED",
+  "scope": "4review cases/2projects/one attempt perarm; routing contrast only",
+  "rows": [
+    {
+      "case_id": "H-66c215148f01",
+      "project": "Countries",
+      "A": "SUCCESS",
+      "C": "SUCCESS",
+      "comparison": "TIE",
+      "substantial_FP_A": 0,
+      "substantial_FP_C": 0
+    },
+    {
+      "case_id": "H-0e20313934a1",
+      "project": "Countries",
+      "A": "SUCCESS",
+      "C": "SUCCESS",
+      "comparison": "TIE",
+      "substantial_FP_A": 0,
+      "substantial_FP_C": 0
+    },
+    {
+      "case_id": "H-bb4fd3190170",
+      "project": "Firefox",
+      "A": "SUCCESS",
+      "C": "SUCCESS",
+      "comparison": "TIE",
+      "substantial_FP_A": 0,
+      "substantial_FP_C": 0
+    },
+    {
+      "case_id": "H-a2dd3511e6fa",
+      "project": "Firefox",
+      "A": "SUCCESS",
+      "C": "SUCCESS",
+      "comparison": "TIE",
+      "substantial_FP_A": 0,
+      "substantial_FP_C": 0
+    }
+  ],
+  "A_success": 4,
+  "C_success": 4,
+  "wins_C": 0,
+  "losses_C": 0,
+  "ties": 4,
+  "threshold_met": false,
+  "independent_grade_sha256": "0737187f5208ac3d17313592efe21bf7d73f2e23c664052edb4fae3e23e08412",
+  "sealed_criteria_sha256": "c2aa8509e610e6b85ebeb237e3ea9f163f2e7a2bd54d02808a42ae8c0039fe66",
+  "worker_reported_seconds": 1325.527,
+  "tokens": "UNKNOWN",
+  "claims_omitted": [
+    "causal advantage",
+    "time/token/money savings",
+    "runtime",
+    "full P7",
+    "whole-target safety/recall"
+  ],
+  "parent_original_closed_inputs_oracles": "NOT_READ",
+  "parent_raw_reports_before_grade": "NOT_READ",
+  "used_closed_cases": "RETIRED_FROM_FUTURE_UNSEEN_HOLDOUT"
+}

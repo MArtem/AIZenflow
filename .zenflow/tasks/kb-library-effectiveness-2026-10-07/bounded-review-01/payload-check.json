@@ -1,0 +1,15 @@
+{
+  "status": "PASS_IDENTITY_ONLY",
+  "advice_files_per_arm": 37,
+  "different_files": [
+    "reusable/ios-engineering-library/reference-copy-only/KNOWLEDGE_ROUTER.md",
+    "reusable/ios-engineering-library/reference-copy-only/QUALITY_STANDARD.md",
+    "reusable/ios-engineering-library/reference-copy-only/REVIEW_GUIDE.md",
+    "reusable/ios-engineering-library/reference-copy-only/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+    "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+    "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+  ],
+  "same_files": 31,
+  "common_authority_files": 13,
+  "meaning": "identity only, not delivery/outcome/causal validation; no closed inputs read"
+}

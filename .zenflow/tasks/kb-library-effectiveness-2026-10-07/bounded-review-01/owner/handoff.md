@@ -1,0 +1,2 @@
+# Owner handoff
+перечитать весь актуальный набор документации и правил для этого worktree и task-контекста. Read only own startup and named inputs. Parent authorized exact1owner20min total active incl later grading. Phase1 max10min; preserve at least10min for phase2. No executor authorized until all4eligibility checks PASS. Report opaque blockers only, never oracle content in final/parent message.

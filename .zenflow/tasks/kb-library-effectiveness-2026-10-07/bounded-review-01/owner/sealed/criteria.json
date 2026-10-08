@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "sealed": true,
+  "parent_access": "FORBIDDEN",
+  "case_ids": [
+    "H-66c215148f01",
+    "H-0e20313934a1",
+    "H-bb4fd3190170",
+    "H-a2dd3511e6fa"
+  ],
+  "frozen_at": "2026-10-08T19:34:06.823427+00:00",
+  "scope": "Static review of explicit contract only; no runtime, full recall, whole target safety or original P7 acceptance.",
+  "general_success": [
+    "All mandatory semantic checks supported by exact source evidence.",
+    "No confirmed substantial false finding.",
+    "No unsupported runtime/full-recall/safety claim.",
+    "No scope or authority violation."
+  ],
+  "unknown_policy": "Unproven product occurrence/API runtime properties remain UNKNOWN; do not turn absence of runtime evidence into false positive automatically. Accept equivalent wording and schedules; no prose-quality score.",
+  "cases": {
+    "H-66c215148f01": {
+      "source": {
+        "root": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui",
+        "commit": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+        "files": [
+          {
+            "path": "CountriesSwiftUI/Core/DeepLinksHandler.swift",
+            "git_blob_sha": "b443e5bff613ce70bfdd3ec87f2c69303fe4601f",
+            "sha256": "af186492b5436976e6f96e179698b4f775570bc9e7345a76eea640ea74bddcdd",
+            "bytes": 2114
+          },
+          {
+            "path": "CountriesSwiftUI/Core/AppState.swift",
+            "git_blob_sha": "809569df7970654d3fa42ba86f9c7248c58888b5",
+            "sha256": "ea7cd988b5e02573e53d7d801777aa46cc02e7891f4a884531e5fe4693aa5452",
+            "bytes": 1206
+          },
+          {
+            "path": "CountriesSwiftUI/Utilities/Store.swift",
+            "git_blob_sha": "7b0b5d1d741f4e7a9d86838a2ae95a24f6997eba",
+            "sha256": "624d2770ab59404018980c8bd1f152ab4fbb173a38b8f3e2aaee7f33ed7cb6bb",
+            "bytes": 1581
+          }
+        ],
+        "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+      },
+      "input_sha256": "18685af0535ea273587cbabc27e6496bc32c3b4a7a8d393589230d06eae5f646",
+      "oracle_sha256": "de793906b57ca79ea5850368eb1a872a60609edce3f4e4deb6461bfb5de016f1",
+      "clean_control": false,
+      "required": [
+        "Nondefault route -> A scheduled.",
+        "B arrives after reset -> immediate B.",
+        "Delayed A -> final A contradicts latest B.",
+        "No invented physical/UI evidence or full recall."
+      ],
+      "acceptable_alternatives": [
+        "Show one logical violation with source-derived schedule; distinguish this contract from unspecified shipped product behavior."
+      ],
+      "correct_trace": {
+        "outcome": "A sets routing default and queues old target; B observes default and routes immediately; delayed A overwrites B.",
+        "reasoning": "The closure captures alpha3Code and has no intent validity check; current routing is explicitly reset before delay."
+      },
+      "wrong_trace": {
+        "outcome": "Dismiss the schedule because all actions occur on main queue or assert no cancellation problem because no Task exists.",
+        "reasoning": "Main serialization prevents data races but not the stale intent publication captured by asyncAfter."
+      },
+      "static_validation": "PASS_INDEPENDENT_SOURCE_TRACE",
+      "limitations": [
+        "Public API contract and hypothetical schedules only; actual product frequency UNKNOWN.",
+        "No executable patch validated; API runtime effects NOT_RUN."
+      ],
+      "independent_notes": "Assignment resets routing to default before delayed captured alpha3Code publication. Later immediate call observes default. Store writes synchronously; queue serialization does not invalidate this ordering. No Task-based requirement is inferred. Initial nondefault route is explicit caller assumption."
+    },
+    "H-0e20313934a1": {
+      "source": {
+        "root": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui",
+        "commit": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+        "files": [
+          {
+            "path": "CountriesSwiftUI/Repositories/Database/CountriesDBRepository.swift",
+            "git_blob_sha": "388f9daaea241df3c3bf8111c94fb59422488db5",
+            "sha256": "59b3218234779a5cf91af628c80d445f004d2581fd2ea6fb9c343b2802355a4f",
+            "bytes": 2490
+          },
+          {
+            "path": "CountriesSwiftUI/Repositories/Database/ModelContainer.swift",
+            "git_blob_sha": "cc6901ec138806340ebe16ed6984558dd6b8f328",
+            "sha256": "f0a5b16e845d8be245e15bc64b6258d16c6be67e1bcf0bee3366e5c6d3ee28d3",
+            "bytes": 815
+          }
+        ],
+        "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+      },
+      "input_sha256": "5d02fad7090332df797ac70ae4fb66fa49b432f3a1256081aa687a3b0720a1c3",
+      "oracle_sha256": "ccf40025eac1f20eac52edd1188ed2df05d1b1283453c10d584f8140fd504b60",
+      "clean_control": true,
+      "required": [
+        "All currency/details inserts inside closure.",
+        "No await within closure.",
+        "Fetch failure precedes any insert in this method.",
+        "Rollback/upsert/interruption remain unverified; full recall UNKNOWN."
+      ],
+      "acceptable_alternatives": [
+        "Scoped no-defect verdict for stated enclosure claim plus explicit remaining evidence; separate unverified concerns."
+      ],
+      "correct_trace": {
+        "outcome": "Verify enclosure and no await, reserve transaction rollback/durability as runtime-dependent.",
+        "reasoning": "Both insert sites occur inside transaction closure, after neighbor fetch, without suspension; API naming alone cannot prove process-interruption outcomes."
+      },
+      "wrong_trace": {
+        "outcome": "Report missing transaction or declare cancellation guarantees undo after commit.",
+        "reasoning": "The transaction is present and there is no cancellation undo implementation; scope does not establish durable rollback."
+      },
+      "static_validation": "PASS_INDEPENDENT_SOURCE_TRACE",
+      "limitations": [
+        "Public API contract and hypothetical schedules only; actual product frequency UNKNOWN.",
+        "No executable patch validated; API runtime effects NOT_RUN."
+      ],
+      "independent_notes": "Both insert sites follow throwing neighbor fetch inside same synchronous transaction closure. dbModel construction before fetch is not an insert. No await divides sequence. SwiftData disk commit, rollback, upsert and cross-context visibility are outside evidence."
+    },
+    "H-bb4fd3190170": {
+      "source": {
+        "root": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+        "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+        "files": [
+          {
+            "path": "BrowserKit/Sources/TabDataStore/TabDataStore.swift",
+            "git_blob_sha": "e07e6fd2e7fe64e87608433fc2f9e7826bfa3c4d",
+            "sha256": "a4349eb587e23b33f0879e51cb530d1ec02b0602b262ca16e92fc77b601683c0",
+            "bytes": 11736
+          },
+          {
+            "path": "BrowserKit/Sources/TabDataStore/WindowData.swift",
+            "git_blob_sha": "13a1a442ee5b2f757c228cc31f26451db7400e19",
+            "sha256": "8305f1a64c2b7db473f364629a05e6994614e6e160deed65b7135f74b4cde473",
+            "bytes": 956
+          },
+          {
+            "path": "BrowserKit/Sources/TabDataStore/TabFileManager.swift",
+            "git_blob_sha": "7d1955b19d910f96fd87d385f314773a595d2895",
+            "sha256": "3b8391dab7e1cebe772139837ac956e5833269cb054e1346ab8da10923f84564",
+            "bytes": 6678
+          }
+        ],
+        "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+      },
+      "input_sha256": "0e97879690be6ee72b20aff519e4d69a2bd1329359e77f0b9e8e30212cb659ac",
+      "oracle_sha256": "b3928a5725ada1eed8d55ea432dc0b917ae3a323a54b4a37797995214588a6e6",
+      "clean_control": false,
+      "required": [
+        "Call A -> capture A path and scheduled flag.",
+        "Call B during sleep -> replace pending data.",
+        "A task wakes -> writes B to A path.",
+        "B backup path interaction classified separately; actual UI occurrence UNKNOWN."
+      ],
+      "acceptable_alternatives": [
+        "Scoped API-reachable producer/consumer mismatch with caller-frequency uncertainty; no full recall."
+      ],
+      "correct_trace": {
+        "outcome": "A path captured in scheduled Task can receive latest B payload from shared windowDataToSave.",
+        "reasoning": "Only one pending value and scheduling flag exist across all IDs; second B updates value then is rejected by schedule guard. Actor reentrancy during sleep permits this ordering."
+      },
+      "wrong_trace": {
+        "outcome": "Declare actor serialization guarantees path/payload equality, or assume singleton-window use without evidence.",
+        "reasoning": "Logical pairing is broken across suspension even without a data race, and public API does not enforce the assumed precondition."
+      },
+      "static_validation": "PASS_INDEPENDENT_SOURCE_TRACE",
+      "limitations": [
+        "Public API contract and hypothetical schedules only; actual product frequency UNKNOWN.",
+        "No executable patch validated; API runtime effects NOT_RUN."
+      ],
+      "independent_notes": "Successful path resolution and finite sleep are explicit reachable-path conditions. One shared pending value, one scheduled flag; captured first path persists while second call updates pending value before guard. windowURLPath derives suffix from supplied UUID. Backup path is derived from pending id and can be separate mismatch but actual prior-file existence unknown; not required as another confirmed defect."
+    },
+    "H-a2dd3511e6fa": {
+      "source": {
+        "root": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+        "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+        "files": [
+          {
+            "path": "BrowserKit/Sources/TabDataStore/TabFileManager.swift",
+            "git_blob_sha": "7d1955b19d910f96fd87d385f314773a595d2895",
+            "sha256": "3b8391dab7e1cebe772139837ac956e5833269cb054e1346ab8da10923f84564",
+            "bytes": 6678
+          },
+          {
+            "path": "BrowserKit/Sources/TabDataStore/WindowData.swift",
+            "git_blob_sha": "13a1a442ee5b2f757c228cc31f26451db7400e19",
+            "sha256": "8305f1a64c2b7db473f364629a05e6994614e6e160deed65b7135f74b4cde473",
+            "bytes": 956
+          }
+        ],
+        "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+      },
+      "input_sha256": "8e8b9613352ca51a2bbd3d08e6ab18a948e533024de193f6cdfd68eabe8a149a",
+      "oracle_sha256": "ce6cc8f0c9728e53ab01f400b96d3ab3aee7ecbef363762b7f1143aa56953cb5",
+      "clean_control": true,
+      "required": [
+        "Encoding error prevents write.",
+        "AtomicWrite present.",
+        "Write error propagates.",
+        "Interruption/backup/device results NOT_RUN; unrelated copy method excluded."
+      ],
+      "acceptable_alternatives": [
+        "Scoped no-defect review of ordering/options with runtime limitations."
+      ],
+      "correct_trace": {
+        "outcome": "Confirm encode-before-write and atomicWrite option; reserve interruption/durability outcomes as unrun.",
+        "reasoning": "write receives data only after successful JSONEncoder.encode and is throwing; option appears directly in the write call."
+      },
+      "wrong_trace": {
+        "outcome": "Claim encode failure writes partial JSON or that atomicWrite proves power-loss safety/PASS.",
+        "reasoning": "No data write call is reached on encoding error; the source cannot establish unperformed runtime or durable storage guarantees."
+      },
+      "static_validation": "PASS_INDEPENDENT_SOURCE_TRACE",
+      "limitations": [
+        "Public API contract and hypothetical schedules only; actual product frequency UNKNOWN.",
+        "No executable patch validated; API runtime effects NOT_RUN."
+      ],
+      "independent_notes": "Encoder throws before write is reached; atomicWrite option is literally requested; write errors propagate. Codable conformance does not prove every payload can fail encoding or guarantee durability. Conditional encode failure semantics suffice; runtime occurrence not required."
+    }
+  },
+  "contrast_analysis": {
+    "changed_paths": 6,
+    "unchanged_paths": 31,
+    "shared_substantive_norms": true,
+    "surviving_contrast": "Historical A explicitly selects the bounded CXL-01 practical slice for observed replacement/publication work; C selects it optionally only if source plus KB remain unresolved. C delegates common loops to their canonical owners and uses addressed deep-reading sections; A repeats advice and selects more broadly. Mandatory current norms do not command reading CXL-01 and do not erase this advisory trigger difference. CXL-01 body itself unchanged.",
+    "limit": "Process/delivery contrast, not distinct substantive engineering guarantees; no new-knowledge or causal claim."
+  }
+}

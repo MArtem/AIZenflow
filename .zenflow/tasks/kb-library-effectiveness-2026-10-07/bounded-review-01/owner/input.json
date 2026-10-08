@@ -1,0 +1,29 @@
+{
+  "task": "Independent phase1 eligibility and rubric preparation for4sealed review cases; no execution/grading yet",
+  "freeze": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/freeze.json",
+  "protocol": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-protocol-proposal.md",
+  "manifest": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/curator/opaque-manifest.json",
+  "curator_root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/curator",
+  "allowed_case_ids": [
+    "H-66c215148f01",
+    "H-0e20313934a1",
+    "H-bb4fd3190170",
+    "H-a2dd3511e6fa"
+  ],
+  "source_roots": [
+    "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui",
+    "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios"
+  ],
+  "instructions": [
+    "Read only these4input/oracle pairs from manifest, verify hashes and exact source Git blobs named by them; do not read unrelated holdouts/development.",
+    "Freeze sealed per-case scoring criteria before executors; validate correct and plausible wrong static reasoning against pinned source; no executable tests. If oracle ambiguous or static-only insufficient, BLOCK.",
+    "Need adequate negative/clean control among the4; if absent BLOCK without replacing.",
+    "Audit payload contrast A historical versus Ccurrent under identical mandatory baseline. Current norm reads remain authoritative. If common mandatory knowledge neutralizes ALL contrast relevant to these4 tasks BLOCK. Report contrast topics/limits without disclosing taskanswers.",
+    "Create sealed/criteria.json (parent forbidden to read). Create executor input bundles (case task input only, no oracle/rubric answer) under inputs/<case>.json; parent will copy bytes without reading. Include exact source repo/commit/filehashes fromcase.",
+    "Create public eligibility.json (PASS/BLOCK by opaqueID, evidence-level and reasons without solutions), budget.json (start/end/elapsed seconds), report.md concise non-answer report. Do not expose criteria answers in final.",
+    "Do not claim runtime oracle, whole-target safety/recall, causality or P7 acceptance. No app state/files/commits or payloads changes.",
+    "Phase1 cap600s; total owner budget1200s across phases. No children/MCP/network/runtime/tests."
+  ],
+  "write_root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/owner",
+  "phase2": "Wait for later parent followup; no agent wait tool needed; return after phase1"
+}

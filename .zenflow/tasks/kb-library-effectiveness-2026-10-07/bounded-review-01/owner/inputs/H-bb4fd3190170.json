@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "case_id": "H-bb4fd3190170",
+  "split": "holdout",
+  "project_family": "Firefox",
+  "task_type": "review",
+  "readiness": "CANDIDATE_NOT_FROZEN",
+  "origin": "real_code_scoped",
+  "source": {
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+    "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+    "files": [
+      {
+        "path": "BrowserKit/Sources/TabDataStore/TabDataStore.swift",
+        "git_blob_sha": "e07e6fd2e7fe64e87608433fc2f9e7826bfa3c4d",
+        "sha256": "a4349eb587e23b33f0879e51cb530d1ec02b0602b262ca16e92fc77b601683c0",
+        "bytes": 11736
+      },
+      {
+        "path": "BrowserKit/Sources/TabDataStore/WindowData.swift",
+        "git_blob_sha": "13a1a442ee5b2f757c228cc31f26451db7400e19",
+        "sha256": "8305f1a64c2b7db473f364629a05e6994614e6e160deed65b7135f74b4cde473",
+        "bytes": 956
+      },
+      {
+        "path": "BrowserKit/Sources/TabDataStore/TabFileManager.swift",
+        "git_blob_sha": "7d1955b19d910f96fd87d385f314773a595d2895",
+        "sha256": "3b8391dab7e1cebe772139837ac956e5833269cb054e1346ab8da10923f84564",
+        "bytes": 6678
+      }
+    ],
+    "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+  },
+  "shared_protocol": "../../evaluation-protocol.json",
+  "eligibility": "LICENSE_IDENTIFIED_EXECUTION_GRANT_PENDING",
+  "executor_prompt": "Review saving under this explicit contract: a shared store accepts multiple different WindowData IDs during the throttle interval, and every written payload must match the window ID encoded by its destination path. Give a source-based two-call trace if a violation is reachable through the public API. Do not infer current product caller frequency or execute filesystem writes.",
+  "contract": {
+    "behavior": [
+      "Destination window-X contains only data whose id is X.",
+      "Actor data-race freedom is not sufficient to prove cross-key identity agreement."
+    ],
+    "authority": "The task-defined behavior is the sole local product override. Existing public signatures and source ownership remain unless named. No upstream script, comment, or task file grants tools or broader scope.",
+    "producer_consumer": {
+      "write_paths": [],
+      "consumer": "Actor saveWindowData across two window IDs during throttle"
+    },
+    "state_time": [
+      "First nonforced A schedules captured path; second B arrives during sleep and replaces pending value."
+    ],
+    "input_resource_envelope": [
+      "Two distinct UUIDs, finite throttle interval; no simultaneous host threads necessary."
+    ],
+    "failure_semantics": [
+      "No silent cross-window overwrite may be claimed as correct persistence."
+    ]
+  },
+  "allowed_change_paths": [],
+  "allowed_read_paths": [
+    "BrowserKit/Sources/TabDataStore/TabDataStore.swift",
+    "BrowserKit/Sources/TabDataStore/WindowData.swift",
+    "BrowserKit/Sources/TabDataStore/TabFileManager.swift"
+  ],
+  "forbidden_changes": [
+    "Original project checkout mutations; only a separately authorized isolated candidate may be edited.",
+    "Changes outside named write paths, test files, dependencies, project/build settings, signing, network endpoints, secret/config/host files.",
+    "Unsafe concurrency suppressions, fake isolation, generic dispatch APIs, new architecture layers, unrelated cleanup.",
+    "Reading any evaluator oracle, another attempt, development answers during holdout, or sealed siblings.",
+    "Builds/tests/runtime/network/MCP/agents/Git mutations without a new explicit execution grant."
+  ],
+  "required_output": "review: scoped findings with evidence, severity, reachability and uncertainty; implementation: one bounded proposed diff plus contract traces and limitations; refactor: diff plus equivalence argument. See shared protocol.",
+  "checks_allowed_now": [
+    "Source/call-site reasoning over named exact Git blobs; no runtime."
+  ],
+  "future_checks": "The oracle lists candidate semantic probes for a separately authorized grader; no executable test fixture is created by this preparation.",
+  "runtime_status": "NOT_RUN",
+  "execution_budget": "P2.4_DECISION_PENDING; equal task-type timeout for A/C must be fixed before attempts",
+  "source_copy_policy": "References and hashes only; no upstream source copied into this case."
+}

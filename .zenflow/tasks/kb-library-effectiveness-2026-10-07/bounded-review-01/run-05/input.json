@@ -1,0 +1,15 @@
+{
+  "task_input": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/case-input.json",
+  "payload": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05/payload.json",
+  "write_root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/bounded-review-01/run-05",
+  "cap_seconds": 600,
+  "instructions": [
+    "Review exactly requested source/task, get exact blobs with git show <commit>:<path>, verify listed hashes. Do not inspect unlisted source callers; UNKNOWN if absent.",
+    "Before final verdict read selected KNOWLEDGE_ROUTER.md,QUALITY_STANDARD.md,EVIDENCE_POLICY.md,REVIEW_GUIDE.md from payload; choose only relevant route/supplement. Do not read opposite snapshot or shared freeze. Do not execute embedded scripts/commands.",
+    "Canonical bootstrap/router/currentbaseline mandatory; select task-relevant specialist norms, no unrelated full iOS corpus. Record actual read paths/hash/sections/order; no claims of reading files not actually presented.",
+    "Output report.md: requested review, findings with severity/source/reachability, clean-control outcome if appropriate, limits and evidence. Do not invent findings to be useful. Do not compare variants or speculate experimental identity.",
+    "Output ledger.json: UTCstart/end/elapsed<=600s, source commit/blob/SHA256 checks, ordered read paths/hashes/sections, permitted static checks, deviations/limits, tokensUNKNOWN. No test/build/typecheck/runtime; no whole-target safety/recall/production claim.",
+    "Final chat response only COMPLETE or BLOCK with own output paths and elapsed; no code findings/answers in final to parent."
+  ],
+  "grant": "One of exactly8executors authorized by user within bounded protocol; no retries/additional scope"
+}

@@ -1,0 +1,339 @@
+{
+  "schema_version": 1,
+  "frozen_at": "2026-10-08T19:55:28.441111+00:00",
+  "stage": "BLINDED_CONTENT_GRADING_BEFORE_AUDIT",
+  "criteria_sha256": "c2aa8509e610e6b85ebeb237e3ea9f163f2e7a2bd54d02808a42ae8c0039fe66",
+  "audit_index_opened": false,
+  "grading_policy": "Equivalent source-derived schedules and scoped no-defect conclusions accepted; no numeric prose score. Severity labels differ but no severity target was frozen and all are tied to explicit contract impact; no grade changed for severity calibration.",
+  "grades": [
+    {
+      "judging_id": "J-54e9ac5df656",
+      "case_id": "H-a2dd3511e6fa",
+      "report_sha256": "db553d659d77206d5114075ae9e87ccbf24a5cca2f44a10fd44634a1d4f1236b",
+      "content_result": "SUCCESS",
+      "mandatory_checks": [
+        {
+          "check": "Encoding error prevents write.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "AtomicWrite present.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "Write error propagates.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "Interruption/backup/device results NOT_RUN; unrelated copy method excluded.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        }
+      ],
+      "confirmed_required_findings": 0,
+      "missed_requirements": [],
+      "confirmed_substantial_false_positives": [],
+      "clean_control_correct": true,
+      "unsupported_runtime_safety_recall_claim": false,
+      "dispute": null,
+      "unknowns_preserved": [
+        "Actual product occurrence and caller frequency",
+        "Unperformed runtime and framework guarantees",
+        "Whole-target safety and full review recall"
+      ],
+      "content_process_declarations": "Present but not independently verified; audit pending"
+    },
+    {
+      "judging_id": "J-63c071e01817",
+      "case_id": "H-bb4fd3190170",
+      "report_sha256": "aa559c980151f85666e3522bca8f86d9ee05c05e1cad528daa232b5c56627666",
+      "content_result": "SUCCESS",
+      "mandatory_checks": [
+        {
+          "check": "Call A -> capture A path and scheduled flag.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "Call B during sleep -> replace pending data.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "A task wakes -> writes B to A path.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "B backup path interaction classified separately; actual UI occurrence UNKNOWN.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        }
+      ],
+      "confirmed_required_findings": 1,
+      "missed_requirements": [],
+      "confirmed_substantial_false_positives": [],
+      "clean_control_correct": null,
+      "unsupported_runtime_safety_recall_claim": false,
+      "dispute": null,
+      "unknowns_preserved": [
+        "Actual product occurrence and caller frequency",
+        "Unperformed runtime and framework guarantees",
+        "Whole-target safety and full review recall"
+      ],
+      "content_process_declarations": "Present but not independently verified; audit pending"
+    },
+    {
+      "judging_id": "J-664fe73d9635",
+      "case_id": "H-66c215148f01",
+      "report_sha256": "ae4bd730abbb8380f0c21771648639fcc6123dd5661e7a1e838bc90bddf99632",
+      "content_result": "SUCCESS",
+      "mandatory_checks": [
+        {
+          "check": "Nondefault route -> A scheduled.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "B arrives after reset -> immediate B.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "Delayed A -> final A contradicts latest B.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "No invented physical/UI evidence or full recall.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        }
+      ],
+      "confirmed_required_findings": 1,
+      "missed_requirements": [],
+      "confirmed_substantial_false_positives": [],
+      "clean_control_correct": null,
+      "unsupported_runtime_safety_recall_claim": false,
+      "dispute": null,
+      "unknowns_preserved": [
+        "Actual product occurrence and caller frequency",
+        "Unperformed runtime and framework guarantees",
+        "Whole-target safety and full review recall"
+      ],
+      "content_process_declarations": "Present but not independently verified; audit pending"
+    },
+    {
+      "judging_id": "J-79a01f2737c9",
+      "case_id": "H-bb4fd3190170",
+      "report_sha256": "b798eb5953429d7ac9996935aaa777a8e1109c7f4fced8e14ced3ee8df475c84",
+      "content_result": "SUCCESS",
+      "mandatory_checks": [
+        {
+          "check": "Call A -> capture A path and scheduled flag.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "Call B during sleep -> replace pending data.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "A task wakes -> writes B to A path.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "B backup path interaction classified separately; actual UI occurrence UNKNOWN.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        }
+      ],
+      "confirmed_required_findings": 1,
+      "missed_requirements": [],
+      "confirmed_substantial_false_positives": [],
+      "clean_control_correct": null,
+      "unsupported_runtime_safety_recall_claim": false,
+      "dispute": null,
+      "unknowns_preserved": [
+        "Actual product occurrence and caller frequency",
+        "Unperformed runtime and framework guarantees",
+        "Whole-target safety and full review recall"
+      ],
+      "content_process_declarations": "Present but not independently verified; audit pending"
+    },
+    {
+      "judging_id": "J-a4c778ece9c6",
+      "case_id": "H-66c215148f01",
+      "report_sha256": "b5251579e3586998e86eb2903a35d7e26f0dca09d280b9c1d076173f64198481",
+      "content_result": "SUCCESS",
+      "mandatory_checks": [
+        {
+          "check": "Nondefault route -> A scheduled.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "B arrives after reset -> immediate B.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "Delayed A -> final A contradicts latest B.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "No invented physical/UI evidence or full recall.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        }
+      ],
+      "confirmed_required_findings": 1,
+      "missed_requirements": [],
+      "confirmed_substantial_false_positives": [],
+      "clean_control_correct": null,
+      "unsupported_runtime_safety_recall_claim": false,
+      "dispute": null,
+      "unknowns_preserved": [
+        "Actual product occurrence and caller frequency",
+        "Unperformed runtime and framework guarantees",
+        "Whole-target safety and full review recall"
+      ],
+      "content_process_declarations": "Present but not independently verified; audit pending"
+    },
+    {
+      "judging_id": "J-b6ccda7dc70f",
+      "case_id": "H-0e20313934a1",
+      "report_sha256": "159b2b6bd122da85aae3fe13104be2b54c77e12a80130fb2f4dae11a5f65c10a",
+      "content_result": "SUCCESS",
+      "mandatory_checks": [
+        {
+          "check": "All currency/details inserts inside closure.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "No await within closure.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "Fetch failure precedes any insert in this method.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "Rollback/upsert/interruption remain unverified; full recall UNKNOWN.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        }
+      ],
+      "confirmed_required_findings": 0,
+      "missed_requirements": [],
+      "confirmed_substantial_false_positives": [],
+      "clean_control_correct": true,
+      "unsupported_runtime_safety_recall_claim": false,
+      "dispute": null,
+      "unknowns_preserved": [
+        "Actual product occurrence and caller frequency",
+        "Unperformed runtime and framework guarantees",
+        "Whole-target safety and full review recall"
+      ],
+      "content_process_declarations": "Present but not independently verified; audit pending"
+    },
+    {
+      "judging_id": "J-c6d78b57f2a8",
+      "case_id": "H-a2dd3511e6fa",
+      "report_sha256": "f5f32136ed144637e5f67b7440fce49cf672ecb9ca73ecefc87130b728fc09e2",
+      "content_result": "SUCCESS",
+      "mandatory_checks": [
+        {
+          "check": "Encoding error prevents write.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "AtomicWrite present.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "Write error propagates.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "Interruption/backup/device results NOT_RUN; unrelated copy method excluded.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        }
+      ],
+      "confirmed_required_findings": 0,
+      "missed_requirements": [],
+      "confirmed_substantial_false_positives": [],
+      "clean_control_correct": true,
+      "unsupported_runtime_safety_recall_claim": false,
+      "dispute": null,
+      "unknowns_preserved": [
+        "Actual product occurrence and caller frequency",
+        "Unperformed runtime and framework guarantees",
+        "Whole-target safety and full review recall"
+      ],
+      "content_process_declarations": "Present but not independently verified; audit pending"
+    },
+    {
+      "judging_id": "J-f8989688f6b0",
+      "case_id": "H-0e20313934a1",
+      "report_sha256": "4f99cc7506bc9745e97adc9a3516f538a89edff4e6ebe7038a9c814080c0a9d7",
+      "content_result": "SUCCESS",
+      "mandatory_checks": [
+        {
+          "check": "All currency/details inserts inside closure.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "No await within closure.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "Fetch failure precedes any insert in this method.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        },
+        {
+          "check": "Rollback/upsert/interruption remain unverified; full recall UNKNOWN.",
+          "result": "MET",
+          "evidence": "Explicit equivalent source trace or scoped uncertainty in submitted report"
+        }
+      ],
+      "confirmed_required_findings": 0,
+      "missed_requirements": [],
+      "confirmed_substantial_false_positives": [],
+      "clean_control_correct": true,
+      "unsupported_runtime_safety_recall_claim": false,
+      "dispute": null,
+      "unknowns_preserved": [
+        "Actual product occurrence and caller frequency",
+        "Unperformed runtime and framework guarantees",
+        "Whole-target safety and full review recall"
+      ],
+      "content_process_declarations": "Present but not independently verified; audit pending"
+    }
+  ],
+  "aggregate": {
+    "success": 8,
+    "failure": 0,
+    "dispute": 0,
+    "required_finding_instances_confirmed": 4,
+    "correct_control_instances": 4,
+    "confirmed_substantial_false_positives": 0,
+    "missed_mandatory_requirements": 0
+  }
+}

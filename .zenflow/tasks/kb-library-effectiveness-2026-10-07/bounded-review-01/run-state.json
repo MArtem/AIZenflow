@@ -1,0 +1,139 @@
+{
+  "grant": "user \u0440\u0430\u0437\u0440\u0435\u0448\u0430\u044e, protocol bounded-review-protocol-proposal.md, exactly9agents max",
+  "model": "GPT-6.1 Sol/medium",
+  "mode": "\u044d\u043a\u043e\u043d\u043e\u043c",
+  "worker_cap_seconds": 6000,
+  "owner_cap_seconds": 1200,
+  "executor_cap_seconds_each": 600,
+  "owner_agent": "/root/bounded_review_owner",
+  "status": "COMPLETE_NOT_ESTABLISHED",
+  "created_utc": "2026-10-08T19:32:27.524889+00:00",
+  "dispatches": [
+    {
+      "kind": "owner",
+      "agent": "/root/bounded_review_owner",
+      "phase": 1
+    },
+    {
+      "kind": "executor",
+      "run": "run-01",
+      "agent": "/root/bounded_review_run01",
+      "dispatch_utc": "2026-10-08T19:35:15.711129+00:00",
+      "cap_seconds": 600,
+      "status": "COMPLETE",
+      "reported_elapsed_seconds": 136.36,
+      "output_sha256": {
+        "report.md": "b5251579e3586998e86eb2903a35d7e26f0dca09d280b9c1d076173f64198481",
+        "ledger.json": "6cb0d6861aa8b4d9f71ca725395c532a244dcd88990d55cb08ff028632869922"
+      }
+    },
+    {
+      "kind": "executor",
+      "run": "run-02",
+      "agent": "/root/bounded_review_run02",
+      "dispatch_utc": "2026-10-08T19:37:43.047059+00:00",
+      "cap_seconds": 600,
+      "status": "COMPLETE",
+      "reported_elapsed_seconds": 151.18,
+      "output_sha256": {
+        "report.md": "53604a9b7a2c85b5891517dd7ea41708a9ac0bf4e7aa8253ea2111112bafd3aa",
+        "ledger.json": "c59aeb2e066ee23ac5349c89da55f34ad67f28dba9ce02df43f67af49f105558"
+      }
+    },
+    {
+      "kind": "executor",
+      "run": "run-03",
+      "agent": "/root/bounded_review_run03",
+      "dispatch_utc": "2026-10-08T19:40:25.087892+00:00",
+      "cap_seconds": 600,
+      "status": "COMPLETE",
+      "reported_elapsed_seconds": 133.137,
+      "output_sha256": {
+        "report.md": "4f99cc7506bc9745e97adc9a3516f538a89edff4e6ebe7038a9c814080c0a9d7",
+        "ledger.json": "f5684171b1cf5962d3e7afe74d3e238dedd296119158f473724d5b5a94af0f05"
+      }
+    },
+    {
+      "kind": "executor",
+      "run": "run-04",
+      "agent": "/root/bounded_review_run04",
+      "dispatch_utc": "2026-10-08T19:42:46.071673+00:00",
+      "cap_seconds": 600,
+      "status": "COMPLETE",
+      "reported_elapsed_seconds": 138.38,
+      "output_sha256": {
+        "report.md": "159b2b6bd122da85aae3fe13104be2b54c77e12a80130fb2f4dae11a5f65c10a",
+        "ledger.json": "fec2b80620f15e3ec72087ad8c2905f0b559653088519057276b6416f24c6ba6"
+      }
+    },
+    {
+      "kind": "executor",
+      "run": "run-05",
+      "agent": "/root/bounded_review_run05",
+      "dispatch_utc": "2026-10-08T19:45:12.294061+00:00",
+      "cap_seconds": 600,
+      "status": "COMPLETE",
+      "reported_elapsed_seconds": 139.97,
+      "output_sha256": {
+        "report.md": "170c97ccf81c9dee08cb95f1e4012f6376fc2d8ea543267bb98b7bfd5cc8649e",
+        "ledger.json": "8d13999ccd2040355bb8e4db2239f8a4583279ab8b5067c00e8a82da16ceb176"
+      }
+    },
+    {
+      "kind": "executor",
+      "run": "run-06",
+      "agent": "/root/bounded_review_run06",
+      "dispatch_utc": "2026-10-08T19:47:41.592165+00:00",
+      "cap_seconds": 600,
+      "status": "COMPLETE",
+      "reported_elapsed_seconds": 148.227,
+      "output_sha256": {
+        "report.md": "aa559c980151f85666e3522bca8f86d9ee05c05e1cad528daa232b5c56627666",
+        "ledger.json": "7c688593132c08f6c6ddf70e0c08dcd8a2dd6dbbd50bccea18671d02818d38ac"
+      }
+    },
+    {
+      "kind": "executor",
+      "run": "run-07",
+      "agent": "/root/bounded_review_run07",
+      "dispatch_utc": "2026-10-08T19:50:31.708022+00:00",
+      "cap_seconds": 600,
+      "status": "COMPLETE",
+      "reported_elapsed_seconds": 104.59,
+      "output_sha256": {
+        "report.md": "db553d659d77206d5114075ae9e87ccbf24a5cca2f44a10fd44634a1d4f1236b",
+        "ledger.json": "f3ecfbfa50234d1897af4f34d696c49c57584c9997edc6c9edaccf4161d24c1b"
+      }
+    },
+    {
+      "kind": "executor",
+      "run": "run-08",
+      "agent": "/root/bounded_review_run08",
+      "dispatch_utc": "2026-10-08T19:52:24.296775+00:00",
+      "cap_seconds": 600,
+      "status": "COMPLETE",
+      "reported_elapsed_seconds": 119.685,
+      "output_sha256": {
+        "report.md": "f5f32136ed144637e5f67b7440fce49cf672ecb9ca73ecefc87130b728fc09e2",
+        "ledger.json": "c76ad2ee82e47c60c561383908569637b04f3fd41d0fbab444ee894e473732cb"
+      }
+    }
+  ],
+  "holdout_parent": "NOT_READ",
+  "no_new_grants": "No downloads/environment modernization/runtime/tests/sourcechanges/MCP/children/modes",
+  "owner_phase1_seconds": 133.075,
+  "executor_reported_seconds": 1071.529,
+  "grading_dispatch_utc": "2026-10-08T19:54:40.427339+00:00",
+  "owner_total_active_seconds": 253.998,
+  "total_worker_reported_seconds": 1325.527,
+  "agents_created": 9,
+  "executor_attempts": 8,
+  "all_grants_consumed": true,
+  "next": "Human decision on experimental closeout; no automatic rerun",
+  "used_cases_retired_from_future_unseen_holdout": [
+    "H-66c215148f01",
+    "H-0e20313934a1",
+    "H-bb4fd3190170",
+    "H-a2dd3511e6fa"
+  ]
+}
