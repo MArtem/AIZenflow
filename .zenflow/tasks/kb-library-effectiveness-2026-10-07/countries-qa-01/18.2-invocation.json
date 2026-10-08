@@ -1,0 +1,43 @@
+{
+  "args": [
+    "/Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild",
+    "-project",
+    "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui/CountriesSwiftUI.xcodeproj",
+    "-scheme",
+    "CountriesSwiftUI",
+    "-configuration",
+    "Debug",
+    "-sdk",
+    "iphonesimulator",
+    "-destination",
+    "platform=iOS Simulator,id=FF1C266A-0F58-463D-9002-392BC39AF529",
+    "-destination-timeout",
+    "30",
+    "-derivedDataPath",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/countries-qa/derived-data",
+    "-clonedSourcePackagesDirPath",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/countries-qa/source-packages",
+    "-packageCachePath",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/countries-qa/cache/swiftpm",
+    "-disableAutomaticPackageResolution",
+    "-skipPackageUpdates",
+    "-resultBundlePath",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/countries-qa/18.2.xcresult",
+    "-only-testing:UnitTests/LoadCountryDetailsTests",
+    "-only-testing:UnitTests/CountriesDBRepositoryTests",
+    "-quiet",
+    "CODE_SIGNING_ALLOWED=NO",
+    "CODE_SIGNING_REQUIRED=NO",
+    "COMPILER_INDEX_STORE_ENABLE=NO",
+    "CLANG_MODULE_CACHE_PATH=/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/countries-qa/cache/clang",
+    "SWIFT_MODULE_CACHE_PATH=/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/countries-qa/cache/swift",
+    "SDK_STAT_CACHE_DIR=/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/countries-qa/cache/sdk-stat",
+    "CACHE_ROOT=/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/countries-qa/cache",
+    "test"
+  ],
+  "environment_overrides": {
+    "TMPDIR": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/countries-qa/tmp",
+    "CFFIXED_USER_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/countries-qa/cocoa-home",
+    "XDG_CACHE_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-library-effectiveness-2026-10-07/countries-qa/cache"
+  }
+}

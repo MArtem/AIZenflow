@@ -1,0 +1,15 @@
+{
+  "base": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+  "head": "3bfd869fcd11fa4ca04e065750ebfeff9d8f33ba",
+  "branch": "codex/countries-db-error-contract",
+  "clean": true,
+  "contract": "Revised DB-error versus nil contract; cancellation type preserved; existing force/hit/store/network flow retained",
+  "findings": "No known P0-P3 within final two-file diff; compiled/runtime evidence BLOCKED",
+  "checks": [
+    "complete source/test diff review",
+    "direct UI caller static inspection",
+    "git diff --check"
+  ],
+  "remote": "upstream not pushed; local pinned base; exact full patch mirrored into owned evidence repositories",
+  "residual": "No compile/runtime evidence; packages unresolved; no causal KB/Library benefit"
+}

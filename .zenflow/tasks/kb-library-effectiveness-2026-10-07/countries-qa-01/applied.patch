@@ -1,0 +1,79 @@
+diff --git a/CountriesSwiftUI/Interactors/CountriesInteractor.swift b/CountriesSwiftUI/Interactors/CountriesInteractor.swift
+index 5aca234..2187d99 100644
+--- a/CountriesSwiftUI/Interactors/CountriesInteractor.swift
++++ b/CountriesSwiftUI/Interactors/CountriesInteractor.swift
+@@ -28 +28 @@ struct RealCountriesInteractor: CountriesInteractor {
+-           let stored = try? await dbRepository.countryDetails(for: country) {
++           let stored = try await dbRepository.countryDetails(for: country) {
+@@ -33 +33 @@ struct RealCountriesInteractor: CountriesInteractor {
+-        guard let stored = try? await dbRepository.countryDetails(for: country) else {
++        guard let stored = try await dbRepository.countryDetails(for: country) else {
+diff --git a/UnitTests/Mocks/Interactors/CountriesInteractorTests.swift b/UnitTests/Mocks/Interactors/CountriesInteractorTests.swift
+index 75a00a7..ff2fcaa 100644
+--- a/UnitTests/Mocks/Interactors/CountriesInteractorTests.swift
++++ b/UnitTests/Mocks/Interactors/CountriesInteractorTests.swift
+@@ -159 +159,23 @@ final class LoadCountryDetailsTests: CountriesInteractorTests {
+-    @Test func cacheDBFailure() async throws {
++    @Test(arguments: [false, true])
++    func cacheDBFailure(cancellation: Bool) async throws {
++        let country = ApiModel.Country.mockedData[0].dbModel()
++        mockedWebRepo.actions = .init(expected: [])
++        mockedDBRepo.actions = .init(expected: [.fetchCountryDetails(country)])
++        let expectedError: any Error = cancellation ? CancellationError() : NSError.test
++        mockedDBRepo.countryDetailsResults = [.failure(expectedError)]
++        do {
++            _ = try await sut.loadCountryDetails(country: country, forceReload: false)
++            Issue.record("Database read failure must propagate")
++        } catch {
++            if cancellation {
++                #expect(error is CancellationError)
++            } else {
++                #expect(error as NSError == NSError.test)
++            }
++        }
++        mockedWebRepo.verify()
++        mockedDBRepo.verify()
++    }
++
++    @Test(arguments: [false, true])
++    func fetchAfterStoringDBFailure(cancellation: Bool) async throws {
+@@ -171,5 +193 @@ final class LoadCountryDetailsTests: CountriesInteractorTests {
+-        let dbDetails = DBModel.CountryDetails(
+-            alpha3Code: country.alpha3Code,
+-            capital: details.capital,
+-            currencies: details.currencies.map({ $0.dbModel() }),
+-            neighbors: [])
++        let expectedError: any Error = cancellation ? CancellationError() : NSError.test
+@@ -177,2 +195,2 @@ final class LoadCountryDetailsTests: CountriesInteractorTests {
+-            .failure(NSError.test),
+-            .success(dbDetails)
++            .success(nil),
++            .failure(expectedError)
+@@ -181,2 +199,10 @@ final class LoadCountryDetailsTests: CountriesInteractorTests {
+-        let result = try await sut.loadCountryDetails(country: country, forceReload: false)
+-        #expect(result == dbDetails)
++        do {
++            _ = try await sut.loadCountryDetails(country: country, forceReload: false)
++            Issue.record("Post-store read failure must propagate")
++        } catch {
++            if cancellation {
++                #expect(error is CancellationError)
++            } else {
++                #expect(error as NSError == NSError.test)
++            }
++        }
+@@ -187 +213 @@ final class LoadCountryDetailsTests: CountriesInteractorTests {
+-    @Test func fetchAfterStoringDBFailure() async throws {
++    @Test func missingAfterStoring() async throws {
+@@ -190,3 +216 @@ final class LoadCountryDetailsTests: CountriesInteractorTests {
+-        mockedWebRepo.actions = .init(expected: [
+-            .details(country: country),
+-        ])
++        mockedWebRepo.actions = .init(expected: [.details(country: country)])
+@@ -199,5 +223 @@ final class LoadCountryDetailsTests: CountriesInteractorTests {
+-        let error = NSError.test
+-        mockedDBRepo.countryDetailsResults = [
+-            .success(nil),
+-            .failure(error)
+-        ]
++        mockedDBRepo.countryDetailsResults = [.success(nil), .success(nil)]
