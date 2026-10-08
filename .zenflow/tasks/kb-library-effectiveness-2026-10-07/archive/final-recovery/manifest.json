@@ -1,0 +1,634 @@
+{
+  "status": "PRESERVED_RECOVERY_ONLY",
+  "archive": "useful-local-data.zip",
+  "sha256": "7b2a68f1daf39c4aa4f7c30b0d72f4d04413286ef6ab670fea0e89b290a072e9",
+  "archive_bytes": 252617,
+  "entries": [
+    {
+      "path": "applications/Countries/LICENSE",
+      "bytes": 1063,
+      "sha256": "96d567c22c145707eef4202619d170470b987b7abab987944670bfd88f27380b"
+    },
+    {
+      "path": "applications/Countries/changed-files/CountriesSwiftUI/Interactors/CountriesInteractor.swift",
+      "bytes": 1518,
+      "sha256": "c79be65cbdbdb788e06750effa9a4ab3c0169de5339a749afbe85750e70f48a2"
+    },
+    {
+      "path": "applications/Countries/changed-files/UnitTests/Mocks/Interactors/CountriesInteractorTests.swift",
+      "bytes": 10546,
+      "sha256": "0f9b2d6fbbc1e4e9c486ec0f96ca8d65bd68df2ec659c17033762db63f544d04"
+    },
+    {
+      "path": "applications/Countries/progress.patch",
+      "bytes": 5665,
+      "sha256": "137bd8734638460d945d0997fa013eaa15b181da8542827423858737281d5533"
+    },
+    {
+      "path": "applications/Ghibli/changed-files/GhibliSwiftUIApp/Views/FavoritesScreen.swift",
+      "bytes": 1780,
+      "sha256": "36757847c4123abc9e6801f29397ef2008e9741bee1f9fbc54d6070b81ccb4d5"
+    },
+    {
+      "path": "applications/Ghibli/changed-files/GhibliSwiftUIApp/Views/FilmsScreen.swift",
+      "bytes": 1413,
+      "sha256": "f7877d2f8b2e865527036ca492c1df374418abc8f09a955dbb485411363db0e3"
+    },
+    {
+      "path": "applications/Ghibli/changed-files/GhibliSwiftUIAppTests/FavoritesCatalogStateTests.swift",
+      "bytes": 4890,
+      "sha256": "90e5be46a98d691cfd086299c9de2b870f83f211fa9784d176ed2327e9aed94a"
+    },
+    {
+      "path": "applications/Ghibli/changed-files/GhibliSwiftUIAppTests/GhibliSwiftUIAppTests.swift",
+      "bytes": 8851,
+      "sha256": "de78bd8a7b977df5b502182d293bc19273ab28d04a63389fbbd6e75fdeed298f"
+    },
+    {
+      "path": "applications/Ghibli/progress.patch",
+      "bytes": 11721,
+      "sha256": "7d70a3cd8a54dc7c3c3792648dd0cd3f08aa7132d833a7063dded06ccf28ebbb"
+    },
+    {
+      "path": "task-artifacts/baseline-drift.json",
+      "bytes": 87523,
+      "sha256": "e04de63ed35d7ec8354ac9f63796f4a59ae921e3b8ff3d3dbe1247802fbfa227"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "bytes": 2091,
+      "sha256": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/02_SWIFT_LANGUAGE/COPY_ONLY_SWIFT_RUNTIME_ROUTE.md",
+      "bytes": 2880,
+      "sha256": "d6bab5160a9c7e62ff0879c5c8ca5f3dd8c2a9d77c1734d9b0a3654a985b17dd"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "bytes": 4367,
+      "sha256": "574d540dfe1c00b740b2931597b1a9d363b155e7280207e0e45d588b338838b6"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+      "bytes": 10103,
+      "sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+      "bytes": 2858,
+      "sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/05_SWIFTUI/COPY_ONLY_UI_FLOW_ROUTE.md",
+      "bytes": 4759,
+      "sha256": "61279caf1e6761f950fbbeb47363923e43492d21d558f252d6e2ae06924fc2d1"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+      "bytes": 1922,
+      "sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+      "bytes": 3603,
+      "sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "bytes": 3730,
+      "sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+      "bytes": 3875,
+      "sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+      "bytes": 5162,
+      "sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+      "bytes": 5105,
+      "sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+      "bytes": 2771,
+      "sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+      "bytes": 1356,
+      "sha256": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+      "bytes": 1605,
+      "sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+      "bytes": 3611,
+      "sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+      "bytes": 5576,
+      "sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+      "bytes": 3899,
+      "sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/18_OBSERVABILITY_DEBUGGING/COPY_ONLY_OBSERVABILITY_ROUTE.md",
+      "bytes": 3412,
+      "sha256": "a62238d03ad51c6863ebb08fe187aa2a7de1ed80efba880a18c087272f5aa6fe"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "bytes": 4826,
+      "sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/27_SYSTEM_INTEGRATION/COPY_ONLY_SYSTEM_INTEGRATION_ROUTE.md",
+      "bytes": 5456,
+      "sha256": "8a74fadffb47fe4077611e1aa8ede6e96c18cc0d8a583a35e4e7c48d9befb26c"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+      "bytes": 3573,
+      "sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+      "bytes": 2715,
+      "sha256": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
+      "bytes": 3101,
+      "sha256": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
+      "bytes": 3421,
+      "sha256": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/COPY_ONLY_QUICKSTART.md",
+      "bytes": 3111,
+      "sha256": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/EVIDENCE_POLICY.md",
+      "bytes": 2095,
+      "sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/KNOWLEDGE_ROUTER.md",
+      "bytes": 9873,
+      "sha256": "686940a4afcf7e6da06c28a02f0e0c5f610229f67dcaf89194109b07c9c5ee59"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/PROJECT_FACTS.md",
+      "bytes": 2686,
+      "sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/PROJECT_MODE.md",
+      "bytes": 7913,
+      "sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/QUALITY_STANDARD.md",
+      "bytes": 5238,
+      "sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/REPOSITORY_INSPECTION.md",
+      "bytes": 4040,
+      "sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/REVIEW_GUIDE.md",
+      "bytes": 3080,
+      "sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/RISK_AND_EVIDENCE.md",
+      "bytes": 4008,
+      "sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/STARTUP_RULE.md",
+      "bytes": 4116,
+      "sha256": "5b5eace561c794ccd6064a41acd6b5b18a062e5111c280476736481d1d8093de"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/ios-engineering-library/reference-copy-only/tools/reference_mode.py",
+      "bytes": 10487,
+      "sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/A/reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+      "bytes": 4874,
+      "sha256": "a56683e093d9b8bde8184eea527e079ad87e155abcf1e9a3712ac3c3611b27d2"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "bytes": 3332,
+      "sha256": "a67aab84db4e1f7afa492cc8b7d15e03937ded0b8d11164af59c6031c3999b4f"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/02_SWIFT_LANGUAGE/COPY_ONLY_SWIFT_RUNTIME_ROUTE.md",
+      "bytes": 2880,
+      "sha256": "d6bab5160a9c7e62ff0879c5c8ca5f3dd8c2a9d77c1734d9b0a3654a985b17dd"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "bytes": 2873,
+      "sha256": "d59fb6c852e4b446d28b136aa17834fb53fb110cc1c959dd4a2659f646a88241"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+      "bytes": 10103,
+      "sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+      "bytes": 2858,
+      "sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/05_SWIFTUI/COPY_ONLY_UI_FLOW_ROUTE.md",
+      "bytes": 4759,
+      "sha256": "61279caf1e6761f950fbbeb47363923e43492d21d558f252d6e2ae06924fc2d1"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+      "bytes": 1922,
+      "sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+      "bytes": 3603,
+      "sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "bytes": 3730,
+      "sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+      "bytes": 3875,
+      "sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+      "bytes": 5162,
+      "sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+      "bytes": 5105,
+      "sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+      "bytes": 2771,
+      "sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+      "bytes": 1356,
+      "sha256": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+      "bytes": 1605,
+      "sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+      "bytes": 3611,
+      "sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+      "bytes": 5576,
+      "sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+      "bytes": 3899,
+      "sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/18_OBSERVABILITY_DEBUGGING/COPY_ONLY_OBSERVABILITY_ROUTE.md",
+      "bytes": 3412,
+      "sha256": "a62238d03ad51c6863ebb08fe187aa2a7de1ed80efba880a18c087272f5aa6fe"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "bytes": 4826,
+      "sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/27_SYSTEM_INTEGRATION/COPY_ONLY_SYSTEM_INTEGRATION_ROUTE.md",
+      "bytes": 5456,
+      "sha256": "8a74fadffb47fe4077611e1aa8ede6e96c18cc0d8a583a35e4e7c48d9befb26c"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+      "bytes": 3573,
+      "sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+      "bytes": 2715,
+      "sha256": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
+      "bytes": 3101,
+      "sha256": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
+      "bytes": 3421,
+      "sha256": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/COPY_ONLY_QUICKSTART.md",
+      "bytes": 3111,
+      "sha256": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/EVIDENCE_POLICY.md",
+      "bytes": 2095,
+      "sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/KNOWLEDGE_ROUTER.md",
+      "bytes": 10532,
+      "sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/PROJECT_FACTS.md",
+      "bytes": 2686,
+      "sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/PROJECT_MODE.md",
+      "bytes": 7913,
+      "sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/QUALITY_STANDARD.md",
+      "bytes": 4877,
+      "sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/REPOSITORY_INSPECTION.md",
+      "bytes": 4040,
+      "sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/REVIEW_GUIDE.md",
+      "bytes": 2784,
+      "sha256": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/RISK_AND_EVIDENCE.md",
+      "bytes": 4008,
+      "sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/STARTUP_RULE.md",
+      "bytes": 4116,
+      "sha256": "5b5eace561c794ccd6064a41acd6b5b18a062e5111c280476736481d1d8093de"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/ios-engineering-library/reference-copy-only/tools/reference_mode.py",
+      "bytes": 10487,
+      "sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d"
+    },
+    {
+      "path": "task-artifacts/bounded-review-01/payloads/C/reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+      "bytes": 7039,
+      "sha256": "03568c7486e1ada8526aa118131fe20d4f8253dc2063e2b646e4d7a471236d2d"
+    },
+    {
+      "path": "task-artifacts/bounded-review-protocol-publication-receipt.json",
+      "bytes": 1762,
+      "sha256": "123ceb7da65bf650920360dbcdecace16ac064ae9ad6b7d6a1d14a4d2475ec4e"
+    },
+    {
+      "path": "task-artifacts/bounded-review01-publication-receipt.json",
+      "bytes": 3484,
+      "sha256": "d6599a88b902cbdd0e77f791a9a6d59516470dfc00856e7c570851041820d032"
+    },
+    {
+      "path": "task-artifacts/countries-outcome01-publication-receipt.json",
+      "bytes": 2609,
+      "sha256": "de33f4ba46d2282a0f42f2bffac1197519a9a1f2bf911be3d21552d921c1ac71"
+    },
+    {
+      "path": "task-artifacts/countries-qa/18.2-invocation.json",
+      "bytes": 2605,
+      "sha256": "cfddb2f75d91278c24cdc956bf1887ec2b9d766c30198c5a9c2206604de06061"
+    },
+    {
+      "path": "task-artifacts/countries-qa/18.2-result.json",
+      "bytes": 56,
+      "sha256": "022c8e524052f2ee04880c15ee97bf4d9a0525bf58971c1f93d535f9d94c2e13"
+    },
+    {
+      "path": "task-artifacts/countries-qa/18.2.log",
+      "bytes": 462,
+      "sha256": "dcecdd7edbba8a2e37a1219333f72078f75242741066b893aadb70ddcfb9c76e"
+    },
+    {
+      "path": "task-artifacts/countries-qa/devices.json",
+      "bytes": 12377,
+      "sha256": "90e0f7e974e91c21666a7d4519bdbb7e94475bc5a537f56a9f0a32bb02993550"
+    },
+    {
+      "path": "task-artifacts/countries-qa/source-receipt.json",
+      "bytes": 735,
+      "sha256": "8cf1aaa7ea75ee8cadeda672d10b25d768d70faceb09b31452a241a6fa224892"
+    },
+    {
+      "path": "task-artifacts/countries-qa/xcode-version.json",
+      "bytes": 189,
+      "sha256": "7e85352335abae58e3a1362ed99638460cd850b1a0b46365baab4c111f5c3c10"
+    },
+    {
+      "path": "task-artifacts/countries-qa01-publication-receipt.json",
+      "bytes": 1688,
+      "sha256": "0bb476a53bf89d208aa1193ff29473ce858602d9949f7eeacbd804faac63d524"
+    },
+    {
+      "path": "task-artifacts/cxl-publication-receipt.json",
+      "bytes": 3071,
+      "sha256": "de69d8340e2c055c7b3a5499ef05717fbfee2a4e27e03cca442d2e2c752ac4b1"
+    },
+    {
+      "path": "task-artifacts/cxl01-v02/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "bytes": 4367,
+      "sha256": "574d540dfe1c00b740b2931597b1a9d363b155e7280207e0e45d588b338838b6"
+    },
+    {
+      "path": "task-artifacts/cxl01-v02/CXL-01_CANCELLATION_PUBLICATION.md",
+      "bytes": 10103,
+      "sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2"
+    },
+    {
+      "path": "task-artifacts/cxl01-v02/KNOWLEDGE_ROUTER.md",
+      "bytes": 9873,
+      "sha256": "686940a4afcf7e6da06c28a02f0e0c5f610229f67dcaf89194109b07c9c5ee59"
+    },
+    {
+      "path": "task-artifacts/cxl01/candidate/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "bytes": 3779,
+      "sha256": "dbe7205b4c6ee786874023af492d67ada82ee8dad75711b5ccf141f860975ca8"
+    },
+    {
+      "path": "task-artifacts/cxl01/candidate/CXL-01_CANCELLATION_PUBLICATION.md",
+      "bytes": 9165,
+      "sha256": "4f2a02cc43b2572cc7d420e4c174813dfc002cfca77b7d94f0a74a925f3d26b0"
+    },
+    {
+      "path": "task-artifacts/cxl01/candidate/KNOWLEDGE_ROUTER.md",
+      "bytes": 9669,
+      "sha256": "74c62d2ce00f28dcf315452875d437b67d74702432dceff275d2dd0ef88e1160"
+    },
+    {
+      "path": "task-artifacts/cxl01/prepare.py",
+      "bytes": 14803,
+      "sha256": "399eb26fd49ae60c3e9cb74dd30115f4fe21acbdc0fb8793ebc2558213f506a9"
+    },
+    {
+      "path": "task-artifacts/cxl01/results.txt",
+      "bytes": 380,
+      "sha256": "0d9c9b4290163b51cbd9ebcf4247d160f3ffcc97edee57aa861db43ee5d95505"
+    },
+    {
+      "path": "task-artifacts/delivery-publication-receipt.json",
+      "bytes": 5205,
+      "sha256": "ece2bb73409f4b2f27b1d438887b543d8bb6f71135fa9bbad3dc6daac36feb7d"
+    },
+    {
+      "path": "task-artifacts/download-denial-publication-receipt.json",
+      "bytes": 1502,
+      "sha256": "4d80807b5f1e5715345c0a5fcb055cb7c2219b87b98c7e58c4b9370e079a3a77"
+    },
+    {
+      "path": "task-artifacts/ghibli-preservation-receipt.json",
+      "bytes": 1937,
+      "sha256": "b03a9ceba91564a9ccadb921e9bbbd1d748a0832136c54d13c95cd54115b3896"
+    },
+    {
+      "path": "task-artifacts/grade-delivery-pilot.py",
+      "bytes": 8435,
+      "sha256": "2f311a6743c3dc3117ba539f85a9e1e4ab0538b75ec5a5e0b02c2d3e909e6fed"
+    },
+    {
+      "path": "task-artifacts/kb-first-01-publication-receipt.json",
+      "bytes": 2737,
+      "sha256": "f9c4786693afd5eb11e5f541fd45fbaa2a0fdcf6d8dd58cd4cf815f5ef7dccc2"
+    },
+    {
+      "path": "task-artifacts/kb-first-02-publication-receipt.json",
+      "bytes": 2661,
+      "sha256": "7ff291586e28603b6e511140a05221dff45ef639b902ecf27cc2124b5ca15e6f"
+    },
+    {
+      "path": "task-artifacts/kb-reading-pilot01-publication-receipt.json",
+      "bytes": 2757,
+      "sha256": "d0da44706eb804c3df246861ac7d0b035d648152634b8b4d714a7a2d1d2df8e1"
+    },
+    {
+      "path": "task-artifacts/p0-p1-publication-receipt.json",
+      "bytes": 3491,
+      "sha256": "6e95f182b8690daedec6e21beccaefe198d99172a70c2de82b51f8a37bd9081d"
+    },
+    {
+      "path": "task-artifacts/pilot02-publication-receipt.json",
+      "bytes": 3327,
+      "sha256": "ca0cef3abec3c1680cd37a06c910cc0b14c6447489fed31b7a8aeaa72ef0af3a"
+    },
+    {
+      "path": "task-artifacts/prepare-delivery-pilot.py",
+      "bytes": 7886,
+      "sha256": "cce8ddda2d99b7c97a4f8182419e6173f4d5595171a205337339cac66e442244"
+    },
+    {
+      "path": "task-artifacts/protocol-publication-receipt.json",
+      "bytes": 3227,
+      "sha256": "bef9e4bafc5def9dec961671730b970e253e958003506144e62825679643fb02"
+    },
+    {
+      "path": "task-artifacts/publication-receipt.json",
+      "bytes": 3467,
+      "sha256": "b42ed0ad74a216024470ffc8ce02b4a546a0c539c3328cc9009fec4e28707df9"
+    },
+    {
+      "path": "task-artifacts/refine-review-slice.py",
+      "bytes": 5715,
+      "sha256": "ca0f35b6b851b0dc3b58be642b3fd24dc824142578820e37487688312c6ac374"
+    },
+    {
+      "path": "task-artifacts/v2-publication-receipt.json",
+      "bytes": 3377,
+      "sha256": "189a3e126b596175c77d2f5ba8c3a280da8dd5728d08cf8ebad2f9c7d6370b6d"
+    }
+  ],
+  "applications": [
+    {
+      "project": "Countries",
+      "base": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+      "head": "3bfd869fcd11fa4ca04e065750ebfeff9d8f33ba",
+      "branch": "codex/countries-db-error-contract",
+      "clean": true,
+      "upstream_push": "NOT_PERFORMED_NOT_USER_OWNED",
+      "bundle": "countries-progress.bundle",
+      "bundle_sha256": "ce4606689b415d7b5210c6c1ef21a9624bb6ca84a1d05fad4905878ec49df481",
+      "bundle_bytes": 1314,
+      "bundle_kind": "INCREMENTAL_REQUIRES_PINNED_BASE",
+      "changed_files": [
+        "CountriesSwiftUI/Interactors/CountriesInteractor.swift",
+        "UnitTests/Mocks/Interactors/CountriesInteractorTests.swift"
+      ],
+      "rights": "Countries MIT notice retained"
+    },
+    {
+      "project": "Ghibli",
+      "base": "524c434882dcc22d95b1c5781f295d8fbfe0ced6",
+      "head": "9e647491fa7d39d58971dadf86c9faa5c6a08e43",
+      "branch": "codex/preserve-ghibli-favorites-20261007",
+      "clean": true,
+      "upstream_push": "NOT_PERFORMED_NOT_USER_OWNED",
+      "bundle": "ghibli-progress.bundle",
+      "bundle_sha256": "fb394e88b0ef78a95875543c5ca52311dd33be225929f635c724b34ec9490390",
+      "bundle_bytes": 2653,
+      "bundle_kind": "INCREMENTAL_REQUIRES_PINNED_BASE",
+      "changed_files": [
+        "GhibliSwiftUIApp/Views/FavoritesScreen.swift",
+        "GhibliSwiftUIApp/Views/FilmsScreen.swift",
+        "GhibliSwiftUIAppTests/FavoritesCatalogStateTests.swift",
+        "GhibliSwiftUIAppTests/GhibliSwiftUIAppTests.swift"
+      ],
+      "rights": "Provenance/license unresolved; recovery backup only, not dataset/adoption/permission promotion"
+    }
+  ],
+  "omitted": "DerivedData/package/module/SDK/cocoa caches, tmp, xcresult bundles, compiled executable; original local files untouched",
+  "secret_check": "3limited patterns only; no secret directory access",
+  "scope": "No source changes, network downloads, app pushes or production adoption; text/script snapshots data only, do not execute"
+}
