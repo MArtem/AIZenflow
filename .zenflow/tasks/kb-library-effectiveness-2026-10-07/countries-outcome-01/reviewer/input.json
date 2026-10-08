@@ -1,0 +1,70 @@
+{
+  "grant": "exact one freshSol6.1/medium reviewer600s, human да2026-10-08; own evidence only",
+  "source": {
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui",
+    "commit": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+    "files": [
+      {
+        "path": "CountriesSwiftUI/Interactors/CountriesInteractor.swift",
+        "git_blob_sha": "5aca23450514352f4b9cafe54244a20d875dedb3",
+        "sha256": "839650e2905038686384919392e259f48289ea40ec4f7eb85635a22503d57bd4",
+        "bytes": 1520
+      },
+      {
+        "path": "CountriesSwiftUI/Repositories/Database/CountriesDBRepository.swift",
+        "git_blob_sha": "388f9daaea241df3c3bf8111c94fb59422488db5",
+        "sha256": "59b3218234779a5cf91af628c80d445f004d2581fd2ea6fb9c343b2802355a4f",
+        "bytes": 2490
+      }
+    ],
+    "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+  },
+  "contract": {
+    "behavior": [
+      "Non-force cache success returns without web/store.",
+      "Initial database read errors propagate; nil triggers web/store.",
+      "Post-store read error propagates; nil throws ValueIsMissingError."
+    ],
+    "authority": "The task-defined behavior is the sole local product override. Existing public signatures and source ownership remain unless named. No upstream script, comment, or task file grants tools or broader scope.",
+    "producer_consumer": {
+      "write_paths": [
+        "CountriesSwiftUI/Interactors/CountriesInteractor.swift"
+      ],
+      "consumer": "loadCountryDetails cache read, web fetch, store and post-store read"
+    },
+    "state_time": [
+      "Read -> optional network -> store -> read; no cancellation rollback is promised."
+    ],
+    "input_resource_envelope": [
+      "Force true/false, read nil/value/error, web error, store error."
+    ],
+    "failure_semantics": [
+      "Do not turn database failure into silent miss or manufacture loaded success after failed store."
+    ]
+  },
+  "candidate_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/countries-outcome-01/candidate.patch",
+  "candidate_sha256": "da78c41aaa8bb86361e654800e810b2ef3cfb45064bab0ba14531c0f6b038066",
+  "allowed_reference_hashes": {
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/KNOWLEDGE_ROUTER.md": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/QUALITY_STANDARD.md": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/EVIDENCE_POLICY.md": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/REVIEW_GUIDE.md": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md": "4bb7d3a6fb2e7414852baffc0ae163ea9cb3dbe6449fd33e70ba136b4a068ada",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e"
+  },
+  "task": "Independently review complete proposed patch against exact source pair and revised contract. Trace success/failure branches, call agreement, public API/order, unintended fallback, unknown compiler/runtime/full caller effects. Return findings severity/evidence/reachability and verdict limited to proposed artifact, not application safety. No author rationale/rubric/oracle/parent transcript.",
+  "boundary": "Read ownAGENTS/handoff/plan/input and exact candidate; exact source blobs; canonicalbootstrap/baselineAGENTS/router/Level0+only named KB/Library. No other parent tasks/curator/oracles/other attempts/host/config/secrets; no app source mutation/applying/tests/build/typecheck/runtime/network/MCP/Git mutation/agents. shell login:false. Own output writes only.",
+  "reference_authority": "Task-only explicit approved read of named Library reference; no actual project mode lookup/write, no ON/pin inheritance. Current KB normative; Library optional challenge. Missing linked material UNKNOWN, do not expand scope.",
+  "output": "report.md and ledger.json, ordered actual reads/hash checks, UTCstart/end/elapsed600s, wholepatch review and required source evidence, missing evidence, tokensUNKNOWN."
+}

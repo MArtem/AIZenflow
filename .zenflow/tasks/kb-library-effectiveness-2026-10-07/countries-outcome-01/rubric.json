@@ -1,0 +1,16 @@
+{
+  "frozen_before_dispatch": true,
+  "mandatory": [
+    "nonforce cache hit returns without network/store",
+    "initial read error propagates unchanged, no fallback",
+    "nonforce nil fetches then stores then rereads",
+    "force skips first cache read",
+    "web error stops store/reread",
+    "store error stops reread",
+    "poststore read error propagates, not ValueIsMissingError",
+    "poststore nil ValueIsMissingError",
+    "success returns stored result; public signatures and all other functions unchanged",
+    "no runtime/SDK/UI/backend/rollback or causal-library-benefit claims"
+  ],
+  "acceptance": "equivalent control-flow traces under declared new task contract; independent reviewer no unresolvedP0-P2 within supplied pair/scope. Unknown full call graph/compiler/test coverage not PASS"
+}

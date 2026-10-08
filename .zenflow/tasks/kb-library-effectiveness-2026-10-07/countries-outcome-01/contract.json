@@ -1,0 +1,49 @@
+{
+  "behavior": {
+    "behavior": [
+      "Non-force cache success returns without web/store.",
+      "Initial database read errors propagate; nil triggers web/store.",
+      "Post-store read error propagates; nil throws ValueIsMissingError."
+    ],
+    "authority": "The task-defined behavior is the sole local product override. Existing public signatures and source ownership remain unless named. No upstream script, comment, or task file grants tools or broader scope.",
+    "producer_consumer": {
+      "write_paths": [
+        "CountriesSwiftUI/Interactors/CountriesInteractor.swift"
+      ],
+      "consumer": "loadCountryDetails cache read, web fetch, store and post-store read"
+    },
+    "state_time": [
+      "Read -> optional network -> store -> read; no cancellation rollback is promised."
+    ],
+    "input_resource_envelope": [
+      "Force true/false, read nil/value/error, web error, store error."
+    ],
+    "failure_semantics": [
+      "Do not turn database failure into silent miss or manufacture loaded success after failed store."
+    ]
+  },
+  "change": "Exactly2 try?→try substitutions; keep signatures/order, no catch, mapping, storage or isolation changes",
+  "authority": "human да2026-10-08 approved exact proposed patch+one independent reviewer; proposed revised local contract, not pre-existing upstream defect claim",
+  "source": {
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui",
+    "commit": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+    "files": [
+      {
+        "path": "CountriesSwiftUI/Interactors/CountriesInteractor.swift",
+        "git_blob_sha": "5aca23450514352f4b9cafe54244a20d875dedb3",
+        "sha256": "839650e2905038686384919392e259f48289ea40ec4f7eb85635a22503d57bd4",
+        "bytes": 1520
+      },
+      {
+        "path": "CountriesSwiftUI/Repositories/Database/CountriesDBRepository.swift",
+        "git_blob_sha": "388f9daaea241df3c3bf8111c94fb59422488db5",
+        "sha256": "59b3218234779a5cf91af628c80d445f004d2581fd2ea6fb9c343b2802355a4f",
+        "bytes": 2490
+      }
+    ],
+    "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+  },
+  "candidate_sha256": "da78c41aaa8bb86361e654800e810b2ef3cfb45064bab0ba14531c0f6b038066",
+  "created_utc": "2026-10-08T17:48:11.097667+00:00",
+  "limitations": "no original source application/compiler/runtime/tests; exact supplied source-pair only, broader caller/UI semantics unknown"
+}

@@ -1,0 +1,625 @@
+{
+  "schema_version": 1,
+  "reviewer": {
+    "model": "GPT-6.1 Sol",
+    "reasoning": "medium",
+    "mode": "эконом",
+    "independent": true,
+    "child_agents": 0
+  },
+  "scope": "exact proposed candidate artifact and exact two source blobs only; current named KB normative, named Library advisory task-only reference",
+  "time": {
+    "start_utc": "2026-10-08T17:48:23+00:00",
+    "end_utc": "2026-10-08T17:50:12.621333+00:00",
+    "elapsed_seconds": 109.621333,
+    "limit_seconds": 600,
+    "start_basis": "first observed UTC clock after initial bootstrap read",
+    "under_limit": true
+  },
+  "tokens": "UNKNOWN",
+  "canonical_baseline": {
+    "available": true,
+    "revision": "UNKNOWN",
+    "portable_fallback_used": false
+  },
+  "ordered_actual_reads": [
+    {
+      "order": 1,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+      "kind": "content",
+      "note": ""
+    },
+    {
+      "order": 2,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+      "kind": "content",
+      "note": ""
+    },
+    {
+      "order": 3,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "kind": "content",
+      "note": ""
+    },
+    {
+      "order": 4,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/countries-outcome-01/reviewer/AGENTS.md",
+      "kind": "content",
+      "note": ""
+    },
+    {
+      "order": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "kind": "content",
+      "note": ""
+    },
+    {
+      "order": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "kind": "content",
+      "note": ""
+    },
+    {
+      "order": 7,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/countries-outcome-01/reviewer/handoff.md",
+      "kind": "content",
+      "note": ""
+    },
+    {
+      "order": 8,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/countries-outcome-01/reviewer/plan.md",
+      "kind": "content",
+      "note": ""
+    },
+    {
+      "order": 9,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/countries-outcome-01/reviewer/input.json",
+      "kind": "content",
+      "note": ""
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/countries-outcome-01/reviewer/input.json",
+      "kind": "content_reuse_for_script",
+      "note": "Input packet reread by bounded hash/reference/output script; no other packet read.",
+      "order": 10
+    },
+    {
+      "order": 11,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/countries-outcome-01/candidate.patch",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 12,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/KNOWLEDGE_ROUTER.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/QUALITY_STANDARD.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/EVIDENCE_POLICY.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/REVIEW_GUIDE.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 18,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 21,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 22,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 23,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 24,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 26,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 27,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 28,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "kind": "hash",
+      "note": ""
+    },
+    {
+      "order": 29,
+      "path": "9eca97b8cfff96a14084b564b1fefd949c93d232:CountriesSwiftUI/Interactors/CountriesInteractor.swift",
+      "kind": "exact_git_blob_content_and_identity",
+      "note": ""
+    },
+    {
+      "order": 30,
+      "path": "9eca97b8cfff96a14084b564b1fefd949c93d232:CountriesSwiftUI/Repositories/Database/CountriesDBRepository.swift",
+      "kind": "exact_git_blob_content_and_identity",
+      "note": ""
+    },
+    {
+      "order": 31,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/countries-outcome-01/candidate.patch",
+      "kind": "complete_content",
+      "note": ""
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/countries-outcome-01/reviewer/input.json",
+      "kind": "content_reuse_for_script",
+      "note": "Input packet reread by bounded hash/reference/output script; no other packet read.",
+      "order": 32
+    },
+    {
+      "order": 33,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/KNOWLEDGE_ROUTER.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 34,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/QUALITY_STANDARD.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 35,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/EVIDENCE_POLICY.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 36,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/REVIEW_GUIDE.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 37,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 38,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 39,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 40,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 41,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 42,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 43,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 44,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 45,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 46,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "kind": "content_batch",
+      "note": "Tool display truncated the middle of this batch; missing portions recovered by the explicit rereads below."
+    },
+    {
+      "order": 47,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/REVIEW_GUIDE.md",
+      "kind": "complete_content_recovery",
+      "note": "Reread solely because earlier tool output was truncated."
+    },
+    {
+      "order": 48,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "kind": "complete_content_recovery",
+      "note": "Reread solely because earlier tool output was truncated."
+    },
+    {
+      "order": 49,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "kind": "complete_content_recovery",
+      "note": "Reread solely because earlier tool output was truncated."
+    },
+    {
+      "order": 50,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "kind": "complete_content_recovery",
+      "note": "Reread solely because earlier tool output was truncated."
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/countries-outcome-01/reviewer/input.json",
+      "kind": "content_reuse_for_script",
+      "note": "Input packet reread by bounded hash/reference/output script; no other packet read.",
+      "order": 51
+    },
+    {
+      "order": 52,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/countries-outcome-01/candidate.patch",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 53,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/KNOWLEDGE_ROUTER.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 54,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/QUALITY_STANDARD.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 55,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/EVIDENCE_POLICY.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 56,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/REVIEW_GUIDE.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 57,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 58,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 59,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 60,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 61,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 62,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 63,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 64,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 65,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 66,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 67,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 68,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "order": 69,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "kind": "final_hash_revalidation",
+      "note": ""
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/countries-outcome-01/reviewer/output/ledger.json",
+      "kind": "own_output_content",
+      "note": "Ledger-only correction to include script input rereads.",
+      "order": 70
+    }
+  ],
+  "hash_checks": [
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/countries-outcome-01/candidate.patch",
+      "expected_sha256": "da78c41aaa8bb86361e654800e810b2ef3cfb45064bab0ba14531c0f6b038066",
+      "actual_sha256": "da78c41aaa8bb86361e654800e810b2ef3cfb45064bab0ba14531c0f6b038066",
+      "bytes": 866,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/KNOWLEDGE_ROUTER.md",
+      "expected_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+      "actual_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+      "bytes": 10532,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/QUALITY_STANDARD.md",
+      "expected_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+      "actual_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+      "bytes": 4877,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/EVIDENCE_POLICY.md",
+      "expected_sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "actual_sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "bytes": 2095,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/REVIEW_GUIDE.md",
+      "expected_sha256": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
+      "actual_sha256": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
+      "bytes": 2784,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/reference-copy-only/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "expected_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+      "actual_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+      "bytes": 3730,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "expected_sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "actual_sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "bytes": 7507,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "expected_sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "actual_sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "bytes": 8381,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "expected_sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "actual_sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "bytes": 11011,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "expected_sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "actual_sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "bytes": 1155,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "expected_sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "actual_sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "bytes": 15851,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "expected_sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "actual_sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "bytes": 4513,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "expected_sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "actual_sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "bytes": 3018,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "expected_sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "actual_sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "bytes": 1593,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "expected_sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "actual_sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "bytes": 1046,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "expected_sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "actual_sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "bytes": 1552,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+      "expected_sha256": "4bb7d3a6fb2e7414852baffc0ae163ea9cb3dbe6449fd33e70ba136b4a068ada",
+      "actual_sha256": "4bb7d3a6fb2e7414852baffc0ae163ea9cb3dbe6449fd33e70ba136b4a068ada",
+      "bytes": 911,
+      "result": "MATCH"
+    },
+    {
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "expected_sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "actual_sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "bytes": 916,
+      "result": "MATCH"
+    }
+  ],
+  "source_identity_checks": [
+    {
+      "path": "CountriesSwiftUI/Interactors/CountriesInteractor.swift",
+      "git_blob_sha": "5aca23450514352f4b9cafe54244a20d875dedb3",
+      "sha256": "839650e2905038686384919392e259f48289ea40ec4f7eb85635a22503d57bd4",
+      "bytes": 1520,
+      "result": "MATCH",
+      "actual_sha256": "839650e2905038686384919392e259f48289ea40ec4f7eb85635a22503d57bd4",
+      "actual_git_blob_sha": "5aca23450514352f4b9cafe54244a20d875dedb3",
+      "actual_bytes": 1520
+    },
+    {
+      "path": "CountriesSwiftUI/Repositories/Database/CountriesDBRepository.swift",
+      "git_blob_sha": "388f9daaea241df3c3bf8111c94fb59422488db5",
+      "sha256": "59b3218234779a5cf91af628c80d445f004d2581fd2ea6fb9c343b2802355a4f",
+      "bytes": 2490,
+      "result": "MATCH",
+      "actual_sha256": "59b3218234779a5cf91af628c80d445f004d2581fd2ea6fb9c343b2802355a4f",
+      "actual_git_blob_sha": "388f9daaea241df3c3bf8111c94fb59422488db5",
+      "actual_bytes": 2490
+    }
+  ],
+  "source_commit": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+  "whole_patch_review": {
+    "files": 1,
+    "hunks": 1,
+    "changed_lines": 2,
+    "reviewed_all": true,
+    "patch_applied": false,
+    "signatures_unchanged": true,
+    "success_failure_order_checked": true
+  },
+  "findings": [],
+  "verdict": "NO_FINDINGS_IN_PROPOSED_ARTIFACT_STATIC_REVIEW",
+  "evidence_level": "E1",
+  "missing_evidence": [
+    "Compiler/typecheck and target/toolchain profile: UNKNOWN; not authorized.",
+    "Runtime/failure-injection evidence and automated tests: UNKNOWN; not authorized.",
+    "Full caller/UI error mapping, other implementations, WebRepository and ValueIsMissingError definitions: UNKNOWN; outside exact source-pair boundary.",
+    "MainDBRepository ownership, transaction durability, context merge timing, uniqueness/schema behavior: UNKNOWN beyond the supplied repository implementation; no application-wide safety claim.",
+    "Linked documents outside the named allowlist were not followed (including production-review-completeness prompt, production checklist/gates, Library mode/startup and further specialist routes).",
+    "Canonical Git revision and host/CODEX_HOME facts: UNKNOWN; metadata/host inspection outside scoped packet.",
+    "iPad and physical-device/actual VoiceOver verification: OMITTED_BY_USER."
+  ],
+  "prohibited_actions_performed": [],
+  "outputs": [
+    "output/report.md",
+    "output/ledger.json"
+  ],
+  "context_health": "контекст обновлять не нужно"
+}

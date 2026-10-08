@@ -1,0 +1,1 @@
+Apply canonical bootstrap before review; current scoped task state is sibling handoff/plan, exact boundary input.json. Only output/ writes. No parent rubric/rationale/tasks/oracles/curator or new agents/runtime. Human explicitly authorized this one reviewer.

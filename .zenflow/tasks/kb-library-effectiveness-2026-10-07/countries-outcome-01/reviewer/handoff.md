@@ -1,0 +1,1 @@
+перечитать весь актуальный набор документации и правил для этого worktree и task-контекста. Bootstrap→Level0 using this scoped handoff/plan→named review/error references. GPT6.1Sol/medium эконом. Independent review of exact proposed patch;600s; original source untouched.

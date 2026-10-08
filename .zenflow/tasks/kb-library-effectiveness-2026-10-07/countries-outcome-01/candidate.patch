@@ -1,0 +1,17 @@
+--- a/CountriesSwiftUI/Interactors/CountriesInteractor.swift
++++ b/CountriesSwiftUI/Interactors/CountriesInteractor.swift
+@@ -25,12 +25,12 @@
+         country: DBModel.Country, forceReload: Bool
+     ) async throws -> DBModel.CountryDetails {
+         if !forceReload,
+-           let stored = try? await dbRepository.countryDetails(for: country) {
++           let stored = try await dbRepository.countryDetails(for: country) {
+             return stored
+         }
+         let details = try await webRepository.details(country: country)
+         try await dbRepository.store(countryDetails: details, for: country)
+-        guard let stored = try? await dbRepository.countryDetails(for: country) else {
++        guard let stored = try await dbRepository.countryDetails(for: country) else {
+             throw ValueIsMissingError()
+         }
+         return stored

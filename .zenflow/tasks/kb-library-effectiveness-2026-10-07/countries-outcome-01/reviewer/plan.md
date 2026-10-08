@@ -1,0 +1,1 @@
+Load own packet/current authority; verify hashes; inspect exact source pair/proposed complete diff; assess supplied contract and credible paths; write own evidence within600s. Do not apply or create code/tests. Unknown remains unknown.
