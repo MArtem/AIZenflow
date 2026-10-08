@@ -45,3 +45,5 @@ KB-first02: [common-loop consolidation](kb-first-02/README.md) static parity acc
 ## Current user decision: dependency downloads denied
 
 User explicitly refused GitHub package/resource downloads because of resource usage. Do not download package dependencies, update Xcode, install Simulator runtimes, or modernize the project. Countries QA is BLOCKED_BY_USER_DECISION at missing Package.resolved/dependencies; tests/builds are not PASS. Do not replace this with hidden model tests or repeat the same blocked invocation. Preserve the applied source/test commit and published full patch. Continue only work that does not require these prerequisites; this decision does not close full-plan outcome/holdout gates.
+
+[Bounded review proposal](bounded-review-protocol-proposal.md): task-only draft for4sealed review cases Countries/Firefox,8A/C runs plus1independent eligibility/grading owner (100min total worker-active cap), static-only. No agents or execution authorized by drafting; requires explicit scope/budget/roster decision and prior C/payload/oracle/negative-control gates. Full P7 thresholds unchanged. No holdout bodies/oracles read.
