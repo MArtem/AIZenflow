@@ -36,6 +36,9 @@ Create a protocol when there are multiple real implementations, a stable boundar
 - Any unsafe operation needs a documented validity, lifetime, alignment, initialization, and exclusivity argument.
 - Copy-on-write optimizations must preserve value semantics under aliasing and mutation.
 
+Borrowing, consuming and noncopyable features need a real ownership/resource benefit and
+supported toolchain; do not adopt advanced syntax merely because an archived source recommends it.
+
 ## Error And Result Design
 - Use throwing functions for recoverable failure along one operation path.
 - Use typed domain errors when callers need stable branching; do not expose transport or persistence implementation errors as public domain contracts.
@@ -46,6 +49,8 @@ Create a protocol when there are multiple real implementations, a stable boundar
 ## Public API Rules
 - Optimize clarity at the call site and follow the official Swift API Design Guidelines.
 - Document side effects, isolation, cancellation, errors, complexity, availability, and ownership where they are not obvious.
+- Inventory SPI and other advanced exposure where it has real consumers; a cosmetic diff or
+  successful local compile cannot prove source, semantic, module and ABI compatibility for them.
 - Minimize public surface. Prefer additive evolution and avoid exposing implementation types across module boundaries.
 - For distributed libraries, distinguish source compatibility, module stability, ABI stability, and semantic compatibility.
 - Default arguments are compiled at the call site; changing them may not change already-compiled clients.
@@ -56,6 +61,10 @@ Create a protocol when there are multiple real implementations, a stable boundar
 - Prefer ordinary language features when they express the contract clearly.
 - Review expanded source, generated identifiers, access control, diagnostics, incremental build cost, and compatibility.
 - Do not hide security, persistence, navigation, or concurrency ownership in generated behavior that reviewers cannot inspect.
+
+## Property Wrappers
+Use a wrapper for genuinely repeated property semantics. Expose hidden state, effects, ownership
+and lifetime at the consuming boundary; the annotation does not remove those contracts.
 
 ## Interoperability
 - Objective-C APIs may carry nullability, dynamic dispatch, KVO, exception, callback-thread, and lifetime semantics that Swift types do not fully express.
