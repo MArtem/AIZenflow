@@ -120,6 +120,10 @@ validation timing and formatting to keyboard, submit, secure entry and accessibl
 - State-driven animations have intentional state/transaction boundaries. All animation has a
   product purpose and respects Reduce Motion.
 
+For layer animations, distinguish model target state from current presentation state; define
+transaction/timing, completion/cancellation and offscreen/rasterization costs without assuming
+visual completion commits product state. Preserve Reduce Motion behavior.
+
 ## Accessible And Localized Interaction Review
 Review wrapping/reflow, scalable metrics, truncation and access to clipped content at supported
 text-size extremes; use an appropriate scroll fallback where the existing interaction needs it.

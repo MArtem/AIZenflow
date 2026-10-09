@@ -22,6 +22,10 @@ Sessions, delegates, observers, routes, captures, streams, and hardware connecti
 - Respect limited-library state and security-scoped/file-backed representations.
 - Preserve metadata only when product/privacy requirements justify it.
 
+PhotoKit review traces fetched asset identity and change-observer ownership through limited-library
+or authorization changes. Define cloud-backed asset loading/progress, unavailable/offline results,
+request cancellation and memory bounds; permission does not establish local asset availability.
+
 ## Audio, Video, And Speech
 - Select audio session category/mode/options from recording, playback, mixing, Bluetooth, AirPlay, and background requirements.
 - Handle interruptions, route changes, media services reset, other-audio policy, remote controls, and Now Playing state.
@@ -75,6 +79,16 @@ pressure under the actual framework contract; review format conversion, safe con
 reuse, GPU/CPU trade-offs, frame pacing and thermal limits. Golden output comparisons need a
 defined compatibility contract and permitted verification. Source inspection cannot establish
 hardware behavior. Recommendations grant no capture/export/test/profiling execution.
+
+For Core Image/Graphics, define render extent, scale, coordinate transforms, orientation, clipping
+and working/output color spaces. Reuse owned contexts safely; context reuse does not make mutable
+filters safe for concurrent mutation. Keep drawing work within the actual framework/UI thread
+contract and preserve accessible alternatives for meaningful custom graphics.
+For Metal, trace command/resource lifetime, read/write hazards and CPU/GPU synchronization under
+the actual queue/storage/heap contract; pipeline caching or hardware support alone proves no
+ordering, frame pacing or safe fallback.
+For PDFs, bound loading/page rendering/search and annotation memory, cancellation and untrusted
+input handling; preserve accessible/searchable content under the actual document contract.
 
 ## Evidence
 - Permission matrix and settings changes.
