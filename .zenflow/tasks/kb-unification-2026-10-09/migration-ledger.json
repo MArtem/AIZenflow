@@ -43985,81 +43985,1170 @@
       "path": "21_AGENT_WORKFLOWS/IOS-21-01_FEATURE_IMPLEMENTATION_WORKFLOW.md",
       "sha256": "7427382a00059d08264127b76162f0e329aa897945091bd55248c037987ee83b",
       "bytes": 5137,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0244-U01",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-01_FEATURE_IMPLEMENTATION_WORKFLOW.md",
+          "source_sha256": "7427382a00059d08264127b76162f0e329aa897945091bd55248c037987ee83b",
+          "source_heading": "Назначение",
+          "source_fragment": "Repo inspection → plan → incremental implementation → tests → build → review summary.",
+          "meaning": "Repo inspection → plan → incremental implementation → tests → build → review summary. Useful conditional contract/evidence workflow, not automatic executable sequence.",
+          "type": "constraint",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owners cover useful sequence/constraints with current permission/evidence hierarchy; no run or result inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0244-U02",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-01_FEATURE_IMPLEMENTATION_WORKFLOW.md",
+          "source_sha256": "7427382a00059d08264127b76162f0e329aa897945091bd55248c037987ee83b",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0244-U03",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-01_FEATURE_IMPLEMENTATION_WORKFLOW.md",
+          "source_sha256": "7427382a00059d08264127b76162f0e329aa897945091bd55248c037987ee83b",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full workflow common body/focus reviewed with current adequate-evidence/current-permission authority; no execution/agents/tool/test/build/release mode grant. Linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0245",
       "path": "21_AGENT_WORKFLOWS/IOS-21-02_BUGFIX_WORKFLOW.md",
       "sha256": "fb607cf57af78fc9f166ac5a7bbf6364bd1e2018bd09525970f2d39b8ee59bb6",
       "bytes": 5068,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0245-U01",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-02_BUGFIX_WORKFLOW.md",
+          "source_sha256": "fb607cf57af78fc9f166ac5a7bbf6364bd1e2018bd09525970f2d39b8ee59bb6",
+          "source_heading": "Назначение",
+          "source_fragment": "Reproduce → hypothesis → evidence → minimal fix → regression test → risk scan.",
+          "meaning": "Reproduce → hypothesis → evidence → minimal fix → regression test → risk scan. Useful conditional contract/evidence workflow, not automatic executable sequence.",
+          "type": "constraint",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owners cover useful sequence/constraints with current permission/evidence hierarchy; no run or result inferred.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Debugging Workflow; Crash And Hang Triage; Evidence Completion",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Crash And Hang Triage",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0245-U02",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-02_BUGFIX_WORKFLOW.md",
+          "source_sha256": "fb607cf57af78fc9f166ac5a7bbf6364bd1e2018bd09525970f2d39b8ee59bb6",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0245-U03",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-02_BUGFIX_WORKFLOW.md",
+          "source_sha256": "fb607cf57af78fc9f166ac5a7bbf6364bd1e2018bd09525970f2d39b8ee59bb6",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full workflow common body/focus reviewed with current adequate-evidence/current-permission authority; no execution/agents/tool/test/build/release mode grant. Linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0246",
       "path": "21_AGENT_WORKFLOWS/IOS-21-03_REVIEW_WORKFLOW.md",
       "sha256": "e737e5e68f8d7b93eda353e4bd17b33714ad8a2fd94f0a827baa035c7ad4f7f2",
       "bytes": 5119,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0246-U01",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-03_REVIEW_WORKFLOW.md",
+          "source_sha256": "e737e5e68f8d7b93eda353e4bd17b33714ad8a2fd94f0a827baa035c7ad4f7f2",
+          "source_heading": "Назначение",
+          "source_fragment": "Inspect diff + surrounding code + tests + architecture; produce severity-ranked findings with fixes.",
+          "meaning": "Inspect diff + surrounding code + tests + architecture; produce severity-ranked findings with fixes. Useful conditional contract/evidence workflow, not automatic executable sequence.",
+          "type": "constraint",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owners cover useful sequence/constraints with current permission/evidence hierarchy; no run or result inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Mandatory Review Areas",
+                "Finding Applicability And Adjudication"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+              "headings": [
+                "Severity",
+                "Required Finding Format"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0246-U02",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-03_REVIEW_WORKFLOW.md",
+          "source_sha256": "e737e5e68f8d7b93eda353e4bd17b33714ad8a2fd94f0a827baa035c7ad4f7f2",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0246-U03",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-03_REVIEW_WORKFLOW.md",
+          "source_sha256": "e737e5e68f8d7b93eda353e4bd17b33714ad8a2fd94f0a827baa035c7ad4f7f2",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full workflow common body/focus reviewed with current adequate-evidence/current-permission authority; no execution/agents/tool/test/build/release mode grant. Linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0247",
       "path": "21_AGENT_WORKFLOWS/IOS-21-04_REFACTOR_WORKFLOW.md",
       "sha256": "542c24f3e77e7b7c8ad65be79ab54aad72a01bcdf291548ee8bc00a746c01a66",
       "bytes": 5080,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0247-U01",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-04_REFACTOR_WORKFLOW.md",
+          "source_sha256": "542c24f3e77e7b7c8ad65be79ab54aad72a01bcdf291548ee8bc00a746c01a66",
+          "source_heading": "Назначение",
+          "source_fragment": "Behavior lock → dependency map → small steps → tests/build after each logical slice.",
+          "meaning": "Behavior lock → dependency map → small steps → tests/build after each logical slice. Useful conditional contract/evidence workflow, not automatic executable sequence.",
+          "type": "constraint",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owners cover useful sequence/constraints with current permission/evidence hierarchy; no run or result inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0247-U02",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-04_REFACTOR_WORKFLOW.md",
+          "source_sha256": "542c24f3e77e7b7c8ad65be79ab54aad72a01bcdf291548ee8bc00a746c01a66",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0247-U03",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-04_REFACTOR_WORKFLOW.md",
+          "source_sha256": "542c24f3e77e7b7c8ad65be79ab54aad72a01bcdf291548ee8bc00a746c01a66",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0247-U04",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-04_REFACTOR_WORKFLOW.md",
+          "source_sha256": "542c24f3e77e7b7c8ad65be79ab54aad72a01bcdf291548ee8bc00a746c01a66",
+          "source_heading": "Назначение",
+          "source_fragment": "tests/build after each logical slice",
+          "meaning": "Unconditional repeated checks after every slice archived; current material risk and sufficient permitted evidence govern, reuse unchanged PASS.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Current quality and migration owners determine conditional evidence, no mandatory runtime repetition/bridge/adoption or duplicate side effects.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full workflow common body/focus reviewed with current adequate-evidence/current-permission authority; no execution/agents/tool/test/build/release mode grant. Linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0248",
       "path": "21_AGENT_WORKFLOWS/IOS-21-05_CONCURRENCY_WORKFLOW.md",
       "sha256": "8996798032918f9f9e6c2e187181e1ac0a400a8e97146b4e1bbcd215b5278a24",
       "bytes": 5137,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0248-U01",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-05_CONCURRENCY_WORKFLOW.md",
+          "source_sha256": "8996798032918f9f9e6c2e187181e1ac0a400a8e97146b4e1bbcd215b5278a24",
+          "source_heading": "Назначение",
+          "source_fragment": "Diagnostics inventory → classify isolation/Sendable/lifetime → fix roots → stress tests.",
+          "meaning": "Diagnostics inventory → classify isolation/Sendable/lifetime → fix roots → stress tests. Useful conditional contract/evidence workflow, not automatic executable sequence.",
+          "type": "constraint",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owners cover useful sequence/constraints with current permission/evidence hierarchy; no run or result inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Swift 6.x Discipline; Isolation Design; Task Ownership; Testing And Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Swift 6.x Discipline",
+                "Isolation Design",
+                "Task Ownership",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0248-U02",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-05_CONCURRENCY_WORKFLOW.md",
+          "source_sha256": "8996798032918f9f9e6c2e187181e1ac0a400a8e97146b4e1bbcd215b5278a24",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0248-U03",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-05_CONCURRENCY_WORKFLOW.md",
+          "source_sha256": "8996798032918f9f9e6c2e187181e1ac0a400a8e97146b4e1bbcd215b5278a24",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full workflow common body/focus reviewed with current adequate-evidence/current-permission authority; no execution/agents/tool/test/build/release mode grant. Linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0249",
       "path": "21_AGENT_WORKFLOWS/IOS-21-06_PERFORMANCE_WORKFLOW.md",
       "sha256": "2ff42f1fbbb322912f77e832a2583598b61ecfe2904cd0318e235bf9dbefb068",
       "bytes": 5152,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0249-U01",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-06_PERFORMANCE_WORKFLOW.md",
+          "source_sha256": "2ff42f1fbbb322912f77e832a2583598b61ecfe2904cd0318e235bf9dbefb068",
+          "source_heading": "Назначение",
+          "source_fragment": "Define metric → measure baseline → find bottleneck → patch → compare → regression guard.",
+          "meaning": "Define metric → measure baseline → find bottleneck → patch → compare → regression guard. Useful conditional contract/evidence workflow, not automatic executable sequence.",
+          "type": "constraint",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owners cover useful sequence/constraints with current permission/evidence hierarchy; no run or result inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Optimization Workflow; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0249-U02",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-06_PERFORMANCE_WORKFLOW.md",
+          "source_sha256": "2ff42f1fbbb322912f77e832a2583598b61ecfe2904cd0318e235bf9dbefb068",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0249-U03",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-06_PERFORMANCE_WORKFLOW.md",
+          "source_sha256": "2ff42f1fbbb322912f77e832a2583598b61ecfe2904cd0318e235bf9dbefb068",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full workflow common body/focus reviewed with current adequate-evidence/current-permission authority; no execution/agents/tool/test/build/release mode grant. Linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0250",
       "path": "21_AGENT_WORKFLOWS/IOS-21-07_SECURITY_WORKFLOW.md",
       "sha256": "28bb883e379fef42087e2a29979eb169ad9bab17729ffdac0a51d747e029181d",
       "bytes": 5158,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0250-U01",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-07_SECURITY_WORKFLOW.md",
+          "source_sha256": "28bb883e379fef42087e2a29979eb169ad9bab17729ffdac0a51d747e029181d",
+          "source_heading": "Назначение",
+          "source_fragment": "Threat model → trust boundaries → inspect secrets/auth/network/webviews/deeplinks/logging → mitigations.",
+          "meaning": "Threat model → trust boundaries → inspect secrets/auth/network/webviews/deeplinks/logging → mitigations. Useful conditional contract/evidence workflow, not automatic executable sequence.",
+          "type": "constraint",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owners cover useful sequence/constraints with current permission/evidence hierarchy; no run or result inferred.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake; Security Model; Authorization Rules; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Security Model",
+                "Authorization Rules",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "WebKit",
+                "TLS And Trust"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0250-U02",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-07_SECURITY_WORKFLOW.md",
+          "source_sha256": "28bb883e379fef42087e2a29979eb169ad9bab17729ffdac0a51d747e029181d",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0250-U03",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-07_SECURITY_WORKFLOW.md",
+          "source_sha256": "28bb883e379fef42087e2a29979eb169ad9bab17729ffdac0a51d747e029181d",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full workflow common body/focus reviewed with current adequate-evidence/current-permission authority; no execution/agents/tool/test/build/release mode grant. Linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0251",
       "path": "21_AGENT_WORKFLOWS/IOS-21-08_MIGRATION_WORKFLOW.md",
       "sha256": "1fc40b9c54bd5d3a5b4ac6f1c0a4feb3124c1e057d98dec522372610299ff01d",
       "bytes": 5134,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0251-U01",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-08_MIGRATION_WORKFLOW.md",
+          "source_sha256": "1fc40b9c54bd5d3a5b4ac6f1c0a4feb3124c1e057d98dec522372610299ff01d",
+          "source_heading": "Назначение",
+          "source_fragment": "Inventory → compatibility matrix → seam strategy → dual-run/bridge → tests → rollout → cleanup.",
+          "meaning": "Inventory → compatibility matrix → seam strategy → dual-run/bridge → tests → rollout → cleanup. Useful conditional contract/evidence workflow, not automatic executable sequence.",
+          "type": "constraint",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owners cover useful sequence/constraints with current permission/evidence hierarchy; no run or result inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPATIBILITY_MATRIX.md",
+              "headings": [
+                "Matrix Dimensions"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Reproducibility And CI"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0251-U02",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-08_MIGRATION_WORKFLOW.md",
+          "source_sha256": "1fc40b9c54bd5d3a5b4ac6f1c0a4feb3124c1e057d98dec522372610299ff01d",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0251-U03",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-08_MIGRATION_WORKFLOW.md",
+          "source_sha256": "1fc40b9c54bd5d3a5b4ac6f1c0a4feb3124c1e057d98dec522372610299ff01d",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0251-U04",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-08_MIGRATION_WORKFLOW.md",
+          "source_sha256": "1fc40b9c54bd5d3a5b4ac6f1c0a4feb3124c1e057d98dec522372610299ff01d",
+          "source_heading": "Назначение",
+          "source_fragment": "dual-run/bridge",
+          "meaning": "Unconditional dual-run/bridge stage archived; actual non-publishing/side-effect-free comparison needs approved consumer contract and separate execution authority.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current quality and migration owners determine conditional evidence, no mandatory runtime repetition/bridge/adoption or duplicate side effects.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full workflow common body/focus reviewed with current adequate-evidence/current-permission authority; no execution/agents/tool/test/build/release mode grant. Linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0252",
       "path": "21_AGENT_WORKFLOWS/IOS-21-09_INCIDENT_WORKFLOW.md",
       "sha256": "ea1434ab9c28399b00e31d9c599b85c24eb6e2f852d8f7e31b5e314a78e5b594",
       "bytes": 5149,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0252-U01",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-09_INCIDENT_WORKFLOW.md",
+          "source_sha256": "ea1434ab9c28399b00e31d9c599b85c24eb6e2f852d8f7e31b5e314a78e5b594",
+          "source_heading": "Назначение",
+          "source_fragment": "Stabilize → evidence → scope → minimal mitigation → verification → permanent fix/postmortem.",
+          "meaning": "Stabilize → evidence → scope → minimal mitigation → verification → permanent fix/postmortem. Useful conditional contract/evidence workflow, not automatic executable sequence.",
+          "type": "constraint",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owners cover useful sequence/constraints with current permission/evidence hierarchy; no run or result inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Runtime Operations",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/INCIDENT_RESPONSE_STANDARD.md",
+              "headings": [
+                "Incident Workflow",
+                "Postmortem Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0252-U02",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-09_INCIDENT_WORKFLOW.md",
+          "source_sha256": "ea1434ab9c28399b00e31d9c599b85c24eb6e2f852d8f7e31b5e314a78e5b594",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0252-U03",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-09_INCIDENT_WORKFLOW.md",
+          "source_sha256": "ea1434ab9c28399b00e31d9c599b85c24eb6e2f852d8f7e31b5e314a78e5b594",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual current approved task and material changed-contract risk, permission-bounded evidence. Docs migration only; no workflow/agent/source/test/build/runtime/config/secrets/Git release/transition action. Reuse unchanged PASS; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-46-workflow-authority-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full workflow common body/focus reviewed with current adequate-evidence/current-permission authority; no execution/agents/tool/test/build/release mode grant. Linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0253",
