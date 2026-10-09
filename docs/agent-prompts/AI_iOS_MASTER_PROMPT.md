@@ -1332,6 +1332,12 @@ change security settings.
 
 Tool arguments всегда валидируй детерминированным кодом.
 
+Для каждого tool action определи владельца side effect и политику повторного вызова/
+идемпотентности. Повтор после timeout, reconnect или нового model proposal не должен
+случайно повторять действие. Проверяй актуальные authorization и entity/state preconditions
+при выполнении; typed schema и model-selected ID не дают разрешения. Audit metadata
+сохраняй без sensitive payload, с явным failure/recovery результатом.
+
 36. MCP
 
 Используй MCP только если приложение или backend действительно интегрируется с внешними tools/resources.
@@ -1691,6 +1697,12 @@ Cancellation должна:
 прекращать parsing;
 закрывать stream;
 не оставлять feature в loading.
+
+Определи identity/order сегментов и reconnect/duplicate policy для фактического stream
+контракта. Отвергай stale output после cancellation или смены input/session. Partial output
+не означает завершённый результат или выполненное действие; завершение включает
+consumer validation, а ошибки/повтор/cancel имеют понятное доступное состояние.
+
 51. SWIFT CONCURRENCY
 
 Все AI API проектируй под structured concurrency.
