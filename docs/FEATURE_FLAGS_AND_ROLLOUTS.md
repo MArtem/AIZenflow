@@ -14,6 +14,7 @@ create more state combinations than risk reduction, cannot prevent the irreversi
 would conceal a required migration/release decision.
 
 ## Required Checks
+- Typed configuration keys and value validation, with explicit cache/TTL and expiry behavior.
 - Safe default value when offline/unconfigured.
 - Kill switch for high-risk features.
 - Staged rollout plan.
