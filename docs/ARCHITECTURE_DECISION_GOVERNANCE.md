@@ -29,7 +29,10 @@ cost differs materially; do not invent an alternative, document or flag to fill 
 
 An explicitly authorized modernization needs a real benefit and success metric: characterize,
 migrate one bounded slice, compare, then expand or stop. Review dual-state/dual-write hazards,
-old/new compatibility and consumer cleanup criteria. A minimum-OS change also needs supported-user/
+old/new compatibility and consumer cleanup criteria. Characterize existing observable behavior
+from source and permitted evidence. Require only compatibility seams needed by actual consumers,
+with rollout/rollback and an explicit old-path retirement criterion; do not introduce adapters or
+shims merely to reproduce a historical checklist. A minimum-OS change also needs supported-user/
 device impact, availability-shim inventory and release communication ownership. These decisions
 do not authorize framework/language-mode/deployment changes; apply the relevant specialist route
 and current app-owned permission before implementation.

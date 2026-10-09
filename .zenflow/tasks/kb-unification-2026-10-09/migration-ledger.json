@@ -4909,72 +4909,1310 @@
       "path": "04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
       "sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
       "bytes": 2858,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0046-U01",
+          "source_path": "canonical/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+          "source_sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+          "source_heading": "Architecture and state ownership — curated copy-only route",
+          "source_fragment": "historical generic prompts",
+          "meaning": "Historical Library/prompts delivery, not active extra authority",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0046-U02",
+          "source_path": "canonical/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+          "source_sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+          "source_heading": "Architecture and state ownership — curated copy-only route",
+          "source_fragment": "Detect the existing style",
+          "meaning": "Actual style/types/data-flow detection; native/MVVM/MVC/coordinator/layered/reducer gates, no preferred-style conversion",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "Purpose; How To Use; Architecture Detection And Review Gates",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Purpose; How To Use; Architecture Detection And Review Gates",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/IOS_ARCHITECTURE_STYLE_ROUTER.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Purpose",
+                "How To Use",
+                "Architecture Detection And Review Gates"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0046-U03",
+          "source_path": "canonical/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+          "source_sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+          "source_heading": "Architecture and state ownership — curated copy-only route",
+          "source_fragment": "Identify one owner",
+          "meaning": "One state owner; producer/consumer/lifecycle/cancel/order/failure/persistence; no I/O/heavy render transformations",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "Invariants Before Style",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/IOS_ARCHITECTURE_STYLE_ROUTER.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0046-U04",
+          "source_path": "canonical/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+          "source_sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+          "source_heading": "Architecture and state ownership — curated copy-only route",
+          "source_fragment": "Trace actual injected dependencies",
+          "meaning": "Intentional boundaries and APIs, no ceremonial abstractions; transparent dependency scopes/no global locator/coordinator unrelated effects; coupling/change amplification/team cost and data-contract orchestration; repair real seam",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": null,
+          "unique_delta": "Intentional boundaries and APIs, no ceremonial abstractions; transparent dependency scopes/no global locator/coordinator unrelated effects; coupling/change amplification/team cost and data-contract orchestration; repair real seam",
+          "disposition": "MIGRATED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Purpose; Invariants Before Style; Stop List",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/IOS_ARCHITECTURE_STYLE_ROUTER.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Purpose",
+                "Invariants Before Style",
+                "Stop List"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0046-U05",
+          "source_path": "canonical/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+          "source_sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+          "source_heading": "Architecture and state ownership — curated copy-only route",
+          "source_fragment": "For MVVM",
+          "meaning": "Explicit intent conventions; reducer pure transitions, effect/cancellation ownership only selected architecture",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "Architecture-Specific Interaction Rule; Architecture Detection And Review Gates",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Architecture-Specific Interaction Rule; Architecture Detection And Review Gates",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/IOS_ARCHITECTURE_STYLE_ROUTER.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Architecture-Specific Interaction Rule",
+                "Architecture Detection And Review Gates"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0046-U06",
+          "source_path": "canonical/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+          "source_sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+          "source_heading": "Architecture and state ownership — curated copy-only route",
+          "source_fragment": "Trace every consumer",
+          "meaning": "Actual target/test/serialization/navigation/API consumers; broad durable change current authority and reversible plan",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "ADR Required When; ADR Template; Bounded Investigation And Migration; Stop Rule",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Required When; ADR Template; Bounded Investigation And Migration; Stop Rule",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/ARCHITECTURE_DECISION_GOVERNANCE.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Required When",
+                "ADR Template",
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0046-U07",
+          "source_path": "canonical/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+          "source_sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+          "source_heading": "Architecture and state ownership — curated copy-only route",
+          "source_fragment": "For legacy modernization",
+          "meaning": "Bounded characterized observable slice and actual coexistence/consumer seams/compatibility/rollout/rollback/old retirement; no ritual adapter/shim",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": null,
+          "unique_delta": "Bounded characterized observable slice and actual coexistence/consumer seams/compatibility/rollout/rollback/old retirement; no ritual adapter/shim",
+          "disposition": "MIGRATED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "Bounded Investigation And Migration",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/ARCHITECTURE_DECISION_GOVERNANCE.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0046-U08",
+          "source_path": "canonical/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+          "source_sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+          "source_heading": "Architecture and state ownership — curated copy-only route",
+          "source_fragment": "Review the complete affected",
+          "meaning": "Whole code/target/docs candidate review; only permitted compile/test/runtime, unverified ownership/integration claims; no invented trivial ADR requirement",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "1. Change Contract Before Implementation; 3. Verification Ladder; 4. Final Adversarial Review",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full curated source terminal; linked topic/deep references reviewed separately."
     },
     {
       "source_id": "LIB-0047",
       "path": "04_ARCHITECTURE/IOS-04-01_FEATURE_BOUNDARIES.md",
       "sha256": "ea23b6b9172393434dc76eaa2ab63ad0ce26ee8874b35a79f795d4db93fa1124",
       "bytes": 5280,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0047-U01",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-01_FEATURE_BOUNDARIES.md",
+          "source_sha256": "ea23b6b9172393434dc76eaa2ab63ad0ce26ee8874b35a79f795d4db93fa1124",
+          "source_heading": "Назначение",
+          "source_fragment": "Разделить presentation/domain/data/infrastructure ровно настолько, насколько требует coupling/testability/team ownership.",
+          "meaning": "Разделить presentation/domain/data/infrastructure ровно настолько, насколько требует coupling/testability/team ownership. Full common context/toolchain/contract/negative paths/minimal change/no escape/conditional evidence/output semantics.",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "Purpose; Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Purpose; Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/IOS_ARCHITECTURE_STYLE_ROUTER.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Purpose",
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Stateful Screen State Contract",
+                "ViewModel API Rule",
+                "View Model Ownership Decision Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0047-U02",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-01_FEATURE_BOUNDARIES.md",
+          "source_sha256": "ea23b6b9172393434dc76eaa2ab63ad0ce26ee8874b35a79f795d4db93fa1124",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed option quota; current material alternatives conditional, no invented design.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0047-U03",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-01_FEATURE_BOUNDARIES.md",
+          "source_sha256": "ea23b6b9172393434dc76eaa2ab63ad0ce26ee8874b35a79f795d4db93fa1124",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former modes/Library/template/playbook bindings; linked bodies unreviewed, no actual transition/test permission.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All common and distinct topic source units reviewed in block09; no linked-body coverage implied."
     },
     {
       "source_id": "LIB-0048",
       "path": "04_ARCHITECTURE/IOS-04-02_STATE_MANAGEMENT.md",
       "sha256": "5017027438dbeb1519d657ef34a4fa2a43892f99a73638d7f042461c84fad78e",
       "bytes": 5151,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0048-U01",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-02_STATE_MANAGEMENT.md",
+          "source_sha256": "5017027438dbeb1519d657ef34a4fa2a43892f99a73638d7f042461c84fad78e",
+          "source_heading": "Назначение",
+          "source_fragment": "Выбрать source of truth, state transitions, derived state и side effects без дублирования state.",
+          "meaning": "Выбрать source of truth, state transitions, derived state и side effects без дублирования state. Full common context/toolchain/contract/negative paths/minimal change/no escape/conditional evidence/output semantics.",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "Purpose; Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Purpose; Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/IOS_ARCHITECTURE_STYLE_ROUTER.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Purpose",
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Stateful Screen State Contract",
+                "ViewModel API Rule",
+                "View Model Ownership Decision Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0048-U02",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-02_STATE_MANAGEMENT.md",
+          "source_sha256": "5017027438dbeb1519d657ef34a4fa2a43892f99a73638d7f042461c84fad78e",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed option quota; current material alternatives conditional, no invented design.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0048-U03",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-02_STATE_MANAGEMENT.md",
+          "source_sha256": "5017027438dbeb1519d657ef34a4fa2a43892f99a73638d7f042461c84fad78e",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former modes/Library/template/playbook bindings; linked bodies unreviewed, no actual transition/test permission.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All common and distinct topic source units reviewed in block09; no linked-body coverage implied."
     },
     {
       "source_id": "LIB-0049",
       "path": "04_ARCHITECTURE/IOS-04-03_MVVM.md",
       "sha256": "851b6ed70fce35f79c8f6a00a7c8e67a0f2a5239a0b912a7af7897191cd0fed2",
       "bytes": 5145,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0049-U01",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-03_MVVM.md",
+          "source_sha256": "851b6ed70fce35f79c8f6a00a7c8e67a0f2a5239a0b912a7af7897191cd0fed2",
+          "source_heading": "Назначение",
+          "source_fragment": "Не превращать ViewModel в god object; отделить UI state, commands, dependencies и async lifetime.",
+          "meaning": "Не превращать ViewModel в god object; отделить UI state, commands, dependencies и async lifetime. Full common context/toolchain/contract/negative paths/minimal change/no escape/conditional evidence/output semantics.",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "Purpose; Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Purpose; Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/IOS_ARCHITECTURE_STYLE_ROUTER.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Purpose",
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Stateful Screen State Contract",
+                "ViewModel API Rule",
+                "View Model Ownership Decision Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0049-U02",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-03_MVVM.md",
+          "source_sha256": "851b6ed70fce35f79c8f6a00a7c8e67a0f2a5239a0b912a7af7897191cd0fed2",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed option quota; current material alternatives conditional, no invented design.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0049-U03",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-03_MVVM.md",
+          "source_sha256": "851b6ed70fce35f79c8f6a00a7c8e67a0f2a5239a0b912a7af7897191cd0fed2",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former modes/Library/template/playbook bindings; linked bodies unreviewed, no actual transition/test permission.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All common and distinct topic source units reviewed in block09; no linked-body coverage implied."
     },
     {
       "source_id": "LIB-0050",
       "path": "04_ARCHITECTURE/IOS-04-04_UNIDIRECTIONAL_FLOW.md",
       "sha256": "0dc493011331963ecfb13cba567cb8c20a86ded0d60b45d935607f5a1043217f",
       "bytes": 5193,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0050-U01",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-04_UNIDIRECTIONAL_FLOW.md",
+          "source_sha256": "0dc493011331963ecfb13cba567cb8c20a86ded0d60b45d935607f5a1043217f",
+          "source_heading": "Назначение",
+          "source_fragment": "Использовать actions/reducer/effects для сложного state, сохраняя traceability и testability.",
+          "meaning": "Использовать actions/reducer/effects для сложного state, сохраняя traceability и testability. Full common context/toolchain/contract/negative paths/minimal change/no escape/conditional evidence/output semantics.",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "Purpose; Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Purpose; Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/IOS_ARCHITECTURE_STYLE_ROUTER.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Purpose",
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Stateful Screen State Contract",
+                "ViewModel API Rule",
+                "View Model Ownership Decision Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0050-U02",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-04_UNIDIRECTIONAL_FLOW.md",
+          "source_sha256": "0dc493011331963ecfb13cba567cb8c20a86ded0d60b45d935607f5a1043217f",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed option quota; current material alternatives conditional, no invented design.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0050-U03",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-04_UNIDIRECTIONAL_FLOW.md",
+          "source_sha256": "0dc493011331963ecfb13cba567cb8c20a86ded0d60b45d935607f5a1043217f",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former modes/Library/template/playbook bindings; linked bodies unreviewed, no actual transition/test permission.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All common and distinct topic source units reviewed in block09; no linked-body coverage implied."
     },
     {
       "source_id": "LIB-0051",
       "path": "04_ARCHITECTURE/IOS-04-05_CLEAN_BOUNDARIES.md",
       "sha256": "747241b5e512aeaa44e317cf466fd5f78144deea080a07100a42653cd22e7665",
       "bytes": 5217,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0051-U01",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-05_CLEAN_BOUNDARIES.md",
+          "source_sha256": "747241b5e512aeaa44e317cf466fd5f78144deea080a07100a42653cd22e7665",
+          "source_heading": "Назначение",
+          "source_fragment": "Применять dependency inversion на действительно изменчивых границах без protocol explosion.",
+          "meaning": "Применять dependency inversion на действительно изменчивых границах без protocol explosion. Full common context/toolchain/contract/negative paths/minimal change/no escape/conditional evidence/output semantics.",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "Purpose; Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Purpose; Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/IOS_ARCHITECTURE_STYLE_ROUTER.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Purpose",
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Stateful Screen State Contract",
+                "ViewModel API Rule",
+                "View Model Ownership Decision Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0051-U02",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-05_CLEAN_BOUNDARIES.md",
+          "source_sha256": "747241b5e512aeaa44e317cf466fd5f78144deea080a07100a42653cd22e7665",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed option quota; current material alternatives conditional, no invented design.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0051-U03",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-05_CLEAN_BOUNDARIES.md",
+          "source_sha256": "747241b5e512aeaa44e317cf466fd5f78144deea080a07100a42653cd22e7665",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former modes/Library/template/playbook bindings; linked bodies unreviewed, no actual transition/test permission.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All common and distinct topic source units reviewed in block09; no linked-body coverage implied."
     },
     {
       "source_id": "LIB-0052",
       "path": "04_ARCHITECTURE/IOS-04-06_COORDINATOR.md",
       "sha256": "f9f6c5031f331277551beba576c63829a31325fefa0a00be1c360bd8c1c82b8b",
       "bytes": 5226,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0052-U01",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-06_COORDINATOR.md",
+          "source_sha256": "f9f6c5031f331277551beba576c63829a31325fefa0a00be1c360bd8c1c82b8b",
+          "source_heading": "Назначение",
+          "source_fragment": "Изолировать navigation decisions, deep links и ownership, не превращая coordinator в service locator.",
+          "meaning": "Изолировать navigation decisions, deep links и ownership, не превращая coordinator в service locator. Full common context/toolchain/contract/negative paths/minimal change/no escape/conditional evidence/output semantics.",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "Purpose; Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Purpose; Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/IOS_ARCHITECTURE_STYLE_ROUTER.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Purpose",
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Stateful Screen State Contract",
+                "ViewModel API Rule",
+                "View Model Ownership Decision Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0052-U02",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-06_COORDINATOR.md",
+          "source_sha256": "f9f6c5031f331277551beba576c63829a31325fefa0a00be1c360bd8c1c82b8b",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed option quota; current material alternatives conditional, no invented design.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0052-U03",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-06_COORDINATOR.md",
+          "source_sha256": "f9f6c5031f331277551beba576c63829a31325fefa0a00be1c360bd8c1c82b8b",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former modes/Library/template/playbook bindings; linked bodies unreviewed, no actual transition/test permission.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All common and distinct topic source units reviewed in block09; no linked-body coverage implied."
     },
     {
       "source_id": "LIB-0053",
       "path": "04_ARCHITECTURE/IOS-04-07_DEPENDENCY_INJECTION.md",
       "sha256": "adc3244d299fbd64bd0228416b174c92f8276d0e659b09b35a0905f29bfddbf3",
       "bytes": 5145,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0053-U01",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-07_DEPENDENCY_INJECTION.md",
+          "source_sha256": "adc3244d299fbd64bd0228416b174c92f8276d0e659b09b35a0905f29bfddbf3",
+          "source_heading": "Назначение",
+          "source_fragment": "Явно передавать dependencies, scopes и test doubles без глобального container abuse.",
+          "meaning": "Явно передавать dependencies, scopes и test doubles без глобального container abuse. Full common context/toolchain/contract/negative paths/minimal change/no escape/conditional evidence/output semantics.",
+          "type": "constraint",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": null,
+          "unique_delta": "Явно передавать dependencies, scopes и test doubles без глобального container abuse. Full common context/toolchain/contract/negative paths/minimal change/no escape/conditional evidence/output semantics.",
+          "disposition": "MIGRATED",
+          "reason": "Complete semantics preserved in current style/invariant/permission owners, not a blanket architecture preference.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Purpose; Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": [
+            "docs/IOS_ARCHITECTURE_STYLE_ROUTER.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Purpose",
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Stateful Screen State Contract",
+                "ViewModel API Rule",
+                "View Model Ownership Decision Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Test Doubles"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0053-U02",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-07_DEPENDENCY_INJECTION.md",
+          "source_sha256": "adc3244d299fbd64bd0228416b174c92f8276d0e659b09b35a0905f29bfddbf3",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed option quota; current material alternatives conditional, no invented design.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0053-U03",
+          "source_path": "canonical/04_ARCHITECTURE/IOS-04-07_DEPENDENCY_INJECTION.md",
+          "source_sha256": "adc3244d299fbd64bd0228416b174c92f8276d0e659b09b35a0905f29bfddbf3",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former modes/Library/template/playbook bindings; linked bodies unreviewed, no actual transition/test permission.",
+          "type": "historical-routing",
+          "conditions": "Detected actual style/current boundary and current user approval; no style/runtime/test/mode transition is authorized.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former Library delivery/source-binding retained in archive only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full curated/template/topic comparison; exact source/hash/fragment/current headings; previous units and mirrors.",
+          "evidence": "block-09-architecture-ownership.md",
+          "affected_routes": [
+            "ios-architecture-router"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All common and distinct topic source units reviewed in block09; no linked-body coverage implied."
     },
     {
       "source_id": "LIB-0054",

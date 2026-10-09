@@ -27,6 +27,11 @@ These are the reusable floor regardless of the selected architecture:
   where they can affect correctness;
 - rendering remains cheap and side-effect free, and I/O stays at an owning boundary;
 - loading, empty, failure, retry, offline, and permission states are represented when applicable;
+- injected dependencies and scopes remain explicit; a global container/service locator or
+  coordinator must not hide dependencies or own unrelated effects;
+- assess coupling, change amplification and operational/team cost rather than layer/file count;
+- remote/local/cache orchestration and DTO/domain mapping follow the actual data contract, not
+  automatic repository/service boundaries; repair a demonstrated seam before a broad rewrite;
 - the selected structure is proportionate to current complexity and leaves an evidence trail for
   the choice.
 

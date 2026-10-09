@@ -20,4 +20,4 @@ physical/actualVoiceOver OMITTED_BY_USER. No source archive, app source/tests, d
 app API or mode changed. Full-corpus, read-cost/routing/cutover and broad baseline drift pending;
 benefit unestablished. No token savings or new source-verification-date claim.
 
-Read-cost delta: API_CONTRACT_AND_INTEGRATION_RULES.md 186 → 209 whitespace words; LOCALIZATION_INTERNATIONALIZATION_STANDARD.md 91 → 115 whitespace words. Level0 unchanged; U4/U6 route-cost acceptance pending.
+Read-cost delta: API_CONTRACT_AND_INTEGRATION_RULES.md 186 → 209 whitespace words; LOCALIZATION_INTERNATIONALIZATION_STANDARD.md 91 → 116 whitespace words. Level0 unchanged; U4/U6 route-cost acceptance pending.
