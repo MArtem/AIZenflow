@@ -41021,9 +41021,676 @@
       "path": "19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
       "sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
       "bytes": 4826,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0225-U01",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "Those originals remain inactive source material, not an",
+          "meaning": "Imported prompts/deep-playbook second-layer/runtime binding archived, no obligatory Library pass.",
+          "type": "historical-routing",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Imported prompts/deep-playbook second-layer/runtime binding archived, no obligatory Library pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0225-U02",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "A review request alone does not authorize edits.",
+          "meaning": "Requested output/current authority; no edit/test/build/Git permission inference.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owner covers conditional contract, not observed review success or action permission.",
+          "destination_path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "destination_heading": "User Authority; Authority, Verdict, And Readiness Contract",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "User Authority",
+                "Authority, Verdict, And Readiness Contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U03",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "Mark absent facts",
+          "meaning": "Actual behavior/acceptance/owners/callers/targets/deployment/local conventions, unknown facts explicit.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owner covers conditional contract, not observed review success or action permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U04",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "Include app extensions,",
+          "meaning": "Affected state/resource lifetimes and all generated/serialized/resource/extension consumers.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owner covers conditional contract, not observed review success or action permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U05",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "Preserve error recovery/messaging and async cancellation,",
+          "meaning": "Authorized smallest-responsibility refactor preserves observable/public/error/recovery/order/backpressure contracts.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owner covers conditional contract, not observed review success or action permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Cancellation",
+                "Streams",
+                "Reactive And Queue Bridges"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U06",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "absence of direct call sites alone is insufficient.",
+          "meaning": "Delete only after actual dynamic/resource/external-route/flag/public reachability review.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owner covers conditional contract, not observed review success or action permission.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Public API Rules",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Public API Rules"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U07",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "Compare success with error, cancellation, retry, offline, permission and partial-result paths",
+          "meaning": "Credible failure/partial-state routes, not speculative unrelated cases.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owner covers conditional contract, not observed review success or action permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U08",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "Static",
+          "meaning": "Actual async owner/isolation/reentrancy/lifetime/cleanup and memory ownership; static pattern not leak/race absence.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owner covers conditional contract, not observed review success or action permission.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Task Ownership; Testing And Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Testing And Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U09",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "For security/privacy, name the trust boundary",
+          "meaning": "Actual trust boundary/negative inputs/privacy/logging/workload and needed comparable performance evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owner covers conditional contract, not observed review success or action permission.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Security, Privacy, And Logging; Verification Scope",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Security, Privacy, And Logging",
+                "Verification Scope"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U10",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "Style preferences must not obscure failure modes.",
+          "meaning": "Actual availability/target/package/resource/accessibility/localization, style not blocker replacement.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owner covers conditional contract, not observed review success or action permission.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Mandatory Review Areas; Severity Policy",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Mandatory Review Areas",
+                "Severity Policy"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U11",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "An internal",
+          "meaning": "Trace producer and accessible-label consumer against user-known information, including hidden/pending state.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "Unknown/default UI state cannot become confirmed negative accessible label.",
+          "disposition": "MIGRATED",
+          "reason": "Unknown/default UI state cannot become confirmed negative accessible label.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U12",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "adjudicate the **local-first candidate findings before adding more**.",
+          "meaning": "Separate actual present path from impossible input/future consumer/guessed contract.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "Existing candidate adjudication and actual allowed producer/caller/product reachability.",
+          "disposition": "MIGRATED",
+          "reason": "Existing candidate adjudication and actual allowed producer/caller/product reachability.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Finding Applicability And Adjudication",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U13",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "downgrade or mark severity conditional when reachability or impact is",
+          "meaning": "Conflict resolved by current impact/confidence/applicability axes; do not lower impact severity due to uncertain reachability. Preserve static fact and unknown applicability/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Conflict resolved by current impact/confidence/applicability axes; do not lower impact severity due to uncertain reachability. Preserve static fact and unknown applicability/risk.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0225-U14",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "Challenge missing localization only against the app",
+          "meaning": "English-only current behavior versus future readiness, no unapproved locale expansion or removal.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "Current language-defect applicability follows supported locale/explicit contract, required resource work retained.",
+          "disposition": "MIGRATED",
+          "reason": "Current language-defect applicability follows supported locale/explicit contract, required resource work retained.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Finding Applicability And Adjudication",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U15",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "Record duplicate, rejected and refined findings",
+          "meaning": "Do not invent new findings to justify a second pass.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "Explicit duplicate/rejected/refined findings and honest zero incremental outcome.",
+          "disposition": "MIGRATED",
+          "reason": "Explicit duplicate/rejected/refined findings and honest zero incremental outcome.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Finding Applicability And Adjudication",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U16",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "Do not promote an unused enum case, asymmetric presentation or plausible game convention",
+          "meaning": "No invented game/product behavior; report observed fact and missing decision.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "Observed asymmetry needs actual product contract before asserting defect; missing decision explicit.",
+          "disposition": "MIGRATED",
+          "reason": "Observed asymmetry needs actual product contract before asserting defect; missing decision explicit.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Finding Applicability And Adjudication",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U17",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "Record each actionable finding as",
+          "meaning": "Location/invariant/failure/evidence/smallest correction/check and separate confidence/applicability/evidence axes.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owner covers conditional contract, not observed review success or action permission.",
+          "destination_path": "reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+          "destination_heading": "Required Finding Format; Severity",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+              "headings": [
+                "Required Finding Format",
+                "Severity"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U18",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "P0–P2 block a",
+          "meaning": "P0–P2 closure, P3 report/fix, affected consumers and complete final review after material edits.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owner covers conditional contract, not observed review success or action permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U19",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "Retire migration seams only",
+          "meaning": "Compatibility/removal window and parity evidence; no automatic adapter/rewrite. Measured perf bottleneck/current permitted evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owner covers conditional contract, not observed review success or action permission.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Public API Rules",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Public API Rules"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0225-U20",
+          "source_path": "canonical/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+          "source_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "source_heading": "iOS code review — curated copy-only route",
+          "source_fragment": "`INSUFFICIENT_EVIDENCE`",
+          "meaning": "Missing evidence is not PASS, imported playbook never grants tests/builds/Git/dependencies/release/PR.",
+          "type": "constraint",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owner covers conditional contract, not observed review success or action permission.",
+          "destination_path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "destination_heading": "Authority, Verdict, And Readiness Contract; User Authority",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-44-review-adjudication-truth.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full curated review route reviewed. Conflict: old severity downgrade conflates axes; not activated, archived under current higher-authority governance. Reachability/confidence/applicability review preserved. No unresolved human product decision for migration."
     },
     {
       "source_id": "LIB-0226",

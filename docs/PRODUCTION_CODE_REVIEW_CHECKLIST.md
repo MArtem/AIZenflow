@@ -172,6 +172,20 @@ These patterns are blocked by default. If a change truly needs one, document the
 - Business rules split accidentally across View, ViewModel, Repository, and package code.
 - Marking repositories/services/packages `@MainActor` for UI convenience.
 
+## Finding Applicability And Adjudication
+
+Adjudicate existing candidate findings before adding more. Trace the actual caller/input producer,
+allowed value range and current product/deployment contract. A direct call with an impossible
+current input, future consumer or unapproved product assumption does not establish a present
+failure. Preserve the static fact and unresolved risk; record confidence/applicability separately
+from impact severity under current governance. Record duplicate, rejected and refined findings;
+zero incremental findings is an honest outcome.
+
+Assess a current wrong-language defect against supported locales or an explicit requirement;
+retain required localization resources and future-readiness work. An unused enum case, asymmetric
+presentation or plausible domain convention does not establish a product defect without the
+current behavior contract. Report the observed asymmetry and missing product decision.
+
 ## Severity Policy
 - **P0 Blocker**: crash, data loss/corruption, broken core flow, severe jank/main-thread stalls in primary UI, security/privacy leak.
 - **P1 Production Risk**: likely performance degradation, incorrect state ownership, broad invalidation, bad persistence/network/sync shape, memory growth, brittle migration.

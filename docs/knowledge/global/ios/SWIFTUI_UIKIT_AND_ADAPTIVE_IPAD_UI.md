@@ -135,6 +135,10 @@ decorative content, modal focus and announcements after async/presentation trans
 inaccessible actions and hidden/unlabeled destructive actions block readiness under the current
 quality gate; visual/view-tree order alone is not evidence of actual traversal or action behavior.
 
+Trace the value producer and accessible-label consumer against information actually known to
+the user. An internal empty/default value on a hidden or pending surface can mean unknown;
+do not announce it as a confirmed negative fact.
+
 Keep user-facing and accessibility text in the project's localization resources or supported
 String Catalog workflow. Include plural/grammatical variation and translator context; avoid
 English-length or concatenated locale-sensitive assumptions. Use leading/trailing semantics and
