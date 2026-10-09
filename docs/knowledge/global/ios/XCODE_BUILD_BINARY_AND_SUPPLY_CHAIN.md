@@ -13,12 +13,19 @@ An Xcode build is a dependency graph of targets, phases, scripts, generated file
 - Do not encode production behavior through `#if DEBUG` when a runtime environment/feature decision is required.
 - Keep bundle IDs, entitlements, capabilities, URL schemes, app groups, and signing consistent per configuration.
 
+Review effective compiler flags, warning policy and Swift/concurrency mode per affected
+configuration; target UI defaults or a suppressed diagnostic do not establish the intended contract.
+
 ## Targets And Build Phases
 - Every source/resource has intentional target membership.
 - Script phases declare inputs/outputs or explain why they must always run.
 - Scripts fail on meaningful errors, avoid secrets in logs, and write only approved derived paths.
 - Generated code has a reproducible generator/version and does not silently overwrite human source.
 - Embed/sign only what the product target requires.
+
+Code generation names schema/version inputs and the checked-in output policy, with deterministic
+local/CI verification when permitted. Correct the generator or source of truth instead of editing
+derived output by hand; preserve human-owned files and review every generated consumer.
 
 ## Modules And Linking
 - A module boundary is a compile-time/API boundary, not automatically an architecture boundary.
@@ -46,12 +53,21 @@ For regulated or higher-risk products, generate or maintain an SBOM in an accept
 - Swift interface failure: inspect compiler compatibility, library evolution, generated interface, and dependency version.
 - Resource failure: inspect bundle ownership and package resource declaration rather than assuming `Bundle.main`.
 
+For binary-size claims, inspect the actual artifact's symbols, resources, platform/architecture
+slices and dependency/linkage contribution in comparable configurations. Proposed stripping or
+module changes need compatibility/resource/modularity constraints; source diff size is not a
+measured shipping binary result.
+
 ## Reproducibility And CI
 - Pin Xcode/toolchain and record destination/configuration.
 - Isolate DerivedData and package caches within approved paths.
 - Avoid undeclared reliance on developer-machine state, global tools, login keychains, or mutable network downloads.
 - Cache only inputs whose key includes all compatibility dimensions; provide a clean-cache fallback.
 - Preserve logs, result bundles, archives, and dSYMs according to retention/privacy policy.
+
+Review developer workflow and actionable failure diagnostics alongside local/CI parity; a build
+that relies on undeclared machine state or opaque manual recovery is not reproducible evidence.
+These criteria do not authorize tool installs, dependency resolution or machine configuration.
 
 ## Build Performance
 Measure clean and incremental builds separately. Inspect type-check hotspots, dependency fan-out, generated code, macros, script phases, module invalidation, and linker time. Modularization that adds boundaries can improve parallelism or worsen overhead; decide from dependency graph and measurements.

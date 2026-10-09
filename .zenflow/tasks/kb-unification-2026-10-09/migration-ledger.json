@@ -34406,45 +34406,616 @@
       "path": "16_BUILD_MODULARITY_TOOLING/IOS-16-01_SPM_PACKAGE.md",
       "sha256": "89e687b30b8d508af7494dff9a9acc950c007e7014f1089c411d33f89cd5ad74",
       "bytes": 5070,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0193-U01",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-01_SPM_PACKAGE.md",
+          "source_sha256": "89e687b30b8d508af7494dff9a9acc950c007e7014f1089c411d33f89cd5ad74",
+          "source_heading": "Назначение",
+          "source_fragment": "Targets/products/resources/plugins, dependency graph, visibility и test structure.",
+          "meaning": "Targets/products/resources/plugins, dependency graph, visibility и test structure. Common correctness/API/ownership/privacy/performance/evidence/permission gates retained.",
+          "type": "constraint",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current build owner plus selected canonical package/module/config/dependency rules cover focus.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Targets And Build Phases; SwiftPM And Dependencies; Modules And Linking",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases",
+                "SwiftPM And Dependencies",
+                "Modules And Linking"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0193-U02",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-01_SPM_PACKAGE.md",
+          "source_sha256": "89e687b30b8d508af7494dff9a9acc950c007e7014f1089c411d33f89cd5ad74",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0193-U03",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-01_SPM_PACKAGE.md",
+          "source_sha256": "89e687b30b8d508af7494dff9a9acc950c007e7014f1089c411d33f89cd5ad74",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized build template/focus/gates reviewed; linked OP independent/unreviewed. No package resolution/source/project/config/cache/tool/runtime permission."
     },
     {
       "source_id": "LIB-0194",
       "path": "16_BUILD_MODULARITY_TOOLING/IOS-16-02_MODULE_GRAPH.md",
       "sha256": "6d2cbd9fa5062ca59c5ced45aabe82fd1f9071602bca6d1d87c63de596415508",
       "bytes": 5064,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0194-U01",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-02_MODULE_GRAPH.md",
+          "source_sha256": "6d2cbd9fa5062ca59c5ced45aabe82fd1f9071602bca6d1d87c63de596415508",
+          "source_heading": "Назначение",
+          "source_fragment": "Избежать cycles, layer violations, transitive dependency sprawl и slow rebuilds.",
+          "meaning": "Избежать cycles, layer violations, transitive dependency sprawl и slow rebuilds. Common correctness/API/ownership/privacy/performance/evidence/permission gates retained.",
+          "type": "constraint",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current build owner plus selected canonical package/module/config/dependency rules cover focus.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Modules And Linking; Build Performance",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Modules And Linking",
+                "Build Performance"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0194-U02",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-02_MODULE_GRAPH.md",
+          "source_sha256": "6d2cbd9fa5062ca59c5ced45aabe82fd1f9071602bca6d1d87c63de596415508",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0194-U03",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-02_MODULE_GRAPH.md",
+          "source_sha256": "6d2cbd9fa5062ca59c5ced45aabe82fd1f9071602bca6d1d87c63de596415508",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized build template/focus/gates reviewed; linked OP independent/unreviewed. No package resolution/source/project/config/cache/tool/runtime permission."
     },
     {
       "source_id": "LIB-0195",
       "path": "16_BUILD_MODULARITY_TOOLING/IOS-16-03_BUILD_PERFORMANCE.md",
       "sha256": "e2bc6997d2553a09c77cc56f39689818fd260cf932a8f3320f8f06bdae49e03e",
       "bytes": 5157,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0195-U01",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-03_BUILD_PERFORMANCE.md",
+          "source_sha256": "e2bc6997d2553a09c77cc56f39689818fd260cf932a8f3320f8f06bdae49e03e",
+          "source_heading": "Назначение",
+          "source_fragment": "Измерить type-checking/modules/scripts/generated code/dependency graph, улучшать без хаков.",
+          "meaning": "Измерить type-checking/modules/scripts/generated code/dependency graph, улучшать без хаков. Common correctness/API/ownership/privacy/performance/evidence/permission gates retained.",
+          "type": "constraint",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current build owner plus selected canonical package/module/config/dependency rules cover focus.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Performance",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Performance"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0195-U02",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-03_BUILD_PERFORMANCE.md",
+          "source_sha256": "e2bc6997d2553a09c77cc56f39689818fd260cf932a8f3320f8f06bdae49e03e",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0195-U03",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-03_BUILD_PERFORMANCE.md",
+          "source_sha256": "e2bc6997d2553a09c77cc56f39689818fd260cf932a8f3320f8f06bdae49e03e",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized build template/focus/gates reviewed; linked OP independent/unreviewed. No package resolution/source/project/config/cache/tool/runtime permission."
     },
     {
       "source_id": "LIB-0196",
       "path": "16_BUILD_MODULARITY_TOOLING/IOS-16-04_BUILD_SETTINGS.md",
       "sha256": "2665a52dcb2feb26ff6bc6611a6920b1881c072ef64ad247cc36f614280d0a53",
       "bytes": 5073,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0196-U01",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-04_BUILD_SETTINGS.md",
+          "source_sha256": "2665a52dcb2feb26ff6bc6611a6920b1881c072ef64ad247cc36f614280d0a53",
+          "source_heading": "Назначение",
+          "source_fragment": "Конфигурации, xcconfig, flags, warnings, Swift mode и environment separation.",
+          "meaning": "Конфигурации, xcconfig, flags, warnings, Swift mode и environment separation. Common correctness/API/ownership/privacy/performance/evidence/permission gates retained.",
+          "type": "constraint",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "Effective compiler flags/warning policy/Swift-concurrency mode per affected configuration, no suppressions as proof.",
+          "disposition": "MIGRATED",
+          "reason": "Effective compiler flags/warning policy/Swift-concurrency mode per affected configuration, no suppressions as proof.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Configuration",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Configuration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0196-U02",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-04_BUILD_SETTINGS.md",
+          "source_sha256": "2665a52dcb2feb26ff6bc6611a6920b1881c072ef64ad247cc36f614280d0a53",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0196-U03",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-04_BUILD_SETTINGS.md",
+          "source_sha256": "2665a52dcb2feb26ff6bc6611a6920b1881c072ef64ad247cc36f614280d0a53",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized build template/focus/gates reviewed; linked OP independent/unreviewed. No package resolution/source/project/config/cache/tool/runtime permission."
     },
     {
       "source_id": "LIB-0197",
       "path": "16_BUILD_MODULARITY_TOOLING/IOS-16-05_CODEGEN.md",
       "sha256": "21dec2e14e998393700934cefe4e2ccc66bba2772489a52fbd8b54ed9dbb0e8b",
       "bytes": 5187,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0197-U01",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-05_CODEGEN.md",
+          "source_sha256": "21dec2e14e998393700934cefe4e2ccc66bba2772489a52fbd8b54ed9dbb0e8b",
+          "source_heading": "Назначение",
+          "source_fragment": "Детерминированный generation, checked-in policy, schema versioning, CI verification и no hidden side effects.",
+          "meaning": "Детерминированный generation, checked-in policy, schema versioning, CI verification и no hidden side effects. Common correctness/API/ownership/privacy/performance/evidence/permission gates retained.",
+          "type": "constraint",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "Codegen schema/version inputs, checked-in policy, deterministic verification and generator authority over derived output.",
+          "disposition": "MIGRATED",
+          "reason": "Codegen schema/version inputs, checked-in policy, deterministic verification and generator authority over derived output.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Targets And Build Phases; Reproducibility And CI",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases",
+                "Reproducibility And CI"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0197-U02",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-05_CODEGEN.md",
+          "source_sha256": "21dec2e14e998393700934cefe4e2ccc66bba2772489a52fbd8b54ed9dbb0e8b",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0197-U03",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-05_CODEGEN.md",
+          "source_sha256": "21dec2e14e998393700934cefe4e2ccc66bba2772489a52fbd8b54ed9dbb0e8b",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized build template/focus/gates reviewed; linked OP independent/unreviewed. No package resolution/source/project/config/cache/tool/runtime permission."
     },
     {
       "source_id": "LIB-0198",
@@ -34460,36 +35031,476 @@
       "path": "16_BUILD_MODULARITY_TOOLING/IOS-16-07_DEPENDENCY_AUDIT.md",
       "sha256": "818e75f8984a93f25a3374a868ac2bbf158380ba67028aee9a4163a60cdd1230",
       "bytes": 5160,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0199-U01",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-07_DEPENDENCY_AUDIT.md",
+          "source_sha256": "818e75f8984a93f25a3374a868ac2bbf158380ba67028aee9a4163a60cdd1230",
+          "source_heading": "Назначение",
+          "source_fragment": "Necessity, maintenance, platform support, Swift 6 readiness, privacy, binary size, license, removal cost.",
+          "meaning": "Necessity, maintenance, platform support, Swift 6 readiness, privacy, binary size, license, removal cost. Common correctness/API/ownership/privacy/performance/evidence/permission gates retained.",
+          "type": "constraint",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current build owner plus selected canonical package/module/config/dependency rules cover focus.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Supply Chain",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Supply Chain"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Removal Policy",
+                "Update Policy"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0199-U02",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-07_DEPENDENCY_AUDIT.md",
+          "source_sha256": "818e75f8984a93f25a3374a868ac2bbf158380ba67028aee9a4163a60cdd1230",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0199-U03",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-07_DEPENDENCY_AUDIT.md",
+          "source_sha256": "818e75f8984a93f25a3374a868ac2bbf158380ba67028aee9a4163a60cdd1230",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized build template/focus/gates reviewed; linked OP independent/unreviewed. No package resolution/source/project/config/cache/tool/runtime permission."
     },
     {
       "source_id": "LIB-0200",
       "path": "16_BUILD_MODULARITY_TOOLING/IOS-16-08_BINARY_SIZE.md",
       "sha256": "2c87228601067d8df031a75f62f4a36c769ea0b9777a34d763a93697c7557c44",
       "bytes": 5121,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0200-U01",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-08_BINARY_SIZE.md",
+          "source_sha256": "2c87228601067d8df031a75f62f4a36c769ea0b9777a34d763a93697c7557c44",
+          "source_heading": "Назначение",
+          "source_fragment": "Измерить symbols/resources/architectures/dependencies, optimize without degrading modularity blindly.",
+          "meaning": "Измерить symbols/resources/architectures/dependencies, optimize without degrading modularity blindly. Common correctness/API/ownership/privacy/performance/evidence/permission gates retained.",
+          "type": "constraint",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "Actual artifact symbols/resources/slices/dependency/linkage size attribution and compatibility/modularity envelope, source diff not shipping size proof.",
+          "disposition": "MIGRATED",
+          "reason": "Actual artifact symbols/resources/slices/dependency/linkage size attribution and compatibility/modularity envelope, source diff not shipping size proof.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Binary And Runtime Diagnosis",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Binary And Runtime Diagnosis"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0200-U02",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-08_BINARY_SIZE.md",
+          "source_sha256": "2c87228601067d8df031a75f62f4a36c769ea0b9777a34d763a93697c7557c44",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0200-U03",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-08_BINARY_SIZE.md",
+          "source_sha256": "2c87228601067d8df031a75f62f4a36c769ea0b9777a34d763a93697c7557c44",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized build template/focus/gates reviewed; linked OP independent/unreviewed. No package resolution/source/project/config/cache/tool/runtime permission."
     },
     {
       "source_id": "LIB-0201",
       "path": "16_BUILD_MODULARITY_TOOLING/IOS-16-09_CONFIG_SECRETS.md",
       "sha256": "173cf059d149e8b9b57d2d25bbe5475b5bd7b37c8480ad073dc2e9785ece1b8c",
       "bytes": 5118,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0201-U01",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-09_CONFIG_SECRETS.md",
+          "source_sha256": "173cf059d149e8b9b57d2d25bbe5475b5bd7b37c8480ad073dc2e9785ece1b8c",
+          "source_heading": "Назначение",
+          "source_fragment": "Разделить public config и secrets, xcconfig/env/CI handling, no secret in bundle/source.",
+          "meaning": "Разделить public config и secrets, xcconfig/env/CI handling, no secret in bundle/source. Common correctness/API/ownership/privacy/performance/evidence/permission gates retained.",
+          "type": "constraint",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current build owner plus selected canonical package/module/config/dependency rules cover focus.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Configuration",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Configuration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0201-U02",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-09_CONFIG_SECRETS.md",
+          "source_sha256": "173cf059d149e8b9b57d2d25bbe5475b5bd7b37c8480ad073dc2e9785ece1b8c",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0201-U03",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-09_CONFIG_SECRETS.md",
+          "source_sha256": "173cf059d149e8b9b57d2d25bbe5475b5bd7b37c8480ad073dc2e9785ece1b8c",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized build template/focus/gates reviewed; linked OP independent/unreviewed. No package resolution/source/project/config/cache/tool/runtime permission."
     },
     {
       "source_id": "LIB-0202",
       "path": "16_BUILD_MODULARITY_TOOLING/IOS-16-10_TOOLING_REVIEW.md",
       "sha256": "0df5fdae6a0a66e8778898c8dd72caa87bfcfd918b008958aa2aa525056fa0ef",
       "bytes": 5103,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0202-U01",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-10_TOOLING_REVIEW.md",
+          "source_sha256": "0df5fdae6a0a66e8778898c8dd72caa87bfcfd918b008958aa2aa525056fa0ef",
+          "source_heading": "Назначение",
+          "source_fragment": "Проверить build determinism, scripts, cache assumptions, developer ergonomics и CI parity.",
+          "meaning": "Проверить build determinism, scripts, cache assumptions, developer ergonomics и CI parity. Common correctness/API/ownership/privacy/performance/evidence/permission gates retained.",
+          "type": "constraint",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "Developer workflow and actionable diagnostics with local/CI parity, undeclared machine state/opaque recovery not reproducibility evidence.",
+          "disposition": "MIGRATED",
+          "reason": "Developer workflow and actionable diagnostics with local/CI parity, undeclared machine state/opaque recovery not reproducibility evidence.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Reproducibility And CI",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Reproducibility And CI"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0202-U02",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-10_TOOLING_REVIEW.md",
+          "source_sha256": "0df5fdae6a0a66e8778898c8dd72caa87bfcfd918b008958aa2aa525056fa0ef",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0202-U03",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-10_TOOLING_REVIEW.md",
+          "source_sha256": "0df5fdae6a0a66e8778898c8dd72caa87bfcfd918b008958aa2aa525056fa0ef",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-37-build-tooling-contracts.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized build template/focus/gates reviewed; linked OP independent/unreviewed. No package resolution/source/project/config/cache/tool/runtime permission."
     },
     {
       "source_id": "LIB-0203",
