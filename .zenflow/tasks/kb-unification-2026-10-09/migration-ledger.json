@@ -58348,81 +58348,947 @@
       "path": "27_SYSTEM_INTEGRATION/IOS-24-01_WEBKIT.md",
       "sha256": "4b66434a4132af1ed5e45edc5202212e1e9802f661f6e5a2a3b71c95bcf508de",
       "bytes": 3819,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0325-U01",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-01_WEBKIT.md",
+          "source_sha256": "4b66434a4132af1ed5e45edc5202212e1e9802f661f6e5a2a3b71c95bcf508de",
+          "source_heading": "Process/navigation lifecycle, async JS bridge, content worlds, downloads, cookies, auth and safe URL policy.",
+          "source_fragment": "Process/navigation lifecycle, async JS bridge, content worlds, downloads, cookies, auth and safe URL policy.",
+          "meaning": "Process/navigation lifecycle, async JS bridge, content worlds, downloads, cookies, auth and safe URL policy. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: navigation policy, JS bridge surface, process termination, cookies, downloads, security.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Process/navigation lifecycle, async JS bridge, content worlds, downloads, cookies, auth and safe URL policy. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: navigation policy, JS bridge surface, process termination, cookies, downloads, security.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "WebKit; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "WebKit",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: navigation policy, JS bridge surface, process termination, cookies, downloads, security.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0325-U02",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-01_WEBKIT.md",
+          "source_sha256": "4b66434a4132af1ed5e45edc5202212e1e9802f661f6e5a2a3b71c95bcf508de",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0325-U03",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-01_WEBKIT.md",
+          "source_sha256": "4b66434a4132af1ed5e45edc5202212e1e9802f661f6e5a2a3b71c95bcf508de",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0326",
       "path": "27_SYSTEM_INTEGRATION/IOS-24-02_APP_CLIPS.md",
       "sha256": "df4e1f87b07f57cb37638f61a81b6be81841bb5823c24bececd74afe13ff14bd",
       "bytes": 3741,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0326-U01",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-02_APP_CLIPS.md",
+          "source_sha256": "df4e1f87b07f57cb37638f61a81b6be81841bb5823c24bececd74afe13ff14bd",
+          "source_heading": "Малый binary, invocation URLs, ephemeral authorization, handoff to full app и data boundaries.",
+          "source_fragment": "Малый binary, invocation URLs, ephemeral authorization, handoff to full app и data boundaries.",
+          "meaning": "Малый binary, invocation URLs, ephemeral authorization, handoff to full app и data boundaries. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: size budget, invocation, auth/data migration, privacy, fallback, analytics.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "Малый binary, invocation URLs, ephemeral authorization, handoff to full app и data boundaries. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: size budget, invocation, auth/data migration, privacy, fallback, analytics.",
+          "disposition": "MIGRATED",
+          "reason": "Малый binary, invocation URLs, ephemeral authorization, handoff to full app и data boundaries. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: size budget, invocation, auth/data migration, privacy, fallback, analytics.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Capability Intake; Target And Extension Boundary; App Intents, Shortcuts, Siri, And Spotlight; Continuity And Focused Integrations; Capability Evidence Classes",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Capability Intake",
+                "Target And Extension Boundary",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "Continuity And Focused Integrations",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: size budget, invocation, auth/data migration, privacy, fallback, analytics.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0326-U02",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-02_APP_CLIPS.md",
+          "source_sha256": "df4e1f87b07f57cb37638f61a81b6be81841bb5823c24bececd74afe13ff14bd",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0326-U03",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-02_APP_CLIPS.md",
+          "source_sha256": "df4e1f87b07f57cb37638f61a81b6be81841bb5823c24bececd74afe13ff14bd",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0327",
       "path": "27_SYSTEM_INTEGRATION/IOS-24-03_SPOTLIGHT.md",
       "sha256": "0593a695aea6c7833d5e80e583d2f0513a878bce42f51a83a6b55bdb790c92c4",
       "bytes": 3776,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0327-U01",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-03_SPOTLIGHT.md",
+          "source_sha256": "0593a695aea6c7833d5e80e583d2f0513a878bce42f51a83a6b55bdb790c92c4",
+          "source_heading": "Index stable identifiers, batching, deletion, privacy-sensitive content, deep links и reindex strategy.",
+          "source_fragment": "Index stable identifiers, batching, deletion, privacy-sensitive content, deep links и reindex strategy.",
+          "meaning": "Index stable identifiers, batching, deletion, privacy-sensitive content, deep links и reindex strategy. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: identifier stability, privacy, indexing cost, deletion, deep links, availability.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "Index stable identifiers, batching, deletion, privacy-sensitive content, deep links и reindex strategy. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: identifier stability, privacy, indexing cost, deletion, deep links, availability.",
+          "disposition": "MIGRATED",
+          "reason": "Index stable identifiers, batching, deletion, privacy-sensitive content, deep links и reindex strategy. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: identifier stability, privacy, indexing cost, deletion, deep links, availability.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Capability Intake; Target And Extension Boundary; App Intents, Shortcuts, Siri, And Spotlight; Continuity And Focused Integrations; Capability Evidence Classes",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Capability Intake",
+                "Target And Extension Boundary",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "Continuity And Focused Integrations",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: identifier stability, privacy, indexing cost, deletion, deep links, availability.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0327-U02",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-03_SPOTLIGHT.md",
+          "source_sha256": "0593a695aea6c7833d5e80e583d2f0513a878bce42f51a83a6b55bdb790c92c4",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0327-U03",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-03_SPOTLIGHT.md",
+          "source_sha256": "0593a695aea6c7833d5e80e583d2f0513a878bce42f51a83a6b55bdb790c92c4",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0328",
       "path": "27_SYSTEM_INTEGRATION/IOS-24-04_HANDOFF.md",
       "sha256": "f71826e9b77d5b3a985857b3ff53b3fe7c0cb778fa531d1d8fbf09b27d3ccfd5",
       "bytes": 3764,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0328-U01",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-04_HANDOFF.md",
+          "source_sha256": "f71826e9b77d5b3a985857b3ff53b3fe7c0cb778fa531d1d8fbf09b27d3ccfd5",
+          "source_heading": "Activity types, eligibility, state serialization, continuity, privacy и restoration.",
+          "source_fragment": "Activity types, eligibility, state serialization, continuity, privacy и restoration.",
+          "meaning": "Activity types, eligibility, state serialization, continuity, privacy и restoration. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: state size, identifiers, privacy, restoration, multi-device failure, availability.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "Activity types, eligibility, state serialization, continuity, privacy и restoration. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: state size, identifiers, privacy, restoration, multi-device failure, availability.",
+          "disposition": "MIGRATED",
+          "reason": "Activity types, eligibility, state serialization, continuity, privacy и restoration. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: state size, identifiers, privacy, restoration, multi-device failure, availability.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Capability Intake; Target And Extension Boundary; App Intents, Shortcuts, Siri, And Spotlight; Continuity And Focused Integrations; Capability Evidence Classes",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Capability Intake",
+                "Target And Extension Boundary",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "Continuity And Focused Integrations",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: state size, identifiers, privacy, restoration, multi-device failure, availability.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0328-U02",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-04_HANDOFF.md",
+          "source_sha256": "f71826e9b77d5b3a985857b3ff53b3fe7c0cb778fa531d1d8fbf09b27d3ccfd5",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0328-U03",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-04_HANDOFF.md",
+          "source_sha256": "f71826e9b77d5b3a985857b3ff53b3fe7c0cb778fa531d1d8fbf09b27d3ccfd5",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0329",
       "path": "27_SYSTEM_INTEGRATION/IOS-24-05_BACKGROUND_URLSESSION.md",
       "sha256": "4f663576a02ac5b52d9e7612944877dcfdd0c5cdf999b7dd672dc789b0085d00",
       "bytes": 3815,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0329-U01",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-05_BACKGROUND_URLSESSION.md",
+          "source_sha256": "4f663576a02ac5b52d9e7612944877dcfdd0c5cdf999b7dd672dc789b0085d00",
+          "source_heading": "Identifier/session restoration, file handoff, discretionary scheduling, completion handlers и retries.",
+          "source_fragment": "Identifier/session restoration, file handoff, discretionary scheduling, completion handlers и retries.",
+          "meaning": "Identifier/session restoration, file handoff, discretionary scheduling, completion handlers и retries. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: session identity, relaunch, file ownership, retry/idempotency, power/network policy, tests.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Identifier/session restoration, file handoff, discretionary scheduling, completion handlers и retries. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: session identity, relaunch, file ownership, retry/idempotency, power/network policy, tests.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Uploads And Downloads; Reliability; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Uploads And Downloads",
+                "Reliability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: session identity, relaunch, file ownership, retry/idempotency, power/network policy, tests.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0329-U02",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-05_BACKGROUND_URLSESSION.md",
+          "source_sha256": "4f663576a02ac5b52d9e7612944877dcfdd0c5cdf999b7dd672dc789b0085d00",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0329-U03",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-05_BACKGROUND_URLSESSION.md",
+          "source_sha256": "4f663576a02ac5b52d9e7612944877dcfdd0c5cdf999b7dd672dc789b0085d00",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0330",
       "path": "27_SYSTEM_INTEGRATION/IOS-24-06_NFC.md",
       "sha256": "e0c6cc6581bb353d72e446a77ef333783851637132011b2face283eac0ca4586",
       "bytes": 3736,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0330-U01",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-06_NFC.md",
+          "source_sha256": "e0c6cc6581bb353d72e446a77ef333783851637132011b2face283eac0ca4586",
+          "source_heading": "Session lifetime, entitlements, polling/read/write flows, user prompts, errors and device support.",
+          "source_fragment": "Session lifetime, entitlements, polling/read/write flows, user prompts, errors and device support.",
+          "meaning": "Session lifetime, entitlements, polling/read/write flows, user prompts, errors and device support. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: entitlement, session timeout, tag state, errors, privacy, device capability.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Session lifetime, entitlements, polling/read/write flows, user prompts, errors and device support. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: entitlement, session timeout, tag state, errors, privacy, device capability.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Permission Model; Runtime Ownership; Bluetooth, NFC, And Nearby; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Bluetooth, NFC, And Nearby",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: entitlement, session timeout, tag state, errors, privacy, device capability.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0330-U02",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-06_NFC.md",
+          "source_sha256": "e0c6cc6581bb353d72e446a77ef333783851637132011b2face283eac0ca4586",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0330-U03",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-06_NFC.md",
+          "source_sha256": "e0c6cc6581bb353d72e446a77ef333783851637132011b2face283eac0ca4586",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0331",
       "path": "27_SYSTEM_INTEGRATION/IOS-24-07_WATCH_CONNECTIVITY.md",
       "sha256": "c9f2439a8c200b607d99bded68913186da26f99c7def8ce39aa03e6734c075df",
       "bytes": 3759,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0331-U01",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-07_WATCH_CONNECTIVITY.md",
+          "source_sha256": "c9f2439a8c200b607d99bded68913186da26f99c7def8ce39aa03e6734c075df",
+          "source_heading": "Reachable vs background transfers, queues, deduplication, ordering, app state and version skew.",
+          "source_fragment": "Reachable vs background transfers, queues, deduplication, ordering, app state and version skew.",
+          "meaning": "Reachable vs background transfers, queues, deduplication, ordering, app state and version skew. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: delivery semantics, ordering, deduplication, versioning, background, storage.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "Reachable vs background transfers, queues, deduplication, ordering, app state and version skew. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: delivery semantics, ordering, deduplication, versioning, background, storage.",
+          "disposition": "MIGRATED",
+          "reason": "Reachable vs background transfers, queues, deduplication, ordering, app state and version skew. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: delivery semantics, ordering, deduplication, versioning, background, storage.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Capability Intake; Target And Extension Boundary; App Intents, Shortcuts, Siri, And Spotlight; Continuity And Focused Integrations; Capability Evidence Classes",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Capability Intake",
+                "Target And Extension Boundary",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "Continuity And Focused Integrations",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: delivery semantics, ordering, deduplication, versioning, background, storage.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0331-U02",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-07_WATCH_CONNECTIVITY.md",
+          "source_sha256": "c9f2439a8c200b607d99bded68913186da26f99c7def8ce39aa03e6734c075df",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0331-U03",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-07_WATCH_CONNECTIVITY.md",
+          "source_sha256": "c9f2439a8c200b607d99bded68913186da26f99c7def8ce39aa03e6734c075df",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0332",
       "path": "27_SYSTEM_INTEGRATION/IOS-24-08_MULTIPEER.md",
       "sha256": "9a90a73e319c9e687a8cf8011df3ce4f7801a24fb124d2411789da6c94bceced",
       "bytes": 3783,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0332-U01",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-08_MULTIPEER.md",
+          "source_sha256": "9a90a73e319c9e687a8cf8011df3ce4f7801a24fb124d2411789da6c94bceced",
+          "source_heading": "Peer discovery, session state, security/encryption assumptions, transfer backpressure and lifecycle.",
+          "source_fragment": "Peer discovery, session state, security/encryption assumptions, transfer backpressure and lifecycle.",
+          "meaning": "Peer discovery, session state, security/encryption assumptions, transfer backpressure and lifecycle. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: discovery privacy, session state, ordering, large transfers, background, auth.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "Peer discovery, session state, security/encryption assumptions, transfer backpressure and lifecycle. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: discovery privacy, session state, ordering, large transfers, background, auth.",
+          "disposition": "MIGRATED",
+          "reason": "Peer discovery, session state, security/encryption assumptions, transfer backpressure and lifecycle. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: discovery privacy, session state, ordering, large transfers, background, auth.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Capability Intake; Target And Extension Boundary; App Intents, Shortcuts, Siri, And Spotlight; Continuity And Focused Integrations; Capability Evidence Classes",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Capability Intake",
+                "Target And Extension Boundary",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "Continuity And Focused Integrations",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: discovery privacy, session state, ordering, large transfers, background, auth.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0332-U02",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-08_MULTIPEER.md",
+          "source_sha256": "9a90a73e319c9e687a8cf8011df3ce4f7801a24fb124d2411789da6c94bceced",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0332-U03",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-08_MULTIPEER.md",
+          "source_sha256": "9a90a73e319c9e687a8cf8011df3ce4f7801a24fb124d2411789da6c94bceced",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0333",
       "path": "27_SYSTEM_INTEGRATION/IOS-24-09_NEARBY_INTERACTION.md",
       "sha256": "5aa6078ffc5806ebef567c985c6e2c3a0c748b49bd508cdf85b4e6ebb23ba0fe",
       "bytes": 3752,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0333-U01",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-09_NEARBY_INTERACTION.md",
+          "source_sha256": "5aa6078ffc5806ebef567c985c6e2c3a0c748b49bd508cdf85b4e6ebb23ba0fe",
+          "source_heading": "Capability/session lifecycle, discovery token exchange, precision availability and privacy.",
+          "source_fragment": "Capability/session lifecycle, discovery token exchange, precision availability and privacy.",
+          "meaning": "Capability/session lifecycle, discovery token exchange, precision availability and privacy. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: capability, token trust, session interruption, precision, privacy, fallback.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "Capability/session lifecycle, discovery token exchange, precision availability and privacy. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: capability, token trust, session interruption, precision, privacy, fallback.",
+          "disposition": "MIGRATED",
+          "reason": "Capability/session lifecycle, discovery token exchange, precision availability and privacy. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: capability, token trust, session interruption, precision, privacy, fallback.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Permission Model; Runtime Ownership; Bluetooth, NFC, And Nearby; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Bluetooth, NFC, And Nearby",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: capability, token trust, session interruption, precision, privacy, fallback.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0333-U02",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-09_NEARBY_INTERACTION.md",
+          "source_sha256": "5aa6078ffc5806ebef567c985c6e2c3a0c748b49bd508cdf85b4e6ebb23ba0fe",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0333-U03",
+          "source_path": "canonical/27_SYSTEM_INTEGRATION/IOS-24-09_NEARBY_INTERACTION.md",
+          "source_sha256": "5aa6078ffc5806ebef567c985c6e2c3a0c748b49bd508cdf85b4e6ebb23ba0fe",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-59-system-continuity-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0334",

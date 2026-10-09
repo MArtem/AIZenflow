@@ -54,6 +54,10 @@ for observed location or background behavior; excluded physical checks remain un
 - Background Bluetooth/NFC behavior is capability- and device-dependent.
 - Nearby Interaction and UWB require compatible hardware/accessories and entitlement/protocol setup.
 
+Nearby Interaction review includes discovery-token exchange/trust, session interruption and
+precision availability with privacy-safe fallback; a discovery token or available hardware alone
+does not establish peer authorization or a usable precision result.
+
 ## Health, Contacts, Calendars, And Sensitive Stores
 - Request only data types required for a concrete feature.
 - Separate read and write authorization and handle partial grants.

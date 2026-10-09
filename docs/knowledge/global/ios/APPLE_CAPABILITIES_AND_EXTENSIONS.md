@@ -61,6 +61,20 @@ permission, interrupted app/extension handoff and unsupported profiles. Repeated
 invocations need an owned duplicate-action policy; framework exposure does not establish
 idempotency. Review declaration, resolver, domain operation, handoff and target membership together.
 
+Spotlight review includes indexing batches/cost, deletion and reindex recovery against actual
+stable entities and authorized destinations; an index entry is not current content authority.
+
+## Continuity And Focused Integrations
+For an approved App Clip consumer, establish invocation/URL handling, current size/functionality
+limits, ephemeral permission and auth/data boundaries with its corresponding full app, analytics/
+privacy and fallback. Verify current limits rather than importing a historical size or permission.
+Handoff defines activity type/eligibility, bounded serialized state and identifiers, privacy,
+stale restoration and multi-device failure; serialization or eligibility is not successful delivery.
+For supported watch/peer consumers, distinguish live reachability from queued/background transfer;
+review session/discovery privacy, authorization, ordering/version skew, durable deduplication,
+backpressure and storage under the actual delivery contract. Discovery or encryption alone is
+not identity/authorization; no new watchOS target or multi-device verification is implied.
+
 ## Associated Domains And Deep Links
 Treat universal links as a server-and-app contract. Verify association file content, hosting, caching, app entitlement, route parsing, authentication gating, and fallback. Custom URL schemes are globally claimable and must not carry secrets. Every external route is untrusted input.
 
