@@ -34397,9 +34397,1273 @@
       "path": "16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
       "sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
       "bytes": 5576,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0192-U01",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+          "source_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "source_heading": "Targets, packages and resources — curated copy-only route",
+          "source_fragment": "Use this route when an iOS task changes project structure, a build-graph input or a public\nSDK/package API. It distills the relevant concerns from imported `IOS-16-01`, `IOS-16-02`,\n`IOS-16-04`, `IOS-16-05` and the former `ioslib-sdk-api` checklist. Their generic copy-paste\nprompts and installed-runtime instructions are not execution authority. Apply current project\nrules, exact target facts and user permissions first; do not assume any project uses SwiftPM,\nsource-only packages, a particular persistence runtime or a specific app architecture.",
+          "meaning": "Current task/project/integration facts and user permissions, no assumed SwiftPM/package/runtime/app architecture; old imported references not execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved app/package consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/tool/runtime/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current task/project/integration facts and user permissions, no assumed SwiftPM/package/runtime/app architecture; old imported references not execution authority.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; SwiftPM And Dependencies",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "SwiftPM And Dependencies"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Update Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0192-U02",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+          "source_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "source_heading": "Targets, packages and resources — curated copy-only route",
+          "source_fragment": "- Identify the actual workspace/project, affected target and scheme, configuration, destination,\n  toolchain, deployment range and package integration mode. Unknown values remain unknown.",
+          "meaning": "Exact target/toolchain/graph edge and producer/consumer membership facts, not sidebar/file-presence proof.",
+          "type": "constraint",
+          "conditions": "Actual approved app/package consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/tool/runtime/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact target/toolchain/graph edge and producer/consumer membership facts, not sidebar/file-presence proof.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Targets And Build Phases; Binary And Runtime Diagnosis",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Targets And Build Phases",
+                "Binary And Runtime Diagnosis"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Update Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0192-U03",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+          "source_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "source_heading": "Targets, packages and resources — curated copy-only route",
+          "source_fragment": "- Trace each changed graph edge: source compilation, generated output, resource copy, script\n  phase, package product, linkage, embedding, signing or extension consumption. Inspect the\n  effective setting or project file, not only the Xcode sidebar.",
+          "meaning": "Exact target/toolchain/graph edge and producer/consumer membership facts, not sidebar/file-presence proof.",
+          "type": "constraint",
+          "conditions": "Actual approved app/package consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/tool/runtime/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact target/toolchain/graph edge and producer/consumer membership facts, not sidebar/file-presence proof.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Targets And Build Phases; Binary And Runtime Diagnosis",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Targets And Build Phases",
+                "Binary And Runtime Diagnosis"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Update Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0192-U04",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+          "source_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "source_heading": "Targets, packages and resources — curated copy-only route",
+          "source_fragment": "- Identify every producer and consumer: app, tests, extension, widget, package product and build\n  configuration. A file's physical presence is not proof it is included in a target.",
+          "meaning": "Exact target/toolchain/graph edge and producer/consumer membership facts, not sidebar/file-presence proof.",
+          "type": "constraint",
+          "conditions": "Actual approved app/package consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/tool/runtime/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact target/toolchain/graph edge and producer/consumer membership facts, not sidebar/file-presence proof.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Targets And Build Phases; Binary And Runtime Diagnosis",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Targets And Build Phases",
+                "Binary And Runtime Diagnosis"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Update Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0192-U05",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+          "source_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "source_heading": "Targets, packages and resources — curated copy-only route",
+          "source_fragment": "- Sources and resources have intentional target membership with no duplicate compilation,\n  embedding or conflicting bundle lookup. Package resources use the correct owning bundle;\n  app/extension consumers can actually access them.",
+          "meaning": "Intentional source/resource membership, duplicates and bundle lookup/access at all real consumers.",
+          "type": "constraint",
+          "conditions": "Actual approved app/package consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/tool/runtime/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Intentional source/resource membership, duplicates and bundle lookup/access at all real consumers.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Targets And Build Phases; Modules And Linking; Binary And Runtime Diagnosis",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases",
+                "Modules And Linking",
+                "Binary And Runtime Diagnosis"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Update Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0192-U06",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+          "source_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "source_heading": "Targets, packages and resources — curated copy-only route",
+          "source_fragment": "- Module/package dependencies have a clear direction and no new cycles or accidental public API.\n  Put reusable, entity-neutral mechanics in the package only when the current package contract\n  supports that boundary; keep product-specific mapping, schema, routing and UX policy in the app.\n  Do not add decorative wrappers over an adequate package surface.\n  Check test seams and expected build-time impact at affected consumers rather than assuming\n  that extracting a module automatically improves testability or compilation time.",
+          "meaning": "Acyclic module mechanics versus app policy, minimal API/no decorative wrapper and consumer/test/build impact.",
+          "type": "constraint",
+          "conditions": "Actual approved app/package consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/tool/runtime/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Acyclic module mechanics versus app policy, minimal API/no decorative wrapper and consumer/test/build impact.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Modules And Linking; Build Performance",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Modules And Linking",
+                "Build Performance"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Update Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0192-U07",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+          "source_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "source_heading": "Targets, packages and resources — curated copy-only route",
+          "source_fragment": "- Build settings, availability, capabilities, entitlements and environment configuration remain\n  consistent across affected targets. Do not expose secrets through settings dumps or logs.",
+          "meaning": "Actual cross-target settings/availability/capability/environment consistency without secrets dumps.",
+          "type": "constraint",
+          "conditions": "Actual approved app/package consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/tool/runtime/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual cross-target settings/availability/capability/environment consistency without secrets dumps.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Configuration",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Configuration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Update Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0192-U08",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+          "source_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "source_heading": "Targets, packages and resources — curated copy-only route",
+          "source_fragment": "- Generated code has a known source, version and output contract. Script phases declare inputs\n  and outputs where possible and must not silently overwrite human-owned files.\n  Check deterministic generation, schema/version inputs and the project's checked-in output\n  policy; correct the generator/source of truth rather than hand-editing derived output.\n  Review cache keys and invalidation against all relevant inputs, pinned dependency/toolchain\n  facts and local/CI parity. Cache only artifacts whose reproduction contract is understood.\n  For a build-performance claim, distinguish compiler/type-checking, linking, codegen/scripts\n  and dependency graph costs using proposed or observed timing evidence before restructuring.",
+          "meaning": "Generator/version/schema/checked-in source authority, script inputs/outputs and pinned cache/CI/performance decomposition.",
+          "type": "constraint",
+          "conditions": "Actual approved app/package consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/tool/runtime/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Generator/version/schema/checked-in source authority, script inputs/outputs and pinned cache/CI/performance decomposition.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Targets And Build Phases; Reproducibility And CI; Build Performance",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases",
+                "Reproducibility And CI",
+                "Build Performance"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Update Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0192-U09",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+          "source_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "source_heading": "Targets, packages and resources — curated copy-only route",
+          "source_fragment": "  Plugins/macros and formatter/linter changes need bounded scope; passing style checks never\n  justifies compiler suppressions, unrelated churn or hidden developer-machine modifications.",
+          "meaning": "Bounded plugins/macros/lint/format scope; style PASS not suppression/churn/machine-change authority.",
+          "type": "constraint",
+          "conditions": "Actual approved app/package consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/tool/runtime/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "Bounded plugins/macros/lint/format scope; style PASS not suppression/churn/machine-change authority.",
+          "disposition": "MIGRATED",
+          "reason": "Bounded plugins/macros/lint/format scope; style PASS not suppression/churn/machine-change authority.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Targets And Build Phases",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Update Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0192-U10",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+          "source_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "source_heading": "Targets, packages and resources — curated copy-only route",
+          "source_fragment": "- A new or changed dependency has an explicit need, ownership, transitive/plug-in/script and\n  binary provenance review, platform/license/privacy impact and removal cost. No dependency\n  resolution or download follows merely from consulting this route.\n  Include maintenance status and expected binary-size, memory and performance impact in that\n  decision; recommend measurements only when they resolve a material uncertainty.",
+          "meaning": "Dependency current need/ownership/transitive/provenance/license/privacy/platform/maintenance/resource/removal impact; no download authority.",
+          "type": "constraint",
+          "conditions": "Actual approved app/package consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/tool/runtime/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Dependency current need/ownership/transitive/provenance/license/privacy/platform/maintenance/resource/removal impact; no download authority.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Supply Chain; SDK Consumer Boundary",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Update Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0192-U11",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+          "source_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "source_heading": "Targets, packages and resources — curated copy-only route",
+          "source_fragment": "- For a third-party SDK, check whether an existing project/package boundary already fits before\n  proposing a wrapper. If a seam is needed, keep it narrow: map lifecycle, configuration,\n  vendor errors, consent-dependent calls and replacement/rollback at actual consumers. Do not\n  add a decorative facade or claim vendor interchangeability without consumer evidence.\n  Inspect actual initialization/offline/failure behavior, callback isolation and startup cost;\n  lazy initialization is an option only if the required lifecycle permits it. Framework adoption\n  needs state/effect/dependency scope, team fit and migration-cost evidence, not popularity.\n  Recommend synthetic contract/upgrade comparisons only when useful and authorized; vendor debug\n  modes or logs must not introduce secret exposure or unauthorized production access.",
+          "meaning": "Existing boundary before narrow vendor seam; lifecycle/callback/consent/error/initialization/offline/startup/memory/replacement and team migration evidence, no decorative interchangeability claim.",
+          "type": "constraint",
+          "conditions": "Actual approved app/package consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/tool/runtime/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "Existing boundary before narrow vendor seam; lifecycle/callback/consent/error/initialization/offline/startup/memory/replacement and team migration evidence, no decorative interchangeability claim.",
+          "disposition": "MIGRATED",
+          "reason": "Existing boundary before narrow vendor seam; lifecycle/callback/consent/error/initialization/offline/startup/memory/replacement and team migration evidence, no decorative interchangeability claim.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SDK Consumer Boundary",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Update Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0192-U12",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+          "source_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "source_heading": "Targets, packages and resources — curated copy-only route",
+          "source_fragment": "- For a public SDK/package API, enumerate changed exported symbols and Objective-C exposure;\n  distinguish source, semantic, module and ABI compatibility for the actual distribution\n  boundary. Trace existing source and binary consumers, version/deprecation commitments,\n  migration path and documentation. An additive declaration can still change behavior or\n  overload resolution; do not infer compatibility from the diff shape alone.",
+          "meaning": "Exported symbol/Objective-C/source/binary consumer compatibility/version/deprecation/migration contract; additive shape can alter behavior/overload selection.",
+          "type": "constraint",
+          "conditions": "Actual approved app/package consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/tool/runtime/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "Exported symbol/Objective-C/source/binary consumer compatibility/version/deprecation/migration contract; additive shape can alter behavior/overload selection.",
+          "disposition": "MIGRATED",
+          "reason": "Exported symbol/Objective-C/source/binary consumer compatibility/version/deprecation/migration contract; additive shape can alter behavior/overload selection.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Public API Rules; Interoperability",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Public API Rules",
+                "Interoperability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Update Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0192-U13",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+          "source_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "source_heading": "Targets, packages and resources — curated copy-only route",
+          "source_fragment": "Review the **complete** source, project, resource, package, configuration and documentation diff.\nSelect affected build/test/QA checks by risk and permission; report their exact target/configuration\nscope and observed result. If build, signing, dependency resolution, simulator or release work is\nnot authorized, do not run it and do not claim the graph works at runtime. A clean static diff\nis not evidence that every affected target compiles or finds its resources. For a distributed\nSDK, recommend consumer-build, generated-interface or API/symbol comparison only when it would\nanswer a concrete compatibility question and is separately authorized; otherwise mark it unverified.",
+          "meaning": "Full source/project/resource/package/config/docs diff; actual target/config evidence versus proposals and denied build/signing/resolution/runtime; consumer/API comparisons only useful and permitted.",
+          "type": "constraint",
+          "conditions": "Actual approved app/package consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/tool/runtime/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full source/project/resource/package/config/docs diff; actual target/config evidence versus proposals and denied build/signing/resolution/runtime; consumer/API comparisons only useful and permitted.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria",
+                "Update Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full intro/three inspection bullets/seven contract bullets/evidence section reviewed, exact source units preserved. Three curated deltas transfer, existing graph/adoption/common gates cover remainder; no installed workflow reactivated."
     },
     {
       "source_id": "LIB-0193",
@@ -35022,9 +36286,130 @@
       "path": "16_BUILD_MODULARITY_TOOLING/IOS-16-06_LINT_FORMAT.md",
       "sha256": "60fd2f93f2eebc235b7e751d6fbac239c72ef8524a2c24e6201ba8ecf6489dd3",
       "bytes": 5166,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0198-U01",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-06_LINT_FORMAT.md",
+          "source_sha256": "60fd2f93f2eebc235b7e751d6fbac239c72ef8524a2c24e6201ba8ecf6489dd3",
+          "source_heading": "Назначение",
+          "source_fragment": "Автоматизировать consistent style без конфликтов с compiler/readability и без noisy churn.",
+          "meaning": "Автоматизировать consistent style без конфликтов с compiler/readability и без noisy churn. Full common quality/permission workflow.",
+          "type": "constraint",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "Bounded formatter/lint/plugin scope, style PASS not compiler/readability/correctness proof or machine-change authority.",
+          "disposition": "MIGRATED",
+          "reason": "Existing rules constrain compiler suppression/churn; build owner now explicitly connects style tooling to scope and consumer semantics.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Targets And Build Phases",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+              "headings": [
+                "Source of truth",
+                "Package states",
+                "Verification and resource boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0198-U02",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-06_LINT_FORMAT.md",
+          "source_sha256": "60fd2f93f2eebc235b7e751d6fbac239c72ef8524a2c24e6201ba8ecf6489dd3",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0198-U03",
+          "source_path": "canonical/16_BUILD_MODULARITY_TOOLING/IOS-16-06_LINT_FORMAT.md",
+          "source_sha256": "60fd2f93f2eebc235b7e751d6fbac239c72ef8524a2c24e6201ba8ecf6489dd3",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual target/configuration/toolchain/consumer contract; documentation only. No source/tests/project/config/secrets/build/resolution/download/install/cache/transition action; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-38-build-curated-completion.md",
+          "affected_routes": [
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full lint template common body and focus reviewed; bounded style checks do not authorize suppressions/churn/machine changes; linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0199",

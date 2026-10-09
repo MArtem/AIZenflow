@@ -27,6 +27,10 @@ Code generation names schema/version inputs and the checked-in output policy, wi
 local/CI verification when permitted. Correct the generator or source of truth instead of editing
 derived output by hand; preserve human-owned files and review every generated consumer.
 
+Plugins/macros and formatter/linter changes have a bounded consumer scope. Style PASS does not
+justify compiler suppressions, unrelated churn or hidden developer-machine modifications; keep
+compiler semantics/readability and the approved project workflow intact.
+
 ## Modules And Linking
 - A module boundary is a compile-time/API boundary, not automatically an architecture boundary.
 - Avoid cyclic dependencies and umbrella modules that erase ownership.
@@ -45,6 +49,15 @@ derived output by hand; preserve human-owned files and review every generated co
 Maintain an inventory with package name, source, version/revision, owner, license, transitive dependencies, update policy, and security/privacy classification. Verify checksums/signatures where supported. Treat plugins, macros, binary frameworks, and install scripts as executable code.
 
 For regulated or higher-risk products, generate or maintain an SBOM in an accepted format and define vulnerability intake, severity, patch timing, exception, and removal procedures. License obligations and export controls require owner review; an automated scanner is evidence, not legal approval.
+
+## SDK Consumer Boundary
+Check the existing project/package surface before adding a vendor seam. When needed, keep it
+narrow and map lifecycle/configuration, vendor errors, callback isolation, consent-dependent calls
+and replacement/rollback at actual consumers. Inspect initialization/offline/failure behavior,
+startup and memory/performance costs; lazy initialization requires a compatible lifecycle.
+No decorative facade or interchangeability claim without consumer evidence. Framework adoption
+needs state/effect/dependency scope, team fit and migration-cost evidence. Vendor debug/contract
+comparisons require current permission and must not expose secrets or access production implicitly.
 
 ## Binary And Runtime Diagnosis
 - Undefined symbols: inspect target membership, product linkage, architecture, visibility, and conditional compilation.

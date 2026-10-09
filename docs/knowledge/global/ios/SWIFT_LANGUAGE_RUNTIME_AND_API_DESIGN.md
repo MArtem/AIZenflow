@@ -53,6 +53,9 @@ supported toolchain; do not adopt advanced syntax merely because an archived sou
   successful local compile cannot prove source, semantic, module and ABI compatibility for them.
 - Minimize public surface. Prefer additive evolution and avoid exposing implementation types across module boundaries.
 - For distributed libraries, distinguish source compatibility, module stability, ABI stability, and semantic compatibility.
+- Enumerate changed exported symbols and Objective-C exposure with existing source/binary
+  consumers, version/deprecation commitments and migration docs. An additive declaration can
+  still change behavior or overload resolution; diff shape is not a compatibility proof.
 - Default arguments are compiled at the call site; changing them may not change already-compiled clients.
 - `@inlinable`, `@usableFromInline`, specialization attributes, and underscored attributes are advanced compatibility commitments. Use only with measured need and toolchain-specific review.
 
