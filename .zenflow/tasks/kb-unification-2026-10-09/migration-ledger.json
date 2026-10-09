@@ -36892,9 +36892,812 @@
       "path": "17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
       "sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
       "bytes": 3899,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0203-U01",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "Use for a requested release/CI/signing review or a change that may affect shipping. Read local\nrelease policy and identify the exact app, targets, version/build candidate, environment and\ndeployment scope first. This route is a review guide, not permission to archive, sign, upload,\npublish, change credentials, modify CI secrets or alter Codex.",
+          "meaning": "Exact app/candidate/environment/deployment scope and current policy; not archive/sign/upload/publish/credentials/secrets/host authority.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact app/candidate/environment/deployment scope and current policy; not archive/sign/upload/publish/credentials/secrets/host authority.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Release Candidate Trace",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Release Candidate Trace"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0203-U02",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "1. Map the candidate to its source revision and affected targets. Distinguish observed CI,\n   build, test, archive and distribution evidence from planned checks; a green check for one\n   configuration does not validate another.",
+          "meaning": "Source/targets and observed CI/build/archive/distribution versus plans; one configuration green does not validate another.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Source/targets and observed CI/build/archive/distribution versus plans; one configuration green does not validate another.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Reproducibility And CI; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0203-U03",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "   Trace artifact identity, version/build policy, toolchain/dependency inputs and environment\n   parity. Inspect missing/skipped gates, swallowed failures and cache assumptions, not just\n   the final green status. For parallel tests, account for every shard/result, shared-state\n   isolation and diagnostic retries; a retry must not erase an earlier failure from the report.",
+          "meaning": "Artifact/version/toolchain/environment/cache/missing-gate and all shard/result/failure/retry accounting.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Artifact/version/toolchain/environment/cache/missing-gate and all shard/result/failure/retry accounting.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Flaky Tests; Evidence Completion",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Flaky Tests",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0203-U04",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "   Recommend redacted logs/artifacts that discriminate source, toolchain, signing, service and\n   flaky-test hypotheses. Signing/profile ownership or renewal is a review question, never\n   permission to inspect keys, rotate credentials or modify a machine.",
+          "meaning": "Redacted diagnostic artifacts discriminate source/toolchain/signing/service/flaky hypotheses; signing owner review no key/rotation/machine grant.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Redacted diagnostic artifacts discriminate source/toolchain/signing/service/flaky hypotheses; signing owner review no key/rotation/machine grant.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Release Candidate Trace",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Release Candidate Trace"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Flaky Tests"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0203-U05",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "2. Inspect migration and existing-data risk; privacy/permissions, manifests and third-party\n   changes; accessibility/localization; crash/performance signals; release notes and user impact.\n   Mark each as checked, not applicable with reason, or unverified. Use current official policy\n   sources for any time-sensitive store or platform requirement before asserting compliance.",
+          "meaning": "Migration/data/privacy/manifest/thirdparty/a11y/locale/crash/perf/current-policy evidence applicability and status, not static compliance.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Migration/data/privacy/manifest/thirdparty/a11y/locale/crash/perf/current-policy evidence applicability and status, not static compliance.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Living Requirements; Release Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Living Requirements",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0203-U06",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "   Distinguish user-facing notes from internal risk/migration/experiment/support notes; both\n   must describe the actual candidate rather than an assumed branch contents list.",
+          "meaning": "Actual candidate user-facing notes distinct internal risk/migration/experiment/support notes.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual candidate user-facing notes distinct internal risk/migration/experiment/support notes.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Release Candidate Trace",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Release Candidate Trace"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0203-U07",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "3. Ask whether rollout can be staged or contained and what recovery means for this change.\n   Separate a code rollback from irreversible data or server-side effects. Identify monitoring\n   signals and an owner before recommending shipment.",
+          "meaning": "Staging/containment and owned monitoring/recovery, code rollback distinct irreversible data/server effects.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Staging/containment and owned monitoring/recovery, code rollback distinct irreversible data/server effects.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Runtime Operations",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0203-U08",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "   If a feature flag is part of containment, inspect its safe default when configuration is\n   absent or malformed, targeting, kill-switch limits, enabled/disabled evidence, analytics/monitoring,\n   and named cleanup owner/date. Do not treat a flag as rollback for an irreversible effect.",
+          "meaning": "Conditional flag default/malformed targeting, limits/enabled-disabled evidence/monitoring/cleanup owner; no undo of irreversible effects.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Conditional flag default/malformed targeting, limits/enabled-disabled evidence/monitoring/cleanup owner; no undo of irreversible effects.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Runtime Operations",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0203-U09",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "   For remote configuration, inspect typed keys, cached value and TTL, stale/offline behavior,\n   experiment owner and cleanup. A successful fetch is not proof that all consumers observe the\n   intended version or that a kill switch can undo already-persisted effects.",
+          "meaning": "Typed keys/cache version/TTL/stale offline/default/experiment cleanup and actual consumer version agreement; fetch not operational rollback proof.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "Typed keys/cache version/TTL/stale offline/default/experiment cleanup and actual consumer version agreement; fetch not operational rollback proof.",
+          "disposition": "MIGRATED",
+          "reason": "Typed keys/cache version/TTL/stale offline/default/experiment cleanup and actual consumer version agreement; fetch not operational rollback proof.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Runtime Operations",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0203-U10",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "4. Report blocking findings, missing evidence and the smallest worthwhile next gate. Do not\n   claim release-ready, TestFlight-ready or App-Store-compliant from static inspection alone.\n   Any signing, upload or rollout decision remains an explicit separately authorized action.",
+          "meaning": "Blocking findings/missing evidence/smallest useful next gate; static not release readiness, shipping action separate authority.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Blocking findings/missing evidence/smallest useful next gate; static not release readiness, shipping action separate authority.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Release Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0203-U11",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "For an incident hotfix review, tie the production symptom and its evidence to the smallest\nauthorized correction and a targeted regression question. Compare the complete release delta\nwith the affected shipped version, including dependencies, configuration and migrations.\nName available flag/kill-switch containment, its limits and the recovery/rollback path.\nUrgency does not supply missing evidence or permission to change code, tests or shipping state.",
+          "meaning": "Shipped symptom, smallest permitted hotfix and full shipped-base delta, containment/recovery; urgency not authority.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Shipped symptom, smallest permitted hotfix and full shipped-base delta, containment/recovery; urgency not authority.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Runtime Operations",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0203-U12",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "For an approved CI/release-process migration, propose a non-publishing comparison and a cutover/\nrecovery criterion.",
+          "meaning": "Proposed non-publishing CI/process comparison with explicit cutover/recovery.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "Proposed non-publishing CI/process comparison with explicit cutover/recovery.",
+          "disposition": "MIGRATED",
+          "reason": "Proposed non-publishing CI/process comparison with explicit cutover/recovery.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Reproducibility And CI",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Reproducibility And CI"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0203-U13",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "Do not interpret the old dual-run advice as authority to ship twice, execute\ntwo side-effecting workflows, cherry-pick commits or retain credentials outside approved policy.",
+          "meaning": "Former dual-run advice archived, never shipping twice/side-effect workflows/cherry-pick/credential grant.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former dual-run advice archived, never shipping twice/side-effect workflows/cherry-pick/credential grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0203-U14",
+          "source_path": "canonical/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+          "source_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "source_heading": "Release readiness — copy-only reference route",
+          "source_fragment": "`AUTO` can perform only the already-authorized document/config/diff review. `ADVISORY` gives\nprioritized verification and rollout advice. This retains the useful former `ioslib-release`\ncriteria without its global installation or executable release workflow.",
+          "meaning": "Former AUTO/ADVISORY installation/executable bindings archived, current user scope only.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former AUTO/ADVISORY installation/executable bindings archived, current user scope only.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-40-release-curated-completion.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full introduction/four steps/hotfix/process migration/mode tail reviewed; exact paragraph units retained. Typed remote-config and non-publishing process comparison transferred; historical dual-run/modes archived."
     },
     {
       "source_id": "LIB-0204",
@@ -37510,9 +38313,9 @@
           "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
           "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
           "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
-          "unique_delta": "none",
-          "disposition": "ALREADY_COVERED",
-          "reason": "Current owners plus canonical manual CI/release/flags rules cover this focus; no verified release/check execution inferred.",
+          "unique_delta": "Actual TestFlight groups/staged validation and feedback/crash/containment scope explicitly recorded in Release Candidate Trace.",
+          "disposition": "MIGRATED",
+          "reason": "Block40 provenance correction: this explicit clause was added in block39, so source focus is MIGRATED rather than pre-existing coverage; source content/status unchanged.",
           "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
           "destination_heading": "Release Candidate Trace; Release Evidence",
           "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",

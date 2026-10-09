@@ -1,7 +1,7 @@
 # Block 39 — Release template contracts
 
 2026-10-09; GPT-6.1 Sol/low; эконом. Ten full templates/30 units, three changed owners:
-5 MIGRATED,5 ALREADY_COVERED,10 ARCHIVE_ONLY_INFRASTRUCTURE,
+6 MIGRATED,4 ALREADY_COVERED,10 ARCHIVE_ONLY_INFRASTRUCTURE,
 10 ARCHIVE_ONLY_NO_INCREMENTAL_VALUE. Full normalized body/prompts exact except explicitly
 inspected domain metadata and two release gate lists; individual focuses reviewed.
 Curated release and linked OP bodies independent/unreviewed.
@@ -26,3 +26,7 @@ Unchanged archive/index/router PASS reused. No P0–P2; build/tests/runtime/CI/r
 Full owner whitespace words: APP_STORE_PRIVACY_AND_COMPLIANCE.md: 779 → 877; TESTING_DEBUGGING_AND_DIAGNOSTICS.md: 972 → 1028; PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md: 809 → 861; Level0 unchanged, words not tokens/benefit.
 210 REVIEWED/1193 UNREVIEWED/zero partial;879 terminal units including copy groups.
 Full corpus/routes/cost/baseline/cutover pending;U7 NOT_RUN/BENEFIT_NOT_ESTABLISHED.
+
+Block40 provenance correction: LIB-0208-U01 TestFlight groups/staged validation was newly
+made explicit in this block, so disposition corrected to MIGRATED (previous ALREADY_COVERED);
+source hash/status/evidence text unchanged. Counts in current ledger reflect the correction.

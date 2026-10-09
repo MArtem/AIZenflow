@@ -82,6 +82,10 @@ Review developer workflow and actionable failure diagnostics alongside local/CI 
 that relies on undeclared machine state or opaque manual recovery is not reproducible evidence.
 These criteria do not authorize tool installs, dependency resolution or machine configuration.
 
+For an approved CI/release-process migration, propose a non-publishing comparison with explicit
+cutover/recovery criteria. Execution remains separately authorized; old dual-run advice does not
+permit two side-effecting workflows, duplicate shipment, cherry-picking or credential retention.
+
 ## Build Performance
 Measure clean and incremental builds separately. Inspect type-check hotspots, dependency fan-out, generated code, macros, script phases, module invalidation, and linker time. Modularization that adds boundaries can improve parallelism or worsen overhead; decide from dependency graph and measurements.
 

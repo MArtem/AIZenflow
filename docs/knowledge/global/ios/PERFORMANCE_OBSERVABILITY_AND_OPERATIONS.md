@@ -79,6 +79,11 @@ alone does not prove consent-gated collection; inspect the actual data flow and 
 - SLOs should represent user journeys and include actionable error budgets.
 - Crash-free percentage alone can hide hangs, data loss, and broken workflows.
 
+For remote configuration, define typed keys, cached value/version and TTL, stale/offline/default
+behavior, targeting/experiment owner and cleanup. A successful fetch does not prove that all
+consumers observed the intended version; a kill switch cannot undo already-persisted effects.
+Select enabled/disabled evidence only within current permissions.
+
 For hotfix review, connect the observed shipped symptom to the smallest authorized correction
 and targeted regression question. Review the complete candidate delta against the affected
 shipped version, including dependency/configuration/migration differences; commit selection or
