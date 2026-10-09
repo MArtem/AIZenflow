@@ -27747,18 +27747,1288 @@
       "path": "13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
       "sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
       "bytes": 2771,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0156-U01",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+          "source_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "source_heading": "Accessibility and localization — curated copy-only route",
+          "source_fragment": "do not pretend a static review replaced",
+          "meaning": "Relevant actual supported flow/market/consumers and authority first; static inspection not manual assistive/device QA.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Evidence Matrix",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0156-U02",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+          "source_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "source_heading": "Accessibility and localization — curated copy-only route",
+          "source_fragment": "inaccessible action is blocking",
+          "meaning": "Actual semantic label/value/trait/hint/group/focus/announcements/access errors; critical inaccessible or hidden/unlabeled destructive action blocks readiness, not style.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "Actual semantic label/value/trait/hint/group/focus/announcements/access errors; critical inaccessible or hidden/unlabeled destructive action blocks readiness, not style.",
+          "disposition": "MIGRATED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0156-U03",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+          "source_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "source_heading": "Accessibility and localization — curated copy-only route",
+          "source_fragment": "after asynchronous or",
+          "meaning": "Custom-gesture equivalent actions/native semantic controls, async/modal focus/announcements/elements/repeated/decorative content; layout not traversal proof.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Evidence Matrix",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0156-U04",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+          "source_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "source_heading": "Accessibility and localization — curated copy-only route",
+          "source_fragment": "Check Dynamic Type at supported sizes",
+          "meaning": "Actual text expansion/truncation/contrast/targets/motion/keyboard-pointer settings and user action impact.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0156-U05",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+          "source_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "source_heading": "Accessibility and localization — curated copy-only route",
+          "source_fragment": "meaning\n  must not depend solely",
+          "meaning": "Clipped-content/reflow/extremes and non-color/motion/sound/haptics meaning, transparency/alternative cues without guessed product behavior.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0156-U06",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+          "source_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "source_heading": "Accessibility and localization — curated copy-only route",
+          "source_fragment": "Keep user-facing copy",
+          "meaning": "Resources/plurals/locale date-number-currency-measurement/long translations/RTL; no English-length or concatenation assumptions.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0156-U07",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+          "source_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "source_heading": "Accessibility and localization — curated copy-only route",
+          "source_fragment": "Include translator context",
+          "meaning": "Translator/grammar/calendar/timezone/parsing/mirrored-assets/mixed-direction and custom keyboard/Switch Control consumer concerns.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0156-U08",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+          "source_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "source_heading": "Accessibility and localization — curated copy-only route",
+          "source_fragment": "verify file ownership, target/package bundle lookup",
+          "meaning": "Asset/string ownership/target-package bundle/affected app-extension consumers; whole code/resource/project diff.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "Asset/string ownership/target-package bundle/affected app-extension consumers; whole code/resource/project diff.",
+          "disposition": "MIGRATED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases",
+                "Binary And Runtime Diagnosis"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0156-U09",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+          "source_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "source_heading": "Accessibility and localization — curated copy-only route",
+          "source_fragment": "preserve required accessibility identifiers",
+          "meaning": "Approved rewrite preserves actual consumer accessibility IDs/semantics and localization-key translation workflow; no rewrite grant.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "Approved rewrite preserves actual consumer accessibility IDs/semantics and localization-key translation workflow; no rewrite grant.",
+          "disposition": "MIGRATED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0156-U10",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+          "source_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "source_heading": "Accessibility and localization — curated copy-only route",
+          "source_fragment": "Choose a risk-based manual QA matrix",
+          "meaning": "Permitted evidence selection affected flow/states × supported iPhone Simulator OS/class × relevant locale/RTL/accessibility setting, with current exclusions.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "Permitted evidence selection affected flow/states × supported iPhone Simulator OS/class × relevant locale/RTL/accessibility setting, with current exclusions.",
+          "disposition": "MIGRATED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Evidence Matrix",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0156-U11",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+          "source_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "source_heading": "Accessibility and localization — curated copy-only route",
+          "source_fragment": "verification require task permission",
+          "meaning": "Build/runtime/Simulator/screenshot/manual/device permissions independent, absent unverified; actual VoiceOver/iPad/physical explicitly OMITTED_BY_USER, not PASS.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Evidence Matrix",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0156-U12",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+          "source_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "source_heading": "Accessibility and localization — curated copy-only route",
+          "source_fragment": "Figma or screenshot fidelity",
+          "meaning": "Visual fidelity separate claim needing actual supplied design and authorized comparison, no Figma/MCP/capture grant.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Evidence Matrix",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0156-U13",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+          "source_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "source_heading": "Accessibility and localization — curated copy-only route",
+          "source_fragment": "[../29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md]",
+          "meaning": "Historical relative Library design-route binding archived, linked body independently unreviewed here.",
+          "type": "historical-routing",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Entire curated body/resources/consumer/QA/fidelity paragraphs terminal; prior actual VoiceOver/device QA suggestions filtered by current override; legacy linked design body not reviewed or activated."
     },
     {
       "source_id": "LIB-0157",
       "path": "13_ACCESSIBILITY_LOCALIZATION/IOS-13-01_VOICEOVER.md",
       "sha256": "1fe8d8a8ce9f5eaebc7c6984b3a674a58427126db92e95f0fa39f3bee1735d05",
       "bytes": 6330,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0157-U01",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/IOS-13-01_VOICEOVER.md",
+          "source_sha256": "1fe8d8a8ce9f5eaebc7c6984b3a674a58427126db92e95f0fa39f3bee1735d05",
+          "source_heading": "Назначение",
+          "source_fragment": "Semantic labels/values/hints/actions, grouping, focus order и dynamic updates.",
+          "meaning": "Semantic labels/values/hints/actions, grouping, focus order и dynamic updates. Full common permission-bounded accessibility/localization gates.",
+          "type": "constraint",
+          "conditions": "Actual user-flow/consumer/market/toolchain contract; documentation only, implementation accessibility requirements preserved, all iPad/physical/actualVoiceOver checks OMITTED_BY_USER and no tests/runtime permission.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing current accessibility/semantic component controls cover common focus; depth separately dispositioned.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Evidence Matrix",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Evidence Matrix",
+                "iPhone And iPad Core",
+                "Layout And Rendering"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0157-U02",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/IOS-13-01_VOICEOVER.md",
+          "source_sha256": "1fe8d8a8ce9f5eaebc7c6984b3a674a58427126db92e95f0fa39f3bee1735d05",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual user-flow/consumer/market/toolchain contract; documentation only, implementation accessibility requirements preserved, all iPad/physical/actualVoiceOver checks OMITTED_BY_USER and no tests/runtime permission.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0157-U03",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/IOS-13-01_VOICEOVER.md",
+          "source_sha256": "1fe8d8a8ce9f5eaebc7c6984b3a674a58427126db92e95f0fa39f3bee1735d05",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual user-flow/consumer/market/toolchain contract; documentation only, implementation accessibility requirements preserved, all iPad/physical/actualVoiceOver checks OMITTED_BY_USER and no tests/runtime permission.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0157-U04",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/IOS-13-01_VOICEOVER.md",
+          "source_sha256": "1fe8d8a8ce9f5eaebc7c6984b3a674a58427126db92e95f0fa39f3bee1735d05",
+          "source_heading": "Review-ready depth — accessibility traversal",
+          "source_fragment": "Visual order is not sufficient evidence",
+          "meaning": "Visual/hierarchy or added labels not proof of actual assistive traversal/action behavior.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Evidence Matrix",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0157-U05",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/IOS-13-01_VOICEOVER.md",
+          "source_sha256": "1fe8d8a8ce9f5eaebc7c6984b3a674a58427126db92e95f0fa39f3bee1735d05",
+          "source_heading": "Review-ready depth — accessibility traversal",
+          "source_fragment": "Define the semantic element boundaries",
+          "meaning": "Semantic boundaries/labels/values/hints/actions/grouping/focus/announcements from intent, existing native semantic controls preferred.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "Semantic boundaries/labels/values/hints/actions/grouping/focus/announcements from intent, existing native semantic controls preferred.",
+          "disposition": "MIGRATED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0157-U06",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/IOS-13-01_VOICEOVER.md",
+          "source_sha256": "1fe8d8a8ce9f5eaebc7c6984b3a674a58427126db92e95f0fa39f3bee1735d05",
+          "source_heading": "Review-ready depth — accessibility traversal",
+          "source_fragment": "Dynamic content insertion",
+          "meaning": "Dynamic insertion/modal focus/custom-gesture equivalents/decorative/repeated-label/text-reflow/motion/RTL edge cases.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "Dynamic insertion/modal focus/custom-gesture equivalents/decorative/repeated-label/text-reflow/motion/RTL edge cases.",
+          "disposition": "MIGRATED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0157-U07",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/IOS-13-01_VOICEOVER.md",
+          "source_sha256": "1fe8d8a8ce9f5eaebc7c6984b3a674a58427126db92e95f0fa39f3bee1735d05",
+          "source_heading": "Review-ready depth — accessibility traversal",
+          "source_fragment": "Perform actual VoiceOver traversal",
+          "meaning": "Historical actual VoiceOver traversal/action/device prerequisite superseded by explicit user exclusion; archive requirement, no active exit gate.",
+          "type": "historical-routing",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0157-U08",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/IOS-13-01_VOICEOVER.md",
+          "source_sha256": "1fe8d8a8ce9f5eaebc7c6984b3a674a58427126db92e95f0fa39f3bee1735d05",
+          "source_heading": "Review-ready depth — accessibility traversal",
+          "source_fragment": "behavior can vary by OS and control implementation",
+          "meaning": "Actual deployment/control behavior scope; static evidence does not establish runtime traversal, current permitted evidence only.",
+          "type": "constraint",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Evidence Matrix",
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+              "headings": [
+                "Test Plan Sections",
+                "Smoke Matrix Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0157-U09",
+          "source_path": "canonical/13_ACCESSIBILITY_LOCALIZATION/IOS-13-01_VOICEOVER.md",
+          "source_sha256": "1fe8d8a8ce9f5eaebc7c6984b3a674a58427126db92e95f0fa39f3bee1735d05",
+          "source_heading": "Review-ready depth — accessibility traversal",
+          "source_fragment": "Primary source checked 2026-09-11",
+          "meaning": "Historical check date/link/manual-navigation claim preserved as provenance; actual VoiceOver excluded and never PASS by static substitution.",
+          "type": "historical-routing",
+          "conditions": "Actual supported flow/consumer/market/OS contract; KB docs migration only. All iPad/physical/actualVoiceOver checks omitted, source accessibility requirements remain; no app/resource/test/runtime scope.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Full paragraph/depth reviewed; current canonical permission/verification exclusions control, no actual assistive/device/runtime or rewrite evidence.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact common bodies/focus with literal gate list preserved, SHA/fragments/actual headings, first-party scoped guidance, prior objects and mirror parity.",
+          "evidence": "block-30-inclusive-ui-completion.md",
+          "affected_routes": [
+            "ios-accessibility",
+            "ios-qa-localization"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full common body and complete depth terminal; manual-VoiceOver prerequisite explicitly superseded by current user override, evidence limitation retained; linked OP independent."
     },
     {
       "source_id": "LIB-0158",

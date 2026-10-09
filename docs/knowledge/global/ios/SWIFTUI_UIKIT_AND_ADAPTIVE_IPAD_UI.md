@@ -123,6 +123,13 @@ transparency and alternative cues without inventing product behavior. Custom com
 semantic traits/actions, usable hit targets, focus and state announcements, with keyboard/Switch
 Control actions relevant to their consumers.
 
+Define semantic element boundaries, localized labels/values/hints, grouping and focus order from
+user intent. Prefer existing native controls when their semantics already express the action.
+Custom gestures need equivalent accessible actions; inspect dynamic insertion, repeated labels,
+decorative content, modal focus and announcements after async/presentation transitions. Critical
+inaccessible actions and hidden/unlabeled destructive actions block readiness under the current
+quality gate; visual/view-tree order alone is not evidence of actual traversal or action behavior.
+
 Keep user-facing and accessibility text in the project's localization resources or supported
 String Catalog workflow. Include plural/grammatical variation and translator context; avoid
 English-length or concatenated locale-sensitive assumptions. Use leading/trailing semantics and
@@ -130,9 +137,16 @@ inspect mirrored assets and mixed-direction text for supported RTL markets. Date
 uses defined Locale/Calendar/TimeZone and supported formatting; parsing and wire contracts remain
 separate. Preserve actual translation/resource consumers during an approved change.
 
+For asset/string changes, trace file ownership, target/package bundle lookup and affected app/
+extension consumers. Review the complete code/resource/project diff. An approved UI rewrite
+preserves required accessibility identifiers/semantics at real consumers; localization-key changes
+retain the actual translation workflow. These criteria grant no source/resource rewrite.
+
 ## Evidence Matrix
 Visual fidelity claims require actual supplied design and authorized comparison evidence. Static
 review cannot prove interaction correctness or absence of jank; report unobserved states/consumers.
+Select permitted verification by affected flow/states, supported iPhone Simulator OS/class and
+relevant locale/RTL/accessibility setting; build/runtime/screenshots remain separate permissions.
 
 - Representative small and large iPhone Simulators.
 - Current user exclusions remove all iPad, physical-device and actual VoiceOver checks from plans
