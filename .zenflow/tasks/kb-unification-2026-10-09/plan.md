@@ -17,7 +17,7 @@ User authorized execution of the accepted migration plan after preservation of c
 - [x] U0 Revalidate snapshot, current sources and exact permissions; [receipt](u0-u1-report.md).
 - [ ] U1 Complete inventory/copy-delta reconciliation, freeze KB/read-cost baseline, finish bounded calibration and complete consumer/copy reconciliation. Calibration: five canonical files + one copy content group, 30 units; broader acceptance pending.
 - [x] U2 First complete thematic transfer, cancellation/publication; [30-unit block receipt](block-01-concurrency.md).
-- [ ] U3 Review every source file/unit and transfer all accepted useful deltas. 89 canonical files reviewed; [block 02](block-02-concurrency.md); DEC-001 resolved by current user approval; all 16 files of 03_CONCURRENCY reviewed.
+- [ ] U3 Review every source file/unit and transfer all accepted useful deltas. 98 canonical files reviewed; [block 02](block-02-concurrency.md); DEC-001 resolved by current user approval; all 16 files of 03_CONCURRENCY reviewed.
 - [ ] U4 Unify routes and enforce bounded mandatory reading.
 - [ ] U5 Review semantics, authority and critical technical claims.
 - [ ] U6 Static acceptance: coverage, mirrors, links, 12 routing scenarios and cost limits.
@@ -34,3 +34,5 @@ Architecture complete source review: [block09](block-09-architecture-ownership.m
 SwiftUI source family complete: [block11](block-11-swiftui-state-rendering.md), [ownership/identity depth](block-12-swiftui-ownership-identity.md), [remaining templates](block-13-swiftui-family-completion.md); all 16 skill sources reviewed. Mixed curated UI and six navigation templates now reviewed; linked deep bodies remain independent.
 
 UIKit source family complete: [block14](block-14-uikit-family.md); ten templates reviewed; linked deep bodies independent. [Navigation and mixed curated UI](block-15-navigation-curated-ui.md) now complete; [project-copy router reconciled](block-16-router-copy-reconciliation.md); remaining corpus and U1/U4/U6/U8 gates pending.
+
+Network partial: [block17](block-17-transport-api-contract.md), eight transport templates and curated API route reviewed. Next: auth/retry appended depth and curated network route.

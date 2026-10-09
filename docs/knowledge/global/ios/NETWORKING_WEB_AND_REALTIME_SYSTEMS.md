@@ -21,6 +21,8 @@ Define method, URL construction, headers, body encoding, authentication, timeout
 - Validate file size/type and server response; use atomic destination replacement.
 - Define resume-data compatibility and fallback when resume fails.
 - Background URLSession requires stable identifiers, delegate/lifecycle ownership, relaunch reconciliation, and file cleanup.
+- Inspect transfer integrity, temporary-file ownership and cleanup under storage pressure, including
+  partial completion and the actual request-body replayability contract.
 - Progress is approximate unless the protocol provides a trustworthy total.
 
 ## Realtime Protocols
@@ -39,8 +41,13 @@ Define method, URL construction, headers, body encoding, authentication, timeout
 ## TLS And Trust
 Use platform trust evaluation by default. Certificate pinning adds rotation, expiry, recovery, and outage risk and requires an explicit threat model. Never disable trust checks in production. Mutual TLS and custom anchors require secure identity provisioning and renewal design.
 
+Inspect the actual transport and ATS configuration; ATS protection of URL Loading System traffic
+must not be assumed for lower-level networking. Existing trust decisions need supported-project
+evidence; this review grants no insecure exception or authentication/configuration mutation.
+
 ## Caching
-Respect HTTP cache semantics where possible. Application caches need a key, freshness model, size bound, eviction policy, privacy classification, invalidation strategy, and offline behavior. Never cache authenticated responses across users.
+Review Cache-Control directives, ETag/Last-Modified validation, actual URLCache/session policy and
+invalidation together. Respect HTTP cache semantics where possible. Application caches need a key, freshness model, size bound, eviction policy, privacy classification, invalidation strategy, and offline behavior. Never cache authenticated responses across users.
 
 ## Evidence
 - Contract fixtures for success, malformed, partial, oversized, and version-skewed responses.
@@ -50,6 +57,8 @@ Respect HTTP cache semantics where possible. Application caches need a key, fres
 - Network Instruments or equivalent traces with secrets redacted.
 
 ## Primary Sources
+- [HTTP caching: RFC 9111](https://www.rfc-editor.org/rfc/rfc9111.html)
+- [Apple: Preventing insecure network connections](https://developer.apple.com/documentation/security/preventing-insecure-network-connections)
 - [URL Loading System](https://developer.apple.com/documentation/foundation/url_loading_system)
 - [Network framework](https://developer.apple.com/documentation/network)
 - [WebKit](https://developer.apple.com/documentation/webkit)

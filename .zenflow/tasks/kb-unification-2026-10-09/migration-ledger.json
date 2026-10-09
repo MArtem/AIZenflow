@@ -12141,9 +12141,304 @@
       "path": "08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
       "sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
       "bytes": 1922,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0092-U01",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+          "source_sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+          "source_heading": "API contract and mapping — copy-only reference route",
+          "source_fragment": "Use when a request/response schema",
+          "meaning": "Actual local API/server evidence and current permissions control; no invented backend/auth change",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "existing_coverage": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete four numbered constraints plus authority and historical delivery reviewed; current API/network/quality/evidence owners preserve substantive requirements.",
+          "destination_path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "destination_heading": "Required Checks",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-api-contracts"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0092-U02",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+          "source_sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+          "source_heading": "API contract and mapping — copy-only reference route",
+          "source_fragment": "Identify the exact server/schema evidence",
+          "meaning": "Wire/domain/persistence/UI/outbound producer-consumer paths and absence/null/unknown/malformed/skew semantics",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "existing_coverage": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete four numbered constraints plus authority and historical delivery reviewed; current API/network/quality/evidence owners preserve substantive requirements.",
+          "destination_path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "destination_heading": "Required Checks",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-api-contracts"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0092-U03",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+          "source_sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+          "source_heading": "API contract and mapping — copy-only reference route",
+          "source_fragment": "Check dates/time zones",
+          "meaning": "Ordering/cursors/IDs/defaults and decode semantics; no false business-success placeholder; distinct error classes",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "existing_coverage": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete four numbered constraints plus authority and historical delivery reviewed; current API/network/quality/evidence owners preserve substantive requirements.",
+          "destination_path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "destination_heading": "Required Checks",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-api-contracts"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0092-U04",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+          "source_sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+          "source_heading": "API contract and mapping — copy-only reference route",
+          "source_fragment": "Trace every caller's retry",
+          "meaning": "Caller cancellation/partial/offline/idempotency and privacy-safe failure taxonomy",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "existing_coverage": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete four numbered constraints plus authority and historical delivery reviewed; current API/network/quality/evidence owners preserve substantive requirements.",
+          "destination_path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "destination_heading": "Required Checks",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-api-contracts"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0092-U05",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+          "source_sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+          "source_heading": "API contract and mapping — copy-only reference route",
+          "source_fragment": "For an authorized change",
+          "meaning": "Old/new fixtures and readers/writers; missing backend/old-client evidence cannot prove compatibility",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "existing_coverage": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete four numbered constraints plus authority and historical delivery reviewed; current API/network/quality/evidence owners preserve substantive requirements.",
+          "destination_path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "destination_heading": "Required Checks",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-api-contracts"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0092-U06",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+          "source_sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+          "source_heading": "API contract and mapping — copy-only reference route",
+          "source_fragment": "`AUTO` performs",
+          "meaning": "Historical AUTO/ADVISORY independent second-pass/global runtime delivery; no execution authority",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Complete four numbered constraints plus authority and historical delivery reviewed; current API/network/quality/evidence owners preserve substantive requirements.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-api-contracts"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full API contract route reviewed; all four numbered bullets plus authority/delivery dispositioned. No server behavior/API compatibility proven; network curated route remains unreviewed."
     },
     {
       "source_id": "LIB-0093",
@@ -12159,9 +12454,149 @@
       "path": "08_NETWORKING/IOS-08-01_HTTP_CLIENT.md",
       "sha256": "3f1e4c457ce0c70fcaeaa746c7defa4751cdfb2f0207a3583ddde66c50e90d28",
       "bytes": 5050,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0094-U01",
+          "source_path": "canonical/08_NETWORKING/IOS-08-01_HTTP_CLIENT.md",
+          "source_sha256": "3f1e4c457ce0c70fcaeaa746c7defa4751cdfb2f0207a3583ddde66c50e90d28",
+          "source_heading": "Назначение",
+          "source_fragment": "URLSession async/await, typed endpoints, request building, decoding, cancellation и observability.",
+          "meaning": "URLSession async/await, typed endpoints, request building, decoding, cancellation и observability. Complete common permission-bounded workflow and HTTP/cancellation/retry/auth/decoding/privacy gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing endpoint/transport/concurrency rules cover topic; specific transfer-integrity/pressure, HTTP-cache validators and actual ATS transport boundary made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Boundary Model; Request Contract",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0094-U02",
+          "source_path": "canonical/08_NETWORKING/IOS-08-01_HTTP_CLIENT.md",
+          "source_sha256": "3f1e4c457ce0c70fcaeaa746c7defa4751cdfb2f0207a3583ddde66c50e90d28",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0094-U03",
+          "source_path": "canonical/08_NETWORKING/IOS-08-01_HTTP_CLIENT.md",
+          "source_sha256": "3f1e4c457ce0c70fcaeaa746c7defa4751cdfb2f0207a3583ddde66c50e90d28",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete template body and explicit transport gates/focus reviewed; no appended section; linked OP bodies remain independent. Auth/retry depth and curated network route unreviewed."
     },
     {
       "source_id": "LIB-0095",
@@ -12186,63 +12621,1045 @@
       "path": "08_NETWORKING/IOS-08-04_PAGINATION.md",
       "sha256": "d8f4c9259dfc594afbf60dc119bbf5258adc5b2dc42e7fb2405d7ed91c8aa55b",
       "bytes": 5041,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0097-U01",
+          "source_path": "canonical/08_NETWORKING/IOS-08-04_PAGINATION.md",
+          "source_sha256": "d8f4c9259dfc594afbf60dc119bbf5258adc5b2dc42e7fb2405d7ed91c8aa55b",
+          "source_heading": "Назначение",
+          "source_fragment": "Cursor/page semantics, duplicate handling, cancellation, refresh, error recovery и stable UI identity.",
+          "meaning": "Cursor/page semantics, duplicate handling, cancellation, refresh, error recovery и stable UI identity. Complete common permission-bounded workflow and HTTP/cancellation/retry/auth/decoding/privacy gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing endpoint/transport/concurrency rules cover topic; specific transfer-integrity/pressure, HTTP-cache validators and actual ATS transport boundary made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Identity And Collections"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0097-U02",
+          "source_path": "canonical/08_NETWORKING/IOS-08-04_PAGINATION.md",
+          "source_sha256": "d8f4c9259dfc594afbf60dc119bbf5258adc5b2dc42e7fb2405d7ed91c8aa55b",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0097-U03",
+          "source_path": "canonical/08_NETWORKING/IOS-08-04_PAGINATION.md",
+          "source_sha256": "d8f4c9259dfc594afbf60dc119bbf5258adc5b2dc42e7fb2405d7ed91c8aa55b",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete template body and explicit transport gates/focus reviewed; no appended section; linked OP bodies remain independent. Auth/retry depth and curated network route unreviewed."
     },
     {
       "source_id": "LIB-0098",
       "path": "08_NETWORKING/IOS-08-05_UPLOAD_DOWNLOAD.md",
       "sha256": "62105cce51674aaff0fb180be4a217f9151ec8d7dbc89d7ff2e542c4e8e594f5",
       "bytes": 5002,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0098-U01",
+          "source_path": "canonical/08_NETWORKING/IOS-08-05_UPLOAD_DOWNLOAD.md",
+          "source_sha256": "62105cce51674aaff0fb180be4a217f9151ec8d7dbc89d7ff2e542c4e8e594f5",
+          "source_heading": "Назначение",
+          "source_fragment": "Progress, background/resume, temp files, integrity, cancellation и storage pressure.",
+          "meaning": "Progress, background/resume, temp files, integrity, cancellation и storage pressure. Complete common permission-bounded workflow and HTTP/cancellation/retry/auth/decoding/privacy gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": null,
+          "unique_delta": "Progress, background/resume, temp files, integrity, cancellation и storage pressure.",
+          "disposition": "MIGRATED",
+          "reason": "Existing endpoint/transport/concurrency rules cover topic; specific transfer-integrity/pressure, HTTP-cache validators and actual ATS transport boundary made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Uploads And Downloads",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Uploads And Downloads"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0098-U02",
+          "source_path": "canonical/08_NETWORKING/IOS-08-05_UPLOAD_DOWNLOAD.md",
+          "source_sha256": "62105cce51674aaff0fb180be4a217f9151ec8d7dbc89d7ff2e542c4e8e594f5",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0098-U03",
+          "source_path": "canonical/08_NETWORKING/IOS-08-05_UPLOAD_DOWNLOAD.md",
+          "source_sha256": "62105cce51674aaff0fb180be4a217f9151ec8d7dbc89d7ff2e542c4e8e594f5",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete template body and explicit transport gates/focus reviewed; no appended section; linked OP bodies remain independent. Auth/retry depth and curated network route unreviewed."
     },
     {
       "source_id": "LIB-0099",
       "path": "08_NETWORKING/IOS-08-06_WEBSOCKET_STREAM.md",
       "sha256": "e18cd1f71bb197a15d1f93807f317bf4d1cd934ccea596d22d78b74c2fbaaea9",
       "bytes": 5041,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0099-U01",
+          "source_path": "canonical/08_NETWORKING/IOS-08-06_WEBSOCKET_STREAM.md",
+          "source_sha256": "e18cd1f71bb197a15d1f93807f317bf4d1cd934ccea596d22d78b74c2fbaaea9",
+          "source_heading": "Назначение",
+          "source_fragment": "Connection state machine, heartbeat, reconnect, backoff, ordering, deduplication и lifecycle.",
+          "meaning": "Connection state machine, heartbeat, reconnect, backoff, ordering, deduplication и lifecycle. Complete common permission-bounded workflow and HTTP/cancellation/retry/auth/decoding/privacy gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing endpoint/transport/concurrency rules cover topic; specific transfer-integrity/pressure, HTTP-cache validators and actual ATS transport boundary made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Realtime Protocols",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Realtime Protocols"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0099-U02",
+          "source_path": "canonical/08_NETWORKING/IOS-08-06_WEBSOCKET_STREAM.md",
+          "source_sha256": "e18cd1f71bb197a15d1f93807f317bf4d1cd934ccea596d22d78b74c2fbaaea9",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0099-U03",
+          "source_path": "canonical/08_NETWORKING/IOS-08-06_WEBSOCKET_STREAM.md",
+          "source_sha256": "e18cd1f71bb197a15d1f93807f317bf4d1cd934ccea596d22d78b74c2fbaaea9",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete template body and explicit transport gates/focus reviewed; no appended section; linked OP bodies remain independent. Auth/retry depth and curated network route unreviewed."
     },
     {
       "source_id": "LIB-0100",
       "path": "08_NETWORKING/IOS-08-07_CACHE_HTTP.md",
       "sha256": "a6f8268f8f328925312c923aa3390772f1cba19db5c0dbf6e7285af45cb6cfac",
       "bytes": 4972,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0100-U01",
+          "source_path": "canonical/08_NETWORKING/IOS-08-07_CACHE_HTTP.md",
+          "source_sha256": "a6f8268f8f328925312c923aa3390772f1cba19db5c0dbf6e7285af45cb6cfac",
+          "source_heading": "Назначение",
+          "source_fragment": "Cache-Control/ETag/Last-Modified, URLCache, invalidation и offline semantics.",
+          "meaning": "Cache-Control/ETag/Last-Modified, URLCache, invalidation и offline semantics. Complete common permission-bounded workflow and HTTP/cancellation/retry/auth/decoding/privacy gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": null,
+          "unique_delta": "Cache-Control/ETag/Last-Modified, URLCache, invalidation и offline semantics.",
+          "disposition": "MIGRATED",
+          "reason": "Existing endpoint/transport/concurrency rules cover topic; specific transfer-integrity/pressure, HTTP-cache validators and actual ATS transport boundary made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Caching",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Caching"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0100-U02",
+          "source_path": "canonical/08_NETWORKING/IOS-08-07_CACHE_HTTP.md",
+          "source_sha256": "a6f8268f8f328925312c923aa3390772f1cba19db5c0dbf6e7285af45cb6cfac",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0100-U03",
+          "source_path": "canonical/08_NETWORKING/IOS-08-07_CACHE_HTTP.md",
+          "source_sha256": "a6f8268f8f328925312c923aa3390772f1cba19db5c0dbf6e7285af45cb6cfac",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete template body and explicit transport gates/focus reviewed; no appended section; linked OP bodies remain independent. Auth/retry depth and curated network route unreviewed."
     },
     {
       "source_id": "LIB-0101",
       "path": "08_NETWORKING/IOS-08-08_NETWORK_REACHABILITY.md",
       "sha256": "7ee5988b3c22b01d12b8e1539f82d3ebacdd629ddff494b6c0e08a09a7f14add",
       "bytes": 5143,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0101-U01",
+          "source_path": "canonical/08_NETWORKING/IOS-08-08_NETWORK_REACHABILITY.md",
+          "source_sha256": "7ee5988b3c22b01d12b8e1539f82d3ebacdd629ddff494b6c0e08a09a7f14add",
+          "source_heading": "Назначение",
+          "source_fragment": "Не использовать reachability как гарантию; проектировать optimistic requests и recovery.",
+          "meaning": "Не использовать reachability как гарантию; проектировать optimistic requests и recovery. Complete common permission-bounded workflow and HTTP/cancellation/retry/auth/decoding/privacy gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing endpoint/transport/concurrency rules cover topic; specific transfer-integrity/pressure, HTTP-cache validators and actual ATS transport boundary made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0101-U02",
+          "source_path": "canonical/08_NETWORKING/IOS-08-08_NETWORK_REACHABILITY.md",
+          "source_sha256": "7ee5988b3c22b01d12b8e1539f82d3ebacdd629ddff494b6c0e08a09a7f14add",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0101-U03",
+          "source_path": "canonical/08_NETWORKING/IOS-08-08_NETWORK_REACHABILITY.md",
+          "source_sha256": "7ee5988b3c22b01d12b8e1539f82d3ebacdd629ddff494b6c0e08a09a7f14add",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete template body and explicit transport gates/focus reviewed; no appended section; linked OP bodies remain independent. Auth/retry depth and curated network route unreviewed."
     },
     {
       "source_id": "LIB-0102",
       "path": "08_NETWORKING/IOS-08-09_TLS_SECURITY.md",
       "sha256": "3202ae7452177fba9cf87dba1896b1ccb515fe5bdc7069e6f260c458de6dfc1f",
       "bytes": 5005,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0102-U01",
+          "source_path": "canonical/08_NETWORKING/IOS-08-09_TLS_SECURITY.md",
+          "source_sha256": "3202ae7452177fba9cf87dba1896b1ccb515fe5bdc7069e6f260c458de6dfc1f",
+          "source_heading": "Назначение",
+          "source_fragment": "ATS, trust decisions, pinning trade-offs, rotation, logging redaction и no bypass.",
+          "meaning": "ATS, trust decisions, pinning trade-offs, rotation, logging redaction и no bypass. Complete common permission-bounded workflow and HTTP/cancellation/retry/auth/decoding/privacy gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": null,
+          "unique_delta": "ATS, trust decisions, pinning trade-offs, rotation, logging redaction и no bypass.",
+          "disposition": "MIGRATED",
+          "reason": "Existing endpoint/transport/concurrency rules cover topic; specific transfer-integrity/pressure, HTTP-cache validators and actual ATS transport boundary made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "TLS And Trust",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "TLS And Trust"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0102-U02",
+          "source_path": "canonical/08_NETWORKING/IOS-08-09_TLS_SECURITY.md",
+          "source_sha256": "3202ae7452177fba9cf87dba1896b1ccb515fe5bdc7069e6f260c458de6dfc1f",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0102-U03",
+          "source_path": "canonical/08_NETWORKING/IOS-08-09_TLS_SECURITY.md",
+          "source_sha256": "3202ae7452177fba9cf87dba1896b1ccb515fe5bdc7069e6f260c458de6dfc1f",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete template body and explicit transport gates/focus reviewed; no appended section; linked OP bodies remain independent. Auth/retry depth and curated network route unreviewed."
     },
     {
       "source_id": "LIB-0103",
       "path": "08_NETWORKING/IOS-08-10_NETWORK_REVIEW.md",
       "sha256": "3315c826fd7f77e1164ed22d4e674489aa8dcc3a9a282133947278be46658fe8",
       "bytes": 5074,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0103-U01",
+          "source_path": "canonical/08_NETWORKING/IOS-08-10_NETWORK_REVIEW.md",
+          "source_sha256": "3315c826fd7f77e1164ed22d4e674489aa8dcc3a9a282133947278be46658fe8",
+          "source_heading": "Назначение",
+          "source_fragment": "HTTP semantics, cancellation, auth races, retry safety, decoding resilience, observability и privacy.",
+          "meaning": "HTTP semantics, cancellation, auth races, retry safety, decoding resilience, observability и privacy. Complete common permission-bounded workflow and HTTP/cancellation/retry/auth/decoding/privacy gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing endpoint/transport/concurrency rules cover topic; specific transfer-integrity/pressure, HTTP-cache validators and actual ATS transport boundary made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Boundary Model; Request Contract; Reliability; Evidence",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0103-U02",
+          "source_path": "canonical/08_NETWORKING/IOS-08-10_NETWORK_REVIEW.md",
+          "source_sha256": "3315c826fd7f77e1164ed22d4e674489aa8dcc3a9a282133947278be46658fe8",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0103-U03",
+          "source_path": "canonical/08_NETWORKING/IOS-08-10_NETWORK_REVIEW.md",
+          "source_sha256": "3315c826fd7f77e1164ed22d4e674489aa8dcc3a9a282133947278be46658fe8",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-17-transport-api-contract.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete template body and explicit transport gates/focus reviewed; no appended section; linked OP bodies remain independent. Auth/retry depth and curated network route unreviewed."
     },
     {
       "source_id": "LIB-0104",
