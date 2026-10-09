@@ -17,8 +17,9 @@ Primary generic review criteria verified:
 - [Apple symbol image rendering](https://developer.apple.com/documentation/uikit/configuring-and-displaying-symbol-images-in-your-ui)
 - [Apple scalable fonts](https://developer.apple.com/documentation/uikit/scaling-fonts-automatically)
 No package/resource/font/asset download, numerical quota, OS default or app UI/visual claim.
-Current design governance/Figma router/pixel workflow read; this task is docs migration, not
-Figma/UI implementation, so old implementation model/MCP directives grant no scope.
+Local design governance/pixel mirrors and current Figma router were initially inspected.
+Canonical design/pixel rules reread and exact block-63 content reconciled in block 64 after scoped
+drift detection; no source/owner semantic conflict. This task grants no Figma/UI/MCP actions.
 
 All eight full common bodies match after ID/title/focus/gate normalization; each focus/gate read.
 Unconditional tests/measurement/build and retired V2 mode/Library/OP binding archived, conditional

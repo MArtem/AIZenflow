@@ -61884,9 +61884,621 @@
       "path": "29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
       "sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
       "bytes": 3573,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0349-U01",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "A design file is visual evidence,",
+          "source_fragment": "A design file is visual evidence,",
+          "meaning": "Design evidence does not invent navigation/API/persistence/product behavior; current project/user contract governs.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Design evidence does not invent navigation/API/persistence/product behavior; current project/user contract governs.",
+          "destination_path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "destination_heading": "Required Artifact; Stop Rule",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U02",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "Identify the exact accessible file/frame/node, intended screen/component, supported devices,",
+          "source_fragment": "Identify the exact accessible file/frame/node, intended screen/component, supported devices,",
+          "meaning": "Actual accessible node/screen/fidelity/required supported profile; inaccessible design explicit, excluded verification not reactivated.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/FIGMA_TASK_ROUTER.md",
+          "existing_coverage": "reusable/agent-prompts/FIGMA_TASK_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual accessible node/screen/fidelity/required supported profile; inaccessible design explicit, excluded verification not reactivated.",
+          "destination_path": "reusable/agent-prompts/FIGMA_TASK_ROUTER.md",
+          "destination_heading": "Fast Intake",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/FIGMA_TASK_ROUTER.md",
+              "headings": [
+                "Fast Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U03",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "Record visible states/variants, component hierarchy, spacing, typography, colors, effects,",
+          "source_fragment": "Record visible states/variants, component hierarchy, spacing, typography, colors, effects,",
+          "meaning": "Actual visible variants/style/assets/fonts; ask only behavior-changing missing control/state decisions, no pixel inference.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/FIGMA_TASK_ROUTER.md",
+          "existing_coverage": "reusable/agent-prompts/FIGMA_TASK_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual visible variants/style/assets/fonts; ask only behavior-changing missing control/state decisions, no pixel inference.",
+          "destination_path": "reusable/agent-prompts/FIGMA_TASK_ROUTER.md",
+          "destination_heading": "Fast Intake; Minimum Implementation Contract",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/FIGMA_TASK_ROUTER.md",
+              "headings": [
+                "Fast Intake",
+                "Minimum Implementation Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U04",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "Compare project-local semantic tokens and components.",
+          "source_fragment": "Compare project-local semantic tokens and components.",
+          "meaning": "Existing semantic reuse, one-off local literals, demonstrated ownership/reuse only.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/DESIGN_SYSTEM_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/DESIGN_SYSTEM_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing semantic reuse, one-off local literals, demonstrated ownership/reuse only.",
+          "destination_path": "reusable/baseline/docs/DESIGN_SYSTEM_GOVERNANCE.md",
+          "destination_heading": "Token Policy; Component Policy",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DESIGN_SYSTEM_GOVERNANCE.md",
+              "headings": [
+                "Token Policy",
+                "Component Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U05",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "Translate design descriptions to native iOS layout and state ownership.",
+          "source_fragment": "Translate design descriptions to native iOS layout and state ownership.",
+          "meaning": "Native presentation/domain separation, actual target/bundle app/extension/package resource consumers, structural graph scope.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Native presentation/domain separation, actual target/bundle app/extension/package resource consumers, structural graph scope.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "UI Runtime Model; State Placement",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UI Runtime Model",
+                "State Placement"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases",
+                "Modules And Linking",
+                "Binary And Runtime Diagnosis"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U06",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "Check layout across the supported size range and content states, Dynamic Type, VoiceOver labels,",
+          "source_fragment": "Check layout across the supported size range and content states, Dynamic Type, VoiceOver labels,",
+          "meaning": "Relevant permitted supported layout/a11y/localization/RTL/motion contracts; screenshots do not establish assistive traversal; excluded tests never PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Relevant permitted supported layout/a11y/localization/RTL/motion contracts; screenshots do not establish assistive traversal; excluded tests never PASS.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Evidence Matrix",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U07",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "Preserve supplied design intent while recording intentional platform adaptations.",
+          "source_fragment": "Preserve supplied design intent while recording intentional platform adaptations.",
+          "meaning": "Actual supplied intent and disclosed adaptations; no unseen UI/fallback/business actions.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+          "existing_coverage": "reusable/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual supplied intent and disclosed adaptations; no unseen UI/fallback/business actions.",
+          "destination_path": "reusable/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+          "destination_heading": "Source Of Truth; Implementation Rules",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+              "headings": [
+                "Source Of Truth",
+                "Implementation Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U08",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "For shared components, inspect their public input/state contract and token owner at actual",
+          "source_fragment": "For shared components, inspect their public input/state contract and token owner at actual",
+          "meaning": "Actual shared consumer input/state/token ownership; UIKit/SwiftUI semantic parity and separately permitted selected-state visual comparison.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual shared consumer input/state/token ownership; UIKit/SwiftUI semantic parity and separately permitted selected-state visual comparison.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Design-System Consumers; Evidence Matrix",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Design-System Consumers",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U09",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "For theme/token changes, inspect scoped updates, dark/high-contrast variants and invalidation",
+          "source_fragment": "For theme/token changes, inspect scoped updates, dark/high-contrast variants and invalidation",
+          "meaning": "Scoped themes/dynamic cost, typography baseline/wrapping/font and symbol availability/render/RTL/resource contract; small variants/API no business capture.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Scoped themes/dynamic cost, typography baseline/wrapping/font and symbol availability/render/RTL/resource contract; small variants/API no business capture.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Design-System Consumers; Layout And Rendering",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Design-System Consumers",
+                "Layout And Rendering"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U10",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "For forms, distinguish field from whole-form validation, timing, stale async results and error",
+          "source_fragment": "For forms, distinguish field from whole-form validation, timing, stale async results and error",
+          "meaning": "Field/form timing/stale async/error focus/announcements, actual validation/security boundary.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Field/form timing/stale async/error focus/announcements, actual validation/security boundary.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Text, Input, And Focus; Accessible And Localized Interaction Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Text, Input, And Focus",
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U11",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "Empty/offline/error components need honest state meaning, localized copy",
+          "source_fragment": "Empty/offline/error components need honest state meaning, localized copy",
+          "meaning": "Actual distinct empty/offline/error meanings and prioritized recovery/localized accessible action; no homogenizing behavior.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual distinct empty/offline/error meanings and prioritized recovery/localized accessible action; no homogenizing behavior.",
+          "destination_path": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+          "destination_heading": "Required Rules",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U12",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "For a shared visual/API migration, account for usages and compatibility before removing old",
+          "source_fragment": "For a shared visual/API migration, account for usages and compatibility before removing old",
+          "meaning": "Actual consumer compatibility before retirement, aliases only demonstrated migration need.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual consumer compatibility before retirement, aliases only demonstrated migration need.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Design-System Consumers",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Design-System Consumers"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U13",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "Review the complete Swift/UI, asset, localization and project-file diff.",
+          "source_fragment": "Review the complete Swift/UI, asset, localization and project-file diff.",
+          "meaning": "Complete affected source/resource/project/caller/mirror review under approved scope.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete affected source/resource/project/caller/mirror review under approved scope.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U14",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "A visual-match claim",
+          "source_fragment": "A visual-match claim",
+          "meaning": "Actual authorized comparison exact design state and corresponding supported-size/accessibility evidence; static cannot prove fidelity.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual authorized comparison exact design state and corresponding supported-size/accessibility evidence; static cannot prove fidelity.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Evidence Matrix",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U15",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "If design access, asset provenance,",
+          "source_fragment": "If design access, asset provenance,",
+          "meaning": "Missing source/design/asset/runtime evidence remains explicit non-PASS, current accepted-risk authority; no invented result.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Missing source/design/asset/runtime evidence remains explicit non-PASS, current accepted-risk authority; no invented result.",
+          "destination_path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "destination_heading": "Authority, Verdict, And Readiness Contract; User Authority",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0349-U16",
+          "source_path": "canonical/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+          "source_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "source_heading": "This route does",
+          "source_fragment": "This route does",
+          "meaning": "Standalone copy-only route delivery archived; useful authority/evidence guards retained, no asset fetch/project edit/Simulator/visual QA/Git grant or mandatory second Library pass.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone copy-only route delivery archived; useful authority/evidence guards retained, no asset fetch/project edit/Simulator/visual QA/Git grant or mandatory second Library pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-64-design-route-drift-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full curated design route reviewed against current canonical rules and UI owner; no unique accepted delta, standalone delivery archived."
     },
     {
       "source_id": "LIB-0350",
