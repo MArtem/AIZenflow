@@ -16,6 +16,13 @@ Every strong completion claim must include evidence:
 - release/CI result
 - or explicit remaining risk when evidence is unavailable
 
+Evidence classes do not imply one another. A source/document/diff check, compiled target,
+passing test, runtime observation or production cohort supports only its declared scope and
+conditions. In particular, a passing test does not establish that every affected app/extension
+target builds, that a screen matches its design, or that races and memory leaks are absent.
+Negative and failure paths need their own evidence. Missing, partial, stale, failed or skipped
+observations remain explicit gaps; another passing check cannot turn them into PASS.
+
 ## Forbidden Claims Without Evidence
 - “performance improved” without metric or code-level proof and remaining-risk note
 - “production-ready” without production readiness gate

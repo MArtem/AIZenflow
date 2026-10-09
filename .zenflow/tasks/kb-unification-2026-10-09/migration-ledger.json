@@ -9744,9 +9744,156 @@
       "path": "EVIDENCE_POLICY.md",
       "sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
       "bytes": 2095,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0854-U01",
+          "source_path": "canonical/EVIDENCE_POLICY.md",
+          "source_sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+          "source_heading": "Evidence and verification for copy-only reference",
+          "source_fragment": "Do not infer a higher level",
+          "meaning": "Scoped non-transitive observations; independent negative-path evidence",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+          "existing_coverage": null,
+          "unique_delta": "Scoped non-transitive observations; independent negative-path evidence",
+          "disposition": "MIGRATED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+          "destination_heading": "Evidence Rule",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/EVIDENCE_BASED_ENGINEERING_RULES.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0854-U02",
+          "source_path": "canonical/EVIDENCE_POLICY.md",
+          "source_sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+          "source_heading": "Evidence and verification for copy-only reference",
+          "source_fragment": "| E0 |",
+          "meaning": "E0–E5 numeric labels remain historical, not a competing verdict vocabulary",
+          "type": "historical-routing",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former Library bindings/numeric labels remain historical; current governance owns verdicts.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0854-U03",
+          "source_path": "canonical/EVIDENCE_POLICY.md",
+          "source_sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+          "source_heading": "Evidence and verification for copy-only reference",
+          "source_fragment": "Status vocabulary:",
+          "meaning": "Former ON/review/runtime/readiness vocabulary; current governance controls scope and fresh terminal verdicts",
+          "type": "historical-routing",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former Library bindings/numeric labels remain historical; current governance owns verdicts.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0854-U04",
+          "source_path": "canonical/EVIDENCE_POLICY.md",
+          "source_sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+          "source_heading": "Evidence and verification for copy-only reference",
+          "source_fragment": "Changing any reviewed artifact",
+          "meaning": "Reviewed artifact changes invalidate receipt; verification permissions never implied",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "3. Verification Ladder; 5. Exact-SHA Review Receipt",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "3. Verification Ladder; 5. Exact-SHA Review Receipt",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0854-U05",
+          "source_path": "canonical/EVIDENCE_POLICY.md",
+          "source_sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+          "source_heading": "Evidence and verification for copy-only reference",
+          "source_fragment": "| E0 |",
+          "meaning": "Hypotheses remain possible risk; inspected source, compiled target, tested conditions, runtime environment and production cohort/time each bound the claim",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+          "existing_coverage": "Evidence Rule; Report Template",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Meaning preserved by current scope/evidence rules; former transport labels are not promoted.",
+          "destination_path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+          "destination_heading": "Evidence Rule; Report Template",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/EVIDENCE_BASED_ENGINEERING_RULES.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0854-U06",
+          "source_path": "canonical/EVIDENCE_POLICY.md",
+          "source_sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+          "source_heading": "Evidence and verification for copy-only reference",
+          "source_fragment": "Status vocabulary:",
+          "meaning": "Reviewed candidate reports all findings/gaps; runtime claims only observed scenarios; no blockers for readiness; required gates and separate Git permission; missing/partial/stale/unauthorized observation never PASS",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "existing_coverage": "Authority, Verdict, And Readiness Contract; Evidence And Verdict Rules; User Authority",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Meaning preserved by current scope/evidence rules; former transport labels are not promoted.",
+          "destination_path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "destination_heading": "Authority, Verdict, And Readiness Contract; Evidence And Verdict Rules; User Authority",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source units dispositioned in block 03; linked bodies remain independently unreviewed."
     },
     {
       "source_id": "LIB-0855",
@@ -9834,9 +9981,246 @@
       "path": "REVIEW_GUIDE.md",
       "sha256": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
       "bytes": 2784,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0864-U01",
+          "source_path": "canonical/REVIEW_GUIDE.md",
+          "source_sha256": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
+          "source_heading": "Reference review guide — candidate",
+          "source_fragment": "Use after the project",
+          "meaning": "Former second-pass startup and explicit non-grant",
+          "type": "historical-routing",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former Library bindings/numeric labels remain historical; current governance owns verdicts.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0864-U02",
+          "source_path": "canonical/REVIEW_GUIDE.md",
+          "source_sha256": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
+          "source_heading": "Review sequence",
+          "source_fragment": "Include staged, unstaged",
+          "meaning": "Complete candidate inventory, lockfile ownership and failed/unreadable scan gaps",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": null,
+          "unique_delta": "Complete candidate inventory, lockfile ownership and failed/unreadable scan gaps",
+          "disposition": "MIGRATED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "4. Final Adversarial Review",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0864-U03",
+          "source_path": "canonical/REVIEW_GUIDE.md",
+          "source_sha256": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
+          "source_heading": "Review sequence",
+          "source_fragment": "smallest relevant domain routes",
+          "meaning": "Conditional domain risks and recorded exclusions",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "Usage Rule; Mandatory Review Areas; Required Audit/Review Output",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Usage Rule; Mandatory Review Areas; Required Audit/Review Output",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0864-U04",
+          "source_path": "canonical/REVIEW_GUIDE.md",
+          "source_sha256": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
+          "source_heading": "Change surface",
+          "source_fragment": "Xcode target/scheme/build",
+          "meaning": "Structural/resource membership, module/extension access, bundles, toolchain, provenance/privacy and affected verification",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "Targets And Build Phases; Modules And Linking; SwiftPM And Dependencies; Supply Chain; Evidence",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Targets And Build Phases; Modules And Linking; SwiftPM And Dependencies; Supply Chain; Evidence",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases",
+                "Modules And Linking",
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Mandatory Review Areas",
+                "Verification Scope"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0864-U05",
+          "source_path": "canonical/REVIEW_GUIDE.md",
+          "source_sha256": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
+          "source_heading": "Design to iOS",
+          "source_fragment": "supplied design identity",
+          "meaning": "Design identity/states/assets/type/layout, accessibility/RTL/localization; missing authorized comparison cannot prove fidelity",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+          "existing_coverage": "Figma Intake Gate; Implementation Rules; Verification Policy; Reporting",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+          "destination_heading": "Figma Intake Gate; Implementation Rules; Verification Policy; Reporting",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/UI_PIXEL_PERFECT_WORKFLOW.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+              "headings": [
+                "Figma Intake Gate",
+                "Implementation Rules",
+                "Verification Policy",
+                "Reporting"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": []
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0864-U06",
+          "source_path": "canonical/REVIEW_GUIDE.md",
+          "source_sha256": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
+          "source_heading": "Handoff",
+          "source_fragment": "observed checks, omitted checks",
+          "meaning": "Candidate/findings, observed/omitted checks, residual risk and separate authorized Git transitions",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+          "existing_coverage": "Required Report Shape; Stop Rule",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+          "destination_heading": "Required Report Shape; Stop Rule",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/COMPLETION_REPORT_CONTRACT.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0864-U07",
+          "source_path": "canonical/REVIEW_GUIDE.md",
+          "source_sha256": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
+          "source_heading": "Reference review guide — candidate",
+          "source_fragment": "Identify the actual",
+          "meaning": "Read-only findings, planning decisions or implementation candidate; current task authority controls outputs",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "Trigger And Authority; 1. Change Contract Before Implementation",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Meaning preserved by current scope/evidence rules; former transport labels are not promoted.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "Trigger And Authority; 1. Change Contract Before Implementation",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0864-U08",
+          "source_path": "canonical/REVIEW_GUIDE.md",
+          "source_sha256": "356ef43b8293ffda6f807bf405747f88ae4695558aad740d5174747628f0b7f8",
+          "source_heading": "Reference review guide — candidate",
+          "source_fragment": "Apply the current canonical KB",
+          "meaning": "One canonical contract/final-review/receipt loop; no second loop from reference guide",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "3. Verification Ladder; 4. Final Adversarial Review; 5. Exact-SHA Review Receipt",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Meaning preserved by current scope/evidence rules; former transport labels are not promoted.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "3. Verification Ladder; 4. Final Adversarial Review; 5. Exact-SHA Review Receipt",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source units dispositioned in block 03; linked bodies remain independently unreviewed."
     },
     {
       "source_id": "LIB-0865",
@@ -14826,6 +15210,311 @@
             "ios-concurrency-runtime"
           ],
           "mirrors": []
+        }
+      ]
+    },
+    {
+      "group_id": "COPY-REVIEW",
+      "source_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "aliases": [
+        {
+          "archive_path": "tchop-copy/REVIEW_GUIDE.md",
+          "source_path": "TchopApp/IOSLibrary/REVIEW_GUIDE.md",
+          "source_revision": "82294ae7fc4e3946e5ea957f885844e79284d04e"
+        },
+        {
+          "archive_path": "battleship-copy/REVIEW_GUIDE.md",
+          "source_path": "BattleshipGame/IOSLibrary/REVIEW_GUIDE.md",
+          "source_revision": "82294ae7fc4e3946e5ea957f885844e79284d04e"
+        }
+      ],
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "COPY-REVIEW-U01",
+          "source_path": "tchop-copy/REVIEW_GUIDE.md",
+          "source_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+          "source_heading": "Reference review guide — candidate",
+          "source_fragment": "Use after the project",
+          "meaning": "Former second-pass startup and explicit non-grant",
+          "type": "historical-routing",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former Library bindings/numeric labels remain historical; current governance owns verdicts.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "COPY-REVIEW-U02",
+          "source_path": "tchop-copy/REVIEW_GUIDE.md",
+          "source_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+          "source_heading": "Review sequence",
+          "source_fragment": "State the requested behavior",
+          "meaning": "Behavior/acceptance/non-goals/owners; unknown decisions not guessed",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "1. Change Contract Before Implementation",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-REVIEW-U03",
+          "source_path": "tchop-copy/REVIEW_GUIDE.md",
+          "source_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+          "source_heading": "Review sequence",
+          "source_fragment": "Trace the success path",
+          "meaning": "Success/negative/compatibility/rollback and before-after behavior",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-REVIEW-U04",
+          "source_path": "tchop-copy/REVIEW_GUIDE.md",
+          "source_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+          "source_heading": "Review sequence",
+          "source_fragment": "Include staged, unstaged",
+          "meaning": "Complete candidate inventory, lockfile ownership and failed/unreadable scan gaps",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": null,
+          "unique_delta": "Complete candidate inventory, lockfile ownership and failed/unreadable scan gaps",
+          "disposition": "MIGRATED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "4. Final Adversarial Review",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-REVIEW-U05",
+          "source_path": "tchop-copy/REVIEW_GUIDE.md",
+          "source_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+          "source_heading": "Review sequence",
+          "source_fragment": "Unresolved P0",
+          "meaning": "Severity blocking and one complete final review after material fixes",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "4. Final Adversarial Review",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "4. Final Adversarial Review",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-REVIEW-U06",
+          "source_path": "tchop-copy/REVIEW_GUIDE.md",
+          "source_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+          "source_heading": "Review sequence",
+          "source_fragment": "smallest relevant domain risks",
+          "meaning": "Conditional domain risks and recorded exclusions",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "Usage Rule; Mandatory Review Areas; Required Audit/Review Output",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Usage Rule; Mandatory Review Areas; Required Audit/Review Output",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-REVIEW-U07",
+          "source_path": "tchop-copy/REVIEW_GUIDE.md",
+          "source_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+          "source_heading": "Change surface",
+          "source_fragment": "Xcode target/scheme/build",
+          "meaning": "Structural/resource membership, module/extension access, bundles, toolchain, provenance/privacy and affected verification",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "Targets And Build Phases; Modules And Linking; SwiftPM And Dependencies; Supply Chain; Evidence",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Targets And Build Phases; Modules And Linking; SwiftPM And Dependencies; Supply Chain; Evidence",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases",
+                "Modules And Linking",
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Mandatory Review Areas",
+                "Verification Scope"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "COPY-REVIEW-U08",
+          "source_path": "tchop-copy/REVIEW_GUIDE.md",
+          "source_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+          "source_heading": "Design to iOS",
+          "source_fragment": "supplied design identity",
+          "meaning": "Design identity/states/assets/type/layout, accessibility/RTL/localization; missing authorized comparison cannot prove fidelity",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+          "existing_coverage": "Figma Intake Gate; Implementation Rules; Verification Policy; Reporting",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+          "destination_heading": "Figma Intake Gate; Implementation Rules; Verification Policy; Reporting",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/UI_PIXEL_PERFECT_WORKFLOW.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+              "headings": [
+                "Figma Intake Gate",
+                "Implementation Rules",
+                "Verification Policy",
+                "Reporting"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": []
+            }
+          ]
+        },
+        {
+          "unit_id": "COPY-REVIEW-U09",
+          "source_path": "tchop-copy/REVIEW_GUIDE.md",
+          "source_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+          "source_heading": "Handoff",
+          "source_fragment": "observed checks, omitted checks",
+          "meaning": "Candidate/findings, observed/omitted checks, residual risk and separate authorized Git transitions",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+          "existing_coverage": "Required Report Shape; Stop Rule",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+          "destination_heading": "Required Report Shape; Stop Rule",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/COMPLETION_REPORT_CONTRACT.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-REVIEW-U10",
+          "source_path": "tchop-copy/REVIEW_GUIDE.md",
+          "source_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+          "source_heading": "Reference review guide — candidate",
+          "source_fragment": "Identify the actual",
+          "meaning": "Task-appropriate read-only/planning/implementation output and no implied verification/Git authority",
+          "type": "constraint",
+          "conditions": "Current task permissions, actual change surface and user verification exclusions.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "Trigger And Authority; 1. Change Contract Before Implementation",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current owner preserves the meaningful constraint; no second loop or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "Trigger And Authority; 1. Change Contract Before Implementation",
+          "required_verification": "Complete body comparison, literal source/hash, actual destination headings and mirror parity.",
+          "evidence": "block-03-review-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
         }
       ]
     }

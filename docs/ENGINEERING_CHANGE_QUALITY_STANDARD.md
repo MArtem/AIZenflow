@@ -120,7 +120,11 @@ finding is required before repeating or widening a check.
 
 ## 4. Final Adversarial Review
 
-Review the final diff from a clean perspective, not only the previously edited lines:
+Review the final diff from a clean perspective, not only the previously edited lines.
+Inventory staged, unstaged and relevant untracked artifacts; one Git diff view is incomplete.
+Resolve changed dependency lockfiles to their producers and affected consumers rather than
+dismissing generated noise. A failed/skipped supporting scan or unreadable input leaves that
+scope unverified; another passing check does not fill the gap.
 
 - trace success and every failure route end to end;
 - test the credible boundary values and ordering/race scenarios from the change contract;
