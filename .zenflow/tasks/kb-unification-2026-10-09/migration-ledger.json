@@ -55343,54 +55343,1107 @@
       "path": "24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
       "sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
       "bytes": 296,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0301-U01",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "User problem",
+          "source_fragment": "## User problem",
+          "meaning": "Actual job/problem, no guessed product behavior.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual job/problem, no guessed product behavior.",
+          "destination_path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "destination_heading": "Required Artifact",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U02",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "Goals",
+          "source_fragment": "## Goals",
+          "meaning": "Actual success goals.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual success goals.",
+          "destination_path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "destination_heading": "Required Artifact",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U03",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "Non-goals",
+          "source_fragment": "## Non-goals",
+          "meaning": "Explicit non-goals.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Explicit non-goals.",
+          "destination_path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "destination_heading": "Required Artifact",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U04",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "User journeys",
+          "source_fragment": "## User journeys",
+          "meaning": "Explicit affected user journeys and failure/recovery paths, no invented journey or approved product decision.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "unique_delta": "Explicit affected user journeys and failure/recovery paths, no invented journey or approved product decision.",
+          "disposition": "MIGRATED",
+          "reason": "Explicit affected user journeys and failure/recovery paths, no invented journey or approved product decision.",
+          "destination_path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "destination_heading": "Required Artifact",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U05",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "State model",
+          "source_fragment": "## State model",
+          "meaning": "Actual exhaustive relevant state model.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual exhaustive relevant state model.",
+          "destination_path": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+          "destination_heading": "Required Rules; Stateful Screen State Contract",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Stateful Screen State Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U06",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "API/data contracts",
+          "source_fragment": "## API/data contracts",
+          "meaning": "Actual producer/consumer API/domain/data/error compatibility.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "existing_coverage": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual producer/consumer API/domain/data/error compatibility.",
+          "destination_path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "destination_heading": "Required Checks; DTO And Domain Boundaries; Errors",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Required Checks",
+                "DTO And Domain Boundaries",
+                "Errors"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U07",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "Offline/error/loading",
+          "source_fragment": "## Offline/error/loading",
+          "meaning": "Actual loading/offline/error/retry/cancellation/partial-success behavior.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual loading/offline/error/retry/cancellation/partial-success behavior.",
+          "destination_path": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+          "destination_heading": "Required Rules",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U08",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "Navigation/deep links",
+          "source_fragment": "## Navigation/deep links",
+          "meaning": "Actual navigation/deep-link ownership, route identity and malformed/permission paths.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual navigation/deep-link ownership, route identity and malformed/permission paths.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Navigation And Presentation",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Navigation And Presentation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U09",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "Analytics",
+          "source_fragment": "## Analytics",
+          "meaning": "Actionable privacy-safe observed telemetry versus required instrumentation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actionable privacy-safe observed telemetry versus required instrumentation.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Observability; Metric Design",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U10",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "Security/privacy/permissions",
+          "source_fragment": "## Security/privacy/permissions",
+          "meaning": "Actual permission/trust/data lifecycle and minimization.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual permission/trust/data lifecycle and minimization.",
+          "destination_path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "destination_heading": "Required Checks; Data Lifecycle",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Required Checks",
+                "Data Lifecycle"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U11",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "Accessibility/localization",
+          "source_fragment": "## Accessibility/localization",
+          "meaning": "Actual accessible/localized interaction contract, excluded runtime checks not PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual accessible/localized interaction contract, excluded runtime checks not PASS.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U12",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "Performance budgets",
+          "source_fragment": "## Performance budgets",
+          "meaning": "Actual user-impact budget and comparable permitted evidence, no invented threshold.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual user-impact budget and comparable permitted evidence, no invented threshold.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Optimization Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U13",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "Rollout/flags",
+          "source_fragment": "## Rollout/flags",
+          "meaning": "Actual owned flags/rollout/recovery and current action authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+          "existing_coverage": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual owned flags/rollout/recovery and current action authority.",
+          "destination_path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+          "destination_heading": "Required Checks",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U14",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "Acceptance criteria",
+          "source_fragment": "## Acceptance criteria",
+          "meaning": "Explicit acceptance; missing decision blocks dependent implementation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Explicit acceptance; missing decision blocks dependent implementation.",
+          "destination_path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "destination_heading": "Required Artifact; Stop Rule",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0301-U15",
+          "source_path": "canonical/24_TEMPLATES/06_FEATURE_SPEC_TEMPLATE.md",
+          "source_sha256": "35fdc548f708f4e1d2671488c217d4610e5d9fcbf8144b7c484339d32d018736",
+          "source_heading": "Feature Spec",
+          "source_fragment": "# Feature Spec",
+          "meaning": "Blank standalone feature-template delivery archived; not actual filled requirements or authority.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Blank standalone feature-template delivery archived; not actual filled requirements or authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full blank feature template reviewed; useful journeys merged into current owner, no filled product spec inferred."
     },
     {
       "source_id": "LIB-0302",
       "path": "25_MEDIA_GRAPHICS/IOS-22-01_AVFOUNDATION_CAPTURE.md",
       "sha256": "3c0d00ee4c50d089b351dcbf91c21aedc63c394f0adaeaa63d1a4d5b2ada1f27",
       "bytes": 3914,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0302-U01",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-01_AVFOUNDATION_CAPTURE.md",
+          "source_sha256": "3c0d00ee4c50d089b351dcbf91c21aedc63c394f0adaeaa63d1a4d5b2ada1f27",
+          "source_heading": "Спроектировать camera/mic capture session, authorization, configuration, interruptions, orientation, device switching, buffers и teardown.",
+          "source_fragment": "Спроектировать camera/mic capture session, authorization, configuration, interruptions, orientation, device switching, buffers и teardown.",
+          "meaning": "Спроектировать camera/mic capture session, authorization, configuration, interruptions, orientation, device switching, buffers и teardown. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: session lifetime, permissions, interruptions, queueing, orientation, memory/thermal.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Спроектировать camera/mic capture session, authorization, configuration, interruptions, orientation, device switching, buffers и teardown. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: session lifetime, permissions, interruptions, queueing, orientation, memory/thermal.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Permission Model; Runtime Ownership; Camera And Photos; Audio, Video, And Speech; Performance And Privacy; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Camera And Photos",
+                "Audio, Video, And Speech",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: session lifetime, permissions, interruptions, queueing, orientation, memory/thermal.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0302-U02",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-01_AVFOUNDATION_CAPTURE.md",
+          "source_sha256": "3c0d00ee4c50d089b351dcbf91c21aedc63c394f0adaeaa63d1a4d5b2ada1f27",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0302-U03",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-01_AVFOUNDATION_CAPTURE.md",
+          "source_sha256": "3c0d00ee4c50d089b351dcbf91c21aedc63c394f0adaeaa63d1a4d5b2ada1f27",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0303",
       "path": "25_MEDIA_GRAPHICS/IOS-22-02_AUDIO_SESSION.md",
       "sha256": "fc3913cc8461a07b04934616954571cb9a10478da17efe8d948315775b7bbf91",
       "bytes": 3870,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0303-U01",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-02_AUDIO_SESSION.md",
+          "source_sha256": "fc3913cc8461a07b04934616954571cb9a10478da17efe8d948315775b7bbf91",
+          "source_heading": "Корректно выбрать category/mode/options, route changes, interruptions, background audio и coexistence с другими apps.",
+          "source_fragment": "Корректно выбрать category/mode/options, route changes, interruptions, background audio и coexistence с другими apps.",
+          "meaning": "Корректно выбрать category/mode/options, route changes, interruptions, background audio и coexistence с другими apps. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: route/interruption state, activation policy, background, Bluetooth/AirPlay, user expectations.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Корректно выбрать category/mode/options, route changes, interruptions, background audio и coexistence с другими apps. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: route/interruption state, activation policy, background, Bluetooth/AirPlay, user expectations.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Permission Model; Runtime Ownership; Camera And Photos; Audio, Video, And Speech; Performance And Privacy; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Camera And Photos",
+                "Audio, Video, And Speech",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: route/interruption state, activation policy, background, Bluetooth/AirPlay, user expectations.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0303-U02",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-02_AUDIO_SESSION.md",
+          "source_sha256": "fc3913cc8461a07b04934616954571cb9a10478da17efe8d948315775b7bbf91",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0303-U03",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-02_AUDIO_SESSION.md",
+          "source_sha256": "fc3913cc8461a07b04934616954571cb9a10478da17efe8d948315775b7bbf91",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0304",
       "path": "25_MEDIA_GRAPHICS/IOS-22-03_AUDIO_ENGINE.md",
       "sha256": "81f3913cd986e747a35d473b3467d8fd840fd29098287c4894f4845b6cd90780",
       "bytes": 3767,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0304-U01",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-03_AUDIO_ENGINE.md",
+          "source_sha256": "81f3913cd986e747a35d473b3467d8fd840fd29098287c4894f4845b6cd90780",
+          "source_heading": "Построить audio graph, format conversion, realtime-thread safety, interruption recovery и latency.",
+          "source_fragment": "Построить audio graph, format conversion, realtime-thread safety, interruption recovery и latency.",
+          "meaning": "Построить audio graph, format conversion, realtime-thread safety, interruption recovery и latency. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: realtime safety, allocations/locks, formats, route changes, latency, teardown.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Построить audio graph, format conversion, realtime-thread safety, interruption recovery и latency. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: realtime safety, allocations/locks, formats, route changes, latency, teardown.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Permission Model; Runtime Ownership; Camera And Photos; Audio, Video, And Speech; Performance And Privacy; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Camera And Photos",
+                "Audio, Video, And Speech",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: realtime safety, allocations/locks, formats, route changes, latency, teardown.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0304-U02",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-03_AUDIO_ENGINE.md",
+          "source_sha256": "81f3913cd986e747a35d473b3467d8fd840fd29098287c4894f4845b6cd90780",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0304-U03",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-03_AUDIO_ENGINE.md",
+          "source_sha256": "81f3913cd986e747a35d473b3467d8fd840fd29098287c4894f4845b6cd90780",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0305",
       "path": "25_MEDIA_GRAPHICS/IOS-22-04_VIDEO_PLAYBACK.md",
       "sha256": "37543fedd6a28410c5b72dbdb20cdfaf439da0c1aa3514e097bc5e6900a19c28",
       "bytes": 3767,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0305-U01",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-04_VIDEO_PLAYBACK.md",
+          "source_sha256": "37543fedd6a28410c5b72dbdb20cdfaf439da0c1aa3514e097bc5e6900a19c28",
+          "source_heading": "State/KVO/async observation, buffering, seeking, PiP, interruptions, captions и lifecycle.",
+          "source_fragment": "State/KVO/async observation, buffering, seeking, PiP, interruptions, captions и lifecycle.",
+          "meaning": "State/KVO/async observation, buffering, seeking, PiP, interruptions, captions и lifecycle. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: buffering, seek cancellation, observer lifetime, PiP, accessibility captions, background.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "State/KVO/async observation, buffering, seeking, PiP, interruptions, captions и lifecycle. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: buffering, seek cancellation, observer lifetime, PiP, accessibility captions, background.",
+          "disposition": "MIGRATED",
+          "reason": "State/KVO/async observation, buffering, seeking, PiP, interruptions, captions и lifecycle. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: buffering, seek cancellation, observer lifetime, PiP, accessibility captions, background.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Permission Model; Runtime Ownership; Camera And Photos; Audio, Video, And Speech; Performance And Privacy; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Camera And Photos",
+                "Audio, Video, And Speech",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: buffering, seek cancellation, observer lifetime, PiP, accessibility captions, background.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0305-U02",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-04_VIDEO_PLAYBACK.md",
+          "source_sha256": "37543fedd6a28410c5b72dbdb20cdfaf439da0c1aa3514e097bc5e6900a19c28",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0305-U03",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-04_VIDEO_PLAYBACK.md",
+          "source_sha256": "37543fedd6a28410c5b72dbdb20cdfaf439da0c1aa3514e097bc5e6900a19c28",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0306",
       "path": "25_MEDIA_GRAPHICS/IOS-22-05_VIDEO_EXPORT.md",
       "sha256": "3a51e5485e601612c27935a253ffc25e76c03bdd9fb56bf57fb9589253deb0c9",
       "bytes": 3812,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0306-U01",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-05_VIDEO_EXPORT.md",
+          "source_sha256": "3a51e5485e601612c27935a253ffc25e76c03bdd9fb56bf57fb9589253deb0c9",
+          "source_heading": "Asset reading/writing/export sessions, progress/cancellation, temp storage, HDR/codec compatibility и disk pressure.",
+          "source_fragment": "Asset reading/writing/export sessions, progress/cancellation, temp storage, HDR/codec compatibility и disk pressure.",
+          "meaning": "Asset reading/writing/export sessions, progress/cancellation, temp storage, HDR/codec compatibility и disk pressure. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: codec/container, cancellation, temp files, memory, thermal, background limits.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "Asset reading/writing/export sessions, progress/cancellation, temp storage, HDR/codec compatibility и disk pressure. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: codec/container, cancellation, temp files, memory, thermal, background limits.",
+          "disposition": "MIGRATED",
+          "reason": "Asset reading/writing/export sessions, progress/cancellation, temp storage, HDR/codec compatibility и disk pressure. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: codec/container, cancellation, temp files, memory, thermal, background limits.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Permission Model; Runtime Ownership; Camera And Photos; Audio, Video, And Speech; Performance And Privacy; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Camera And Photos",
+                "Audio, Video, And Speech",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: codec/container, cancellation, temp files, memory, thermal, background limits.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0306-U02",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-05_VIDEO_EXPORT.md",
+          "source_sha256": "3a51e5485e601612c27935a253ffc25e76c03bdd9fb56bf57fb9589253deb0c9",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0306-U03",
+          "source_path": "canonical/25_MEDIA_GRAPHICS/IOS-22-05_VIDEO_EXPORT.md",
+          "source_sha256": "3a51e5485e601612c27935a253ffc25e76c03bdd9fb56bf57fb9589253deb0c9",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-56-feature-media-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0307",

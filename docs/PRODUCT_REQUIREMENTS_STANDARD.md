@@ -7,6 +7,7 @@ Prevents agents and engineers from guessing product behavior. Use before impleme
 Every feature should define:
 - user problem / job-to-be-done
 - target users
+- affected user journeys and failure/recovery paths
 - success criteria
 - acceptance criteria
 - explicit non-goals

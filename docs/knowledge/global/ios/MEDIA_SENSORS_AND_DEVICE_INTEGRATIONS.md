@@ -26,6 +26,9 @@ Sessions, delegates, observers, routes, captures, streams, and hardware connecti
 - Select audio session category/mode/options from recording, playback, mixing, Bluetooth, AirPlay, and background requirements.
 - Handle interruptions, route changes, media services reset, other-audio policy, remote controls, and Now Playing state.
 - Stream large media, observe player/item state, cancel observations, and release assets on eviction/dismissal.
+- Define buffering and seek cancellation, KVO/async observer lifetime, and interruption/background
+  behavior. Where supported and required, include PiP restoration and available captions/subtitles
+  with the actual media selection and accessibility contract.
 - Recording requires durable temporary-file cleanup and honest interruption/failure state.
 - Speech recognition may be on-device or service-dependent; expose availability and privacy behavior accurately.
 
@@ -65,7 +68,7 @@ backpressure behavior (pause, drop or coalesce), ownership on interruption/cance
 release of buffers/sessions. Compare a rendering budget with a representative observed scenario.
 For export/transcoding, bound input/output buffering and temporary disk use; preserve cleanup
 on cancellation or low storage and account for thermal/background constraints and representative
-codec/color-space output. Compressed file size does not establish decoded-memory bounds.
+codec/container and HDR/color-space output. Compressed file size does not establish decoded-memory bounds.
 
 At real-time audio/rendering callback boundaries, inspect locks, blocking work and allocation
 pressure under the actual framework contract; review format conversion, safe context/pipeline
