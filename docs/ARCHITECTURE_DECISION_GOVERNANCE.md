@@ -22,5 +22,17 @@ Defines when architectural decisions need an ADR/RFC and how they are reviewed.
 - Review/revisit trigger
 - Owner
 
+## Bounded Investigation And Migration
+Recommend a spike only for a concrete uncertainty: name the question, stop condition and evidence
+budget. Compare viable alternatives when ownership, compatibility, reversibility or evidence
+cost differs materially; do not invent an alternative, document or flag to fill a template.
+
+An explicitly authorized modernization needs a real benefit and success metric: characterize,
+migrate one bounded slice, compare, then expand or stop. Review dual-state/dual-write hazards,
+old/new compatibility and consumer cleanup criteria. A minimum-OS change also needs supported-user/
+device impact, availability-shim inventory and release communication ownership. These decisions
+do not authorize framework/language-mode/deployment changes; apply the relevant specialist route
+and current app-owned permission before implementation.
+
 ## Stop Rule
 Do not implement broad architecture changes without recording the decision or explicitly documenting why ADR is not needed.

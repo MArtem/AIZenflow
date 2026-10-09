@@ -6,7 +6,7 @@ Task `kb-unification-2026-10-09`; worktree `/Users/Artem/.zenflow/worktrees/know
 
 **IMPLEMENTATION_STARTED; U0_PASS; U1_PARTIAL; U2_BLOCK_PASS.** User explicitly started the accepted plan. U0 integrity passed; U1 accounting/baseline saved in [receipt](u0-u1-report.md). First [concurrency block](block-01-concurrency.md) migrated useful details into existing owners; no entrypoint/mode transition performed. Main design: one canonical KB/authority chain, compact Level 0, addressed practical references inside KB, no obligatory second Library pass. Do not equate one layer with one large file.
 
-Snapshot [README](archive/library-snapshot/README.md): 1,403 canonical files + 34 Tchop + 34 Battleship + three AGENTS = 1,474; ZIP/SHA/CRC and Git-byte parity checked. Includes inactive source families and CXL-01. [Ledger](migration-ledger.json): 19 REVIEWED files, 1,384 UNREVIEWED; 113 terminal units across blocks 01–04 including reviewed copy groups (21 migrated / 53 covered / 25 historical infrastructure / 14 nonincremental units); remaining copy-delta reconciliation pending. No review of remaining sources implied. Sources pinned to Documentation dba11900be2e694c77ad392759280dd56fc86a6e and AIZenflow 82294ae7fc4e3946e5ea957f885844e79284d04e. Frozen snapshot never overwritten.
+Snapshot [README](archive/library-snapshot/README.md): 1,403 canonical files + 34 Tchop + 34 Battleship + three AGENTS = 1,474; ZIP/SHA/CRC and Git-byte parity checked. Includes inactive source families and CXL-01. [Ledger](migration-ledger.json): 21 REVIEWED files, 1,382 UNREVIEWED; 130 terminal units across blocks 01–05 including reviewed copy groups (28 migrated / 60 covered / 28 historical infrastructure / 14 nonincremental units); remaining copy-delta reconciliation pending. No review of remaining sources implied. Sources pinned to Documentation dba11900be2e694c77ad392759280dd56fc86a6e and AIZenflow 82294ae7fc4e3946e5ea957f885844e79284d04e. Frozen snapshot never overwritten.
 
 Previous experiment remains CLOSED_BY_USER / BENEFIT_NOT_ESTABLISHED. Do not read sealed holdout/oracle bodies or reactivate consumed agent grants. Historical results are not new evaluation evidence.
 
@@ -19,3 +19,5 @@ Publication completion is recorded in external exact-SHA receipt, not by adding 
 Block 03: [review/evidence receipt](block-03-review-evidence.md); two canonical sources and both project review variants dispositioned. Explicit candidate inventory and scoped evidence gaps migrated into existing owners; no new review loop or verdict vocabulary.
 
 Block 04: [quality-contract receipt](block-04-quality-contract.md); canonical quality guide and both project variants dispositioned; three existing owners receive useful constraints.
+
+Block 05: [risk/evidence receipt](block-05-risk-evidence.md); source risk guide and compatibility route fully dispositioned; three existing owners updated.

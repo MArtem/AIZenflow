@@ -68,6 +68,11 @@ Select the smallest sufficient evidence from this matrix:
 | Control-plane | Authority/provenance, producer-consumer/schema parity, failure-closed, and aggregate-resource review; use an independent reviewer when available. |
 | Domain/product logic | Explicit domain invariants plus success, failure, boundary, and state-order scenarios; use a targeted test or user-owned scenario when permitted. |
 
+Adjust evidence when inspected facts change. Increase scrutiny for weak tests, offline writes,
+user-created data, background execution, multiple targets, binary SDKs, extensions sharing
+storage, attempted concurrency escapes, or a release-sensitive window. A risk estimate is not
+a severity verdict or proof of safety; keep impact, confidence and evidence provenance separate.
+
 This matrix does not grant permission to create or run tests, builds, CI, simulators, or external
 services. Report missing user-owned evidence as residual risk.
 
@@ -90,7 +95,15 @@ services. Report missing user-owned evidence as residual risk.
 
 ## 3. Verification Ladder
 
-Use the smallest sufficient ladder and stop when its evidence is current:
+Use the smallest sufficient ladder and stop when its evidence is current.
+
+At meaningful task boundaries, recommend a consequential check only when its expected evidence
+is worth its time, cost and risk. Name the question, smallest useful scope, expected evidence,
+cost/risk, current permission and the gap if skipped; prefer a sufficient smaller static check.
+Reassess after findings or a changed diff. Advice never grants execution authority or means a
+check ran; high risk alone is not a reason for ritual builds/tests or automatic agent waves.
+
+Permitted ladder:
 
 1. Targeted source/call-site inspection and deterministic static checks.
 2. One targeted test or type/build check during development when permitted and relevant.

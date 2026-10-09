@@ -8,9 +8,58 @@
       "path": "00_META/CHANGE_RISK_MATRIX.md",
       "sha256": "00d06c106dd9df0278eb2262f6d97765a3f333e9f673033b42503c1ba68e105a",
       "bytes": 523,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0001-U01",
+          "source_path": "canonical/00_META/CHANGE_RISK_MATRIX.md",
+          "source_sha256": "00d06c106dd9df0278eb2262f6d97765a3f333e9f673033b42503c1ba68e105a",
+          "source_heading": "Change risk — compatibility route",
+          "source_fragment": "resolves the old",
+          "meaning": "Compatibility redirect to former Library risk document; no second risk scale",
+          "type": "historical-routing",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical labels/redirects only; semantic constraints have separate terminal units.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0001-U02",
+          "source_path": "canonical/00_META/CHANGE_RISK_MATRIX.md",
+          "source_sha256": "00d06c106dd9df0278eb2262f6d97765a3f333e9f673033b42503c1ba68e105a",
+          "source_heading": "Change risk — compatibility route",
+          "source_fragment": "Risk class guides",
+          "meaning": "Review depth/evidence choice, not action authority; missing evidence remains explicit",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "1A. PR Risk Card And Scope; 3. Verification Ladder",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1A. PR Risk Card And Scope; 3. Verification Ladder",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        }
+      ],
+      "disposition_reason": "All units reviewed in block05; original linked risk sources remain independently unreviewed."
     },
     {
       "source_id": "LIB-0002",
@@ -10627,9 +10676,381 @@
       "path": "RISK_AND_EVIDENCE.md",
       "sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
       "bytes": 4008,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0865-U01",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Change risk and evidence selection",
+          "source_fragment": "Risk guides",
+          "meaning": "Risk selects relevant evidence, never safety guarantee or command permission",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "Trigger And Authority; 1A. PR Risk Card And Scope",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "Trigger And Authority; 1A. PR Risk Card And Scope",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0865-U02",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Change risk and evidence selection",
+          "source_fragment": "| R0 |",
+          "meaning": "R0–R4 numeric categories remain historical; not a competing severity scale",
+          "type": "historical-routing",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical labels/redirects only; semantic constraints have separate terminal units.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0865-U03",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Change risk and evidence selection",
+          "source_fragment": "| R1 |",
+          "meaning": "Mechanical/UI/domain/network/persistence/navigation/concurrency/API/graph/security/schema/destructive data/payment/auth/SDK surfaces select diff, invariants, consumers, negative/compatibility, containment/rollback and owner decision evidence when applicable",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "1. Change Contract Before Implementation; 1A. PR Risk Card And Scope; 4. Final Adversarial Review",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 1A. PR Risk Card And Scope; 4. Final Adversarial Review",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0865-U04",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Change risk and evidence selection",
+          "source_fragment": "Increase scrutiny",
+          "meaning": "Weak tests/offline/user data/background/multiple targets/binaries/shared extension storage/escapes/release window increase scrutiny; reassess facts; severity/confidence/provenance distinct",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": null,
+          "unique_delta": "Weak tests/offline/user data/background/multiple targets/binaries/shared extension storage/escapes/release window increase scrutiny; reassess facts; severity/confidence/provenance distinct",
+          "disposition": "MIGRATED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1A. PR Risk Card And Scope",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0865-U05",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Change risk and evidence selection",
+          "source_fragment": "compare genuinely viable alternatives",
+          "meaning": "Material ownership/compatibility/reversibility/evidence-cost alternatives, no invented second design",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": null,
+          "unique_delta": "Material ownership/compatibility/reversibility/evidence-cost alternatives, no invented second design",
+          "disposition": "MIGRATED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "Bounded Investigation And Migration",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ARCHITECTURE_DECISION_GOVERNANCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0865-U06",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Change risk and evidence selection",
+          "source_fragment": "At planning, translate",
+          "meaning": "Observable acceptance/non-goals/offline/error/permission/rollout; missing product decision distinct from defect",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "existing_coverage": "Required Artifact; Stop Rule; Review Output",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "destination_heading": "Required Artifact; Stop Rule; Review Output",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/PRODUCT_REQUIREMENTS_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0865-U07",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Change risk and evidence selection",
+          "source_fragment": "Recommend a bounded spike",
+          "meaning": "Concrete uncertainty question, stop condition and evidence budget; context/options/consequences/revisit/rollback without ritual document/flag",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": null,
+          "unique_delta": "Concrete uncertainty question, stop condition and evidence budget; context/options/consequences/revisit/rollback without ritual document/flag",
+          "disposition": "MIGRATED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Template; Bounded Investigation And Migration",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ARCHITECTURE_DECISION_GOVERNANCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0865-U08",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Change risk and evidence selection",
+          "source_fragment": "For an authorized modernization",
+          "meaning": "Explicit benefit/metric and characterize–bounded slice–compare–expand/stop; dual-state/write, old/new compatibility and cleanup consumers",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": null,
+          "unique_delta": "Explicit benefit/metric and characterize–bounded slice–compare–expand/stop; dual-state/write, old/new compatibility and cleanup consumers",
+          "disposition": "MIGRATED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "Bounded Investigation And Migration",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ARCHITECTURE_DECISION_GOVERNANCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0865-U09",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Change risk and evidence selection",
+          "source_fragment": "Dependency removal needs",
+          "meaning": "Public/transitive usage accounting for dependency removal",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "existing_coverage": null,
+          "unique_delta": "Public/transitive usage accounting for dependency removal",
+          "disposition": "MIGRATED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "destination_heading": "Removal Policy",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/DEPENDENCY_POLICY.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0865-U10",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Change risk and evidence selection",
+          "source_fragment": "a minimum-OS change needs",
+          "meaning": "Supported-user/device impact, availability-shim inventory, communication; no implicit framework/language/deployment change",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": null,
+          "unique_delta": "Supported-user/device impact, availability-shim inventory, communication; no implicit framework/language/deployment change",
+          "disposition": "MIGRATED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "Bounded Investigation And Migration",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ARCHITECTURE_DECISION_GOVERNANCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0865-U11",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Change risk and evidence selection",
+          "source_fragment": "No class automatically",
+          "meaning": "No category authorizes/requires execution; missing evidence narrows claim",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "existing_coverage": "User Authority; Evidence And Verdict Rules",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "destination_heading": "User Authority; Evidence And Verdict Rules",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0865-U12",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Action advice, not silent authority",
+          "source_fragment": "At each task stage",
+          "meaning": "Consequential action advice compares smallest sufficient evidence, cost/risk/current permission and gap if skipped; reassess after findings, no ritual or automatic agent wave",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": null,
+          "unique_delta": "Consequential action advice compares smallest sufficient evidence, cost/risk/current permission and gap if skipped; reassess after findings, no ritual or automatic agent wave",
+          "disposition": "MIGRATED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "3. Verification Ladder",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0865-U13",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Action advice, not silent authority",
+          "source_fragment": "For `AUTO`",
+          "meaning": "Former AUTO/ADVISORY labels are not active execution profiles",
+          "type": "historical-routing",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical labels/redirects only; semantic constraints have separate terminal units.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0865-U14",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Action advice, not silent authority",
+          "source_fragment": "Neither profile turns",
+          "meaning": "Advice/execution distinct; only current authorized checks execute; never claim proposed check ran",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "existing_coverage": "User Authority; Evidence And Verdict Rules",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "destination_heading": "User Authority; Evidence And Verdict Rules",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0865-U15",
+          "source_path": "canonical/RISK_AND_EVIDENCE.md",
+          "source_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "source_heading": "Change risk and evidence selection",
+          "source_fragment": "route it to only",
+          "meaning": "Route suspected defects only to audit domains supported by observed project facts",
+          "type": "constraint",
+          "conditions": "Relevant inspected change facts and explicit current authorization; no runtime/device/build/test/agent permission is added.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "Usage Rule; Required Audit/Review Output",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Meaning preserved in current owner; not a second checklist/risk scale or execution authority.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Usage Rule; Required Audit/Review Output",
+          "required_verification": "Literal frozen source/hash, full body semantic comparison, destination headings and exact mirrors.",
+          "evidence": "block-05-risk-evidence.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md"
+          ]
+        }
+      ],
+      "disposition_reason": "All units reviewed in block05; original linked risk sources remain independently unreviewed."
     },
     {
       "source_id": "LIB-0866",
