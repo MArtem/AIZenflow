@@ -1,6 +1,6 @@
 # KB unification — current execution
 
-2026-10-09. **IMPLEMENTATION_STARTED; U0_PASS; U1_PARTIAL.** Planning/preservation: GPT-6 Astra; planned executor GPT-6.1 Sol/low; persistent mode эконом.
+2026-10-09. **IMPLEMENTATION_STARTED; U0_PASS; U1_PARTIAL; U2_BLOCK_PASS.** Planning/preservation: GPT-6 Astra; planned executor GPT-6.1 Sol/low; persistent mode эконом.
 
 User authorized execution of the accepted migration plan after preservation of current Library and a detailed plan for transferring useful content into one balanced KB. [Detailed plan](migration-plan.md) defines scope, decisions, per-stage checks/acceptance/drift checks and the execution prompt. It is task-local planning, not active reusable policy. Previous effectiveness cycle remains closed; quality/token benefit not established.
 
@@ -8,15 +8,15 @@ User authorized execution of the accepted migration plan after preservation of c
 
 - [x] Revalidate canonical bootstrap/Level 0, documentation governance, source boundaries and current task state.
 - [x] Preserve complete tracked canonical Library, both actual project payloads and three entrypoints: [snapshot](archive/library-snapshot/README.md), 1,474 files, Git-byte/SHA/CRC parity.
-- [x] Prepare 1,403-row [migration ledger](migration-ledger.json), all UNREVIEWED; no semantic migration claim.
+- [x] Prepare 1,403-row [migration ledger](migration-ledger.json), initially all UNREVIEWED; current exact dispositions in ledger.
 - [x] Write detailed bounded plan for Sol 6.1/low; preserve current rules and permissions.
 - [x] Static document gates passed; publication candidate prepared. Exact-SHA review, pushes and main/development equality are recorded in the external publication receipt, without modifying the reviewed commit.
 
 ## Implementation checklist — user authorized execution 2026-10-09
 
 - [x] U0 Revalidate snapshot, current sources and exact permissions; [receipt](u0-u1-report.md).
-- [ ] U1 Complete inventory/copy-delta reconciliation, freeze KB/read-cost baseline, calibrate first 20 files.
-- [ ] U2 First complete thematic transfer, cancellation/publication (or covered disposition).
+- [ ] U1 Complete inventory/copy-delta reconciliation, freeze KB/read-cost baseline, finish bounded calibration and complete consumer/copy reconciliation. Calibration: five canonical files + one copy content group, 30 units; broader acceptance pending.
+- [x] U2 First complete thematic transfer, cancellation/publication; [30-unit block receipt](block-01-concurrency.md).
 - [ ] U3 Review every source file/unit and transfer all accepted useful deltas.
 - [ ] U4 Unify routes and enforce bounded mandatory reading.
 - [ ] U5 Review semantics, authority and critical technical claims.

@@ -24,6 +24,13 @@ or when state ownership/order remains ambiguous after the selected sections. Reo
 sections after a scope change; an omitted relevant requirement is not PASS. This selection changes reading,
 not the required engineering guarantees or build/test authority.
 
+## Conditional Practical Mechanism
+
+For replacement/cancellation publication unresolved after those sections, select
+[Invocation Publication Practical Slice](knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md#invocation-publication-practical-slice).
+For review, stop before Illustrative Owner Example; expand it for implementation or a specific
+unresolved mechanism question. Apply its negative controls and evidence limits; no second normative pass or verification permission.
+
 ## Required Rules
 - UI state mutations happen on the main actor.
 - Long-running file, media, crypto, database, parsing, and CPU-bound work must not run on the main actor. An asynchronous wait and CPU-bound work require different reasoning; `async` alone does not prove a background executor.

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "kind": "SECTION_SELECTION_COST_NOT_TOKENS",
+  "scope": "cancellation/replacement without unresolved mechanism; stable rule cost excluding dynamic task state",
+  "required_sections": [
+    "Core Model",
+    "Task Ownership",
+    "Cancellation",
+    "Ordering And Stale Results"
+  ],
+  "before": {
+    "words": 877,
+    "bytes": 6306
+  },
+  "after": {
+    "words": 962,
+    "bytes": 7053
+  },
+  "growth_percent": 9.692132269099197,
+  "conditional_review_slice": {
+    "words": 320,
+    "bytes": 2353
+  },
+  "conditional_full_practical_slice": {
+    "words": 929,
+    "bytes": 6684
+  },
+  "negative_controls": [
+    "unrelated synchronous Task work",
+    "proven single-operation intake",
+    "existing correct guard"
+  ],
+  "limitations": "Document-envelope reporter does not model addressed section ranges. Full-document envelope growth is recorded separately, not accepted as U4/U6 budget PASS. All 12 scenarios and broad full-reference growth acceptance remain pending."
+}

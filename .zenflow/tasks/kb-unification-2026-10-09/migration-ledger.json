@@ -269,18 +269,340 @@
       "path": "03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
       "sha256": "d59fb6c852e4b446d28b136aa17834fb53fb110cc1c959dd4a2659f646a88241",
       "bytes": 2873,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0030-U01",
+          "source_path": "03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+          "source_sha256": "d59fb6c852e4b446d28b136aa17834fb53fb110cc1c959dd4a2659f646a88241",
+          "source_heading": "Normative Owner And Optional Mechanism",
+          "source_fragment": "The KB sections own Task retention/lifetime",
+          "meaning": "Delegated ownership/isolation/callback/stream/bridge requirements",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Core Model; Task Ownership; Cancellation; Isolation Design; Continuations And Callbacks; Streams; Reactive And Queue Bridges; Swift 6.x Discipline",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Each delegated concern and its scope/limits already resides in these sections; standard selects them.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Task Ownership; Cancellation; Isolation Design; Continuations And Callbacks; Streams; Reactive And Queue Bridges; Swift 6.x Discipline",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0030-U02",
+          "source_path": "03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+          "source_sha256": "d59fb6c852e4b446d28b136aa17834fb53fb110cc1c959dd4a2659f646a88241",
+          "source_heading": "Opening and optional selection",
+          "source_fragment": "Existing approved payload pins do",
+          "meaning": "Separate Library payload selection/pin and candidate admission",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical Library routing/pin contract; useful conditional trigger preserved in the unified standard, not its separate pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "governance-non-trivial",
+            "governance-task-state"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0030-U03",
+          "source_path": "03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+          "source_sha256": "d59fb6c852e4b446d28b136aa17834fb53fb110cc1c959dd4a2659f646a88241",
+          "source_heading": "Final paragraph",
+          "source_fragment": "not authorized or not observed",
+          "meaning": "Permission-bounded evidence and explicit unknowns",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Testing And Evidence",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current KB already says unperformed checks remain UNVERIFIED and do not grant runtime authority.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Testing And Evidence",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        }
+      ],
+      "disposition_reason": "All meaningful units individually dispositioned in block-01; mixed terminal outcomes; no inference for linked documents."
     },
     {
       "source_id": "LIB-0031",
       "path": "03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
       "sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
       "bytes": 10103,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0031-U01",
+          "source_path": "03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+          "source_sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
+          "source_heading": "Select before deciding a change",
+          "source_fragment": "A clean existing identity/cancellation guard",
+          "meaning": "Bounded positive/negative trigger; do not invent a reachable defect",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Cancellation; Task Ownership; Ordering And Stale Results contain general rules, but omit this precise practical detail.",
+          "unique_delta": "Concrete trigger and review slice with negative controls",
+          "disposition": "MIGRATED",
+          "reason": "Useful concrete condition/example preserved in existing addressed KB owner.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Invocation Publication Practical Slice",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0031-U02",
+          "source_path": "03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+          "source_sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
+          "source_heading": "Establish the contract first",
+          "source_fragment": "Distinguish three promises",
+          "meaning": "Cancellation intent, publication validity, side effects and explicit product UX",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Cancellation; Task Ownership; Ordering And Stale Results contain general rules, but omit this precise practical detail.",
+          "unique_delta": "Three distinct promises; agreed current-cancellation state and generic Cancellable API",
+          "disposition": "MIGRATED",
+          "reason": "Useful concrete condition/example preserved in existing addressed KB owner.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Contract And Mechanism",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0031-U03",
+          "source_path": "03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+          "source_sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
+          "source_heading": "Mechanism",
+          "source_fragment": "A→B→A contains three invocations",
+          "meaning": "Invocation identity independent of equal input; Invocation-owned cleanup and old/new handle separation",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Cancellation; Task Ownership; Ordering And Stale Results contain general rules, but omit this precise practical detail.",
+          "unique_delta": "Repeated-input identity example; Guard cleanup as well as value/error publication",
+          "disposition": "MIGRATED",
+          "reason": "Useful concrete condition/example preserved in existing addressed KB owner.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Contract And Mechanism; Contract And Mechanism",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ],
+          "unit_aliases": [
+            "LIB-0031-U04"
+          ],
+          "source_additional_fragments": [
+            "An old defer must not clear a new handle"
+          ]
+        },
+        {
+          "unit_id": "LIB-0031-U05",
+          "source_path": "03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+          "source_sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
+          "source_heading": "Mechanism",
+          "source_fragment": "reject obsolete publication",
+          "meaning": "Both success and generic failure guards; legitimate errors survive",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Cancellation; Task Ownership; Ordering And Stale Results contain general rules, but omit this precise practical detail.",
+          "unique_delta": "Concrete unsafe shape and guard reasoning",
+          "disposition": "MIGRATED",
+          "reason": "Useful concrete condition/example preserved in existing addressed KB owner.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Contract And Mechanism",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0031-U06",
+          "source_path": "03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+          "source_sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
+          "source_heading": "Checked example",
+          "source_fragment": "publication crosses another actor",
+          "meaning": "Revalidate at actual consumer boundary; atomic final guard/mutation",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Cancellation; Task Ownership; Ordering And Stale Results contain general rules, but omit this precise practical detail.",
+          "unique_delta": "Consumer-hop boundary distinguished from producer guard",
+          "disposition": "MIGRATED",
+          "reason": "Useful concrete condition/example preserved in existing addressed KB owner.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Contract And Mechanism",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0031-U07",
+          "source_path": "03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+          "source_sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
+          "source_heading": "Checked example",
+          "source_fragment": "The task retains its owner until work completes",
+          "meaning": "Retention, producer lifetime/resource limit and private app handles; Complete owner/token example including genuine failure, owner cancel and reject-overlap alternative",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Cancellation; Task Ownership; Ordering And Stale Results contain general rules, but omit this precise practical detail.",
+          "unique_delta": "One current handle is not a concurrency bound; handle authority limitation; Original code retained with explicit unexecuted model scope and cancellation UX limitation",
+          "disposition": "MIGRATED",
+          "reason": "Useful concrete condition/example preserved in existing addressed KB owner.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Illustrative Owner Example; Illustrative Owner Example",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ],
+          "unit_aliases": [
+            "LIB-0031-U08"
+          ],
+          "source_additional_fragments": [
+            "enum ScreenState: Equatable"
+          ]
+        },
+        {
+          "unit_id": "LIB-0031-U09",
+          "source_path": "03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+          "source_sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
+          "source_heading": "Eight falsification traces",
+          "source_fragment": "A finishes while B is pending",
+          "meaning": "Eight controlled failure/negative traces including cleanup and committed side effects",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Cancellation; Task Ownership; Ordering And Stale Results contain general rules, but omit this precise practical detail.",
+          "unique_delta": "Complete trace set without importing historical execution claims",
+          "disposition": "MIGRATED",
+          "reason": "Useful concrete condition/example preserved in existing addressed KB owner.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Falsification Traces And Evidence Limits",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0031-U10",
+          "source_path": "03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+          "source_sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
+          "source_heading": "Verification envelope and limits; Integration acceptance and goal check",
+          "source_fragment": "If a check only exercises an equivalent duplicate",
+          "meaning": "Real integration evidence vs duplicate model evidence; errors/public API/architecture preserved",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Cancellation; Task Ownership; Ordering And Stale Results contain general rules, but omit this precise practical detail.",
+          "unique_delta": "Explicit model/SDK/storage/deallocation/adoption limits and duplicate-patch evidence caveat",
+          "disposition": "MIGRATED",
+          "reason": "Useful concrete condition/example preserved in existing addressed KB owner.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Falsification Traces And Evidence Limits",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0031-U11",
+          "source_path": "03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+          "source_sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
+          "source_heading": "Select before deciding a change; final integration paragraph",
+          "source_fragment": "Existing project mode,",
+          "meaning": "Former Library mode/payload admission and delivery-benefit experiment lifecycle",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Separate payload/mode delivery machinery and old experiment lifecycle remain archived; they cannot reintroduce a second pass or grant current checks.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "governance-non-trivial",
+            "governance-task-state"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All meaningful units individually dispositioned in block-01; mixed terminal outcomes; no inference for linked documents."
     },
     {
       "source_id": "LIB-0032",
@@ -332,18 +654,340 @@
       "path": "03_CONCURRENCY/IOS-03-06_TASK_LIFETIME.md",
       "sha256": "66a6bc81ee8b7c0c9ee2f114aca9619d9c980e9f5a9740e14fdef9ff22a85734",
       "bytes": 7337,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0037-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-06_TASK_LIFETIME.md",
+          "source_sha256": "66a6bc81ee8b7c0c9ee2f114aca9619d9c980e9f5a9740e14fdef9ff22a85734",
+          "source_heading": "Purpose; inputs; algorithm; anti-patterns; prompt; success",
+          "source_fragment": "Найди существующий паттерн",
+          "meaning": "Project facts, ownership, minimum change, invariant/failure review and evidence procedure",
+          "type": "procedure",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md + reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md + reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current engineering contract covers the common procedure; PRODUCT_REQUIREMENTS_STANDARD owns unspecified product decisions and IOS_TESTING_STRATEGY Permission Boundary prohibits unconditional test creation. Old step 6 is not imported as a grant. Material alternatives are covered by CURRENT_USER_OVERRIDES Partnership Communication and ARCHITECTURE_DECISION_GOVERNANCE ADR Template; fixed numeric quota has its own archive-only disposition.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "governance-non-trivial",
+            "governance-task-state"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0037-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-06_TASK_LIFETIME.md",
+          "source_sha256": "66a6bc81ee8b7c0c9ee2f114aca9619d9c980e9f5a9740e14fdef9ff22a85734",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Legacy skill execution modes and mandatory separate playbook intake",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill/mode loading machinery; linked playbooks remain independently UNREVIEWED, not deemed duplicate by this file.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "governance-non-trivial",
+            "governance-task-state"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0037-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-06_TASK_LIFETIME.md",
+          "source_sha256": "66a6bc81ee8b7c0c9ee2f114aca9619d9c980e9f5a9740e14fdef9ff22a85734",
+          "source_heading": "Review-ready depth — task ownership across suspension",
+          "source_fragment": "capture only the dependency/value state",
+          "meaning": "Capture dependencies while work suspends; reacquire owner for publication when release is required",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Task Ownership explains strong retention and deinit pitfall, but not the explicit capture alternative.",
+          "unique_delta": "Dependency/value capture vs intentional bounded retention",
+          "disposition": "MIGRATED",
+          "reason": "Adds a concrete retention-safe choice without imposing weak capture on intentionally retained owners.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Task Ownership",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0037-U04",
+          "source_path": "03_CONCURRENCY/IOS-03-06_TASK_LIFETIME.md",
+          "source_sha256": "66a6bc81ee8b7c0c9ee2f114aca9619d9c980e9f5a9740e14fdef9ff22a85734",
+          "source_heading": "Review-ready depth — task ownership across suspension",
+          "source_fragment": "Use a controllable suspended dependency",
+          "meaning": "Stale success/error, repeated starts, side-effect and compiler limits; owner-release verification",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Task Ownership; Cancellation; Swift 6.x Discipline; Testing And Evidence; Falsification Traces And Evidence Limits",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All scenario/trap/evidence and compatibility boundaries are retained in the named sections; controlled fakes already selected in Testing And Evidence.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Task Ownership; Cancellation; Swift 6.x Discipline; Testing And Evidence; Falsification Traces And Evidence Limits",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0037-U05",
+          "source_path": "03_CONCURRENCY/IOS-03-06_TASK_LIFETIME.md",
+          "source_sha256": "66a6bc81ee8b7c0c9ee2f114aca9619d9c980e9f5a9740e14fdef9ff22a85734",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Consider material architecture/public-contract/dependency alternatives, with a fixed two-option quota",
+          "type": "procedure",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+          "existing_coverage": "Partnership Communication + ARCHITECTURE_DECISION_GOVERNANCE ADR Template (Options considered)",
+          "unique_delta": "Fixed minimum count only",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Existing policy already requires viable alternatives and ADR options when materially different. A fixed two-option quota adds no decision criterion or failure-mode coverage and can invent an artificial alternative; archive the quota, preserve meaningful option comparison via current owners.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "governance-non-trivial",
+            "governance-task-state"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All meaningful units individually dispositioned in block-01; mixed terminal outcomes; no inference for linked documents."
     },
     {
       "source_id": "LIB-0038",
       "path": "03_CONCURRENCY/IOS-03-07_CANCELLATION.md",
       "sha256": "f5f30be77571f1034730270f5401a79d0d34f75d2e208b23a8d64950f02d826e",
       "bytes": 6749,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0038-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-07_CANCELLATION.md",
+          "source_sha256": "f5f30be77571f1034730270f5401a79d0d34f75d2e208b23a8d64950f02d826e",
+          "source_heading": "Purpose; inputs; algorithm; anti-patterns; prompt; success",
+          "source_fragment": "Найди существующий паттерн",
+          "meaning": "Project facts, ownership, minimum change, invariant/failure review and evidence procedure",
+          "type": "procedure",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md + reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md + reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current engineering contract covers the common procedure; PRODUCT_REQUIREMENTS_STANDARD owns unspecified product decisions and IOS_TESTING_STRATEGY Permission Boundary prohibits unconditional test creation. Old step 6 is not imported as a grant. Material alternatives are covered by CURRENT_USER_OVERRIDES Partnership Communication and ARCHITECTURE_DECISION_GOVERNANCE ADR Template; fixed numeric quota has its own archive-only disposition.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "governance-non-trivial",
+            "governance-task-state"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0038-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-07_CANCELLATION.md",
+          "source_sha256": "f5f30be77571f1034730270f5401a79d0d34f75d2e208b23a8d64950f02d826e",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Legacy skill execution modes and mandatory separate playbook intake",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill/mode loading machinery; linked playbooks remain independently UNREVIEWED, not deemed duplicate by this file.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "governance-non-trivial",
+            "governance-task-state"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0038-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-07_CANCELLATION.md",
+          "source_sha256": "f5f30be77571f1034730270f5401a79d0d34f75d2e208b23a8d64950f02d826e",
+          "source_heading": "Review-ready depth — cancellation semantics",
+          "source_fragment": "old generic failure must not mutate",
+          "meaning": "Cooperative cancellation and both completion paths under replacement; compatibility/evidence limits",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Cancellation; Ordering And Stale Results; Falsification Traces And Evidence Limits; Swift 6.x Discipline",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All replacement paths and permission/toolchain conditions covered; current CancellationError is treated according to agreed UX.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Cancellation; Ordering And Stale Results; Falsification Traces And Evidence Limits; Swift 6.x Discipline",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0038-U04",
+          "source_path": "03_CONCURRENCY/IOS-03-07_CANCELLATION.md",
+          "source_sha256": "f5f30be77571f1034730270f5401a79d0d34f75d2e208b23a8d64950f02d826e",
+          "source_heading": "Traps / edge cases",
+          "source_fragment": "retry loops need an explicit cancellation exit",
+          "meaning": "Concurrent cancellation handler and retry-loop cancellation exit",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "NETWORKING_WEB_AND_REALTIME_SYSTEMS Reliability names bounded retries/backoff/cancellation, but not these exact exit points.",
+          "unique_delta": "Race plus cancellation exit before backoff/next attempt",
+          "disposition": "MIGRATED",
+          "reason": "Specific cancellation-handler race and retry exit points now present.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Contract And Mechanism",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0038-U05",
+          "source_path": "03_CONCURRENCY/IOS-03-07_CANCELLATION.md",
+          "source_sha256": "f5f30be77571f1034730270f5401a79d0d34f75d2e208b23a8d64950f02d826e",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Consider material architecture/public-contract/dependency alternatives, with a fixed two-option quota",
+          "type": "procedure",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+          "existing_coverage": "Partnership Communication + ARCHITECTURE_DECISION_GOVERNANCE ADR Template (Options considered)",
+          "unique_delta": "Fixed minimum count only",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Existing policy already requires viable alternatives and ADR options when materially different. A fixed two-option quota adds no decision criterion or failure-mode coverage and can invent an artificial alternative; archive the quota, preserve meaningful option comparison via current owners.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "governance-non-trivial",
+            "governance-task-state"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All meaningful units individually dispositioned in block-01; mixed terminal outcomes; no inference for linked documents."
     },
     {
       "source_id": "LIB-0039",
@@ -368,9 +1012,144 @@
       "path": "03_CONCURRENCY/IOS-03-10_REENTRANCY.md",
       "sha256": "fa8bcf1dd63fe00cc8ce98b0c90f2b4de8bd35a19c3e787c5f5b32b670bc29fb",
       "bytes": 5105,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0041-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-10_REENTRANCY.md",
+          "source_sha256": "fa8bcf1dd63fe00cc8ce98b0c90f2b4de8bd35a19c3e787c5f5b32b670bc29fb",
+          "source_heading": "Purpose; inputs; algorithm; anti-patterns; prompt; success",
+          "source_fragment": "Найди существующий паттерн",
+          "meaning": "Project facts, ownership, minimum change, invariant/failure review and evidence procedure",
+          "type": "procedure",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md + reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md + reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current engineering contract covers the common procedure; PRODUCT_REQUIREMENTS_STANDARD owns unspecified product decisions and IOS_TESTING_STRATEGY Permission Boundary prohibits unconditional test creation. Old step 6 is not imported as a grant. Material alternatives are covered by CURRENT_USER_OVERRIDES Partnership Communication and ARCHITECTURE_DECISION_GOVERNANCE ADR Template; fixed numeric quota has its own archive-only disposition.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "governance-non-trivial",
+            "governance-task-state"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0041-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-10_REENTRANCY.md",
+          "source_sha256": "fa8bcf1dd63fe00cc8ce98b0c90f2b4de8bd35a19c3e787c5f5b32b670bc29fb",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Legacy skill execution modes and mandatory separate playbook intake",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill/mode loading machinery; linked playbooks remain independently UNREVIEWED, not deemed duplicate by this file.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "governance-non-trivial",
+            "governance-task-state"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0041-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-10_REENTRANCY.md",
+          "source_sha256": "fa8bcf1dd63fe00cc8ce98b0c90f2b4de8bd35a19c3e787c5f5b32b670bc29fb",
+          "source_heading": "Purpose and task focus",
+          "source_fragment": "Проверить инварианты до/после await",
+          "meaning": "Actor interleaving and pre/post-await state invariants",
+          "type": "mechanism",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Ordering And Stale Results; Isolation Design",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing ordering paragraph already requires state/reentrancy checks at each suspension and actual serialization assumptions; cohesive actor API owns atomic updates.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Ordering And Stale Results; Isolation Design",
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0041-U04",
+          "source_path": "03_CONCURRENCY/IOS-03-10_REENTRANCY.md",
+          "source_sha256": "fa8bcf1dd63fe00cc8ce98b0c90f2b4de8bd35a19c3e787c5f5b32b670bc29fb",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Consider material architecture/public-contract/dependency alternatives, with a fixed two-option quota",
+          "type": "procedure",
+          "conditions": "Actual caller/producer/consumer contract; current permissions and toolchain; no universal architecture",
+          "canonical_owner": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+          "existing_coverage": "Partnership Communication + ARCHITECTURE_DECISION_GOVERNANCE ADR Template (Options considered)",
+          "unique_delta": "Fixed minimum count only",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Existing policy already requires viable alternatives and ADR options when materially different. A fixed two-option quota adds no decision criterion or failure-mode coverage and can invent an artificial alternative; archive the quota, preserve meaningful option comparison via current owners.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source/unit and owner comparison; source hash; mirror/route/link/static review. Example not executed; runtime not granted.",
+          "evidence": "block-01-concurrency.md; current source text compared with canonical owner; Task.cancel cooperative semantics verified via official Swift documentation 2026-10-09; architecture-specific mechanism checked by state-order reasoning, not runtime.",
+          "affected_routes": [
+            "governance-non-trivial",
+            "governance-task-state"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All meaningful units individually dispositioned in block-01; mixed terminal outcomes; no inference for linked documents."
     },
     {
       "source_id": "LIB-0042",
@@ -12629,6 +13408,146 @@
       "status": "UNREVIEWED",
       "units": [],
       "disposition_reason": null
+    }
+  ],
+  "file_status_semantics": {
+    "UNREVIEWED": "No complete semantic disposition recorded.",
+    "REVIEWED": "All meaningful units in this file have terminal dispositions; inspect units for mixed destinations and archive-only material. This does not mean all text migrated."
+  },
+  "project_copy_delta_groups": [
+    {
+      "group_id": "COPY-CONCURRENCY",
+      "source_sha256": "351a09664eb87142644e9e088885cfaf7ce176e6767b61902a205507224a68fe",
+      "aliases": [
+        {
+          "archive_path": "tchop-copy/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+          "source_path": "TchopApp/IOSLibrary/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+          "source_revision": "82294ae7fc4e3946e5ea957f885844e79284d04e"
+        },
+        {
+          "archive_path": "battleship-copy/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+          "source_path": "BattleshipGame/IOSLibrary/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+          "source_revision": "82294ae7fc4e3946e5ea957f885844e79284d04e"
+        }
+      ],
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "COPY-CONCURRENCY-U01",
+          "source_heading": "Swift concurrency — curated copy-only route",
+          "source_fragment": "Establish the actual Swift language mode",
+          "meaning": "Toolchain/context scope, actual state owner and denied verification remains unverified; Structured/unstructured ownership, retention/deinit pitfall and child completion/error propagation",
+          "type": "constraint",
+          "conditions": "Actual project toolchain/ownership and current user permissions",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Core Model; Swift 6.x Discipline; Testing And Evidence; Core Model; Task Ownership",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current sections preserve each significant scope/exception/consequence in the older inline bullets; no source copy overwrite.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Swift 6.x Discipline; Testing And Evidence; Core Model; Task Ownership",
+          "required_verification": "Compare all inline bullets and exact alias hashes with current KB; no handler execution.",
+          "evidence": "block-01-concurrency.md; full project source diff and current deep/standard comparison.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ],
+          "unit_aliases": [
+            "COPY-CONCURRENCY-U02"
+          ],
+          "source_additional_fragments": [
+            "Trace who creates, retains, cancels"
+          ]
+        },
+        {
+          "unit_id": "COPY-CONCURRENCY-U03",
+          "source_heading": "Swift concurrency — curated copy-only route",
+          "source_fragment": "Make actor ownership and cross-actor",
+          "meaning": "Actor/Sendable boundaries; no unsafe suppression; real UI isolation without expensive UI actor work",
+          "type": "constraint",
+          "conditions": "Actual project toolchain/ownership and current user permissions",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Isolation Design; Swift 6.x Discipline; Core Model; IOS_CONCURRENCY_RUNTIME_STANDARD Required Rules",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current sections preserve each significant scope/exception/consequence in the older inline bullets; no source copy overwrite.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Isolation Design; Swift 6.x Discipline; Core Model",
+          "required_verification": "Compare all inline bullets and exact alias hashes with current KB; no handler execution.",
+          "evidence": "block-01-concurrency.md; full project source diff and current deep/standard comparison.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Swift 6.x Discipline",
+                "Core Model"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "COPY-CONCURRENCY-U04",
+          "source_heading": "Swift concurrency — curated copy-only route",
+          "source_fragment": "Check each suspension point",
+          "meaning": "Ordering/reentrancy, both publication paths, committed-side-effect boundary, exactly-once callbacks, bounded streams/fan-out and reactive/queue parity",
+          "type": "constraint",
+          "conditions": "Actual project toolchain/ownership and current user permissions",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Cancellation; Ordering And Stale Results; Continuations And Callbacks; Streams; Reactive And Queue Bridges",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Named current sections preserve each significant scope/exception/consequence in the older inline bullets; no source copy overwrite.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Cancellation; Ordering And Stale Results; Continuations And Callbacks; Streams; Reactive And Queue Bridges",
+          "required_verification": "Compare all inline bullets and exact alias hashes with current KB; no handler execution.",
+          "evidence": "block-01-concurrency.md; full project source diff and current deep/standard comparison.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [
+            "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-CONCURRENCY-U05",
+          "source_heading": "Swift concurrency — curated copy-only route",
+          "source_fragment": "independently approved for the active payload",
+          "meaning": "Legacy separate payload admission rather than active KB authority",
+          "type": "historical-routing",
+          "conditions": "Actual project toolchain/ownership and current user permissions",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Separate Library payload approval infrastructure remains archived, not an additional mandatory pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Compare all inline bullets and exact alias hashes with current KB; no handler execution.",
+          "evidence": "block-01-concurrency.md; full project source diff and current deep/standard comparison.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": []
+        }
+      ]
     }
   ]
 }
