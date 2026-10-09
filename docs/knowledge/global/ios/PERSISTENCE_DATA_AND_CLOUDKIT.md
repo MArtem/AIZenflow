@@ -24,9 +24,15 @@ A cache reset is safe only when rebuildability and affected consumers are establ
 ## Data Ownership
 Define canonical data, derived data, caches, temporary files, user-exported data, shared-container data, and remotely authoritative data. Each class needs retention, deletion, backup, protection, migration, and corruption behavior.
 
+Bound file/memory/disk/background work and make partial writes, corruption or unavailable storage
+explicit failure/recovery states. If further writes could destroy corruption evidence, recommend
+scoped containment to the responsible owner; this does not authorize freezing writes.
+
 ## SwiftData And Core Data
 - Keep model/context work on its isolation owner.
 - Do not pass live managed objects across actors or contexts; pass stable identifiers or immutable snapshots.
+- Resolve identifiers on the receiving context/isolation owner and define missing/deleted-object
+  behavior; an identifier does not transfer ownership of a live object.
 - Fetch only required rows/properties, use predicates/sort descriptors, and bound unfiltered queries.
 - Review indexing and fetch shape against actual volume/access patterns and the supported
   toolchain; do not adopt a new model API merely because it exists.
@@ -52,6 +58,14 @@ Inventory every existing schema and stored representation. Define compatible sou
 - Test old-data fixtures and relaunch after migration.
 - Treat CloudKit-backed schema evolution as a separate constraint from local-only migration.
 
+Distinguish schema compatibility from business transformations: identifier remapping, optionality,
+relationship/cardinality/delete rules, uniqueness and locale/timezone assumptions. Enumerate supported
+historical paths and old/partial/large stores. A clean install is not upgrade evidence; forward
+success does not prove interrupted retry or supported downgrade readability. Validate counts/domain
+invariants and reopen before irreversible cleanup; deletion/reset needs explicit product authority.
+For permitted verification, cover supported upgrade paths, interrupted/disk-full recovery and rollback
+with representative old stores. Framework migration stages alone do not establish preservation.
+
 ## CloudKit
 - Model private, shared, and public database semantics deliberately.
 - Handle no account, restricted account, quota, network loss, partial failure, server-record change, zone deletion, and permission changes.
@@ -62,6 +76,10 @@ Inventory every existing schema and stored representation. Define compatible sou
 
 ## Offline And Sync
 Represent pending operations durably with stable identifiers, ordering/dependency, attempts, idempotency key, payload version, and terminal/retryable failure. Reconcile remote and local changes through explicit conflict policy. UI must distinguish queued, syncing, synced, conflicted, and failed states when users need that truth.
+
+For a durable offline delete, preserve a tombstone or pending-deletion record before removing the
+only local copy. Duplicate replay after relaunch and clock/order assumptions need the entity's
+conflict contract; an optimistic UI change is not server acknowledgment.
 
 ## Import, Export, And Deletion
 - Export from a stable snapshot and record format/schema version.
@@ -78,6 +96,8 @@ Represent pending operations durably with stable identifiers, ordering/dependenc
 - Physical-device locked-state and CloudKit multi-device checks where claimed.
 
 ## Primary Sources
+- [Apple: SchemaMigrationPlan](https://developer.apple.com/documentation/swiftdata/schemamigrationplan)
+- [Apple: NSManagedObjectContext concurrency](https://developer.apple.com/documentation/coredata/nsmanagedobjectcontext)
 - [Apple: UserDefaults — non-sensitive settings](https://developer.apple.com/documentation/foundation/userdefaults)
 - [Apple: SwiftData updates](https://developer.apple.com/documentation/updates/swiftdata)
 - [SwiftData](https://developer.apple.com/documentation/swiftdata)

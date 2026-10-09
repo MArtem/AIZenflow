@@ -15095,7 +15095,7 @@
       "path": "09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
       "sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
       "bytes": 3730,
-      "status": "NEEDS_VERIFICATION",
+      "status": "REVIEWED",
       "units": [
         {
           "unit_id": "LIB-0104-U01",
@@ -15218,9 +15218,587 @@
               ]
             }
           ]
+        },
+        {
+          "unit_id": "LIB-0104-U02",
+          "source_path": "canonical/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+          "source_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+          "source_heading": "Persistence, cache and migration — curated copy-only route",
+          "source_fragment": "Identify the actual storage owner",
+          "meaning": "Storage/schema/sensitivity/shared-consumer/old-state scope before proposing mutation",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All remaining full curated paragraphs reviewed; previous cache bullet preserved exactly; verification/product authority remains current-task bounded.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Data Ownership",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0104-U03",
+          "source_path": "canonical/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+          "source_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+          "source_heading": "Persistence, cache and migration — curated copy-only route",
+          "source_fragment": "Preserve readable old data",
+          "meaning": "Migration order/failure/recovery/rollback/retry/downgrade, historical schemas/partial/large fixtures, domain validation before explicit irreversible cleanup",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": null,
+          "unique_delta": "Migration order/failure/recovery/rollback/retry/downgrade, historical schemas/partial/large fixtures, domain validation before explicit irreversible cleanup",
+          "disposition": "MIGRATED",
+          "reason": "All remaining full curated paragraphs reviewed; previous cache bullet preserved exactly; verification/product authority remains current-task bounded.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0104-U04",
+          "source_path": "canonical/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+          "source_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+          "source_heading": "Persistence, cache and migration — curated copy-only route",
+          "source_fragment": "Respect context/actor ownership",
+          "meaning": "Transaction/coordination/merge/observation, uniqueness/order and resolving IDs on receiving owner/missing-deleted behavior; no gratuitous wrapper",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": null,
+          "unique_delta": "Transaction/coordination/merge/observation, uniqueness/order and resolving IDs on receiving owner/missing-deleted behavior; no gratuitous wrapper",
+          "disposition": "MIGRATED",
+          "reason": "All remaining full curated paragraphs reviewed; previous cache bullet preserved exactly; verification/product authority remains current-task bounded.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0104-U05",
+          "source_path": "canonical/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+          "source_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+          "source_heading": "Persistence, cache and migration — curated copy-only route",
+          "source_fragment": "Bound file size",
+          "meaning": "Resource/partial/corruption failure; evidence-preserving scoped containment recommendation, not freeze authority; files/backup/cache/preference contracts",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": null,
+          "unique_delta": "Resource/partial/corruption failure; evidence-preserving scoped containment recommendation, not freeze authority; files/backup/cache/preference contracts",
+          "disposition": "MIGRATED",
+          "reason": "All remaining full curated paragraphs reviewed; previous cache bullet preserved exactly; verification/product authority remains current-task bounded.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Data Ownership",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0104-U06",
+          "source_path": "canonical/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+          "source_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+          "source_heading": "Persistence, cache and migration — curated copy-only route",
+          "source_fragment": "Inspect all readers and writers",
+          "meaning": "Readers/writers plus offline/import/export/backup paths; no credential/Keychain authority",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All remaining full curated paragraphs reviewed; previous cache bullet preserved exactly; verification/product authority remains current-task bounded.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Import, Export, And Deletion",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0104-U07",
+          "source_path": "canonical/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+          "source_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+          "source_heading": "Persistence, cache and migration — curated copy-only route",
+          "source_fragment": "For a durable offline mutation",
+          "meaning": "Durable local/pending/ack/failure/conflict, operation identity/replay/order and deletion intent before losing only copy; optimistic UI not acknowledgment",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": null,
+          "unique_delta": "Durable local/pending/ack/failure/conflict, operation identity/replay/order and deletion intent before losing only copy; optimistic UI not acknowledgment",
+          "disposition": "MIGRATED",
+          "reason": "All remaining full curated paragraphs reviewed; previous cache bullet preserved exactly; verification/product authority remains current-task bounded.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Offline And Sync",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0104-U08",
+          "source_path": "canonical/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+          "source_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+          "source_heading": "Persistence, cache and migration — curated copy-only route",
+          "source_fragment": "Select old-data fixtures",
+          "meaning": "Permitted old-data/relaunch/failure evidence; static inspection alone cannot prove non-destructive compatibility/recovery",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All remaining full curated paragraphs reviewed; previous cache bullet preserved exactly; verification/product authority remains current-task bounded.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Evidence",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0104-U09",
+          "source_path": "canonical/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+          "source_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+          "source_heading": "Persistence, cache and migration — curated copy-only route",
+          "source_fragment": "Use after project-local data rules",
+          "meaning": "Historical after-local copy-only Library route, no second-pass/runtime/mode authority",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "All remaining full curated paragraphs reviewed; previous cache bullet preserved exactly; verification/product authority remains current-task bounded.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
         }
       ],
-      "disposition_reason": "First cache/source-of-truth bullet reviewed; opening, migration, ownership, files/cache/preferences, reader/writer/offline and evidence/delivery paragraphs remain pending."
+      "disposition_reason": "Complete curated body; previous first cache/source bullet preserved and remaining authority/migration/context/resources/readers/offline/evidence/delivery appended. No live data/credential mutation or evidence claim."
     },
     {
       "source_id": "LIB-0105",
@@ -15943,9 +16521,639 @@
       "path": "09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md",
       "sha256": "c81e31dd2e259ce97cb1115119c993f712b70d10067fa93eb3cdf9a1685ed2a9",
       "bytes": 6854,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0109-U01",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md",
+          "source_sha256": "c81e31dd2e259ce97cb1115119c993f712b70d10067fa93eb3cdf9a1685ed2a9",
+          "source_heading": "Назначение",
+          "source_fragment": "Versioning, lightweight/custom migration, backups, rollback, telemetry и large-store performance.",
+          "meaning": "Versioning, lightweight/custom migration, backups, rollback, telemetry и large-store performance. Full common integrity/permission-bounded workflow; appended migration invariants separately reviewed.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Versioning/backup/rollback/volume/telemetry covered by actual data/performance/permission owners.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0109-U02",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md",
+          "source_sha256": "c81e31dd2e259ce97cb1115119c993f712b70d10067fa93eb3cdf9a1685ed2a9",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0109-U03",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md",
+          "source_sha256": "c81e31dd2e259ce97cb1115119c993f712b70d10067fa93eb3cdf9a1685ed2a9",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0109-U04",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md",
+          "source_sha256": "c81e31dd2e259ce97cb1115119c993f712b70d10067fa93eb3cdf9a1685ed2a9",
+          "source_heading": "Review-ready depth — migration invariants",
+          "source_fragment": "**Scenario.** A shipped store must move from schema N to N+1 while existing installations may contain old, partial, large, or previously migrated data.",
+          "meaning": "**Scenario.** A shipped store must move from schema N to N+1 while existing installations may contain old, partial, large, or previously migrated data.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Literal deep section reviewed; actual supported old-store/domain/recovery evidence required and permission bounded; framework presence is not proof.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0109-U05",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md",
+          "source_sha256": "c81e31dd2e259ce97cb1115119c993f712b70d10067fa93eb3cdf9a1685ed2a9",
+          "source_heading": "Review-ready depth — migration invariants",
+          "source_fragment": "**Common wrong approach.** Editing the current model until a clean install works, then treating that as migration evidence. A clean database proves almost nothing about upgrade safety.",
+          "meaning": "**Common wrong approach.** Editing the current model until a clean install works, then treating that as migration evidence. A clean database proves almost nothing about upgrade safety.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": null,
+          "unique_delta": "**Common wrong approach.** Editing the current model until a clean install works, then treating that as migration evidence. A clean database proves almost nothing about upgrade safety.",
+          "disposition": "MIGRATED",
+          "reason": "Literal deep section reviewed; actual supported old-store/domain/recovery evidence required and permission bounded; framework presence is not proof.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0109-U06",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md",
+          "source_sha256": "c81e31dd2e259ce97cb1115119c993f712b70d10067fa93eb3cdf9a1685ed2a9",
+          "source_heading": "Review-ready depth — migration invariants",
+          "source_fragment": "**Preferred approach.** Version the persisted contract, enumerate semantic invariants before code changes, preserve a representative old-store fixture, migrate through supported historical paths, and make irreversible deletion the last step after validation. Distinguish schema compatibility from business-data transformation.",
+          "meaning": "**Preferred approach.** Version the persisted contract, enumerate semantic invariants before code changes, preserve a representative old-store fixture, migrate through supported historical paths, and make irreversible deletion the last step after validation. Distinguish schema compatibility from business-data transformation. Migration-stage API does not prove preservation, interruption/disk-full/rollback behavior.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": null,
+          "unique_delta": "**Preferred approach.** Version the persisted contract, enumerate semantic invariants before code changes, preserve a representative old-store fixture, migrate through supported historical paths, and make irreversible deletion the last step after validation. Distinguish schema compatibility from business-data transformation.",
+          "disposition": "MIGRATED",
+          "reason": "Literal deep section reviewed; actual supported old-store/domain/recovery evidence required and permission bounded; framework presence is not proof.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "successful data preservation, disk-full handling, interruption, and rollback still require"
+          ]
+        },
+        {
+          "unit_id": "LIB-0109-U07",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md",
+          "source_sha256": "c81e31dd2e259ce97cb1115119c993f712b70d10067fa93eb3cdf9a1685ed2a9",
+          "source_heading": "Review-ready depth — migration invariants",
+          "source_fragment": "**Traps / edge cases.** Optional→required fields, uniqueness changes, identifier remapping, relationship cardinality, partial prior migrations, interrupted migration, disk-full conditions, locale/time-zone assumptions, and rollback to an older app version.",
+          "meaning": "**Traps / edge cases.** Optional→required fields, uniqueness changes, identifier remapping, relationship cardinality, partial prior migrations, interrupted migration, disk-full conditions, locale/time-zone assumptions, and rollback to an older app version.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": null,
+          "unique_delta": "**Traps / edge cases.** Optional→required fields, uniqueness changes, identifier remapping, relationship cardinality, partial prior migrations, interrupted migration, disk-full conditions, locale/time-zone assumptions, and rollback to an older app version.",
+          "disposition": "MIGRATED",
+          "reason": "Literal deep section reviewed; actual supported old-store/domain/recovery evidence required and permission bounded; framework presence is not proof.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0109-U08",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md",
+          "source_sha256": "c81e31dd2e259ce97cb1115119c993f712b70d10067fa93eb3cdf9a1685ed2a9",
+          "source_heading": "Review-ready depth — migration invariants",
+          "source_fragment": "**Verification.** Open representative pre-upgrade stores, migrate, assert row/object counts and key domain invariants, reopen the migrated store, and verify failure/rollback behavior. If production history spans multiple schema versions, test the supported upgrade matrix rather than only N→N+1.",
+          "meaning": "**Verification.** Open representative pre-upgrade stores, migrate, assert row/object counts and key domain invariants, reopen the migrated store, and verify failure/rollback behavior. If production history spans multiple schema versions, test the supported upgrade matrix rather than only N→N+1.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": null,
+          "unique_delta": "**Verification.** Open representative pre-upgrade stores, migrate, assert row/object counts and key domain invariants, reopen the migrated store, and verify failure/rollback behavior. If production history spans multiple schema versions, test the supported upgrade matrix rather than only N→N+1.",
+          "disposition": "MIGRATED",
+          "reason": "Literal deep section reviewed; actual supported old-store/domain/recovery evidence required and permission bounded; framework presence is not proof.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0109-U09",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md",
+          "source_sha256": "c81e31dd2e259ce97cb1115119c993f712b70d10067fa93eb3cdf9a1685ed2a9",
+          "source_heading": "Review-ready depth — migration invariants",
+          "source_fragment": "**Compatibility.** SwiftData migration APIs are deployment/toolchain sensitive; Core Data or custom storage may require a different mechanism, but the semantic invariant and fixture discipline remains.",
+          "meaning": "**Compatibility.** SwiftData migration APIs are deployment/toolchain sensitive; Core Data or custom storage may require a different mechanism, but the semantic invariant and fixture discipline remains.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Literal deep section reviewed; actual supported old-store/domain/recovery evidence required and permission bounded; framework presence is not proof.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Preferences And Derived Caches",
+                "SwiftData And Core Data",
+                "Files",
+                "Migration",
+                "Offline And Sync",
+                "Import, Export, And Deletion",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0109-U10",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md",
+          "source_sha256": "c81e31dd2e259ce97cb1115119c993f712b70d10067fa93eb3cdf9a1685ed2a9",
+          "source_heading": "Review-ready depth — migration invariants",
+          "source_fragment": "Primary source checked 2026-09-10: https://developer.apple.com/documentation/SwiftData/SchemaMigrationPlan. This documents the SwiftData versioned-schema and migration-stage API; successful data preservation, disk-full handling, interruption, and rollback still require the app's old-store fixtures and migration evidence.\n",
+          "meaning": "Historical checked date/link provenance; framework-versus-data-preservation scope retained by preferred approach",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Literal deep section reviewed; actual supported old-store/domain/recovery evidence required and permission bounded; framework presence is not proof.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-20-data-migration-completion.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Entire common body and appended migration invariants reviewed; all historical/source-boundary evidence preserved. Linked OP body unreviewed; no old store migrated."
     },
     {
       "source_id": "LIB-0110",

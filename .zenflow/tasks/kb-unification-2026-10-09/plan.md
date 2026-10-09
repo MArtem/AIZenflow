@@ -17,7 +17,7 @@ User authorized execution of the accepted migration plan after preservation of c
 - [x] U0 Revalidate snapshot, current sources and exact permissions; [receipt](u0-u1-report.md).
 - [ ] U1 Complete inventory/copy-delta reconciliation, freeze KB/read-cost baseline, finish bounded calibration and complete consumer/copy reconciliation. Calibration: five canonical files + one copy content group, 30 units; broader acceptance pending.
 - [x] U2 First complete thematic transfer, cancellation/publication; [30-unit block receipt](block-01-concurrency.md).
-- [ ] U3 Review every source file/unit and transfer all accepted useful deltas. 110 canonical files reviewed; [block 02](block-02-concurrency.md); DEC-001 resolved by current user approval; all 16 files of 03_CONCURRENCY reviewed.
+- [ ] U3 Review every source file/unit and transfer all accepted useful deltas. 112 canonical files reviewed; [block 02](block-02-concurrency.md); DEC-001 resolved by current user approval; all 16 files of 03_CONCURRENCY reviewed.
 - [ ] U4 Unify routes and enforce bounded mandatory reading.
 - [ ] U5 Review semantics, authority and critical technical claims.
 - [ ] U6 Static acceptance: coverage, mirrors, links, 12 routing scenarios and cost limits.
@@ -35,4 +35,4 @@ SwiftUI source family complete: [block11](block-11-swiftui-state-rendering.md), 
 
 UIKit source family complete: [block14](block-14-uikit-family.md); ten templates reviewed; linked deep bodies independent. [Navigation and mixed curated UI](block-15-navigation-curated-ui.md) now complete; [project-copy router reconciled](block-16-router-copy-reconciliation.md); remaining corpus and U1/U4/U6/U8 gates pending.
 
-Network source family complete: [block17](block-17-transport-api-contract.md) and [block18](block-18-auth-retry-network-completion.md); all twelve sources dispositioned, linked OP bodies independent. Data partial: [block19](block-19-data-model-cache-preferences.md), nine templates dispositioned. Next: migration depth and curated data route.
+Network source family complete: [block17](block-17-transport-api-contract.md) and [block18](block-18-auth-retry-network-completion.md); all twelve sources dispositioned, linked OP bodies independent. Data source family complete: [block19](block-19-data-model-cache-preferences.md) and [block20](block-20-data-migration-completion.md); eleven sources dispositioned, linked OP independent. Next: testing/verification guidance migration, with no test-writing/execution phase.
