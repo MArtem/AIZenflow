@@ -52197,81 +52197,1167 @@
       "path": "23_PROMPT_PACKS/24_ADD_STOREKIT.md",
       "sha256": "3086fa6b9d834f399b9006e698985c113cad2f5ac1cadf8ad20cfd1b024e4fcf",
       "bytes": 1336,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0287-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/24_ADD_STOREKIT.md",
+          "source_sha256": "3086fa6b9d834f399b9006e698985c113cad2f5ac1cadf8ad20cfd1b024e4fcf",
+          "source_heading": "Назначение",
+          "source_fragment": "StoreKit 2 product/purchase/verification/current entitlements/updates/restore, subscription states, testing and observability.",
+          "meaning": "StoreKit 2 product/purchase/verification/current entitlements/updates/restore, subscription states, testing and observability. Useful conditional ownership/behavior/evidence criteria, no source action or observed result inferred.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/baseline/docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+          "destination_heading": "Required Rules; Review Checklist",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "StoreKit"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0287-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/24_ADD_STOREKIT.md",
+          "source_sha256": "3086fa6b9d834f399b9006e698985c113cad2f5ac1cadf8ad20cfd1b024e4fcf",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0287-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/24_ADD_STOREKIT.md",
+          "source_sha256": "3086fa6b9d834f399b9006e698985c113cad2f5ac1cadf8ad20cfd1b024e4fcf",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt/focus and exact common body reviewed; useful criteria already covered. Current authority/readiness axes govern; old copy-paste/master/imperative wrapper archived, no execution."
     },
     {
       "source_id": "LIB-0288",
       "path": "23_PROMPT_PACKS/25_ADD_PUSH.md",
       "sha256": "e6a3c1adca36e13d20143ea75df06864342e3296402dd607ca4c1f0001c5c42c",
       "bytes": 1292,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0288-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/25_ADD_PUSH.md",
+          "source_sha256": "e6a3c1adca36e13d20143ea75df06864342e3296402dd607ca4c1f0001c5c42c",
+          "source_heading": "Назначение",
+          "source_fragment": "Permission UX, token lifecycle, categories/actions, payload validation, deep-link routing, analytics/privacy.",
+          "meaning": "Permission UX, token lifecycle, categories/actions, payload validation, deep-link routing, analytics/privacy. Useful conditional ownership/behavior/evidence criteria, no source action or observed result inferred.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Notifications; Associated Domains And Deep Links",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Notifications",
+                "Associated Domains And Deep Links"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0288-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/25_ADD_PUSH.md",
+          "source_sha256": "e6a3c1adca36e13d20143ea75df06864342e3296402dd607ca4c1f0001c5c42c",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0288-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/25_ADD_PUSH.md",
+          "source_sha256": "e6a3c1adca36e13d20143ea75df06864342e3296402dd607ca4c1f0001c5c42c",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt/focus and exact common body reviewed; useful criteria already covered. Current authority/readiness axes govern; old copy-paste/master/imperative wrapper archived, no execution."
     },
     {
       "source_id": "LIB-0289",
       "path": "23_PROMPT_PACKS/26_ADD_WIDGET.md",
       "sha256": "edac83ede0cacfc345356cd617eab7f343799721b4553c87af316bbf9251b9a0",
       "bytes": 1244,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0289-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/26_ADD_WIDGET.md",
+          "source_sha256": "edac83ede0cacfc345356cd617eab7f343799721b4553c87af316bbf9251b9a0",
+          "source_heading": "Назначение",
+          "source_fragment": "Timeline/refresh budget/shared data/App Intents/placeholder/privacy/preview/testing.",
+          "meaning": "Timeline/refresh budget/shared data/App Intents/placeholder/privacy/preview/testing. Useful conditional ownership/behavior/evidence criteria, no source action or observed result inferred.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Widgets; App Groups; App Intents, Shortcuts, Siri, And Spotlight; Capability Evidence Classes",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Widgets",
+                "App Groups",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0289-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/26_ADD_WIDGET.md",
+          "source_sha256": "edac83ede0cacfc345356cd617eab7f343799721b4553c87af316bbf9251b9a0",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0289-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/26_ADD_WIDGET.md",
+          "source_sha256": "edac83ede0cacfc345356cd617eab7f343799721b4553c87af316bbf9251b9a0",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt/focus and exact common body reviewed; useful criteria already covered. Current authority/readiness axes govern; old copy-paste/master/imperative wrapper archived, no execution."
     },
     {
       "source_id": "LIB-0290",
       "path": "23_PROMPT_PACKS/27_ADD_APP_INTENT.md",
       "sha256": "da0b6a636d99882e7201fa4f2569ea1ae462e60d40aafd12815eed4b34279cce",
       "bytes": 1296,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0290-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/27_ADD_APP_INTENT.md",
+          "source_sha256": "da0b6a636d99882e7201fa4f2569ea1ae462e60d40aafd12815eed4b34279cce",
+          "source_heading": "Назначение",
+          "source_fragment": "Entity/action schema, stable IDs, parameters, authorization, background behavior, discoverability and tests.",
+          "meaning": "Entity/action schema, stable IDs, parameters, authorization, background behavior, discoverability and tests. Useful conditional ownership/behavior/evidence criteria, no source action or observed result inferred.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "App Intents, Shortcuts, Siri, And Spotlight; Background Execution",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "Background Execution"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0290-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/27_ADD_APP_INTENT.md",
+          "source_sha256": "da0b6a636d99882e7201fa4f2569ea1ae462e60d40aafd12815eed4b34279cce",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0290-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/27_ADD_APP_INTENT.md",
+          "source_sha256": "da0b6a636d99882e7201fa4f2569ea1ae462e60d40aafd12815eed4b34279cce",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt/focus and exact common body reviewed; useful criteria already covered. Current authority/readiness axes govern; old copy-paste/master/imperative wrapper archived, no execution."
     },
     {
       "source_id": "LIB-0291",
       "path": "23_PROMPT_PACKS/28_ADD_AI_FEATURE.md",
       "sha256": "9691598dc60701ecfeac39e81fb73914e3a78d53b5041d162a78ddf7c8da6178",
       "bytes": 1338,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0291-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/28_ADD_AI_FEATURE.md",
+          "source_sha256": "9691598dc60701ecfeac39e81fb73914e3a78d53b5041d162a78ddf7c8da6178",
+          "source_heading": "Назначение",
+          "source_fragment": "Capability gating, provider/model boundary, structured outputs/tools, privacy, eval dataset, latency/fallback and abuse controls.",
+          "meaning": "Capability gating, provider/model boundary, structured outputs/tools, privacy, eval dataset, latency/fallback and abuse controls. Useful conditional ownership/behavior/evidence criteria, no source action or observed result inferred.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "6. PROVIDER-AGNOSTIC DESIGN; 35. TOOL CALLING; 37. STRUCTURED OUTPUT; 41. PRIVACY; 44. SECURITY; 45. AI SAFETY; 55. FALLBACK; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "6. PROVIDER-AGNOSTIC DESIGN",
+                "35. TOOL CALLING",
+                "37. STRUCTURED OUTPUT",
+                "41. PRIVACY",
+                "44. SECURITY",
+                "45. AI SAFETY",
+                "55. FALLBACK",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0291-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/28_ADD_AI_FEATURE.md",
+          "source_sha256": "9691598dc60701ecfeac39e81fb73914e3a78d53b5041d162a78ddf7c8da6178",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0291-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/28_ADD_AI_FEATURE.md",
+          "source_sha256": "9691598dc60701ecfeac39e81fb73914e3a78d53b5041d162a78ddf7c8da6178",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt/focus and exact common body reviewed; useful criteria already covered. Current authority/readiness axes govern; old copy-paste/master/imperative wrapper archived, no execution."
     },
     {
       "source_id": "LIB-0292",
       "path": "23_PROMPT_PACKS/29_WRITE_ADR.md",
       "sha256": "cc8bf83eeb629801186ab559a5404b7ec58942c47809fd9a5127b4029d3eb702",
       "bytes": 1307,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0292-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/29_WRITE_ADR.md",
+          "source_sha256": "cc8bf83eeb629801186ab559a5404b7ec58942c47809fd9a5127b4029d3eb702",
+          "source_heading": "Назначение",
+          "source_fragment": "Контекст → forces → alternatives → decision → consequences → migration/rollback → review trigger.",
+          "meaning": "Контекст → forces → alternatives → decision → consequences → migration/rollback → review trigger. Useful conditional ownership/behavior/evidence criteria, no source action or observed result inferred.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Template; Bounded Investigation And Migration",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template",
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0292-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/29_WRITE_ADR.md",
+          "source_sha256": "cc8bf83eeb629801186ab559a5404b7ec58942c47809fd9a5127b4029d3eb702",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0292-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/29_WRITE_ADR.md",
+          "source_sha256": "cc8bf83eeb629801186ab559a5404b7ec58942c47809fd9a5127b4029d3eb702",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt/focus and exact common body reviewed; useful criteria already covered. Current authority/readiness axes govern; old copy-paste/master/imperative wrapper archived, no execution."
     },
     {
       "source_id": "LIB-0293",
       "path": "23_PROMPT_PACKS/30_INCIDENT_ANALYSIS.md",
       "sha256": "e23e77184389a7abbe7b51dde37b274d529d8c61a3b0d493564beb6fcb690e69",
       "bytes": 1309,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0293-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/30_INCIDENT_ANALYSIS.md",
+          "source_sha256": "e23e77184389a7abbe7b51dde37b274d529d8c61a3b0d493564beb6fcb690e69",
+          "source_heading": "Назначение",
+          "source_fragment": "Timeline/evidence/blast radius/root cause/contributing factors/mitigation/permanent fix/guardrails без blame.",
+          "meaning": "Timeline/evidence/blast radius/root cause/contributing factors/mitigation/permanent fix/guardrails без blame. Useful conditional ownership/behavior/evidence criteria, no source action or observed result inferred.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Runtime Operations",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/INCIDENT_RESPONSE_STANDARD.md",
+              "headings": [
+                "Incident Workflow",
+                "Postmortem Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0293-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/30_INCIDENT_ANALYSIS.md",
+          "source_sha256": "e23e77184389a7abbe7b51dde37b274d529d8c61a3b0d493564beb6fcb690e69",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0293-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/30_INCIDENT_ANALYSIS.md",
+          "source_sha256": "e23e77184389a7abbe7b51dde37b274d529d8c61a3b0d493564beb6fcb690e69",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt/focus and exact common body reviewed; useful criteria already covered. Current authority/readiness axes govern; old copy-paste/master/imperative wrapper archived, no execution."
     },
     {
       "source_id": "LIB-0294",
       "path": "23_PROMPT_PACKS/31_GENERATE_DOCS.md",
       "sha256": "9b10bd6fefbcccd3d909d2b450078489de1435808ab9b2e97820286c70a42b1d",
       "bytes": 1396,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0294-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/31_GENERATE_DOCS.md",
+          "source_sha256": "9b10bd6fefbcccd3d909d2b450078489de1435808ab9b2e97820286c70a42b1d",
+          "source_heading": "Назначение",
+          "source_fragment": "Документируй responsibilities, public API, state/lifecycle, concurrency, dependencies, error modes, extension points, examples and ownership.",
+          "meaning": "Документируй responsibilities, public API, state/lifecycle, concurrency, dependencies, error modes, extension points, examples and ownership. Useful conditional ownership/behavior/evidence criteria, no source action or observed result inferred.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+          "destination_heading": "Required Comment Dimensions; Templates; Stop Rules",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+              "headings": [
+                "Required Comment Dimensions",
+                "Templates",
+                "Stop Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0294-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/31_GENERATE_DOCS.md",
+          "source_sha256": "9b10bd6fefbcccd3d909d2b450078489de1435808ab9b2e97820286c70a42b1d",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0294-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/31_GENERATE_DOCS.md",
+          "source_sha256": "9b10bd6fefbcccd3d909d2b450078489de1435808ab9b2e97820286c70a42b1d",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt/focus and exact common body reviewed; useful criteria already covered. Current authority/readiness axes govern; old copy-paste/master/imperative wrapper archived, no execution."
     },
     {
       "source_id": "LIB-0295",
       "path": "23_PROMPT_PACKS/32_PRE_RELEASE_AUDIT.md",
       "sha256": "12bfe98c6b83dfe672179026e2ce7e8ddf7324620948398403b4e35cb6986ec6",
       "bytes": 1314,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0295-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/32_PRE_RELEASE_AUDIT.md",
+          "source_sha256": "12bfe98c6b83dfe672179026e2ce7e8ddf7324620948398403b4e35cb6986ec6",
+          "source_heading": "Назначение",
+          "source_fragment": "Пройди release, migration, privacy, a11y, localization, crash/perf, flags, analytics, store compliance and rollback.",
+          "meaning": "Пройди release, migration, privacy, a11y, localization, crash/perf, flags, analytics, store compliance and rollback. Useful conditional ownership/behavior/evidence criteria, no source action or observed result inferred.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "destination_heading": "Checklist; Release Receipt",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+              "headings": [
+                "Release and distribution",
+                "Privacy and data lifecycle",
+                "Performance and responsiveness",
+                "Platform and accessibility matrix",
+                "Verdict and review contract",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0295-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/32_PRE_RELEASE_AUDIT.md",
+          "source_sha256": "12bfe98c6b83dfe672179026e2ce7e8ddf7324620948398403b4e35cb6986ec6",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0295-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/32_PRE_RELEASE_AUDIT.md",
+          "source_sha256": "12bfe98c6b83dfe672179026e2ce7e8ddf7324620948398403b4e35cb6986ec6",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Actual approved task/consumer/product/compatibility contract; docs only. No app implementation/review/architecture/bridge/testing/runtime/agents/config/secrets/mode action. Current axes: severity impact independent of confidence/applicability; unknown/not-run evidence never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-53-platform-ai-governance-prompt-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt/focus and exact common body reviewed; useful criteria already covered. Current authority/readiness axes govern; old copy-paste/master/imperative wrapper archived, no execution."
     },
     {
       "source_id": "LIB-0296",
