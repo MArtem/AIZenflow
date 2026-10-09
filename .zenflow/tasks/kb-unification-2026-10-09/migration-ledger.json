@@ -1764,9 +1764,119 @@
       "path": "02_SWIFT_LANGUAGE/IOS-02-07_CODABLE.md",
       "sha256": "6fb656f497e42ec0d64279c8f6884d56159c6b6f55b3c318d20b1a8013c9d091",
       "bytes": 5141,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0022-U01",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-07_CODABLE.md",
+          "source_sha256": "6fb656f497e42ec0d64279c8f6884d56159c6b6f55b3c318d20b1a8013c9d091",
+          "source_heading": "Назначение",
+          "source_fragment": "Устойчиво декодировать versioned JSON, dates, lossy fields, polymorphism и schema drift.",
+          "meaning": "Устойчиво декодировать versioned JSON, dates, lossy fields, polymorphism и schema drift. Full common context/contract/invariants/negative paths/minimal change/no unsafe escape/conditional evidence/report semantics.",
+          "type": "constraint",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "existing_coverage": null,
+          "unique_delta": "Устойчиво декодировать versioned JSON, dates, lossy fields, polymorphism и schema drift. Full common context/contract/invariants/negative paths/minimal change/no unsafe escape/conditional evidence/report semantics.",
+          "disposition": "MIGRATED",
+          "reason": "Complete common body and individual topic compared to named current owners; code/tests not copied or executed.",
+          "destination_path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "destination_heading": "DTO And Domain Boundaries; Errors",
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": [
+            "docs/API_CONTRACT_AND_INTEGRATION_RULES.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0022-U02",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-07_CODABLE.md",
+          "source_sha256": "6fb656f497e42ec0d64279c8f6884d56159c6b6f55b3c318d20b1a8013c9d091",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric comparison quota; material viable alternatives already conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Archived nonincremental quota or delivery binding; no additional pass/authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0022-U03",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-07_CODABLE.md",
+          "source_sha256": "6fb656f497e42ec0d64279c8f6884d56159c6b6f55b3c318d20b1a8013c9d091",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes and Library/templates/playbook bindings; linked bodies independently unreviewed, no current execution/test authority.",
+          "type": "historical-routing",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Archived nonincremental quota or delivery binding; no additional pass/authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All meaningful source units terminal in block08; linked deep bodies remain independently unreviewed."
     },
     {
       "source_id": "LIB-0023",
@@ -2000,45 +2110,596 @@
       "path": "02_SWIFT_LANGUAGE/IOS-02-10_COLLECTIONS_ALGORITHMS.md",
       "sha256": "2aee21d90f1aad7322c583b06a8224ccea885a18d8c0a157da403019c3d925a2",
       "bytes": 5219,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0025-U01",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-10_COLLECTIONS_ALGORITHMS.md",
+          "source_sha256": "2aee21d90f1aad7322c583b06a8224ccea885a18d8c0a157da403019c3d925a2",
+          "source_heading": "Назначение",
+          "source_fragment": "Выбрать структуры данных и алгоритмы с учётом complexity, allocation, copying и readability.",
+          "meaning": "Выбрать структуры данных и алгоритмы с учётом complexity, allocation, copying и readability. Full common context/contract/invariants/negative paths/minimal change/no unsafe escape/conditional evidence/report semantics.",
+          "type": "constraint",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "Ownership And Memory; Performance Discipline; Type And API Decisions",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete common body and individual topic compared to named current owners; code/tests not copied or executed.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Ownership And Memory; Performance Discipline; Type And API Decisions",
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Ownership And Memory",
+                "Performance Discipline",
+                "Type And API Decisions"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0025-U02",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-10_COLLECTIONS_ALGORITHMS.md",
+          "source_sha256": "2aee21d90f1aad7322c583b06a8224ccea885a18d8c0a157da403019c3d925a2",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric comparison quota; material viable alternatives already conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Archived nonincremental quota or delivery binding; no additional pass/authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0025-U03",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-10_COLLECTIONS_ALGORITHMS.md",
+          "source_sha256": "2aee21d90f1aad7322c583b06a8224ccea885a18d8c0a157da403019c3d925a2",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes and Library/templates/playbook bindings; linked bodies independently unreviewed, no current execution/test authority.",
+          "type": "historical-routing",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Archived nonincremental quota or delivery binding; no additional pass/authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All meaningful source units terminal in block08; linked deep bodies remain independently unreviewed."
     },
     {
       "source_id": "LIB-0026",
       "path": "02_SWIFT_LANGUAGE/IOS-02-11_FOUNDATION_FORMATTING.md",
       "sha256": "b9d2af036fa3b2e59ee1fff45f1aff722b56b8744832ca4b2222c0e769004e61",
       "bytes": 5030,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0026-U01",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-11_FOUNDATION_FORMATTING.md",
+          "source_sha256": "b9d2af036fa3b2e59ee1fff45f1aff722b56b8744832ca4b2222c0e769004e61",
+          "source_heading": "Назначение",
+          "source_fragment": "Locale-safe Date/Number/FormatStyle/Calendar/TimeZone обработка.",
+          "meaning": "Locale-safe Date/Number/FormatStyle/Calendar/TimeZone обработка. Full common context/contract/invariants/negative paths/minimal change/no unsafe escape/conditional evidence/report semantics.",
+          "type": "constraint",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "existing_coverage": null,
+          "unique_delta": "Locale-safe Date/Number/FormatStyle/Calendar/TimeZone обработка. Full common context/contract/invariants/negative paths/minimal change/no unsafe escape/conditional evidence/report semantics.",
+          "disposition": "MIGRATED",
+          "reason": "Complete common body and individual topic compared to named current owners; code/tests not copied or executed.",
+          "destination_path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "destination_heading": "Required Checks; Forbidden By Default",
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": [
+            "docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0026-U02",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-11_FOUNDATION_FORMATTING.md",
+          "source_sha256": "b9d2af036fa3b2e59ee1fff45f1aff722b56b8744832ca4b2222c0e769004e61",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric comparison quota; material viable alternatives already conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Archived nonincremental quota or delivery binding; no additional pass/authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0026-U03",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-11_FOUNDATION_FORMATTING.md",
+          "source_sha256": "b9d2af036fa3b2e59ee1fff45f1aff722b56b8744832ca4b2222c0e769004e61",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes and Library/templates/playbook bindings; linked bodies independently unreviewed, no current execution/test authority.",
+          "type": "historical-routing",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Archived nonincremental quota or delivery binding; no additional pass/authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All meaningful source units terminal in block08; linked deep bodies remain independently unreviewed."
     },
     {
       "source_id": "LIB-0027",
       "path": "02_SWIFT_LANGUAGE/IOS-02-12_MEMORY_SAFETY_UNSAFE.md",
       "sha256": "2cf656a5aa2bb2676827f759074e69b9c7ba33638fb73724d808294ef8088c52",
       "bytes": 5219,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0027-U01",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-12_MEMORY_SAFETY_UNSAFE.md",
+          "source_sha256": "2cf656a5aa2bb2676827f759074e69b9c7ba33638fb73724d808294ef8088c52",
+          "source_heading": "Назначение",
+          "source_fragment": "Минимизировать unsafe pointers/C interop, документировать lifetime/alignment/bounds и boundary tests.",
+          "meaning": "Минимизировать unsafe pointers/C interop, документировать lifetime/alignment/bounds и boundary tests. Full common context/contract/invariants/negative paths/minimal change/no unsafe escape/conditional evidence/report semantics.",
+          "type": "constraint",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "Ownership And Memory; Interoperability; Evidence",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete common body and individual topic compared to named current owners; code/tests not copied or executed.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Ownership And Memory; Interoperability; Evidence",
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Ownership And Memory",
+                "Interoperability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0027-U02",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-12_MEMORY_SAFETY_UNSAFE.md",
+          "source_sha256": "2cf656a5aa2bb2676827f759074e69b9c7ba33638fb73724d808294ef8088c52",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric comparison quota; material viable alternatives already conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Archived nonincremental quota or delivery binding; no additional pass/authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0027-U03",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-12_MEMORY_SAFETY_UNSAFE.md",
+          "source_sha256": "2cf656a5aa2bb2676827f759074e69b9c7ba33638fb73724d808294ef8088c52",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes and Library/templates/playbook bindings; linked bodies independently unreviewed, no current execution/test authority.",
+          "type": "historical-routing",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Archived nonincremental quota or delivery binding; no additional pass/authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All meaningful source units terminal in block08; linked deep bodies remain independently unreviewed."
     },
     {
       "source_id": "LIB-0028",
       "path": "02_SWIFT_LANGUAGE/IOS-02-13_C_INTEROP.md",
       "sha256": "f35f327e70779fe86e1905345ec15c5466c000a9b7286d239ed27e3eaa076258",
       "bytes": 5195,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0028-U01",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-13_C_INTEROP.md",
+          "source_sha256": "f35f327e70779fe86e1905345ec15c5466c000a9b7286d239ed27e3eaa076258",
+          "source_heading": "Назначение",
+          "source_fragment": "Безопасно проектировать bridging, nullability, ownership, generated interfaces и migration path.",
+          "meaning": "Безопасно проектировать bridging, nullability, ownership, generated interfaces и migration path. Full common context/contract/invariants/negative paths/minimal change/no unsafe escape/conditional evidence/report semantics.",
+          "type": "constraint",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "Interoperability; Public API Rules; Evidence",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete common body and individual topic compared to named current owners; code/tests not copied or executed.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Interoperability; Public API Rules; Evidence",
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Interoperability",
+                "Public API Rules",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0028-U02",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-13_C_INTEROP.md",
+          "source_sha256": "f35f327e70779fe86e1905345ec15c5466c000a9b7286d239ed27e3eaa076258",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric comparison quota; material viable alternatives already conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Archived nonincremental quota or delivery binding; no additional pass/authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0028-U03",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-13_C_INTEROP.md",
+          "source_sha256": "f35f327e70779fe86e1905345ec15c5466c000a9b7286d239ed27e3eaa076258",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes and Library/templates/playbook bindings; linked bodies independently unreviewed, no current execution/test authority.",
+          "type": "historical-routing",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Archived nonincremental quota or delivery binding; no additional pass/authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All meaningful source units terminal in block08; linked deep bodies remain independently unreviewed."
     },
     {
       "source_id": "LIB-0029",
       "path": "02_SWIFT_LANGUAGE/IOS-02-14_PUBLIC_PACKAGE_API.md",
       "sha256": "3e26bd39f0ec036bd113e4c8dcb3a096502984af16dd766751ccf6e94aac67af",
       "bytes": 5090,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0029-U01",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-14_PUBLIC_PACKAGE_API.md",
+          "source_sha256": "3e26bd39f0ec036bd113e4c8dcb3a096502984af16dd766751ccf6e94aac67af",
+          "source_heading": "Назначение",
+          "source_fragment": "Проектировать semver-friendly API, SPI, @inlinable exposure и compatibility tests.",
+          "meaning": "Проектировать semver-friendly API, SPI, @inlinable exposure и compatibility tests. Full common context/contract/invariants/negative paths/minimal change/no unsafe escape/conditional evidence/report semantics.",
+          "type": "constraint",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "Public API Rules; Evidence",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete common body and individual topic compared to named current owners; code/tests not copied or executed. Declared version/compatibility policy and breaking-change consumer/migration criteria apply; no automatic semver change or compatibility test execution.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Public API Rules; Evidence",
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Public API Rules",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0029-U02",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-14_PUBLIC_PACKAGE_API.md",
+          "source_sha256": "3e26bd39f0ec036bd113e4c8dcb3a096502984af16dd766751ccf6e94aac67af",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric comparison quota; material viable alternatives already conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Archived nonincremental quota or delivery binding; no additional pass/authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0029-U03",
+          "source_path": "canonical/02_SWIFT_LANGUAGE/IOS-02-14_PUBLIC_PACKAGE_API.md",
+          "source_sha256": "3e26bd39f0ec036bd113e4c8dcb3a096502984af16dd766751ccf6e94aac67af",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes and Library/templates/playbook bindings; linked bodies independently unreviewed, no current execution/test authority.",
+          "type": "historical-routing",
+          "conditions": "Actual API/project/consumer/toolchain/localization contract and current permission; do not invent backend data or adopt advanced syntax.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Archived nonincremental quota or delivery binding; no additional pass/authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full body/template/variable focus, exact hash/fragment, topic/common headings, prior dispositions and exact mirrors.",
+          "evidence": "block-08-swift-language-completion.md",
+          "affected_routes": [
+            "ios-swift-runtime"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All meaningful source units terminal in block08; linked deep bodies remain independently unreviewed."
     },
     {
       "source_id": "LIB-0030",

@@ -17,7 +17,7 @@ User authorized execution of the accepted migration plan after preservation of c
 - [x] U0 Revalidate snapshot, current sources and exact permissions; [receipt](u0-u1-report.md).
 - [ ] U1 Complete inventory/copy-delta reconciliation, freeze KB/read-cost baseline, finish bounded calibration and complete consumer/copy reconciliation. Calibration: five canonical files + one copy content group, 30 units; broader acceptance pending.
 - [x] U2 First complete thematic transfer, cancellation/publication; [30-unit block receipt](block-01-concurrency.md).
-- [ ] U3 Review every source file/unit and transfer all accepted useful deltas. 36 canonical files reviewed; [block 02](block-02-concurrency.md); DEC-001 resolved by current user approval; all 16 files of 03_CONCURRENCY reviewed.
+- [ ] U3 Review every source file/unit and transfer all accepted useful deltas. 42 canonical files reviewed; [block 02](block-02-concurrency.md); DEC-001 resolved by current user approval; all 16 files of 03_CONCURRENCY reviewed.
 - [ ] U4 Unify routes and enforce bounded mandatory reading.
 - [ ] U5 Review semantics, authority and critical technical claims.
 - [ ] U6 Static acceptance: coverage, mirrors, links, 12 routing scenarios and cost limits.
@@ -25,14 +25,6 @@ User authorized execution of the accepted migration plan after preservation of c
 - [ ] U8 Retire separate Library entry chain in precisely covered consumers; mode records never silently changed.
 - [ ] U9 Final coverage/claims/rollback report and main/development publication.
 
-Only .zenflow, shell login:false. No new agents/chats/MCP/host/config/secrets/installers/automations; no GitHub package/resource downloads, Xcode update, Simulator installation or app modernization. No app source/test/runtime/mode mutations in planning. iPad/physical/actual VoiceOver verification OMITTED_BY_USER. Preserve foreign changes; app upstreams excluded. Exact-SHA receipt lives outside tracked documents to avoid invalidating reviewed HEAD.
+Only .zenflow, shell login:false. No new agents/chats/MCP/host/config/secrets/installers/automations; no GitHub package/resource downloads, Xcode update, Simulator installation or app modernization. No app source/test/runtime/mode mutations. iPad/physical/actual VoiceOver verification OMITTED_BY_USER. Preserve foreign changes; app upstreams excluded. Exact-SHA receipt lives outside tracked documents to avoid invalidating reviewed HEAD.
 
-Block 03: [review/evidence receipt](block-03-review-evidence.md); two canonical sources and both project review variants dispositioned. Explicit candidate inventory and scoped evidence gaps migrated into existing owners; no new review loop or verdict vocabulary.
-
-Block 04: [quality-contract receipt](block-04-quality-contract.md); canonical quality guide and both project variants dispositioned; three existing owners receive useful constraints.
-
-Block 05: [risk/evidence receipt](block-05-risk-evidence.md); source risk guide and compatibility route fully dispositioned; three existing owners updated.
-
-Block 06: [discovery/product receipt](block-06-discovery-product.md); six guides reviewed, explicit API time/nullability/enum contract added.
-
-Block 07: [Swift/runtime receipt](block-07-swift-runtime.md); curated route plus eight guides reviewed; one existing deep owner updated.
+Completed bounded reports: [review/evidence](block-03-review-evidence.md), [quality contract](block-04-quality-contract.md), [risk/evidence](block-05-risk-evidence.md), [product](block-06-discovery-product.md), [Swift/runtime](block-07-swift-runtime.md), [Swift language completion](block-08-swift-language-completion.md). Current owners preserve useful constraints; all 15 language and 16 concurrency source files are dispositioned, without implied coverage of linked deep bodies. Next: remaining curated routes and architecture family.
