@@ -124,6 +124,17 @@ For layer animations, distinguish model target state from current presentation s
 transaction/timing, completion/cancellation and offscreen/rasterization costs without assuming
 visual completion commits product state. Preserve Reduce Motion behavior.
 
+## Design-System Consumers
+Use typed semantic color/spacing/type/radius/motion values where meaning repeats, under the
+existing token owner; exact one-off design values stay local. Themes have scoped dynamic
+updates, supported dark/high-contrast/brand variants and bounded invalidation, not global mutation.
+Shared components keep a small public input/state/variant contract, preserve feature ownership,
+and compare UIKit/SwiftUI state and accessibility semantics at actual consumers. Previews/docs
+and permitted visual-regression comparisons cover selected states; they are not runtime proof.
+Review typography baselines/wrapping and actual font/variable-font support, symbol availability/
+rendering modes, RTL meaning, accessible labels/fallback assets and resource size. Shared API/token
+migration accounts for usages/compatibility; aliases require a demonstrated transition need.
+
 ## Accessible And Localized Interaction Review
 Review wrapping/reflow, scalable metrics, truncation and access to clipped content at supported
 text-size extremes; use an appropriate scroll fallback where the existing interaction needs it.
