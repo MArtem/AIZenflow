@@ -1,0 +1,1036 @@
+{
+  "schema_version": 1,
+  "task": "kb-unification-2026-10-09",
+  "kind": "SOURCE_INVENTORY_NOT_REVIEWED_COVERAGE",
+  "baseline_heads": {
+    "AIZenflow": "cdcf4c624b41eff306429cdef359d49645e0c583",
+    "Documentation": "b20f5c9cd4490993d9980fc3ceb6576755bfa6ab"
+  },
+  "archive_sha256": "9c3e80135ef713a205f6e0481b9c6eecae8836b51df16d9e2ce459d0dfeee76f",
+  "integrity": {
+    "files": 1474,
+    "bytes": 5448198,
+    "zip_crc_hash_git_blob_parity": "PASS",
+    "frozen_source_drift": "NONE"
+  },
+  "canonical_paths": 1403,
+  "unique_hashes": 1288,
+  "exact_duplicate_groups": [
+    {
+      "sha256": "0111f6f743b8e201bb2722d56f5b76f9e3d26c00fc2dc939de83052683edf096",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/EVIDENCE_LEDGER_PROTOCOL.md",
+        "source-runtime/orchestration/reference/EVIDENCE_LEDGER_PROTOCOL.md"
+      ]
+    },
+    {
+      "sha256": "05a78aee43d1a3b85ef52699a045f9aba9b9541a7724c6430fb3e137ce02cf00",
+      "aliases": [
+        "source-meta/EVIDENCE_AND_VERIFICATION_POLICY.md",
+        "source-runtime/core/EVIDENCE_AND_VERIFICATION_POLICY.md"
+      ]
+    },
+    {
+      "sha256": "08f32229d8e43f261bce2f93203dcd77bd3eb5b00f1f003e3ee5c9214a9b1f81",
+      "aliases": [
+        "legacy-source/39_PROJECT_CONTEXT/OBSERVABILITY_MAP.md",
+        "source-runtime/templates/project/OBSERVABILITY_MAP.md"
+      ]
+    },
+    {
+      "sha256": "0a2e59ab0abcc932a18a1ab5124ef09ed4d982f6990d7c965ebd13e9adb40969",
+      "aliases": [
+        "legacy-source/41_PROJECT_ADAPTIVE/ADAPTATION_PROTOCOL.md",
+        "source-runtime/core/V4_ADAPTATION_PROTOCOL.md"
+      ]
+    },
+    {
+      "sha256": "124dd363cb66dbfd4abe2139a8ee690fc5e775a613857ae215042a72e5c7cc60",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/DELEGATION_ADMISSION_POLICY.md",
+        "source-runtime/orchestration/reference/DELEGATION_ADMISSION_POLICY.md"
+      ]
+    },
+    {
+      "sha256": "21c784cfc4fba34d1635d464c8c0b2a0ad1af92fa1bd678174767c040f74492a",
+      "aliases": [
+        "legacy-source/39_PROJECT_CONTEXT/QUALITY_GATES.md",
+        "source-runtime/templates/project/QUALITY_GATES.md"
+      ]
+    },
+    {
+      "sha256": "223a1b7de288e1e456a41ed4021b48ced69d5ad46f0996f2f5ce470f7aab9786",
+      "aliases": [
+        "source-meta/MIGRATION_PROTOCOL.md",
+        "source-runtime/core/MIGRATION_PROTOCOL.md"
+      ]
+    },
+    {
+      "sha256": "24fb799b6c40befad0666bb91edb9a1567d09a6717b587f7ac8ecbb42d8647f1",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/HUMAN_GATE_POLICY.md",
+        "source-runtime/orchestration/reference/HUMAN_GATE_POLICY.md"
+      ]
+    },
+    {
+      "sha256": "2d0eb8a284360e86f3b7133470bcf5be1cb7d9bea64b6d8ba01dea8df2eefcdf",
+      "aliases": [
+        "legacy-source/41_PROJECT_ADAPTIVE/FACT_INFERENCE_POLICY.md",
+        "source-runtime/core/V4_FACT_INFERENCE_POLICY.md"
+      ]
+    },
+    {
+      "sha256": "3838b3244e203a06f772ca27fc421f9965e20a53337408d055f8f3cfc209e3be",
+      "aliases": [
+        "legacy-source/39_PROJECT_CONTEXT/RELEASE_POLICY.md",
+        "source-runtime/templates/project/RELEASE_POLICY.md"
+      ]
+    },
+    {
+      "sha256": "3999c839651259552f4352684ce7d4b2d65c51fd17d653b98d51421f1241f752",
+      "aliases": [
+        "legacy-source/39_PROJECT_CONTEXT/TARGET_MATRIX.md",
+        "source-runtime/templates/project/TARGET_MATRIX.md"
+      ]
+    },
+    {
+      "sha256": "3a547945d955e573e8be9bbf40ed59ee378dcce6e0f6a385e627808212aeabe4",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/FAILURE_RECOVERY_PROTOCOL.md",
+        "source-runtime/orchestration/reference/FAILURE_RECOVERY_PROTOCOL.md"
+      ]
+    },
+    {
+      "sha256": "3b6053a596103ebdcbbdeb36108189579f28ff3c379b06426527f88734cf5b46",
+      "aliases": [
+        "legacy-source/41_PROJECT_ADAPTIVE/BUILD_TEST_SYNTHESIS_PROTOCOL.md",
+        "source-runtime/core/V4_BUILD_TEST_SYNTHESIS_PROTOCOL.md"
+      ]
+    },
+    {
+      "sha256": "3d7be3fc06096fa6af1c256f62b2836da91aec93ab187fac3c60a3aafa365a11",
+      "aliases": [
+        "source-skills/ioslib-conflict-resolution/references/domain-checklist.md",
+        "source-skills/ioslib-delegation-planner/references/domain-checklist.md",
+        "source-skills/ioslib-evidence-synthesis/references/domain-checklist.md",
+        "source-skills/ioslib-integration-review/references/domain-checklist.md",
+        "source-skills/ioslib-multi-agent-orchestrator/references/domain-checklist.md",
+        "source-skills/ioslib-orchestration-budget/references/domain-checklist.md",
+        "source-skills/ioslib-parallel-investigation/references/domain-checklist.md",
+        "source-skills/ioslib-parallel-review/references/domain-checklist.md",
+        "source-skills/ioslib-verification-fanout/references/domain-checklist.md",
+        "source-skills/ioslib-write-scope-partition/references/domain-checklist.md"
+      ]
+    },
+    {
+      "sha256": "406722dcc822ba1970367f6720cb681cdc7ab888a26ecd61be7d2b41765ed92c",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/SYNTHESIS_PROTOCOL.md",
+        "source-runtime/orchestration/reference/SYNTHESIS_PROTOCOL.md"
+      ]
+    },
+    {
+      "sha256": "408050c41079407e59f82b19806bc5815542a277c565e3c345645559afdd81fb",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/VERIFICATION_PROTOCOL.md",
+        "source-runtime/orchestration/reference/VERIFICATION_PROTOCOL.md"
+      ]
+    },
+    {
+      "sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
+      "aliases": [
+        "source-skills/ioslib-accessibility-localization/references/global-runtime.md",
+        "source-skills/ioslib-active-skill-selection/references/global-runtime.md",
+        "source-skills/ioslib-ai-ml/references/global-runtime.md",
+        "source-skills/ioslib-api-contract/references/global-runtime.md",
+        "source-skills/ioslib-app-intents/references/global-runtime.md",
+        "source-skills/ioslib-architecture-mapping/references/global-runtime.md",
+        "source-skills/ioslib-architecture/references/global-runtime.md",
+        "source-skills/ioslib-background-execution/references/global-runtime.md",
+        "source-skills/ioslib-build-ci/references/global-runtime.md",
+        "source-skills/ioslib-change-plan/references/global-runtime.md",
+        "source-skills/ioslib-code-review/references/global-runtime.md",
+        "source-skills/ioslib-command-discovery/references/global-runtime.md",
+        "source-skills/ioslib-conflict-resolution/references/global-runtime.md",
+        "source-skills/ioslib-context-drift/references/global-runtime.md",
+        "source-skills/ioslib-crash-debugging/references/global-runtime.md",
+        "source-skills/ioslib-data-migration/references/global-runtime.md",
+        "source-skills/ioslib-delegation-planner/references/global-runtime.md",
+        "source-skills/ioslib-dependencies/references/global-runtime.md",
+        "source-skills/ioslib-design-system/references/global-runtime.md",
+        "source-skills/ioslib-diagnostic/references/global-runtime.md",
+        "source-skills/ioslib-evidence-synthesis/references/global-runtime.md",
+        "source-skills/ioslib-feature-flags/references/global-runtime.md",
+        "source-skills/ioslib-hotfix-release/references/global-runtime.md",
+        "source-skills/ioslib-implementation/references/global-runtime.md",
+        "source-skills/ioslib-integration-review/references/global-runtime.md",
+        "source-skills/ioslib-legacy-modernization/references/global-runtime.md",
+        "source-skills/ioslib-media-graphics/references/global-runtime.md",
+        "source-skills/ioslib-memory-leaks/references/global-runtime.md",
+        "source-skills/ioslib-modularity-spm/references/global-runtime.md",
+        "source-skills/ioslib-multi-agent-orchestrator/references/global-runtime.md",
+        "source-skills/ioslib-navigation/references/global-runtime.md",
+        "source-skills/ioslib-nested-agents-design/references/global-runtime.md",
+        "source-skills/ioslib-networking-auth/references/global-runtime.md",
+        "source-skills/ioslib-observability/references/global-runtime.md",
+        "source-skills/ioslib-offline-sync/references/global-runtime.md",
+        "source-skills/ioslib-orchestration-budget/references/global-runtime.md",
+        "source-skills/ioslib-parallel-investigation/references/global-runtime.md",
+        "source-skills/ioslib-parallel-review/references/global-runtime.md",
+        "source-skills/ioslib-performance/references/global-runtime.md",
+        "source-skills/ioslib-persistence/references/global-runtime.md",
+        "source-skills/ioslib-pr-review/references/global-runtime.md",
+        "source-skills/ioslib-project-adaptation/references/global-runtime.md",
+        "source-skills/ioslib-release/references/global-runtime.md",
+        "source-skills/ioslib-repo-intake/references/global-runtime.md",
+        "source-skills/ioslib-risk-mapping/references/global-runtime.md",
+        "source-skills/ioslib-sdk-api/references/global-runtime.md",
+        "source-skills/ioslib-security-privacy/references/global-runtime.md",
+        "source-skills/ioslib-storekit/references/global-runtime.md",
+        "source-skills/ioslib-swift-concurrency/references/global-runtime.md",
+        "source-skills/ioslib-swiftui/references/global-runtime.md",
+        "source-skills/ioslib-system-integrations/references/global-runtime.md",
+        "source-skills/ioslib-target-discovery/references/global-runtime.md",
+        "source-skills/ioslib-task-router/references/global-runtime.md",
+        "source-skills/ioslib-test-flake/references/global-runtime.md",
+        "source-skills/ioslib-testing/references/global-runtime.md",
+        "source-skills/ioslib-uikit/references/global-runtime.md",
+        "source-skills/ioslib-verification-fanout/references/global-runtime.md",
+        "source-skills/ioslib-write-scope-partition/references/global-runtime.md"
+      ]
+    },
+    {
+      "sha256": "4e0cd4935c1d52c4657ee7f579c3e4734d7fa80d187df94bbdff97de5849eb31",
+      "aliases": [
+        "source-skills/ioslib-active-skill-selection/references/domain-checklist.md",
+        "source-skills/ioslib-architecture-mapping/references/domain-checklist.md",
+        "source-skills/ioslib-command-discovery/references/domain-checklist.md",
+        "source-skills/ioslib-context-drift/references/domain-checklist.md",
+        "source-skills/ioslib-nested-agents-design/references/domain-checklist.md",
+        "source-skills/ioslib-project-adaptation/references/domain-checklist.md",
+        "source-skills/ioslib-risk-mapping/references/domain-checklist.md",
+        "source-skills/ioslib-target-discovery/references/domain-checklist.md"
+      ]
+    },
+    {
+      "sha256": "52f8fdd4119fa81953546d2332238b1d1c58feacc5367e44f6095cf8cf50a7c9",
+      "aliases": [
+        "legacy-source/39_PROJECT_CONTEXT/REPO_COMMANDS.md",
+        "source-runtime/templates/project/REPO_COMMANDS.md"
+      ]
+    },
+    {
+      "sha256": "567204ba167494cf1aa40437dfa2114bd2ee8add6d2d13fa01fd017a58fa4d90",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/ORCHESTRATION_PROTOCOL.md",
+        "source-runtime/orchestration/reference/ORCHESTRATION_PROTOCOL.md"
+      ]
+    },
+    {
+      "sha256": "5b58b3db5bc99354f61014cd84bd1f50b09b014ee5c3f4630979d237bf4cf8b6",
+      "aliases": [
+        "source-meta/REPOSITORY_INSPECTION_PROTOCOL.md",
+        "source-runtime/core/REPOSITORY_INSPECTION_PROTOCOL.md"
+      ]
+    },
+    {
+      "sha256": "7085853277bf572e2f8b9e6f86d8a519c2c879bae7195f8d0fd83bd1fec81987",
+      "aliases": [
+        "legacy-source/36_REPOSITORY_NATIVE/CONTEXT_HYGIENE_POLICY.md",
+        "source-runtime/core/CONTEXT_HYGIENE_POLICY.md"
+      ]
+    },
+    {
+      "sha256": "711a901c9952d8242cef2246cb3cb2fc8201727aaa3f3ef53fa7fd6d27af11ce",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/SECURITY_PRIVACY_BOUNDARIES.md",
+        "source-runtime/orchestration/reference/SECURITY_PRIVACY_BOUNDARIES.md"
+      ]
+    },
+    {
+      "sha256": "71bf158a5aee0441ac68755ffe3c8adf78b9847bdb1346579f8c71476ca2991f",
+      "aliases": [
+        "legacy-source/41_PROJECT_ADAPTIVE/DRIFT_REFRESH_POLICY.md",
+        "source-runtime/core/V4_DRIFT_REFRESH_POLICY.md"
+      ]
+    },
+    {
+      "sha256": "781bc87b1be0dbec22e68b4eab97641812936fe48aab4553597fae6848633aa2",
+      "aliases": [
+        "legacy-source/36_REPOSITORY_NATIVE/PATCH_DISCIPLINE.md",
+        "source-runtime/core/PATCH_DISCIPLINE.md"
+      ]
+    },
+    {
+      "sha256": "783c4611997a51c2fc29e64d22eb99495d28258ad7a6d6d71c400f147252c1bb",
+      "aliases": [
+        "legacy-source/39_PROJECT_CONTEXT/PROJECT_CONTEXT.md",
+        "source-runtime/templates/project/PROJECT_CONTEXT.md"
+      ]
+    },
+    {
+      "sha256": "95fdbe9e82ed1205de4836a71f08f179d57906acee716bd2452e01058d10fe97",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/TASK_GRAPH_PROTOCOL.md",
+        "source-runtime/orchestration/reference/TASK_GRAPH_PROTOCOL.md"
+      ]
+    },
+    {
+      "sha256": "af1fabb1b2c0d6806cad308607905f78c368b3c16fbfb41545b879d5e78edaf5",
+      "aliases": [
+        "legacy-source/39_PROJECT_CONTEXT/DATA_CONTRACTS.md",
+        "source-runtime/templates/project/DATA_CONTRACTS.md"
+      ]
+    },
+    {
+      "sha256": "b7f26f06c7aff83d9023c958029bace91a18bea68fd306cd420600a09bf6f927",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/MODEL_ROUTING_POLICY.md",
+        "source-runtime/orchestration/reference/MODEL_ROUTING_POLICY.md"
+      ]
+    },
+    {
+      "sha256": "c0262cedce685406161698ff7eec567857d1b8d3bcdc0ab3a67be626c15a0b2d",
+      "aliases": [
+        "legacy-source/39_PROJECT_CONTEXT/OWNERSHIP_MAP.md",
+        "source-runtime/templates/project/OWNERSHIP_MAP.md"
+      ]
+    },
+    {
+      "sha256": "c0dfce92cabb204b96396850c7be5bc7a674ed22c9491750ef709b155a4d40ff",
+      "aliases": [
+        "source-meta/V2_EXECUTION_PROTOCOL.md",
+        "source-runtime/core/V2_EXECUTION_PROTOCOL.md"
+      ]
+    },
+    {
+      "sha256": "c16cf40c580cfdd76dcf398c232cb1509e4509f9ddac425414e24ddf5804876a",
+      "aliases": [
+        "source-meta/QUALITY_STANDARD.md",
+        "source-runtime/core/QUALITY_STANDARD.md"
+      ]
+    },
+    {
+      "sha256": "c67ad9bdcfc788d9e56162d10ce5a901225120ae9a367e4cf2d6cc426375df4a",
+      "aliases": [
+        "legacy-source/39_PROJECT_CONTEXT/DEPENDENCY_POLICY.md",
+        "source-runtime/templates/project/DEPENDENCY_POLICY.md"
+      ]
+    },
+    {
+      "sha256": "d98b80ea87565ab6c90a3714721d4e4f09e1bbccbb0ed5dd5bd0aadf7c303691",
+      "aliases": [
+        "legacy-source/39_PROJECT_CONTEXT/ARCHITECTURE_MAP.md",
+        "source-runtime/templates/project/ARCHITECTURE_MAP.md"
+      ]
+    },
+    {
+      "sha256": "da7d3979f7d53e34aca0ab0a1307c945ce106272938465df112e9b8d9346d6af",
+      "aliases": [
+        "legacy-source/41_PROJECT_ADAPTIVE/SAFE_AUTOMATION_BOUNDARIES.md",
+        "source-runtime/core/V4_SAFE_AUTOMATION_BOUNDARIES.md"
+      ]
+    },
+    {
+      "sha256": "df6852846f97a13ab3deefbdfb252862c46086b421ff0e0b41c8cd32ebf39060",
+      "aliases": [
+        "legacy-source/36_REPOSITORY_NATIVE/EVIDENCE_CONTRACT_V3.md",
+        "source-runtime/core/EVIDENCE_CONTRACT_V3.md"
+      ]
+    },
+    {
+      "sha256": "e04fca559f4c40f832a4c00df1b488d2c4cec8268388378d6ca714e60d748089",
+      "aliases": [
+        "source-meta/CHANGE_RISK_MATRIX.md",
+        "source-runtime/core/CHANGE_RISK_MATRIX.md"
+      ]
+    },
+    {
+      "sha256": "e0e4873f20792e1c03de3742019f961e0845da1e5f460a8a0f9b9a455cf33046",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/CONFLICT_RESOLUTION_PROTOCOL.md",
+        "source-runtime/orchestration/reference/CONFLICT_RESOLUTION_PROTOCOL.md"
+      ]
+    },
+    {
+      "sha256": "e933dfecea128110565ceb41323322a60fab20df528309d1482280b92f62f640",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/AGENT_TASK_PACKET_CONTRACT.md",
+        "source-runtime/orchestration/reference/AGENT_TASK_PACKET_CONTRACT.md"
+      ]
+    },
+    {
+      "sha256": "f01d6822200b1c1791df857ab21e163ab9bd4fb5476961005766c1506be1a176",
+      "aliases": [
+        "legacy-source/39_PROJECT_CONTEXT/KNOWN_RISKS.md",
+        "source-runtime/templates/project/KNOWN_RISKS.md"
+      ]
+    },
+    {
+      "sha256": "f0bec63731972fc318fc7ff9656a4eaac3d0a758009fbf2c0ad270bac1da7e8b",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/NATIVE_SUBAGENT_COMPATIBILITY.md",
+        "source-runtime/orchestration/reference/NATIVE_SUBAGENT_COMPATIBILITY.md"
+      ]
+    },
+    {
+      "sha256": "f6a0968f0b136c68dcffba137936b61317663f0b844251f6215f9b366be09ada",
+      "aliases": [
+        "legacy-source/36_REPOSITORY_NATIVE/TASK_ROUTING_MATRIX.md",
+        "source-runtime/core/TASK_ROUTING_MATRIX.md"
+      ]
+    },
+    {
+      "sha256": "f8bf530351991ba9e19bb1e54e7373abe5ba4c9cf41172e969952af1242acc90",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/WRITE_SCOPE_POLICY.md",
+        "source-runtime/orchestration/reference/WRITE_SCOPE_POLICY.md"
+      ]
+    },
+    {
+      "sha256": "f96b64ed134e49ff2339a4c66128b4745b15fe168d01798a877b0f83295c4c5a",
+      "aliases": [
+        "legacy-source/39_PROJECT_CONTEXT/DECISION_LOG.md",
+        "source-runtime/templates/project/DECISION_LOG.md"
+      ]
+    },
+    {
+      "sha256": "fa7761c792e0eb9986eb28bb060065a846ad6c0d18087eae0d9ec2c700ca03ce",
+      "aliases": [
+        "legacy-source/44_MULTI_AGENT_ORCHESTRATION/BUDGETS_AND_LIMITS.md",
+        "source-runtime/orchestration/reference/BUDGETS_AND_LIMITS.md"
+      ]
+    }
+  ],
+  "families": {
+    "00_META": 8,
+    "01_DISCOVERY_PRODUCT": 6,
+    "02_SWIFT_LANGUAGE": 15,
+    "03_CONCURRENCY": 16,
+    "04_ARCHITECTURE": 13,
+    "05_SWIFTUI": 17,
+    "06_UIKIT": 10,
+    "07_NAVIGATION_DEEPLINKS": 6,
+    "08_NETWORKING": 12,
+    "09_PERSISTENCE_DATA": 11,
+    "10_TESTING": 15,
+    "11_PERFORMANCE_MEMORY": 13,
+    "12_SECURITY_PRIVACY": 13,
+    "13_ACCESSIBILITY_LOCALIZATION": 9,
+    "14_PLATFORM_SERVICES": 16,
+    "15_AI_INTELLIGENCE": 11,
+    "16_BUILD_MODULARITY_TOOLING": 11,
+    "17_CI_CD_RELEASE": 11,
+    "18_OBSERVABILITY_DEBUGGING": 11,
+    "19_CODE_REVIEW_REFACTOR": 11,
+    "20_MIGRATION_LEGACY": 8,
+    "21_AGENT_WORKFLOWS": 10,
+    "22_CHECKLISTS": 10,
+    "23_PROMPT_PACKS": 32,
+    "24_TEMPLATES": 6,
+    "25_MEDIA_GRAPHICS": 12,
+    "26_ML_VISION_AR": 10,
+    "27_SYSTEM_INTEGRATION": 15,
+    "28_ECOSYSTEM_INTEROP": 10,
+    "29_DESIGN_SYSTEM": 9,
+    "30_TEAM_ENGINEERING": 8,
+    "31_DEEP_PLAYBOOKS": 289,
+    "32_AGENT_PROMPTS_V2": 121,
+    "33_CODE_PATTERNS": 31,
+    "34_AUDIT_GATES": 26,
+    "35_ENGINEERING_TEMPLATES_V2": 11,
+    "44_MULTI_AGENT_ORCHESTRATION": 1,
+    "50_CLIENT_CODE_PROTECTION": 1,
+    "ACTION_RANKING_LEDGER.md": 1,
+    "B2_MODE_REVIEW.md": 1,
+    "B4_TOOL_REVIEW.md": 1,
+    "B5_STATIC_TRACE.md": 1,
+    "B6_PRE_RELEASE_REVIEW.md": 1,
+    "CAPABILITY_DISPOSITION.md": 1,
+    "CONTENT_MANIFEST.md": 1,
+    "COPY_ONLY_QUICKSTART.md": 1,
+    "EVIDENCE_POLICY.md": 1,
+    "KNOWLEDGE_ROUTER.md": 1,
+    "LEGACY_CAPABILITY_MAP.md": 1,
+    "LEGACY_TEST_SCENARIO_MAP.md": 1,
+    "MIGRATION_COVERAGE_RECEIPT.md": 1,
+    "PROJECT_FACTS.md": 1,
+    "PROJECT_MODE.md": 1,
+    "QUALITY_STANDARD.md": 1,
+    "README.md": 1,
+    "REPOSITORY_INSPECTION.md": 1,
+    "REVIEW_GUIDE.md": 1,
+    "RISK_AND_EVIDENCE.md": 1,
+    "SCENARIO_MATRIX.md": 1,
+    "SKILL_CONVERSION_RECEIPT.md": 1,
+    "SOURCE_SELECTION.md": 1,
+    "STARTUP_RULE.md": 1,
+    "USER_WORKFLOW_RU.md": 1,
+    "legacy-source": 189,
+    "source-catalog.csv": 1,
+    "source-global": 2,
+    "source-meta": 23,
+    "source-package-docs": 10,
+    "source-protection": 11,
+    "source-runtime": 49,
+    "source-skills": 240,
+    "source-tools": 5,
+    "tools": 3
+  },
+  "project_copy_inventory": [
+    {
+      "archive_path": "tchop-copy/02_SWIFT_LANGUAGE/COPY_ONLY_SWIFT_RUNTIME_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/02_SWIFT_LANGUAGE/COPY_ONLY_SWIFT_RUNTIME_ROUTE.md",
+      "sha256": "d6bab5160a9c7e62ff0879c5c8ca5f3dd8c2a9d77c1734d9b0a3654a985b17dd",
+      "canonical_path": "02_SWIFT_LANGUAGE/COPY_ONLY_SWIFT_RUNTIME_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "sha256": "351a09664eb87142644e9e088885cfaf7ce176e6767b61902a205507224a68fe",
+      "canonical_path": "03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "relation": "COPY_DELTA_UNREVIEWED",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+      "sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+      "canonical_path": "04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/05_SWIFTUI/COPY_ONLY_UI_FLOW_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/05_SWIFTUI/COPY_ONLY_UI_FLOW_ROUTE.md",
+      "sha256": "61279caf1e6761f950fbbeb47363923e43492d21d558f252d6e2ae06924fc2d1",
+      "canonical_path": "05_SWIFTUI/COPY_ONLY_UI_FLOW_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+      "sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+      "canonical_path": "08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+      "sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+      "canonical_path": "08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+      "canonical_path": "09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+      "sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+      "canonical_path": "10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+      "sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+      "canonical_path": "11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+      "sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+      "canonical_path": "12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+      "sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+      "canonical_path": "13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+      "sha256": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7",
+      "canonical_path": "14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+      "sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
+      "canonical_path": "14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+      "sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+      "canonical_path": "15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+      "sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+      "canonical_path": "16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+      "sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+      "canonical_path": "17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/18_OBSERVABILITY_DEBUGGING/COPY_ONLY_OBSERVABILITY_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/18_OBSERVABILITY_DEBUGGING/COPY_ONLY_OBSERVABILITY_ROUTE.md",
+      "sha256": "a62238d03ad51c6863ebb08fe187aa2a7de1ed80efba880a18c087272f5aa6fe",
+      "canonical_path": "18_OBSERVABILITY_DEBUGGING/COPY_ONLY_OBSERVABILITY_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+      "canonical_path": "19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/27_SYSTEM_INTEGRATION/COPY_ONLY_SYSTEM_INTEGRATION_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/27_SYSTEM_INTEGRATION/COPY_ONLY_SYSTEM_INTEGRATION_ROUTE.md",
+      "sha256": "8a74fadffb47fe4077611e1aa8ede6e96c18cc0d8a583a35e4e7c48d9befb26c",
+      "canonical_path": "27_SYSTEM_INTEGRATION/COPY_ONLY_SYSTEM_INTEGRATION_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+      "sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+      "canonical_path": "29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+      "sha256": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e",
+      "canonical_path": "34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
+      "sha256": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5",
+      "canonical_path": "44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
+      "source_path": "TchopApp/IOSLibrary/50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
+      "sha256": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f",
+      "canonical_path": "50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/COPY_ONLY_QUICKSTART.md",
+      "source_path": "TchopApp/IOSLibrary/COPY_ONLY_QUICKSTART.md",
+      "sha256": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0",
+      "canonical_path": "COPY_ONLY_QUICKSTART.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/EVIDENCE_POLICY.md",
+      "source_path": "TchopApp/IOSLibrary/EVIDENCE_POLICY.md",
+      "sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "canonical_path": "EVIDENCE_POLICY.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/KNOWLEDGE_ROUTER.md",
+      "source_path": "TchopApp/IOSLibrary/KNOWLEDGE_ROUTER.md",
+      "sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+      "canonical_path": "KNOWLEDGE_ROUTER.md",
+      "relation": "COPY_DELTA_UNREVIEWED",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/PROJECT_FACTS.md",
+      "source_path": "TchopApp/IOSLibrary/PROJECT_FACTS.md",
+      "sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+      "canonical_path": "PROJECT_FACTS.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/PROJECT_MODE.md",
+      "source_path": "TchopApp/IOSLibrary/PROJECT_MODE.md",
+      "sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+      "canonical_path": "PROJECT_MODE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/QUALITY_STANDARD.md",
+      "source_path": "TchopApp/IOSLibrary/QUALITY_STANDARD.md",
+      "sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "canonical_path": "QUALITY_STANDARD.md",
+      "relation": "COPY_DELTA_UNREVIEWED",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/REPOSITORY_INSPECTION.md",
+      "source_path": "TchopApp/IOSLibrary/REPOSITORY_INSPECTION.md",
+      "sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+      "canonical_path": "REPOSITORY_INSPECTION.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/REVIEW_GUIDE.md",
+      "source_path": "TchopApp/IOSLibrary/REVIEW_GUIDE.md",
+      "sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "canonical_path": "REVIEW_GUIDE.md",
+      "relation": "COPY_DELTA_UNREVIEWED",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/RISK_AND_EVIDENCE.md",
+      "source_path": "TchopApp/IOSLibrary/RISK_AND_EVIDENCE.md",
+      "sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+      "canonical_path": "RISK_AND_EVIDENCE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/STARTUP_RULE.md",
+      "source_path": "TchopApp/IOSLibrary/STARTUP_RULE.md",
+      "sha256": "5b5eace561c794ccd6064a41acd6b5b18a062e5111c280476736481d1d8093de",
+      "canonical_path": "STARTUP_RULE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "tchop-copy/tools/reference_mode.py",
+      "source_path": "TchopApp/IOSLibrary/tools/reference_mode.py",
+      "sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
+      "canonical_path": "tools/reference_mode.py",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/02_SWIFT_LANGUAGE/COPY_ONLY_SWIFT_RUNTIME_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/02_SWIFT_LANGUAGE/COPY_ONLY_SWIFT_RUNTIME_ROUTE.md",
+      "sha256": "d6bab5160a9c7e62ff0879c5c8ca5f3dd8c2a9d77c1734d9b0a3654a985b17dd",
+      "canonical_path": "02_SWIFT_LANGUAGE/COPY_ONLY_SWIFT_RUNTIME_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "sha256": "351a09664eb87142644e9e088885cfaf7ce176e6767b61902a205507224a68fe",
+      "canonical_path": "03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "relation": "COPY_DELTA_UNREVIEWED",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+      "sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+      "canonical_path": "04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/05_SWIFTUI/COPY_ONLY_UI_FLOW_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/05_SWIFTUI/COPY_ONLY_UI_FLOW_ROUTE.md",
+      "sha256": "61279caf1e6761f950fbbeb47363923e43492d21d558f252d6e2ae06924fc2d1",
+      "canonical_path": "05_SWIFTUI/COPY_ONLY_UI_FLOW_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+      "sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+      "canonical_path": "08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+      "sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+      "canonical_path": "08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+      "canonical_path": "09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+      "sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+      "canonical_path": "10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+      "sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+      "canonical_path": "11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+      "sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+      "canonical_path": "12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+      "sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+      "canonical_path": "13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+      "sha256": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7",
+      "canonical_path": "14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+      "sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
+      "canonical_path": "14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+      "sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+      "canonical_path": "15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+      "sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+      "canonical_path": "16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+      "sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+      "canonical_path": "17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/18_OBSERVABILITY_DEBUGGING/COPY_ONLY_OBSERVABILITY_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/18_OBSERVABILITY_DEBUGGING/COPY_ONLY_OBSERVABILITY_ROUTE.md",
+      "sha256": "a62238d03ad51c6863ebb08fe187aa2a7de1ed80efba880a18c087272f5aa6fe",
+      "canonical_path": "18_OBSERVABILITY_DEBUGGING/COPY_ONLY_OBSERVABILITY_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+      "canonical_path": "19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/27_SYSTEM_INTEGRATION/COPY_ONLY_SYSTEM_INTEGRATION_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/27_SYSTEM_INTEGRATION/COPY_ONLY_SYSTEM_INTEGRATION_ROUTE.md",
+      "sha256": "8a74fadffb47fe4077611e1aa8ede6e96c18cc0d8a583a35e4e7c48d9befb26c",
+      "canonical_path": "27_SYSTEM_INTEGRATION/COPY_ONLY_SYSTEM_INTEGRATION_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+      "sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+      "canonical_path": "29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+      "sha256": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e",
+      "canonical_path": "34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
+      "sha256": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5",
+      "canonical_path": "44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
+      "source_path": "BattleshipGame/IOSLibrary/50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
+      "sha256": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f",
+      "canonical_path": "50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/COPY_ONLY_QUICKSTART.md",
+      "source_path": "BattleshipGame/IOSLibrary/COPY_ONLY_QUICKSTART.md",
+      "sha256": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0",
+      "canonical_path": "COPY_ONLY_QUICKSTART.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/EVIDENCE_POLICY.md",
+      "source_path": "BattleshipGame/IOSLibrary/EVIDENCE_POLICY.md",
+      "sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "canonical_path": "EVIDENCE_POLICY.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/KNOWLEDGE_ROUTER.md",
+      "source_path": "BattleshipGame/IOSLibrary/KNOWLEDGE_ROUTER.md",
+      "sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+      "canonical_path": "KNOWLEDGE_ROUTER.md",
+      "relation": "COPY_DELTA_UNREVIEWED",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/PROJECT_FACTS.md",
+      "source_path": "BattleshipGame/IOSLibrary/PROJECT_FACTS.md",
+      "sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+      "canonical_path": "PROJECT_FACTS.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/PROJECT_MODE.md",
+      "source_path": "BattleshipGame/IOSLibrary/PROJECT_MODE.md",
+      "sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+      "canonical_path": "PROJECT_MODE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/QUALITY_STANDARD.md",
+      "source_path": "BattleshipGame/IOSLibrary/QUALITY_STANDARD.md",
+      "sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "canonical_path": "QUALITY_STANDARD.md",
+      "relation": "COPY_DELTA_UNREVIEWED",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/REPOSITORY_INSPECTION.md",
+      "source_path": "BattleshipGame/IOSLibrary/REPOSITORY_INSPECTION.md",
+      "sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+      "canonical_path": "REPOSITORY_INSPECTION.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/REVIEW_GUIDE.md",
+      "source_path": "BattleshipGame/IOSLibrary/REVIEW_GUIDE.md",
+      "sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "canonical_path": "REVIEW_GUIDE.md",
+      "relation": "COPY_DELTA_UNREVIEWED",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/RISK_AND_EVIDENCE.md",
+      "source_path": "BattleshipGame/IOSLibrary/RISK_AND_EVIDENCE.md",
+      "sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+      "canonical_path": "RISK_AND_EVIDENCE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/STARTUP_RULE.md",
+      "source_path": "BattleshipGame/IOSLibrary/STARTUP_RULE.md",
+      "sha256": "5b5eace561c794ccd6064a41acd6b5b18a062e5111c280476736481d1d8093de",
+      "canonical_path": "STARTUP_RULE.md",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    },
+    {
+      "archive_path": "battleship-copy/tools/reference_mode.py",
+      "source_path": "BattleshipGame/IOSLibrary/tools/reference_mode.py",
+      "sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
+      "canonical_path": "tools/reference_mode.py",
+      "relation": "EXACT_ALIAS",
+      "semantic_status": "UNREVIEWED"
+    }
+  ],
+  "semantic_coverage": {
+    "canonical_terminal_files": 0,
+    "canonical_unreviewed_files": 1403,
+    "copy_delta_paths": 8,
+    "copy_delta_unique_contents": 4,
+    "copy_delta_terminal_units": 0
+  },
+  "tokens": "UNKNOWN",
+  "host_facts": "NOT_INSPECTED_BY_USER_SCOPE",
+  "CODEX_HOME": "NOT_INSPECTED_BY_USER_SCOPE"
+}

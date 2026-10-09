@@ -1,8 +1,8 @@
 # KB unification — current execution
 
-2026-10-09. **PLAN_READY; IMPLEMENTATION_NOT_STARTED.** Planning/preservation: GPT-6 Astra; planned executor GPT-6.1 Sol/low; persistent mode эконом.
+2026-10-09. **IMPLEMENTATION_STARTED; U0_PASS; U1_PARTIAL.** Planning/preservation: GPT-6 Astra; planned executor GPT-6.1 Sol/low; persistent mode эконом.
 
-User authorized preservation of current Library and a detailed plan for transferring useful content into one balanced KB. [Detailed plan](migration-plan.md) defines scope, decisions, per-stage checks/acceptance/drift checks and the execution prompt. It is task-local planning, not active reusable policy. Previous effectiveness cycle remains closed; quality/token benefit not established.
+User authorized execution of the accepted migration plan after preservation of current Library and a detailed plan for transferring useful content into one balanced KB. [Detailed plan](migration-plan.md) defines scope, decisions, per-stage checks/acceptance/drift checks and the execution prompt. It is task-local planning, not active reusable policy. Previous effectiveness cycle remains closed; quality/token benefit not established.
 
 ## Current authorized delivery
 
@@ -12,9 +12,9 @@ User authorized preservation of current Library and a detailed plan for transfer
 - [x] Write detailed bounded plan for Sol 6.1/low; preserve current rules and permissions.
 - [x] Static document gates passed; publication candidate prepared. Exact-SHA review, pushes and main/development equality are recorded in the external publication receipt, without modifying the reviewed commit.
 
-## Implementation checklist — pending user instruction to start
+## Implementation checklist — user authorized execution 2026-10-09
 
-- [ ] U0 Revalidate snapshot, current sources and exact permissions.
+- [x] U0 Revalidate snapshot, current sources and exact permissions; [receipt](u0-u1-report.md).
 - [ ] U1 Complete inventory/copy-delta reconciliation, freeze KB/read-cost baseline, calibrate first 20 files.
 - [ ] U2 First complete thematic transfer, cancellation/publication (or covered disposition).
 - [ ] U3 Review every source file/unit and transfer all accepted useful deltas.
