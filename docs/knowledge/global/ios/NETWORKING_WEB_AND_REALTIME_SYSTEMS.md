@@ -37,6 +37,10 @@ transport alone does not prove delivery of every application event.
   partial completion and the actual request-body replayability contract.
 - Progress is approximate unless the protocol provides a trustworthy total.
 
+For a background transfer, identify the session/delegate and completion-handler owner across
+relaunch, temporary-file handoff and duplicate/absent delivery. Review discretionary power/network
+policy and honest delayed/expired telemetry; scheduling alone does not prove transfer completion.
+
 ## Realtime Protocols
 - Define connection state, authentication refresh, heartbeat, reconnect/backoff, message ordering, duplication, gaps, replay, and resume tokens.
 - Bound inbound buffering and message size.

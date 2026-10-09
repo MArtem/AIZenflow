@@ -36,6 +36,10 @@ For permitted verification, select foreground/background/terminated state, disab
 ## Background Execution
 Select from background URLSession, BGTaskScheduler, audio/location modes, processing assertions, push hints, or foreground completion based on the actual work. The system controls scheduling and may terminate the process. Persist intent/checkpoints before suspension and make handlers idempotent, cancellable, time-bounded, and expiration-aware.
 
+Trace registration/scheduling, expiration, cancellation and duplicate/retry delivery against
+persisted resumable work and its user-visible effect. A scheduling request is not observed
+execution or completion, and does not establish a promised delivery time.
+
 ## Widgets
 Widgets render snapshots/timelines under tight budgets and are not miniature apps. Keep data access bounded, placeholder/snapshot/timeline paths distinct, deep links stable, privacy redaction intentional, and App Group data versioned. Reload requests are hints and should be budgeted.
 
