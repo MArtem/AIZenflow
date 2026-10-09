@@ -53364,27 +53364,1135 @@
       "path": "24_TEMPLATES/01_ADR_TEMPLATE.md",
       "sha256": "ba68c34286d6ee33c2b884a44ef61426ba6d3e07c1fe94695800fb0419243e2d",
       "bytes": 433,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0296-U01",
+          "source_path": "canonical/24_TEMPLATES/01_ADR_TEMPLATE.md",
+          "source_sha256": "ba68c34286d6ee33c2b884a44ef61426ba6d3e07c1fe94695800fb0419243e2d",
+          "source_heading": "Proposed / Accepted / Superseded",
+          "source_fragment": "Proposed / Accepted / Superseded",
+          "meaning": "Explicit proposed/accepted/superseded decision state, actual scoped acceptance authority/evidence and preserved replacement/rationale.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "Explicit proposed/accepted/superseded decision state, actual scoped acceptance authority/evidence and preserved replacement/rationale.",
+          "disposition": "MIGRATED",
+          "reason": "Explicit proposed/accepted/superseded decision state, actual scoped acceptance authority/evidence and preserved replacement/rationale.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Template",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0296-U02",
+          "source_path": "canonical/24_TEMPLATES/01_ADR_TEMPLATE.md",
+          "source_sha256": "ba68c34286d6ee33c2b884a44ef61426ba6d3e07c1fe94695800fb0419243e2d",
+          "source_heading": "Context",
+          "source_fragment": "## Context",
+          "meaning": "Actual problem/constraints/current state.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual problem/constraints/current state.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Template",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0296-U03",
+          "source_path": "canonical/24_TEMPLATES/01_ADR_TEMPLATE.md",
+          "source_sha256": "ba68c34286d6ee33c2b884a44ef61426ba6d3e07c1fe94695800fb0419243e2d",
+          "source_heading": "Decision drivers",
+          "source_fragment": "## Decision drivers",
+          "meaning": "Correctness/complexity/testability/performance/security/privacy/migration/operability forces, relevant contract not forced universal checklist.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Correctness/complexity/testability/performance/security/privacy/migration/operability forces, relevant contract not forced universal checklist.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "- correctness",
+            "- complexity",
+            "- testability",
+            "- performance",
+            "- security/privacy",
+            "- migration/operability"
+          ]
+        },
+        {
+          "unit_id": "LIB-0296-U04",
+          "source_path": "canonical/24_TEMPLATES/01_ADR_TEMPLATE.md",
+          "source_sha256": "ba68c34286d6ee33c2b884a44ef61426ba6d3e07c1fe94695800fb0419243e2d",
+          "source_heading": "Options considered",
+          "source_fragment": "## Options considered",
+          "meaning": "Material actual alternatives, no fixed A/B/C count or invented option.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Material actual alternatives, no fixed A/B/C count or invented option.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Template; Bounded Investigation And Migration",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template",
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0296-U05",
+          "source_path": "canonical/24_TEMPLATES/01_ADR_TEMPLATE.md",
+          "source_sha256": "ba68c34286d6ee33c2b884a44ef61426ba6d3e07c1fe94695800fb0419243e2d",
+          "source_heading": "Decision\n",
+          "source_fragment": "## Decision\n",
+          "meaning": "Actual chosen option and rationale.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual chosen option and rationale.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Template",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0296-U06",
+          "source_path": "canonical/24_TEMPLATES/01_ADR_TEMPLATE.md",
+          "source_sha256": "ba68c34286d6ee33c2b884a44ef61426ba6d3e07c1fe94695800fb0419243e2d",
+          "source_heading": "Consequences",
+          "source_fragment": "## Consequences",
+          "meaning": "Positive and negative/debt consequences.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Positive and negative/debt consequences.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Template",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0296-U07",
+          "source_path": "canonical/24_TEMPLATES/01_ADR_TEMPLATE.md",
+          "source_sha256": "ba68c34286d6ee33c2b884a44ef61426ba6d3e07c1fe94695800fb0419243e2d",
+          "source_heading": "Migration / rollout / rollback",
+          "source_fragment": "## Migration / rollout / rollback",
+          "meaning": "Actual compatibility/seam/retirement/rollout/recovery limits, permission-bounded actions.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual compatibility/seam/retirement/rollout/recovery limits, permission-bounded actions.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Template; Bounded Investigation And Migration",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template",
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0296-U08",
+          "source_path": "canonical/24_TEMPLATES/01_ADR_TEMPLATE.md",
+          "source_sha256": "ba68c34286d6ee33c2b884a44ef61426ba6d3e07c1fe94695800fb0419243e2d",
+          "source_heading": "Verification",
+          "source_fragment": "## Verification",
+          "meaning": "Smallest sufficient permitted evidence, unavailable not PASS.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Smallest sufficient permitted evidence, unavailable not PASS.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "3. Verification Ladder",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0296-U09",
+          "source_path": "canonical/24_TEMPLATES/01_ADR_TEMPLATE.md",
+          "source_sha256": "ba68c34286d6ee33c2b884a44ef61426ba6d3e07c1fe94695800fb0419243e2d",
+          "source_heading": "Revisit when",
+          "source_fragment": "## Revisit when",
+          "meaning": "Review/revisit trigger and actual owner.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Review/revisit trigger and actual owner.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Template",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0296-U10",
+          "source_path": "canonical/24_TEMPLATES/01_ADR_TEMPLATE.md",
+          "source_sha256": "ba68c34286d6ee33c2b884a44ef61426ba6d3e07c1fe94695800fb0419243e2d",
+          "source_heading": "ADR-XXXX: <Decision>",
+          "source_fragment": "# ADR-XXXX: <Decision>",
+          "meaning": "Standalone imported blank template and A/B/C placeholder delivery archived, no mandatory alternative quota or ADR creation.",
+          "type": "historical-routing",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone imported blank template and A/B/C placeholder delivery archived, no mandatory alternative quota or ADR creation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "### A",
+            "### B",
+            "### C"
+          ]
+        }
+      ],
+      "disposition_reason": "Full blank template/fields reviewed against current decision/review/diagnostic contract, no actual ADR/PR/bug evidence or action inferred. Imported standalone formatting archived."
     },
     {
       "source_id": "LIB-0297",
       "path": "24_TEMPLATES/02_PR_DESCRIPTION_TEMPLATE.md",
       "sha256": "8a5adb4e84ba9fdb9f3e1fa9a0e3d473595bf4a57040ef7268ca9fffbb47ddf6",
       "bytes": 319,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0297-U01",
+          "source_path": "canonical/24_TEMPLATES/02_PR_DESCRIPTION_TEMPLATE.md",
+          "source_sha256": "8a5adb4e84ba9fdb9f3e1fa9a0e3d473595bf4a57040ef7268ca9fffbb47ddf6",
+          "source_heading": "Summary",
+          "source_fragment": "# Summary",
+          "meaning": "Change/problem summary.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Change/problem summary.",
+          "destination_path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "destination_heading": "Scope",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+              "headings": [
+                "Scope"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0297-U02",
+          "source_path": "canonical/24_TEMPLATES/02_PR_DESCRIPTION_TEMPLATE.md",
+          "source_sha256": "8a5adb4e84ba9fdb9f3e1fa9a0e3d473595bf4a57040ef7268ca9fffbb47ddf6",
+          "source_heading": "User-visible behavior",
+          "source_fragment": "# User-visible behavior",
+          "meaning": "Actual observed/specified behavior, no invented UX.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual observed/specified behavior, no invented UX.",
+          "destination_path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "destination_heading": "Scope",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+              "headings": [
+                "Scope"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0297-U03",
+          "source_path": "canonical/24_TEMPLATES/02_PR_DESCRIPTION_TEMPLATE.md",
+          "source_sha256": "8a5adb4e84ba9fdb9f3e1fa9a0e3d473595bf4a57040ef7268ca9fffbb47ddf6",
+          "source_heading": "Technical approach",
+          "source_fragment": "# Technical approach",
+          "meaning": "Concrete design/contract rationale.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Concrete design/contract rationale.",
+          "destination_path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "destination_heading": "Scope; Risk Card (complete before implementation)",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+              "headings": [
+                "Scope",
+                "Risk Card (complete before implementation)"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0297-U04",
+          "source_path": "canonical/24_TEMPLATES/02_PR_DESCRIPTION_TEMPLATE.md",
+          "source_sha256": "8a5adb4e84ba9fdb9f3e1fa9a0e3d473595bf4a57040ef7268ca9fffbb47ddf6",
+          "source_heading": "Changed modules/files",
+          "source_fragment": "# Changed modules/files",
+          "meaning": "Affected producer/consumer/files inventory.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Affected producer/consumer/files inventory.",
+          "destination_path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "destination_heading": "Scope; Risk Card (complete before implementation)",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+              "headings": [
+                "Scope",
+                "Risk Card (complete before implementation)"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0297-U05",
+          "source_path": "canonical/24_TEMPLATES/02_PR_DESCRIPTION_TEMPLATE.md",
+          "source_sha256": "8a5adb4e84ba9fdb9f3e1fa9a0e3d473595bf4a57040ef7268ca9fffbb47ddf6",
+          "source_heading": "Tests / verification",
+          "source_fragment": "# Tests / verification",
+          "meaning": "Declare checks separately proposed/permitted/written/executed, absent scope never PASS.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Declare checks separately proposed/permitted/written/executed, absent scope never PASS.",
+          "destination_path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "destination_heading": "Required Checks; Review Receipt",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+              "headings": [
+                "Required Checks",
+                "Review Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0297-U06",
+          "source_path": "canonical/24_TEMPLATES/02_PR_DESCRIPTION_TEMPLATE.md",
+          "source_sha256": "8a5adb4e84ba9fdb9f3e1fa9a0e3d473595bf4a57040ef7268ca9fffbb47ddf6",
+          "source_heading": "Risk areas",
+          "source_fragment": "# Risk areas",
+          "meaning": "Relevant concurrency/memory/security/privacy/performance/migration risks.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Relevant concurrency/memory/security/privacy/performance/migration risks.",
+          "destination_path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "destination_heading": "Risk Card (complete before implementation)",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+              "headings": [
+                "Risk Card (complete before implementation)"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "- Concurrency:",
+            "- Memory:",
+            "- Security/privacy:",
+            "- Performance:",
+            "- Migration/backward compatibility:"
+          ]
+        },
+        {
+          "unit_id": "LIB-0297-U07",
+          "source_path": "canonical/24_TEMPLATES/02_PR_DESCRIPTION_TEMPLATE.md",
+          "source_sha256": "8a5adb4e84ba9fdb9f3e1fa9a0e3d473595bf4a57040ef7268ca9fffbb47ddf6",
+          "source_heading": "Screenshots / metrics",
+          "source_fragment": "# Screenshots / metrics",
+          "meaning": "Only relevant supplied/permitted evidence with actual scope, not mandatory screenshots or unrun metrics.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Only relevant supplied/permitted evidence with actual scope, not mandatory screenshots or unrun metrics.",
+          "destination_path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "destination_heading": "Risk Card (complete before implementation); Review Receipt",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+              "headings": [
+                "Risk Card (complete before implementation)",
+                "Review Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0297-U08",
+          "source_path": "canonical/24_TEMPLATES/02_PR_DESCRIPTION_TEMPLATE.md",
+          "source_sha256": "8a5adb4e84ba9fdb9f3e1fa9a0e3d473595bf4a57040ef7268ca9fffbb47ddf6",
+          "source_heading": "Rollback / feature flag",
+          "source_fragment": "# Rollback / feature flag",
+          "meaning": "Failure/recovery/rollback and actual flag owner/limits.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Failure/recovery/rollback and actual flag owner/limits.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0297-U09",
+          "source_path": "canonical/24_TEMPLATES/02_PR_DESCRIPTION_TEMPLATE.md",
+          "source_sha256": "8a5adb4e84ba9fdb9f3e1fa9a0e3d473595bf4a57040ef7268ca9fffbb47ddf6",
+          "source_heading": "- [ ] UI/manual",
+          "source_fragment": "- [ ] UI/manual",
+          "meaning": "Old standalone template/unchecked run fields are not proof or authority; no PR creation/build/test/UI invocation.",
+          "type": "historical-routing",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Old standalone template/unchecked run fields are not proof or authority; no PR creation/build/test/UI invocation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full blank template/fields reviewed against current decision/review/diagnostic contract, no actual ADR/PR/bug evidence or action inferred. Imported standalone formatting archived."
     },
     {
       "source_id": "LIB-0298",
       "path": "24_TEMPLATES/03_BUG_REPORT_TEMPLATE.md",
       "sha256": "461023480b974bf4dadbc5203d6630430f445349259627fb125810273d0527be",
       "bytes": 191,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0298-U01",
+          "source_path": "canonical/24_TEMPLATES/03_BUG_REPORT_TEMPLATE.md",
+          "source_sha256": "461023480b974bf4dadbc5203d6630430f445349259627fb125810273d0527be",
+          "source_heading": "Expected",
+          "source_fragment": "## Expected",
+          "meaning": "Actual expected behavior from contract, missing requirement unknown.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual expected behavior from contract, missing requirement unknown.",
+          "destination_path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "destination_heading": "Required Artifact; Stop Rule",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0298-U02",
+          "source_path": "canonical/24_TEMPLATES/03_BUG_REPORT_TEMPLATE.md",
+          "source_sha256": "461023480b974bf4dadbc5203d6630430f445349259627fb125810273d0527be",
+          "source_heading": "Actual",
+          "source_fragment": "## Actual",
+          "meaning": "Observed exact symptom, inference distinct.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Observed exact symptom, inference distinct.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Debugging Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0298-U03",
+          "source_path": "canonical/24_TEMPLATES/03_BUG_REPORT_TEMPLATE.md",
+          "source_sha256": "461023480b974bf4dadbc5203d6630430f445349259627fb125810273d0527be",
+          "source_heading": "Reproduction",
+          "source_fragment": "## Reproduction",
+          "meaning": "Actual initial state/inputs/controls/reproduction path, not speculative run.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual initial state/inputs/controls/reproduction path, not speculative run.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Debugging Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Debugging Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0298-U04",
+          "source_path": "canonical/24_TEMPLATES/03_BUG_REPORT_TEMPLATE.md",
+          "source_sha256": "461023480b974bf4dadbc5203d6630430f445349259627fb125810273d0527be",
+          "source_heading": "Frequency",
+          "source_fragment": "## Frequency",
+          "meaning": "Observed frequency/population/window/environment, unknown facts remain unknown.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Observed frequency/population/window/environment, unknown facts remain unknown.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Metric Design; Measure From User Impact",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Metric Design",
+                "Measure From User Impact"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0298-U05",
+          "source_path": "canonical/24_TEMPLATES/03_BUG_REPORT_TEMPLATE.md",
+          "source_sha256": "461023480b974bf4dadbc5203d6630430f445349259627fb125810273d0527be",
+          "source_heading": "Affected versions/devices",
+          "source_fragment": "## Affected versions/devices",
+          "meaning": "Actual affected profile/build/version and current excluded checks.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual affected profile/build/version and current excluded checks.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Crash And Hang Triage; Evidence Completion",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Crash And Hang Triage",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0298-U06",
+          "source_path": "canonical/24_TEMPLATES/03_BUG_REPORT_TEMPLATE.md",
+          "source_sha256": "461023480b974bf4dadbc5203d6630430f445349259627fb125810273d0527be",
+          "source_heading": "Logs/crash IDs",
+          "source_fragment": "## Logs/crash IDs",
+          "meaning": "Privacy-bounded supplied diagnostic identity/symbolication/context.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Privacy-bounded supplied diagnostic identity/symbolication/context.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Crash And Hang Triage; Debugging Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Crash And Hang Triage",
+                "Debugging Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0298-U07",
+          "source_path": "canonical/24_TEMPLATES/03_BUG_REPORT_TEMPLATE.md",
+          "source_sha256": "461023480b974bf4dadbc5203d6630430f445349259627fb125810273d0527be",
+          "source_heading": "Network/account/data prerequisites",
+          "source_fragment": "## Network/account/data prerequisites",
+          "meaning": "Actual network/account/storage prerequisites/control.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual network/account/storage prerequisites/control.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Debugging Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Debugging Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0298-U08",
+          "source_path": "canonical/24_TEMPLATES/03_BUG_REPORT_TEMPLATE.md",
+          "source_sha256": "461023480b974bf4dadbc5203d6630430f445349259627fb125810273d0527be",
+          "source_heading": "Regression range",
+          "source_fragment": "## Regression range",
+          "meaning": "Observed regression range, not assumed known.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Observed regression range, not assumed known.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Crash And Hang Triage",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Crash And Hang Triage"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0298-U09",
+          "source_path": "canonical/24_TEMPLATES/03_BUG_REPORT_TEMPLATE.md",
+          "source_sha256": "461023480b974bf4dadbc5203d6630430f445349259627fb125810273d0527be",
+          "source_heading": "Privacy-safe attachments",
+          "source_fragment": "## Privacy-safe attachments",
+          "meaning": "Bounded authorized artifacts without secret/privacy leakage.",
+          "type": "constraint",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Bounded authorized artifacts without secret/privacy leakage.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Swift Testing And XCTest; Evidence Completion",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Swift Testing And XCTest",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "Sensitive Material Inventory"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0298-U10",
+          "source_path": "canonical/24_TEMPLATES/03_BUG_REPORT_TEMPLATE.md",
+          "source_sha256": "461023480b974bf4dadbc5203d6630430f445349259627fb125810273d0527be",
+          "source_heading": "Bug",
+          "source_fragment": "# Bug",
+          "meaning": "Imported blank bug-report delivery archived, useful fields already owned; no duplicate active template or diagnostic/runtime action.",
+          "type": "historical-routing",
+          "conditions": "Actual scoped human decision/current approved task and truthful evidence. Docs source migration only; no ADR/PR creation, app source/tests/runtime/config/agents/mode action. Proposed is not accepted; template fields never grant authority or prove completed checks. iPad/physical/actualVoiceOver OMITTED_BY_USER, never PASS; historical results preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Imported blank bug-report delivery archived, useful fields already owned; no duplicate active template or diagnostic/runtime action.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-54-decision-pr-bug-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full blank template/fields reviewed against current decision/review/diagnostic contract, no actual ADR/PR/bug evidence or action inferred. Imported standalone formatting archived."
     },
     {
       "source_id": "LIB-0299",

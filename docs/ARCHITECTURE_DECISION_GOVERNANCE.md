@@ -12,6 +12,7 @@ Defines when architectural decisions need an ADR/RFC and how they are reviewed.
 - making irreversible migration/release decisions
 
 ## ADR Template
+- Status: proposed, accepted, or superseded, with decision owner and acceptance evidence.
 - Context
 - Problem
 - Options considered
@@ -21,6 +22,9 @@ Defines when architectural decisions need an ADR/RFC and how they are reviewed.
 - Rollback plan
 - Review/revisit trigger
 - Owner
+
+A proposed ADR does not authorize implementation. An accepted status must reference the actual
+scoped decision; a superseded record identifies its replacement and preserves prior rationale.
 
 ## Bounded Investigation And Migration
 Recommend a spike only for a concrete uncertainty: name the question, stop condition and evidence
