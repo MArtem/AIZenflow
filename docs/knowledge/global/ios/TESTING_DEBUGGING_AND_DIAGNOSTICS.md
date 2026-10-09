@@ -89,7 +89,12 @@ Execution/allocation requires current permission.
 - `xcresult`: structured failures, attachments, diagnostics, coverage, and CI artifacts.
 
 ## Crash And Hang Triage
-Symbolicate with matching binary and dSYM. Identify exception/signal, crashed thread or task, last app frame, lifecycle state, memory pressure, and preceding logs. For hangs, capture multiple samples to distinguish deadlock, actor/queue starvation, synchronous I/O, and expensive main-thread work.
+Symbolicate with matching binary and dSYM. Identify exception/signal, crashed thread or task, last app frame, lifecycle state, memory pressure, and preceding logs. For hangs, capture multiple samples to distinguish deadlock, actor/queue starvation, synchronous I/O, layout, and expensive main-thread work.
+
+Connect crash/hang evidence to the affected versions/profiles, matching build UUID/binary/dSYM
+and relevant frame/thread/task ownership, lifecycle and isolation. Record the regression range
+and controlled reproduction where observed. A single top frame, aggregate count or visibly frozen
+screen is not a supported root cause; compare falsifiable hypotheses before a speculative fix.
 
 ## Evidence Completion
 - Record proposed, permitted, written, executed, failed and deferred checks separately. Denied,

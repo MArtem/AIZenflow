@@ -39207,63 +39207,864 @@
       "path": "18_OBSERVABILITY_DEBUGGING/IOS-18-01_LOGGING.md",
       "sha256": "8583bfb36249a791a7dbb89d1eb802e011e2fac2762ddcf069c4baefff1509dd",
       "bytes": 5014,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0215-U01",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-01_LOGGING.md",
+          "source_sha256": "8583bfb36249a791a7dbb89d1eb802e011e2fac2762ddcf069c4baefff1509dd",
+          "source_heading": "Назначение",
+          "source_fragment": "Subsystem/category, levels, privacy, stable event names, correlation и no sensitive payload.",
+          "meaning": "Subsystem/category, levels, privacy, stable event names, correlation и no sensitive payload. Common evidence/correlation/privacy/reproducibility/SLO/verification gates, current scope respected.",
+          "type": "constraint",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current diagnostic/metric/privacy/ownership rules cover focus; no observed root cause/production quality proof.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Observability; Metric Design",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/INCIDENT_RESPONSE_STANDARD.md",
+              "headings": [
+                "Incident Workflow",
+                "Postmortem Template"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0215-U02",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-01_LOGGING.md",
+          "source_sha256": "8583bfb36249a791a7dbb89d1eb802e011e2fac2762ddcf069c4baefff1509dd",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0215-U03",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-01_LOGGING.md",
+          "source_sha256": "8583bfb36249a791a7dbb89d1eb802e011e2fac2762ddcf069c4baefff1509dd",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized observability body/focus and changed gates reviewed; linked OP independent/unreviewed. No private systems/logs/dashboard/network/analytics/runtime/tool/incident operational action."
     },
     {
       "source_id": "LIB-0216",
       "path": "18_OBSERVABILITY_DEBUGGING/IOS-18-02_METRICKIT.md",
       "sha256": "30fb9cdbb5572899e4bd88aa6f974e6c820a035ca6d821a78b05f617e1075257",
       "bytes": 5029,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0216-U01",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-02_METRICKIT.md",
+          "source_sha256": "30fb9cdbb5572899e4bd88aa6f974e6c820a035ca6d821a78b05f617e1075257",
+          "source_heading": "Назначение",
+          "source_fragment": "Production performance/crash signals, custom metrics/signposts, aggregation и privacy-aware telemetry.",
+          "meaning": "Production performance/crash signals, custom metrics/signposts, aggregation и privacy-aware telemetry. Common evidence/correlation/privacy/reproducibility/SLO/verification gates, current scope respected.",
+          "type": "constraint",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "Actual metric populations/aggregation/window/missing-event assumptions with privacy and instrumentation cost, no measured production result.",
+          "disposition": "MIGRATED",
+          "reason": "Actual metric populations/aggregation/window/missing-event assumptions with privacy and instrumentation cost, no measured production result.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Observability; Metric Design",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/INCIDENT_RESPONSE_STANDARD.md",
+              "headings": [
+                "Incident Workflow",
+                "Postmortem Template"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0216-U02",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-02_METRICKIT.md",
+          "source_sha256": "30fb9cdbb5572899e4bd88aa6f974e6c820a035ca6d821a78b05f617e1075257",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0216-U03",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-02_METRICKIT.md",
+          "source_sha256": "30fb9cdbb5572899e4bd88aa6f974e6c820a035ca6d821a78b05f617e1075257",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized observability body/focus and changed gates reviewed; linked OP independent/unreviewed. No private systems/logs/dashboard/network/analytics/runtime/tool/incident operational action."
     },
     {
       "source_id": "LIB-0217",
       "path": "18_OBSERVABILITY_DEBUGGING/IOS-18-03_CRASH_TRIAGE.md",
       "sha256": "bd1af51a678b3ea4c606de24e989424a297623efd0d0834df3332e63daf1abaf",
       "bytes": 5059,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0217-U01",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-03_CRASH_TRIAGE.md",
+          "source_sha256": "bd1af51a678b3ea4c606de24e989424a297623efd0d0834df3332e63daf1abaf",
+          "source_heading": "Назначение",
+          "source_fragment": "Symbolication, affected versions/devices, stack ownership, reproduction, regression range и fix verification.",
+          "meaning": "Symbolication, affected versions/devices, stack ownership, reproduction, regression range и fix verification. Common evidence/correlation/privacy/reproducibility/SLO/verification gates, current scope respected.",
+          "type": "constraint",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "Affected versions/profiles/matching build UUID and ownership, observed regression/reproduction versus top-frame hypotheses.",
+          "disposition": "MIGRATED",
+          "reason": "Affected versions/profiles/matching build UUID and ownership, observed regression/reproduction versus top-frame hypotheses.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Crash And Hang Triage; Debugging Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Crash And Hang Triage",
+                "Debugging Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0217-U02",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-03_CRASH_TRIAGE.md",
+          "source_sha256": "bd1af51a678b3ea4c606de24e989424a297623efd0d0834df3332e63daf1abaf",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0217-U03",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-03_CRASH_TRIAGE.md",
+          "source_sha256": "bd1af51a678b3ea4c606de24e989424a297623efd0d0834df3332e63daf1abaf",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized observability body/focus and changed gates reviewed; linked OP independent/unreviewed. No private systems/logs/dashboard/network/analytics/runtime/tool/incident operational action."
     },
     {
       "source_id": "LIB-0218",
       "path": "18_OBSERVABILITY_DEBUGGING/IOS-18-04_HANG_TRIAGE.md",
       "sha256": "e962b7d09031ec9cea57b0c7b9cec79bb2394990e36388626313e53d83aed843",
       "bytes": 4990,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0218-U01",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-04_HANG_TRIAGE.md",
+          "source_sha256": "e962b7d09031ec9cea57b0c7b9cec79bb2394990e36388626313e53d83aed843",
+          "source_heading": "Назначение",
+          "source_fragment": "Thread stacks, main actor sync work, locks, I/O, layout и signpost evidence.",
+          "meaning": "Thread stacks, main actor sync work, locks, I/O, layout и signpost evidence. Common evidence/correlation/privacy/reproducibility/SLO/verification gates, current scope respected.",
+          "type": "constraint",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "Layout/thread/main-actor/lock/I-O evidence and hypothesis separation; visibly frozen UI not root cause.",
+          "disposition": "MIGRATED",
+          "reason": "Layout/thread/main-actor/lock/I-O evidence and hypothesis separation; visibly frozen UI not root cause.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Crash And Hang Triage; Debugging Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Crash And Hang Triage",
+                "Debugging Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0218-U02",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-04_HANG_TRIAGE.md",
+          "source_sha256": "e962b7d09031ec9cea57b0c7b9cec79bb2394990e36388626313e53d83aed843",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0218-U03",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-04_HANG_TRIAGE.md",
+          "source_sha256": "e962b7d09031ec9cea57b0c7b9cec79bb2394990e36388626313e53d83aed843",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized observability body/focus and changed gates reviewed; linked OP independent/unreviewed. No private systems/logs/dashboard/network/analytics/runtime/tool/incident operational action."
     },
     {
       "source_id": "LIB-0219",
       "path": "18_OBSERVABILITY_DEBUGGING/IOS-18-05_BUG_REPRO.md",
       "sha256": "0cd1463e2ca4bf3d996f7ccbd41fad6c1d45ef435bde020bcecfab9633efdd97",
       "bytes": 5026,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0219-U01",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-05_BUG_REPRO.md",
+          "source_sha256": "0cd1463e2ca4bf3d996f7ccbd41fad6c1d45ef435bde020bcecfab9633efdd97",
+          "source_heading": "Назначение",
+          "source_fragment": "Reduce nondeterminism, capture environment/state, seed/clock/network fixtures и minimal repro.",
+          "meaning": "Reduce nondeterminism, capture environment/state, seed/clock/network fixtures и minimal repro. Common evidence/correlation/privacy/reproducibility/SLO/verification gates, current scope respected.",
+          "type": "constraint",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current diagnostic/metric/privacy/ownership rules cover focus; no observed root cause/production quality proof.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Debugging Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Debugging Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0219-U02",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-05_BUG_REPRO.md",
+          "source_sha256": "0cd1463e2ca4bf3d996f7ccbd41fad6c1d45ef435bde020bcecfab9633efdd97",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0219-U03",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-05_BUG_REPRO.md",
+          "source_sha256": "0cd1463e2ca4bf3d996f7ccbd41fad6c1d45ef435bde020bcecfab9633efdd97",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized observability body/focus and changed gates reviewed; linked OP independent/unreviewed. No private systems/logs/dashboard/network/analytics/runtime/tool/incident operational action."
     },
     {
       "source_id": "LIB-0220",
       "path": "18_OBSERVABILITY_DEBUGGING/IOS-18-06_RACE_DEBUG.md",
       "sha256": "0412f6c1cdeb5132e3dde75e4c8e02dd14c30b01e62242c1665066e3b9903dbf",
       "bytes": 4981,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0220-U01",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-06_RACE_DEBUG.md",
+          "source_sha256": "0412f6c1cdeb5132e3dde75e4c8e02dd14c30b01e62242c1665066e3b9903dbf",
+          "source_heading": "Назначение",
+          "source_fragment": "TSAN/strict concurrency/compiler diagnostics/log sequencing и isolation redesign.",
+          "meaning": "TSAN/strict concurrency/compiler diagnostics/log sequencing и isolation redesign. Common evidence/correlation/privacy/reproducibility/SLO/verification gates, current scope respected.",
+          "type": "constraint",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current diagnostic/metric/privacy/ownership rules cover focus; no observed root cause/production quality proof.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Tools; Determinism; Debugging Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Tools",
+                "Determinism",
+                "Debugging Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Ordering And Stale Results",
+                "Swift 6.x Discipline",
+                "Testing And Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0220-U02",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-06_RACE_DEBUG.md",
+          "source_sha256": "0412f6c1cdeb5132e3dde75e4c8e02dd14c30b01e62242c1665066e3b9903dbf",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0220-U03",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-06_RACE_DEBUG.md",
+          "source_sha256": "0412f6c1cdeb5132e3dde75e4c8e02dd14c30b01e62242c1665066e3b9903dbf",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized observability body/focus and changed gates reviewed; linked OP independent/unreviewed. No private systems/logs/dashboard/network/analytics/runtime/tool/incident operational action."
     },
     {
       "source_id": "LIB-0221",
       "path": "18_OBSERVABILITY_DEBUGGING/IOS-18-07_NETWORK_DEBUG.md",
       "sha256": "3f06c8343335320c3ac647d229498be9dd25edd4a28dc65faa614d563ff62f64",
       "bytes": 5041,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0221-U01",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-07_NETWORK_DEBUG.md",
+          "source_sha256": "3f06c8343335320c3ac647d229498be9dd25edd4a28dc65faa614d563ff62f64",
+          "source_heading": "Назначение",
+          "source_fragment": "Request IDs, HTTP status/timing, auth refresh, retries, CDN/cache, decoding и privacy-safe capture.",
+          "meaning": "Request IDs, HTTP status/timing, auth refresh, retries, CDN/cache, decoding и privacy-safe capture. Common evidence/correlation/privacy/reproducibility/SLO/verification gates, current scope respected.",
+          "type": "constraint",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current diagnostic/metric/privacy/ownership rules cover focus; no observed root cause/production quality proof.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Debugging Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Request Contract",
+                "Reliability",
+                "Caching"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0221-U02",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-07_NETWORK_DEBUG.md",
+          "source_sha256": "3f06c8343335320c3ac647d229498be9dd25edd4a28dc65faa614d563ff62f64",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0221-U03",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-07_NETWORK_DEBUG.md",
+          "source_sha256": "3f06c8343335320c3ac647d229498be9dd25edd4a28dc65faa614d563ff62f64",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized observability body/focus and changed gates reviewed; linked OP independent/unreviewed. No private systems/logs/dashboard/network/analytics/runtime/tool/incident operational action."
     },
     {
       "source_id": "LIB-0222",
@@ -39279,18 +40080,245 @@
       "path": "18_OBSERVABILITY_DEBUGGING/IOS-18-09_PRODUCTION_METRICS.md",
       "sha256": "5050a858ca4b88d0b6d30c695f1463689b3bbbf504ce30291fc4c9e80791d603",
       "bytes": 5041,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0223-U01",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-09_PRODUCTION_METRICS.md",
+          "source_sha256": "5050a858ca4b88d0b6d30c695f1463689b3bbbf504ce30291fc4c9e80791d603",
+          "source_heading": "Назначение",
+          "source_fragment": "Success/failure/latency/cancellation funnels, SLOs, dimensions without PII и alert thresholds.",
+          "meaning": "Success/failure/latency/cancellation funnels, SLOs, dimensions without PII и alert thresholds. Common evidence/correlation/privacy/reproducibility/SLO/verification gates, current scope respected.",
+          "type": "constraint",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "Success/failure/cancel/latency populations, denominators/windows/missing events and actionable user-impact alert owner/containment.",
+          "disposition": "MIGRATED",
+          "reason": "Success/failure/cancel/latency populations, denominators/windows/missing events and actionable user-impact alert owner/containment.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Metric Design; Runtime Operations",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Metric Design",
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/INCIDENT_RESPONSE_STANDARD.md",
+              "headings": [
+                "Incident Workflow",
+                "Postmortem Template"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0223-U02",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-09_PRODUCTION_METRICS.md",
+          "source_sha256": "5050a858ca4b88d0b6d30c695f1463689b3bbbf504ce30291fc4c9e80791d603",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0223-U03",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-09_PRODUCTION_METRICS.md",
+          "source_sha256": "5050a858ca4b88d0b6d30c695f1463689b3bbbf504ce30291fc4c9e80791d603",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized observability body/focus and changed gates reviewed; linked OP independent/unreviewed. No private systems/logs/dashboard/network/analytics/runtime/tool/incident operational action."
     },
     {
       "source_id": "LIB-0224",
       "path": "18_OBSERVABILITY_DEBUGGING/IOS-18-10_DEBUG_REVIEW.md",
       "sha256": "0c396f0ac48f07616067deda2bc67ee6a62167a13e4324c2c88502c1e5e6ae07",
       "bytes": 5128,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0224-U01",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-10_DEBUG_REVIEW.md",
+          "source_sha256": "0c396f0ac48f07616067deda2bc67ee6a62167a13e4324c2c88502c1e5e6ae07",
+          "source_heading": "Назначение",
+          "source_fragment": "Достаточны ли logs/metrics/ids/state transitions для расследования без reproducing everything.",
+          "meaning": "Достаточны ли logs/metrics/ids/state transitions для расследования без reproducing everything. Common evidence/correlation/privacy/reproducibility/SLO/verification gates, current scope respected.",
+          "type": "constraint",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current diagnostic/metric/privacy/ownership rules cover focus; no observed root cause/production quality proof.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Debugging Workflow; Evidence Completion",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0224-U02",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-10_DEBUG_REVIEW.md",
+          "source_sha256": "0c396f0ac48f07616067deda2bc67ee6a62167a13e4324c2c88502c1e5e6ae07",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0224-U03",
+          "source_path": "canonical/18_OBSERVABILITY_DEBUGGING/IOS-18-10_DEBUG_REVIEW.md",
+          "source_sha256": "0c396f0ac48f07616067deda2bc67ee6a62167a13e4324c2c88502c1e5e6ae07",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual approved diagnostic/user-impact question and data/privacy contract. Docs only, no private systems/logs/dashboard/network/telemetry/flags/config/source/tests/tool/runtime/containment/transition action. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-41-diagnostic-metric-contracts.md",
+          "affected_routes": [
+            "ios-incident-ops",
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized observability body/focus and changed gates reviewed; linked OP independent/unreviewed. No private systems/logs/dashboard/network/analytics/runtime/tool/incident operational action."
     },
     {
       "source_id": "LIB-0225",

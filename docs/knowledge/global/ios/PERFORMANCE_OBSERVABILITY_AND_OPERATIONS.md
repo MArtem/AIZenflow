@@ -72,6 +72,11 @@ alone does not prove consent-gated collection; inspect the actual data flow and 
 - Pair success metrics with guardrails such as errors, latency, crashes, energy, or opt-out.
 - Client telemetry can be delayed, sampled, disabled, duplicated, or offline; do not use it as authoritative transaction state.
 
+Separate success, failure, cancellation and latency populations with explicit denominator,
+aggregation/window and missing-event assumptions. Review sampling/cardinality and instrumentation
+behavioral cost; a renamed event or shifted window is not an observed improvement. Connect
+alert thresholds to an actionable user-impact question, owner and permitted containment.
+
 ## Runtime Operations
 - Feature flags need owner, default, targeting, expiry, dependency, offline behavior, and kill-switch semantics.
 - Staged rollout needs abort thresholds and rollback instructions.
