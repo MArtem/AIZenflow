@@ -48614,63 +48614,1178 @@
       "path": "22_CHECKLISTS/09_PERFORMANCE_GATE.md",
       "sha256": "e1d2e3041cf02d2ebd2d9f36139c6c7ed9ec61ff40615db8e7eec583826c2379",
       "bytes": 355,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0262-U01",
+          "source_path": "canonical/22_CHECKLISTS/09_PERFORMANCE_GATE.md",
+          "source_sha256": "e1d2e3041cf02d2ebd2d9f36139c6c7ed9ec61ff40615db8e7eec583826c2379",
+          "source_heading": "09_PERFORMANCE_GATE.md",
+          "source_fragment": "Performance concern tied to metric/SLO.",
+          "meaning": "Performance concern tied to metric/SLO. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Metric Design",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0262-U02",
+          "source_path": "canonical/22_CHECKLISTS/09_PERFORMANCE_GATE.md",
+          "source_sha256": "e1d2e3041cf02d2ebd2d9f36139c6c7ed9ec61ff40615db8e7eec583826c2379",
+          "source_heading": "09_PERFORMANCE_GATE.md",
+          "source_fragment": "Baseline measured before optimization when practical.",
+          "meaning": "Baseline measured before optimization when practical. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Optimization Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0262-U03",
+          "source_path": "canonical/22_CHECKLISTS/09_PERFORMANCE_GATE.md",
+          "source_sha256": "e1d2e3041cf02d2ebd2d9f36139c6c7ed9ec61ff40615db8e7eec583826c2379",
+          "source_heading": "09_PERFORMANCE_GATE.md",
+          "source_fragment": "Main-thread sync I/O/heavy compute avoided.",
+          "meaning": "Main-thread sync I/O/heavy compute avoided. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0262-U04",
+          "source_path": "canonical/22_CHECKLISTS/09_PERFORMANCE_GATE.md",
+          "source_sha256": "e1d2e3041cf02d2ebd2d9f36139c6c7ed9ec61ff40615db8e7eec583826c2379",
+          "source_heading": "09_PERFORMANCE_GATE.md",
+          "source_fragment": "Caches bounded.",
+          "meaning": "Caches bounded. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Preferences And Derived Caches",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Preferences And Derived Caches"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0262-U05",
+          "source_path": "canonical/22_CHECKLISTS/09_PERFORMANCE_GATE.md",
+          "source_sha256": "e1d2e3041cf02d2ebd2d9f36139c6c7ed9ec61ff40615db8e7eec583826c2379",
+          "source_heading": "09_PERFORMANCE_GATE.md",
+          "source_fragment": "Scrolling/launch/memory impact checked for relevant change.",
+          "meaning": "Scrolling/launch/memory impact checked for relevant change. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0262-U06",
+          "source_path": "canonical/22_CHECKLISTS/09_PERFORMANCE_GATE.md",
+          "source_sha256": "e1d2e3041cf02d2ebd2d9f36139c6c7ed9ec61ff40615db8e7eec583826c2379",
+          "source_heading": "09_PERFORMANCE_GATE.md",
+          "source_fragment": "Signpost/metric added for critical path if useful.",
+          "meaning": "Signpost/metric added for critical path if useful. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Observability",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0262-U07",
+          "source_path": "canonical/22_CHECKLISTS/09_PERFORMANCE_GATE.md",
+          "source_sha256": "e1d2e3041cf02d2ebd2d9f36139c6c7ed9ec61ff40615db8e7eec583826c2379",
+          "source_heading": "09_PERFORMANCE_GATE.md",
+          "source_fragment": "Regression guard documented.",
+          "meaning": "Regression guard documented. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Optimization Workflow; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full checklist body/lines reviewed; current performance/dependency owners cover criteria, no measurement/adoption/approval or execution inferred."
     },
     {
       "source_id": "LIB-0263",
       "path": "22_CHECKLISTS/10_DEPENDENCY_GATE.md",
       "sha256": "719863ad830d50ded560b369e30404ef21411c085a42938669fc480a99388438",
       "bytes": 371,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0263-U01",
+          "source_path": "canonical/22_CHECKLISTS/10_DEPENDENCY_GATE.md",
+          "source_sha256": "719863ad830d50ded560b369e30404ef21411c085a42938669fc480a99388438",
+          "source_heading": "10_DEPENDENCY_GATE.md",
+          "source_fragment": "System SDK / small local implementation considered first.",
+          "meaning": "System SDK / small local implementation considered first. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "destination_heading": "Forbidden By Default",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0263-U02",
+          "source_path": "canonical/22_CHECKLISTS/10_DEPENDENCY_GATE.md",
+          "source_sha256": "719863ad830d50ded560b369e30404ef21411c085a42938669fc480a99388438",
+          "source_heading": "10_DEPENDENCY_GATE.md",
+          "source_fragment": "Maintenance activity and ownership acceptable.",
+          "meaning": "Maintenance activity and ownership acceptable. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "destination_heading": "Approval Criteria",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0263-U03",
+          "source_path": "canonical/22_CHECKLISTS/10_DEPENDENCY_GATE.md",
+          "source_sha256": "719863ad830d50ded560b369e30404ef21411c085a42938669fc480a99388438",
+          "source_heading": "10_DEPENDENCY_GATE.md",
+          "source_fragment": "License compatible.",
+          "meaning": "License compatible. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "destination_heading": "Approval Criteria",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0263-U04",
+          "source_path": "canonical/22_CHECKLISTS/10_DEPENDENCY_GATE.md",
+          "source_sha256": "719863ad830d50ded560b369e30404ef21411c085a42938669fc480a99388438",
+          "source_heading": "10_DEPENDENCY_GATE.md",
+          "source_fragment": "Swift 6/concurrency/platform support acceptable.",
+          "meaning": "Swift 6/concurrency/platform support acceptable. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Modules And Linking; SDK Consumer Boundary",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Modules And Linking",
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0263-U05",
+          "source_path": "canonical/22_CHECKLISTS/10_DEPENDENCY_GATE.md",
+          "source_sha256": "719863ad830d50ded560b369e30404ef21411c085a42938669fc480a99388438",
+          "source_heading": "10_DEPENDENCY_GATE.md",
+          "source_fragment": "Privacy manifest/data collection understood.",
+          "meaning": "Privacy manifest/data collection understood. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "SDK And Supply-Chain Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "SDK And Supply-Chain Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0263-U06",
+          "source_path": "canonical/22_CHECKLISTS/10_DEPENDENCY_GATE.md",
+          "source_sha256": "719863ad830d50ded560b369e30404ef21411c085a42938669fc480a99388438",
+          "source_heading": "10_DEPENDENCY_GATE.md",
+          "source_fragment": "Binary/build-time/transitive-dependency cost acceptable.",
+          "meaning": "Binary/build-time/transitive-dependency cost acceptable. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Build Performance; Supply Chain",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Build Performance",
+                "Supply Chain"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0263-U07",
+          "source_path": "canonical/22_CHECKLISTS/10_DEPENDENCY_GATE.md",
+          "source_sha256": "719863ad830d50ded560b369e30404ef21411c085a42938669fc480a99388438",
+          "source_heading": "10_DEPENDENCY_GATE.md",
+          "source_fragment": "Removal/migration cost understood.",
+          "meaning": "Removal/migration cost understood. Conditional evidence question, no actual metric/dependency audit PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "destination_heading": "Removal Policy; Approval Criteria",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Removal Policy",
+                "Approval Criteria"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full checklist body/lines reviewed; current performance/dependency owners cover criteria, no measurement/adoption/approval or execution inferred."
     },
     {
       "source_id": "LIB-0264",
       "path": "23_PROMPT_PACKS/01_NEW_FEATURE_FROM_TICKET.md",
       "sha256": "1f466f5890852030d02f8e81bf52a8f41a98749fc6403900d91bd502eafe644a",
       "bytes": 1577,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0264-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/01_NEW_FEATURE_FROM_TICKET.md",
+          "source_sha256": "1f466f5890852030d02f8e81bf52a8f41a98749fc6403900d91bd502eafe644a",
+          "source_heading": "Назначение",
+          "source_fragment": "Преврати ticket в implementation plan, найди затронутые модули, перечисли неизвестные факты, затем реализуй минимально рискованно и добавь тесты.",
+          "meaning": "Преврати ticket в implementation plan, найди затронутые модули, перечисли неизвестные факты, затем реализуй минимально рискованно и добавь тесты. Existing actual-contract/lifetime/hypothesis/evidence criteria, permission bounded.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0264-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/01_NEW_FEATURE_FROM_TICKET.md",
+          "source_sha256": "1f466f5890852030d02f8e81bf52a8f41a98749fc6403900d91bd502eafe644a",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0264-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/01_NEW_FEATURE_FROM_TICKET.md",
+          "source_sha256": "1f466f5890852030d02f8e81bf52a8f41a98749fc6403900d91bd502eafe644a",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Current approved doc boundary and actual reviewed code/contracts only; no guessed behavior, app source/comments/tests/runtime/agents/transitions or reusable permission expansion.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt body/focus and exact normalized common method reviewed. Useful criteria already covered, old copy-paste/master/role/imperative binding archived; no prompt execution."
     },
     {
       "source_id": "LIB-0265",
       "path": "23_PROMPT_PACKS/02_IMPLEMENT_SCREEN.md",
       "sha256": "297232bbdb900f0ccba67cdd090617d40831038853af21f4dc3d1b034295a0c1",
       "bytes": 1354,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0265-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/02_IMPLEMENT_SCREEN.md",
+          "source_sha256": "297232bbdb900f0ccba67cdd090617d40831038853af21f4dc3d1b034295a0c1",
+          "source_heading": "Назначение",
+          "source_fragment": "Сначала определи state model и navigation, затем UI, async states, accessibility/localization, previews и tests.",
+          "meaning": "Сначала определи state model и navigation, затем UI, async states, accessibility/localization, previews и tests. Existing actual-contract/lifetime/hypothesis/evidence criteria, permission bounded.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "State Placement; Navigation And Presentation; Accessible And Localized Interaction Review; Invalidation And Preview Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "State Placement",
+                "Navigation And Presentation",
+                "Accessible And Localized Interaction Review",
+                "Invalidation And Preview Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0265-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/02_IMPLEMENT_SCREEN.md",
+          "source_sha256": "297232bbdb900f0ccba67cdd090617d40831038853af21f4dc3d1b034295a0c1",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0265-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/02_IMPLEMENT_SCREEN.md",
+          "source_sha256": "297232bbdb900f0ccba67cdd090617d40831038853af21f4dc3d1b034295a0c1",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Current approved doc boundary and actual reviewed code/contracts only; no guessed behavior, app source/comments/tests/runtime/agents/transitions or reusable permission expansion.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt body/focus and exact normalized common method reviewed. Useful criteria already covered, old copy-paste/master/role/imperative binding archived; no prompt execution."
     },
     {
       "source_id": "LIB-0266",
       "path": "23_PROMPT_PACKS/03_FIX_CRASH.md",
       "sha256": "2c1481825a6d31e1a477ebc9078906f137ba719a1f3bf871485cbb1911ebeba6",
       "bytes": 1331,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0266-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/03_FIX_CRASH.md",
+          "source_sha256": "2c1481825a6d31e1a477ebc9078906f137ba719a1f3bf871485cbb1911ebeba6",
+          "source_heading": "Назначение",
+          "source_fragment": "Сначала объясни crash path и invariant violation, затем minimal fix + regression test + adjacent risk scan.",
+          "meaning": "Сначала объясни crash path и invariant violation, затем minimal fix + regression test + adjacent risk scan. Existing actual-contract/lifetime/hypothesis/evidence criteria, permission bounded.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Crash And Hang Triage; Debugging Workflow; Evidence Completion",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Crash And Hang Triage",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0266-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/03_FIX_CRASH.md",
+          "source_sha256": "2c1481825a6d31e1a477ebc9078906f137ba719a1f3bf871485cbb1911ebeba6",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0266-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/03_FIX_CRASH.md",
+          "source_sha256": "2c1481825a6d31e1a477ebc9078906f137ba719a1f3bf871485cbb1911ebeba6",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Current approved doc boundary and actual reviewed code/contracts only; no guessed behavior, app source/comments/tests/runtime/agents/transitions or reusable permission expansion.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt body/focus and exact normalized common method reviewed. Useful criteria already covered, old copy-paste/master/role/imperative binding archived; no prompt execution."
     },
     {
       "source_id": "LIB-0267",
       "path": "23_PROMPT_PACKS/04_FIX_MEMORY_LEAK.md",
       "sha256": "7e6dbf515128c80ef37f623ddade4ce24cd5efa517a9e0987934df7b302cbb74",
       "bytes": 1385,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0267-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/04_FIX_MEMORY_LEAK.md",
+          "source_sha256": "7e6dbf515128c80ef37f623ddade4ce24cd5efa517a9e0987934df7b302cbb74",
+          "source_heading": "Назначение",
+          "source_fragment": "Найди retain path и lifetime mismatch; не добавляй weak вслепую; докажи, что объект деаллоцируется.",
+          "meaning": "Найди retain path и lifetime mismatch; не добавляй weak вслепую; докажи, что объект деаллоцируется. Existing actual-contract/lifetime/hypothesis/evidence criteria, permission bounded.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains; Optimization Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0267-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/04_FIX_MEMORY_LEAK.md",
+          "source_sha256": "7e6dbf515128c80ef37f623ddade4ce24cd5efa517a9e0987934df7b302cbb74",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0267-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/04_FIX_MEMORY_LEAK.md",
+          "source_sha256": "7e6dbf515128c80ef37f623ddade4ce24cd5efa517a9e0987934df7b302cbb74",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Current approved doc boundary and actual reviewed code/contracts only; no guessed behavior, app source/comments/tests/runtime/agents/transitions or reusable permission expansion.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt body/focus and exact normalized common method reviewed. Useful criteria already covered, old copy-paste/master/role/imperative binding archived; no prompt execution."
     },
     {
       "source_id": "LIB-0268",
       "path": "23_PROMPT_PACKS/05_FIX_RACE.md",
       "sha256": "47cc14f54641cf7add59387ef90775bef36c8eee13f900ae2dfb54e84f3e043b",
       "bytes": 1342,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0268-U01",
+          "source_path": "canonical/23_PROMPT_PACKS/05_FIX_RACE.md",
+          "source_sha256": "47cc14f54641cf7add59387ef90775bef36c8eee13f900ae2dfb54e84f3e043b",
+          "source_heading": "Назначение",
+          "source_fragment": "Определи shared mutable state и isolation bug; исправь модель владения, а не diagnostic suppression.",
+          "meaning": "Определи shared mutable state и isolation bug; исправь модель владения, а не diagnostic suppression. Existing actual-contract/lifetime/hypothesis/evidence criteria, permission bounded.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Isolation Design; Swift 6.x Discipline; Testing And Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Swift 6.x Discipline",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0268-U02",
+          "source_path": "canonical/23_PROMPT_PACKS/05_FIX_RACE.md",
+          "source_sha256": "47cc14f54641cf7add59387ef90775bef36c8eee13f900ae2dfb54e84f3e043b",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "Сначала исследуй существующий код и сформулируй инварианты.",
+          "meaning": "Full common prompt method: actual source invariants, bounded logical changes, relevant quality axes, no guessed SDK API or unrun PASS; honest report of files/rationale/evidence/risk/unchecked facts.",
+          "type": "constraint",
+          "conditions": "Actual approved task/consumer/behavior contract; current permission/evidence scope overrides frozen checklist/prompt imperative. Docs migration only; no app source/tests/build/runtime/agents/dependencies/PR/rollout/modes. Excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Не выдумывай SDK API и не заявляй о пройденных проверках, если не запускал их.",
+            "Финал: changed files; rationale; tests/build/lint; risk matrix; unchecked items."
+          ]
+        },
+        {
+          "unit_id": "LIB-0268-U03",
+          "source_path": "canonical/23_PROMPT_PACKS/05_FIX_RACE.md",
+          "source_sha256": "47cc14f54641cf7add59387ef90775bef36c8eee13f900ae2dfb54e84f3e043b",
+          "source_heading": "Copy-paste prompt",
+          "source_fragment": "## Copy-paste prompt",
+          "meaning": "Old copy-paste role/master/context/imperative delivery archived, no Library second pass or implementation/test/runtime action authority.",
+          "type": "historical-routing",
+          "conditions": "Current approved doc boundary and actual reviewed code/contracts only; no guessed behavior, app source/comments/tests/runtime/agents/transitions or reusable permission expansion.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current selected router/user/task scope controls; frozen prompt must not authorize its own imperative or missing project context.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-50-checklist-completion-first-prompts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full short prompt body/focus and exact normalized common method reviewed. Useful criteria already covered, old copy-paste/master/role/imperative binding archived; no prompt execution."
     },
     {
       "source_id": "LIB-0269",
