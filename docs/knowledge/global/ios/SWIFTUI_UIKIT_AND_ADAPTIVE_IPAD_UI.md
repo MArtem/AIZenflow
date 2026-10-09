@@ -70,6 +70,20 @@ Do not implement iPad as a scaled-up phone screen when the workflow benefits fro
 - Respect UIKit containment and appearance transitions.
 - When embedding SwiftUI in UIKit, define hosting-controller lifetime and environment updates explicitly.
 
+## UIKit Lifecycle And Reuse Review
+Separate one-time setup, binding/loading, repeated appearance and teardown. Review balanced child
+add/remove and appearance forwarding, safe areas and ownership; view hierarchy alone is not the
+containment contract. Trace constraint ambiguity/conflicts, self-sizing and layout invalidation
+for repeated side effects or feedback loops. For reused cells, keep stable item identity and diff
+application consistent with cancellation and stale-result publication guards.
+
+Inspect delegates, closures, timers, observations, display links and child-controller/cell captures
+as an ownership graph. Verify actual MainActor ownership/crossings for UI mutation; a main-thread
+check is not actor-isolation proof. Custom transitions need completion/cancellation ownership,
+rotation and Reduce Motion. Diffable sources, compositional layouts and cell registration are
+supported-project options, not required replacements. Approved UIKit/SwiftUI migration defines
+hosting/shared-model seams and rollback before widening adoption.
+
 ## Text, Input, And Focus
 - Use semantic text content types, submit behavior, validation timing, and secure-entry rules.
 - Preserve marked text and composition for international keyboards.
@@ -99,6 +113,7 @@ validation timing and formatting to keyboard, submit, secure entry and accessibl
 - Instruments or SwiftUI diagnostics for rendering/performance claims.
 
 ## Primary Sources
+- [Apple: Custom container view controllers](https://developer.apple.com/documentation/uikit/creating-a-custom-container-view-controller)
 - [Apple: Demystify SwiftUI — identity, lifetime and dependencies](https://developer.apple.com/videos/play/wwdc2021/10022/)
 - [Apple: Managing user interface state](https://developer.apple.com/documentation/swiftui/managing-user-interface-state)
 - [Apple app design and UI overview](https://developer.apple.com/documentation/technologyoverviews/app-design-and-ui)
