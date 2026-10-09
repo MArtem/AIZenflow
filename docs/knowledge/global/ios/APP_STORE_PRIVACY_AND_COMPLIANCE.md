@@ -11,6 +11,18 @@ Inventory app and extension bundle IDs, versions/builds, supported devices, enti
 
 Archive success is necessary but not sufficient. Validate the exported/distributed artifact, embedded frameworks, dSYMs, symbols, privacy files, signing, provisioning, and production service configuration.
 
+## Release Candidate Trace
+Define the product version/build-number policy and candidate source/artifact identity, release
+branch scope and migration compatibility; library SemVer is not an automatic product-version rule.
+Record certificate/profile ownership, signing strategy and expiry/renewal handling as declared
+metadata. Reviewing that metadata does not authorize reading keys, credential rotation, signing,
+archive/upload or machine changes.
+
+User-facing release notes and internal risk/migration/experiment/support notes describe the actual
+candidate delta; neither an assumed branch list nor a green check on another configuration proves
+this candidate. Keep TestFlight groups/staged validation, feedback/crash metrics and containment
+scoped to the approved delivery plan, with no automatic shipping.
+
 ## Privacy Manifest And Required-Reason APIs
 - Every app and relevant SDK manifest must be valid and included in the correct bundle.
 - Declared collected-data categories must match actual app/SDK behavior and App Store privacy answers.

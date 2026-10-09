@@ -64,6 +64,12 @@ Quarantine only with owner, issue, reason, and expiry. Capture seed, environment
 Label a plausible flaky-test cause as a hypothesis until observed. Recommend bounded repeat runs
 or another discriminating check only when the evidence is worth its cost and execution is authorized.
 
+For parallel/sharded verification, account for every selected shard and terminal result against
+the exact target/configuration and allocated runtime. Isolate shared state and preserve diagnostic
+retry/failure history when merging results. A missing shard is not a complete passing run;
+record each retry result with its own scope instead of rewriting the original failure.
+Execution/allocation requires current permission.
+
 ## Debugging Workflow
 1. Preserve exact symptom, environment, build, input, and timeline.
 2. Reduce to the first incorrect state or earliest meaningful error.

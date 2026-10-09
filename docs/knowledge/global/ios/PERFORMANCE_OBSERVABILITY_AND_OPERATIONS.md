@@ -79,6 +79,12 @@ alone does not prove consent-gated collection; inspect the actual data flow and 
 - SLOs should represent user journeys and include actionable error budgets.
 - Crash-free percentage alone can hide hangs, data loss, and broken workflows.
 
+For hotfix review, connect the observed shipped symptom to the smallest authorized correction
+and targeted regression question. Review the complete candidate delta against the affected
+shipped version, including dependency/configuration/migration differences; commit selection or
+cherry-pick shape alone does not prove safety. Record containment limits, recovery and postmortem
+follow-up. Urgency grants no code/Git/test/shipping authority.
+
 ## Evidence
 - Before/after traces and budget comparison.
 - Representative low/mid device and realistic data where possible.

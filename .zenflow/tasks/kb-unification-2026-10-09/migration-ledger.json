@@ -36901,90 +36901,1494 @@
       "path": "17_CI_CD_RELEASE/IOS-17-01_CI_PIPELINE.md",
       "sha256": "6a7396360ff9a67b1e6471d62c201412ff86988a773e5176e7660cfcab22c5b2",
       "bytes": 5054,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0204-U01",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-01_CI_PIPELINE.md",
+          "source_sha256": "6a7396360ff9a67b1e6471d62c201412ff86988a773e5176e7660cfcab22c5b2",
+          "source_heading": "Назначение",
+          "source_fragment": "Быстрые gates, build matrix, tests, lint, artifacts, caching, reproducibility и secrets isolation.",
+          "meaning": "Быстрые gates, build matrix, tests, lint, artifacts, caching, reproducibility и secrets isolation. Full reproducibility/secrets/flakiness/rollback/migration/release-monitoring gates with current permission hierarchy.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owners plus canonical manual CI/release/flags rules cover this focus; no verified release/check execution inferred.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Reproducibility And CI; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Required Execution Order",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Manual Quality Modes",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0204-U02",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-01_CI_PIPELINE.md",
+          "source_sha256": "6a7396360ff9a67b1e6471d62c201412ff86988a773e5176e7660cfcab22c5b2",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0204-U03",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-01_CI_PIPELINE.md",
+          "source_sha256": "6a7396360ff9a67b1e6471d62c201412ff86988a773e5176e7660cfcab22c5b2",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized release body/focus and changed gate list reviewed. Current manual-only/zero-cost/current permissions govern; no release/CI/build/signing/runtime authority, linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0205",
       "path": "17_CI_CD_RELEASE/IOS-17-02_TEST_PARALLELISM.md",
       "sha256": "a15291bb26c58e502fe3199d091fda1dc163d5fee756e18e04c064774796b5d7",
       "bytes": 5066,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0205-U01",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-02_TEST_PARALLELISM.md",
+          "source_sha256": "a15291bb26c58e502fe3199d091fda1dc163d5fee756e18e04c064774796b5d7",
+          "source_heading": "Назначение",
+          "source_fragment": "Sharding, simulator allocation, shared-state isolation, retries only as diagnostics и result merging.",
+          "meaning": "Sharding, simulator allocation, shared-state isolation, retries only as diagnostics и result merging. Full reproducibility/secrets/flakiness/rollback/migration/release-monitoring gates with current permission hierarchy.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "Complete shard/terminal-result accounting, runtime allocation/shared-state isolation and preserved diagnostic retries/failure history.",
+          "disposition": "MIGRATED",
+          "reason": "Complete shard/terminal-result accounting, runtime allocation/shared-state isolation and preserved diagnostic retries/failure history.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Flaky Tests; Evidence Completion",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Flaky Tests",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Required Execution Order",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Manual Quality Modes",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0205-U02",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-02_TEST_PARALLELISM.md",
+          "source_sha256": "a15291bb26c58e502fe3199d091fda1dc163d5fee756e18e04c064774796b5d7",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0205-U03",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-02_TEST_PARALLELISM.md",
+          "source_sha256": "a15291bb26c58e502fe3199d091fda1dc163d5fee756e18e04c064774796b5d7",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized release body/focus and changed gate list reviewed. Current manual-only/zero-cost/current permissions govern; no release/CI/build/signing/runtime authority, linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0206",
       "path": "17_CI_CD_RELEASE/IOS-17-03_CODE_SIGNING.md",
       "sha256": "f5d93055bda873c045841b0e71d6894bf7ef9b23f2d1bc7ecd8681216be03919",
       "bytes": 4973,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0206-U01",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-03_CODE_SIGNING.md",
+          "source_sha256": "f5d93055bda873c045841b0e71d6894bf7ef9b23f2d1bc7ecd8681216be03919",
+          "source_heading": "Назначение",
+          "source_fragment": "Certificates/profiles/automatic signing strategy, CI key security и rotation.",
+          "meaning": "Certificates/profiles/automatic signing strategy, CI key security и rotation. Full reproducibility/secrets/flakiness/rollback/migration/release-monitoring gates with current permission hierarchy.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "Declared signing strategy/certificate/profile owner and expiry/renewal handling; review metadata not key/rotation/signing authority.",
+          "disposition": "MIGRATED",
+          "reason": "Declared signing strategy/certificate/profile owner and expiry/renewal handling; review metadata not key/rotation/signing authority.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Submission Contract; Release Candidate Trace",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Submission Contract",
+                "Release Candidate Trace"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Required Execution Order",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Manual Quality Modes",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0206-U02",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-03_CODE_SIGNING.md",
+          "source_sha256": "f5d93055bda873c045841b0e71d6894bf7ef9b23f2d1bc7ecd8681216be03919",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0206-U03",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-03_CODE_SIGNING.md",
+          "source_sha256": "f5d93055bda873c045841b0e71d6894bf7ef9b23f2d1bc7ecd8681216be03919",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized release body/focus and changed gate list reviewed. Current manual-only/zero-cost/current permissions govern; no release/CI/build/signing/runtime authority, linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0207",
       "path": "17_CI_CD_RELEASE/IOS-17-04_VERSIONING.md",
       "sha256": "aa44f0731d0b8e7a8432dee75b91e6f21f83a6cc806577b36998a4a3decf1794",
       "bytes": 5045,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0207-U01",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-04_VERSIONING.md",
+          "source_sha256": "aa44f0731d0b8e7a8432dee75b91e6f21f83a6cc806577b36998a4a3decf1794",
+          "source_heading": "Назначение",
+          "source_fragment": "SemVer/product version policy, build numbers, release branches и migration compatibility.",
+          "meaning": "SemVer/product version policy, build numbers, release branches и migration compatibility. Full reproducibility/secrets/flakiness/rollback/migration/release-monitoring gates with current permission hierarchy.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "Actual product/build-number/candidate/source/artifact/release-branch policy and migration compatibility, no automatic library SemVer assumption.",
+          "disposition": "MIGRATED",
+          "reason": "Actual product/build-number/candidate/source/artifact/release-branch policy and migration compatibility, no automatic library SemVer assumption.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Release Candidate Trace",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Release Candidate Trace"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Required Execution Order",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Manual Quality Modes",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0207-U02",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-04_VERSIONING.md",
+          "source_sha256": "aa44f0731d0b8e7a8432dee75b91e6f21f83a6cc806577b36998a4a3decf1794",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0207-U03",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-04_VERSIONING.md",
+          "source_sha256": "aa44f0731d0b8e7a8432dee75b91e6f21f83a6cc806577b36998a4a3decf1794",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized release body/focus and changed gate list reviewed. Current manual-only/zero-cost/current permissions govern; no release/CI/build/signing/runtime authority, linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0208",
       "path": "17_CI_CD_RELEASE/IOS-17-05_TESTFLIGHT.md",
       "sha256": "af77c399ba31d4e5cb193a84e461aa3aaa97d0fd87cc8802be3cd3c52561bc4a",
       "bytes": 4988,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0208-U01",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-05_TESTFLIGHT.md",
+          "source_sha256": "af77c399ba31d4e5cb193a84e461aa3aaa97d0fd87cc8802be3cd3c52561bc4a",
+          "source_heading": "Назначение",
+          "source_fragment": "Groups, staged validation, feedback/crash metrics, feature flags и rollback.",
+          "meaning": "Groups, staged validation, feedback/crash metrics, feature flags и rollback. Full reproducibility/secrets/flakiness/rollback/migration/release-monitoring gates with current permission hierarchy.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owners plus canonical manual CI/release/flags rules cover this focus; no verified release/check execution inferred.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Release Candidate Trace; Release Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Release Candidate Trace",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Required Execution Order",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Manual Quality Modes",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0208-U02",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-05_TESTFLIGHT.md",
+          "source_sha256": "af77c399ba31d4e5cb193a84e461aa3aaa97d0fd87cc8802be3cd3c52561bc4a",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0208-U03",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-05_TESTFLIGHT.md",
+          "source_sha256": "af77c399ba31d4e5cb193a84e461aa3aaa97d0fd87cc8802be3cd3c52561bc4a",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized release body/focus and changed gate list reviewed. Current manual-only/zero-cost/current permissions govern; no release/CI/build/signing/runtime authority, linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0209",
       "path": "17_CI_CD_RELEASE/IOS-17-06_APPSTORE_RELEASE.md",
       "sha256": "0c6b9972e95220d348e7bc3a500790eeabf57dd7006408f76c0c7ac34dcb5871",
       "bytes": 5015,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0209-U01",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-06_APPSTORE_RELEASE.md",
+          "source_sha256": "0c6b9972e95220d348e7bc3a500790eeabf57dd7006408f76c0c7ac34dcb5871",
+          "source_heading": "Назначение",
+          "source_fragment": "Metadata/privacy/export/compliance, phased release, monitoring и rollback/kill switch.",
+          "meaning": "Metadata/privacy/export/compliance, phased release, monitoring и rollback/kill switch. Full reproducibility/secrets/flakiness/rollback/migration/release-monitoring gates with current permission hierarchy.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owners plus canonical manual CI/release/flags rules cover this focus; no verified release/check execution inferred.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Submission Contract; Release Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Submission Contract",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Required Execution Order",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Manual Quality Modes",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0209-U02",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-06_APPSTORE_RELEASE.md",
+          "source_sha256": "0c6b9972e95220d348e7bc3a500790eeabf57dd7006408f76c0c7ac34dcb5871",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0209-U03",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-06_APPSTORE_RELEASE.md",
+          "source_sha256": "0c6b9972e95220d348e7bc3a500790eeabf57dd7006408f76c0c7ac34dcb5871",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized release body/focus and changed gate list reviewed. Current manual-only/zero-cost/current permissions govern; no release/CI/build/signing/runtime authority, linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0210",
       "path": "17_CI_CD_RELEASE/IOS-17-07_RELEASE_NOTES.md",
       "sha256": "e1a9dbec8077b65816e0ffd3610dbaea2d611305499d296da992ae256c8a16aa",
       "bytes": 5009,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0210-U01",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-07_RELEASE_NOTES.md",
+          "source_sha256": "e1a9dbec8077b65816e0ffd3610dbaea2d611305499d296da992ae256c8a16aa",
+          "source_heading": "Назначение",
+          "source_fragment": "User-facing vs internal change log, risk areas, migrations, experiments и support notes.",
+          "meaning": "User-facing vs internal change log, risk areas, migrations, experiments и support notes. Full reproducibility/secrets/flakiness/rollback/migration/release-monitoring gates with current permission hierarchy.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "User-facing versus internal risk/migration/experiment/support notes tied to actual candidate delta.",
+          "disposition": "MIGRATED",
+          "reason": "User-facing versus internal risk/migration/experiment/support notes tied to actual candidate delta.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Release Candidate Trace",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Release Candidate Trace"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Required Execution Order",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Manual Quality Modes",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0210-U02",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-07_RELEASE_NOTES.md",
+          "source_sha256": "e1a9dbec8077b65816e0ffd3610dbaea2d611305499d296da992ae256c8a16aa",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0210-U03",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-07_RELEASE_NOTES.md",
+          "source_sha256": "e1a9dbec8077b65816e0ffd3610dbaea2d611305499d296da992ae256c8a16aa",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized release body/focus and changed gate list reviewed. Current manual-only/zero-cost/current permissions govern; no release/CI/build/signing/runtime authority, linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0211",
       "path": "17_CI_CD_RELEASE/IOS-17-08_HOTFIX.md",
       "sha256": "fcf36d3f225f846019de6f106df2fa70885e2199c249fd31e9c4b5574547828a",
       "bytes": 5024,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0211-U01",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-08_HOTFIX.md",
+          "source_sha256": "fcf36d3f225f846019de6f106df2fa70885e2199c249fd31e9c4b5574547828a",
+          "source_heading": "Назначение",
+          "source_fragment": "Minimal diff, cherry-pick safety, expedited validation, kill switch и postmortem follow-up.",
+          "meaning": "Minimal diff, cherry-pick safety, expedited validation, kill switch и postmortem follow-up. Full reproducibility/secrets/flakiness/rollback/migration/release-monitoring gates with current permission hierarchy.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "Shipped symptom, exact shipped-base/complete release delta and minimal permitted hotfix/regression/containment/recovery/postmortem contract; cherry-pick shape/urgency not safety or authority.",
+          "disposition": "MIGRATED",
+          "reason": "Shipped symptom, exact shipped-base/complete release delta and minimal permitted hotfix/regression/containment/recovery/postmortem contract; cherry-pick shape/urgency not safety or authority.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Runtime Operations",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Required Execution Order",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Manual Quality Modes",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/INCIDENT_RESPONSE_STANDARD.md",
+              "headings": [
+                "Incident Workflow",
+                "Postmortem Template"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0211-U02",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-08_HOTFIX.md",
+          "source_sha256": "fcf36d3f225f846019de6f106df2fa70885e2199c249fd31e9c4b5574547828a",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0211-U03",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-08_HOTFIX.md",
+          "source_sha256": "fcf36d3f225f846019de6f106df2fa70885e2199c249fd31e9c4b5574547828a",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized release body/focus and changed gate list reviewed. Current manual-only/zero-cost/current permissions govern; no release/CI/build/signing/runtime authority, linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0212",
       "path": "17_CI_CD_RELEASE/IOS-17-09_RELEASE_CHECKLIST.md",
       "sha256": "d4f26d02ca60f6e4c716af0dba9f282d508d4cb2c9c8588420cf59e62cf4bba5",
       "bytes": 5075,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0212-U01",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-09_RELEASE_CHECKLIST.md",
+          "source_sha256": "d4f26d02ca60f6e4c716af0dba9f282d508d4cb2c9c8588420cf59e62cf4bba5",
+          "source_heading": "Назначение",
+          "source_fragment": "Tests, migrations, privacy, permissions, analytics, crash/perf, accessibility, localization и store compliance.",
+          "meaning": "Tests, migrations, privacy, permissions, analytics, crash/perf, accessibility, localization и store compliance. Full reproducibility/secrets/flakiness/rollback/migration/release-monitoring gates with current permission hierarchy.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owners plus canonical manual CI/release/flags rules cover this focus; no verified release/check execution inferred.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Release Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Required Execution Order",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Manual Quality Modes",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0212-U02",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-09_RELEASE_CHECKLIST.md",
+          "source_sha256": "d4f26d02ca60f6e4c716af0dba9f282d508d4cb2c9c8588420cf59e62cf4bba5",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0212-U03",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-09_RELEASE_CHECKLIST.md",
+          "source_sha256": "d4f26d02ca60f6e4c716af0dba9f282d508d4cb2c9c8588420cf59e62cf4bba5",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized release body/focus and changed gate list reviewed. Current manual-only/zero-cost/current permissions govern; no release/CI/build/signing/runtime authority, linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0213",
       "path": "17_CI_CD_RELEASE/IOS-17-10_CI_REVIEW.md",
       "sha256": "55ed4123abd8e29d1b06feeec6288590256ddd82b0ab32ac2ebd450d7ba2a04f",
       "bytes": 5060,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0213-U01",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-10_CI_REVIEW.md",
+          "source_sha256": "55ed4123abd8e29d1b06feeec6288590256ddd82b0ab32ac2ebd450d7ba2a04f",
+          "source_heading": "Назначение",
+          "source_fragment": "Flakiness, missing gates, secret exposure, caching correctness, environment drift и release observability.",
+          "meaning": "Flakiness, missing gates, secret exposure, caching correctness, environment drift и release observability. Full reproducibility/secrets/flakiness/rollback/migration/release-monitoring gates with current permission hierarchy.",
+          "type": "constraint",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owners plus canonical manual CI/release/flags rules cover this focus; no verified release/check execution inferred.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Reproducibility And CI; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Required Execution Order",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority",
+                "Manual GitHub Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Manual Quality Modes",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0213-U02",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-10_CI_REVIEW.md",
+          "source_sha256": "55ed4123abd8e29d1b06feeec6288590256ddd82b0ab32ac2ebd450d7ba2a04f",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0213-U03",
+          "source_path": "canonical/17_CI_CD_RELEASE/IOS-17-10_CI_REVIEW.md",
+          "source_sha256": "55ed4123abd8e29d1b06feeec6288590256ddd82b0ab32ac2ebd450d7ba2a04f",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Exact approved candidate/profile/consumer and current manual-only/user authority. Docs only; no CI/workflow/tests/Simulator/keys/secrets/signing/archive/upload/rollout/config/source/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-39-release-template-contracts.md",
+          "affected_routes": [
+            "ios-release-engineering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized release body/focus and changed gate list reviewed. Current manual-only/zero-cost/current permissions govern; no release/CI/build/signing/runtime authority, linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0214",
