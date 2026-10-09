@@ -6,6 +6,11 @@ Use for performance budgets, Instruments, launch, hangs, scrolling, memory, ener
 ## Measure From User Impact
 Define the user-visible operation, environment, data size, percentile, device class, OS/build, and budget. Averages hide tail latency. Debug builds and a single Simulator are diagnostic inputs, not production performance evidence.
 
+Select a diagnostic from the symptom and available toolchain: Time Profiler for sampled CPU work,
+Allocations for allocation behavior, ownership/Memory Graph or Leaks evidence for a lifetime
+hypothesis, and network or SwiftUI/animation traces for the corresponding path. A tool name or
+source pattern is not evidence of the actual bottleneck. These are permission-bounded proposals.
+
 ## Performance Domains
 - Launch: pre-main work, static initialization, dependency setup, restoration, first frame, first usable content.
 - Responsiveness: main-thread blocking, actor/queue contention, synchronous I/O, hangs, animation hitches.
@@ -14,6 +19,12 @@ Define the user-visible operation, environment, data size, percentile, device cl
 - Memory: peak, steady state, retained graphs, caches, decoded media, mapped files, jetsam risk.
 - Storage/network: I/O volume, transaction size, downloads, retries, radio wakeups.
 - Energy/thermal: timers, location, sensors, background execution, GPU and network activity.
+
+Distinguish transient allocation peaks, resident growth and retained-object ownership. Inspect
+large buffers, cache bounds and autorelease behavior where relevant; none alone proves a leak.
+Connect database fetch limits, predicates/indexes, fault loading, batch work and N+1 patterns, or
+network payload/compression/cache/connection/serialization work, to the observed latency and
+resource envelope. A smaller payload or different fetch shape does not itself prove improvement.
 
 ## Optimization Workflow
 1. Reproduce a representative path.

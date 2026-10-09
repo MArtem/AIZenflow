@@ -21665,36 +21665,488 @@
       "path": "11_PERFORMANCE_MEMORY/IOS-11-01_INSTRUMENTS_PLAN.md",
       "sha256": "f80899b3b9ea80054c6701efede388d0e4d53556896faf39362d40ebfeeed4df",
       "bytes": 5197,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0131-U01",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-01_INSTRUMENTS_PLAN.md",
+          "source_sha256": "f80899b3b9ea80054c6701efede388d0e4d53556896faf39362d40ebfeeed4df",
+          "source_heading": "Назначение",
+          "source_fragment": "Выбрать Time Profiler, Allocations, Leaks, Memory Graph, Network, SwiftUI/Animation instruments по симптому.",
+          "meaning": "Выбрать Time Profiler, Allocations, Leaks, Memory Graph, Network, SwiftUI/Animation instruments по симптому. Full common invariant/risk/minimal-diff/permission-bounded workflow.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "Выбрать Time Profiler, Allocations, Leaks, Memory Graph, Network, SwiftUI/Animation instruments по симптому.",
+          "disposition": "MIGRATED",
+          "reason": "Symptom-specific diagnostic selection, memory distinctions and database/network cost connected to observed user impact; existing domains/observability and media bounds cover remainder.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains; Optimization Workflow; Observability; Evidence",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains",
+                "Optimization Workflow",
+                "Observability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0131-U02",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-01_INSTRUMENTS_PLAN.md",
+          "source_sha256": "f80899b3b9ea80054c6701efede388d0e4d53556896faf39362d40ebfeeed4df",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0131-U03",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-01_INSTRUMENTS_PLAN.md",
+          "source_sha256": "f80899b3b9ea80054c6701efede388d0e4d53556896faf39362d40ebfeeed4df",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full common template/body/focus exactly reviewed; no appended depth. Linked OP independent; no measurement/performance win claimed."
     },
     {
       "source_id": "LIB-0132",
       "path": "11_PERFORMANCE_MEMORY/IOS-11-02_LAUNCH_TIME.md",
       "sha256": "6a6f2b6d96cffa24cba7a03ec3eb3fa6a5f75f18cdecec2b92ec5c48d49c066b",
       "bytes": 5083,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0132-U01",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-02_LAUNCH_TIME.md",
+          "source_sha256": "6a6f2b6d96cffa24cba7a03ec3eb3fa6a5f75f18cdecec2b92ec5c48d49c066b",
+          "source_heading": "Назначение",
+          "source_fragment": "Измерить pre-main/post-main, synchronous initialization, dependency setup, I/O и first-frame work.",
+          "meaning": "Измерить pre-main/post-main, synchronous initialization, dependency setup, I/O и first-frame work. Full common invariant/risk/minimal-diff/permission-bounded workflow.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Symptom-specific diagnostic selection, memory distinctions and database/network cost connected to observed user impact; existing domains/observability and media bounds cover remainder.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains; Optimization Workflow; Observability; Evidence",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains",
+                "Optimization Workflow",
+                "Observability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0132-U02",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-02_LAUNCH_TIME.md",
+          "source_sha256": "6a6f2b6d96cffa24cba7a03ec3eb3fa6a5f75f18cdecec2b92ec5c48d49c066b",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0132-U03",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-02_LAUNCH_TIME.md",
+          "source_sha256": "6a6f2b6d96cffa24cba7a03ec3eb3fa6a5f75f18cdecec2b92ec5c48d49c066b",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full common template/body/focus exactly reviewed; no appended depth. Linked OP independent; no measurement/performance win claimed."
     },
     {
       "source_id": "LIB-0133",
       "path": "11_PERFORMANCE_MEMORY/IOS-11-03_SCROLLING.md",
       "sha256": "bf007d7d80e2ca7718999640796ae4cd2c67f01db1502a24dc617767b27350b7",
       "bytes": 5056,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0133-U01",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-03_SCROLLING.md",
+          "source_sha256": "bf007d7d80e2ca7718999640796ae4cd2c67f01db1502a24dc617767b27350b7",
+          "source_heading": "Назначение",
+          "source_fragment": "Найти main-thread stalls, layout churn, image decode, diff size и over-invalidation.",
+          "meaning": "Найти main-thread stalls, layout churn, image decode, diff size и over-invalidation. Full common invariant/risk/minimal-diff/permission-bounded workflow.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Symptom-specific diagnostic selection, memory distinctions and database/network cost connected to observed user impact; existing domains/observability and media bounds cover remainder.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains; Optimization Workflow; Observability; Evidence",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains",
+                "Optimization Workflow",
+                "Observability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0133-U02",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-03_SCROLLING.md",
+          "source_sha256": "bf007d7d80e2ca7718999640796ae4cd2c67f01db1502a24dc617767b27350b7",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0133-U03",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-03_SCROLLING.md",
+          "source_sha256": "bf007d7d80e2ca7718999640796ae4cd2c67f01db1502a24dc617767b27350b7",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full common template/body/focus exactly reviewed; no appended depth. Linked OP independent; no measurement/performance win claimed."
     },
     {
       "source_id": "LIB-0134",
       "path": "11_PERFORMANCE_MEMORY/IOS-11-04_IMAGE_PIPELINE.md",
       "sha256": "210ba958b6ba11fd69dba6b29ed046939799ea6c84e586bda26426eec73acee6",
       "bytes": 5083,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0134-U01",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-04_IMAGE_PIPELINE.md",
+          "source_sha256": "210ba958b6ba11fd69dba6b29ed046939799ea6c84e586bda26426eec73acee6",
+          "source_heading": "Назначение",
+          "source_fragment": "Downsampling, decoding off-main, cache budgets, request deduplication, cancellation и memory pressure.",
+          "meaning": "Downsampling, decoding off-main, cache budgets, request deduplication, cancellation и memory pressure. Full common invariant/risk/minimal-diff/permission-bounded workflow.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Symptom-specific diagnostic selection, memory distinctions and database/network cost connected to observed user impact; existing domains/observability and media bounds cover remainder.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains; Optimization Workflow; Observability; Evidence",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains",
+                "Optimization Workflow",
+                "Observability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist",
+                "Required Verification"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0134-U02",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-04_IMAGE_PIPELINE.md",
+          "source_sha256": "210ba958b6ba11fd69dba6b29ed046939799ea6c84e586bda26426eec73acee6",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0134-U03",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-04_IMAGE_PIPELINE.md",
+          "source_sha256": "210ba958b6ba11fd69dba6b29ed046939799ea6c84e586bda26426eec73acee6",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full common template/body/focus exactly reviewed; no appended depth. Linked OP independent; no measurement/performance win claimed."
     },
     {
       "source_id": "LIB-0135",
@@ -21710,45 +22162,600 @@
       "path": "11_PERFORMANCE_MEMORY/IOS-11-06_MEMORY_FOOTPRINT.md",
       "sha256": "5b39704b2e2ead4a93d9aaf564f19764a1582f995a12ed69f445197163cc34b6",
       "bytes": 5098,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0136-U01",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-06_MEMORY_FOOTPRINT.md",
+          "source_sha256": "5b39704b2e2ead4a93d9aaf564f19764a1582f995a12ed69f445197163cc34b6",
+          "source_heading": "Назначение",
+          "source_fragment": "Измерить allocations, resident growth, caches, large buffers, autorelease patterns и jetsam risk.",
+          "meaning": "Измерить allocations, resident growth, caches, large buffers, autorelease patterns и jetsam risk. Full common invariant/risk/minimal-diff/permission-bounded workflow.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "Измерить allocations, resident growth, caches, large buffers, autorelease patterns и jetsam risk.",
+          "disposition": "MIGRATED",
+          "reason": "Symptom-specific diagnostic selection, memory distinctions and database/network cost connected to observed user impact; existing domains/observability and media bounds cover remainder.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains; Optimization Workflow; Observability; Evidence",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains",
+                "Optimization Workflow",
+                "Observability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0136-U02",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-06_MEMORY_FOOTPRINT.md",
+          "source_sha256": "5b39704b2e2ead4a93d9aaf564f19764a1582f995a12ed69f445197163cc34b6",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0136-U03",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-06_MEMORY_FOOTPRINT.md",
+          "source_sha256": "5b39704b2e2ead4a93d9aaf564f19764a1582f995a12ed69f445197163cc34b6",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full common template/body/focus exactly reviewed; no appended depth. Linked OP independent; no measurement/performance win claimed."
     },
     {
       "source_id": "LIB-0137",
       "path": "11_PERFORMANCE_MEMORY/IOS-11-07_CPU_ENERGY.md",
       "sha256": "335025c9b50c79ca0d6e4522edcf6c90567e7eb8cd82a8a2972449523bc7839b",
       "bytes": 5035,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0137-U01",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-07_CPU_ENERGY.md",
+          "source_sha256": "335025c9b50c79ca0d6e4522edcf6c90567e7eb8cd82a8a2972449523bc7839b",
+          "source_heading": "Назначение",
+          "source_fragment": "Устранить busy loops, polling, excessive timers, background work и radio wakeups.",
+          "meaning": "Устранить busy loops, polling, excessive timers, background work и radio wakeups. Full common invariant/risk/minimal-diff/permission-bounded workflow.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Symptom-specific diagnostic selection, memory distinctions and database/network cost connected to observed user impact; existing domains/observability and media bounds cover remainder.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains; Optimization Workflow; Observability; Evidence",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains",
+                "Optimization Workflow",
+                "Observability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0137-U02",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-07_CPU_ENERGY.md",
+          "source_sha256": "335025c9b50c79ca0d6e4522edcf6c90567e7eb8cd82a8a2972449523bc7839b",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0137-U03",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-07_CPU_ENERGY.md",
+          "source_sha256": "335025c9b50c79ca0d6e4522edcf6c90567e7eb8cd82a8a2972449523bc7839b",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full common template/body/focus exactly reviewed; no appended depth. Linked OP independent; no measurement/performance win claimed."
     },
     {
       "source_id": "LIB-0138",
       "path": "11_PERFORMANCE_MEMORY/IOS-11-08_DATABASE_PERF.md",
       "sha256": "654224a9da933fee0dbefdd489b6ebe28091c28b3e381a61fd84fd3cdb4ff74f",
       "bytes": 5053,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0138-U01",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-08_DATABASE_PERF.md",
+          "source_sha256": "654224a9da933fee0dbefdd489b6ebe28091c28b3e381a61fd84fd3cdb4ff74f",
+          "source_heading": "Назначение",
+          "source_fragment": "Fetch limits, predicates/indexes, faults, batch operations, N+1 и main-thread fetches.",
+          "meaning": "Fetch limits, predicates/indexes, faults, batch operations, N+1 и main-thread fetches. Full common invariant/risk/minimal-diff/permission-bounded workflow.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "Fetch limits, predicates/indexes, faults, batch operations, N+1 и main-thread fetches.",
+          "disposition": "MIGRATED",
+          "reason": "Symptom-specific diagnostic selection, memory distinctions and database/network cost connected to observed user impact; existing domains/observability and media bounds cover remainder.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains; Optimization Workflow; Observability; Evidence",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains",
+                "Optimization Workflow",
+                "Observability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0138-U02",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-08_DATABASE_PERF.md",
+          "source_sha256": "654224a9da933fee0dbefdd489b6ebe28091c28b3e381a61fd84fd3cdb4ff74f",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0138-U03",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-08_DATABASE_PERF.md",
+          "source_sha256": "654224a9da933fee0dbefdd489b6ebe28091c28b3e381a61fd84fd3cdb4ff74f",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full common template/body/focus exactly reviewed; no appended depth. Linked OP independent; no measurement/performance win claimed."
     },
     {
       "source_id": "LIB-0139",
       "path": "11_PERFORMANCE_MEMORY/IOS-11-09_NETWORK_PERF.md",
       "sha256": "c66743d463d07f56a3bf8b97696e6158aedfcf861ddee094e61710e1b21dc0b1",
       "bytes": 5056,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0139-U01",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-09_NETWORK_PERF.md",
+          "source_sha256": "c66743d463d07f56a3bf8b97696e6158aedfcf861ddee094e61710e1b21dc0b1",
+          "source_heading": "Назначение",
+          "source_fragment": "Payload size, compression, caching, connection reuse, serialization и perceived latency.",
+          "meaning": "Payload size, compression, caching, connection reuse, serialization и perceived latency. Full common invariant/risk/minimal-diff/permission-bounded workflow.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "Payload size, compression, caching, connection reuse, serialization и perceived latency.",
+          "disposition": "MIGRATED",
+          "reason": "Symptom-specific diagnostic selection, memory distinctions and database/network cost connected to observed user impact; existing domains/observability and media bounds cover remainder.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains; Optimization Workflow; Observability; Evidence",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains",
+                "Optimization Workflow",
+                "Observability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0139-U02",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-09_NETWORK_PERF.md",
+          "source_sha256": "c66743d463d07f56a3bf8b97696e6158aedfcf861ddee094e61710e1b21dc0b1",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0139-U03",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-09_NETWORK_PERF.md",
+          "source_sha256": "c66743d463d07f56a3bf8b97696e6158aedfcf861ddee094e61710e1b21dc0b1",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full common template/body/focus exactly reviewed; no appended depth. Linked OP independent; no measurement/performance win claimed."
     },
     {
       "source_id": "LIB-0140",
       "path": "11_PERFORMANCE_MEMORY/IOS-11-10_SIGNPOSTS.md",
       "sha256": "84c6c2615137f43d345dec50e06213c2b3fd79bc8f8fc80e7a381f9bf38c4376",
       "bytes": 5068,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0140-U01",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-10_SIGNPOSTS.md",
+          "source_sha256": "84c6c2615137f43d345dec50e06213c2b3fd79bc8f8fc80e7a381f9bf38c4376",
+          "source_heading": "Назначение",
+          "source_fragment": "Расставить meaningful intervals/events и privacy-safe metadata для Instruments/MetricKit.",
+          "meaning": "Расставить meaningful intervals/events и privacy-safe metadata для Instruments/MetricKit. Full common invariant/risk/minimal-diff/permission-bounded workflow.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Symptom-specific diagnostic selection, memory distinctions and database/network cost connected to observed user impact; existing domains/observability and media bounds cover remainder.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains; Optimization Workflow; Observability; Evidence",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains",
+                "Optimization Workflow",
+                "Observability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0140-U02",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-10_SIGNPOSTS.md",
+          "source_sha256": "84c6c2615137f43d345dec50e06213c2b3fd79bc8f8fc80e7a381f9bf38c4376",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0140-U03",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/IOS-11-10_SIGNPOSTS.md",
+          "source_sha256": "84c6c2615137f43d345dec50e06213c2b3fd79bc8f8fc80e7a381f9bf38c4376",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-23-performance-investigation.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full common template/body/focus exactly reviewed; no appended depth. Linked OP independent; no measurement/performance win claimed."
     },
     {
       "source_id": "LIB-0141",
