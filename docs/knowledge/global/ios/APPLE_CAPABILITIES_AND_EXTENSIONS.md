@@ -75,6 +75,13 @@ review session/discovery privacy, authorization, ordering/version skew, durable 
 backpressure and storage under the actual delivery contract. Discovery or encryption alone is
 not identity/authorization; no new watchOS target or multi-device verification is implied.
 
+For approved Home/Matter integrations, trace home/accessory topology, authorization and
+commissioning ownership, network/device failures, privacy and recovery; discovery is not
+successful commissioning or authority to control an accessory.
+For a supported CarPlay consumer, review category/entitlement, scene lifecycle, current template
+and safe-interaction constraints, shared navigation state and fallback. Current policy is checked
+for the actual consumer; this creates no new target, entitlement or compliance verdict.
+
 ## Associated Domains And Deep Links
 Treat universal links as a server-and-app contract. Verify association file content, hosting, caching, app entitlement, route parsing, authentication gating, and fallback. Custom URL schemes are globally claimable and must not carry secrets. Every external route is untrusted input.
 

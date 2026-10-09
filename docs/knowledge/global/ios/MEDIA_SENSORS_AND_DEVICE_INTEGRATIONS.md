@@ -65,6 +65,13 @@ does not establish peer authorization or a usable precision result.
 - HealthKit query/update semantics, background delivery, source attribution, deletion, and clinical claims require dedicated product/compliance review.
 - Contacts/calendar identifiers and records can change; do not assume permanent local identity.
 
+## Motion And Haptics
+For actual motion consumers, define sampling/update frequency, reference frame, filtering and
+calibration, queue/resource bounds, sensor absence, background behavior, privacy and energy cost.
+For haptics, own engine/pattern/resource lifetime, capability, interruption/reset recovery and
+latency; preserve meaningful sensory alternatives and applicable motion/accessibility preferences.
+Neither requested sampling nor engine availability proves observed sensor or haptic behavior.
+
 ## Simulator Versus Device
 Simulator fixtures are useful for parsing, mapping, state machines, imported media, route logic, and permission-independent UI. They do not prove capture quality, microphone routes, sensor accuracy, Bluetooth/NFC/UWB, HealthKit device behavior, background execution, thermal pressure, or locked-device access.
 
