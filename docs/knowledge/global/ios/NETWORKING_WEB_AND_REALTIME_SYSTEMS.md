@@ -10,11 +10,23 @@ Separate transport, wire DTO, domain mapping, persistence, and UI state. HTTP su
 Define method, URL construction, headers, body encoding, authentication, timeout, cache behavior, idempotency, accepted status codes, response limits, cancellation, retry eligibility, and observability. Redact credentials and personal data from logs and errors.
 
 ## Reliability
-- Retry only transient and idempotent operations, or operations protected by an idempotency key.
+- Retry only classified transient failures when replay is semantically safe through an idempotent
+  operation or a documented server idempotency contract.
 - Use bounded attempts, exponential backoff, jitter, cancellation, and server hints such as `Retry-After`.
 - Do not use reachability as permission to send; attempt the operation and interpret the result.
 - Preserve offline mutations durably before optimistic success when loss is unacceptable.
 - Pagination needs stable cursors/order, duplicate handling, cancellation, and refresh semantics.
+
+Retry budgets bound attempts, pending delay and total time, including interaction with auth replay.
+Cancellation stops both backoff waiting and the next attempt. Review actual Retry-After parsing,
+request-body replayability, partial/streaming uploads and deployed background-session behavior.
+Neither URLSession nor a client-generated key establishes safe server replay. For a permitted
+verification plan, use controlled clock/transport cases for delay, cancellation, terminal error
+and duplicate-effect prevention; this recommendation creates no tests or execution permission.
+
+Pagination review covers cursor invalidation and refresh-versus-load-more ownership; late pages
+or chunks must not overwrite newer state or falsely report completeness. Connected/reconnected
+transport alone does not prove delivery of every application event.
 
 ## Uploads And Downloads
 - Stream large bodies and files instead of materializing them in memory.
@@ -49,6 +61,11 @@ evidence; this review grants no insecure exception or authentication/configurati
 Review Cache-Control directives, ETag/Last-Modified validation, actual URLCache/session policy and
 invalidation together. Respect HTTP cache semantics where possible. Application caches need a key, freshness model, size bound, eviction policy, privacy classification, invalidation strategy, and offline behavior. Never cache authenticated responses across users.
 
+For diagnosis, use redacted request IDs, status/timing or permitted session metrics to separate
+transport, server, decode and application-auth hypotheses. Approved transport migration preserves
+endpoint/cancellation semantics at every caller; controlled contract evidence avoids repeating
+real side-effecting requests as an informal comparison.
+
 ## Evidence
 - Contract fixtures for success, malformed, partial, oversized, and version-skewed responses.
 - Timeout, cancellation, offline, reconnect, duplicate, retry, and auth-refresh scenarios.
@@ -57,6 +74,8 @@ invalidation together. Respect HTTP cache semantics where possible. Application 
 - Network Instruments or equivalent traces with secrets redacted.
 
 ## Primary Sources
+- [HTTP semantics and retry guidance: RFC 9110](https://www.rfc-editor.org/rfc/rfc9110.html)
+- [Apple: Handling an authentication challenge](https://developer.apple.com/documentation/foundation/handling-an-authentication-challenge)
 - [HTTP caching: RFC 9111](https://www.rfc-editor.org/rfc/rfc9111.html)
 - [Apple: Preventing insecure network connections](https://developer.apple.com/documentation/security/preventing-insecure-network-connections)
 - [URL Loading System](https://developer.apple.com/documentation/foundation/url_loading_system)

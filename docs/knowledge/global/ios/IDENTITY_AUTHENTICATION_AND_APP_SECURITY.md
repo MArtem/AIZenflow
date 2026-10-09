@@ -37,6 +37,18 @@ Define access-token lifetime, refresh rotation, storage, concurrency, logout, re
 - Logout must clear credentials, user-specific caches, queued work, cookies where owned, and sensitive UI state.
 - Never log tokens, authorization codes, passkeys, cookies, or authentication assertions.
 
+At most one application refresh is in flight per current credential/session. Bound replay and
+waiter cancellation; separate URLSession HTTP/TLS challenges from application-token refresh.
+Refresh rotation, expiry/clock assumptions and terminal-versus-transient failures follow the actual
+backend contract. After logout, account switching or newer login, completion from the superseded
+session must not restore old credentials or publish an old response/UI result. Preserve the
+credential format and Keychain access policy during an authorized concurrency change; framework
+APIs do not supply this contract.
+
+A permitted fixture plan covers concurrent application-auth failures, one current-session refresh,
+bounded replay, terminal recovery and stale completion after logout/new login; challenge handling
+is a separate case. Background/cancellation paths follow the actual session lifecycle.
+
 ## LocalAuthentication
 Use LocalAuthentication to gate access or confirm user presence, not as the sole source of remote account identity. Choose whether passcode fallback is allowed. Handle unavailable, not enrolled, lockout, user cancel, system cancel, app cancel, and changed biometric enrollment.
 

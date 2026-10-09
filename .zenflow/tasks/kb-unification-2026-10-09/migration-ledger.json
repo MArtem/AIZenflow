@@ -12445,9 +12445,482 @@
       "path": "08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
       "sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
       "bytes": 3603,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0093-U01",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+          "source_sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+          "source_heading": "Networking and API behavior — curated copy-only route",
+          "source_fragment": "Do not infer a backend contract",
+          "meaning": "Authority/toolchain/permissions; no implied auth/Keychain changes",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs reviewed, actual existing owners preserve unique constraints; no server/auth/transport/tool transition executed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability; Evidence",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0093-U02",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+          "source_sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+          "source_heading": "Networking and API behavior — curated copy-only route",
+          "source_fragment": "Map request/response DTOs",
+          "meaning": "Endpoint URL/content/decoding/error/session policies; no global-default semantic loss",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs reviewed, actual existing owners preserve unique constraints; no server/auth/transport/tool transition executed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability; Evidence",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0093-U03",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+          "source_sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+          "source_heading": "Networking and API behavior — curated copy-only route",
+          "source_fragment": "Retry only when",
+          "meaning": "Documented safe replay, attempts/delay/total budget, backoff and cancellation of waiting/retry",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": null,
+          "unique_delta": "Documented safe replay, attempts/delay/total budget, backoff and cancellation of waiting/retry",
+          "disposition": "MIGRATED",
+          "reason": "Full curated paragraphs reviewed, actual existing owners preserve unique constraints; no server/auth/transport/tool transition executed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability; Evidence",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0093-U04",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+          "source_sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+          "source_heading": "Networking and API behavior — curated copy-only route",
+          "source_fragment": "For pagination, uploads",
+          "meaning": "Cursor/refresh ownership, late completeness, replayability/integrity/temp files/pressure and realtime delivery gaps",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": null,
+          "unique_delta": "Cursor/refresh ownership, late completeness, replayability/integrity/temp files/pressure and realtime delivery gaps",
+          "disposition": "MIGRATED",
+          "reason": "Full curated paragraphs reviewed, actual existing owners preserve unique constraints; no server/auth/transport/tool transition executed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability; Evidence",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0093-U05",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+          "source_sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+          "source_heading": "Networking and API behavior — curated copy-only route",
+          "source_fragment": "Define offline and cache freshness",
+          "meaning": "Durable source/freshness/conflict and reachability hint, not success proof",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs reviewed, actual existing owners preserve unique constraints; no server/auth/transport/tool transition executed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability; Evidence",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0093-U06",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+          "source_sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+          "source_heading": "Networking and API behavior — curated copy-only route",
+          "source_fragment": "Review redaction",
+          "meaning": "Privacy and affected auth ownership/races, actual change needs scope",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs reviewed, actual existing owners preserve unique constraints; no server/auth/transport/tool transition executed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability; Evidence",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0093-U07",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+          "source_sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+          "source_heading": "Networking and API behavior — curated copy-only route",
+          "source_fragment": "For an existing application-session refresh",
+          "meaning": "Current-session single flight/rotation/expiry/waiter/stale credential and response/UI guards; diagnostics and authorized migration evidence",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": null,
+          "unique_delta": "Current-session single flight/rotation/expiry/waiter/stale credential and response/UI guards; diagnostics and authorized migration evidence",
+          "disposition": "MIGRATED",
+          "reason": "Full curated paragraphs reviewed, actual existing owners preserve unique constraints; no server/auth/transport/tool transition executed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability; Evidence",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0093-U08",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+          "source_sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+          "source_heading": "Networking and API behavior — curated copy-only route",
+          "source_fragment": "Review affected callers",
+          "meaning": "Caller/endpoint/UI evidence, static review cannot prove compatibility/reliability; tests/runtime require permission",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs reviewed, actual existing owners preserve unique constraints; no server/auth/transport/tool transition executed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability; Evidence",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0093-U09",
+          "source_path": "canonical/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+          "source_sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+          "source_heading": "Networking and API behavior — curated copy-only route",
+          "source_fragment": "Use after project-local API contracts",
+          "meaning": "Historical independent after-local Library delivery; no active second pass or imported command authority",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Full curated paragraphs reviewed, actual existing owners preserve unique constraints; no server/auth/transport/tool transition executed.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full curated route reviewed independently of linked skills and deep bodies; all paragraphs/authority/delivery covered."
     },
     {
       "source_id": "LIB-0094",
@@ -12603,18 +13076,974 @@
       "path": "08_NETWORKING/IOS-08-02_AUTH_REFRESH.md",
       "sha256": "61e7292622f43b66ab417a2f91b7e962b6e91c3c5caf5595daf9b4ee1d326e71",
       "bytes": 6880,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0095-U01",
+          "source_path": "canonical/08_NETWORKING/IOS-08-02_AUTH_REFRESH.md",
+          "source_sha256": "61e7292622f43b66ab417a2f91b7e962b6e91c3c5caf5595daf9b4ee1d326e71",
+          "source_heading": "Назначение",
+          "source_fragment": "Single-flight refresh, replay safety, expiry skew, cancellation, logout race и secure storage.",
+          "meaning": "Single-flight refresh, replay safety, expiry skew, cancellation, logout race и secure storage. Common HTTP/permission-bounded workflow already covered; appended practical constraints separately reviewed.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current network/session/quality/permission owners cover common body.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Boundary Model; Request Contract",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0095-U02",
+          "source_path": "canonical/08_NETWORKING/IOS-08-02_AUTH_REFRESH.md",
+          "source_sha256": "61e7292622f43b66ab417a2f91b7e962b6e91c3c5caf5595daf9b4ee1d326e71",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0095-U03",
+          "source_path": "canonical/08_NETWORKING/IOS-08-02_AUTH_REFRESH.md",
+          "source_sha256": "61e7292622f43b66ab417a2f91b7e962b6e91c3c5caf5595daf9b4ee1d326e71",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0095-U04",
+          "source_path": "canonical/08_NETWORKING/IOS-08-02_AUTH_REFRESH.md",
+          "source_sha256": "61e7292622f43b66ab417a2f91b7e962b6e91c3c5caf5595daf9b4ee1d326e71",
+          "source_heading": "Review-ready depth — authentication refresh",
+          "source_fragment": "**Scenario.** Multiple requests receive an authentication failure while one token refresh is already in flight.",
+          "meaning": "Multiple requests receive an authentication failure while one token refresh is already in flight.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0095-U05",
+          "source_path": "canonical/08_NETWORKING/IOS-08-02_AUTH_REFRESH.md",
+          "source_sha256": "61e7292622f43b66ab417a2f91b7e962b6e91c3c5caf5595daf9b4ee1d326e71",
+          "source_heading": "Review-ready depth — authentication refresh",
+          "source_fragment": "**Common wrong approach.** Let every failed request start its own refresh and then blindly retry. This creates refresh storms, token races, duplicated side effects, and can overwrite a newer credential with an older result.",
+          "meaning": "Let every failed request start its own refresh and then blindly retry. This creates refresh storms, token races, duplicated side effects, and can overwrite a newer credential with an older result.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0095-U06",
+          "source_path": "canonical/08_NETWORKING/IOS-08-02_AUTH_REFRESH.md",
+          "source_sha256": "61e7292622f43b66ab417a2f91b7e962b6e91c3c5caf5595daf9b4ee1d326e71",
+          "source_heading": "Review-ready depth — authentication refresh",
+          "source_fragment": "**Preferred approach.** Single-flight refresh per credential/session, explicit ownership of credential state, bounded replay, and a terminal path that clears invalid auth state instead of retrying forever. Separate HTTP/server authentication challenges from application-layer token refresh.",
+          "meaning": "Single-flight refresh per credential/session, explicit ownership of credential state, bounded replay, and a terminal path that clears invalid auth state instead of retrying forever. Separate HTTP/server authentication challenges from application-layer token refresh. Framework/transport availability does not imply application refresh or safe replay.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": null,
+          "unique_delta": "**Preferred approach.** Single-flight refresh per credential/session, explicit ownership of credential state, bounded replay, and a terminal path that clears invalid auth state instead of retrying forever. Separate HTTP/server authentication challenges from application-layer token refresh.",
+          "disposition": "MIGRATED",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "remain application/backend contract requirements"
+          ]
+        },
+        {
+          "unit_id": "LIB-0095-U07",
+          "source_path": "canonical/08_NETWORKING/IOS-08-02_AUTH_REFRESH.md",
+          "source_sha256": "61e7292622f43b66ab417a2f91b7e962b6e91c3c5caf5595daf9b4ee1d326e71",
+          "source_heading": "Review-ready depth — authentication refresh",
+          "source_fragment": "**Traps / edge cases.** Refresh-token rotation, app backgrounding, cancellation, clock skew, concurrent logout, credential revocation, retries of non-idempotent requests, and a refresh response arriving after a newer login.",
+          "meaning": "Refresh-token rotation, app backgrounding, cancellation, clock skew, concurrent logout, credential revocation, retries of non-idempotent requests, and a refresh response arriving after a newer login.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": null,
+          "unique_delta": "**Traps / edge cases.** Refresh-token rotation, app backgrounding, cancellation, clock skew, concurrent logout, credential revocation, retries of non-idempotent requests, and a refresh response arriving after a newer login.",
+          "disposition": "MIGRATED",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0095-U08",
+          "source_path": "canonical/08_NETWORKING/IOS-08-02_AUTH_REFRESH.md",
+          "source_sha256": "61e7292622f43b66ab417a2f91b7e962b6e91c3c5caf5595daf9b4ee1d326e71",
+          "source_heading": "Review-ready depth — authentication refresh",
+          "source_fragment": "**Verification.** Drive N concurrent 401-like application failures through a fake transport and prove exactly one refresh, bounded replay, and deterministic logout on terminal refresh failure. Test server/TLS challenge handling separately.",
+          "meaning": "Drive N concurrent 401-like application failures through a fake transport and prove exactly one refresh, bounded replay, and deterministic logout on terminal refresh failure. Test server/TLS challenge handling separately.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": null,
+          "unique_delta": "**Verification.** Drive N concurrent 401-like application failures through a fake transport and prove exactly one refresh, bounded replay, and deterministic logout on terminal refresh failure. Test server/TLS challenge handling separately.",
+          "disposition": "MIGRATED",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0095-U09",
+          "source_path": "canonical/08_NETWORKING/IOS-08-02_AUTH_REFRESH.md",
+          "source_sha256": "61e7292622f43b66ab417a2f91b7e962b6e91c3c5caf5595daf9b4ee1d326e71",
+          "source_heading": "Review-ready depth — authentication refresh",
+          "source_fragment": "Primary sources checked 2026-09-10: https://developer.apple.com/documentation/foundation/handling-an-authentication-challenge and https://developer.apple.com/documentation/authenticationservices. These sources cover Apple transport/authentication APIs; single-flight refresh, replay limits, logout races, and token rotation remain application/backend contract requirements and are not implied by either framework.",
+          "meaning": "Historical checked-date/link provenance only; framework/server-scope restriction preserved by preferred-approach unit",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0095-U10",
+          "source_path": "canonical/08_NETWORKING/IOS-08-02_AUTH_REFRESH.md",
+          "source_sha256": "61e7292622f43b66ab417a2f91b7e962b6e91c3c5caf5595daf9b4ee1d326e71",
+          "source_heading": "Review-ready depth — authentication refresh",
+          "source_fragment": "**Compatibility.** Preserve the existing credential/token format, keychain access policy, minimum deployment target, and server refresh contract. A concurrency rewrite must not silently require a newer OS/runtime or change authentication semantics for older supported clients.\n",
+          "meaning": "Preserve the existing credential/token format, keychain access policy, minimum deployment target, and server refresh contract. A concurrency rewrite must not silently require a newer OS/runtime or change authentication semantics for older supported clients.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Complete common body and appended scenario/approach/traps/verification/provenance/compatibility reviewed; source framework/backend boundary preserved separately from historical dates. Linked OP body unreviewed."
     },
     {
       "source_id": "LIB-0096",
       "path": "08_NETWORKING/IOS-08-03_RETRY_BACKOFF.md",
       "sha256": "3a07f74abf4d8ca4c9f70dc83da733d3027e34dcfd516267227d427213933329",
       "bytes": 7090,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0096-U01",
+          "source_path": "canonical/08_NETWORKING/IOS-08-03_RETRY_BACKOFF.md",
+          "source_sha256": "3a07f74abf4d8ca4c9f70dc83da733d3027e34dcfd516267227d427213933329",
+          "source_heading": "Назначение",
+          "source_fragment": "Retry только безопасных операций, exponential backoff+jitter, Retry-After и retry budget.",
+          "meaning": "Retry только безопасных операций, exponential backoff+jitter, Retry-After и retry budget. Common HTTP/permission-bounded workflow already covered; appended practical constraints separately reviewed.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current network/session/quality/permission owners cover common body.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Boundary Model; Request Contract",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0096-U02",
+          "source_path": "canonical/08_NETWORKING/IOS-08-03_RETRY_BACKOFF.md",
+          "source_sha256": "3a07f74abf4d8ca4c9f70dc83da733d3027e34dcfd516267227d427213933329",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0096-U03",
+          "source_path": "canonical/08_NETWORKING/IOS-08-03_RETRY_BACKOFF.md",
+          "source_sha256": "3a07f74abf4d8ca4c9f70dc83da733d3027e34dcfd516267227d427213933329",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0096-U04",
+          "source_path": "canonical/08_NETWORKING/IOS-08-03_RETRY_BACKOFF.md",
+          "source_sha256": "3a07f74abf4d8ca4c9f70dc83da733d3027e34dcfd516267227d427213933329",
+          "source_heading": "Review-ready depth — retry policy",
+          "source_fragment": "**Scenario.** A request fails transiently under poor connectivity or server overload.",
+          "meaning": "A request fails transiently under poor connectivity or server overload.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0096-U05",
+          "source_path": "canonical/08_NETWORKING/IOS-08-03_RETRY_BACKOFF.md",
+          "source_sha256": "3a07f74abf4d8ca4c9f70dc83da733d3027e34dcfd516267227d427213933329",
+          "source_heading": "Review-ready depth — retry policy",
+          "source_fragment": "**Common wrong approach.** Retry every failure a fixed number of times without considering method semantics, cancellation, server guidance, or request body replayability.",
+          "meaning": "Retry every failure a fixed number of times without considering method semantics, cancellation, server guidance, or request body replayability.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0096-U06",
+          "source_path": "canonical/08_NETWORKING/IOS-08-03_RETRY_BACKOFF.md",
+          "source_sha256": "3a07f74abf4d8ca4c9f70dc83da733d3027e34dcfd516267227d427213933329",
+          "source_heading": "Review-ready depth — retry policy",
+          "source_fragment": "**Preferred approach.** Retry only classified transient failures and only when replay is semantically safe. Use bounded attempts, backoff with jitter where appropriate, cancellation-aware waiting, and server-provided retry guidance when contractually valid. Non-idempotent operations need an application-level idempotency strategy before automatic replay.",
+          "meaning": "Retry only classified transient failures and only when replay is semantically safe. Use bounded attempts, backoff with jitter where appropriate, cancellation-aware waiting, and server-provided retry guidance when contractually valid. Non-idempotent operations need an application-level idempotency strategy before automatic replay. Framework/transport availability does not imply application refresh or safe replay.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": null,
+          "unique_delta": "**Preferred approach.** Retry only classified transient failures and only when replay is semantically safe. Use bounded attempts, backoff with jitter where appropriate, cancellation-aware waiting, and server-provided retry guidance when contractually valid. Non-idempotent operations need an application-level idempotency strategy before automatic replay.",
+          "disposition": "MIGRATED",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "not from the existence of URLSession itself"
+          ]
+        },
+        {
+          "unit_id": "LIB-0096-U07",
+          "source_path": "canonical/08_NETWORKING/IOS-08-03_RETRY_BACKOFF.md",
+          "source_sha256": "3a07f74abf4d8ca4c9f70dc83da733d3027e34dcfd516267227d427213933329",
+          "source_heading": "Review-ready depth — retry policy",
+          "source_fragment": "**Traps / edge cases.** Partial uploads, streaming bodies, auth refresh interacting with retry counters, background transfer semantics, duplicated payments/mutations, retry-after parsing, and network-path changes.",
+          "meaning": "Partial uploads, streaming bodies, auth refresh interacting with retry counters, background transfer semantics, duplicated payments/mutations, retry-after parsing, and network-path changes.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": null,
+          "unique_delta": "**Traps / edge cases.** Partial uploads, streaming bodies, auth refresh interacting with retry counters, background transfer semantics, duplicated payments/mutations, retry-after parsing, and network-path changes.",
+          "disposition": "MIGRATED",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0096-U08",
+          "source_path": "canonical/08_NETWORKING/IOS-08-03_RETRY_BACKOFF.md",
+          "source_sha256": "3a07f74abf4d8ca4c9f70dc83da733d3027e34dcfd516267227d427213933329",
+          "source_heading": "Review-ready depth — retry policy",
+          "source_fragment": "**Verification.** Use a deterministic fake clock/transport to test attempt count, delay sequence, cancellation during backoff, terminal errors, and duplicate-side-effect prevention.",
+          "meaning": "Use a deterministic fake clock/transport to test attempt count, delay sequence, cancellation during backoff, terminal errors, and duplicate-side-effect prevention.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": null,
+          "unique_delta": "**Verification.** Use a deterministic fake clock/transport to test attempt count, delay sequence, cancellation during backoff, terminal errors, and duplicate-side-effect prevention.",
+          "disposition": "MIGRATED",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0096-U09",
+          "source_path": "canonical/08_NETWORKING/IOS-08-03_RETRY_BACKOFF.md",
+          "source_sha256": "3a07f74abf4d8ca4c9f70dc83da733d3027e34dcfd516267227d427213933329",
+          "source_heading": "Review-ready depth — retry policy",
+          "source_fragment": "Primary networking source checked 2026-09-10: https://developer.apple.com/documentation/foundation/handling-an-authentication-challenge (authentication boundary); endpoint-specific retry semantics remain server-contract evidence, not an Apple default.",
+          "meaning": "Historical checked-date/link provenance only; framework/server-scope restriction preserved by preferred-approach unit",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0096-U10",
+          "source_path": "canonical/08_NETWORKING/IOS-08-03_RETRY_BACKOFF.md",
+          "source_sha256": "3a07f74abf4d8ca4c9f70dc83da733d3027e34dcfd516267227d427213933329",
+          "source_heading": "Review-ready depth — retry policy",
+          "source_fragment": "Primary transport source checked 2026-09-11: https://developer.apple.com/documentation/foundation/urlsession. HTTP retry guidance source: https://www.rfc-editor.org/rfc/rfc9110.html#name-retry-after. `URLSession` defines transport/task behavior; whether a failed application operation is safe to replay still comes from HTTP/application/server semantics, not from the existence of URLSession itself.",
+          "meaning": "Historical checked-date/link provenance only; framework/server-scope restriction preserved by preferred-approach unit",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0096-U11",
+          "source_path": "canonical/08_NETWORKING/IOS-08-03_RETRY_BACKOFF.md",
+          "source_sha256": "3a07f74abf4d8ca4c9f70dc83da733d3027e34dcfd516267227d427213933329",
+          "source_heading": "Review-ready depth — retry policy",
+          "source_fragment": "**Compatibility.** Keep retry semantics compatible with the app's deployed OS range and its actual transport/server contract. Do not assume newer networking conveniences exist on the minimum target; preserve request-body replay and background-session behavior used by the current implementation.\n",
+          "meaning": "Keep retry semantics compatible with the app's deployed OS range and its actual transport/server contract. Do not assume newer networking conveniences exist on the minimum target; preserve request-body replay and background-session behavior used by the current implementation.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Literal deep section reviewed; terminal auth classification/refresh and safe replay are backend-owned, not framework promises. Verification remains conditional; historical dates not refreshed.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-18-auth-retry-network-completion.md",
+          "affected_routes": [
+            "ios-network-resilience"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Complete common body and appended scenario/approach/traps/verification/provenance/compatibility reviewed; source framework/backend boundary preserved separately from historical dates. Linked OP body unreviewed."
     },
     {
       "source_id": "LIB-0097",
