@@ -8,6 +8,9 @@ SwiftUI view values describe desired output. They are recreated frequently; iden
 
 ## State Placement
 - Local transient presentation state belongs near the view that owns it.
+- Shared transient presentation state belongs at the least common ancestor that genuinely owns
+  its lifetime; children receive read-only values or bindings to that same storage according
+  to their mutation authority. Derive deterministic values instead of synchronizing mutable copies.
 - Feature state belongs to the feature owner, not a reusable leaf component.
 - Durable domain state belongs in a persistence/domain owner and is projected into UI state.
 - Environment values are for truly ambient dependencies; avoid hidden feature inputs.
@@ -25,7 +28,20 @@ Previews use controlled fixtures and relevant loading/error/theme/text/locale st
 not observed interaction or lifecycle evidence. Keep environment dependencies genuinely scoped.
 
 ## Identity And Collections
-List identity must be stable and domain-derived. Indexes, random identifiers, and mutable display text are not durable identity. Identity changes intentionally reset view state; accidental changes cause animation, focus, task, cache, and navigation defects.
+List identity must be stable, unique within its collection, and domain-derived. Indexes, random identifiers, and mutable display text are not durable identity. Identity changes intentionally reset view state; accidental changes cause animation, focus, task, cache, and navigation defects.
+
+## Ownership And Identity Review
+View-value recreation is distinct from ending an identity's lifetime. Inspect expensive or
+side-effecting state initialization, observable-reference ownership and optional navigation
+state; do not assume a reference shares the ephemeral view value's lifetime. Across a real
+ownership boundary, prefer an explicit command to granting a two-way binding. Async completion
+must still belong to the current owning identity before publishing.
+
+For an authorized verification plan, distinguish identity-preserving updates from replacement;
+cover insertion/deletion/reordering, parent/child edits, navigation away/back and stale completion.
+Include restoration or persistence/relaunch only when relevant. A render snapshot does not prove
+ownership; update-frequency claims need permitted measured evidence. Actual project deployment,
+toolchain and observation model control API choice. These examples grant no verification execution.
 
 ## Navigation And Presentation
 - Model navigation destination identity separately from loaded detail data.
@@ -79,6 +95,8 @@ Do not implement iPad as a scaled-up phone screen when the workflow benefits fro
 - Instruments or SwiftUI diagnostics for rendering/performance claims.
 
 ## Primary Sources
+- [Apple: Demystify SwiftUI — identity, lifetime and dependencies](https://developer.apple.com/videos/play/wwdc2021/10022/)
+- [Apple: Managing user interface state](https://developer.apple.com/documentation/swiftui/managing-user-interface-state)
 - [Apple app design and UI overview](https://developer.apple.com/documentation/technologyoverviews/app-design-and-ui)
 - [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/)
 - [SwiftUI documentation](https://developer.apple.com/documentation/swiftui)
