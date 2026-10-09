@@ -15095,45 +15095,848 @@
       "path": "09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
       "sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
       "bytes": 3730,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "NEEDS_VERIFICATION",
+      "units": [
+        {
+          "unit_id": "LIB-0104-U01",
+          "source_path": "canonical/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+          "source_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+          "source_heading": "Persistence, cache and migration — curated copy-only route",
+          "source_fragment": "Never present a cache\n  reset as a safe substitute",
+          "meaning": "Durable source versus derived cache/disposable state; reset safety requires demonstrated rebuildability",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": null,
+          "unique_delta": "Explicit rebuildability prerequisite before presenting cache reset as migration substitute",
+          "disposition": "MIGRATED",
+          "reason": "Only first source-of-truth/cache-reset bullet reviewed in this block; remaining full curated constraints pending.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Preferences And Derived Caches",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Preferences And Derived Caches",
+                "Data Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "First cache/source-of-truth bullet reviewed; opening, migration, ownership, files/cache/preferences, reader/writer/offline and evidence/delivery paragraphs remain pending."
     },
     {
       "source_id": "LIB-0105",
       "path": "09_PERSISTENCE_DATA/IOS-09-01_SWIFTDATA_MODEL.md",
       "sha256": "a4d3e4db02f096a638a304d4478b51022eee9865d4f422265e05eae9a0c49538",
       "bytes": 5047,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0105-U01",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-01_SWIFTDATA_MODEL.md",
+          "source_sha256": "a4d3e4db02f096a638a304d4478b51022eee9865d4f422265e05eae9a0c49538",
+          "source_heading": "Назначение",
+          "source_fragment": "@Model relationships, uniqueness, indexing strategy, fetch shape, migrations и availability.",
+          "meaning": "@Model relationships, uniqueness, indexing strategy, fetch shape, migrations и availability. Complete permission-bounded context/contract/integrity/transaction/fetch/recovery workflow.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": null,
+          "unique_delta": "@Model relationships, uniqueness, indexing strategy, fetch shape, migrations и availability.",
+          "disposition": "MIGRATED",
+          "reason": "Existing data isolation, files, offline and migration owners cover core concerns; indexing/fetch/deployment, preference contracts and derived-cache consumers made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0105-U02",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-01_SWIFTDATA_MODEL.md",
+          "source_sha256": "a4d3e4db02f096a638a304d4478b51022eee9865d4f422265e05eae9a0c49538",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0105-U03",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-01_SWIFTDATA_MODEL.md",
+          "source_sha256": "a4d3e4db02f096a638a304d4478b51022eee9865d4f422265e05eae9a0c49538",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full template body and two actual data gate substitutions/focus reviewed; no appended section. Migration depth and curated route independent/unreviewed; linked OP bodies unreviewed."
     },
     {
       "source_id": "LIB-0106",
       "path": "09_PERSISTENCE_DATA/IOS-09-02_SWIFTDATA_CONCURRENCY.md",
       "sha256": "13c264eeaf7413201bfaeb862e3b7c697cbe90c2359c47ae2bed09aacf6a58b2",
       "bytes": 5020,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0106-U01",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-02_SWIFTDATA_CONCURRENCY.md",
+          "source_sha256": "13c264eeaf7413201bfaeb862e3b7c697cbe90c2359c47ae2bed09aacf6a58b2",
+          "source_heading": "Назначение",
+          "source_fragment": "ModelActor/context isolation, IDs across actors, transactions и background work.",
+          "meaning": "ModelActor/context isolation, IDs across actors, transactions и background work. Complete permission-bounded context/contract/integrity/transaction/fetch/recovery workflow.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing data isolation, files, offline and migration owners cover core concerns; indexing/fetch/deployment, preference contracts and derived-cache consumers made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0106-U02",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-02_SWIFTDATA_CONCURRENCY.md",
+          "source_sha256": "13c264eeaf7413201bfaeb862e3b7c697cbe90c2359c47ae2bed09aacf6a58b2",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0106-U03",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-02_SWIFTDATA_CONCURRENCY.md",
+          "source_sha256": "13c264eeaf7413201bfaeb862e3b7c697cbe90c2359c47ae2bed09aacf6a58b2",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full template body and two actual data gate substitutions/focus reviewed; no appended section. Migration depth and curated route independent/unreviewed; linked OP bodies unreviewed."
     },
     {
       "source_id": "LIB-0107",
       "path": "09_PERSISTENCE_DATA/IOS-09-03_COREDATA_MODEL.md",
       "sha256": "f83c7643edb39c4d405e2977b6c724611f3cf0f92d3a87f7b2c17311693c9a8c",
       "bytes": 5035,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0107-U01",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-03_COREDATA_MODEL.md",
+          "source_sha256": "f83c7643edb39c4d405e2977b6c724611f3cf0f92d3a87f7b2c17311693c9a8c",
+          "source_heading": "Назначение",
+          "source_fragment": "Entities/relationships/faulting/fetches, constraints, contexts и migration-aware design.",
+          "meaning": "Entities/relationships/faulting/fetches, constraints, contexts и migration-aware design. Complete permission-bounded context/contract/integrity/transaction/fetch/recovery workflow.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing data isolation, files, offline and migration owners cover core concerns; indexing/fetch/deployment, preference contracts and derived-cache consumers made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0107-U02",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-03_COREDATA_MODEL.md",
+          "source_sha256": "f83c7643edb39c4d405e2977b6c724611f3cf0f92d3a87f7b2c17311693c9a8c",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0107-U03",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-03_COREDATA_MODEL.md",
+          "source_sha256": "f83c7643edb39c4d405e2977b6c724611f3cf0f92d3a87f7b2c17311693c9a8c",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full template body and two actual data gate substitutions/focus reviewed; no appended section. Migration depth and curated route independent/unreviewed; linked OP bodies unreviewed."
     },
     {
       "source_id": "LIB-0108",
       "path": "09_PERSISTENCE_DATA/IOS-09-04_COREDATA_CONCURRENCY.md",
       "sha256": "5700d89c6be20c03064f2c27b9003d78c4ef4eddcf5e4d733c027945cdc52601",
       "bytes": 5002,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0108-U01",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-04_COREDATA_CONCURRENCY.md",
+          "source_sha256": "5700d89c6be20c03064f2c27b9003d78c4ef4eddcf5e4d733c027945cdc52601",
+          "source_heading": "Назначение",
+          "source_fragment": "Context confinement, object IDs, background transactions и merge policies.",
+          "meaning": "Context confinement, object IDs, background transactions и merge policies. Complete permission-bounded context/contract/integrity/transaction/fetch/recovery workflow.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing data isolation, files, offline and migration owners cover core concerns; indexing/fetch/deployment, preference contracts and derived-cache consumers made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0108-U02",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-04_COREDATA_CONCURRENCY.md",
+          "source_sha256": "5700d89c6be20c03064f2c27b9003d78c4ef4eddcf5e4d733c027945cdc52601",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0108-U03",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-04_COREDATA_CONCURRENCY.md",
+          "source_sha256": "5700d89c6be20c03064f2c27b9003d78c4ef4eddcf5e4d733c027945cdc52601",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full template body and two actual data gate substitutions/focus reviewed; no appended section. Migration depth and curated route independent/unreviewed; linked OP bodies unreviewed."
     },
     {
       "source_id": "LIB-0109",
@@ -15149,45 +15952,899 @@
       "path": "09_PERSISTENCE_DATA/IOS-09-06_CACHE_LAYER.md",
       "sha256": "bc98d95bfcfc6f5555109d5e965abb411c45fee7a879582c3ab27048a3fd72f4",
       "bytes": 5035,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0110-U01",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-06_CACHE_LAYER.md",
+          "source_sha256": "bc98d95bfcfc6f5555109d5e965abb411c45fee7a879582c3ab27048a3fd72f4",
+          "source_heading": "Назначение",
+          "source_fragment": "TTL/ETag/versioning, stale-while-revalidate, eviction, disk budget и source-of-truth semantics.",
+          "meaning": "TTL/ETag/versioning, stale-while-revalidate, eviction, disk budget и source-of-truth semantics. Complete permission-bounded context/contract/integrity/transaction/fetch/recovery workflow.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": null,
+          "unique_delta": "TTL/ETag/versioning, stale-while-revalidate, eviction, disk budget и source-of-truth semantics.",
+          "disposition": "MIGRATED",
+          "reason": "Existing data isolation, files, offline and migration owners cover core concerns; indexing/fetch/deployment, preference contracts and derived-cache consumers made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Preferences And Derived Caches; Data Ownership",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Preferences And Derived Caches",
+                "Data Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0110-U02",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-06_CACHE_LAYER.md",
+          "source_sha256": "bc98d95bfcfc6f5555109d5e965abb411c45fee7a879582c3ab27048a3fd72f4",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0110-U03",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-06_CACHE_LAYER.md",
+          "source_sha256": "bc98d95bfcfc6f5555109d5e965abb411c45fee7a879582c3ab27048a3fd72f4",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full template body and two actual data gate substitutions/focus reviewed; no appended section. Migration depth and curated route independent/unreviewed; linked OP bodies unreviewed."
     },
     {
       "source_id": "LIB-0111",
       "path": "09_PERSISTENCE_DATA/IOS-09-07_OFFLINE_FIRST.md",
       "sha256": "bfed7b1552fe4bb728fbdf29ff53d1b465268399c7e3fca9852b46d9aca8cab2",
       "bytes": 5017,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0111-U01",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-07_OFFLINE_FIRST.md",
+          "source_sha256": "bfed7b1552fe4bb728fbdf29ff53d1b465268399c7e3fca9852b46d9aca8cab2",
+          "source_heading": "Назначение",
+          "source_fragment": "Operation log/sync state/conflicts/retries/idempotency и user-visible consistency.",
+          "meaning": "Operation log/sync state/conflicts/retries/idempotency и user-visible consistency. Complete permission-bounded context/contract/integrity/transaction/fetch/recovery workflow.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing data isolation, files, offline and migration owners cover core concerns; indexing/fetch/deployment, preference contracts and derived-cache consumers made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Offline And Sync",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Offline And Sync"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0111-U02",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-07_OFFLINE_FIRST.md",
+          "source_sha256": "bfed7b1552fe4bb728fbdf29ff53d1b465268399c7e3fca9852b46d9aca8cab2",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0111-U03",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-07_OFFLINE_FIRST.md",
+          "source_sha256": "bfed7b1552fe4bb728fbdf29ff53d1b465268399c7e3fca9852b46d9aca8cab2",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full template body and two actual data gate substitutions/focus reviewed; no appended section. Migration depth and curated route independent/unreviewed; linked OP bodies unreviewed."
     },
     {
       "source_id": "LIB-0112",
       "path": "09_PERSISTENCE_DATA/IOS-09-08_FILES.md",
       "sha256": "9128a5bf6bd0ec51643cbf0719929469e18adc1cfb5be499e92a12743aca126e",
       "bytes": 5047,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0112-U01",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-08_FILES.md",
+          "source_sha256": "9128a5bf6bd0ec51643cbf0719929469e18adc1cfb5be499e92a12743aca126e",
+          "source_heading": "Назначение",
+          "source_fragment": "Atomic writes, coordination, temp/cache/documents directories, protection classes и disk pressure.",
+          "meaning": "Atomic writes, coordination, temp/cache/documents directories, protection classes и disk pressure. Complete permission-bounded context/contract/integrity/transaction/fetch/recovery workflow.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing data isolation, files, offline and migration owners cover core concerns; indexing/fetch/deployment, preference contracts and derived-cache consumers made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Files",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Files"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0112-U02",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-08_FILES.md",
+          "source_sha256": "9128a5bf6bd0ec51643cbf0719929469e18adc1cfb5be499e92a12743aca126e",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0112-U03",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-08_FILES.md",
+          "source_sha256": "9128a5bf6bd0ec51643cbf0719929469e18adc1cfb5be499e92a12743aca126e",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full template body and two actual data gate substitutions/focus reviewed; no appended section. Migration depth and curated route independent/unreviewed; linked OP bodies unreviewed."
     },
     {
       "source_id": "LIB-0113",
       "path": "09_PERSISTENCE_DATA/IOS-09-09_KEYVALUE.md",
       "sha256": "93c91b0a0284b2612f5968027ae5af67709b67c5c9efce5fa8af14c5f27cf514",
       "bytes": 5059,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0113-U01",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-09_KEYVALUE.md",
+          "source_sha256": "93c91b0a0284b2612f5968027ae5af67709b67c5c9efce5fa8af14c5f27cf514",
+          "source_heading": "Назначение",
+          "source_fragment": "Только non-sensitive preferences, typed keys, migration, defaults и app-group boundaries.",
+          "meaning": "Только non-sensitive preferences, typed keys, migration, defaults и app-group boundaries. Complete permission-bounded context/contract/integrity/transaction/fetch/recovery workflow.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": null,
+          "unique_delta": "Только non-sensitive preferences, typed keys, migration, defaults и app-group boundaries.",
+          "disposition": "MIGRATED",
+          "reason": "Existing data isolation, files, offline and migration owners cover core concerns; indexing/fetch/deployment, preference contracts and derived-cache consumers made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Choose By Contract; Preferences And Derived Caches",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Choose By Contract",
+                "Preferences And Derived Caches"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0113-U02",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-09_KEYVALUE.md",
+          "source_sha256": "93c91b0a0284b2612f5968027ae5af67709b67c5c9efce5fa8af14c5f27cf514",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0113-U03",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-09_KEYVALUE.md",
+          "source_sha256": "93c91b0a0284b2612f5968027ae5af67709b67c5c9efce5fa8af14c5f27cf514",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full template body and two actual data gate substitutions/focus reviewed; no appended section. Migration depth and curated route independent/unreviewed; linked OP bodies unreviewed."
     },
     {
       "source_id": "LIB-0114",
       "path": "09_PERSISTENCE_DATA/IOS-09-10_DATA_REVIEW.md",
       "sha256": "86c527726ee5f6ae788f0aafce272c7c92ddaa7295d340c0e690d1740235f149",
       "bytes": 5050,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0114-U01",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-10_DATA_REVIEW.md",
+          "source_sha256": "86c527726ee5f6ae788f0aafce272c7c92ddaa7295d340c0e690d1740235f149",
+          "source_heading": "Назначение",
+          "source_fragment": "Integrity, migrations, concurrency, fetch performance, data loss, privacy и backup semantics.",
+          "meaning": "Integrity, migrations, concurrency, fetch performance, data loss, privacy и backup semantics. Complete permission-bounded context/contract/integrity/transaction/fetch/recovery workflow.",
+          "type": "constraint",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing data isolation, files, offline and migration owners cover core concerns; indexing/fetch/deployment, preference contracts and derived-cache consumers made explicit.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Data Ownership; Migration; Evidence",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0114-U02",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-10_DATA_REVIEW.md",
+          "source_sha256": "86c527726ee5f6ae788f0aafce272c7c92ddaa7295d340c0e690d1740235f149",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0114-U03",
+          "source_path": "canonical/09_PERSISTENCE_DATA/IOS-09-10_DATA_REVIEW.md",
+          "source_sha256": "86c527726ee5f6ae788f0aafce272c7c92ddaa7295d340c0e690d1740235f149",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual persistence/schema/toolchain/deployment and affected consumers; current user permission; no storage/data/test/runtime mutation; iPad/physical/actualVoiceOver verification excluded.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-19-data-model-cache-preferences.md",
+          "affected_routes": [
+            "ios-data-migration",
+            "ios-offline-sync"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full template body and two actual data gate substitutions/focus reviewed; no appended section. Migration depth and curated route independent/unreviewed; linked OP bodies unreviewed."
     },
     {
       "source_id": "LIB-0115",

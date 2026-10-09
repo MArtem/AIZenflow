@@ -15,6 +15,12 @@ Use for SwiftData, Core Data, files, UserDefaults, Keychain boundaries, SQLite, 
 
 Select from access patterns, durability, query needs, data volume, sharing, migration, privacy, backup, and recovery. Framework familiarity is not a sufficient reason.
 
+## Preferences And Derived Caches
+Non-sensitive preferences have typed key/default contracts, migration and the intended app-group
+scope; they do not store credentials. Derived caches define keys, TTL/validators/version, eviction,
+disk bounds and stale-while-revalidate consumer behavior against their actual source of truth.
+A cache reset is safe only when rebuildability and affected consumers are established.
+
 ## Data Ownership
 Define canonical data, derived data, caches, temporary files, user-exported data, shared-container data, and remotely authoritative data. Each class needs retention, deletion, backup, protection, migration, and corruption behavior.
 
@@ -22,6 +28,8 @@ Define canonical data, derived data, caches, temporary files, user-exported data
 - Keep model/context work on its isolation owner.
 - Do not pass live managed objects across actors or contexts; pass stable identifiers or immutable snapshots.
 - Fetch only required rows/properties, use predicates/sort descriptors, and bound unfiltered queries.
+- Review indexing and fetch shape against actual volume/access patterns and the supported
+  toolchain; do not adopt a new model API merely because it exists.
 - Understand faulting, relationship loading, uniqueness semantics, delete rules, and save boundaries.
 - UI observation is not a substitute for a transaction boundary or merge policy.
 - Batch and background operations require explicit merge and user-visible refresh behavior.
@@ -70,6 +78,8 @@ Represent pending operations durably with stable identifiers, ordering/dependenc
 - Physical-device locked-state and CloudKit multi-device checks where claimed.
 
 ## Primary Sources
+- [Apple: UserDefaults — non-sensitive settings](https://developer.apple.com/documentation/foundation/userdefaults)
+- [Apple: SwiftData updates](https://developer.apple.com/documentation/updates/swiftdata)
 - [SwiftData](https://developer.apple.com/documentation/swiftdata)
 - [Core Data](https://developer.apple.com/documentation/coredata)
 - [CloudKit](https://developer.apple.com/documentation/cloudkit)
