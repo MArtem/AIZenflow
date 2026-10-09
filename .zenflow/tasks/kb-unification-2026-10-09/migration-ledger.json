@@ -47303,36 +47303,1311 @@
       "path": "22_CHECKLISTS/05_DATA_MIGRATION_GATE.md",
       "sha256": "b9f838b9256854aa7497178c0b394d0dde3554d4b8ff8dc730cf5073b9543fc4",
       "bytes": 400,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0258-U01",
+          "source_path": "canonical/22_CHECKLISTS/05_DATA_MIGRATION_GATE.md",
+          "source_sha256": "b9f838b9256854aa7497178c0b394d0dde3554d4b8ff8dc730cf5073b9543fc4",
+          "source_heading": "Data Migration Gate",
+          "source_fragment": "Source/target schema versions documented.",
+          "meaning": "Source/target schema versions documented. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0258-U02",
+          "source_path": "canonical/22_CHECKLISTS/05_DATA_MIGRATION_GATE.md",
+          "source_sha256": "b9f838b9256854aa7497178c0b394d0dde3554d4b8ff8dc730cf5073b9543fc4",
+          "source_heading": "Data Migration Gate",
+          "source_fragment": "Upgrade path from every supported version tested.",
+          "meaning": "Upgrade path from every supported version tested. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0258-U03",
+          "source_path": "canonical/22_CHECKLISTS/05_DATA_MIGRATION_GATE.md",
+          "source_sha256": "b9f838b9256854aa7497178c0b394d0dde3554d4b8ff8dc730cf5073b9543fc4",
+          "source_heading": "Data Migration Gate",
+          "source_fragment": "Large-store performance considered.",
+          "meaning": "Large-store performance considered. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0258-U04",
+          "source_path": "canonical/22_CHECKLISTS/05_DATA_MIGRATION_GATE.md",
+          "source_sha256": "b9f838b9256854aa7497178c0b394d0dde3554d4b8ff8dc730cf5073b9543fc4",
+          "source_heading": "Data Migration Gate",
+          "source_fragment": "Failure/retry/rollback or recovery strategy exists.",
+          "meaning": "Failure/retry/rollback or recovery strategy exists. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration; Data Ownership",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration",
+                "Data Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0258-U05",
+          "source_path": "canonical/22_CHECKLISTS/05_DATA_MIGRATION_GATE.md",
+          "source_sha256": "b9f838b9256854aa7497178c0b394d0dde3554d4b8ff8dc730cf5073b9543fc4",
+          "source_heading": "Data Migration Gate",
+          "source_fragment": "Referential/data integrity preserved.",
+          "meaning": "Referential/data integrity preserved. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0258-U06",
+          "source_path": "canonical/22_CHECKLISTS/05_DATA_MIGRATION_GATE.md",
+          "source_sha256": "b9f838b9256854aa7497178c0b394d0dde3554d4b8ff8dc730cf5073b9543fc4",
+          "source_heading": "Data Migration Gate",
+          "source_fragment": "User data backup/export implications checked.",
+          "meaning": "User data backup/export implications checked. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Data Ownership; Import, Export, And Deletion",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Import, Export, And Deletion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0258-U07",
+          "source_path": "canonical/22_CHECKLISTS/05_DATA_MIGRATION_GATE.md",
+          "source_sha256": "b9f838b9256854aa7497178c0b394d0dde3554d4b8ff8dc730cf5073b9543fc4",
+          "source_heading": "Data Migration Gate",
+          "source_fragment": "Telemetry can detect migration failure without exposing sensitive data.",
+          "meaning": "Telemetry can detect migration failure without exposing sensitive data. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Observability; Metric Design",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full checklist line-by-line reviewed against existing data/security/accessibility/localization contracts. Source criteria do not prove actual app checks; current permission and verification exclusions control."
     },
     {
       "source_id": "LIB-0259",
       "path": "22_CHECKLISTS/06_SECURITY_PRIVACY_GATE.md",
       "sha256": "4c52fe84d249d14f7cc39baf162109bbc273838cbbeac36b67796adee4042c64",
       "bytes": 509,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0259-U01",
+          "source_path": "canonical/22_CHECKLISTS/06_SECURITY_PRIVACY_GATE.md",
+          "source_sha256": "4c52fe84d249d14f7cc39baf162109bbc273838cbbeac36b67796adee4042c64",
+          "source_heading": "Security & Privacy Gate",
+          "source_fragment": "Threat model updated for changed trust boundary.",
+          "meaning": "Threat model updated for changed trust boundary. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0259-U02",
+          "source_path": "canonical/22_CHECKLISTS/06_SECURITY_PRIVACY_GATE.md",
+          "source_sha256": "4c52fe84d249d14f7cc39baf162109bbc273838cbbeac36b67796adee4042c64",
+          "source_heading": "Security & Privacy Gate",
+          "source_fragment": "Secrets never stored/logged insecurely.",
+          "meaning": "Secrets never stored/logged insecurely. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+          "destination_heading": "Core Rules; Storage Policy",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "Storage Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0259-U03",
+          "source_path": "canonical/22_CHECKLISTS/06_SECURITY_PRIVACY_GATE.md",
+          "source_sha256": "4c52fe84d249d14f7cc39baf162109bbc273838cbbeac36b67796adee4042c64",
+          "source_heading": "Security & Privacy Gate",
+          "source_fragment": "Authz validated server-side and again after deep-link/navigation parsing where relevant.",
+          "meaning": "Authz validated server-side and again after deep-link/navigation parsing where relevant. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Authorization Rules",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Authorization Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Associated Domains And Deep Links"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0259-U04",
+          "source_path": "canonical/22_CHECKLISTS/06_SECURITY_PRIVACY_GATE.md",
+          "source_sha256": "4c52fe84d249d14f7cc39baf162109bbc273838cbbeac36b67796adee4042c64",
+          "source_heading": "Security & Privacy Gate",
+          "source_fragment": "ATS/trust validation not weakened.",
+          "meaning": "ATS/trust validation not weakened. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "TLS And Trust",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "TLS And Trust"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0259-U05",
+          "source_path": "canonical/22_CHECKLISTS/06_SECURITY_PRIVACY_GATE.md",
+          "source_sha256": "4c52fe84d249d14f7cc39baf162109bbc273838cbbeac36b67796adee4042c64",
+          "source_heading": "Security & Privacy Gate",
+          "source_fragment": "Permissions minimized and requested contextually.",
+          "meaning": "Permissions minimized and requested contextually. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "destination_heading": "Privacy Manifests And Permissions",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Privacy Manifests And Permissions"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0259-U06",
+          "source_path": "canonical/22_CHECKLISTS/06_SECURITY_PRIVACY_GATE.md",
+          "source_sha256": "4c52fe84d249d14f7cc39baf162109bbc273838cbbeac36b67796adee4042c64",
+          "source_heading": "Security & Privacy Gate",
+          "source_fragment": "PrivacyInfo.xcprivacy / Required Reason APIs / third-party manifests checked.",
+          "meaning": "PrivacyInfo.xcprivacy / Required Reason APIs / third-party manifests checked. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Privacy Manifest And Required-Reason APIs; SDK And Supply-Chain Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Privacy Manifest And Required-Reason APIs",
+                "SDK And Supply-Chain Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0259-U07",
+          "source_path": "canonical/22_CHECKLISTS/06_SECURITY_PRIVACY_GATE.md",
+          "source_sha256": "4c52fe84d249d14f7cc39baf162109bbc273838cbbeac36b67796adee4042c64",
+          "source_heading": "Security & Privacy Gate",
+          "source_fragment": "PII minimization/redaction/retention considered.",
+          "meaning": "PII minimization/redaction/retention considered. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "destination_heading": "Data Lifecycle; Logging And Analytics",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Data Lifecycle",
+                "Logging And Analytics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0259-U08",
+          "source_path": "canonical/22_CHECKLISTS/06_SECURITY_PRIVACY_GATE.md",
+          "source_sha256": "4c52fe84d249d14f7cc39baf162109bbc273838cbbeac36b67796adee4042c64",
+          "source_heading": "Security & Privacy Gate",
+          "source_fragment": "Abuse/replay/rate-limit behavior considered.",
+          "meaning": "Actual abuse/replay threat cases and bounded rate-limit response/retry behavior considered under authoritative backend contract; client retry budget is not server authorization.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability",
+                "Request Contract"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full checklist line-by-line reviewed against existing data/security/accessibility/localization contracts. Source criteria do not prove actual app checks; current permission and verification exclusions control."
     },
     {
       "source_id": "LIB-0260",
       "path": "22_CHECKLISTS/07_ACCESSIBILITY_GATE.md",
       "sha256": "d287034503f855d990430456836f622900b131193093fc7ac6c0eadea7d4f33b",
       "bytes": 279,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0260-U01",
+          "source_path": "canonical/22_CHECKLISTS/07_ACCESSIBILITY_GATE.md",
+          "source_sha256": "d287034503f855d990430456836f622900b131193093fc7ac6c0eadea7d4f33b",
+          "source_heading": "Accessibility Gate",
+          "source_fragment": "VoiceOver labels/values/actions/reading order.",
+          "meaning": "VoiceOver labels/values/actions/reading order. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0260-U02",
+          "source_path": "canonical/22_CHECKLISTS/07_ACCESSIBILITY_GATE.md",
+          "source_sha256": "d287034503f855d990430456836f622900b131193093fc7ac6c0eadea7d4f33b",
+          "source_heading": "Accessibility Gate",
+          "source_fragment": "Dynamic Type at extreme sizes.",
+          "meaning": "Dynamic Type at extreme sizes. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0260-U03",
+          "source_path": "canonical/22_CHECKLISTS/07_ACCESSIBILITY_GATE.md",
+          "source_sha256": "d287034503f855d990430456836f622900b131193093fc7ac6c0eadea7d4f33b",
+          "source_heading": "Accessibility Gate",
+          "source_fragment": "Contrast and non-color-only signaling.",
+          "meaning": "Contrast and non-color-only signaling. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0260-U04",
+          "source_path": "canonical/22_CHECKLISTS/07_ACCESSIBILITY_GATE.md",
+          "source_sha256": "d287034503f855d990430456836f622900b131193093fc7ac6c0eadea7d4f33b",
+          "source_heading": "Accessibility Gate",
+          "source_fragment": "Reduce Motion.",
+          "meaning": "Reduce Motion. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Layout And Rendering; Accessible And Localized Interaction Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Layout And Rendering",
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0260-U05",
+          "source_path": "canonical/22_CHECKLISTS/07_ACCESSIBILITY_GATE.md",
+          "source_sha256": "d287034503f855d990430456836f622900b131193093fc7ac6c0eadea7d4f33b",
+          "source_heading": "Accessibility Gate",
+          "source_fragment": "Minimum hit targets and custom control semantics.",
+          "meaning": "Minimum hit targets and custom control semantics. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0260-U06",
+          "source_path": "canonical/22_CHECKLISTS/07_ACCESSIBILITY_GATE.md",
+          "source_sha256": "d287034503f855d990430456836f622900b131193093fc7ac6c0eadea7d4f33b",
+          "source_heading": "Accessibility Gate",
+          "source_fragment": "Keyboard/switch control where relevant.",
+          "meaning": "Keyboard/switch control where relevant. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0260-U07",
+          "source_path": "canonical/22_CHECKLISTS/07_ACCESSIBILITY_GATE.md",
+          "source_sha256": "d287034503f855d990430456836f622900b131193093fc7ac6c0eadea7d4f33b",
+          "source_heading": "Accessibility Gate",
+          "source_fragment": "VoiceOver labels/values/actions/reading order.",
+          "meaning": "Retain source-level labels/values/actions/focus semantics; current user excludes actual VoiceOver execution prerequisite and physical-device proof.",
+          "type": "historical-routing",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current verification exclusions govern actual checks, never invalidate implementation requirements or historical results.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full checklist line-by-line reviewed against existing data/security/accessibility/localization contracts. Source criteria do not prove actual app checks; current permission and verification exclusions control."
     },
     {
       "source_id": "LIB-0261",
       "path": "22_CHECKLISTS/08_LOCALIZATION_GATE.md",
       "sha256": "688d242ef945bdad35431d6c1b1d3bacbc9cac0b2556f8479c67526ef16b167e",
       "bytes": 285,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0261-U01",
+          "source_path": "canonical/22_CHECKLISTS/08_LOCALIZATION_GATE.md",
+          "source_sha256": "688d242ef945bdad35431d6c1b1d3bacbc9cac0b2556f8479c67526ef16b167e",
+          "source_heading": "Localization Gate",
+          "source_fragment": "User-visible strings localized.",
+          "meaning": "User-visible strings localized. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "destination_heading": "Required Checks",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0261-U02",
+          "source_path": "canonical/22_CHECKLISTS/08_LOCALIZATION_GATE.md",
+          "source_sha256": "688d242ef945bdad35431d6c1b1d3bacbc9cac0b2556f8479c67526ef16b167e",
+          "source_heading": "Localization Gate",
+          "source_fragment": "Plurals/grammar handled.",
+          "meaning": "Plurals/grammar handled. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0261-U03",
+          "source_path": "canonical/22_CHECKLISTS/08_LOCALIZATION_GATE.md",
+          "source_sha256": "688d242ef945bdad35431d6c1b1d3bacbc9cac0b2556f8479c67526ef16b167e",
+          "source_heading": "Localization Gate",
+          "source_fragment": "Text expansion does not break layout.",
+          "meaning": "Text expansion does not break layout. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0261-U04",
+          "source_path": "canonical/22_CHECKLISTS/08_LOCALIZATION_GATE.md",
+          "source_sha256": "688d242ef945bdad35431d6c1b1d3bacbc9cac0b2556f8479c67526ef16b167e",
+          "source_heading": "Localization Gate",
+          "source_fragment": "RTL behavior.",
+          "meaning": "RTL behavior. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0261-U05",
+          "source_path": "canonical/22_CHECKLISTS/08_LOCALIZATION_GATE.md",
+          "source_sha256": "688d242ef945bdad35431d6c1b1d3bacbc9cac0b2556f8479c67526ef16b167e",
+          "source_heading": "Localization Gate",
+          "source_fragment": "Date/number/currency/measurement locale-aware.",
+          "meaning": "Date/number/currency/measurement locale-aware. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "destination_heading": "Required Checks",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0261-U06",
+          "source_path": "canonical/22_CHECKLISTS/08_LOCALIZATION_GATE.md",
+          "source_sha256": "688d242ef945bdad35431d6c1b1d3bacbc9cac0b2556f8479c67526ef16b167e",
+          "source_heading": "Localization Gate",
+          "source_fragment": "No concatenated localized sentence fragments unless linguistically safe.",
+          "meaning": "No concatenated localized sentence fragments unless linguistically safe. Current conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual supported consumer/data/privacy/product contract and current permissions. Docs only; no app source/tests/runtime/secrets/config/security intake/recovery/locale adoption/transitions. iPad/physical/actualVoiceOver excluded; unmet evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "destination_heading": "Required Checks; Forbidden By Default",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-49-data-security-inclusive-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full checklist line-by-line reviewed against existing data/security/accessibility/localization contracts. Source criteria do not prove actual app checks; current permission and verification exclusions control."
     },
     {
       "source_id": "LIB-0262",
