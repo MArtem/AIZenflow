@@ -76,7 +76,13 @@ services. Report missing user-owned evidence as residual risk.
 - Enforce each relevant invariant at the narrowest authoritative boundary.
 - Make invalid or untrusted states fail closed; comments and caller discipline are not enforcement.
 - Keep one self-contained patch and avoid unrelated cleanup.
-- Search direct callers and consumers before changing a contract.
+- Search direct callers and consumers before changing a contract. Deprecation or breaking changes
+  need a consumer inventory, migration/version/removal criteria and communication ownership.
+- Archived code patterns are conceptual material, not verified drop-in implementations. Before
+  adaptation, establish actual types, isolation, availability, errors and lifecycle contracts.
+  A request ID alone does not prove cancellation safety; single-flight work does not prove logout
+  ordering or prevent stale credential publication; a termination callback does not prove
+  thread-safe subscription cleanup. Use the relevant specialist route to review the mechanism.
 - When test creation/modification is allowed, derive positive, negative, boundary, and regression
   tests from the change contract. Tests should prove behavior, not reproduce implementation detail.
 - When tests are not allowed, state the missing evidence and use the strongest permitted static

@@ -9954,9 +9954,409 @@
       "path": "QUALITY_STANDARD.md",
       "sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
       "bytes": 4877,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0861-U01",
+          "source_path": "canonical/QUALITY_STANDARD.md",
+          "source_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "`OFF` project",
+          "meaning": "Former ON/OFF extra review binding; no execution authority",
+          "type": "historical-routing",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Only the former binding/labels are archived; semantic constraints have separate units.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0861-U02",
+          "source_path": "canonical/QUALITY_STANDARD.md",
+          "source_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "The canonical KB",
+          "meaning": "One canonical change contract/smallest-correct-change/full review and push loop; product/SDK uncertainty explicit",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "Purpose; Trigger And Authority; 1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "Purpose; Trigger And Authority; 1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0861-U03",
+          "source_path": "canonical/QUALITY_STANDARD.md",
+          "source_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Route checks by the actual change surface",
+          "meaning": "Conditional Swift/concurrency, UI/design, data/integration, structure and release challenges; actual affected boundary controls route",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "Usage Rule; Mandatory Review Areas",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Usage Rule; Mandatory Review Areas",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Usage Rule",
+                "Mandatory Review Areas"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases",
+                "Modules And Linking",
+                "Supply Chain"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Rollout"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0861-U04",
+          "source_path": "canonical/QUALITY_STANDARD.md",
+          "source_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Read-only advice",
+          "meaning": "Task-stage checks within one loop; read-only output is findings/evidence limits",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "Trigger And Authority; 3. Verification Ladder",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "Trigger And Authority; 3. Verification Ladder",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0861-U05",
+          "source_path": "canonical/QUALITY_STANDARD.md",
+          "source_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "identify the existing module/feature reviewer",
+          "meaning": "Shared reviewer/escalation ownership; no invented process, reviewer-preference rewrite or unauthorized automation",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "existing_coverage": null,
+          "unique_delta": "Shared reviewer/escalation ownership; no invented process, reviewer-preference rewrite or unauthorized automation",
+          "disposition": "MIGRATED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "destination_heading": "Review Rules",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0861-U06",
+          "source_path": "canonical/QUALITY_STANDARD.md",
+          "source_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Prioritize debt",
+          "meaning": "Risk/frequency/outcome prioritization and bounded payoff without automatic rewrite",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/TECH_DEBT_REGISTER.md",
+          "existing_coverage": null,
+          "unique_delta": "Risk/frequency/outcome prioritization and bounded payoff without automatic rewrite",
+          "disposition": "MIGRATED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/TECH_DEBT_REGISTER.md",
+          "destination_heading": "Rule",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/TECH_DEBT_REGISTER.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0861-U07",
+          "source_path": "canonical/QUALITY_STANDARD.md",
+          "source_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Deprecation or",
+          "meaning": "Breaking/deprecation consumers, migration/version/removal criteria and communication",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": null,
+          "unique_delta": "Breaking/deprecation consumers, migration/version/removal criteria and communication",
+          "disposition": "MIGRATED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0861-U08",
+          "source_path": "canonical/QUALITY_STANDARD.md",
+          "source_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Keep necessary engineering docs",
+          "meaning": "Contracts/source-of-truth/owner/update triggers; useful examples/failure modes rather than duplicated stale tutorials",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+          "existing_coverage": "Required Shape; Change And Migration Rules; Completion Checklist",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+          "destination_heading": "Required Shape; Change And Migration Rules; Completion Checklist",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+              "headings": [
+                "Required Shape",
+                "Change And Migration Rules",
+                "Completion Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0861-U09",
+          "source_path": "canonical/QUALITY_STANDARD.md",
+          "source_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "For each applicable gate",
+          "meaning": "Inspected artifact/scenario, gaps and applicability; risk acceptance not evidence/prohibition override; P0–P2 correction or higher authority exception",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "existing_coverage": "Authority, Verdict, And Readiness Contract; Exceptions And Bypass; Evidence And Verdict Rules",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "destination_heading": "Authority, Verdict, And Readiness Contract; Exceptions And Bypass; Evidence And Verdict Rules",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0861-U10",
+          "source_path": "canonical/QUALITY_STANDARD.md",
+          "source_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "`CHECKED`",
+          "meaning": "Former gate transport labels do not replace the canonical verdict vocabulary",
+          "type": "historical-routing",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Only the former binding/labels are archived; semantic constraints have separate units.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0861-U11",
+          "source_path": "canonical/QUALITY_STANDARD.md",
+          "source_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Use only the relevant fields",
+          "meaning": "Relevant task/decision/bug/migration/performance/release fields; observable goals/non-goals, environment/consumers, hypotheses/negative paths, comparable measurements, cleanup/rollout ownership and gaps; reuse records",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "1. Change Contract Before Implementation; 3. Verification Ladder; Completion Contract",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 3. Verification Ladder; Completion Contract",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow",
+                "Runtime Operations",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/TASK_STATE_DOCUMENTATION_STANDARD.md",
+              "headings": [
+                "Rules"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0861-U12",
+          "source_path": "canonical/QUALITY_STANDARD.md",
+          "source_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Archived code patterns",
+          "meaning": "Conceptual examples require actual contracts; request ID, single-flight or termination callback alone cannot prove stated cancellation/auth/cleanup safety",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": null,
+          "unique_delta": "Conceptual examples require actual contracts; request ID, single-flight or termination callback alone cannot prove stated cancellation/auth/cleanup safety",
+          "disposition": "MIGRATED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0861-U13",
+          "source_path": "canonical/QUALITY_STANDARD.md",
+          "source_sha256": "a0ac274654bd6187b454fb2301d66d8580ca4ac586267578f8395b69a986ab64",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Tests, builds, device checks",
+          "meaning": "Execution/Git/network/dependency permission remains current; missing required evidence cannot imply full verification or PR readiness",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "existing_coverage": "User Authority; Authority, Verdict, And Readiness Contract; Evidence And Verdict Rules",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "destination_heading": "User Authority; Authority, Verdict, And Readiness Contract; Evidence And Verdict Rules",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md"
+          ]
+        }
+      ],
+      "disposition_reason": "All source units dispositioned in block 04; linked materials remain separate."
     },
     {
       "source_id": "LIB-0862",
@@ -15514,6 +15914,424 @@
           ],
           "mirrors": [
             "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "COPY-QUALITY",
+      "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "aliases": [
+        {
+          "archive_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_path": "TchopApp/IOSLibrary/QUALITY_STANDARD.md",
+          "source_revision": "82294ae7fc4e3946e5ea957f885844e79284d04e"
+        },
+        {
+          "archive_path": "battleship-copy/QUALITY_STANDARD.md",
+          "source_path": "BattleshipGame/IOSLibrary/QUALITY_STANDARD.md",
+          "source_revision": "82294ae7fc4e3946e5ea957f885844e79284d04e"
+        }
+      ],
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "COPY-QUALITY-U01",
+          "source_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "`OFF` project",
+          "meaning": "Former ON/OFF extra review binding; no execution authority",
+          "type": "historical-routing",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Only the former binding/labels are archived; semantic constraints have separate units.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "COPY-QUALITY-U02",
+          "source_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "For every changed iOS artifact",
+          "meaning": "One canonical change contract/smallest-correct-change/full review and push loop; product/SDK uncertainty explicit",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "Purpose; Trigger And Authority; 1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "Purpose; Trigger And Authority; 1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-QUALITY-U03",
+          "source_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Route checks by the actual change surface",
+          "meaning": "Conditional Swift/concurrency, UI/design, data/integration, structure and release challenges; actual affected boundary controls route",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "Usage Rule; Mandatory Review Areas",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Usage Rule; Mandatory Review Areas",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Usage Rule",
+                "Mandatory Review Areas"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases",
+                "Modules And Linking",
+                "Supply Chain"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Rollout"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "COPY-QUALITY-U04",
+          "source_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "At planning, inspect",
+          "meaning": "Task-stage checks within one loop; read-only output is findings/evidence limits",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "Trigger And Authority; 3. Verification Ladder",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "Trigger And Authority; 3. Verification Ladder",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-QUALITY-U05",
+          "source_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "identify the existing module/feature reviewer",
+          "meaning": "Shared reviewer/escalation ownership; no invented process, reviewer-preference rewrite or unauthorized automation",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "existing_coverage": null,
+          "unique_delta": "Shared reviewer/escalation ownership; no invented process, reviewer-preference rewrite or unauthorized automation",
+          "disposition": "MIGRATED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "destination_heading": "Review Rules",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-QUALITY-U06",
+          "source_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Prioritize debt",
+          "meaning": "Risk/frequency/outcome prioritization and bounded payoff without automatic rewrite",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/TECH_DEBT_REGISTER.md",
+          "existing_coverage": null,
+          "unique_delta": "Risk/frequency/outcome prioritization and bounded payoff without automatic rewrite",
+          "disposition": "MIGRATED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/TECH_DEBT_REGISTER.md",
+          "destination_heading": "Rule",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/TECH_DEBT_REGISTER.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-QUALITY-U07",
+          "source_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Deprecation or",
+          "meaning": "Breaking/deprecation consumers, migration/version/removal criteria and communication",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": null,
+          "unique_delta": "Breaking/deprecation consumers, migration/version/removal criteria and communication",
+          "disposition": "MIGRATED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-QUALITY-U08",
+          "source_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Keep necessary engineering docs",
+          "meaning": "Contracts/source-of-truth/owner/update triggers; useful examples/failure modes rather than duplicated stale tutorials",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+          "existing_coverage": "Required Shape; Change And Migration Rules; Completion Checklist",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+          "destination_heading": "Required Shape; Change And Migration Rules; Completion Checklist",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+              "headings": [
+                "Required Shape",
+                "Change And Migration Rules",
+                "Completion Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "COPY-QUALITY-U09",
+          "source_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "For each applicable gate",
+          "meaning": "Inspected artifact/scenario, gaps and applicability; risk acceptance not evidence/prohibition override; P0–P2 correction or higher authority exception",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "existing_coverage": "Authority, Verdict, And Readiness Contract; Exceptions And Bypass; Evidence And Verdict Rules",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "destination_heading": "Authority, Verdict, And Readiness Contract; Exceptions And Bypass; Evidence And Verdict Rules",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-QUALITY-U10",
+          "source_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "`CHECKED`",
+          "meaning": "Former gate transport labels do not replace the canonical verdict vocabulary",
+          "type": "historical-routing",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Only the former binding/labels are archived; semantic constraints have separate units.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "COPY-QUALITY-U11",
+          "source_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Use only the relevant fields",
+          "meaning": "Relevant task/decision/bug/migration/performance/release fields; observable goals/non-goals, environment/consumers, hypotheses/negative paths, comparable measurements, cleanup/rollout ownership and gaps; reuse records",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "1. Change Contract Before Implementation; 3. Verification Ladder; Completion Contract",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 3. Verification Ladder; Completion Contract",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow",
+                "Runtime Operations",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/TASK_STATE_DOCUMENTATION_STANDARD.md",
+              "headings": [
+                "Rules"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "COPY-QUALITY-U12",
+          "source_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Archived code patterns",
+          "meaning": "Conceptual examples require actual contracts; request ID, single-flight or termination callback alone cannot prove stated cancellation/auth/cleanup safety",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": null,
+          "unique_delta": "Conceptual examples require actual contracts; request ID, single-flight or termination callback alone cannot prove stated cancellation/auth/cleanup safety",
+          "disposition": "MIGRATED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "COPY-QUALITY-U13",
+          "source_path": "tchop-copy/QUALITY_STANDARD.md",
+          "source_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "source_heading": "Reference quality contract for iOS work",
+          "source_fragment": "Tests, builds, device checks",
+          "meaning": "Execution/Git/network/dependency permission remains current; missing required evidence cannot imply full verification or PR readiness",
+          "type": "constraint",
+          "conditions": "Task-specific applicability and current authorization; iPad/physical/actualVoiceOver verification excluded by user.",
+          "canonical_owner": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "existing_coverage": "User Authority; Authority, Verdict, And Readiness Contract; Evidence And Verdict Rules",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved in existing owner without second Library pass or authority.",
+          "destination_path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "destination_heading": "User Authority; Authority, Verdict, And Readiness Contract; Evidence And Verdict Rules",
+          "required_verification": "Exact frozen hash/fragment, complete source comparison, named heading and mirror parity.",
+          "evidence": "block-04-quality-contract.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [
+            "docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md"
           ]
         }
       ]
