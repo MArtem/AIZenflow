@@ -32313,27 +32313,451 @@
       "path": "15_AI_INTELLIGENCE/IOS-15-01_FOUNDATION_MODELS.md",
       "sha256": "0532c2547fb4edba42f338ef45014aad62d58c2ede53644732c0061b322c3429",
       "bytes": 5059,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0182-U01",
+          "source_path": "canonical/15_AI_INTELLIGENCE/IOS-15-01_FOUNDATION_MODELS.md",
+          "source_sha256": "0532c2547fb4edba42f338ef45014aad62d58c2ede53644732c0061b322c3429",
+          "source_heading": "Назначение",
+          "source_fragment": "Capability/availability gating, structured prompting, tool use, privacy, latency, fallback и evaluation.",
+          "meaning": "Capability/availability gating, structured prompting, tool use, privacy, latency, fallback и evaluation. Complete common workflow and AI capability/evaluation/privacy/tool authorization/fallback/latency gates.",
+          "type": "constraint",
+          "conditions": "Actual approved product/toolchain/model/profile; master section0/current rules override illustrative APIs/classes/physical checks. No models/downloads/providers/config/runtime/tests/eval/agents/transition authority; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing addressed AI sections cover local-model or rubric/dataset/eval focus; session/task ownership retained. Conditional examples are not new capability/readiness evidence.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "7. On-device/cloud/hybrid; 8. Availability; 59. PERFORMANCE; 60. MEMORY; 63. CONTEXT MANAGEMENT; 69. EVALUATION; 72. TESTING",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-34-local-model-evaluation-coverage.md",
+          "affected_routes": [
+            "AI.LOCAL",
+            "AI.COST_RUNTIME",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "7. On-device/cloud/hybrid",
+                "8. Availability",
+                "59. PERFORMANCE",
+                "60. MEMORY",
+                "63. CONTEXT MANAGEMENT",
+                "69. EVALUATION",
+                "72. TESTING"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Ordering And Stale Results"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0182-U02",
+          "source_path": "canonical/15_AI_INTELLIGENCE/IOS-15-01_FOUNDATION_MODELS.md",
+          "source_sha256": "0532c2547fb4edba42f338ef45014aad62d58c2ede53644732c0061b322c3429",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/toolchain/model/profile; master section0/current rules override illustrative APIs/classes/physical checks. No models/downloads/providers/config/runtime/tests/eval/agents/transition authority; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-34-local-model-evaluation-coverage.md",
+          "affected_routes": [
+            "AI.LOCAL",
+            "AI.COST_RUNTIME",
+            "AI.EVALUATION"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0182-U03",
+          "source_path": "canonical/15_AI_INTELLIGENCE/IOS-15-01_FOUNDATION_MODELS.md",
+          "source_sha256": "0532c2547fb4edba42f338ef45014aad62d58c2ede53644732c0061b322c3429",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/toolchain/model/profile; master section0/current rules override illustrative APIs/classes/physical checks. No models/downloads/providers/config/runtime/tests/eval/agents/transition authority; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-34-local-model-evaluation-coverage.md",
+          "affected_routes": [
+            "AI.LOCAL",
+            "AI.COST_RUNTIME",
+            "AI.EVALUATION"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized AI common body, explicit changed gate list and individual focus reviewed. Existing canonical AI master covers focus; no duplicate handbook, API adoption, eval execution or linked OP coverage."
     },
     {
       "source_id": "LIB-0183",
       "path": "15_AI_INTELLIGENCE/IOS-15-02_CORE_AI.md",
       "sha256": "07b7369ac0e829e30bf05e232c410a1a18696dc3d1d50b9e745fd3a5a86ca609",
       "bytes": 5050,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0183-U01",
+          "source_path": "canonical/15_AI_INTELLIGENCE/IOS-15-02_CORE_AI.md",
+          "source_sha256": "07b7369ac0e829e30bf05e232c410a1a18696dc3d1d50b9e745fd3a5a86ca609",
+          "source_heading": "Назначение",
+          "source_fragment": "Model packaging, memory budget, device specialization, stateful inference, latency и fallback.",
+          "meaning": "Model packaging, memory budget, device specialization, stateful inference, latency и fallback. Complete common workflow and AI capability/evaluation/privacy/tool authorization/fallback/latency gates.",
+          "type": "constraint",
+          "conditions": "Actual approved product/toolchain/model/profile; master section0/current rules override illustrative APIs/classes/physical checks. No models/downloads/providers/config/runtime/tests/eval/agents/transition authority; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing addressed AI sections cover local-model or rubric/dataset/eval focus; session/task ownership retained. Conditional examples are not new capability/readiness evidence.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "7. On-device/cloud/hybrid; 9. Device requirements; 10. Privacy classification; 11. Data flow; 59. PERFORMANCE; 60. MEMORY; 61. THERMAL И BATTERY; 65. CACHING",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-34-local-model-evaluation-coverage.md",
+          "affected_routes": [
+            "AI.LOCAL",
+            "AI.COST_RUNTIME",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "7. On-device/cloud/hybrid",
+                "9. Device requirements",
+                "10. Privacy classification",
+                "11. Data flow",
+                "59. PERFORMANCE",
+                "60. MEMORY",
+                "61. THERMAL И BATTERY",
+                "65. CACHING"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Ordering And Stale Results"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0183-U02",
+          "source_path": "canonical/15_AI_INTELLIGENCE/IOS-15-02_CORE_AI.md",
+          "source_sha256": "07b7369ac0e829e30bf05e232c410a1a18696dc3d1d50b9e745fd3a5a86ca609",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/toolchain/model/profile; master section0/current rules override illustrative APIs/classes/physical checks. No models/downloads/providers/config/runtime/tests/eval/agents/transition authority; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-34-local-model-evaluation-coverage.md",
+          "affected_routes": [
+            "AI.LOCAL",
+            "AI.COST_RUNTIME",
+            "AI.EVALUATION"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0183-U03",
+          "source_path": "canonical/15_AI_INTELLIGENCE/IOS-15-02_CORE_AI.md",
+          "source_sha256": "07b7369ac0e829e30bf05e232c410a1a18696dc3d1d50b9e745fd3a5a86ca609",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/toolchain/model/profile; master section0/current rules override illustrative APIs/classes/physical checks. No models/downloads/providers/config/runtime/tests/eval/agents/transition authority; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-34-local-model-evaluation-coverage.md",
+          "affected_routes": [
+            "AI.LOCAL",
+            "AI.COST_RUNTIME",
+            "AI.EVALUATION"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized AI common body, explicit changed gate list and individual focus reviewed. Existing canonical AI master covers focus; no duplicate handbook, API adoption, eval execution or linked OP coverage."
     },
     {
       "source_id": "LIB-0184",
       "path": "15_AI_INTELLIGENCE/IOS-15-03_AI_EVALUATION.md",
       "sha256": "4a09597d96913fa713d1f9ae7260af363976ced57ea26ce2ce5d2c861de972e9",
       "bytes": 5041,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0184-U01",
+          "source_path": "canonical/15_AI_INTELLIGENCE/IOS-15-03_AI_EVALUATION.md",
+          "source_sha256": "4a09597d96913fa713d1f9ae7260af363976ced57ea26ce2ce5d2c861de972e9",
+          "source_heading": "Назначение",
+          "source_fragment": "Golden datasets, task metrics, safety/privacy, latency/cost, regression suites и human review.",
+          "meaning": "Golden datasets, task metrics, safety/privacy, latency/cost, regression suites и human review. Complete common workflow and AI capability/evaluation/privacy/tool authorization/fallback/latency gates.",
+          "type": "constraint",
+          "conditions": "Actual approved product/toolchain/model/profile; master section0/current rules override illustrative APIs/classes/physical checks. No models/downloads/providers/config/runtime/tests/eval/agents/transition authority; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing addressed AI sections cover local-model or rubric/dataset/eval focus; session/task ownership retained. Conditional examples are not new capability/readiness evidence.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "59. PERFORMANCE; 62. COST; 67. OBSERVABILITY; 68. LOGGING; 69. EVALUATION; 70. EVAL DATASET; 71. HUMAN EVALUATION; 72. TESTING; 73. MOCKS; 74. NONDETERMINISM",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-34-local-model-evaluation-coverage.md",
+          "affected_routes": [
+            "AI.LOCAL",
+            "AI.COST_RUNTIME",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "59. PERFORMANCE",
+                "62. COST",
+                "67. OBSERVABILITY",
+                "68. LOGGING",
+                "69. EVALUATION",
+                "70. EVAL DATASET",
+                "71. HUMAN EVALUATION",
+                "72. TESTING",
+                "73. MOCKS",
+                "74. NONDETERMINISM"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Ordering And Stale Results"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0184-U02",
+          "source_path": "canonical/15_AI_INTELLIGENCE/IOS-15-03_AI_EVALUATION.md",
+          "source_sha256": "4a09597d96913fa713d1f9ae7260af363976ced57ea26ce2ce5d2c861de972e9",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/toolchain/model/profile; master section0/current rules override illustrative APIs/classes/physical checks. No models/downloads/providers/config/runtime/tests/eval/agents/transition authority; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-34-local-model-evaluation-coverage.md",
+          "affected_routes": [
+            "AI.LOCAL",
+            "AI.COST_RUNTIME",
+            "AI.EVALUATION"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0184-U03",
+          "source_path": "canonical/15_AI_INTELLIGENCE/IOS-15-03_AI_EVALUATION.md",
+          "source_sha256": "4a09597d96913fa713d1f9ae7260af363976ced57ea26ce2ce5d2c861de972e9",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/toolchain/model/profile; master section0/current rules override illustrative APIs/classes/physical checks. No models/downloads/providers/config/runtime/tests/eval/agents/transition authority; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-34-local-model-evaluation-coverage.md",
+          "affected_routes": [
+            "AI.LOCAL",
+            "AI.COST_RUNTIME",
+            "AI.EVALUATION"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized AI common body, explicit changed gate list and individual focus reviewed. Existing canonical AI master covers focus; no duplicate handbook, API adoption, eval execution or linked OP coverage."
     },
     {
       "source_id": "LIB-0185",
