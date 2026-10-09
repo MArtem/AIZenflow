@@ -22,9 +22,19 @@ source pattern is not evidence of the actual bottleneck. These are permission-bo
 
 Distinguish transient allocation peaks, resident growth and retained-object ownership. Inspect
 large buffers, cache bounds and autorelease behavior where relevant; none alone proves a leak.
+Review quadratic work, repeated allocations and excessive copying as hypotheses against the
+actual workload, rather than declaring regressions from a source-pattern hit.
 Connect database fetch limits, predicates/indexes, fault loading, batch work and N+1 patterns, or
 network payload/compression/cache/connection/serialization work, to the observed latency and
 resource envelope. A smaller payload or different fetch shape does not itself prove improvement.
+
+Reconstruct expected lifetime and the actual ownership path through closures, tasks, delegates,
+timers/display links, observation tokens, delegate strength, caches and ObjC bridges before
+calling delayed deallocation a retain cycle. Intentional
+cache/framework ownership or pending teardown can retain objects without a cycle. Inspect
+retention across suspension, including a weak reference promoted to a strong local before
+`await`; change the incorrect semantic owner rather than adding weak captures mechanically.
+Repeat the same lifecycle for permitted ownership evidence and the smallest fix.
 
 ## Optimization Workflow
 1. Reproduce a representative path.
@@ -33,6 +43,13 @@ resource envelope. A smaller payload or different fetch shape does not itself pr
 4. Change one ownership/algorithm/data-flow cause.
 5. Re-run under comparable conditions.
 6. Check correctness, memory, energy, accessibility, and older-device regressions.
+
+Record cold/warm path, cache warmup, thermal/battery and network conditions. Compare the same
+scenario/configuration, including tail latency, responsiveness, energy and CPU/memory trade-offs.
+If measurement is denied or unavailable, report a static-risk finding and the smallest useful
+measurement proposal, without a speedup claim. Existing production metrics can corroborate local
+evidence but are not interchangeable with it. Unavailable diagnostics must not be the sole
+acceptance signal on an older supported environment or a reason to raise deployment targets.
 
 Do not replace a measured problem with unbounded caching, stale data, unsafe concurrency, or reduced accessibility.
 
