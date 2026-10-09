@@ -36,6 +36,9 @@ retention across suspension, including a weak reference promoted to a strong loc
 `await`; change the incorrect semantic owner rather than adding weak captures mechanically.
 Repeat the same lifecycle for permitted ownership evidence and the smallest fix.
 
+For image paths, inspect downsampling/decode location, request deduplication, stable cache keys,
+freshness/invalidation, cancellation and both memory/disk limits against the actual reused consumer.
+
 ## Optimization Workflow
 1. Reproduce a representative path.
 2. Capture a baseline trace and signpost interval.

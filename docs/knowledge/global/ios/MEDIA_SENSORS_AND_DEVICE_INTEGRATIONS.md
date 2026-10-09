@@ -56,11 +56,25 @@ Simulator fixtures are useful for parsing, mapping, state machines, imported med
 ## Performance And Privacy
 Bound frame/sample rate, buffers, decoded media, cache size, observation lifetime, and background work. Classify captured metadata and derived inferences as user data. Provide deletion/export behavior consistent with product promises.
 
+For capture/decode/rendering pipelines, record maximum in-flight buffers and queue growth,
+backpressure behavior (pause, drop or coalesce), ownership on interruption/cancellation and
+release of buffers/sessions. Compare a rendering budget with a representative observed scenario.
+For export/transcoding, bound input/output buffering and temporary disk use; preserve cleanup
+on cancellation or low storage and account for thermal/background constraints and representative
+codec/color-space output. Compressed file size does not establish decoded-memory bounds.
+
+At real-time audio/rendering callback boundaries, inspect locks, blocking work and allocation
+pressure under the actual framework contract; review format conversion, safe context/pipeline
+reuse, GPU/CPU trade-offs, frame pacing and thermal limits. Golden output comparisons need a
+defined compatibility contract and permitted verification. Source inspection cannot establish
+hardware behavior. Recommendations grant no capture/export/test/profiling execution.
+
 ## Evidence
 - Permission matrix and settings changes.
 - Interruption, route/device change, background/foreground, unavailable hardware, low storage, memory warning, thermal state, and cancellation.
 - Representative large/long media and malformed input.
-- Physical-device coverage for every hardware behavior claimed.
+- Hardware-dependent claims remain unverified when evidence is unavailable or excluded by current
+  user scope; excluded checks are OMITTED_BY_USER, never PASS.
 - Privacy manifest, purpose strings, data lifecycle, and App Review disclosure consistency.
 
 ## Primary Sources

@@ -21656,9 +21656,899 @@
       "path": "11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
       "sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
       "bytes": 5162,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0130-U01",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "does not authorize Instruments",
+          "meaning": "Actual symptom/credible changed path, project-local authority first; independent profiling/build/test/device/optimization permissions.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Load When; Measure From User Impact",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Load When",
+                "Measure From User Impact"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U02",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "Separate measured baseline from a suspected hotspot",
+          "meaning": "User outcome/representative OS/device/data/path, actual baseline versus suspected hotspot and smallest useful measurement.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Optimization Workflow",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U03",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "existing production metrics can corroborate",
+          "meaning": "Comparable cold/warm/config/cache/thermal/battery, symptom-specific diagnostic and tails/responsiveness/energy; local/shipping noninterchangeable and older unavailable-tool gate.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Optimization Workflow",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U04",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "Trace producer, consumer, thread/actor and lifetime",
+          "meaning": "Producer/consumer/isolation/lifetime and actual workload; allocation/quadratic/main-thread I/O/copy/cache/cancellation patterns not regression proof.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U05",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "For launch, separate pre-main/post-main",
+          "meaning": "Launch phases/setup/I/O/firstframe and scrolling identity/reuse/prefetch cancellation/decode/layout/invalidation/diff tied to hitches.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist",
+                "Required Verification"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U06",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "request deduplication, cache keys",
+          "meaning": "Image downsampling/decode/dedup/stable keys/freshness/invalidation/memory+disk bounds and actual consumer.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "Image downsampling/decode/dedup/stable keys/freshness/invalidation/memory+disk bounds and actual consumer.",
+          "disposition": "MIGRATED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains; Optimization Workflow",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U07",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "moving work off the UI actor",
+          "meaning": "Energy polling/timers/background/network wakeups and bounded fan-out; off-UI-actor work alone not bounded resources.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Isolation Design",
+                "Streams"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U08",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "For database/network cost",
+          "meaning": "Actual fetch/index/N+1/payload/serialization/connection cost and observed latency/resource budget, size alone not faster.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U09",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "Distinguish transient allocation peaks",
+          "meaning": "Transient peaks/resident growth versus leak, memory-pressure/termination and CPU-memory trade-offs.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains; Optimization Workflow",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U10",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "Delayed teardown or intentional cache",
+          "meaning": "Actual graph/lifetime/release/teardown/cache bounds; intentional ownership/await strong-local promotion versus cycle, no mechanical weak; permitted deinit/graph/signpost observations.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains; Measure From User Impact",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Measure From User Impact"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U11",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "For capture, decode or rendering pipelines",
+          "meaning": "Maximum in-flight buffers/queue/backpressure/release on interruption-cancel and observed rendering scenario.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "Maximum in-flight buffers/queue/backpressure/release on interruption-cancel and observed rendering scenario.",
+          "disposition": "MIGRATED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Runtime Ownership; Performance And Privacy",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Runtime Ownership",
+                "Performance And Privacy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U12",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "For media export or transcoding",
+          "meaning": "Bound export input/output/tempdisk, cancellation/lowstorage cleanup, thermal/background and codec/color output; compressed size not decoded memory proof.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "Bound export input/output/tempdisk, cancellation/lowstorage cleanup, thermal/background and codec/color output; compressed size not decoded memory proof.",
+          "disposition": "MIGRATED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Performance And Privacy",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Performance And Privacy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U13",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "For real-time audio/rendering",
+          "meaning": "Actual callback blocking/lock/allocation contract, format conversion/context reuse/GPU-CPU/frame pacing/thermal limits.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "Actual callback blocking/lock/allocation contract, format conversion/context reuse/GPU-CPU/frame pacing/thermal limits.",
+          "disposition": "MIGRATED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Audio, Video, And Speech; Performance And Privacy",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Audio, Video, And Speech",
+                "Performance And Privacy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U14",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "Golden media/output comparisons",
+          "meaning": "Defined compatibility and permission for golden evidence, hardware not proved by static inspection; exclusions never PASS.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Performance And Privacy; Simulator Versus Device; Evidence",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Performance And Privacy",
+                "Simulator Versus Device",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U15",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "Before recommending a change",
+          "meaning": "Correctness/memory/energy/accessibility/failure impact, smallest measured-hotspot fix; preserve lowmemory/cancel/repeateduse, no speculative layers.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Optimization Workflow",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U16",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "For an authorized change",
+          "meaning": "Same scenario before/after and regression guard, static risk/proposal when unavailable/denied; complete affected final diff.",
+          "type": "constraint",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Optimization Workflow; Evidence",
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler",
+            "ios-memory-cache-media"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0130-U17",
+          "source_path": "canonical/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+          "source_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "source_heading": "Performance and memory — copy-only reference route",
+          "source_fragment": "In `AUTO`",
+          "meaning": "Former AUTO/ADVISORY/independent after-local delivery and installed-runtime references remain historical, no mandatory second Library pass.",
+          "type": "historical-routing",
+          "conditions": "Actual symptom/target/toolchain, measured-vs-suspected cost and permitted evidence; no profiling/build/test/device execution or optimization authority inherited.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Full curated paragraph mapped independently; current permission/exclusion and actual contract govern, no observed performance/hardware result.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full exact normalized body/focus/gates, SHA/literal fragments/actual headings; prior reviewed rows/copies preserved and owner mirrors exact.",
+          "evidence": "block-25-performance-curated-completion.md",
+          "affected_routes": [
+            "ios-performance-profiler"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Entire curated route reviewed, every paragraph including media/audio resource constraints terminal; historical profiles archive-only; no hardware/test/profiling grant."
     },
     {
       "source_id": "LIB-0131",
