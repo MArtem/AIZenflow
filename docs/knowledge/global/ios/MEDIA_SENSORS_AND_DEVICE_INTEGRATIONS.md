@@ -36,6 +36,10 @@ Sessions, delegates, observers, routes, captures, streams, and hardware connecti
 - Geocoding, directions, search, and tiles are network/service operations with throttling and terms.
 - Validate map camera, annotations, clustering, accessibility, and location-denied workflows.
 
+For geofencing, inspect the actual supported monitoring limits, authorization/precision, lifecycle
+and energy/privacy contract before relying on region events. Do not substitute a source estimate
+for observed location or background behavior; excluded physical checks remain unverified.
+
 ## Bluetooth, NFC, And Nearby
 - Model discovery, permission, state restoration, connection, service/characteristic negotiation, timeout, retry, disconnect, and firmware/protocol version.
 - Bound scan duration and duplicate processing; do not equate discovery with authorization or identity.

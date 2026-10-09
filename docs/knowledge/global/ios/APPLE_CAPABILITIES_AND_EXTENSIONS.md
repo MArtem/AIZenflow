@@ -12,7 +12,8 @@ For every capability, establish:
 4. App/extension/shared-container ownership.
 5. Privacy permission and data use.
 6. Background, lifecycle, quota, and system-scheduling semantics.
-7. Simulator, physical-device, multi-device, and external-service evidence.
+7. Currently permitted evidence classes and gaps; excluded iPad/physical-device/actualVoiceOver
+   checks stay OMITTED_BY_USER, never PASS.
 8. App Review and distribution implications.
 
 An API compiling does not prove the capability is provisioned or operational.
@@ -27,7 +28,10 @@ An API compiling does not prove the capability is provisioned or operational.
 ## Notifications
 Separate authorization, device token registration, provider registration, delivery, presentation, user response, and background handling. Tokens can change. Payloads are untrusted and size-limited. Silent notifications are opportunistic and must not be the sole correctness mechanism.
 
-Test foreground/background/terminated state, disabled authorization, changed token, malformed/deep-link payload, notification service/content extensions, and provider environment.
+Review category/action response ownership and foreground presentation alongside the token/provider
+contract; delivered notification is not proof that the intended action or navigation completed.
+
+For permitted verification, select foreground/background/terminated state, disabled authorization, changed token, malformed/deep-link payload, notification service/content extensions, and provider environment.
 
 ## Background Execution
 Select from background URLSession, BGTaskScheduler, audio/location modes, processing assertions, push hints, or foreground completion based on the actual work. The system controls scheduling and may terminate the process. Persist intent/checkpoints before suspension and make handlers idempotent, cancellable, time-bounded, and expiration-aware.
@@ -35,15 +39,21 @@ Select from background URLSession, BGTaskScheduler, audio/location modes, proces
 ## Widgets
 Widgets render snapshots/timelines under tight budgets and are not miniature apps. Keep data access bounded, placeholder/snapshot/timeline paths distinct, deep links stable, privacy redaction intentional, and App Group data versioned. Reload requests are hints and should be budgeted.
 
+Review the actual supported timeline/configuration/relevance strategy, including App Intent
+parameters where used. Keep placeholder/snapshot behavior and shared-data freshness distinct;
+relevance and reload requests do not guarantee exact presentation time.
+
 ## Live Activities
-Define authorization, Activity attributes/content state, start/update/end ownership, stale date, relevance, remote update security, token lifecycle, dismissal, and app relaunch reconciliation. Keep content compact and privacy-aware. Physical-device and lock-screen/Dynamic Island evidence is required for claims about real presentation.
+Define authorization, Activity attributes/content state, start/update/end ownership, stale date, relevance, remote update security, token lifecycle, dismissal, and app relaunch reconciliation. Keep content compact and privacy-aware. Source/timeline evidence does not prove real lock-screen/Dynamic Island presentation; hardware
+claims remain unverified when current user exclusions prevent the relevant observations.
 
 ## App Intents, Shortcuts, Siri, And Spotlight
 - Model stable entities and identifiers independent of current UI objects.
 - Keep parameters, disambiguation, errors, confirmation, authentication, and background availability explicit.
 - Intent execution must call owned domain behavior rather than duplicate business rules.
 - Index only useful, privacy-appropriate content and remove stale searchable items.
-- Validate with AppIntentsTesting where supported, Shortcuts UI, and physical-device Siri voice for voice claims.
+- Select currently permitted intent/entity/system-surface evidence; compilation or fixtures do not
+  prove operational discovery, handoff or Siri voice. Excluded physical checks are never PASS.
 
 ## Associated Domains And Deep Links
 Treat universal links as a server-and-app contract. Verify association file content, hosting, caching, app entitlement, route parsing, authentication gating, and fallback. Custom URL schemes are globally claimable and must not carry secrets. Every external route is untrusted input.
@@ -63,7 +73,9 @@ Use the dedicated StoreKit standard. Capability review must also include product
 ## Capability Evidence Classes
 - Static: target membership, entitlements, plist, associated domains, privacy manifest, provisioning configuration.
 - Simulator: pure intent/entity logic, deep-link routing, widget previews/timelines, fixture-driven extension logic where supported.
-- Physical device: push token/delivery, Siri voice, biometrics, lock-screen/Live Activity, camera/microphone, protected-data state, realistic background scheduling.
+- Hardware-dependent fact class: push token/delivery, Siri voice, biometrics, lock-screen/Live Activity,
+  camera/microphone, protected-data state and realistic background scheduling. Current excluded
+  checks remain unverified; this classification creates no verification prerequisite or permission.
 - Multi-device/service: CloudKit sharing, SharePlay, passkeys, continuity, provider/server callbacks.
 - Distribution: archive, signing, TestFlight/App Store environment, production service configuration.
 

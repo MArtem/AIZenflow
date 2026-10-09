@@ -30007,81 +30007,1198 @@
       "path": "14_PLATFORM_SERVICES/IOS-14-02_WIDGETKIT.md",
       "sha256": "3cd485a75012142872586c43ccb53e18f05ae3f7fbbcdd19aa94653926551c6b",
       "bytes": 5087,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0168-U01",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-02_WIDGETKIT.md",
+          "source_sha256": "3cd485a75012142872586c43ccb53e18f05ae3f7fbbcdd19aa94653926551c6b",
+          "source_heading": "Назначение",
+          "source_fragment": "Timeline strategy, App Intent configuration, shared data, relevance, refresh budgets и placeholders.",
+          "meaning": "Timeline strategy, App Intent configuration, shared data, relevance, refresh budgets и placeholders. Full common correctness/architecture/ownership/security/performance/evidence/permission gates.",
+          "type": "constraint",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "Timeline strategy, App Intent configuration, shared data, relevance, refresh budgets и placeholders.",
+          "disposition": "MIGRATED",
+          "reason": "Timeline/configuration/relevance, notification category/action consumer agreement and actual geofencing limits clarified. Current lifecycle/media/capability contracts cover remainder, no delivery/operational guarantee.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Widgets; App Intents, Shortcuts, Siri, And Spotlight",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Widgets",
+                "App Intents, Shortcuts, Siri, And Spotlight"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0168-U02",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-02_WIDGETKIT.md",
+          "source_sha256": "3cd485a75012142872586c43ccb53e18f05ae3f7fbbcdd19aa94653926551c6b",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0168-U03",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-02_WIDGETKIT.md",
+          "source_sha256": "3cd485a75012142872586c43ccb53e18f05ae3f7fbbcdd19aa94653926551c6b",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common normalized body/gates/focus, no appended depth; linked OP independent. No actual capability, device, app/config or runtime transition performed."
     },
     {
       "source_id": "LIB-0169",
       "path": "14_PLATFORM_SERVICES/IOS-14-03_LIVE_ACTIVITIES.md",
       "sha256": "ed12013442a394cc214d3d9048260721b967d8ddf1f86f2e8fb7aca4cfaf6de6",
       "bytes": 5066,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0169-U01",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-03_LIVE_ACTIVITIES.md",
+          "source_sha256": "ed12013442a394cc214d3d9048260721b967d8ddf1f86f2e8fb7aca4cfaf6de6",
+          "source_heading": "Назначение",
+          "source_fragment": "ActivityKit state/content design, push updates, stale/end lifecycle, privacy и battery.",
+          "meaning": "ActivityKit state/content design, push updates, stale/end lifecycle, privacy и battery. Full common correctness/architecture/ownership/security/performance/evidence/permission gates.",
+          "type": "constraint",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Timeline/configuration/relevance, notification category/action consumer agreement and actual geofencing limits clarified. Current lifecycle/media/capability contracts cover remainder, no delivery/operational guarantee.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Live Activities; Capability Intake",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Live Activities",
+                "Capability Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Optimization Workflow"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0169-U02",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-03_LIVE_ACTIVITIES.md",
+          "source_sha256": "ed12013442a394cc214d3d9048260721b967d8ddf1f86f2e8fb7aca4cfaf6de6",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0169-U03",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-03_LIVE_ACTIVITIES.md",
+          "source_sha256": "ed12013442a394cc214d3d9048260721b967d8ddf1f86f2e8fb7aca4cfaf6de6",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common normalized body/gates/focus, no appended depth; linked OP independent. No actual capability, device, app/config or runtime transition performed."
     },
     {
       "source_id": "LIB-0170",
       "path": "14_PLATFORM_SERVICES/IOS-14-04_PUSH_NOTIFICATIONS.md",
       "sha256": "0d1c6c74ae4ab6e786a36f3032d10c9ea00727b25cc833b035c95747998d006a",
       "bytes": 5117,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0170-U01",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-04_PUSH_NOTIFICATIONS.md",
+          "source_sha256": "0d1c6c74ae4ab6e786a36f3032d10c9ea00727b25cc833b035c95747998d006a",
+          "source_heading": "Назначение",
+          "source_fragment": "Token lifecycle, categories/actions, foreground handling, deep links, privacy и delivery assumptions.",
+          "meaning": "Token lifecycle, categories/actions, foreground handling, deep links, privacy и delivery assumptions. Full common correctness/architecture/ownership/security/performance/evidence/permission gates.",
+          "type": "constraint",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "Token lifecycle, categories/actions, foreground handling, deep links, privacy и delivery assumptions.",
+          "disposition": "MIGRATED",
+          "reason": "Timeline/configuration/relevance, notification category/action consumer agreement and actual geofencing limits clarified. Current lifecycle/media/capability contracts cover remainder, no delivery/operational guarantee.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Notifications",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Notifications"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0170-U02",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-04_PUSH_NOTIFICATIONS.md",
+          "source_sha256": "0d1c6c74ae4ab6e786a36f3032d10c9ea00727b25cc833b035c95747998d006a",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0170-U03",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-04_PUSH_NOTIFICATIONS.md",
+          "source_sha256": "0d1c6c74ae4ab6e786a36f3032d10c9ea00727b25cc833b035c95747998d006a",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common normalized body/gates/focus, no appended depth; linked OP independent. No actual capability, device, app/config or runtime transition performed."
     },
     {
       "source_id": "LIB-0171",
       "path": "14_PLATFORM_SERVICES/IOS-14-05_BACKGROUND_TASKS.md",
       "sha256": "9fb7d2848e53dbcca1a5d6a495acea5529d93682d3b732a93c73044c780c3432",
       "bytes": 5063,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0171-U01",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-05_BACKGROUND_TASKS.md",
+          "source_sha256": "9fb7d2848e53dbcca1a5d6a495acea5529d93682d3b732a93c73044c780c3432",
+          "source_heading": "Назначение",
+          "source_fragment": "BGTaskScheduler budgets, expiration, idempotency, persistence и no guaranteed timing.",
+          "meaning": "BGTaskScheduler budgets, expiration, idempotency, persistence и no guaranteed timing. Full common correctness/architecture/ownership/security/performance/evidence/permission gates.",
+          "type": "constraint",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Timeline/configuration/relevance, notification category/action consumer agreement and actual geofencing limits clarified. Current lifecycle/media/capability contracts cover remainder, no delivery/operational guarantee.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Background Execution",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Background Execution"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0171-U02",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-05_BACKGROUND_TASKS.md",
+          "source_sha256": "9fb7d2848e53dbcca1a5d6a495acea5529d93682d3b732a93c73044c780c3432",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0171-U03",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-05_BACKGROUND_TASKS.md",
+          "source_sha256": "9fb7d2848e53dbcca1a5d6a495acea5529d93682d3b732a93c73044c780c3432",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common normalized body/gates/focus, no appended depth; linked OP independent. No actual capability, device, app/config or runtime transition performed."
     },
     {
       "source_id": "LIB-0172",
       "path": "14_PLATFORM_SERVICES/IOS-14-06_LOCATION.md",
       "sha256": "134a408e07dd8004f678f78ed6870db8365ac24f0738cd0666f4d36162493f6c",
       "bytes": 5045,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0172-U01",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-06_LOCATION.md",
+          "source_sha256": "134a408e07dd8004f678f78ed6870db8365ac24f0738cd0666f4d36162493f6c",
+          "source_heading": "Назначение",
+          "source_fragment": "Authorization precision, background modes, energy, geofencing limits и privacy UX.",
+          "meaning": "Authorization precision, background modes, energy, geofencing limits и privacy UX. Full common correctness/architecture/ownership/security/performance/evidence/permission gates.",
+          "type": "constraint",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "Authorization precision, background modes, energy, geofencing limits и privacy UX.",
+          "disposition": "MIGRATED",
+          "reason": "Timeline/configuration/relevance, notification category/action consumer agreement and actual geofencing limits clarified. Current lifecycle/media/capability contracts cover remainder, no delivery/operational guarantee.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Location And Maps",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Location And Maps"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0172-U02",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-06_LOCATION.md",
+          "source_sha256": "134a408e07dd8004f678f78ed6870db8365ac24f0738cd0666f4d36162493f6c",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0172-U03",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-06_LOCATION.md",
+          "source_sha256": "134a408e07dd8004f678f78ed6870db8365ac24f0738cd0666f4d36162493f6c",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common normalized body/gates/focus, no appended depth; linked OP independent. No actual capability, device, app/config or runtime transition performed."
     },
     {
       "source_id": "LIB-0173",
       "path": "14_PLATFORM_SERVICES/IOS-14-07_MAPKIT.md",
       "sha256": "e54ddd9f34fba4de2882805480d585e552f04a828dcc48e9b1c9c656086c43ef",
       "bytes": 5012,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0173-U01",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-07_MAPKIT.md",
+          "source_sha256": "e54ddd9f34fba4de2882805480d585e552f04a828dcc48e9b1c9c656086c43ef",
+          "source_heading": "Назначение",
+          "source_fragment": "Annotations, camera state, clustering, search, routing, privacy и performance.",
+          "meaning": "Annotations, camera state, clustering, search, routing, privacy и performance. Full common correctness/architecture/ownership/security/performance/evidence/permission gates.",
+          "type": "constraint",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Timeline/configuration/relevance, notification category/action consumer agreement and actual geofencing limits clarified. Current lifecycle/media/capability contracts cover remainder, no delivery/operational guarantee.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Location And Maps",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Location And Maps"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0173-U02",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-07_MAPKIT.md",
+          "source_sha256": "e54ddd9f34fba4de2882805480d585e552f04a828dcc48e9b1c9c656086c43ef",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0173-U03",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-07_MAPKIT.md",
+          "source_sha256": "e54ddd9f34fba4de2882805480d585e552f04a828dcc48e9b1c9c656086c43ef",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common normalized body/gates/focus, no appended depth; linked OP independent. No actual capability, device, app/config or runtime transition performed."
     },
     {
       "source_id": "LIB-0174",
       "path": "14_PLATFORM_SERVICES/IOS-14-08_HEALTHKIT.md",
       "sha256": "6ebfdfedfdbcde566f3278ba75a9cc4b92eddc5e45d84fe00d692830f58cff11",
       "bytes": 5126,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0174-U01",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-08_HEALTHKIT.md",
+          "source_sha256": "6ebfdfedfdbcde566f3278ba75a9cc4b92eddc5e45d84fe00d692830f58cff11",
+          "source_heading": "Назначение",
+          "source_fragment": "Authorization granularity, queries, background delivery, data minimization и sensitive logging rules.",
+          "meaning": "Authorization granularity, queries, background delivery, data minimization и sensitive logging rules. Full common correctness/architecture/ownership/security/performance/evidence/permission gates.",
+          "type": "constraint",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Timeline/configuration/relevance, notification category/action consumer agreement and actual geofencing limits clarified. Current lifecycle/media/capability contracts cover remainder, no delivery/operational guarantee.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Health, Contacts, Calendars, And Sensitive Stores",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Health, Contacts, Calendars, And Sensitive Stores"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0174-U02",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-08_HEALTHKIT.md",
+          "source_sha256": "6ebfdfedfdbcde566f3278ba75a9cc4b92eddc5e45d84fe00d692830f58cff11",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0174-U03",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-08_HEALTHKIT.md",
+          "source_sha256": "6ebfdfedfdbcde566f3278ba75a9cc4b92eddc5e45d84fe00d692830f58cff11",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common normalized body/gates/focus, no appended depth; linked OP independent. No actual capability, device, app/config or runtime transition performed."
     },
     {
       "source_id": "LIB-0175",
       "path": "14_PLATFORM_SERVICES/IOS-14-09_PHOTOS_CAMERA.md",
       "sha256": "bd123ef430e3fa21bf7bf513abb25b3dd327bb739cf87e75fa795200243a3d92",
       "bytes": 5093,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0175-U01",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-09_PHOTOS_CAMERA.md",
+          "source_sha256": "bd123ef430e3fa21bf7bf513abb25b3dd327bb739cf87e75fa795200243a3d92",
+          "source_heading": "Назначение",
+          "source_fragment": "Limited library, permission flow, capture session lifecycle, orientation, interruptions и storage.",
+          "meaning": "Limited library, permission flow, capture session lifecycle, orientation, interruptions и storage. Full common correctness/architecture/ownership/security/performance/evidence/permission gates.",
+          "type": "constraint",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Timeline/configuration/relevance, notification category/action consumer agreement and actual geofencing limits clarified. Current lifecycle/media/capability contracts cover remainder, no delivery/operational guarantee.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Camera And Photos; Runtime Ownership",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Camera And Photos",
+                "Runtime Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0175-U02",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-09_PHOTOS_CAMERA.md",
+          "source_sha256": "bd123ef430e3fa21bf7bf513abb25b3dd327bb739cf87e75fa795200243a3d92",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0175-U03",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-09_PHOTOS_CAMERA.md",
+          "source_sha256": "bd123ef430e3fa21bf7bf513abb25b3dd327bb739cf87e75fa795200243a3d92",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common normalized body/gates/focus, no appended depth; linked OP independent. No actual capability, device, app/config or runtime transition performed."
     },
     {
       "source_id": "LIB-0176",
       "path": "14_PLATFORM_SERVICES/IOS-14-10_BLUETOOTH.md",
       "sha256": "6775245d14d2fe734d2dc82441b531b65226648babe2ac05d01c6aeac6ccea1b",
       "bytes": 5090,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0176-U01",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-10_BLUETOOTH.md",
+          "source_sha256": "6775245d14d2fe734d2dc82441b531b65226648babe2ac05d01c6aeac6ccea1b",
+          "source_heading": "Назначение",
+          "source_fragment": "State machine, restoration, permissions, reconnect, background constraints и protocol robustness.",
+          "meaning": "State machine, restoration, permissions, reconnect, background constraints и protocol robustness. Full common correctness/architecture/ownership/security/performance/evidence/permission gates.",
+          "type": "constraint",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Timeline/configuration/relevance, notification category/action consumer agreement and actual geofencing limits clarified. Current lifecycle/media/capability contracts cover remainder, no delivery/operational guarantee.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Bluetooth, NFC, And Nearby",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Bluetooth, NFC, And Nearby"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0176-U02",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-10_BLUETOOTH.md",
+          "source_sha256": "6775245d14d2fe734d2dc82441b531b65226648babe2ac05d01c6aeac6ccea1b",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0176-U03",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-10_BLUETOOTH.md",
+          "source_sha256": "6775245d14d2fe734d2dc82441b531b65226648babe2ac05d01c6aeac6ccea1b",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-31-platform-lifecycle-capabilities.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-lifecycle-background"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common normalized body/gates/focus, no appended depth; linked OP independent. No actual capability, device, app/config or runtime transition performed."
     },
     {
       "source_id": "LIB-0177",
