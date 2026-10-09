@@ -62,6 +62,10 @@ Protecting a Keychain item with access control is stronger than evaluating biome
 - Define reinstall, restore, device migration, account change, and key-unavailable behavior.
 - Keychain persistence across reinstall can surprise account-reset assumptions; test the intended lifecycle.
 
+Review secure-storage deletion/migration, user-presence requirements and actual error semantics
+without opening a live secret store. An unavailable or failed read is not evidence that a
+credential is absent. A review finding grants no credential/access-policy/authentication mutation.
+
 ## Cryptography
 - Prefer CryptoKit and platform protocols; do not invent algorithms or wire formats.
 - Define confidentiality, integrity, authenticity, key agreement, and password-derivation needs separately.
@@ -72,6 +76,10 @@ Protecting a Keychain item with access control is stronger than evaluating biome
 
 ## App Attest And DeviceCheck
 These are server-assisted risk signals, not local-only security features and not absolute jailbreak detection. App Attest requires server challenges and server-side attestation/assertion validation. Design unsupported-device fallback, retry, key loss, reinstall, environment separation, and gradual rollout.
+
+Bind attestation/assertion validation to the server challenge and replay policy, key lifecycle
+and actual failure/fallback/anti-abuse limits. A validated app-integrity signal is not user
+authorization; unavailable attestation must not silently become equivalent successful evidence.
 
 Do not add App Attest to a backend-less app and claim security benefit; document it as unavailable until the server boundary exists.
 
@@ -88,7 +96,8 @@ Do not add App Attest to a backend-less app and claim security benefit; document
 - Keychain accessibility verified across relaunch, lock, reinstall/migration assumptions, and target access groups.
 - No secrets or personal data in logs, crash metadata, analytics, source, or bundles.
 - Entitlements, associated domains, callback URLs, privacy declarations, and server validation inspected.
-- Physical-device verification for biometrics, Secure Enclave, locked-device behavior, passkeys, and App Attest where required.
+- Hardware-dependent claims remain unverified when evidence is unavailable or excluded by current
+  user scope; excluded checks are OMITTED_BY_USER, never PASS.
 
 ## Primary Sources
 - [AuthenticationServices](https://developer.apple.com/documentation/authenticationservices)

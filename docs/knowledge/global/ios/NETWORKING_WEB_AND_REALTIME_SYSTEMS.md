@@ -50,6 +50,11 @@ transport alone does not prove delivery of every application event.
 - Never interpolate secrets or untrusted text into executable JavaScript.
 - Define process termination recovery, authentication handoff, downloads, external URL opening, and accessibility.
 
+Review redirects, JS bridge inputs/content-world scope, file-read access, downloads and
+cookie/session isolation throughout the actual flow; an allowlisted initial URL is insufficient.
+Content worlds separate JavaScript variable namespaces, while DOM changes remain shared; do
+not claim complete document isolation from a content-world choice.
+
 ## TLS And Trust
 Use platform trust evaluation by default. Certificate pinning adds rotation, expiry, recovery, and outage risk and requires an explicit threat model. Never disable trust checks in production. Mutual TLS and custom anchors require secure identity provisioning and renewal design.
 
