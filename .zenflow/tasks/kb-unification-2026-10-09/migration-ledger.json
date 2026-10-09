@@ -29980,27 +29980,584 @@
       "path": "14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
       "sha256": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7",
       "bytes": 1356,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0165-U01",
+          "source_path": "canonical/14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+          "source_sha256": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7",
+          "source_heading": "copy-only reference route",
+          "source_fragment": "Use when an app exposes an action/entity to system surfaces or changes its parameters,\navailability or handoff. Apply current project and local platform rules first; verify any\nspecific API or OS-availability claim against current official documentation before relying on\nit. This route does not enable capabilities, run Shortcuts or alter app configuration.",
+          "meaning": "Scope/current project/API availability and no capability/system-surface/config grant.",
+          "type": "constraint",
+          "conditions": "Actual product/profile/consumer contract; docs-only. No capability/configuration/purchase/StoreKit session/account/network/system-surface/runtime/transition permission; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserve useful contract in current owner; execution permissions remain task-specific.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Capability Intake",
+          "required_verification": "Full source, SHA/literal fragments/current headings/prior objects/mirrors and complete final semantic diff; scoped Apple API descriptions.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Capability Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0165-U02",
+          "source_path": "canonical/14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+          "source_sha256": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7",
+          "source_heading": "copy-only reference route",
+          "source_fragment": "Trace the intent's discoverable name, stable entity identity, parameter source and validation,\nauthorization state, side effect and destination. Ask what happens on a repeated or stale\ninvocation, denied permission, missing entity, app/extension handoff, interruption and\nunsupported OS/device. A mutating action needs an explicit owner and duplicate-action policy;\ndo not infer idempotency from the framework. Check that surfaced data respects privacy and that\nfailure is understandable to the user.",
+          "meaning": "Discoverability, parameter/authorization/side effect/destination chain; stale/repeated/missing/denied/interrupted invocations and owned duplicate-action policy.",
+          "type": "constraint",
+          "conditions": "Actual product/profile/consumer contract; docs-only. No capability/configuration/purchase/StoreKit session/account/network/system-surface/runtime/transition permission; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "Discoverability, parameter/authorization/side effect/destination chain; stale/repeated/missing/denied/interrupted invocations and owned duplicate-action policy.",
+          "disposition": "MIGRATED",
+          "reason": "Preserve useful contract in current owner; execution permissions remain task-specific.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "App Intents, Shortcuts, Siri, And Spotlight",
+          "required_verification": "Full source, SHA/literal fragments/current headings/prior objects/mirrors and complete final semantic diff; scoped Apple API descriptions.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "App Intents, Shortcuts, Siri, And Spotlight"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0165-U03",
+          "source_path": "canonical/14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+          "source_sha256": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7",
+          "source_heading": "copy-only reference route",
+          "source_fragment": "For an authorized edit, inspect the declaration, resolver, underlying domain operation, UI\nhandoff and all affected target memberships together. Recommend the smallest meaningful\nverification; actual build, device and system-surface checks require separate permission.",
+          "meaning": "Declaration/resolver/domain/UI handoff/target consumer graph, smallest permitted verification.",
+          "type": "constraint",
+          "conditions": "Actual product/profile/consumer contract; docs-only. No capability/configuration/purchase/StoreKit session/account/network/system-surface/runtime/transition permission; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserve useful contract in current owner; execution permissions remain task-specific.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "App Intents, Shortcuts, Siri, And Spotlight",
+          "required_verification": "Full source, SHA/literal fragments/current headings/prior objects/mirrors and complete final semantic diff; scoped Apple API descriptions.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "App Intents, Shortcuts, Siri, And Spotlight"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0165-U04",
+          "source_path": "canonical/14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+          "source_sha256": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7",
+          "source_heading": "copy-only reference route",
+          "source_fragment": "`AUTO` performs in-scope static review; `ADVISORY` prioritizes scenarios and evidence. This\ndistills the former `ioslib-app-intents` checklist without its installed skill/runtime.",
+          "meaning": "Historical AUTO/ADVISORY modes and installed-skill reference.",
+          "type": "historical-routing",
+          "conditions": "Actual product/profile/consumer contract; docs-only. No capability/configuration/purchase/StoreKit session/account/network/system-surface/runtime/transition permission; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former AUTO/ADVISORY installed-skill runtime binding archived; not a current grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source, SHA/literal fragments/current headings/prior objects/mirrors and complete final semantic diff; scoped Apple API descriptions.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete three paragraphs: current scope/consumer graph covered, action-repeat contract transferred, old operational modes archived."
     },
     {
       "source_id": "LIB-0166",
       "path": "14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
       "sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
       "bytes": 1605,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0166-U01",
+          "source_path": "canonical/14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+          "source_sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
+          "source_heading": "copy-only reference route",
+          "source_fragment": "Use for StoreKit, subscriptions, purchase UI, restore or access-control changes. Start from the\nproject's existing product and server/account contract. Check current official platform and\nstore guidance for time-sensitive API or policy assertions. This route does not authorize a\npurchase, StoreKit test session, account change, network call or release action.",
+          "meaning": "Approved product/server contract/current platform guidance, no purchases/test sessions/account/network/release authority.",
+          "type": "constraint",
+          "conditions": "Actual product/profile/consumer contract; docs-only. No capability/configuration/purchase/StoreKit session/account/network/system-surface/runtime/transition permission; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserve useful contract in current owner; execution permissions remain task-specific.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "StoreKit",
+          "required_verification": "Full source, SHA/literal fragments/current headings/prior objects/mirrors and complete final semantic diff; scoped Apple API descriptions.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "StoreKit"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0166-U02",
+          "source_path": "canonical/14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+          "source_sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
+          "source_heading": "copy-only reference route",
+          "source_fragment": "Identify the single entitlement source of truth and map purchase, pending, verified,\nunverified, revoked/refunded, expired, restored and account-switch states as applicable. Trace\ntransaction updates through persistence/server sync and every access consumer. An optimistic\nUI state must not silently become permanent access. Ask how duplicate updates, offline periods,\nrelaunch and device changes converge, and how users recover from an interrupted purchase.",
+          "meaning": "Single entitlement owner/state/access consumers; optimistic access, duplicate/offline/relaunch/account convergence and interrupted purchase recovery.",
+          "type": "constraint",
+          "conditions": "Actual product/profile/consumer contract; docs-only. No capability/configuration/purchase/StoreKit session/account/network/system-surface/runtime/transition permission; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "Single entitlement owner/state/access consumers; optimistic access, duplicate/offline/relaunch/account convergence and interrupted purchase recovery.",
+          "disposition": "MIGRATED",
+          "reason": "Preserve useful contract in current owner; execution permissions remain task-specific.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "StoreKit",
+          "required_verification": "Full source, SHA/literal fragments/current headings/prior objects/mirrors and complete final semantic diff; scoped Apple API descriptions.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "StoreKit"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0166-U03",
+          "source_path": "canonical/14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+          "source_sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
+          "source_heading": "copy-only reference route",
+          "source_fragment": "Check product/configuration identity and the transaction-update listener's lifetime, including\nstartup/relaunch reconciliation and subscription transitions. A displayed product or completed\nUI animation is not evidence that verification and every entitlement consumer agreed.",
+          "meaning": "Product/configuration identity and listener lifetime/startup reconciliation/subscription transitions; display/animation is not agreement.",
+          "type": "constraint",
+          "conditions": "Actual product/profile/consumer contract; docs-only. No capability/configuration/purchase/StoreKit session/account/network/system-surface/runtime/transition permission; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "Product/configuration identity and listener lifetime/startup reconciliation/subscription transitions; display/animation is not agreement.",
+          "disposition": "MIGRATED",
+          "reason": "Preserve useful contract in current owner; execution permissions remain task-specific.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "StoreKit",
+          "required_verification": "Full source, SHA/literal fragments/current headings/prior objects/mirrors and complete final semantic diff; scoped Apple API descriptions.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "StoreKit"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0166-U04",
+          "source_path": "canonical/14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+          "source_sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
+          "source_heading": "copy-only reference route",
+          "source_fragment": "For an authorized code change, inspect UI, entitlement owner, verification boundary and\nnegative paths; protect identifiers and purchase information in logs. Recommend relevant\nsandbox/test evidence without claiming it ran.",
+          "meaning": "Verification boundary/negative paths/privacy-safe identifiers and purchase logs, evidence proposed not executed.",
+          "type": "constraint",
+          "conditions": "Actual product/profile/consumer contract; docs-only. No capability/configuration/purchase/StoreKit session/account/network/system-surface/runtime/transition permission; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserve useful contract in current owner; execution permissions remain task-specific.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "StoreKit",
+          "required_verification": "Full source, SHA/literal fragments/current headings/prior objects/mirrors and complete final semantic diff; scoped Apple API descriptions.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "StoreKit"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Logging And Analytics"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0166-U05",
+          "source_path": "canonical/14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+          "source_sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
+          "source_heading": "copy-only reference route",
+          "source_fragment": "`AUTO` applies the static state/consumer check;\n`ADVISORY` gives prioritized verification and product-risk advice. This extracts useful\n`ioslib-storekit` criteria without activating its old installation/runtime references.",
+          "meaning": "Historical AUTO/ADVISORY and installation/runtime binding.",
+          "type": "historical-routing",
+          "conditions": "Actual product/profile/consumer contract; docs-only. No capability/configuration/purchase/StoreKit session/account/network/system-surface/runtime/transition permission; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former AUTO/ADVISORY installed-skill runtime binding archived; not a current grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source, SHA/literal fragments/current headings/prior objects/mirrors and complete final semantic diff; scoped Apple API descriptions.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All three paragraphs fully reviewed: approved scope/negative path covered, entitlement/update consumer contracts transferred, operational modes archived."
     },
     {
       "source_id": "LIB-0167",
       "path": "14_PLATFORM_SERVICES/IOS-14-01_APP_INTENTS.md",
       "sha256": "5b9888623b60e54623364d915a3a6fa27e4f62c2cf7033132ec965535185a650",
       "bytes": 5165,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0167-U01",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-01_APP_INTENTS.md",
+          "source_sha256": "5b9888623b60e54623364d915a3a6fa27e4f62c2cf7033132ec965535185a650",
+          "source_heading": "Назначение",
+          "source_fragment": "Моделировать discoverable actions/entities, parameters, authorization, background behavior и stable identifiers.",
+          "meaning": "Моделировать discoverable actions/entities, parameters, authorization, background behavior и stable identifiers. Full common gates mapped to current canonical standards.",
+          "type": "constraint",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing capability/compliance contracts plus current canonical common gates cover this template focus.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "App Intents, Shortcuts, Siri, And Spotlight",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "App Intents, Shortcuts, Siri, And Spotlight"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0167-U02",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-01_APP_INTENTS.md",
+          "source_sha256": "5b9888623b60e54623364d915a3a6fa27e4f62c2cf7033132ec965535185a650",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0167-U03",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-01_APP_INTENTS.md",
+          "source_sha256": "5b9888623b60e54623364d915a3a6fa27e4f62c2cf7033132ec965535185a650",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized common template and individual focus reviewed; linked OP remains independent/unreviewed. No app or verification authority."
     },
     {
       "source_id": "LIB-0168",
@@ -31205,9 +31762,139 @@
       "path": "14_PLATFORM_SERVICES/IOS-14-11_STOREKIT2.md",
       "sha256": "fd0444b8472ae2e645ba406537998e19f2df43bff2fcf69c80f6adc65d2d36bb",
       "bytes": 5123,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0177-U01",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-11_STOREKIT2.md",
+          "source_sha256": "fd0444b8472ae2e645ba406537998e19f2df43bff2fcf69c80f6adc65d2d36bb",
+          "source_heading": "Назначение",
+          "source_fragment": "Products, purchase verification, currentEntitlements, updates listener, restore, subscription states и testing.",
+          "meaning": "Products, purchase verification, currentEntitlements, updates listener, restore, subscription states и testing. Full common gates mapped to current canonical standards.",
+          "type": "constraint",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing capability/compliance contracts plus current canonical common gates cover this template focus.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "StoreKit",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "StoreKit"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0177-U02",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-11_STOREKIT2.md",
+          "source_sha256": "fd0444b8472ae2e645ba406537998e19f2df43bff2fcf69c80f6adc65d2d36bb",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0177-U03",
+          "source_path": "canonical/14_PLATFORM_SERVICES/IOS-14-11_STOREKIT2.md",
+          "source_sha256": "fd0444b8472ae2e645ba406537998e19f2df43bff2fcf69c80f6adc65d2d36bb",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual supported capability/profile/consumer/data/lifecycle contract; KB docs only, no capability/app config/runtime/system-surface/network/transition grant. iPad/physical/actualVoiceOver checks omitted, no operational proof from compilation.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-32-intents-commerce.md",
+          "affected_routes": [
+            "ios-platform-capabilities",
+            "ios-app-store-compliance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full normalized common template and individual focus reviewed; linked OP remains independent/unreviewed. No app or verification authority."
     },
     {
       "source_id": "LIB-0178",

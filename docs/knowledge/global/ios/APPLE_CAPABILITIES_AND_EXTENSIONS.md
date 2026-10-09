@@ -55,6 +55,12 @@ claims remain unverified when current user exclusions prevent the relevant obser
 - Select currently permitted intent/entity/system-surface evidence; compilation or fixtures do not
   prove operational discovery, handoff or Siri voice. Excluded physical checks are never PASS.
 
+For each surfaced action, trace its discoverable name, stable entity identity, parameter source
+and validation, authorization, side effect and destination. Review stale/missing entities, denied
+permission, interrupted app/extension handoff and unsupported profiles. Repeated mutating
+invocations need an owned duplicate-action policy; framework exposure does not establish
+idempotency. Review declaration, resolver, domain operation, handoff and target membership together.
+
 ## Associated Domains And Deep Links
 Treat universal links as a server-and-app contract. Verify association file content, hosting, caching, app entitlement, route parsing, authentication gating, and fallback. Custom URL schemes are globally claimable and must not carry secrets. Every external route is untrusted input.
 

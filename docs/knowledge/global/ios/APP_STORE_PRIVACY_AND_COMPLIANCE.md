@@ -39,6 +39,17 @@ Apply App Tracking Transparency when the behavior meets Apple's tracking definit
 - Handle pending, revoked, refunded, expired, upgraded/downgraded, family/group, billing retry, and offline states.
 - Server notifications and validation require an approved backend boundary; do not embed server credentials in the app.
 
+Trace transaction updates through the single entitlement owner, persistence/server sync and
+every access consumer. Reconcile duplicate updates, offline periods, interrupted purchases,
+relaunch and account changes; optimistic UI must not become permanent access. Review product/
+configuration identity and listener lifetime at startup and relaunch. Product display or a completed
+animation does not prove verification or consumer agreement.
+
+Select current-entitlement and unfinished-transaction reconciliation for the actual product type;
+`currentEntitlements` does not include consumables. Handle unverified results explicitly and keep
+restore/subscription transitions consistent with the approved product/server contract. This review
+does not authorize purchases, StoreKit test sessions, account/network/configuration or release actions.
+
 ## Encryption And Export
 Inventory encryption use, including platform networking, custom cryptography, VPN/security features, and third-party SDKs. Answer export-compliance questions from the actual binary and distribution regions. Escalate legal ambiguity to the responsible owner; do not guess exemption status.
 
