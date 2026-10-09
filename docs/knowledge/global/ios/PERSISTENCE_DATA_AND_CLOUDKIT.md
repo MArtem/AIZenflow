@@ -74,6 +74,11 @@ with representative old stores. Framework migration stages alone do not establis
 - Do not assume CloudKit provides end-to-end encryption for every data class; verify the current service and field behavior.
 - Test development and production schema promotion and container/environment selection.
 
+On account/identity change, re-evaluate the active account and rebind account-scoped cached data,
+change tokens and pending operations under an explicit recovery policy. Prevent stale completions
+or replay from a previous account crossing into the new account. Preserve user data and unresolved
+operations according to the approved contract; account notification alone is not deletion authority.
+
 ## Offline And Sync
 Represent pending operations durably with stable identifiers, ordering/dependency, attempts, idempotency key, payload version, and terminal/retryable failure. Reconcile remote and local changes through explicit conflict policy. UI must distinguish queued, syncing, synced, conflicted, and failed states when users need that truth.
 
@@ -93,7 +98,9 @@ conflict contract; an optimistic UI change is not server acknowledgment.
 - Large realistic data volume and bounded memory/query behavior.
 - File protection, backup policy, import validation, export round-trip, and deletion recovery.
 - Multi-context/actor merge, duplicate identity, conflict, offline queue, and account-change scenarios.
-- Physical-device locked-state and CloudKit multi-device checks where claimed.
+- Locked-state and CloudKit service/multi-device facts require appropriate permitted evidence.
+  Current iPad/physical-device/actualVoiceOver exclusions remain OMITTED_BY_USER, never PASS;
+  retain implementation requirements and report the unobserved facts.
 
 ## Primary Sources
 - [Apple: SchemaMigrationPlan](https://developer.apple.com/documentation/swiftdata/schemamigrationplan)
