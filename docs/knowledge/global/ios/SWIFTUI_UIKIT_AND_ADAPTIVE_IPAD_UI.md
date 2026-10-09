@@ -13,6 +13,17 @@ SwiftUI view values describe desired output. They are recreated frequently; iden
 - Environment values are for truly ambient dependencies; avoid hidden feature inputs.
 - Bindings expose mutation authority. Pass the narrowest binding or explicit intent needed.
 
+## Invalidation And Preview Evidence
+Trace Observation dependencies and invalidation for a concrete state transition: the intended
+consumer must update without relying on accidental redraws or repeated work. Check duplicated
+derived state, contradictory presentation flags, conditional identity resets and repeated
+onAppear/task creation. Diagnose ownership and identity before adding refresh hacks; syntax alone
+is not a defect. Approved incremental UI migrations preserve identity, lifetime, binding ownership
+and supported deployment behavior; novelty alone does not justify replacing observation.
+
+Previews use controlled fixtures and relevant loading/error/theme/text/locale states. They are
+not observed interaction or lifecycle evidence. Keep environment dependencies genuinely scoped.
+
 ## Identity And Collections
 List identity must be stable and domain-derived. Indexes, random identifiers, and mutable display text are not durable identity. Identity changes intentionally reset view state; accidental changes cause animation, focus, task, cache, and navigation defects.
 
@@ -55,7 +66,8 @@ Do not implement iPad as a scaled-up phone screen when the workflow benefits fro
 - Use stable dimensions for controls and repeated content to avoid layout shifts.
 - Measure custom layout and geometry dependencies; avoid broad invalidation from frequently changing state.
 - Keep expensive parsing, image decoding, and persistence work out of `body` and layout callbacks.
-- Animation must have a product purpose and respect Reduce Motion.
+- State-driven animations have intentional state/transaction boundaries. All animation has a
+  product purpose and respects Reduce Motion.
 
 ## Evidence Matrix
 - Representative small and large iPhone Simulators.

@@ -85,7 +85,8 @@ Prefer this progression:
 If a dedicated model/view model is introduced, document its ownership, creation point, external usage/call context, side effects, cancellation/error behavior, and invariants according to `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`.
 
 ## Review Checklist
-- What state change invalidates this view?
+- What state change invalidates this view, and which observed dependency reaches the intended
+  consumer? Check concrete transitions before diagnosing a syntax pattern or adding refresh hacks.
 - Which rows redraw for one item update?
 - Is any map/sort/filter/formatting happening during render?
 - Are gesture targets accessible and deterministic?
