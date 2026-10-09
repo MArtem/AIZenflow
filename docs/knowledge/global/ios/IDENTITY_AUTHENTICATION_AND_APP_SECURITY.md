@@ -11,6 +11,13 @@ An iOS client is not a trusted enforcement boundary. Attackers can inspect binar
 ## Threat Model Intake
 Before choosing an authentication mechanism, identify assets, actors, entry points, trust boundaries, attacker capabilities, abuse cases, recovery paths, and business impact. Include lost/stolen devices, compromised accounts, replay, phishing, malicious deep links, hostile web content, leaked logs, backups, and local data extraction.
 
+Using HTTPS or Keychain somewhere is insufficient evidence for a whole feature security claim.
+Trace assets, attacker-controlled entry points, actual authorization guards and failure/recovery
+paths. Follow sensitive values through creation, transit, persistence, app-group sharing, backups/
+synchronization, logs/crash metadata, analytics and deletion; check access, minimization, retention
+and redaction at each relevant hop. Keep real secrets out of generated diagnostics, examples,
+AI-readable workspace and task context; recommendations grant no secret intake or auth mutation.
+
 ## OAuth And OIDC
 - Use Authorization Code with PKCE for public native clients.
 - Use the system authentication session rather than embedding general login pages in a custom web view.
