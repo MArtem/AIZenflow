@@ -46147,27 +46147,1156 @@
       "path": "22_CHECKLISTS/02_CONCURRENCY_GATE.md",
       "sha256": "fba7dd3302329055a333af3f260f3121243dbd603c8103a704e770242ff1bd9e",
       "bytes": 479,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0255-U01",
+          "source_path": "canonical/22_CHECKLISTS/02_CONCURRENCY_GATE.md",
+          "source_sha256": "fba7dd3302329055a333af3f260f3121243dbd603c8103a704e770242ff1bd9e",
+          "source_heading": "Concurrency Gate",
+          "source_fragment": "Swift 6 strict concurrency diagnostics clean for touched code.",
+          "meaning": "Swift 6 strict concurrency diagnostics clean for touched code. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Swift 6.x Discipline",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Swift 6.x Discipline"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0255-U02",
+          "source_path": "canonical/22_CHECKLISTS/02_CONCURRENCY_GATE.md",
+          "source_sha256": "fba7dd3302329055a333af3f260f3121243dbd603c8103a704e770242ff1bd9e",
+          "source_heading": "Concurrency Gate",
+          "source_fragment": "Mutable state has explicit owner/isolation.",
+          "meaning": "Mutable state has explicit owner/isolation. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Isolation Design",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0255-U03",
+          "source_path": "canonical/22_CHECKLISTS/02_CONCURRENCY_GATE.md",
+          "source_sha256": "fba7dd3302329055a333af3f260f3121243dbd603c8103a704e770242ff1bd9e",
+          "source_heading": "Concurrency Gate",
+          "source_fragment": "Cross-actor values are truly Sendable.",
+          "meaning": "Cross-actor values are truly Sendable. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Isolation Design",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0255-U04",
+          "source_path": "canonical/22_CHECKLISTS/02_CONCURRENCY_GATE.md",
+          "source_sha256": "fba7dd3302329055a333af3f260f3121243dbd603c8103a704e770242ff1bd9e",
+          "source_heading": "Concurrency Gate",
+          "source_fragment": "No unjustified @unchecked Sendable / nonisolated(unsafe) / detached tasks.",
+          "meaning": "No unjustified @unchecked Sendable / nonisolated(unsafe) / detached tasks. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Swift 6.x Discipline",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Swift 6.x Discipline"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0255-U05",
+          "source_path": "canonical/22_CHECKLISTS/02_CONCURRENCY_GATE.md",
+          "source_sha256": "fba7dd3302329055a333af3f260f3121243dbd603c8103a704e770242ff1bd9e",
+          "source_heading": "Concurrency Gate",
+          "source_fragment": "Cancellation propagates.",
+          "meaning": "Cancellation propagates. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Cancellation",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Cancellation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0255-U06",
+          "source_path": "canonical/22_CHECKLISTS/02_CONCURRENCY_GATE.md",
+          "source_sha256": "fba7dd3302329055a333af3f260f3121243dbd603c8103a704e770242ff1bd9e",
+          "source_heading": "Concurrency Gate",
+          "source_fragment": "Actor reentrancy considered around every await that spans invariants.",
+          "meaning": "Actor reentrancy considered around every await that spans invariants. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Ordering And Stale Results",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0255-U07",
+          "source_path": "canonical/22_CHECKLISTS/02_CONCURRENCY_GATE.md",
+          "source_sha256": "fba7dd3302329055a333af3f260f3121243dbd603c8103a704e770242ff1bd9e",
+          "source_heading": "Concurrency Gate",
+          "source_fragment": "Task lifetime tied to owner or intentionally process-long.",
+          "meaning": "Task lifetime tied to owner or intentionally process-long. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Task Ownership",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0255-U08",
+          "source_path": "canonical/22_CHECKLISTS/02_CONCURRENCY_GATE.md",
+          "source_sha256": "fba7dd3302329055a333af3f260f3121243dbd603c8103a704e770242ff1bd9e",
+          "source_heading": "Concurrency Gate",
+          "source_fragment": "UI mutations occur on correct actor.",
+          "meaning": "UI mutations occur on correct actor. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Isolation Design; Core Model",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Core Model"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0255-U09",
+          "source_path": "canonical/22_CHECKLISTS/02_CONCURRENCY_GATE.md",
+          "source_sha256": "fba7dd3302329055a333af3f260f3121243dbd603c8103a704e770242ff1bd9e",
+          "source_heading": "Concurrency Gate",
+          "source_fragment": "No unjustified @unchecked Sendable / nonisolated(unsafe)",
+          "meaning": "Old justification carve-out for forbidden concurrency escapes archived; current strict baseline forbids them, distinct from conditional detached-task ownership.",
+          "type": "historical-routing",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Current user/governance controls, no justification-based escape or excluded actual-check requirement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full domain checklist reviewed line by line; current owner/permission/evidence hierarchy, no app runtime/quality PASS. Obsolete exception or excluded actual-check implication explicitly dispositioned."
     },
     {
       "source_id": "LIB-0256",
       "path": "22_CHECKLISTS/03_SWIFTUI_GATE.md",
       "sha256": "9497b64625db1e650916aa969008a741ef2c951cca1dbb8cd00a67106e650983",
       "bytes": 433,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0256-U01",
+          "source_path": "canonical/22_CHECKLISTS/03_SWIFTUI_GATE.md",
+          "source_sha256": "9497b64625db1e650916aa969008a741ef2c951cca1dbb8cd00a67106e650983",
+          "source_heading": "SwiftUI Gate",
+          "source_fragment": "One clear source of truth.",
+          "meaning": "One clear source of truth. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "State Placement",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "State Placement"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0256-U02",
+          "source_path": "canonical/22_CHECKLISTS/03_SWIFTUI_GATE.md",
+          "source_sha256": "9497b64625db1e650916aa969008a741ef2c951cca1dbb8cd00a67106e650983",
+          "source_heading": "SwiftUI Gate",
+          "source_fragment": "State ownership (`State`, Observation, binding, environment) is deliberate.",
+          "meaning": "State ownership (`State`, Observation, binding, environment) is deliberate. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "State Placement; Invalidation And Preview Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "State Placement",
+                "Invalidation And Preview Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0256-U03",
+          "source_path": "canonical/22_CHECKLISTS/03_SWIFTUI_GATE.md",
+          "source_sha256": "9497b64625db1e650916aa969008a741ef2c951cca1dbb8cd00a67106e650983",
+          "source_heading": "SwiftUI Gate",
+          "source_fragment": "Stable identity for lists/navigation/presentations.",
+          "meaning": "Stable identity for lists/navigation/presentations. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Identity And Collections; Navigation And Presentation",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Identity And Collections",
+                "Navigation And Presentation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0256-U04",
+          "source_path": "canonical/22_CHECKLISTS/03_SWIFTUI_GATE.md",
+          "source_sha256": "9497b64625db1e650916aa969008a741ef2c951cca1dbb8cd00a67106e650983",
+          "source_heading": "SwiftUI Gate",
+          "source_fragment": "No side effects in `body`.",
+          "meaning": "No side effects in `body`. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "UI Runtime Model",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UI Runtime Model"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0256-U05",
+          "source_path": "canonical/22_CHECKLISTS/03_SWIFTUI_GATE.md",
+          "source_sha256": "9497b64625db1e650916aa969008a741ef2c951cca1dbb8cd00a67106e650983",
+          "source_heading": "SwiftUI Gate",
+          "source_fragment": "Async work cancellable and stale-result safe.",
+          "meaning": "Async work cancellable and stale-result safe. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Cancellation; Ordering And Stale Results",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0256-U06",
+          "source_path": "canonical/22_CHECKLISTS/03_SWIFTUI_GATE.md",
+          "source_sha256": "9497b64625db1e650916aa969008a741ef2c951cca1dbb8cd00a67106e650983",
+          "source_heading": "SwiftUI Gate",
+          "source_fragment": "Loading/empty/error/refresh states covered.",
+          "meaning": "Loading/empty/error/refresh states covered. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "State Placement; Invalidation And Preview Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "State Placement",
+                "Invalidation And Preview Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Stateful Screen State Contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0256-U07",
+          "source_path": "canonical/22_CHECKLISTS/03_SWIFTUI_GATE.md",
+          "source_sha256": "9497b64625db1e650916aa969008a741ef2c951cca1dbb8cd00a67106e650983",
+          "source_heading": "SwiftUI Gate",
+          "source_fragment": "Dynamic Type/VoiceOver/Reduce Motion checked.",
+          "meaning": "Dynamic Type/VoiceOver/Reduce Motion checked. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Evidence Matrix",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0256-U08",
+          "source_path": "canonical/22_CHECKLISTS/03_SWIFTUI_GATE.md",
+          "source_sha256": "9497b64625db1e650916aa969008a741ef2c951cca1dbb8cd00a67106e650983",
+          "source_heading": "SwiftUI Gate",
+          "source_fragment": "Recomposition/invalidation not obviously excessive.",
+          "meaning": "Recomposition/invalidation not obviously excessive. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Invalidation And Preview Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Invalidation And Preview Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0256-U09",
+          "source_path": "canonical/22_CHECKLISTS/03_SWIFTUI_GATE.md",
+          "source_sha256": "9497b64625db1e650916aa969008a741ef2c951cca1dbb8cd00a67106e650983",
+          "source_heading": "SwiftUI Gate",
+          "source_fragment": "Dynamic Type/VoiceOver/Reduce Motion checked.",
+          "meaning": "Actual VoiceOver execution prerequisite excluded by current user. Keep implementation/static semantics, never infer actual traversal coverage.",
+          "type": "historical-routing",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Current user/governance controls, no justification-based escape or excluded actual-check requirement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full domain checklist reviewed line by line; current owner/permission/evidence hierarchy, no app runtime/quality PASS. Obsolete exception or excluded actual-check implication explicitly dispositioned."
     },
     {
       "source_id": "LIB-0257",
       "path": "22_CHECKLISTS/04_NETWORK_GATE.md",
       "sha256": "8c71c1996494742e30aff0217d9edab8a80e43f58ef444a571f142f6400df27c",
       "bytes": 397,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0257-U01",
+          "source_path": "canonical/22_CHECKLISTS/04_NETWORK_GATE.md",
+          "source_sha256": "8c71c1996494742e30aff0217d9edab8a80e43f58ef444a571f142f6400df27c",
+          "source_heading": "Networking Gate",
+          "source_fragment": "HTTP method/status/header semantics correct.",
+          "meaning": "HTTP method/status/header semantics correct. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Request Contract",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Request Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0257-U02",
+          "source_path": "canonical/22_CHECKLISTS/04_NETWORK_GATE.md",
+          "source_sha256": "8c71c1996494742e30aff0217d9edab8a80e43f58ef444a571f142f6400df27c",
+          "source_heading": "Networking Gate",
+          "source_fragment": "Cancellation propagates to URLSession task.",
+          "meaning": "Cancellation propagates to URLSession task. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Cancellation; Continuations And Callbacks",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Cancellation",
+                "Continuations And Callbacks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0257-U03",
+          "source_path": "canonical/22_CHECKLISTS/04_NETWORK_GATE.md",
+          "source_sha256": "8c71c1996494742e30aff0217d9edab8a80e43f58ef444a571f142f6400df27c",
+          "source_heading": "Networking Gate",
+          "source_fragment": "Retry limited to safe/idempotent semantics and bounded.",
+          "meaning": "Retry limited to safe/idempotent semantics and bounded. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0257-U04",
+          "source_path": "canonical/22_CHECKLISTS/04_NETWORK_GATE.md",
+          "source_sha256": "8c71c1996494742e30aff0217d9edab8a80e43f58ef444a571f142f6400df27c",
+          "source_heading": "Networking Gate",
+          "source_fragment": "Token refresh avoids stampede and replay races.",
+          "meaning": "Token refresh avoids stampede and replay races. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0257-U05",
+          "source_path": "canonical/22_CHECKLISTS/04_NETWORK_GATE.md",
+          "source_sha256": "8c71c1996494742e30aff0217d9edab8a80e43f58ef444a571f142f6400df27c",
+          "source_heading": "Networking Gate",
+          "source_fragment": "Decoding handles schema drift intentionally.",
+          "meaning": "Decoding handles schema drift intentionally. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "existing_coverage": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "destination_heading": "DTO And Domain Boundaries",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0257-U06",
+          "source_path": "canonical/22_CHECKLISTS/04_NETWORK_GATE.md",
+          "source_sha256": "8c71c1996494742e30aff0217d9edab8a80e43f58ef444a571f142f6400df27c",
+          "source_heading": "Networking Gate",
+          "source_fragment": "Timeouts and offline behavior defined.",
+          "meaning": "Timeouts and offline behavior defined. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Request Contract; Reliability",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Request Contract",
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0257-U07",
+          "source_path": "canonical/22_CHECKLISTS/04_NETWORK_GATE.md",
+          "source_sha256": "8c71c1996494742e30aff0217d9edab8a80e43f58ef444a571f142f6400df27c",
+          "source_heading": "Networking Gate",
+          "source_fragment": "Logs redact tokens/PII.",
+          "meaning": "Logs redact tokens/PII. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Request Contract",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Request Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0257-U08",
+          "source_path": "canonical/22_CHECKLISTS/04_NETWORK_GATE.md",
+          "source_sha256": "8c71c1996494742e30aff0217d9edab8a80e43f58ef444a571f142f6400df27c",
+          "source_heading": "Networking Gate",
+          "source_fragment": "Cache semantics are explicit.",
+          "meaning": "Cache semantics are explicit. Conditional implementation/evidence criterion, not performed check.",
+          "type": "constraint",
+          "conditions": "Actual changed consumer/contract and current permitted evidence. Docs-only source migration; no app source/test/build/runtime/agent/config/mode mutation. Forbidden concurrency escapes not authorized; iPad/physical/actualVoiceOver excluded, not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Caching",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-48-concurrency-ui-network-checklists.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Caching"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full domain checklist reviewed line by line; current owner/permission/evidence hierarchy, no app runtime/quality PASS. Obsolete exception or excluded actual-check implication explicitly dispositioned."
     },
     {
       "source_id": "LIB-0258",
