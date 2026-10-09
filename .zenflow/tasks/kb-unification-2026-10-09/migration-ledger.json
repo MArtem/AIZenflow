@@ -32304,9 +32304,622 @@
       "path": "15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
       "sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
       "bytes": 3611,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0181-U01",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "Use for iOS model inference, AI-assisted UI, prompts, retrieval, tool calling or model-provider\nintegration. First apply local AI/task routing, privacy and product rules; this route is an\nadditional review, not a provider connection, external model call or authorization to send data.",
+          "meaning": "Existing task/privacy/product routing and no provider/data-sending authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing task/privacy/product routing and no provider/data-sending authority.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ; 1. системные и developer-инструкции активной среды;; 2. актуальная явная инструкция пользователя в пределах её scope;; 41. PRIVACY",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "1. системные и developer-инструкции активной среды;",
+                "2. актуальная явная инструкция пользователя в пределах её scope;",
+                "41. PRIVACY"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U02",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "1. Define the exact user task, supported devices/OS, model/provider and fallback behavior.\n   Treat capability and model version as dependencies: verify current platform/API claims from\n   official sources when they affect implementation, and label unsupported assumptions.",
+          "meaning": "Actual user/device/model/fallback and verified capability/model dependencies, unsupported assumptions explicit.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual user/device/model/fallback and verified capability/model dependencies, unsupported assumptions explicit.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "1. системные и developer-инструкции активной среды;; 2. актуальная явная инструкция пользователя в пределах её scope;; 3. `AGENTS.md`, current user overrides и task-local правила в пределах делегированной authority;; 58. DEVICE CAPABILITY",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "1. системные и developer-инструкции активной среды;",
+                "2. актуальная явная инструкция пользователя в пределах её scope;",
+                "3. `AGENTS.md`, current user overrides и task-local правила в пределах делегированной authority;",
+                "58. DEVICE CAPABILITY"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U03",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "   Bound prompt, retrieved context and output/token budgets where truncation, cost, latency\n   or missing evidence could alter correctness; do not assume a model saw omitted context.",
+          "meaning": "Context/output budgets account for truncation/cost/latency/evidence; omitted context was not seen.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "Context/output budgets account for truncation/cost/latency/evidence; omitted context was not seen.",
+          "disposition": "MIGRATED",
+          "reason": "Context/output budgets account for truncation/cost/latency/evidence; omitted context was not seen.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "63. CONTEXT MANAGEMENT",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "63. CONTEXT MANAGEMENT"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U04",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "   First check whether deterministic logic or a specialized framework solves the user need.",
+          "meaning": "Deterministic/specialized framework first for actual user need.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Deterministic/specialized framework first for actual user need.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "1. системные и developer-инструкции активной среды;; 3. `AGENTS.md`, current user overrides и task-local правила в пределах делегированной authority;",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "1. системные и developer-инструкции активной среды;",
+                "3. `AGENTS.md`, current user overrides и task-local правила в пределах делегированной authority;"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U05",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "   Version prompt/schema/model and pre/post-processing together where their contracts interact;\n   inspect package provenance, compatibility, update/rollback and storage/resource bounds.",
+          "meaning": "Interacting prompt/schema/model/pre-post versions and provenance/compatibility/update/rollback/resource bounds.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "Interacting prompt/schema/model/pre-post versions and provenance/compatibility/update/rollback/resource bounds.",
+          "disposition": "MIGRATED",
+          "reason": "Interacting prompt/schema/model/pre-post versions and provenance/compatibility/update/rollback/resource bounds.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "39. PROMPT VERSIONING; 11. ТРЕТЬЕСТОРОННИЕ ЛОКАЛЬНЫЕ МОДЕЛИ; 57. MODEL DOWNLOADS",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "39. PROMPT VERSIONING",
+                "11. ТРЕТЬЕСТОРОННИЕ ЛОКАЛЬНЫЕ МОДЕЛИ",
+                "57. MODEL DOWNLOADS"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U06",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "2. Trace every data boundary: user content, sensitive inputs, on-device versus network path,\n   retention/logging, permissions and error exposure.",
+          "meaning": "Whole data path, on-device/network, permissions, retention/logging/error exposure.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Whole data path, on-device/network, permissions, retention/logging/error exposure.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "41. PRIVACY; 42. PII REDACTION; 43. DATA RETENTION; 53. ERROR MODEL; 68. LOGGING",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "41. PRIVACY",
+                "42. PII REDACTION",
+                "43. DATA RETENTION",
+                "53. ERROR MODEL",
+                "68. LOGGING"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U07",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "Tool calls and side effects need explicit\n   authorization, validated arguments, idempotency or duplicate-action handling, and failure\n   containment.",
+          "meaning": "Tool side effects: explicit authorization, argument validation, idempotency/duplicate policy and failure containment.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Tool side effects: explicit authorization, argument validation, idempotency/duplicate policy and failure containment.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "8. FOUNDATION MODELS TOOL CALLING; 35. TOOL CALLING; 37. STRUCTURED OUTPUT; 88. MODEL OUTPUT VALIDATION",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "8. FOUNDATION MODELS TOOL CALLING",
+                "35. TOOL CALLING",
+                "37. STRUCTURED OUTPUT",
+                "88. MODEL OUTPUT VALIDATION"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U08",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "Generated output is untrusted data until checked at its consumer boundary.\n   Structured output is not authorization: validate selected IDs/values and confirm sensitive\n   irreversible actions at the app boundary. Inspect system/user/retrieved/tool instruction\n   separation, exfiltration/rate limits, deterministic redaction and justified retention/deletion.",
+          "meaning": "Untrusted generated output, schema not authority, selected IDs/values and sensitive confirmation; instruction separation/exfiltration/rate/redaction/retention/deletion.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Untrusted generated output, schema not authority, selected IDs/values and sensitive confirmation; instruction separation/exfiltration/rate/redaction/retention/deletion.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "35. TOOL CALLING; 37. STRUCTURED OUTPUT; 38. PROMPT ENGINEERING; 40. PROMPT INJECTION; 41. PRIVACY; 42. PII REDACTION; 43. DATA RETENTION; 44. SECURITY; 89. USER CONFIRMATION",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "35. TOOL CALLING",
+                "37. STRUCTURED OUTPUT",
+                "38. PROMPT ENGINEERING",
+                "40. PROMPT INJECTION",
+                "41. PRIVACY",
+                "42. PII REDACTION",
+                "43. DATA RETENTION",
+                "44. SECURITY",
+                "89. USER CONFIRMATION"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U09",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "For retrieval, trace index/freshness/permissions and source-chunk provenance; a generated\n   citation must actually support its claim, and missing evidence must allow abstention.",
+          "meaning": "Retrieval index/freshness/access/source-chunk provenance, claim-supporting citations and abstention.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Retrieval index/freshness/access/source-chunk provenance, claim-supporting citations and abstention.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "17. RAG; 18. LOCAL RAG; 19. EMBEDDINGS; 47. HALLUCINATIONS; 48. CITATIONS; 63. CONTEXT MANAGEMENT; 65. CACHING",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "17. RAG",
+                "18. LOCAL RAG",
+                "19. EMBEDDINGS",
+                "47. HALLUCINATIONS",
+                "48. CITATIONS",
+                "63. CONTEXT MANAGEMENT",
+                "65. CACHING"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U10",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "3. Evaluate useful quality dimensions on representative and negative cases: correctness,\n   unsafe output, prompt injection where external content is read, latency/resource envelope,\n   accessibility, cancellation, unavailable model and graceful fallback. A sample prompt or\n   passing demo does not prove general quality.",
+          "meaning": "Representative and negative quality/safety/privacy/latency/fallback/cancel/accessibility cases; demo not general quality.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Representative and negative quality/safety/privacy/latency/fallback/cancel/accessibility cases; demo not general quality.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "49. UX; 59. PERFORMANCE; 69. EVALUATION; 70. EVAL DATASET; 71. HUMAN EVALUATION; 79. ACCESSIBILITY",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "49. UX",
+                "59. PERFORMANCE",
+                "69. EVALUATION",
+                "70. EVAL DATASET",
+                "71. HUMAN EVALUATION",
+                "79. ACCESSIBILITY"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U11",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "   Use a defined rubric/dataset with ambiguous, conflicting/outdated, malformed/long, locale,\n   sensitive and adversarial cases as relevant; compare versions on the same evidence rather\n   than optimizing a few examples. Separate schema validity from semantic quality and safety.",
+          "meaning": "Defined rubric/dataset and same evidence across versions, ambiguous/outdated/malformed/locale/sensitive/adversarial cases; schema distinct semantic/safety quality.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Defined rubric/dataset and same evidence across versions, ambiguous/outdated/malformed/locale/sensitive/adversarial cases; schema distinct semantic/safety quality.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "37. STRUCTURED OUTPUT; 69. EVALUATION; 70. EVAL DATASET; 71. HUMAN EVALUATION; 74. NONDETERMINISM",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "37. STRUCTURED OUTPUT",
+                "69. EVALUATION",
+                "70. EVAL DATASET",
+                "71. HUMAN EVALUATION",
+                "74. NONDETERMINISM"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U12",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "   For streaming, inspect partial-state meaning, segment identity/order, reconnect/duplicates,\n   cancellation and accessible error recovery; partial output is not a completed action.",
+          "meaning": "Partial stream identity/order/reconnect/duplicates/cancellation and accessible recovery; partial not completed action.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Partial stream identity/order/reconnect/duplicates/cancellation and accessible recovery; partial not completed action.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "50. STREAMING UX; 51. SWIFT CONCURRENCY; 53. ERROR MODEL; 79. ACCESSIBILITY",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "50. STREAMING UX",
+                "51. SWIFT CONCURRENCY",
+                "53. ERROR MODEL",
+                "79. ACCESSIBILITY"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U13",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "   For Vision/OCR/ML, inspect orientation/ROI/pixel/color/language preprocessing, request/model\n   revision, confidence/tolerance, batching/scheduling and device/model variance. Distinguish\n   model quality from preprocessing or session bugs; a fixed fixture alone is not general quality.",
+          "meaning": "Actual Vision/OCR/ML preprocessing/revision/confidence/batch/device variance; distinguish model from pipeline/session bugs, fixture not general quality.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "Actual Vision/OCR/ML preprocessing/revision/confidence/batch/device variance; distinguish model from pipeline/session bugs, fixture not general quality.",
+          "disposition": "MIGRATED",
+          "reason": "Actual Vision/OCR/ML preprocessing/revision/confidence/batch/device variance; distinguish model from pipeline/session bugs, fixture not general quality.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 59. PERFORMANCE; 69. EVALUATION; 74. NONDETERMINISM",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "59. PERFORMANCE",
+                "69. EVALUATION",
+                "74. NONDETERMINISM"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U14",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "4. Recommend the smallest evidence plan and report observed evaluations separately from\n   proposed ones. For changed code/resources, inspect all affected consumers and the final\n   complete diff; no production or privacy claim without corresponding evidence.",
+          "meaning": "Smallest evidence plan, observed versus proposed evals, full consumer/final diff and claims supported by actual evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Smallest evidence plan, observed versus proposed evals, full consumer/final diff and claims supported by actual evidence.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ; 69. EVALUATION; 72. TESTING; 90. IMPLEMENTATION WORKFLOW; 92. ФОРМАТ ФИНАЛЬНОГО ОТЧЕТА",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "69. EVALUATION",
+                "72. TESTING",
+                "90. IMPLEMENTATION WORKFLOW",
+                "92. ФОРМАТ ФИНАЛЬНОГО ОТЧЕТА"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0181-U15",
+          "source_path": "canonical/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+          "source_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "source_heading": "AI feature — copy-only reference route",
+          "source_fragment": "`AUTO` performs only in-scope reasoning and read-only inspection after the local layer;\n`ADVISORY` prioritizes evals and permission-dependent actions. Both respect separate authority\nfor network, model calls, agents, builds/tests and data sharing. This distills useful checks\nfrom the former `ioslib-ai-ml` and AI feature review sources, not their installed runtime.",
+          "meaning": "Former AUTO/ADVISORY installed runtime bindings, not current execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/model/profile/consumer; docs migration only. Current user/section0 override examples. No calls/models/downloads/tools/agents/MCP/provider/config/network/runtime/evals/transitions; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Former AUTO/ADVISORY installed runtime bindings, not current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.CLASSIFY",
+            "AI.COST_RUNTIME",
+            "AI.AGENTS",
+            "AI.TRUST",
+            "AI.RETRIEVAL",
+            "AI.APPLE_CAPABILITIES",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full introduction/four steps/mode tail reviewed; each paragraph subdivided into exact source units. Three useful deltas transferred, remainder covered/old mode binding archived."
     },
     {
       "source_id": "LIB-0182",
@@ -33638,9 +34251,146 @@
       "path": "15_AI_INTELLIGENCE/IOS-15-10_AI_FEATURE_REVIEW.md",
       "sha256": "b0c095b63b5dad3fb0cc771053083a9d2d713caa9d6ef51117d57a0f4f260d17",
       "bytes": 4987,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0191-U01",
+          "source_path": "canonical/15_AI_INTELLIGENCE/IOS-15-10_AI_FEATURE_REVIEW.md",
+          "source_sha256": "b0c095b63b5dad3fb0cc771053083a9d2d713caa9d6ef51117d57a0f4f260d17",
+          "source_heading": "Назначение",
+          "source_fragment": "Quality/evals/privacy/security/latency/fallback/accessibility/observability gate.",
+          "meaning": "Quality/evals/privacy/security/latency/fallback/accessibility/observability gate. Common AI workflow/gates and current permission hierarchy.",
+          "type": "constraint",
+          "conditions": "Actual approved product/toolchain/model/profile; master section0/current rules override illustrative APIs/classes/physical checks. No models/downloads/providers/config/runtime/tests/eval/agents/transition authority; excluded checks never PASS.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing addressed AI master covers full focus; no eval/readiness execution implied.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "41. PRIVACY; 44. SECURITY; 49. UX; 53. ERROR MODEL; 55. FALLBACK; 59. PERFORMANCE; 67. OBSERVABILITY; 69. EVALUATION; 70. EVAL DATASET; 71. HUMAN EVALUATION; 79. ACCESSIBILITY",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.LOCAL",
+            "AI.COST_RUNTIME",
+            "AI.EVALUATION"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
+                "41. PRIVACY",
+                "44. SECURITY",
+                "49. UX",
+                "53. ERROR MODEL",
+                "55. FALLBACK",
+                "59. PERFORMANCE",
+                "67. OBSERVABILITY",
+                "69. EVALUATION",
+                "70. EVAL DATASET",
+                "71. HUMAN EVALUATION",
+                "79. ACCESSIBILITY"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+              "headings": [
+                "Capability Checks",
+                "Evidence Classification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0191-U02",
+          "source_path": "canonical/15_AI_INTELLIGENCE/IOS-15-10_AI_FEATURE_REVIEW.md",
+          "source_sha256": "b0c095b63b5dad3fb0cc771053083a9d2d713caa9d6ef51117d57a0f4f260d17",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/toolchain/model/profile; master section0/current rules override illustrative APIs/classes/physical checks. No models/downloads/providers/config/runtime/tests/eval/agents/transition authority; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.LOCAL",
+            "AI.COST_RUNTIME",
+            "AI.EVALUATION"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0191-U03",
+          "source_path": "canonical/15_AI_INTELLIGENCE/IOS-15-10_AI_FEATURE_REVIEW.md",
+          "source_sha256": "b0c095b63b5dad3fb0cc771053083a9d2d713caa9d6ef51117d57a0f4f260d17",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/toolchain/model/profile; master section0/current rules override illustrative APIs/classes/physical checks. No models/downloads/providers/config/runtime/tests/eval/agents/transition authority; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-36-ai-curated-completion.md",
+          "affected_routes": [
+            "AI.LOCAL",
+            "AI.COST_RUNTIME",
+            "AI.EVALUATION"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common AI body and broad feature focus; existing addressed master covers quality/evals/privacy/security/latency/fallback/accessibility/observability. Linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0192",

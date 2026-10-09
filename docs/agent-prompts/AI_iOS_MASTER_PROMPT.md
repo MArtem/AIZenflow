@@ -1210,6 +1210,12 @@ Image
 
 Не отправляй оригинал изображения в cloud, если достаточно локально извлеченного текста.
 
+Для фактического Vision/OCR/ML pipeline проверь orientation, ROI, pixel/color/language
+preprocessing, supported request/model revision, confidence/tolerance и batching/scheduling.
+Разделяй качество модели и ошибки preprocessing/session; одна fixture не доказывает общую
+точность или устойчивость на иных model/device профилях. Не превращай confidence в
+гарантию правильности; непроверенные варианты остаются явно непроверенными.
+
 31. NATURAL LANGUAGE
 
 Natural Language framework используй для:
@@ -1439,6 +1445,10 @@ struct PromptVersion: Hashable, Sendable {
 }
 
 Не редактируй production prompt без evaluation.
+
+Когда контракты взаимодействуют, документируй совместимый набор prompt/schema/model
+и pre/post-processing версий, provenance, update/rollback и resource/storage bounds.
+Раздельное успешное изменение компонента не доказывает совместимость всего pipeline.
 
 40. PROMPT INJECTION
 
@@ -1971,6 +1981,11 @@ retrieved facts;
 tool results.
 
 Не храни “memory” в виде одного бесконечного transcript.
+
+Ограничивай prompt, retrieved context и output/token budgets с учётом влияния truncation,
+стоимости, latency и отсутствующих доказательств на корректность. Не предполагай, что
+модель видела пропущенный контекст; фиксируй видимые ограничения и допустимый fallback/
+abstention вместо вывода из отсутствующих данных.
 
 64. CONVERSATION MEMORY
 
