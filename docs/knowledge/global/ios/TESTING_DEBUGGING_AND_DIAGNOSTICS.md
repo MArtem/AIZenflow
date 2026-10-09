@@ -78,6 +78,9 @@ Execution/allocation requires current permission.
 5. Change one variable, reproduce, and retain evidence.
 6. Fix the invariant, add regression evidence when allowed, and remove diagnostic noise.
 
+After a supported root-cause finding, identify an observed regression detector or reproduction
+path. If neither is observed, keep the diagnosis provisional and record the missing evidence.
+
 ## Tools
 - LLDB: symbolic/exception breakpoints, watchpoints, thread/task backtraces, expression evaluation with caution.
 - View Debugger: hierarchy, clipping, ambiguity, unexpected hosting/containment.

@@ -65,6 +65,8 @@ For analytics/crash SDKs, trace required consent before collection, event/schema
 batching/retry retention, redaction and debug-versus-production routing. A wrapper or manifest
 alone does not prove consent-gated collection; inspect the actual data flow and product contract.
 
+Correlation must answer the operational question without becoming covert tracking.
+
 ## Metric Design
 - Define event/metric owner, purpose, schema, units, dimensions, sampling, retention, and deletion.
 - Keep cardinality bounded.
@@ -94,6 +96,12 @@ and targeted regression question. Review the complete candidate delta against th
 shipped version, including dependency/configuration/migration differences; commit selection or
 cherry-pick shape alone does not prove safety. Record containment limits, recovery and postmortem
 follow-up. Urgency grants no code/Git/test/shipping authority.
+
+Report observed telemetry separately from desired instrumentation. A warranted postmortem
+separates an evidence-backed timeline, root cause, contributors and detection gaps. Actions need
+an owner, due/revisit criterion and recurrence verification; blame or an unowned list does not
+resolve missing evidence or the recovery decision. Containment is a proposal until authorized;
+code rollback cannot reverse irreversible data or server-side effects.
 
 ## Evidence
 - Before/after traces and budget comparison.
