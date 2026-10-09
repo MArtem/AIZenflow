@@ -24,8 +24,8 @@ onAppear/task creation. Diagnose ownership and identity before adding refresh ha
 is not a defect. Approved incremental UI migrations preserve identity, lifetime, binding ownership
 and supported deployment behavior; novelty alone does not justify replacing observation.
 
-Previews use controlled fixtures and relevant loading/error/theme/text/locale states. They are
-not observed interaction or lifecycle evidence. Keep environment dependencies genuinely scoped.
+Previews use controlled fixtures and relevant loading/error/light-dark/Dynamic Type/text/locale
+states. They are not observed interaction or lifecycle evidence. Keep environment dependencies genuinely scoped.
 
 ## Identity And Collections
 List identity must be stable, unique within its collection, and domain-derived. Indexes, random identifiers, and mutable display text are not durable identity. Identity changes intentionally reset view state; accidental changes cause animation, focus, task, cache, and navigation defects.
@@ -76,6 +76,10 @@ Do not implement iPad as a scaled-up phone screen when the workflow benefits fro
 - Avoid formatting that moves the cursor unexpectedly or rejects intermediate valid input.
 - Treat focus as state with restoration and accessibility implications.
 - Keyboard shortcuts must not conflict with text editing or system commands.
+
+Search review names local versus server filtering and debounce ownership where appropriate,
+then traces cancellation, stale completion, focus and empty/error states. Form review connects
+validation timing and formatting to keyboard, submit, secure entry and accessible errors.
 
 ## Layout And Rendering
 - Prefer adaptive constraints and semantic containers over device-name checks.

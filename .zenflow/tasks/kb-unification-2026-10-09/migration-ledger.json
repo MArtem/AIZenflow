@@ -8846,54 +8846,754 @@
       "path": "05_SWIFTUI/IOS-05-11_CUSTOM_COMPONENT.md",
       "sha256": "48d0f8c304bc93f85890fafa1287aeae14a2b192be972d19f134e1c301b5d83e",
       "bytes": 5085,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0070-U01",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-11_CUSTOM_COMPONENT.md",
+          "source_sha256": "48d0f8c304bc93f85890fafa1287aeae14a2b192be972d19f134e1c301b5d83e",
+          "source_heading": "Назначение",
+          "source_fragment": "Создавать composable, accessible, preview/testable component с минимальным API surface.",
+          "meaning": "Создавать composable, accessible, preview/testable component с минимальным API surface. Full common body and conditional quality/permission/toolchain gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual existing UI/quality/accessibility/toolchain owners cover topic; only preview input dimensions and explicit search review ownership added.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "State Placement; Invalidation And Preview Evidence",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "State Placement",
+                "Invalidation And Preview Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+              "headings": [
+                "Default Shape",
+                "A Dedicated Model/ViewModel Is Not Justified When",
+                "Target State"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0070-U02",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-11_CUSTOM_COMPONENT.md",
+          "source_sha256": "48d0f8c304bc93f85890fafa1287aeae14a2b192be972d19f134e1c301b5d83e",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0070-U03",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-11_CUSTOM_COMPONENT.md",
+          "source_sha256": "48d0f8c304bc93f85890fafa1287aeae14a2b192be972d19f134e1c301b5d83e",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete exact UI-template parity and variable focus mapped; no appended section; linked OP playbook unreviewed."
     },
     {
       "source_id": "LIB-0071",
       "path": "05_SWIFTUI/IOS-05-12_BRIDGE_UIKIT.md",
       "sha256": "044c9182a769c2f589aae4be06c03429902cafb07987575f55f69291c812aea6",
       "bytes": 5067,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0071-U01",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-12_BRIDGE_UIKIT.md",
+          "source_sha256": "044c9182a769c2f589aae4be06c03429902cafb07987575f55f69291c812aea6",
+          "source_heading": "Назначение",
+          "source_fragment": "Корректно управлять coordinator, lifecycle, updates, identity, sizing и memory.",
+          "meaning": "Корректно управлять coordinator, lifecycle, updates, identity, sizing и memory. Full common body and conditional quality/permission/toolchain gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual existing UI/quality/accessibility/toolchain owners cover topic; only preview input dimensions and explicit search review ownership added.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "UI Runtime Model; UIKit Interoperability; Identity And Collections; Layout And Rendering",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UI Runtime Model",
+                "UIKit Interoperability",
+                "Identity And Collections",
+                "Layout And Rendering"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0071-U02",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-12_BRIDGE_UIKIT.md",
+          "source_sha256": "044c9182a769c2f589aae4be06c03429902cafb07987575f55f69291c812aea6",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0071-U03",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-12_BRIDGE_UIKIT.md",
+          "source_sha256": "044c9182a769c2f589aae4be06c03429902cafb07987575f55f69291c812aea6",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete exact UI-template parity and variable focus mapped; no appended section; linked OP playbook unreviewed."
     },
     {
       "source_id": "LIB-0072",
       "path": "05_SWIFTUI/IOS-05-13_PREVIEWS.md",
       "sha256": "708c1b59694153d42829e4fa77afceacf3330e9246b79342b46f3a35a0a25aba",
       "bytes": 5103,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0072-U01",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-13_PREVIEWS.md",
+          "source_sha256": "708c1b59694153d42829e4fa77afceacf3330e9246b79342b46f3a35a0a25aba",
+          "source_heading": "Назначение",
+          "source_fragment": "Создавать deterministic previews с fixtures, error/loading states, locale, Dynamic Type и dark mode.",
+          "meaning": "Создавать deterministic previews с fixtures, error/loading states, locale, Dynamic Type и dark mode. Full common body and conditional quality/permission/toolchain gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": null,
+          "unique_delta": "Создавать deterministic previews с fixtures, error/loading states, locale, Dynamic Type и dark mode.",
+          "disposition": "MIGRATED",
+          "reason": "Actual existing UI/quality/accessibility/toolchain owners cover topic; only preview input dimensions and explicit search review ownership added.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Invalidation And Preview Evidence",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Invalidation And Preview Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0072-U02",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-13_PREVIEWS.md",
+          "source_sha256": "708c1b59694153d42829e4fa77afceacf3330e9246b79342b46f3a35a0a25aba",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0072-U03",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-13_PREVIEWS.md",
+          "source_sha256": "708c1b59694153d42829e4fa77afceacf3330e9246b79342b46f3a35a0a25aba",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete exact UI-template parity and variable focus mapped; no appended section; linked OP playbook unreviewed."
     },
     {
       "source_id": "LIB-0073",
       "path": "05_SWIFTUI/IOS-05-14_SEARCH.md",
       "sha256": "a54ac02286f2737cfc8e7e60d0d9ffd688c0009426199e005bfa9f7f067112a6",
       "bytes": 5052,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0073-U01",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-14_SEARCH.md",
+          "source_sha256": "a54ac02286f2737cfc8e7e60d0d9ffd688c0009426199e005bfa9f7f067112a6",
+          "source_heading": "Назначение",
+          "source_fragment": "Поиск с debounce/cancellation, server/local filtering, focus, empty states и accessibility.",
+          "meaning": "Поиск с debounce/cancellation, server/local filtering, focus, empty states и accessibility. Full common body and conditional quality/permission/toolchain gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": null,
+          "unique_delta": "Поиск с debounce/cancellation, server/local filtering, focus, empty states и accessibility.",
+          "disposition": "MIGRATED",
+          "reason": "Actual existing UI/quality/accessibility/toolchain owners cover topic; only preview input dimensions and explicit search review ownership added.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Text, Input, And Focus; Ownership And Identity Review; State Placement",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Text, Input, And Focus",
+                "Ownership And Identity Review",
+                "State Placement"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0073-U02",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-14_SEARCH.md",
+          "source_sha256": "a54ac02286f2737cfc8e7e60d0d9ffd688c0009426199e005bfa9f7f067112a6",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0073-U03",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-14_SEARCH.md",
+          "source_sha256": "a54ac02286f2737cfc8e7e60d0d9ffd688c0009426199e005bfa9f7f067112a6",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete exact UI-template parity and variable focus mapped; no appended section; linked OP playbook unreviewed."
     },
     {
       "source_id": "LIB-0074",
       "path": "05_SWIFTUI/IOS-05-15_FORMS.md",
       "sha256": "2fff0d32469136934603ac8dfd4866e8602fac02574e60f0ea4fb6291b33c942",
       "bytes": 4995,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0074-U01",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-15_FORMS.md",
+          "source_sha256": "2fff0d32469136934603ac8dfd4866e8602fac02574e60f0ea4fb6291b33c942",
+          "source_heading": "Назначение",
+          "source_fragment": "Validation, focus, keyboard, submit flow, formatting, secure fields и accessibility.",
+          "meaning": "Validation, focus, keyboard, submit flow, formatting, secure fields и accessibility. Full common body and conditional quality/permission/toolchain gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual existing UI/quality/accessibility/toolchain owners cover topic; only preview input dimensions and explicit search review ownership added.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Text, Input, And Focus",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Text, Input, And Focus"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0074-U02",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-15_FORMS.md",
+          "source_sha256": "2fff0d32469136934603ac8dfd4866e8602fac02574e60f0ea4fb6291b33c942",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0074-U03",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-15_FORMS.md",
+          "source_sha256": "2fff0d32469136934603ac8dfd4866e8602fac02574e60f0ea4fb6291b33c942",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete exact UI-template parity and variable focus mapped; no appended section; linked OP playbook unreviewed."
     },
     {
       "source_id": "LIB-0075",
       "path": "05_SWIFTUI/IOS-05-16_SWIFTUI_REVIEW.md",
       "sha256": "46bae264e3de7fb5a65b6cfa7b6411227106d8149aaeef3b963b8f63fac67f71",
       "bytes": 5145,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0075-U01",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-16_SWIFTUI_REVIEW.md",
+          "source_sha256": "46bae264e3de7fb5a65b6cfa7b6411227106d8149aaeef3b963b8f63fac67f71",
+          "source_heading": "Назначение",
+          "source_fragment": "Искать duplicated state, invalidation storms, identity hacks, side effects in body, async lifetime и accessibility gaps.",
+          "meaning": "Искать duplicated state, invalidation storms, identity hacks, side effects in body, async lifetime и accessibility gaps. Full common body and conditional quality/permission/toolchain gates.",
+          "type": "constraint",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual existing UI/quality/accessibility/toolchain owners cover topic; only preview input dimensions and explicit search review ownership added.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Invalidation And Preview Evidence; Ownership And Identity Review; Layout And Rendering",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Invalidation And Preview Evidence",
+                "Ownership And Identity Review",
+                "Layout And Rendering"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0075-U02",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-16_SWIFTUI_REVIEW.md",
+          "source_sha256": "46bae264e3de7fb5a65b6cfa7b6411227106d8149aaeef3b963b8f63fac67f71",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0075-U03",
+          "source_path": "canonical/05_SWIFTUI/IOS-05-16_SWIFTUI_REVIEW.md",
+          "source_sha256": "46bae264e3de7fb5a65b6cfa7b6411227106d8149aaeef3b963b8f63fac67f71",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual UI/toolchain/deployment/state transition and current permission; iPad/physical/actualVoiceOver checks excluded, implementation requirements preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-13-swiftui-family-completion.md",
+          "affected_routes": [
+            "ios-ui-state-rendering"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete exact UI-template parity and variable focus mapped; no appended section; linked OP playbook unreviewed."
     },
     {
       "source_id": "LIB-0076",
