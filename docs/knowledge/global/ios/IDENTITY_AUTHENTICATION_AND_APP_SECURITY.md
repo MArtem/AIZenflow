@@ -81,6 +81,9 @@ credential is absent. A review finding grants no credential/access-policy/authen
 - Design key generation, storage, rotation, versioning, backup, revocation, and loss recovery before encrypting durable data.
 - Secure Enclave keys are useful only when their availability, algorithm, backup, and recovery constraints fit the product.
 
+Encryption at rest does not establish an end-to-end security contract; trace the actual endpoints,
+trust boundaries and key ownership before making that claim.
+
 ## App Attest And DeviceCheck
 These are server-assisted risk signals, not local-only security features and not absolute jailbreak detection. App Attest requires server challenges and server-side attestation/assertion validation. Design unsupported-device fallback, retry, key loss, reinstall, environment separation, and gradual rollout.
 
@@ -105,6 +108,13 @@ Do not add App Attest to a backend-less app and claim security benefit; document
 - Entitlements, associated domains, callback URLs, privacy declarations, and server validation inspected.
 - Hardware-dependent claims remain unverified when evidence is unavailable or excluded by current
   user scope; excluded checks are OMITTED_BY_USER, never PASS.
+
+For a material security finding, verify the claimed shipping-path reachability, attacker input
+control, guard bypass and impact against the shown path. Inspect a relevant cross-component route
+through extensions, shared storage, callbacks, redirects or diagnostics; merge duplicate symptoms
+of one root cause. Remove unsupported severity claims while keeping confidence and impact
+separate; an unverified premise remains UNKNOWN, never PASS. This is evidence appraisal within
+the permitted review, not an additional mandatory Library pass or authority to run a scan.
 
 ## Primary Sources
 - [AuthenticationServices](https://developer.apple.com/documentation/authenticationservices)

@@ -61,6 +61,10 @@ Use structured logs with stable subsystem/category, privacy annotations, bounded
 
 Never record secrets, credentials, full request/response bodies, user-authored sensitive content, precise location, or identifiers without explicit approved need and minimization.
 
+For analytics/crash SDKs, trace required consent before collection, event/schema owner, user-identity reset,
+batching/retry retention, redaction and debug-versus-production routing. A wrapper or manifest
+alone does not prove consent-gated collection; inspect the actual data flow and product contract.
+
 ## Metric Design
 - Define event/metric owner, purpose, schema, units, dimensions, sampling, retention, and deletion.
 - Keep cardinality bounded.

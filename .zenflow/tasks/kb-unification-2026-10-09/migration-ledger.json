@@ -24405,9 +24405,1109 @@
       "path": "12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
       "sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
       "bytes": 5105,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0143-U01",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "does not authorize credential, auth, Keychain",
+          "meaning": "Sensitive/input/storage/trust/SDK/deletion scope under project-local/current authority, no credential/auth/store/host/security grant.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Load When; Evidence",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Load When",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Neither mode may open\nsecret stores, run tools with side effects or mutate code merely because this route was loaded."
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U02",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "Client-side validation is not",
+          "meaning": "Assets/attacker inputs/trust/abuse/actual authority; client validation is not server authorization.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Security Model; Threat Model Intake",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Security Model",
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U03",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "Trace sensitive values through creation",
+          "meaning": "Sensitive hops including sharing/backup/diagnostics/analytics/crash/screenshots/deletion, access/minimization/retention/redaction; no secret values in notes.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake; Evidence",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+              "headings": [
+                "Required row schema",
+                "Privacy and data lifecycle",
+                "Platform and accessibility matrix",
+                "Verdict and review contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U04",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "For files, URLs, deep links",
+          "meaning": "Validate external input/handoff before use and failure; scheme/host/path/params/redirect/replay authorization at consumption; no weakened trust default.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Request Contract; WebKit; TLS And Trust",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Request Contract",
+                "WebKit",
+                "TLS And Trust"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Navigation And Presentation"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "OAuth And OIDC",
+                "Authorization Rules"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U05",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "For WebViews, include JS bridge",
+          "meaning": "Full WebView bridge/content-world/file/download/cookie/session path, not initial URL allowlist only.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "WebKit",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "WebKit"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U06",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "Static project files alone do not establish",
+          "meaning": "Affected permission/entitlement/manifest/SDK shipping/current requirements; static files not Store compliance.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Living Requirements; Submission Contract; Privacy Manifest And Required-Reason APIs",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Living Requirements",
+                "Submission Contract",
+                "Privacy Manifest And Required-Reason APIs"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+              "headings": [
+                "Required row schema",
+                "Privacy and data lifecycle",
+                "Platform and accessibility matrix",
+                "Verdict and review contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U07",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "For analytics or crash SDKs",
+          "meaning": "Required consent before collection under actual product contract, schema/event owner, identity reset, batch/retry retention, PII redaction and debug/prod routing; wrapper/manifest not consent proof.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "Required consent before collection under actual product contract, schema/event owner, identity reset, batch/retry retention, PII redaction and debug/prod routing; wrapper/manifest not consent proof.",
+          "disposition": "MIGRATED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Observability; Metric Design",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U08",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "An entitlement or prior approval",
+          "meaning": "Minimum permission scope/timing/rationale, denied/restricted/recovery; entitlement/prior grant not current access.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Permission Model",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+              "headings": [
+                "Required row schema",
+                "Privacy and data lifecycle",
+                "Platform and accessibility matrix",
+                "Verdict and review contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U09",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "attestation is not user authorization",
+          "meaning": "Attestation challenge/replay/key/fallback/anti-abuse actual contract not user authorization.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "App Attest And DeviceCheck; Authorization Rules",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "App Attest And DeviceCheck",
+                "Authorization Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U10",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "encryption at rest as proof of end-to-end security",
+          "meaning": "Standard primitive/protocol/key/nonce/randomness contract, no invented crypto; at-rest encryption not end-to-end proof.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "Standard primitive/protocol/key/nonce/randomness contract, no invented crypto; at-rest encryption not end-to-end proof.",
+          "disposition": "MIGRATED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Cryptography",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Cryptography"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U11",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "Separate authentication, authorization",
+          "meaning": "Authentication/authorization/local presence/storage separate; exact current authorization required for changes, reference ON grants none.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Security Model; Keychain And Data Protection",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Security Model",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U12",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "An unavailable or failed read",
+          "meaning": "Authorized secure-storage accessibility/access group/lock/migration/deletion/presence/errors inspection; failed/unavailable not absent, no live secret stores.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Keychain And Data Protection; Evidence",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Keychain And Data Protection",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U13",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "For an affected transport-security contract",
+          "meaning": "Actual ATS/TLS/trust scope/failure/pin rotation/recovery; no default pinning/trust bypass.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "TLS And Trust",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "TLS And Trust"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U14",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "For an authorized security migration",
+          "meaning": "Compatibility/revocation/containment before retirement, no credential rotation or insecure fallback authority.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "Compatibility/revocation/containment before retirement, no credential rotation or insecure fallback authority.",
+          "disposition": "MIGRATED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "TLS And Trust",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "TLS And Trust"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U15",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Security and privacy review — curated copy-only route",
+          "source_fragment": "Classify concrete leaks",
+          "meaning": "Actual severity/confidence/evidence, blocking findings prevent readiness; synthetic/negative/runtime permissions and inspected/observed/unknown disclosed safely.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Evidence",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+              "headings": [
+                "Required row schema",
+                "Privacy and data lifecycle",
+                "Platform and accessibility matrix",
+                "Verdict and review contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U16",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Second-layer adversarial pass",
+          "source_fragment": "whether the entry point is reachable",
+          "meaning": "Verify claimed/applicable shipping reachability, attacker control, guard bypass and impact; relevant cross-component path/root-cause dedup, unsupported severity removed, confidence separate and unknown premise not PASS.",
+          "type": "constraint",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "Verify claimed/applicable shipping reachability, attacker control, guard bypass and impact; relevant cross-component path/root-cause dedup, unsupported severity removed, confidence separate and unknown premise not PASS.",
+          "disposition": "MIGRATED",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Evidence",
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Secrets And Tokens",
+                "Transport And Device Integrity",
+                "Privacy Manifests And Permissions",
+                "Data Lifecycle",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "AI-Readable Workspace Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+              "headings": [
+                "Severity",
+                "Required Finding Format"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0143-U17",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Second-layer adversarial pass",
+          "source_fragment": "After the active knowledge-base security gate",
+          "meaning": "Former mandatory after-local second layer sequencing archived; useful evidence appraisal integrated within existing authorized KB review.",
+          "type": "historical-routing",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0143-U18",
+          "source_path": "canonical/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+          "source_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "source_heading": "Second-layer adversarial pass",
+          "source_fragment": "`ON/AUTO` may perform",
+          "meaning": "Historical ON/AUTO/ADVISORY profiles and route-loaded grants archived, no activation/agents/scan/store/tool mutation authority.",
+          "type": "historical-routing",
+          "conditions": "Actual affected security/evidence/data-flow claim; KB migration only, no app source/config/secrets/intake/scan/test/runtime/host/agent action.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Full curated paragraphs independently mapped under current canonical permission/evidence/security/privacy rules; historical ordering/profile not reactivated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full normalized body/gates/prompts/focus, SHA/literal fragments/current headings; technical boundary primary sources, prior rows/copies and exact mirrors.",
+          "evidence": "block-28-security-curated-completion.md",
+          "affected_routes": [
+            "ios-security-privacy"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Entire curated source including evidence appraisal terminal; retired second-layer sequencing/profile bindings archival only, useful constraints in existing KB; no app/security/mode authority."
     },
     {
       "source_id": "LIB-0144",

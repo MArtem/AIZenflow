@@ -62,6 +62,9 @@ Inspect the actual transport and ATS configuration; ATS protection of URL Loadin
 must not be assumed for lower-level networking. Existing trust decisions need supported-project
 evidence; this review grants no insecure exception or authentication/configuration mutation.
 
+Before retiring an old path in an authorized security migration, assess deployed compatibility,
+revocation and containment. This review grants neither credential rotation nor an insecure fallback.
+
 ## Caching
 Review Cache-Control directives, ETag/Last-Modified validation, actual URLCache/session policy and
 invalidation together. Respect HTTP cache semantics where possible. Application caches need a key, freshness model, size bound, eviction policy, privacy classification, invalidation strategy, and offline behavior. Never cache authenticated responses across users.
