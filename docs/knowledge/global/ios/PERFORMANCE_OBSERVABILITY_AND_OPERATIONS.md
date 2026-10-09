@@ -49,6 +49,8 @@ freshness/invalidation, cancellation and both memory/disk limits against the act
 
 Record cold/warm path, cache warmup, thermal/battery and network conditions. Compare the same
 scenario/configuration, including tail latency, responsiveness, energy and CPU/memory trade-offs.
+Record sample size and variance with before/after values under those conditions; an aggregate
+without its observation population does not establish a comparable improvement.
 If measurement is denied or unavailable, report a static-risk finding and the smallest useful
 measurement proposal, without a speedup claim. Existing production metrics can corroborate local
 evidence but are not interchangeable with it. Unavailable diagnostics must not be the sole

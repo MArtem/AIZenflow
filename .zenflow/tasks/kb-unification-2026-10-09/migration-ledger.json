@@ -54499,18 +54499,844 @@
       "path": "24_TEMPLATES/04_PERF_REPORT_TEMPLATE.md",
       "sha256": "c2142f4a277c131eeb3b6f583e03b6677ade7cebee6d3facbfd094cd315ed21c",
       "bytes": 218,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0299-U01",
+          "source_path": "canonical/24_TEMPLATES/04_PERF_REPORT_TEMPLATE.md",
+          "source_sha256": "c2142f4a277c131eeb3b6f583e03b6677ade7cebee6d3facbfd094cd315ed21c",
+          "source_heading": "Symptom / SLO",
+          "source_fragment": "## Symptom / SLO",
+          "meaning": "Actual user-impact question/budget.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual user-impact question/budget.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Metric Design",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0299-U02",
+          "source_path": "canonical/24_TEMPLATES/04_PERF_REPORT_TEMPLATE.md",
+          "source_sha256": "c2142f4a277c131eeb3b6f583e03b6677ade7cebee6d3facbfd094cd315ed21c",
+          "source_heading": "Device/OS/build",
+          "source_fragment": "## Device/OS/build",
+          "meaning": "Actual comparable profile/OS/build/conditions, no excluded physical proof.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual comparable profile/OS/build/conditions, no excluded physical proof.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Optimization Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0299-U03",
+          "source_path": "canonical/24_TEMPLATES/04_PERF_REPORT_TEMPLATE.md",
+          "source_sha256": "c2142f4a277c131eeb3b6f583e03b6677ade7cebee6d3facbfd094cd315ed21c",
+          "source_heading": "Baseline metric",
+          "source_fragment": "## Baseline metric",
+          "meaning": "Observed comparable baseline, desired instrumentation distinct.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Observed comparable baseline, desired instrumentation distinct.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Optimization Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0299-U04",
+          "source_path": "canonical/24_TEMPLATES/04_PERF_REPORT_TEMPLATE.md",
+          "source_sha256": "c2142f4a277c131eeb3b6f583e03b6677ade7cebee6d3facbfd094cd315ed21c",
+          "source_heading": "Instrument/evidence",
+          "source_fragment": "## Instrument/evidence",
+          "meaning": "Smallest permitted symptom-specific diagnostic/evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Smallest permitted symptom-specific diagnostic/evidence.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0299-U05",
+          "source_path": "canonical/24_TEMPLATES/04_PERF_REPORT_TEMPLATE.md",
+          "source_sha256": "c2142f4a277c131eeb3b6f583e03b6677ade7cebee6d3facbfd094cd315ed21c",
+          "source_heading": "Bottleneck hypothesis",
+          "source_fragment": "## Bottleneck hypothesis",
+          "meaning": "Falsifiable workload/ownership hypothesis, source pattern not bottleneck proof.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Falsifiable workload/ownership hypothesis, source pattern not bottleneck proof.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0299-U06",
+          "source_path": "canonical/24_TEMPLATES/04_PERF_REPORT_TEMPLATE.md",
+          "source_sha256": "c2142f4a277c131eeb3b6f583e03b6677ade7cebee6d3facbfd094cd315ed21c",
+          "source_heading": "Change",
+          "source_fragment": "## Change",
+          "meaning": "Smallest observed-cost correction, no speculative performance refactor.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Smallest observed-cost correction, no speculative performance refactor.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Optimization Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0299-U07",
+          "source_path": "canonical/24_TEMPLATES/04_PERF_REPORT_TEMPLATE.md",
+          "source_sha256": "c2142f4a277c131eeb3b6f583e03b6677ade7cebee6d3facbfd094cd315ed21c",
+          "source_heading": "Before/after",
+          "source_fragment": "## Before/after",
+          "meaning": "Comparable user-impact measures, correctness regression retained.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Comparable user-impact measures, correctness regression retained.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Optimization Workflow; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0299-U08",
+          "source_path": "canonical/24_TEMPLATES/04_PERF_REPORT_TEMPLATE.md",
+          "source_sha256": "c2142f4a277c131eeb3b6f583e03b6677ade7cebee6d3facbfd094cd315ed21c",
+          "source_heading": "Variance / sample size",
+          "source_fragment": "## Variance / sample size",
+          "meaning": "Record observation count/sample size with variance and before/after conditions/population; no invented significance or improvement from aggregates alone.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "Record observation count/sample size with variance and before/after conditions/population; no invented significance or improvement from aggregates alone.",
+          "disposition": "MIGRATED",
+          "reason": "Record observation count/sample size with variance and before/after conditions/population; no invented significance or improvement from aggregates alone.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Optimization Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0299-U09",
+          "source_path": "canonical/24_TEMPLATES/04_PERF_REPORT_TEMPLATE.md",
+          "source_sha256": "c2142f4a277c131eeb3b6f583e03b6677ade7cebee6d3facbfd094cd315ed21c",
+          "source_heading": "Regression guard",
+          "source_fragment": "## Regression guard",
+          "meaning": "Permitted credible regression evidence, absent evidence not passed.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Permitted credible regression evidence, absent evidence not passed.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Optimization Workflow; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0299-U10",
+          "source_path": "canonical/24_TEMPLATES/04_PERF_REPORT_TEMPLATE.md",
+          "source_sha256": "c2142f4a277c131eeb3b6f583e03b6677ade7cebee6d3facbfd094cd315ed21c",
+          "source_heading": "Trade-offs",
+          "source_fragment": "## Trade-offs",
+          "meaning": "Actual CPU/memory/energy/responsiveness/accessibility/correctness trade-offs.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual CPU/memory/energy/responsiveness/accessibility/correctness trade-offs.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Optimization Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0299-U11",
+          "source_path": "canonical/24_TEMPLATES/04_PERF_REPORT_TEMPLATE.md",
+          "source_sha256": "c2142f4a277c131eeb3b6f583e03b6677ade7cebee6d3facbfd094cd315ed21c",
+          "source_heading": "Performance Investigation",
+          "source_fragment": "# Performance Investigation",
+          "meaning": "Imported standalone empty report format archived; no measured values, tool/runtime action or duplicated active report.",
+          "type": "historical-routing",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Imported standalone empty report format archived; no measured values, tool/runtime action or duplicated active report.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full blank template fields reviewed against current performance/security/privacy/quality contracts; standalone delivery archived, no filled report/security model/measurement/action inferred."
     },
     {
       "source_id": "LIB-0300",
       "path": "24_TEMPLATES/05_THREAT_MODEL_TEMPLATE.md",
       "sha256": "d964838e9840dda4cfc20667250f3dcaac29a0bf06f26d3364ecc409d1ae21be",
       "bytes": 188,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0300-U01",
+          "source_path": "canonical/24_TEMPLATES/05_THREAT_MODEL_TEMPLATE.md",
+          "source_sha256": "d964838e9840dda4cfc20667250f3dcaac29a0bf06f26d3364ecc409d1ae21be",
+          "source_heading": "Assets",
+          "source_fragment": "## Assets",
+          "meaning": "Actual sensitive assets/data safety.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual sensitive assets/data safety.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0300-U02",
+          "source_path": "canonical/24_TEMPLATES/05_THREAT_MODEL_TEMPLATE.md",
+          "source_sha256": "d964838e9840dda4cfc20667250f3dcaac29a0bf06f26d3364ecc409d1ae21be",
+          "source_heading": "Actors/attackers",
+          "source_fragment": "## Actors/attackers",
+          "meaning": "Actual actors/attacker control/capabilities, not hypothetical severity from category.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual actors/attacker control/capabilities, not hypothetical severity from category.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0300-U03",
+          "source_path": "canonical/24_TEMPLATES/05_THREAT_MODEL_TEMPLATE.md",
+          "source_sha256": "d964838e9840dda4cfc20667250f3dcaac29a0bf06f26d3364ecc409d1ae21be",
+          "source_heading": "Entry points",
+          "source_fragment": "## Entry points",
+          "meaning": "Actual caller/input/entry paths.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual caller/input/entry paths.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0300-U04",
+          "source_path": "canonical/24_TEMPLATES/05_THREAT_MODEL_TEMPLATE.md",
+          "source_sha256": "d964838e9840dda4cfc20667250f3dcaac29a0bf06f26d3364ecc409d1ae21be",
+          "source_heading": "Trust boundaries",
+          "source_fragment": "## Trust boundaries",
+          "meaning": "Actual authoritative validation/guard boundary.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual authoritative validation/guard boundary.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake; Authorization Rules",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Authorization Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0300-U05",
+          "source_path": "canonical/24_TEMPLATES/05_THREAT_MODEL_TEMPLATE.md",
+          "source_sha256": "d964838e9840dda4cfc20667250f3dcaac29a0bf06f26d3364ecc409d1ae21be",
+          "source_heading": "Data flows",
+          "source_fragment": "## Data flows",
+          "meaning": "Relevant transit/storage/sharing/logging/retention/deletion hops.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Relevant transit/storage/sharing/logging/retention/deletion hops.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0300-U06",
+          "source_path": "canonical/24_TEMPLATES/05_THREAT_MODEL_TEMPLATE.md",
+          "source_sha256": "d964838e9840dda4cfc20667250f3dcaac29a0bf06f26d3364ecc409d1ae21be",
+          "source_heading": "Abuse cases",
+          "source_fragment": "## Abuse cases",
+          "meaning": "Actual replay/abuse/exposure cases, not unverified exploit claim.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual replay/abuse/exposure cases, not unverified exploit claim.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0300-U07",
+          "source_path": "canonical/24_TEMPLATES/05_THREAT_MODEL_TEMPLATE.md",
+          "source_sha256": "d964838e9840dda4cfc20667250f3dcaac29a0bf06f26d3364ecc409d1ae21be",
+          "source_heading": "Mitigations",
+          "source_fragment": "## Mitigations",
+          "meaning": "Owned proportionate correction and permission, no insecure fallback.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Owned proportionate correction and permission, no insecure fallback.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Authorization Rules; Threat Model Intake",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Authorization Rules",
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0300-U08",
+          "source_path": "canonical/24_TEMPLATES/05_THREAT_MODEL_TEMPLATE.md",
+          "source_sha256": "d964838e9840dda4cfc20667250f3dcaac29a0bf06f26d3364ecc409d1ae21be",
+          "source_heading": "Detection/observability",
+          "source_fragment": "## Detection/observability",
+          "meaning": "Privacy-safe actionable operational signals versus desired instrumentation.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Privacy-safe actionable operational signals versus desired instrumentation.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Observability; Metric Design",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0300-U09",
+          "source_path": "canonical/24_TEMPLATES/05_THREAT_MODEL_TEMPLATE.md",
+          "source_sha256": "d964838e9840dda4cfc20667250f3dcaac29a0bf06f26d3364ecc409d1ae21be",
+          "source_heading": "Residual risk",
+          "source_fragment": "## Residual risk",
+          "meaning": "Explicit evidence/confidence/applicability/impact/decision and authorized exception, no silent blocking risk acceptance.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Explicit evidence/confidence/applicability/impact/decision and authorized exception, no silent blocking risk acceptance.",
+          "destination_path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "destination_heading": "Authority, Verdict, And Readiness Contract; Exceptions And Bypass",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Exceptions And Bypass"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0300-U10",
+          "source_path": "canonical/24_TEMPLATES/05_THREAT_MODEL_TEMPLATE.md",
+          "source_sha256": "d964838e9840dda4cfc20667250f3dcaac29a0bf06f26d3364ecc409d1ae21be",
+          "source_heading": "Privacy impact",
+          "source_fragment": "## Privacy impact",
+          "meaning": "Actual sensitive-data flow owner/destination/retention/deletion and minimization.",
+          "type": "constraint",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual sensitive-data flow owner/destination/retention/deletion and minimization.",
+          "destination_path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "destination_heading": "Data Lifecycle; Logging And Analytics",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Data Lifecycle",
+                "Logging And Analytics"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Privacy Labels And Data Lifecycle"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0300-U11",
+          "source_path": "canonical/24_TEMPLATES/05_THREAT_MODEL_TEMPLATE.md",
+          "source_sha256": "d964838e9840dda4cfc20667250f3dcaac29a0bf06f26d3364ecc409d1ae21be",
+          "source_heading": "Threat Model",
+          "source_fragment": "# Threat Model",
+          "meaning": "Imported standalone empty model template archived; no actual security intake/audit/mitigation execution or current app safety proof.",
+          "type": "historical-routing",
+          "conditions": "Actual approved scope/contract and truthful supplied/permitted observations only. Docs migration; no app source/tests/profiling/runtime/security intake/secrets/config/agents/transitions. Omitted evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, history preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Imported standalone empty model template archived; no actual security intake/audit/mitigation execution or current app safety proof.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-55-performance-threat-template-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full blank template fields reviewed against current performance/security/privacy/quality contracts; standalone delivery archived, no filled report/security model/measurement/action inferred."
     },
     {
       "source_id": "LIB-0301",
