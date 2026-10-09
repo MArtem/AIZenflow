@@ -10,7 +10,7 @@ Choose evidence from the claim and failure mode. Compilation proves type and ava
 - Unit: pure decisions, mapping, validation, reducers/state machines, algorithms.
 - Component: feature owner with controlled dependencies and persistence/network fakes.
 - Integration: real serialization, database, files, URL protocol/server fixture, app extensions, keychain where feasible.
-- UI: critical user journeys, accessibility identifiers, navigation/presentation, system handoffs where automation is reliable.
+- UI: critical user journeys with known launch state and deterministic fixtures, accessibility identifiers, navigation/presentation, system handoffs where automation is reliable.
 - Snapshot: stable visual contracts with controlled locale, content size, OS/toolchain, appearance, and fonts.
 - Property/fuzz: parsers, validators, codecs, state machines, and invariants over broad input.
 - Performance: measured budgets with representative data and controlled environment.
@@ -25,10 +25,20 @@ Use Swift Testing for suitable new unit/integration tests and parameterized beha
 - Parameterize meaningful cases and keep failures diagnosable.
 - Attach bounded artifacts that help diagnose failures without leaking secrets.
 
+Where supported by the actual project/toolchain, `@Test` declares cases; `#expect` records a failed
+expectation while a failing `#require` throws. Select assertion/early-stop behavior from the tested
+contract, rather than copying conventions without understanding their failure behavior.
+
 ## Determinism
 Inject clocks, dates, UUID/random sources, locale/calendar/time zone, file roots, network transport, and schedulers where their variability affects behavior. Use temporary directories inside the approved sandbox. Reset global/process state and avoid test ordering dependencies.
 
 Concurrency tests should control events, not hope for scheduling. Assert final state and explicit synchronization points. A global serial executor can aid diagnosis but must not conceal production races.
+
+Fixture stores and file roots have isolated state and cleanup; parallel tests must not collide.
+Generated parser/state-machine/serialization boundary cases retain a reproducible seed/input.
+Snapshot comparisons control locale, text size and device traits with justified tolerances.
+Performance comparisons record warmup, baseline and variance under comparable conditions; noisy
+thresholds must not turn environment variance into a regression.
 
 ## Test Doubles
 - Fake: working simplified implementation with controlled state.
@@ -70,6 +80,7 @@ Symbolicate with matching binary and dSYM. Identify exception/signal, crashed th
 - A passing suite does not waive manual/device/release gates required by the behavior.
 
 ## Primary Sources
+- [Apple: Expectations and confirmations](https://developer.apple.com/documentation/testing/expectations)
 - [Swift Testing](https://developer.apple.com/documentation/testing)
 - [XCTest](https://developer.apple.com/documentation/xctest)
 - [Diagnosing issues using crash reports and device logs](https://developer.apple.com/documentation/xcode/diagnosing-issues-using-crash-reports-and-device-logs)
