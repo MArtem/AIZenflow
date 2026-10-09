@@ -115,13 +115,30 @@ validation timing and formatting to keyboard, submit, secure entry and accessibl
 - State-driven animations have intentional state/transaction boundaries. All animation has a
   product purpose and respects Reduce Motion.
 
+## Accessible And Localized Interaction Review
+Review wrapping/reflow, scalable metrics, truncation and access to clipped content at supported
+text-size extremes; use an appropriate scroll fallback where the existing interaction needs it.
+Meaning must not rely solely on color, motion, sound or haptics. Review relevant contrast,
+transparency and alternative cues without inventing product behavior. Custom components expose
+semantic traits/actions, usable hit targets, focus and state announcements, with keyboard/Switch
+Control actions relevant to their consumers.
+
+Keep user-facing and accessibility text in the project's localization resources or supported
+String Catalog workflow. Include plural/grammatical variation and translator context; avoid
+English-length or concatenated locale-sensitive assumptions. Use leading/trailing semantics and
+inspect mirrored assets and mixed-direction text for supported RTL markets. Date/number display
+uses defined Locale/Calendar/TimeZone and supported formatting; parsing and wire contracts remain
+separate. Preserve actual translation/resource consumers during an approved change.
+
 ## Evidence Matrix
 Visual fidelity claims require actual supplied design and authorized comparison evidence. Static
 review cannot prove interaction correctness or absence of jank; report unobserved states/consumers.
 
 - Representative small and large iPhone Simulators.
-- At least one iPad size in portrait, landscape, and split/resized configurations.
-- Dynamic Type through accessibility sizes; VoiceOver/focus order where interactive.
+- Current user exclusions remove all iPad, physical-device and actual VoiceOver checks from plans
+  and exit gates: OMITTED_BY_USER, never PASS; preserve historical results and implementation requirements.
+- Dynamic Type through supported accessibility sizes and source-level focus/semantic review;
+  static layout/hierarchy evidence does not establish actual assistive traversal.
 - Light/dark, RTL, long localization, keyboard appearance, and content-size transitions.
 - Keyboard and pointer workflows where supported.
 - Navigation restoration, deep links, scene activation, modal conflicts, and rotation/resizing during work.
