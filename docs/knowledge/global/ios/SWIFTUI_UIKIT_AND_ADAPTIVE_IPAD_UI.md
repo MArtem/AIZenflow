@@ -50,6 +50,18 @@ toolchain and observation model control API choice. These examples grant no veri
 - Avoid mutually competing boolean presentation flags.
 - Restoration requires serializable destination state and graceful handling of removed content.
 
+Internal destinations/actions use typed value contracts where appropriate to the existing flow,
+carrying identifiers rather than whole views, database objects or secrets. Separate untrusted
+route parsing from presentation. Validate malformed/unknown/versioned input, feature availability
+and destination authorization/state preconditions; revalidate when deferred delivery is consumed.
+
+One actual navigation owner handles duplicate delivery and app/extension/widget handoff without
+repeating a destination or side effect. Trace cold/warm launch, authentication/loading deferral,
+modal competition and restoration. Scene-specific route/document/session state must not leak across
+windows. Version restoration and retire old route forms only under a defined compatibility window
+and evidence. Associated-domain fallback belongs to the server/app contract. These review concerns
+do not mandate a coordinator, API replacement or new routing layer.
+
 ## iPhone And iPad Core
 Production UI must account for:
 
@@ -104,6 +116,9 @@ validation timing and formatting to keyboard, submit, secure entry and accessibl
   product purpose and respects Reduce Motion.
 
 ## Evidence Matrix
+Visual fidelity claims require actual supplied design and authorized comparison evidence. Static
+review cannot prove interaction correctness or absence of jank; report unobserved states/consumers.
+
 - Representative small and large iPhone Simulators.
 - At least one iPad size in portrait, landscape, and split/resized configurations.
 - Dynamic Type through accessibility sizes; VoiceOver/focus order where interactive.
