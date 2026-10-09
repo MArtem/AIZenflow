@@ -59,6 +59,11 @@ supported toolchain; do not adopt advanced syntax merely because an archived sou
 - Default arguments are compiled at the call site; changing them may not change already-compiled clients.
 - `@inlinable`, `@usableFromInline`, specialization attributes, and underscored attributes are advanced compatibility commitments. Use only with measured need and toolchain-specific review.
 
+Before deleting apparently unused code, establish actual reachability beyond direct references:
+selectors/reflection, generated/resource lookup, external routes, feature flags and public consumers.
+Absence of static call sites alone does not establish safe removal. Preserve real dependency seams
+and compatibility/removal criteria during an authorized incremental refactor.
+
 ## Macros And Generated Code
 - Treat a macro as compiler-integrated code with build-time, diagnostics, dependency, and source-discoverability costs.
 - Prefer ordinary language features when they express the contract clearly.
