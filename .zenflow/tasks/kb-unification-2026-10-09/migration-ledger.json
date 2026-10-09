@@ -19155,9 +19155,371 @@
       "path": "KNOWLEDGE_ROUTER.md",
       "sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
       "bytes": 10532,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0855-U01",
+          "source_path": "canonical/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+          "source_heading": "Entry order",
+          "source_fragment": "Read current user instructions",
+          "meaning": "Authority/scope/permissions and actual project facts control advice",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "destination_heading": "Checklist",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0855-U02",
+          "source_path": "canonical/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+          "source_heading": "Entry order",
+          "source_fragment": "Resolve the current project mode",
+          "meaning": "Historical ON/OFF pilot and missing-status behavior; no current mode observation or transition",
+          "type": "historical-routing",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0855-U03",
+          "source_path": "canonical/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+          "source_heading": "Entry order",
+          "source_fragment": "Gather only relevant facts",
+          "meaning": "Bounded observed-fact routing and affected consumers; no speculative specialist completion",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": "reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+          "destination_heading": "Core Rule; Level 2 — Task-specific standards and prompts",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+              "headings": [
+                "Core Rule",
+                "Level 2 — Task-specific standards and prompts"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0855-U04",
+          "source_path": "canonical/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+          "source_heading": "Entry order",
+          "source_fragment": "read no more than two supporting routes",
+          "meaning": "Old numeric route quota; current accepted block and router envelopes control",
+          "type": "historical-routing",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0855-U05",
+          "source_path": "canonical/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+          "source_heading": "Entry order",
+          "source_fragment": "Deduplicate\n   only an explicitly selected",
+          "meaning": "Historical separate local-then-Library stage/exact-only dedup delivery; replaced by accepted unified owner design subject to U4/U8 gates",
+          "type": "historical-routing",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0855-U06",
+          "source_path": "canonical/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+          "source_heading": "Entry order",
+          "source_fragment": "A changed final artifact",
+          "meaning": "Actual findings/evidence limits and invalidation of changed final-artifact review receipt",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "4. Final Adversarial Review; 5. Exact-SHA Review Receipt",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "4. Final Adversarial Review",
+                "5. Exact-SHA Review Receipt"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0855-U07",
+          "source_path": "canonical/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+          "source_heading": "Routes currently available",
+          "source_fragment": "| Observed task | Route | Availability |",
+          "meaning": "Complete historical availability catalog including all topical rows; catalog listing never proves route contents reviewed",
+          "type": "historical-routing",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0855-U08",
+          "source_path": "canonical/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+          "source_heading": "Routes currently available",
+          "source_fragment": "A missing reference route",
+          "meaning": "Missing checks must remain an evidence gap and do not weaken quality obligations",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+          "existing_coverage": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+          "destination_heading": "Evidence Rule; Forbidden Claims Without Evidence",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule",
+                "Forbidden Claims Without Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0855-U09",
+          "source_path": "canonical/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+          "source_heading": "Routes currently available",
+          "source_fragment": "Do not read or execute an installer",
+          "meaning": "Absent route is not installer/CLI/runtime/mode authority",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "destination_heading": "Checklist; Stop Rule",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0855-U10",
+          "source_path": "canonical/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+          "source_heading": "Entry order",
+          "source_fragment": "A thematic route may instead explicitly delegate",
+          "meaning": "Current named canonical norm ownership, identity/scope-aware read reuse and portable limitation; do not dedup by similar wording",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": "reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+          "destination_heading": "Core Rule; Level 0 — Always-read operating baseline",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+              "headings": [
+                "Core Rule",
+                "Level 0 — Always-read operating baseline"
+              ]
+            },
+            {
+              "path": "reusable/GLOBAL_RULES_BOOTSTRAP.md",
+              "headings": [
+                "Mandatory Startup",
+                "Boundaries"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0855-U11",
+          "source_path": "canonical/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+          "source_heading": "Entry order",
+          "source_fragment": "For observed replacement/cancellation publication work",
+          "meaning": "Conditional unresolved cancellation/publication practical slice already migrated into existing KB; no mode/payload pin grant",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Load When; Invocation Publication Practical Slice",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Load When",
+                "Invocation Publication Practical Slice"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0855-U12",
+          "source_path": "canonical/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "94c61c5efcf548bafd502e4581b0b21abc8e332b043b8b64822b1e9110ed369a",
+          "source_heading": "Entry order",
+          "source_fragment": "Do not suppress a reference check",
+          "meaning": "Semantic similarity is not reviewed coverage; do not omit distinct source constraints or unique practical material on similarity alone",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved substantive anti-false-coverage control independently from retired mandatory second-pass delivery; accepted plan requires exact semantic dispositions for every source.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "4. Final Adversarial Review",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "tasks/kb-unification-2026-10-09/migration-plan.md",
+              "headings": []
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full canonical router and project-copy delta reviewed; historical delivery archived, authority/evidence and named delegation/practical slice covered. Route catalog not route-body reviewed coverage; U4/U8 pending."
     },
     {
       "source_id": "LIB-0856",
@@ -25959,6 +26321,315 @@
           ],
           "mirrors": [
             "docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md"
+          ]
+        }
+      ]
+    },
+    {
+      "group_id": "COPY-ROUTER",
+      "source_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+      "aliases": [
+        {
+          "archive_path": "tchop-copy/KNOWLEDGE_ROUTER.md",
+          "source_path": "TchopApp/IOSLibrary/KNOWLEDGE_ROUTER.md",
+          "source_revision": "82294ae7fc4e3946e5ea957f885844e79284d04e"
+        },
+        {
+          "archive_path": "battleship-copy/KNOWLEDGE_ROUTER.md",
+          "source_path": "BattleshipGame/IOSLibrary/KNOWLEDGE_ROUTER.md",
+          "source_revision": "82294ae7fc4e3946e5ea957f885844e79284d04e"
+        }
+      ],
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "COPY-ROUTER-U01",
+          "source_path": "tchop-copy/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+          "source_heading": "Entry order",
+          "source_fragment": "Read current user instructions",
+          "meaning": "Authority/scope/permissions and actual project facts control advice",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "destination_heading": "Checklist",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "COPY-ROUTER-U02",
+          "source_path": "tchop-copy/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+          "source_heading": "Entry order",
+          "source_fragment": "Resolve the current project mode",
+          "meaning": "Historical ON/OFF pilot and missing-status behavior; no current mode observation or transition",
+          "type": "historical-routing",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "COPY-ROUTER-U03",
+          "source_path": "tchop-copy/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+          "source_heading": "Entry order",
+          "source_fragment": "Gather only relevant facts",
+          "meaning": "Bounded observed-fact routing and affected consumers; no speculative specialist completion",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": "reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+          "destination_heading": "Core Rule; Level 2 — Task-specific standards and prompts",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+              "headings": [
+                "Core Rule",
+                "Level 2 — Task-specific standards and prompts"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "COPY-ROUTER-U04",
+          "source_path": "tchop-copy/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+          "source_heading": "Entry order",
+          "source_fragment": "read no more than two supporting routes",
+          "meaning": "Old numeric route quota; current accepted block and router envelopes control",
+          "type": "historical-routing",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "COPY-ROUTER-U05",
+          "source_path": "tchop-copy/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+          "source_heading": "Entry order",
+          "source_fragment": "Deduplicate\n   only an explicitly selected",
+          "meaning": "Historical separate local-then-Library stage/exact-only dedup delivery; replaced by accepted unified owner design subject to U4/U8 gates",
+          "type": "historical-routing",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "COPY-ROUTER-U06",
+          "source_path": "tchop-copy/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+          "source_heading": "Entry order",
+          "source_fragment": "A changed final artifact",
+          "meaning": "Actual findings/evidence limits and invalidation of changed final-artifact review receipt",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "4. Final Adversarial Review; 5. Exact-SHA Review Receipt",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "4. Final Adversarial Review",
+                "5. Exact-SHA Review Receipt"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "COPY-ROUTER-U07",
+          "source_path": "tchop-copy/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+          "source_heading": "Routes currently available",
+          "source_fragment": "| Observed task | Route | Availability |",
+          "meaning": "Complete historical availability catalog including all topical rows; catalog listing never proves route contents reviewed",
+          "type": "historical-routing",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "COPY-ROUTER-U08",
+          "source_path": "tchop-copy/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+          "source_heading": "Routes currently available",
+          "source_fragment": "A missing reference route",
+          "meaning": "Missing checks must remain an evidence gap and do not weaken quality obligations",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+          "existing_coverage": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+          "destination_heading": "Evidence Rule; Forbidden Claims Without Evidence",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule",
+                "Forbidden Claims Without Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "COPY-ROUTER-U09",
+          "source_path": "tchop-copy/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+          "source_heading": "Routes currently available",
+          "source_fragment": "Do not read or execute an installer",
+          "meaning": "Absent route is not installer/CLI/runtime/mode authority",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full source/router delta reviewed; useful authority/evidence controls retained by named current owners; legacy delivery not promoted and U4/U8 cutover pending.",
+          "destination_path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "destination_heading": "Checklist; Stop Rule",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "COPY-ROUTER-U10",
+          "source_path": "tchop-copy/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+          "source_heading": "Entry order",
+          "source_fragment": "Do not suppress a reference check",
+          "meaning": "Semantic similarity is not reviewed coverage; do not omit distinct source constraints or unique practical material on similarity alone",
+          "type": "constraint",
+          "conditions": "Current accepted unified KB plan and task permissions; no mode/status records read or changed; remaining route bodies independently unreviewed",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Preserved substantive anti-false-coverage control independently from retired mandatory second-pass delivery; accepted plan requires exact semantic dispositions for every source.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "4. Final Adversarial Review",
+          "required_verification": "Full canonical/copy delta, alias SHA/literal fragment and actual owner headings; current plan/authority; no handler execution.",
+          "evidence": "block-16-router-copy-reconciliation.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "tasks/kb-unification-2026-10-09/migration-plan.md",
+              "headings": []
+            }
           ]
         }
       ]
