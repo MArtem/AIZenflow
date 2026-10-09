@@ -609,45 +609,630 @@
       "path": "03_CONCURRENCY/IOS-03-01_STRICT_CONCURRENCY_MIGRATION.md",
       "sha256": "0137f3c482ee9aee251a39f783e66c1c13341d6abd946401e5ec8aec6202785c",
       "bytes": 5192,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0032-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-01_STRICT_CONCURRENCY_MIGRATION.md",
+          "source_sha256": "0137f3c482ee9aee251a39f783e66c1c13341d6abd946401e5ec8aec6202785c",
+          "source_heading": "Назначение; operating template; prompt; success",
+          "source_fragment": "Исправлять data-race design через isolation/ownership вместо подавления diagnostics.",
+          "meaning": "Исправлять data-race design через isolation/ownership вместо подавления diagnostics. Common facts/invariant/minimal-change/review/prompt/evidence workflow.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Swift 6.x Discipline; Isolation Design",
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Topic-specific intent is preserved by the exact named concurrency sections. Common template procedure is covered by ENGINEERING_CHANGE_QUALITY_STANDARD; PRODUCT_REQUIREMENTS_STANDARD owns decisions, IOS_TESTING_STRATEGY Permission Boundary owns creation/execution; CURRENT_USER_OVERRIDES Partnership Communication and architecture ADR own viable alternatives. Test step 6 is not a current grant. Existing unsafe suppression prohibitions remain strict.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Swift 6.x Discipline; Isolation Design",
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Swift 6.x Discipline",
+                "Isolation Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0032-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-01_STRICT_CONCURRENCY_MIGRATION.md",
+          "source_sha256": "0137f3c482ee9aee251a39f783e66c1c13341d6abd946401e5ec8aec6202785c",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum two-option quota",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Current viable-option/ADR comparison already serves material decisions; fixed cardinality adds no mechanism/failure-mode criterion and may invent a fictitious alternative. Quota alone stays archived.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0032-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-01_STRICT_CONCURRENCY_MIGRATION.md",
+          "source_sha256": "0137f3c482ee9aee251a39f783e66c1c13341d6abd946401e5ec8aec6202785c",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Separate V2 skill modes and mandatory deep-playbook loading",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill execution/binding infrastructure cannot create a second mandatory Library pass. Linked playbooks remain independently UNREVIEWED; metadata is historical scope, not new permissions/toolchain adoption.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete current file considered via exact-template parity plus every variable focus; topic-specific mapping verified. Linked playbooks and other source paths are not included."
     },
     {
       "source_id": "LIB-0033",
       "path": "03_CONCURRENCY/IOS-03-02_ACTOR_ISOLATION.md",
       "sha256": "5282cc905af04fa3b21b2747307ecd00d2d69e7268b2c1fe2b3431e23b89a597",
       "bytes": 5081,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0033-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-02_ACTOR_ISOLATION.md",
+          "source_sha256": "5282cc905af04fa3b21b2747307ecd00d2d69e7268b2c1fe2b3431e23b89a597",
+          "source_heading": "Назначение; operating template; prompt; success",
+          "source_fragment": "Назначить владельца mutable state, boundaries, reentrancy rules и transfer semantics.",
+          "meaning": "Назначить владельца mutable state, boundaries, reentrancy rules и transfer semantics. Common facts/invariant/minimal-change/review/prompt/evidence workflow.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Isolation Design; Ordering And Stale Results",
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Topic-specific intent is preserved by the exact named concurrency sections. Common template procedure is covered by ENGINEERING_CHANGE_QUALITY_STANDARD; PRODUCT_REQUIREMENTS_STANDARD owns decisions, IOS_TESTING_STRATEGY Permission Boundary owns creation/execution; CURRENT_USER_OVERRIDES Partnership Communication and architecture ADR own viable alternatives. Test step 6 is not a current grant. Existing unsafe suppression prohibitions remain strict.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Isolation Design; Ordering And Stale Results",
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0033-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-02_ACTOR_ISOLATION.md",
+          "source_sha256": "5282cc905af04fa3b21b2747307ecd00d2d69e7268b2c1fe2b3431e23b89a597",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum two-option quota",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Current viable-option/ADR comparison already serves material decisions; fixed cardinality adds no mechanism/failure-mode criterion and may invent a fictitious alternative. Quota alone stays archived.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0033-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-02_ACTOR_ISOLATION.md",
+          "source_sha256": "5282cc905af04fa3b21b2747307ecd00d2d69e7268b2c1fe2b3431e23b89a597",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Separate V2 skill modes and mandatory deep-playbook loading",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill execution/binding infrastructure cannot create a second mandatory Library pass. Linked playbooks remain independently UNREVIEWED; metadata is historical scope, not new permissions/toolchain adoption.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete current file considered via exact-template parity plus every variable focus; topic-specific mapping verified. Linked playbooks and other source paths are not included."
     },
     {
       "source_id": "LIB-0034",
       "path": "03_CONCURRENCY/IOS-03-03_SENDABLE_AUDIT.md",
       "sha256": "0a3eab1cd6be16494f902db7133ab87afa294ac0da0c7ff1394a028515972b01",
       "bytes": 5042,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0034-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-03_SENDABLE_AUDIT.md",
+          "source_sha256": "0a3eab1cd6be16494f902db7133ab87afa294ac0da0c7ff1394a028515972b01",
+          "source_heading": "Назначение; operating template; prompt; success",
+          "source_fragment": "Проверить closure captures, reference types, generics, delegates и cross-actor transfers.",
+          "meaning": "Audit closure captures, reference types, generics, delegates and cross-actor transfers; common bounded workflow.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Isolation Design; Swift 6.x Discipline; Task Ownership + Swift language Ownership And Memory, Type And API Decisions, Interoperability",
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Immutable Sendable transfer, nonescaping actor-owned reference state, capture lifetime, generic/protocol boundary choice and framework delegate ownership are covered by exact locations. DEC-001 now removes any implied audited exception; no new capture/type abstraction required.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Isolation Design; Swift 6.x Discipline; Task Ownership",
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Swift 6.x Discipline",
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Ownership And Memory",
+                "Type And API Decisions",
+                "Interoperability"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0034-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-03_SENDABLE_AUDIT.md",
+          "source_sha256": "0a3eab1cd6be16494f902db7133ab87afa294ac0da0c7ff1394a028515972b01",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum two-option quota",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Current viable-option/ADR comparison already serves material decisions; fixed cardinality adds no mechanism/failure-mode criterion and may invent a fictitious alternative. Quota alone stays archived.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0034-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-03_SENDABLE_AUDIT.md",
+          "source_sha256": "0a3eab1cd6be16494f902db7133ab87afa294ac0da0c7ff1394a028515972b01",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Separate V2 skill modes and mandatory deep-playbook loading",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill execution/binding infrastructure cannot create a second mandatory Library pass. Linked playbooks remain independently UNREVIEWED; metadata is historical scope, not new permissions/toolchain adoption.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full normalized template and Sendable-specific intent compared; DEC-001 resolved by current user decision."
     },
     {
       "source_id": "LIB-0035",
       "path": "03_CONCURRENCY/IOS-03-04_MAIN_ACTOR.md",
       "sha256": "c5cfc85820bd2fc2a5874a10b860792768853775e6211b418608fc6364b871fa",
       "bytes": 5171,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0035-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-04_MAIN_ACTOR.md",
+          "source_sha256": "c5cfc85820bd2fc2a5874a10b860792768853775e6211b418608fc6364b871fa",
+          "source_heading": "Назначение; operating template; prompt; success",
+          "source_fragment": "Оставить на MainActor только UI-bound state/work и вынести тяжёлую работу без лишних hops.",
+          "meaning": "Оставить на MainActor только UI-bound state/work и вынести тяжёлую работу без лишних hops. Common facts/invariant/minimal-change/review/prompt/evidence workflow.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Core Model; Testing And Evidence",
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Topic-specific intent is preserved by the exact named concurrency sections. Common template procedure is covered by ENGINEERING_CHANGE_QUALITY_STANDARD; PRODUCT_REQUIREMENTS_STANDARD owns decisions, IOS_TESTING_STRATEGY Permission Boundary owns creation/execution; CURRENT_USER_OVERRIDES Partnership Communication and architecture ADR own viable alternatives. Test step 6 is not a current grant. Existing unsafe suppression prohibitions remain strict.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Testing And Evidence",
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0035-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-04_MAIN_ACTOR.md",
+          "source_sha256": "c5cfc85820bd2fc2a5874a10b860792768853775e6211b418608fc6364b871fa",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum two-option quota",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Current viable-option/ADR comparison already serves material decisions; fixed cardinality adds no mechanism/failure-mode criterion and may invent a fictitious alternative. Quota alone stays archived.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0035-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-04_MAIN_ACTOR.md",
+          "source_sha256": "c5cfc85820bd2fc2a5874a10b860792768853775e6211b418608fc6364b871fa",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Separate V2 skill modes and mandatory deep-playbook loading",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill execution/binding infrastructure cannot create a second mandatory Library pass. Linked playbooks remain independently UNREVIEWED; metadata is historical scope, not new permissions/toolchain adoption.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete current file considered via exact-template parity plus every variable focus; topic-specific mapping verified. Linked playbooks and other source paths are not included."
     },
     {
       "source_id": "LIB-0036",
       "path": "03_CONCURRENCY/IOS-03-05_STRUCTURED_CONCURRENCY.md",
       "sha256": "ddffcd791906eb3f63ca5010c8c0b433958804dddee672f759f983ce46b9a111",
       "bytes": 5099,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0036-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-05_STRUCTURED_CONCURRENCY.md",
+          "source_sha256": "ddffcd791906eb3f63ca5010c8c0b433958804dddee672f759f983ce46b9a111",
+          "source_heading": "Назначение; operating template; prompt; success",
+          "source_fragment": "Использовать async let/task groups с cancellation/error propagation и понятным lifetime.",
+          "meaning": "Использовать async let/task groups с cancellation/error propagation и понятным lifetime. Common facts/invariant/minimal-change/review/prompt/evidence workflow.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Core Model; Task Ownership; Cancellation",
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Topic-specific intent is preserved by the exact named concurrency sections. Common template procedure is covered by ENGINEERING_CHANGE_QUALITY_STANDARD; PRODUCT_REQUIREMENTS_STANDARD owns decisions, IOS_TESTING_STRATEGY Permission Boundary owns creation/execution; CURRENT_USER_OVERRIDES Partnership Communication and architecture ADR own viable alternatives. Test step 6 is not a current grant. Existing unsafe suppression prohibitions remain strict.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Task Ownership; Cancellation",
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Task Ownership",
+                "Cancellation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0036-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-05_STRUCTURED_CONCURRENCY.md",
+          "source_sha256": "ddffcd791906eb3f63ca5010c8c0b433958804dddee672f759f983ce46b9a111",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum two-option quota",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Current viable-option/ADR comparison already serves material decisions; fixed cardinality adds no mechanism/failure-mode criterion and may invent a fictitious alternative. Quota alone stays archived.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0036-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-05_STRUCTURED_CONCURRENCY.md",
+          "source_sha256": "ddffcd791906eb3f63ca5010c8c0b433958804dddee672f759f983ce46b9a111",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Separate V2 skill modes and mandatory deep-playbook loading",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill execution/binding infrastructure cannot create a second mandatory Library pass. Linked playbooks remain independently UNREVIEWED; metadata is historical scope, not new permissions/toolchain adoption.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete current file considered via exact-template parity plus every variable focus; topic-specific mapping verified. Linked playbooks and other source paths are not included."
     },
     {
       "source_id": "LIB-0037",
@@ -994,18 +1579,248 @@
       "path": "03_CONCURRENCY/IOS-03-08_ASYNC_SEQUENCE.md",
       "sha256": "21666f9a74b9e6136a04565eff0eef570d043f63c116d8a9787667d8312927e1",
       "bytes": 5111,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0039-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-08_ASYNC_SEQUENCE.md",
+          "source_sha256": "21666f9a74b9e6136a04565eff0eef570d043f63c116d8a9787667d8312927e1",
+          "source_heading": "Назначение; operating template; prompt; success",
+          "source_fragment": "Моделировать длительные события, cancellation, buffering, backpressure и termination.",
+          "meaning": "Моделировать длительные события, cancellation, buffering, backpressure и termination. Common facts/invariant/minimal-change/review/prompt/evidence workflow.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Streams; Cancellation",
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Topic-specific intent is preserved by the exact named concurrency sections. Common template procedure is covered by ENGINEERING_CHANGE_QUALITY_STANDARD; PRODUCT_REQUIREMENTS_STANDARD owns decisions, IOS_TESTING_STRATEGY Permission Boundary owns creation/execution; CURRENT_USER_OVERRIDES Partnership Communication and architecture ADR own viable alternatives. Test step 6 is not a current grant. Existing unsafe suppression prohibitions remain strict.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Streams; Cancellation",
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Streams",
+                "Cancellation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0039-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-08_ASYNC_SEQUENCE.md",
+          "source_sha256": "21666f9a74b9e6136a04565eff0eef570d043f63c116d8a9787667d8312927e1",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum two-option quota",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Current viable-option/ADR comparison already serves material decisions; fixed cardinality adds no mechanism/failure-mode criterion and may invent a fictitious alternative. Quota alone stays archived.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0039-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-08_ASYNC_SEQUENCE.md",
+          "source_sha256": "21666f9a74b9e6136a04565eff0eef570d043f63c116d8a9787667d8312927e1",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Separate V2 skill modes and mandatory deep-playbook loading",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill execution/binding infrastructure cannot create a second mandatory Library pass. Linked playbooks remain independently UNREVIEWED; metadata is historical scope, not new permissions/toolchain adoption.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete current file considered via exact-template parity plus every variable focus; topic-specific mapping verified. Linked playbooks and other source paths are not included."
     },
     {
       "source_id": "LIB-0040",
       "path": "03_CONCURRENCY/IOS-03-09_CONTINUATIONS.md",
       "sha256": "e72cc4e0c7293105a814a9839bb8ae3fbd61258604e4e5cb0369061a6a776b6b",
       "bytes": 5135,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0040-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-09_CONTINUATIONS.md",
+          "source_sha256": "e72cc4e0c7293105a814a9839bb8ae3fbd61258604e4e5cb0369061a6a776b6b",
+          "source_heading": "Назначение; operating template; prompt; success",
+          "source_fragment": "Безопасно bridge callback API, гарантируя ровно один resume и корректную cancellation story.",
+          "meaning": "Безопасно bridge callback API, гарантируя ровно один resume и корректную cancellation story. Common facts/invariant/minimal-change/review/prompt/evidence workflow.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Continuations And Callbacks; Cancellation",
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Topic-specific intent is preserved by the exact named concurrency sections. Common template procedure is covered by ENGINEERING_CHANGE_QUALITY_STANDARD; PRODUCT_REQUIREMENTS_STANDARD owns decisions, IOS_TESTING_STRATEGY Permission Boundary owns creation/execution; CURRENT_USER_OVERRIDES Partnership Communication and architecture ADR own viable alternatives. Test step 6 is not a current grant. Existing unsafe suppression prohibitions remain strict.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Continuations And Callbacks; Cancellation",
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Continuations And Callbacks",
+                "Cancellation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0040-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-09_CONTINUATIONS.md",
+          "source_sha256": "e72cc4e0c7293105a814a9839bb8ae3fbd61258604e4e5cb0369061a6a776b6b",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum two-option quota",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Current viable-option/ADR comparison already serves material decisions; fixed cardinality adds no mechanism/failure-mode criterion and may invent a fictitious alternative. Quota alone stays archived.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0040-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-09_CONTINUATIONS.md",
+          "source_sha256": "e72cc4e0c7293105a814a9839bb8ae3fbd61258604e4e5cb0369061a6a776b6b",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Separate V2 skill modes and mandatory deep-playbook loading",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill execution/binding infrastructure cannot create a second mandatory Library pass. Linked playbooks remain independently UNREVIEWED; metadata is historical scope, not new permissions/toolchain adoption.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete current file considered via exact-template parity plus every variable focus; topic-specific mapping verified. Linked playbooks and other source paths are not included."
     },
     {
       "source_id": "LIB-0041",
@@ -1156,36 +1971,501 @@
       "path": "03_CONCURRENCY/IOS-03-11_PARALLELISM.md",
       "sha256": "6875798d16c433d1a85111e02d2311915aa02e276db377cd93e554b4bbbb92e9",
       "bytes": 5153,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0042-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-11_PARALLELISM.md",
+          "source_sha256": "6875798d16c433d1a85111e02d2311915aa02e276db377cd93e554b4bbbb92e9",
+          "source_heading": "Назначение; operating template; prompt; success",
+          "source_fragment": "Распараллеливать независимую работу с ограничением fan-out, memory и priority.",
+          "meaning": "Распараллеливать независимую работу с ограничением fan-out, memory и priority. Common facts/invariant/minimal-change/review/prompt/evidence workflow.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Streams; Core Model; Testing And Evidence",
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Topic-specific intent is preserved by the exact named concurrency sections. Common template procedure is covered by ENGINEERING_CHANGE_QUALITY_STANDARD; PRODUCT_REQUIREMENTS_STANDARD owns decisions, IOS_TESTING_STRATEGY Permission Boundary owns creation/execution; CURRENT_USER_OVERRIDES Partnership Communication and architecture ADR own viable alternatives. Test step 6 is not a current grant. Existing unsafe suppression prohibitions remain strict.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Streams; Core Model; Testing And Evidence",
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Streams",
+                "Core Model",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0042-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-11_PARALLELISM.md",
+          "source_sha256": "6875798d16c433d1a85111e02d2311915aa02e276db377cd93e554b4bbbb92e9",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum two-option quota",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Current viable-option/ADR comparison already serves material decisions; fixed cardinality adds no mechanism/failure-mode criterion and may invent a fictitious alternative. Quota alone stays archived.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0042-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-11_PARALLELISM.md",
+          "source_sha256": "6875798d16c433d1a85111e02d2311915aa02e276db377cd93e554b4bbbb92e9",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Separate V2 skill modes and mandatory deep-playbook loading",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill execution/binding infrastructure cannot create a second mandatory Library pass. Linked playbooks remain independently UNREVIEWED; metadata is historical scope, not new permissions/toolchain adoption.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete current file considered via exact-template parity plus every variable focus; topic-specific mapping verified. Linked playbooks and other source paths are not included."
     },
     {
       "source_id": "LIB-0043",
       "path": "03_CONCURRENCY/IOS-03-12_PRIORITY.md",
       "sha256": "f533d5861d742725d459479e8e36c5e8e97b9db7c936fed0b0880d9f660bb651",
       "bytes": 5126,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0043-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-12_PRIORITY.md",
+          "source_sha256": "f533d5861d742725d459479e8e36c5e8e97b9db7c936fed0b0880d9f660bb651",
+          "source_heading": "Назначение; operating template; prompt; success",
+          "source_fragment": "Не злоупотреблять priority; проверять inheritance, UI responsiveness и custom executor necessity.",
+          "meaning": "Не злоупотреблять priority; проверять inheritance, UI responsiveness и custom executor necessity. Common facts/invariant/minimal-change/review/prompt/evidence workflow.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Core Model; Testing And Evidence",
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Topic-specific intent is preserved by the exact named concurrency sections. Common template procedure is covered by ENGINEERING_CHANGE_QUALITY_STANDARD; PRODUCT_REQUIREMENTS_STANDARD owns decisions, IOS_TESTING_STRATEGY Permission Boundary owns creation/execution; CURRENT_USER_OVERRIDES Partnership Communication and architecture ADR own viable alternatives. Test step 6 is not a current grant. Existing unsafe suppression prohibitions remain strict.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Testing And Evidence",
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0043-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-12_PRIORITY.md",
+          "source_sha256": "f533d5861d742725d459479e8e36c5e8e97b9db7c936fed0b0880d9f660bb651",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum two-option quota",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Current viable-option/ADR comparison already serves material decisions; fixed cardinality adds no mechanism/failure-mode criterion and may invent a fictitious alternative. Quota alone stays archived.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0043-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-12_PRIORITY.md",
+          "source_sha256": "f533d5861d742725d459479e8e36c5e8e97b9db7c936fed0b0880d9f660bb651",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Separate V2 skill modes and mandatory deep-playbook loading",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill execution/binding infrastructure cannot create a second mandatory Library pass. Linked playbooks remain independently UNREVIEWED; metadata is historical scope, not new permissions/toolchain adoption.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete current file considered via exact-template parity plus every variable focus; topic-specific mapping verified. Linked playbooks and other source paths are not included."
     },
     {
       "source_id": "LIB-0044",
       "path": "03_CONCURRENCY/IOS-03-13_LEGACY_GCD.md",
       "sha256": "e662015a3b086b6c8afb944d094be78a4848713b5b8d803fa2fa43e15bb90e8a",
       "bytes": 5138,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0044-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-13_LEGACY_GCD.md",
+          "source_sha256": "e662015a3b086b6c8afb944d094be78a4848713b5b8d803fa2fa43e15bb90e8a",
+          "source_heading": "Назначение; operating template; prompt; success",
+          "source_fragment": "Постепенно bridge legacy queues к structured concurrency без двойной синхронизации.",
+          "meaning": "Постепенно bridge legacy queues к structured concurrency без двойной синхронизации. Common facts/invariant/minimal-change/review/prompt/evidence workflow.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Reactive And Queue Bridges; Swift 6.x Discipline",
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Topic-specific intent is preserved by the exact named concurrency sections. Common template procedure is covered by ENGINEERING_CHANGE_QUALITY_STANDARD; PRODUCT_REQUIREMENTS_STANDARD owns decisions, IOS_TESTING_STRATEGY Permission Boundary owns creation/execution; CURRENT_USER_OVERRIDES Partnership Communication and architecture ADR own viable alternatives. Test step 6 is not a current grant. Existing unsafe suppression prohibitions remain strict.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Reactive And Queue Bridges; Swift 6.x Discipline",
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Reactive And Queue Bridges",
+                "Swift 6.x Discipline"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0044-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-13_LEGACY_GCD.md",
+          "source_sha256": "e662015a3b086b6c8afb944d094be78a4848713b5b8d803fa2fa43e15bb90e8a",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum two-option quota",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Current viable-option/ADR comparison already serves material decisions; fixed cardinality adds no mechanism/failure-mode criterion and may invent a fictitious alternative. Quota alone stays archived.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0044-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-13_LEGACY_GCD.md",
+          "source_sha256": "e662015a3b086b6c8afb944d094be78a4848713b5b8d803fa2fa43e15bb90e8a",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Separate V2 skill modes and mandatory deep-playbook loading",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill execution/binding infrastructure cannot create a second mandatory Library pass. Linked playbooks remain independently UNREVIEWED; metadata is historical scope, not new permissions/toolchain adoption.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete current file considered via exact-template parity plus every variable focus; topic-specific mapping verified. Linked playbooks and other source paths are not included."
     },
     {
       "source_id": "LIB-0045",
       "path": "03_CONCURRENCY/IOS-03-14_CONCURRENCY_CODE_REVIEW.md",
       "sha256": "93d934ff34c3c46caf7d08072fbbc937cc74cb98e578a9b2824092106d75d717",
       "bytes": 5138,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0045-U01",
+          "source_path": "03_CONCURRENCY/IOS-03-14_CONCURRENCY_CODE_REVIEW.md",
+          "source_sha256": "93d934ff34c3c46caf7d08072fbbc937cc74cb98e578a9b2824092106d75d717",
+          "source_heading": "Назначение; operating template; prompt; success",
+          "source_fragment": "Искать races, unchecked sendability, actor leaks, cancellation bugs, continuation misuse и hidden main-thread work.",
+          "meaning": "Искать races, unchecked sendability, actor leaks, cancellation bugs, continuation misuse и hidden main-thread work. Common facts/invariant/minimal-change/review/prompt/evidence workflow.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "Isolation Design; Swift 6.x Discipline; Task Ownership; Cancellation; Continuations And Callbacks; Core Model",
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Topic-specific intent is preserved by the exact named concurrency sections. Common template procedure is covered by ENGINEERING_CHANGE_QUALITY_STANDARD; PRODUCT_REQUIREMENTS_STANDARD owns decisions, IOS_TESTING_STRATEGY Permission Boundary owns creation/execution; CURRENT_USER_OVERRIDES Partnership Communication and architecture ADR own viable alternatives. Test step 6 is not a current grant. Existing unsafe suppression prohibitions remain strict.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Isolation Design; Swift 6.x Discipline; Task Ownership; Cancellation; Continuations And Callbacks; Core Model",
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Swift 6.x Discipline",
+                "Task Ownership",
+                "Cancellation",
+                "Continuations And Callbacks",
+                "Core Model"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Partnership Communication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0045-U02",
+          "source_path": "03_CONCURRENCY/IOS-03-14_CONCURRENCY_CODE_REVIEW.md",
+          "source_sha256": "93d934ff34c3c46caf7d08072fbbc937cc74cb98e578a9b2824092106d75d717",
+          "source_heading": "Алгоритм skill — step 3",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum two-option quota",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Current viable-option/ADR comparison already serves material decisions; fixed cardinality adds no mechanism/failure-mode criterion and may invent a fictitious alternative. Quota alone stays archived.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0045-U03",
+          "source_path": "03_CONCURRENCY/IOS-03-14_CONCURRENCY_CODE_REVIEW.md",
+          "source_sha256": "93d934ff34c3c46caf7d08072fbbc937cc74cb98e578a9b2824092106d75d717",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "V2_EXECUTION_PROTOCOL.md",
+          "meaning": "Separate V2 skill modes and mandatory deep-playbook loading",
+          "type": "historical-procedure",
+          "conditions": "Actual project facts/toolchain/current permissions; current baseline unsafe annotation prohibition; no speculative architecture/framework adoption",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none after full topic-specific comparison",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Legacy skill execution/binding infrastructure cannot create a second mandatory Library pass. Linked playbooks remain independently UNREVIEWED; metadata is historical scope, not new permissions/toolchain adoption.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source comparison and exact normalized common-template identity; named owner sections and common supporting owners; source hashes; no source-title inference",
+          "evidence": "block-02-concurrency.md; full source body normalized only for exact ID/title/focus substitutions, matching the previously fully reviewed reentrancy template; all substitutions read individually. Source hash and destination headings verified. Unchanged block-01 evidence reused.",
+          "affected_routes": [
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete current file considered via exact-template parity plus every variable focus; topic-specific mapping verified. Linked playbooks and other source paths are not included."
     },
     {
       "source_id": "LIB-0046",
@@ -13548,6 +14828,35 @@
           "mirrors": []
         }
       ]
+    }
+  ],
+  "open_decisions": [
+    {
+      "decision_id": "DEC-001",
+      "status": "RESOLVED_BY_USER",
+      "severity": "P2",
+      "scope": "Preexisting conflicting canonical interoperability wording, not a newly introduced rule",
+      "canonical_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+      "heading": "Interoperability",
+      "exact_fragment": "`@unchecked Sendable` and unsafe interoperability annotations are audited promises, not compiler fixes.",
+      "conflicting_authority": [
+        {
+          "path": "reusable/baseline/AGENTS.md",
+          "heading": "Implementation Style",
+          "exact_fragment": "`@unchecked Sendable`, `nonisolated(unsafe)`, `@preconcurrency`, warning suppressions, and blanket or fake `@MainActor` annotations are prohibited"
+        },
+        {
+          "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "heading": "Swift 6.x Discipline",
+          "exact_fragment": "do not use or retain `@unchecked Sendable`"
+        }
+      ],
+      "impact": "Audited promises wording may imply an exception that the current universal baseline forbids. The current strict baseline remains controlling; no unsafe exception imported. This blocks final Sendable/cross-language coverage and a clean unified semantic acceptance claim.",
+      "proposed_resolution": "Align the one Interoperability bullet with the strict baseline: state that unsafe sendability/interoperability annotations cannot substitute for real ownership/isolation and that the prohibited annotations remain forbidden; document concrete bridge ownership/lifetime/transfer instead. Preserve genuine compatibility distinctions and original archive.",
+      "approval_needed": "Current concrete user decision for resolving competing canonical wording per accepted plan; not model change or runtime/tool permission.",
+      "proposed_exact_replacement": "Do not use or retain `@unchecked Sendable`, `nonisolated(unsafe)`, `@preconcurrency`, warning suppressions, or blanket/fake `@MainActor` workarounds. An interoperability audit is not an exception to the active baseline. Express real ownership/isolation, explicit bridge lifetime and valid cross-actor transfer instead.",
+      "decision": "User approved proposed one-bullet alignment in current chat; strict baseline preserved.",
+      "resolution_destination": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md#interoperability"
     }
   ]
 }

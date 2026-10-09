@@ -60,7 +60,7 @@ Create a protocol when there are multiple real implementations, a stable boundar
 ## Interoperability
 - Objective-C APIs may carry nullability, dynamic dispatch, KVO, exception, callback-thread, and lifetime semantics that Swift types do not fully express.
 - C/C++ boundaries require explicit memory ownership, layout, pointer validity, and error conventions.
-- `@unchecked Sendable` and unsafe interoperability annotations are audited promises, not compiler fixes.
+- Do not use or retain `@unchecked Sendable`, `nonisolated(unsafe)`, `@preconcurrency`, warning suppressions, or blanket/fake `@MainActor` workarounds. An interoperability audit is not an exception to the active baseline. Express real ownership/isolation, explicit bridge lifetime and valid cross-actor transfer instead.
 - Avoid exposing Swift-only implementation details through a public Objective-C or C boundary without a stable bridging contract.
 
 ## Performance Discipline
