@@ -17,7 +17,7 @@ User authorized execution of the accepted migration plan after preservation of c
 - [x] U0 Revalidate snapshot, current sources and exact permissions; [receipt](u0-u1-report.md).
 - [ ] U1 Complete inventory/copy-delta reconciliation, freeze KB/read-cost baseline, finish bounded calibration and complete consumer/copy reconciliation. Calibration: five canonical files + one copy content group, 30 units; broader acceptance pending.
 - [x] U2 First complete thematic transfer, cancellation/publication; [30-unit block receipt](block-01-concurrency.md).
-- [ ] U3 Review every source file/unit and transfer all accepted useful deltas. 21 canonical files reviewed; [block 02](block-02-concurrency.md); DEC-001 resolved by current user approval; all 16 files of 03_CONCURRENCY reviewed.
+- [ ] U3 Review every source file/unit and transfer all accepted useful deltas. 27 canonical files reviewed; [block 02](block-02-concurrency.md); DEC-001 resolved by current user approval; all 16 files of 03_CONCURRENCY reviewed.
 - [ ] U4 Unify routes and enforce bounded mandatory reading.
 - [ ] U5 Review semantics, authority and critical technical claims.
 - [ ] U6 Static acceptance: coverage, mirrors, links, 12 routing scenarios and cost limits.
@@ -32,3 +32,5 @@ Block 03: [review/evidence receipt](block-03-review-evidence.md); two canonical 
 Block 04: [quality-contract receipt](block-04-quality-contract.md); canonical quality guide and both project variants dispositioned; three existing owners receive useful constraints.
 
 Block 05: [risk/evidence receipt](block-05-risk-evidence.md); source risk guide and compatibility route fully dispositioned; three existing owners updated.
+
+Block 06: [discovery/product receipt](block-06-discovery-product.md); six guides reviewed, explicit API time/nullability/enum contract added.

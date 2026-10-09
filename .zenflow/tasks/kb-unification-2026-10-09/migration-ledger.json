@@ -129,54 +129,698 @@
       "path": "01_DISCOVERY_PRODUCT/IOS-01-01_FEATURE_REQUIREMENTS.md",
       "sha256": "ce21766e038c86e15197599e80b7beb4011c4be89d44fb0956a9be02a2ef1747",
       "bytes": 5455,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0009-U01",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-01_FEATURE_REQUIREMENTS.md",
+          "source_sha256": "ce21766e038c86e15197599e80b7beb4011c4be89d44fb0956a9be02a2ef1747",
+          "source_heading": "Назначение",
+          "source_fragment": "Выявить user journeys, acceptance criteria, non-goals, edge cases, analytics, permissions, offline/error states и технические ограничения.",
+          "meaning": "Topic: Выявить user journeys, acceptance criteria, non-goals, edge cases, analytics, permissions, offline/error states и технические ограничения. Common scoped context/toolchain/ownership/invariants/failure paths, minimal change/no escape/unrelated edits, permitted evidence and honest output.",
+          "type": "constraint",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "existing_coverage": "Required Artifact; Stop Rule; Review Output",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full body/common and variable topic meanings have named current owners.",
+          "destination_path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "destination_heading": "Required Artifact; Stop Rule; Review Output",
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": [
+            "docs/PRODUCT_REQUIREMENTS_STANDARD.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact",
+                "Stop Rule",
+                "Review Output"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0009-U02",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-01_FEATURE_REQUIREMENTS.md",
+          "source_sha256": "ce21766e038c86e15197599e80b7beb4011c4be89d44fb0956a9be02a2ef1747",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed option quota; only genuinely viable material alternatives are compared under current rules.",
+          "type": "historical-routing",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Old binding or nonincremental fixed option quota retained in archive.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0009-U03",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-01_FEATURE_REQUIREMENTS.md",
+          "source_sha256": "ce21766e038c86e15197599e80b7beb4011c4be89d44fb0956a9be02a2ef1747",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution mode, templates and Library/playbook delivery; no current test-writing/execution grant or review of linked bodies.",
+          "type": "historical-routing",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Old binding or nonincremental fixed option quota retained in archive.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All source/common/topic units terminal; linked deep playbooks and prompt sources remain independently unreviewed."
     },
     {
       "source_id": "LIB-0010",
       "path": "01_DISCOVERY_PRODUCT/IOS-01-02_TECH_SPIKE.md",
       "sha256": "a0df687943122a695f727fdec5b9f35415f374a15fd50dff7d2c1303241b3056",
       "bytes": 5365,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0010-U01",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-02_TECH_SPIKE.md",
+          "source_sha256": "a0df687943122a695f727fdec5b9f35415f374a15fd50dff7d2c1303241b3056",
+          "source_heading": "Назначение",
+          "source_fragment": "Сравнить 2–4 варианта по API availability, complexity, migration cost, performance, testability, security/privacy и risk.",
+          "meaning": "Topic: Compare viable alternatives по API availability, complexity, migration cost, performance, testability, security/privacy и risk. Common scoped context/toolchain/ownership/invariants/failure paths, minimal change/no escape/unrelated edits, permitted evidence and honest output.",
+          "type": "constraint",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "ADR Template; Bounded Investigation And Migration",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full body/common and variable topic meanings have named current owners. Availability/complexity/migration/performance/testability/privacy/risk axes preserved by contract/evidence owners; numeric option count not promoted.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Template; Bounded Investigation And Migration",
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": [
+            "docs/ARCHITECTURE_DECISION_GOVERNANCE.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template",
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0010-U02",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-02_TECH_SPIKE.md",
+          "source_sha256": "a0df687943122a695f727fdec5b9f35415f374a15fd50dff7d2c1303241b3056",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed option quota; only genuinely viable material alternatives are compared under current rules. Also retires the fixed 2–4 spike quota.",
+          "type": "historical-routing",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Old binding or nonincremental fixed option quota retained in archive.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "Сравнить 2–4 варианта"
+          ]
+        },
+        {
+          "unit_id": "LIB-0010-U03",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-02_TECH_SPIKE.md",
+          "source_sha256": "a0df687943122a695f727fdec5b9f35415f374a15fd50dff7d2c1303241b3056",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution mode, templates and Library/playbook delivery; no current test-writing/execution grant or review of linked bodies.",
+          "type": "historical-routing",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Old binding or nonincremental fixed option quota retained in archive.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All source/common/topic units terminal; linked deep playbooks and prompt sources remain independently unreviewed."
     },
     {
       "source_id": "LIB-0011",
       "path": "01_DISCOVERY_PRODUCT/IOS-01-03_API_CONTRACT_REVIEW.md",
       "sha256": "29bbc2f48989713cf23ba4f83bce5a902e59d851638751c95c9c09e2c0fa50c5",
       "bytes": 5293,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0011-U01",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-03_API_CONTRACT_REVIEW.md",
+          "source_sha256": "29bbc2f48989713cf23ba4f83bce5a902e59d851638751c95c9c09e2c0fa50c5",
+          "source_heading": "Назначение",
+          "source_fragment": "Проверить schema, optionality, enums, versioning, pagination, errors, idempotency, timestamps/timezones, backward compatibility.",
+          "meaning": "Topic: Проверить schema, optionality, enums, versioning, pagination, errors, idempotency, timestamps/timezones, backward compatibility. Common scoped context/toolchain/ownership/invariants/failure paths, minimal change/no escape/unrelated edits, permitted evidence and honest output.",
+          "type": "constraint",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "existing_coverage": null,
+          "unique_delta": "Timestamp/nullability/unknown-enum explicit backend contract",
+          "disposition": "MIGRATED",
+          "reason": "Full body/common and variable topic meanings have named current owners.",
+          "destination_path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "destination_heading": "DTO And Domain Boundaries; Errors; Retry And Idempotency; Pagination And Sync",
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "ios-api-contracts"
+          ],
+          "mirrors": [
+            "docs/API_CONTRACT_AND_INTEGRATION_RULES.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0011-U02",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-03_API_CONTRACT_REVIEW.md",
+          "source_sha256": "29bbc2f48989713cf23ba4f83bce5a902e59d851638751c95c9c09e2c0fa50c5",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed option quota; only genuinely viable material alternatives are compared under current rules.",
+          "type": "historical-routing",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Old binding or nonincremental fixed option quota retained in archive.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "ios-api-contracts"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0011-U03",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-03_API_CONTRACT_REVIEW.md",
+          "source_sha256": "29bbc2f48989713cf23ba4f83bce5a902e59d851638751c95c9c09e2c0fa50c5",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution mode, templates and Library/playbook delivery; no current test-writing/execution grant or review of linked bodies.",
+          "type": "historical-routing",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Old binding or nonincremental fixed option quota retained in archive.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "ios-api-contracts"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All source/common/topic units terminal; linked deep playbooks and prompt sources remain independently unreviewed."
     },
     {
       "source_id": "LIB-0012",
       "path": "01_DISCOVERY_PRODUCT/IOS-01-04_FEATURE_FLAG_PLAN.md",
       "sha256": "77d41030a7c7a656b6f884b7f13344ec4872ae0e413a91b6238098b27fbd7afa",
       "bytes": 5236,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0012-U01",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-04_FEATURE_FLAG_PLAN.md",
+          "source_sha256": "77d41030a7c7a656b6f884b7f13344ec4872ae0e413a91b6238098b27fbd7afa",
+          "source_heading": "Назначение",
+          "source_fragment": "Спроектировать flag ownership, default states, kill switch, analytics, cleanup date, remote/local failure semantics.",
+          "meaning": "Topic: Спроектировать flag ownership, default states, kill switch, analytics, cleanup date, remote/local failure semantics. Common scoped context/toolchain/ownership/invariants/failure paths, minimal change/no escape/unrelated edits, permitted evidence and honest output.",
+          "type": "constraint",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+          "existing_coverage": "Purpose; Required Checks; Forbidden By Default; Release Evidence",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full body/common and variable topic meanings have named current owners.",
+          "destination_path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+          "destination_heading": "Purpose; Required Checks; Forbidden By Default; Release Evidence",
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": [
+            "docs/FEATURE_FLAGS_AND_ROLLOUTS.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Purpose",
+                "Required Checks",
+                "Forbidden By Default",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0012-U02",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-04_FEATURE_FLAG_PLAN.md",
+          "source_sha256": "77d41030a7c7a656b6f884b7f13344ec4872ae0e413a91b6238098b27fbd7afa",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed option quota; only genuinely viable material alternatives are compared under current rules.",
+          "type": "historical-routing",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Old binding or nonincremental fixed option quota retained in archive.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0012-U03",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-04_FEATURE_FLAG_PLAN.md",
+          "source_sha256": "77d41030a7c7a656b6f884b7f13344ec4872ae0e413a91b6238098b27fbd7afa",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution mode, templates and Library/playbook delivery; no current test-writing/execution grant or review of linked bodies.",
+          "type": "historical-routing",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Old binding or nonincremental fixed option quota retained in archive.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All source/common/topic units terminal; linked deep playbooks and prompt sources remain independently unreviewed."
     },
     {
       "source_id": "LIB-0013",
       "path": "01_DISCOVERY_PRODUCT/IOS-01-05_RISK_REGISTER.md",
       "sha256": "7b629aef3b6c9e336fce889baba8a2d40bacb14b1424139971da2fe9e11de866",
       "bytes": 5269,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0013-U01",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-05_RISK_REGISTER.md",
+          "source_sha256": "7b629aef3b6c9e336fce889baba8a2d40bacb14b1424139971da2fe9e11de866",
+          "source_heading": "Назначение",
+          "source_fragment": "Собрать concurrency, data loss, privacy, auth, migration, compatibility, performance и release risks с mitigation/verification.",
+          "meaning": "Topic: Собрать concurrency, data loss, privacy, auth, migration, compatibility, performance и release risks с mitigation/verification. Common scoped context/toolchain/ownership/invariants/failure paths, minimal change/no escape/unrelated edits, permitted evidence and honest output.",
+          "type": "constraint",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": "reusable/baseline/docs/RISK_REGISTER.md",
+          "existing_coverage": "Entry Template; Rule",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full body/common and variable topic meanings have named current owners. Assess all relevant risks via change contract/findings; only explicitly accepted risks enter accepted-risk register. Never silently defer P0–P2.",
+          "destination_path": "reusable/baseline/docs/RISK_REGISTER.md",
+          "destination_heading": "Entry Template; Rule",
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": [
+            "docs/RISK_REGISTER.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/RISK_REGISTER.md",
+              "headings": [
+                "Entry Template",
+                "Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0013-U02",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-05_RISK_REGISTER.md",
+          "source_sha256": "7b629aef3b6c9e336fce889baba8a2d40bacb14b1424139971da2fe9e11de866",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed option quota; only genuinely viable material alternatives are compared under current rules.",
+          "type": "historical-routing",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Old binding or nonincremental fixed option quota retained in archive.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0013-U03",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-05_RISK_REGISTER.md",
+          "source_sha256": "7b629aef3b6c9e336fce889baba8a2d40bacb14b1424139971da2fe9e11de866",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution mode, templates and Library/playbook delivery; no current test-writing/execution grant or review of linked bodies.",
+          "type": "historical-routing",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Old binding or nonincremental fixed option quota retained in archive.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All source/common/topic units terminal; linked deep playbooks and prompt sources remain independently unreviewed."
     },
     {
       "source_id": "LIB-0014",
       "path": "01_DISCOVERY_PRODUCT/IOS-01-06_ADR.md",
       "sha256": "0b9d36d8e9fa084aa1a94a304dabeae5779119bf900bed92957ab8944c937e6f",
       "bytes": 5266,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0014-U01",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-06_ADR.md",
+          "source_sha256": "0b9d36d8e9fa084aa1a94a304dabeae5779119bf900bed92957ab8944c937e6f",
+          "source_heading": "Назначение",
+          "source_fragment": "Зафиксировать контекст, decision, alternatives, consequences, rollback/migration и критерии пересмотра.",
+          "meaning": "Topic: Зафиксировать контекст, decision, alternatives, consequences, rollback/migration и критерии пересмотра. Common scoped context/toolchain/ownership/invariants/failure paths, minimal change/no escape/unrelated edits, permitted evidence and honest output.",
+          "type": "constraint",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "ADR Template; Stop Rule",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full body/common and variable topic meanings have named current owners.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Template; Stop Rule",
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": [
+            "docs/ARCHITECTURE_DECISION_GOVERNANCE.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0014-U02",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-06_ADR.md",
+          "source_sha256": "0b9d36d8e9fa084aa1a94a304dabeae5779119bf900bed92957ab8944c937e6f",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed option quota; only genuinely viable material alternatives are compared under current rules.",
+          "type": "historical-routing",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Old binding or nonincremental fixed option quota retained in archive.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0014-U03",
+          "source_path": "canonical/01_DISCOVERY_PRODUCT/IOS-01-06_ADR.md",
+          "source_sha256": "0b9d36d8e9fa084aa1a94a304dabeae5779119bf900bed92957ab8944c937e6f",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution mode, templates and Library/playbook delivery; no current test-writing/execution grant or review of linked bodies.",
+          "type": "historical-routing",
+          "conditions": "Actual task/topic/toolchain; current permissions and user exclusions control test edits/execution.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Old binding or nonincremental fixed option quota retained in archive.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete body and ID/title/focus-only parity, topic/common owner/hash/fragment/headings and mirrors.",
+          "evidence": "block-06-discovery-product.md",
+          "affected_routes": [
+            "product-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "All source/common/topic units terminal; linked deep playbooks and prompt sources remain independently unreviewed."
     },
     {
       "source_id": "LIB-0015",
