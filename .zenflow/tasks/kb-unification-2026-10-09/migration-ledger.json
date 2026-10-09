@@ -45155,18 +45155,992 @@
       "path": "21_AGENT_WORKFLOWS/IOS-21-10_DOCS_WORKFLOW.md",
       "sha256": "73a6a30dcd726ded47760f2162573d11c1b582a9f2e0bd334ab63448e4361c87",
       "bytes": 5179,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0253-U01",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-10_DOCS_WORKFLOW.md",
+          "source_sha256": "73a6a30dcd726ded47760f2162573d11c1b582a9f2e0bd334ab63448e4361c87",
+          "source_heading": "Назначение",
+          "source_fragment": "Derive docs from code/contracts, state invariants/decisions/examples/failure modes and keep update triggers.",
+          "meaning": "Derive docs from code/contracts, state invariants/decisions/examples/failure modes and keep update triggers.",
+          "type": "constraint",
+          "conditions": "Current approved doc boundary and actual reviewed code/contracts only; no guessed behavior, app source/comments/tests/runtime/agents/transitions or reusable permission expansion.",
+          "canonical_owner": "reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current owners require true contracts, invariants/failure/rationale and maintenance triggers, no duplicated handbook.",
+          "destination_path": "reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+          "destination_heading": "Core Principle; Required Comment Dimensions; Stop Rules",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+              "headings": [
+                "Core Principle",
+                "Required Comment Dimensions",
+                "Stop Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+              "headings": [
+                "Required Shape",
+                "Change And Migration Rules",
+                "Authority And Maintenance"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0253-U02",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-10_DOCS_WORKFLOW.md",
+          "source_sha256": "73a6a30dcd726ded47760f2162573d11c1b582a9f2e0bd334ab63448e4361c87",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Current approved doc boundary and actual reviewed code/contracts only; no guessed behavior, app source/comments/tests/runtime/agents/transitions or reusable permission expansion.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0253-U03",
+          "source_path": "canonical/21_AGENT_WORKFLOWS/IOS-21-10_DOCS_WORKFLOW.md",
+          "source_sha256": "73a6a30dcd726ded47760f2162573d11c1b582a9f2e0bd334ab63448e4361c87",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Current approved doc boundary and actual reviewed code/contracts only; no guessed behavior, app source/comments/tests/runtime/agents/transitions or reusable permission expansion.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full documentation workflow template reviewed, existing code-contract/document-governance owners cover focus; no app code/comments/test/action grant. Linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0254",
       "path": "22_CHECKLISTS/01_PR_RELEASE_GATE.md",
       "sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
       "bytes": 1692,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0254-U01",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Acceptance criteria выполнены.",
+          "meaning": "Acceptance criteria выполнены. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "destination_heading": "Required Artifact; Stop Rule",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U02",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Код компилируется в заявленном toolchain/configuration.",
+          "meaning": "Код компилируется в заявленном toolchain/configuration. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Configuration; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Configuration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U03",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Нет новых warnings/errors/lint violations без явного обоснования.",
+          "meaning": "Нет новых warnings/errors/lint violations без явного обоснования. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Configuration; Targets And Build Phases",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Configuration",
+                "Targets And Build Phases"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Swift 6.x Discipline"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U04",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Swift 6 concurrency safety проверена; actor isolation и Sendable корректны.",
+          "meaning": "Swift 6 concurrency safety проверена; actor isolation и Sendable корректны. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Swift 6.x Discipline; Isolation Design",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Swift 6.x Discipline",
+                "Isolation Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U05",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Cancellation/lifetime для async work определены.",
+          "meaning": "Cancellation/lifetime для async work определены. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Cancellation; Task Ownership",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Cancellation",
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U06",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Retain cycles / memory ownership проверены.",
+          "meaning": "Retain cycles / memory ownership проверены. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Ownership And Memory",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Ownership And Memory"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U07",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Error/loading/empty/offline states определены.",
+          "meaning": "Error/loading/empty/offline states определены. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+          "destination_heading": "Required Rules",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U08",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Unit/integration/UI tests добавлены или обновлены пропорционально риску.",
+          "meaning": "Unit/integration/UI tests добавлены или обновлены пропорционально риску. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Test Portfolio; Evidence Completion",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Test Portfolio",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U09",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Accessibility и localization проверены для UI change.",
+          "meaning": "Accessibility и localization проверены для UI change. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Evidence Matrix",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U10",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Privacy/security impact оценён; privacy manifest/permissions обновлены при необходимости.",
+          "meaning": "Privacy/security impact оценён; privacy manifest/permissions обновлены при необходимости. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "destination_heading": "Required Checks; Blocking Findings",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Findings"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U11",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Performance-sensitive path измерен или обосновано, почему измерение не нужно.",
+          "meaning": "Performance-sensitive path измерен или обосновано, почему измерение не нужно. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Optimization Workflow",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U12",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Logging/metrics позволяют диагностировать критические сбои без утечки PII/secrets.",
+          "meaning": "Logging/metrics позволяют диагностировать критические сбои без утечки PII/secrets. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Observability; Metric Design",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U13",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "New dependency прошла audit.",
+          "meaning": "New dependency прошла audit. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "destination_heading": "Approval Criteria",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Approval Criteria"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U14",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Minimum deployment target и availability соблюдены.",
+          "meaning": "Minimum deployment target и availability соблюдены. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Configuration; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Configuration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U15",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Migration/backward compatibility учтены.",
+          "meaning": "Migration/backward compatibility учтены. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U16",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Diff минимален и не содержит unrelated refactor.",
+          "meaning": "Diff минимален и не содержит unrelated refactor. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U17",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "PR description описывает решение, риски и verification.",
+          "meaning": "PR description описывает решение, риски и verification. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+          "destination_heading": "Scope; Risk Card (complete before implementation); Review Receipt",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+              "headings": [
+                "Scope",
+                "Risk Card (complete before implementation)",
+                "Review Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U18",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "PR-specific",
+          "source_fragment": "Review findings resolved or consciously accepted.",
+          "meaning": "Review findings resolved or consciously accepted. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "destination_heading": "Authority, Verdict, And Readiness Contract; Exceptions And Bypass",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Exceptions And Bypass"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U19",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "PR-specific",
+          "source_fragment": "No secrets/test credentials in diff.",
+          "meaning": "No secrets/test credentials in diff. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+          "destination_heading": "Core Rules; Sensitive Material Inventory",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+              "headings": [
+                "Core Rules",
+                "Sensitive Material Inventory"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U20",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "PR-specific",
+          "source_fragment": "Generated files/resources consistent.",
+          "meaning": "Generated files/resources consistent. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Targets And Build Phases; Binary And Runtime Diagnosis",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases",
+                "Binary And Runtime Diagnosis"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U21",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "PR-specific",
+          "source_fragment": "Feature flag cleanup/owner/date documented if added.",
+          "meaning": "Feature flag cleanup/owner/date documented if added. Conditional requirement/evidence question under current authorization and verdict scope.",
+          "type": "constraint",
+          "conditions": "Actual approved feature/PR candidate and affected consumers; docs migration only. No app source/tests/runtime/PR/release/config/secrets/action. P0–P2 remain blocking absent explicit higher-authority scoped exception; unavailable/omitted evidence not PASS.",
+          "canonical_owner": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+          "existing_coverage": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers useful constraint with separate current permissions/exception/evidence rules, no actual PASS or PR/release readiness inferred.",
+          "destination_path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+          "destination_heading": "Required Checks; Forbidden By Default",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0254-U22",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "без явного обоснования",
+          "meaning": "Legacy generic justification is not a warning suppression/escape-hatch exception; strict current user baseline controls.",
+          "type": "historical-routing",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Legacy generic justification is not a warning suppression/escape-hatch exception; strict current user baseline controls.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0254-U23",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "Unit/integration/UI tests добавлены или обновлены",
+          "meaning": "Unconditional test-creation readiness checklist not execution authority; current permission needed, unrun evidence stays unrun.",
+          "type": "historical-routing",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test-creation readiness checklist not execution authority; current permission needed, unrun evidence stays unrun.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0254-U24",
+          "source_path": "canonical/22_CHECKLISTS/01_PR_RELEASE_GATE.md",
+          "source_sha256": "a021b85a1362a2531953a586cef46cc226022484015202874ff0568d40aef414",
+          "source_heading": "PR-specific",
+          "source_fragment": "Review findings resolved or consciously accepted.",
+          "meaning": "Conscious acceptance alone cannot clear P0–P2; explicit higher-authority scoped exception and accepted-risk verdict required.",
+          "type": "historical-routing",
+          "conditions": "Actual approved change and present producer/consumer/product contract. Docs only; no app source/refactor/tests/runtime/architecture/modes/agents/external review. Severity impact remains separate from confidence/applicability; no fixed quota.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Conscious acceptance alone cannot clear P0–P2; explicit higher-authority scoped exception and accepted-risk verdict required.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-47-documentation-pr-gate-coverage.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full 21-line feature/PR checklist reviewed, three permissive/unconditional clauses explicitly archived under current higher authority; no feature/PR/release readiness inferred."
     },
     {
       "source_id": "LIB-0255",
