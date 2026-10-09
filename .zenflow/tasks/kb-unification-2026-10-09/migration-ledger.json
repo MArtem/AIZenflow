@@ -57190,90 +57190,1149 @@
       "path": "26_ML_VISION_AR/IOS-23-01_VISION.md",
       "sha256": "7c1241a6a1d5d4bf5479dab3a2853f26753ba54bafc095ae1155ac21da1fb854",
       "bytes": 3759,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0314-U01",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-01_VISION.md",
+          "source_sha256": "7c1241a6a1d5d4bf5479dab3a2853f26753ba54bafc095ae1155ac21da1fb854",
+          "source_heading": "Выбрать request pipeline, image orientation, ROI, revision/availability, batching и latency.",
+          "source_fragment": "Выбрать request pipeline, image orientation, ROI, revision/availability, batching и latency.",
+          "meaning": "Выбрать request pipeline, image orientation, ROI, revision/availability, batching и latency. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: orientation, request revision, cancellation, pixel formats, latency, privacy.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Выбрать request pipeline, image orientation, ROI, revision/availability, batching и latency. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: orientation, request revision, cancellation, pixel formats, latency, privacy.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: orientation, request revision, cancellation, pixel formats, latency, privacy.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0314-U02",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-01_VISION.md",
+          "source_sha256": "7c1241a6a1d5d4bf5479dab3a2853f26753ba54bafc095ae1155ac21da1fb854",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0314-U03",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-01_VISION.md",
+          "source_sha256": "7c1241a6a1d5d4bf5479dab3a2853f26753ba54bafc095ae1155ac21da1fb854",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0315",
       "path": "26_ML_VISION_AR/IOS-23-02_VISION_TEXT.md",
       "sha256": "d265a65b82aadf4b693a17a937b983bf10d2370e010ce56558542ee4fc680e64",
       "bytes": 3751,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0315-U01",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-02_VISION_TEXT.md",
+          "source_sha256": "d265a65b82aadf4b693a17a937b983bf10d2370e010ce56558542ee4fc680e64",
+          "source_heading": "Настроить recognition level/languages/ROI, preprocess, confidence, pagination и privacy.",
+          "source_fragment": "Настроить recognition level/languages/ROI, preprocess, confidence, pagination и privacy.",
+          "meaning": "Настроить recognition level/languages/ROI, preprocess, confidence, pagination и privacy. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: languages, confidence, orientation, batching, memory, sensitive text.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "Настроить recognition level/languages/ROI, preprocess, confidence, pagination и privacy. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: languages, confidence, orientation, batching, memory, sensitive text.",
+          "disposition": "MIGRATED",
+          "reason": "Настроить recognition level/languages/ROI, preprocess, confidence, pagination и privacy. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: languages, confidence, orientation, batching, memory, sensitive text.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: languages, confidence, orientation, batching, memory, sensitive text.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0315-U02",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-02_VISION_TEXT.md",
+          "source_sha256": "d265a65b82aadf4b693a17a937b983bf10d2370e010ce56558542ee4fc680e64",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0315-U03",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-02_VISION_TEXT.md",
+          "source_sha256": "d265a65b82aadf4b693a17a937b983bf10d2370e010ce56558542ee4fc680e64",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0316",
       "path": "26_ML_VISION_AR/IOS-23-03_COREML.md",
       "sha256": "2a9fed26ce82aa9902b2ad901966a2775c5682aa654c52d24e8b1fb28cbc824b",
       "bytes": 3768,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0316-U01",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-03_COREML.md",
+          "source_sha256": "2a9fed26ce82aa9902b2ad901966a2775c5682aa654c52d24e8b1fb28cbc824b",
+          "source_heading": "Model loading, compute units, input preprocessing, prediction scheduling, memory/thermal и versioning.",
+          "source_fragment": "Model loading, compute units, input preprocessing, prediction scheduling, memory/thermal и versioning.",
+          "meaning": "Model loading, compute units, input preprocessing, prediction scheduling, memory/thermal и versioning. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: model version, compute units, preprocessing parity, latency, memory, thermal.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Model loading, compute units, input preprocessing, prediction scheduling, memory/thermal и versioning. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: model version, compute units, preprocessing parity, latency, memory, thermal.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: model version, compute units, preprocessing parity, latency, memory, thermal.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0316-U02",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-03_COREML.md",
+          "source_sha256": "2a9fed26ce82aa9902b2ad901966a2775c5682aa654c52d24e8b1fb28cbc824b",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0316-U03",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-03_COREML.md",
+          "source_sha256": "2a9fed26ce82aa9902b2ad901966a2775c5682aa654c52d24e8b1fb28cbc824b",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0317",
       "path": "26_ML_VISION_AR/IOS-23-04_MODEL_UPDATE.md",
       "sha256": "65b577baaf4578ea8ede6669e91671520ec0eae659a1a0923d76b1b80eebdc31",
       "bytes": 3815,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0317-U01",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-04_MODEL_UPDATE.md",
+          "source_sha256": "65b577baaf4578ea8ede6669e91671520ec0eae659a1a0923d76b1b80eebdc31",
+          "source_heading": "Версионировать models, validate signatures/compatibility, staged rollout, fallback и storage budget.",
+          "source_fragment": "Версионировать models, validate signatures/compatibility, staged rollout, fallback и storage budget.",
+          "meaning": "Версионировать models, validate signatures/compatibility, staged rollout, fallback и storage budget. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: model provenance, version compatibility, rollback, disk, privacy, evals.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "Версионировать models, validate signatures/compatibility, staged rollout, fallback и storage budget. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: model provenance, version compatibility, rollback, disk, privacy, evals.",
+          "disposition": "MIGRATED",
+          "reason": "Версионировать models, validate signatures/compatibility, staged rollout, fallback и storage budget. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: model provenance, version compatibility, rollback, disk, privacy, evals.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: model provenance, version compatibility, rollback, disk, privacy, evals.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0317-U02",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-04_MODEL_UPDATE.md",
+          "source_sha256": "65b577baaf4578ea8ede6669e91671520ec0eae659a1a0923d76b1b80eebdc31",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0317-U03",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-04_MODEL_UPDATE.md",
+          "source_sha256": "65b577baaf4578ea8ede6669e91671520ec0eae659a1a0923d76b1b80eebdc31",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0318",
       "path": "26_ML_VISION_AR/IOS-23-05_ARKIT.md",
       "sha256": "146adaba0476d2178d6e283dce99523e780a19391c19835d01346adfeb7ba759",
       "bytes": 3776,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0318-U01",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-05_ARKIT.md",
+          "source_sha256": "146adaba0476d2178d6e283dce99523e780a19391c19835d01346adfeb7ba759",
+          "source_heading": "Session configuration, tracking states, interruptions, permissions, world mapping и device support.",
+          "source_fragment": "Session configuration, tracking states, interruptions, permissions, world mapping и device support.",
+          "meaning": "Session configuration, tracking states, interruptions, permissions, world mapping и device support. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: tracking state, interruptions, availability, sensor permission, battery/thermal, recovery.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "Session configuration, tracking states, interruptions, permissions, world mapping и device support. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: tracking state, interruptions, availability, sensor permission, battery/thermal, recovery.",
+          "disposition": "MIGRATED",
+          "reason": "Session configuration, tracking states, interruptions, permissions, world mapping и device support. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: tracking state, interruptions, availability, sensor permission, battery/thermal, recovery.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Permission Model; Runtime Ownership; Performance And Privacy; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: tracking state, interruptions, availability, sensor permission, battery/thermal, recovery.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0318-U02",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-05_ARKIT.md",
+          "source_sha256": "146adaba0476d2178d6e283dce99523e780a19391c19835d01346adfeb7ba759",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0318-U03",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-05_ARKIT.md",
+          "source_sha256": "146adaba0476d2178d6e283dce99523e780a19391c19835d01346adfeb7ba759",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0319",
       "path": "26_ML_VISION_AR/IOS-23-06_REALITYKIT.md",
       "sha256": "59a3b6f12e0a5fa424695ce777b8a0e5dbaa89dbd13a697449f76cecc9084a98",
       "bytes": 3727,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0319-U01",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-06_REALITYKIT.md",
+          "source_sha256": "59a3b6f12e0a5fa424695ce777b8a0e5dbaa89dbd13a697449f76cecc9084a98",
+          "source_heading": "Entity/component ownership, asset loading, async resources, collision/physics и performance.",
+          "source_fragment": "Entity/component ownership, asset loading, async resources, collision/physics и performance.",
+          "meaning": "Entity/component ownership, asset loading, async resources, collision/physics и performance. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: entity lifetime, async assets, physics step, GPU/memory, device availability.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "Entity/component ownership, asset loading, async resources, collision/physics и performance. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: entity lifetime, async assets, physics step, GPU/memory, device availability.",
+          "disposition": "MIGRATED",
+          "reason": "Entity/component ownership, asset loading, async resources, collision/physics и performance. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: entity lifetime, async assets, physics step, GPU/memory, device availability.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Permission Model; Runtime Ownership; Performance And Privacy; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: entity lifetime, async assets, physics step, GPU/memory, device availability.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0319-U02",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-06_REALITYKIT.md",
+          "source_sha256": "59a3b6f12e0a5fa424695ce777b8a0e5dbaa89dbd13a697449f76cecc9084a98",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0319-U03",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-06_REALITYKIT.md",
+          "source_sha256": "59a3b6f12e0a5fa424695ce777b8a0e5dbaa89dbd13a697449f76cecc9084a98",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0320",
       "path": "26_ML_VISION_AR/IOS-23-07_SPATIAL_COMPUTING.md",
       "sha256": "11dc3ac020568f40e355a2619fb71704da5223039243edde5602da948114bacb",
       "bytes": 3798,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0320-U01",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-07_SPATIAL_COMPUTING.md",
+          "source_sha256": "11dc3ac020568f40e355a2619fb71704da5223039243edde5602da948114bacb",
+          "source_heading": "Проектировать input/window/space-aware UX и shared domain logic без iPhone assumptions.",
+          "source_fragment": "Проектировать input/window/space-aware UX и shared domain logic без iPhone assumptions.",
+          "meaning": "Проектировать input/window/space-aware UX и shared domain logic без iPhone assumptions. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: input modality, resizing, depth/space, accessibility, performance, fallback.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "Проектировать input/window/space-aware UX и shared domain logic без iPhone assumptions. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: input modality, resizing, depth/space, accessibility, performance, fallback.",
+          "disposition": "MIGRATED",
+          "reason": "Проектировать input/window/space-aware UX и shared domain logic без iPhone assumptions. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: input modality, resizing, depth/space, accessibility, performance, fallback.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "iPhone And iPad Core; Accessible And Localized Interaction Review; Evidence Matrix",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "iPhone And iPad Core",
+                "Accessible And Localized Interaction Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: input modality, resizing, depth/space, accessibility, performance, fallback.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0320-U02",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-07_SPATIAL_COMPUTING.md",
+          "source_sha256": "11dc3ac020568f40e355a2619fb71704da5223039243edde5602da948114bacb",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0320-U03",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-07_SPATIAL_COMPUTING.md",
+          "source_sha256": "11dc3ac020568f40e355a2619fb71704da5223039243edde5602da948114bacb",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0321",
       "path": "26_ML_VISION_AR/IOS-23-08_ML_PIPELINE_TESTS.md",
       "sha256": "a5df7ab058ddac8ab157f59cb190c92b673f7ce62aef1e76ae225d9956dc93de",
       "bytes": 3768,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0321-U01",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-08_ML_PIPELINE_TESTS.md",
+          "source_sha256": "a5df7ab058ddac8ab157f59cb190c92b673f7ce62aef1e76ae225d9956dc93de",
+          "source_heading": "Golden fixtures, tolerance metrics, device/model variance, regression dataset и deterministic preprocessing.",
+          "source_fragment": "Golden fixtures, tolerance metrics, device/model variance, regression dataset и deterministic preprocessing.",
+          "meaning": "Golden fixtures, tolerance metrics, device/model variance, regression dataset и deterministic preprocessing. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: dataset coverage, tolerance, reproducibility, performance, privacy, drift.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Golden fixtures, tolerance metrics, device/model variance, regression dataset и deterministic preprocessing. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: dataset coverage, tolerance, reproducibility, performance, privacy, drift.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: dataset coverage, tolerance, reproducibility, performance, privacy, drift.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0321-U02",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-08_ML_PIPELINE_TESTS.md",
+          "source_sha256": "a5df7ab058ddac8ab157f59cb190c92b673f7ce62aef1e76ae225d9956dc93de",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0321-U03",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-08_ML_PIPELINE_TESTS.md",
+          "source_sha256": "a5df7ab058ddac8ab157f59cb190c92b673f7ce62aef1e76ae225d9956dc93de",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0322",
       "path": "26_ML_VISION_AR/IOS-23-09_ML_PRIVACY.md",
       "sha256": "440c6e7807d23b8b8ed08349487c99cc3997560114611db8a5f9a720c04f069f",
       "bytes": 3762,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0322-U01",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-09_ML_PRIVACY.md",
+          "source_sha256": "440c6e7807d23b8b8ed08349487c99cc3997560114611db8a5f9a720c04f069f",
+          "source_heading": "Минимизировать captured media/features, prefer on-device, redact/store safely и define retention.",
+          "source_fragment": "Минимизировать captured media/features, prefer on-device, redact/store safely и define retention.",
+          "meaning": "Минимизировать captured media/features, prefer on-device, redact/store safely и define retention. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: data minimization, consent, retention, on-device, logging, deletion.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Минимизировать captured media/features, prefer on-device, redact/store safely и define retention. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: data minimization, consent, retention, on-device, logging, deletion.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: data minimization, consent, retention, on-device, logging, deletion.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0322-U02",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-09_ML_PRIVACY.md",
+          "source_sha256": "440c6e7807d23b8b8ed08349487c99cc3997560114611db8a5f9a720c04f069f",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0322-U03",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-09_ML_PRIVACY.md",
+          "source_sha256": "440c6e7807d23b8b8ed08349487c99cc3997560114611db8a5f9a720c04f069f",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0323",
       "path": "26_ML_VISION_AR/IOS-23-10_ML_AR_REVIEW.md",
       "sha256": "bb5c3a37a236b9d1995d1da7906495db46861df03faebb4528ffc4b9a7e50e8c",
       "bytes": 3742,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0323-U01",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-10_ML_AR_REVIEW.md",
+          "source_sha256": "bb5c3a37a236b9d1995d1da7906495db46861df03faebb4528ffc4b9a7e50e8c",
+          "source_heading": "Quality metrics, availability, sensor/camera lifecycle, privacy, memory/thermal and fallback.",
+          "source_fragment": "Quality metrics, availability, sensor/camera lifecycle, privacy, memory/thermal and fallback.",
+          "meaning": "Quality metrics, availability, sensor/camera lifecycle, privacy, memory/thermal and fallback. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: eval quality, capability gating, lifecycle, privacy, thermal, fallback.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Quality metrics, availability, sensor/camera lifecycle, privacy, memory/thermal and fallback. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: eval quality, capability gating, lifecycle, privacy, thermal, fallback.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: eval quality, capability gating, lifecycle, privacy, thermal, fallback.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0323-U02",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-10_ML_AR_REVIEW.md",
+          "source_sha256": "bb5c3a37a236b9d1995d1da7906495db46861df03faebb4528ffc4b9a7e50e8c",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0323-U03",
+          "source_path": "canonical/26_ML_VISION_AR/IOS-23-10_ML_AR_REVIEW.md",
+          "source_sha256": "bb5c3a37a236b9d1995d1da7906495db46861df03faebb4528ffc4b9a7e50e8c",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-58-vision-ml-spatial-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0324",

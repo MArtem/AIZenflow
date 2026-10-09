@@ -76,7 +76,7 @@ Production UI must account for:
 Do not implement iPad as a scaled-up phone screen when the workflow benefits from simultaneous context, selection persistence, or keyboard-driven actions.
 
 For actually supported Apple-platform consumers, shared code preserves the platform's meaningful
-size/resizing, input and windowing interactions instead of forcing a lowest-common-denominator
+size/resizing, input, windowing and depth/space interactions instead of forcing a lowest-common-denominator
 UI. Establish the product/platform profile first; this criterion does not add visionOS/iPad support,
 modernize apps or reopen excluded iPad/physical verification.
 

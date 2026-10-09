@@ -1212,6 +1212,8 @@ Image
 
 Для фактического Vision/OCR/ML pipeline проверь orientation, ROI, pixel/color/language
 preprocessing, supported request/model revision, confidence/tolerance и batching/scheduling.
+Для OCR укажи recognition level и page/pagination policy фактического документа;
+языки, confidence и resource bounds не означают подтверждённую точность на всех страницах.
 Разделяй качество модели и ошибки preprocessing/session; одна fixture не доказывает общую
 точность или устойчивость на иных model/device профилях. Не превращай confidence в
 гарантию правильности; непроверенные варианты остаются явно непроверенными.
@@ -1449,6 +1451,9 @@ struct PromptVersion: Hashable, Sendable {
 Когда контракты взаимодействуют, документируй совместимый набор prompt/schema/model
 и pre/post-processing версий, provenance, update/rollback и resource/storage bounds.
 Раздельное успешное изменение компонента не доказывает совместимость всего pipeline.
+Для распространяемых model assets определи проверку authenticity/integrity, включая signature
+validation там, где это требует реальный distribution/trust contract; staged rollout и fallback
+не заменяют проверку совместимости и происхождения. Это не разрешение скачивать или менять model assets.
 
 40. PROMPT INJECTION
 

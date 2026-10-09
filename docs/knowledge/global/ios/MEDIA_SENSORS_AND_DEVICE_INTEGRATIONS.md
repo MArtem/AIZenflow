@@ -90,6 +90,11 @@ ordering, frame pacing or safe fallback.
 For PDFs, bound loading/page rendering/search and annotation memory, cancellation and untrusted
 input handling; preserve accessible/searchable content under the actual document contract.
 
+For approved ARKit/RealityKit consumers, define configuration/support, tracking quality, world
+mapping, interruption/relocalization/recovery and camera/sensor permissions. Own entity/component
+and async-asset lifetime, collision/physics steps and GPU/memory/thermal bounds. Tracking or
+mapping availability is not guaranteed recovery; unsupported states need the actual fallback.
+
 ## Evidence
 - Permission matrix and settings changes.
 - Interruption, route/device change, background/foreground, unavailable hardware, low storage, memory warning, thermal state, and cancellation.
