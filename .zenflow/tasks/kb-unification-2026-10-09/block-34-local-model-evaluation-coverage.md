@@ -24,3 +24,8 @@ iPad/physical/actualVoiceOver OMITTED_BY_USER; historical results preserved.
 181 REVIEWED /1222 UNREVIEWED/zero partial;770 terminal units including copy groups.
 No mandatory-read growth; full cost/routes/baseline/cutover pending, tokens UNKNOWN.
 U7 NOT_RUN / BENEFIT_NOT_ESTABLISHED; size/source count is not benefit evidence.
+
+Locator correction: repeated numeric list items initially displaced section7–11 titles in
+two coverage entries. Exact section title lines now verified explicitly; no master/content or
+source disposition change. Correction published through a fresh exact-HEAD receipt; previous
+block34 receipt superseded. No readiness/eval result inferred from this correction.
