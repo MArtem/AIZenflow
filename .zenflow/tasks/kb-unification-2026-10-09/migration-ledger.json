@@ -18059,9 +18059,742 @@
       "path": "10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
       "sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
       "bytes": 3875,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0115-U01",
+          "source_path": "canonical/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+          "source_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "source_heading": "Verification strategy — curated copy-only route",
+          "source_fragment": "Test need, permission to edit",
+          "meaning": "Need/create/modify/run/Simulator/device/Instruments permission separation; reference ON changes no grant",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Entire scoped curated paragraph constraints reviewed; current permissions/exclusions govern; no actual test or framework transition.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Completion",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0115-U02",
+          "source_path": "canonical/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+          "source_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "source_heading": "Verification strategy — curated copy-only route",
+          "source_fragment": "Map each changed invariant",
+          "meaning": "Smallest risk/claim-specific useful observation and credible failure mode",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Entire scoped curated paragraph constraints reviewed; current permissions/exclusions govern; no actual test or framework transition.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Model; Test Portfolio",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Portfolio"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0115-U03",
+          "source_path": "canonical/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+          "source_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "source_heading": "Verification strategy — curated copy-only route",
+          "source_fragment": "A test that merely",
+          "meaning": "Mirrored implementation or passing for wrong reason is weak signal, not modeled-behavior proof",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": null,
+          "unique_delta": "Mirrored implementation or passing for wrong reason is weak signal, not modeled-behavior proof",
+          "disposition": "MIGRATED",
+          "reason": "Entire scoped curated paragraph constraints reviewed; current permissions/exclusions govern; no actual test or framework transition.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Model; Test Portfolio",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Portfolio"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0115-U04",
+          "source_path": "canonical/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+          "source_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "source_heading": "Verification strategy — curated copy-only route",
+          "source_fragment": "Synchronize asynchronous assertions",
+          "meaning": "Observable completion and real-contract/failure-faithful doubles instead of sleeps/convenient fake fidelity claims",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Entire scoped curated paragraph constraints reviewed; current permissions/exclusions govern; no actual test or framework transition.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Swift Testing And XCTest; Determinism; Test Doubles",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Swift Testing And XCTest",
+                "Determinism",
+                "Test Doubles"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0115-U05",
+          "source_path": "canonical/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+          "source_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "source_heading": "Verification strategy — curated copy-only route",
+          "source_fragment": "Select fake/stub/spy",
+          "meaning": "Behavior not private choreography; parallel/order isolation, seeds/meaningful boundaries/generated cases and diagnosable assertions",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Entire scoped curated paragraph constraints reviewed; current permissions/exclusions govern; no actual test or framework transition.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Test Doubles; Determinism; Swift Testing And XCTest",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Test Doubles",
+                "Determinism",
+                "Swift Testing And XCTest"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0115-U06",
+          "source_path": "canonical/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+          "source_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "source_heading": "Verification strategy — curated copy-only route",
+          "source_fragment": "When investigating a flaky test",
+          "meaning": "Shared state/time/random/network/files/task leaks; observed cause vs hypothesis and cost/permission-bounded repeat evidence",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": null,
+          "unique_delta": "Shared state/time/random/network/files/task leaks; observed cause vs hypothesis and cost/permission-bounded repeat evidence",
+          "disposition": "MIGRATED",
+          "reason": "Entire scoped curated paragraph constraints reviewed; current permissions/exclusions govern; no actual test or framework transition.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Flaky Tests; Debugging Workflow",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Flaky Tests",
+                "Debugging Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0115-U07",
+          "source_path": "canonical/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+          "source_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "source_heading": "Verification strategy — curated copy-only route",
+          "source_fragment": "Verify the actual owning target",
+          "meaning": "Actual target/plan/destination/config/consumers; no unit-target-to-app/resource proof; scoped beneficial framework migration with CI/traits/unsupported feature preservation",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": null,
+          "unique_delta": "Actual target/plan/destination/config/consumers; no unit-target-to-app/resource proof; scoped beneficial framework migration with CI/traits/unsupported feature preservation",
+          "disposition": "MIGRATED",
+          "reason": "Entire scoped curated paragraph constraints reviewed; current permissions/exclusions govern; no actual test or framework transition.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Swift Testing And XCTest; Evidence Completion",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Swift Testing And XCTest",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0115-U08",
+          "source_path": "canonical/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+          "source_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "source_heading": "Verification strategy — curated copy-only route",
+          "source_fragment": "UI evidence needs known launch state",
+          "meaning": "Relevant UI/data/network cases, deterministic launch/semantic IDs/journeys; identifier-only not accessibility proof",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": null,
+          "unique_delta": "Relevant UI/data/network cases, deterministic launch/semantic IDs/journeys; identifier-only not accessibility proof",
+          "disposition": "MIGRATED",
+          "reason": "Entire scoped curated paragraph constraints reviewed; current permissions/exclusions govern; no actual test or framework transition.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Test Portfolio; Evidence Model",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Test Portfolio",
+                "Evidence Model"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0115-U09",
+          "source_path": "canonical/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+          "source_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "source_heading": "Verification strategy — curated copy-only route",
+          "source_fragment": "Snapshot comparisons need",
+          "meaning": "Controlled locale/text/device traits/tolerances and comparable performance warmup/baseline/variance",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Entire scoped curated paragraph constraints reviewed; current permissions/exclusions govern; no actual test or framework transition.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Test Portfolio",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Test Portfolio"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0115-U10",
+          "source_path": "canonical/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+          "source_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "source_heading": "Verification strategy — curated copy-only route",
+          "source_fragment": "Prefer changed-behavior",
+          "meaning": "Behavior/negative coverage over percentages; omitted evidence not PASS, actual quarantined results and residual risk disclosed",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": null,
+          "unique_delta": "Behavior/negative coverage over percentages; omitted evidence not PASS, actual quarantined results and residual risk disclosed",
+          "disposition": "MIGRATED",
+          "reason": "Entire scoped curated paragraph constraints reviewed; current permissions/exclusions govern; no actual test or framework transition.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Test Portfolio; Flaky Tests; Evidence Completion",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Test Portfolio",
+                "Flaky Tests",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0115-U11",
+          "source_path": "canonical/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+          "source_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "source_heading": "Verification strategy — curated copy-only route",
+          "source_fragment": "Record tests proposed",
+          "meaning": "Proposed/permitted/written/executed/failed/deferred registry, residual risk and smallest permitted user-run check; no hidden substitute",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": null,
+          "unique_delta": "Proposed/permitted/written/executed/failed/deferred registry, residual risk and smallest permitted user-run check; no hidden substitute",
+          "disposition": "MIGRATED",
+          "reason": "Entire scoped curated paragraph constraints reviewed; current permissions/exclusions govern; no actual test or framework transition.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Completion",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0115-U12",
+          "source_path": "canonical/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+          "source_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "source_heading": "Verification strategy — curated copy-only route",
+          "source_fragment": "Do not write/modify tests",
+          "meaning": "Recommended evidence grants no test/build/sim/profile/server/workflow execution; results never replace semantic final review",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Entire scoped curated paragraph constraints reviewed; current permissions/exclusions govern; no actual test or framework transition.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Completion",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+              "headings": [
+                "Evidence Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0115-U13",
+          "source_path": "canonical/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+          "source_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "source_heading": "Verification strategy — curated copy-only route",
+          "source_fragment": "Use after project-local test rules",
+          "meaning": "Historical independent after-local copy-only route/ON delivery; no active mandatory second Library pass",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Entire scoped curated paragraph constraints reviewed; current permissions/exclusions govern; no actual test or framework transition.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full curated route reviewed; permission, evidence/fixture/double/signal/flaky/target/UI/reporting and historical delivery individually dispositioned. No hidden tests/real app results."
     },
     {
       "source_id": "LIB-0116",
@@ -20108,36 +20841,815 @@
       "path": "10_TESTING/IOS-10-11_TEST_DOUBLES.md",
       "sha256": "9d595dd7bb87fd766f03d7fbb5f18f72b0e1ab826d745f8e0a76d96837f7a7c1",
       "bytes": 5062,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0126-U01",
+          "source_path": "canonical/10_TESTING/IOS-10-11_TEST_DOUBLES.md",
+          "source_sha256": "9d595dd7bb87fd766f03d7fbb5f18f72b0e1ab826d745f8e0a76d96837f7a7c1",
+          "source_heading": "Назначение",
+          "source_fragment": "Fake/stub/spy выбирать по поведению; избегать brittle mocks по implementation details.",
+          "meaning": "Fake/stub/spy выбирать по поведению; избегать brittle mocks по implementation details. Full common permission-bounded test signal/workflow gates.",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current doubles/determinism/flaky diagnostic controls cover topic; behavior/negative-path/diagnosable/maintainable signal clarified.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Test Doubles",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Test Doubles"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0126-U02",
+          "source_path": "canonical/10_TESTING/IOS-10-11_TEST_DOUBLES.md",
+          "source_sha256": "9d595dd7bb87fd766f03d7fbb5f18f72b0e1ab826d745f8e0a76d96837f7a7c1",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0126-U03",
+          "source_path": "canonical/10_TESTING/IOS-10-11_TEST_DOUBLES.md",
+          "source_sha256": "9d595dd7bb87fd766f03d7fbb5f18f72b0e1ab826d745f8e0a76d96837f7a7c1",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full exact common body and focus reviewed; no appended depth. No test-writing/run/framework-transition authority; linked OP independent."
     },
     {
       "source_id": "LIB-0127",
       "path": "10_TESTING/IOS-10-12_CLOCK_RANDOM_UUID.md",
       "sha256": "465a1ba772e4d3626de37f762857184256ad4f3d28bd45db239cdfec4c929d1f",
       "bytes": 5077,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0127-U01",
+          "source_path": "canonical/10_TESTING/IOS-10-12_CLOCK_RANDOM_UUID.md",
+          "source_sha256": "465a1ba772e4d3626de37f762857184256ad4f3d28bd45db239cdfec4c929d1f",
+          "source_heading": "Назначение",
+          "source_fragment": "Инъецировать controllable dependencies для воспроизводимых тестов.",
+          "meaning": "Инъецировать controllable dependencies для воспроизводимых тестов. Full common permission-bounded test signal/workflow gates.",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current doubles/determinism/flaky diagnostic controls cover topic; behavior/negative-path/diagnosable/maintainable signal clarified.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0127-U02",
+          "source_path": "canonical/10_TESTING/IOS-10-12_CLOCK_RANDOM_UUID.md",
+          "source_sha256": "465a1ba772e4d3626de37f762857184256ad4f3d28bd45db239cdfec4c929d1f",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0127-U03",
+          "source_path": "canonical/10_TESTING/IOS-10-12_CLOCK_RANDOM_UUID.md",
+          "source_sha256": "465a1ba772e4d3626de37f762857184256ad4f3d28bd45db239cdfec4c929d1f",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full exact common body and focus reviewed; no appended depth. No test-writing/run/framework-transition authority; linked OP independent."
     },
     {
       "source_id": "LIB-0128",
       "path": "10_TESTING/IOS-10-13_FLAKY_TESTS.md",
       "sha256": "14878d403cdf2ea934a9d656bba7c794da69d30dca1155df5f03332728a47a5f",
       "bytes": 5053,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0128-U01",
+          "source_path": "canonical/10_TESTING/IOS-10-13_FLAKY_TESTS.md",
+          "source_sha256": "14878d403cdf2ea934a9d656bba7c794da69d30dca1155df5f03332728a47a5f",
+          "source_heading": "Назначение",
+          "source_fragment": "Классифицировать race/time/network/shared-state/order issues, не лечить retries.",
+          "meaning": "Классифицировать race/time/network/shared-state/order issues, не лечить retries. Full common permission-bounded test signal/workflow gates.",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current doubles/determinism/flaky diagnostic controls cover topic; behavior/negative-path/diagnosable/maintainable signal clarified.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Flaky Tests; Debugging Workflow",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Flaky Tests",
+                "Debugging Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0128-U02",
+          "source_path": "canonical/10_TESTING/IOS-10-13_FLAKY_TESTS.md",
+          "source_sha256": "14878d403cdf2ea934a9d656bba7c794da69d30dca1155df5f03332728a47a5f",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0128-U03",
+          "source_path": "canonical/10_TESTING/IOS-10-13_FLAKY_TESTS.md",
+          "source_sha256": "14878d403cdf2ea934a9d656bba7c794da69d30dca1155df5f03332728a47a5f",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full exact common body and focus reviewed; no appended depth. No test-writing/run/framework-transition authority; linked OP independent."
     },
     {
       "source_id": "LIB-0129",
       "path": "10_TESTING/IOS-10-14_TEST_REVIEW.md",
       "sha256": "d2b4cd1b334a8078af8ddf12d5bf4517035c2e474f6d3bb7a5347d3315445919",
       "bytes": 5026,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0129-U01",
+          "source_path": "canonical/10_TESTING/IOS-10-14_TEST_REVIEW.md",
+          "source_sha256": "d2b4cd1b334a8078af8ddf12d5bf4517035c2e474f6d3bb7a5347d3315445919",
+          "source_heading": "Назначение",
+          "source_fragment": "Проверить signal, determinism, coverage of failure paths, readability и maintenance cost.",
+          "meaning": "Проверить signal, determinism, coverage of failure paths, readability и maintenance cost. Full common permission-bounded test signal/workflow gates.",
+          "type": "constraint",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": null,
+          "unique_delta": "Проверить signal, determinism, coverage of failure paths, readability и maintenance cost.",
+          "disposition": "MIGRATED",
+          "reason": "Current doubles/determinism/flaky diagnostic controls cover topic; behavior/negative-path/diagnosable/maintainable signal clarified.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Model; Test Portfolio; Evidence Completion",
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Portfolio",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Offline",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Pre-Production Exception"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary",
+                "Test Decision Matrix",
+                "Required Production Test Report"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Required Verification"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0129-U02",
+          "source_path": "canonical/10_TESTING/IOS-10-14_TEST_REVIEW.md",
+          "source_sha256": "d2b4cd1b334a8078af8ddf12d5bf4517035c2e474f6d3bb7a5347d3315445919",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed numeric quota; current material alternatives conditional.",
+          "type": "historical-routing",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0129-U03",
+          "source_path": "canonical/10_TESTING/IOS-10-14_TEST_REVIEW.md",
+          "source_sha256": "d2b4cd1b334a8078af8ddf12d5bf4517035c2e474f6d3bb7a5347d3315445919",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former execution modes/Library/templates/playbooks; no test/runtime permission or linked-body review.",
+          "type": "historical-routing",
+          "conditions": "Actual verification claim/target/toolchain and credible risk; test need, creation/modification and execution are separate permissions; no tests/runtime/agents created or run; excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired fixed quota or V2 delivery, no extra pass/current execution authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full scoped body and exact gate-aware template/focus/hash/fragment/headings, prior units and mirror parity.",
+          "evidence": "block-22-test-signal-permission-completion.md",
+          "affected_routes": [
+            "ios-testing-debugging"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full exact common body and focus reviewed; no appended depth. No test-writing/run/framework-transition authority; linked OP independent."
     },
     {
       "source_id": "LIB-0130",

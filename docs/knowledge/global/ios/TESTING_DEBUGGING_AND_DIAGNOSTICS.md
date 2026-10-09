@@ -4,7 +4,7 @@
 Use for verification design, Swift Testing/XCTest, UI automation, deterministic testing, flaky tests, crash diagnosis, LLDB, sanitizers, memory graph, result bundles, or test migration.
 
 ## Evidence Model
-Choose evidence from the claim and failure mode. Compilation proves type and availability compatibility for the built target. A unit test proves one modeled behavior under its fixtures. A Simulator run does not prove hardware, biometrics, locked-device, camera, microphone, thermal, or real-network behavior.
+Choose evidence from the claim and failure mode. Compilation proves type and availability compatibility for the built target. A passing unit test supports only the behavior actually asserted under its fixtures; it may pass for the wrong reason. A Simulator run does not prove hardware, biometrics, locked-device, camera, microphone, thermal, or real-network behavior.
 
 ## Test Portfolio
 - Unit: pure decisions, mapping, validation, reducers/state machines, algorithms.
@@ -15,6 +15,11 @@ Choose evidence from the claim and failure mode. Compilation proves type and ava
 - Property/fuzz: parsers, validators, codecs, state machines, and invariants over broad input.
 - Performance: measured budgets with representative data and controlled environment.
 - Manual/device: hardware, permissions, lifecycle, accessibility experience, release, and environmental behavior.
+
+Prefer changed-behavior and credible negative-path coverage over a raw percentage. Assertions must
+identify the violated behavior; merely repeating implementation logic is weak evidence. Include
+readability and maintenance cost when deciding which checks add useful signal. Semantic UI
+identifiers alone do not establish accessibility.
 
 ## Swift Testing And XCTest
 Use Swift Testing for suitable new unit/integration tests and parameterized behavior. Keep XCTest for UI tests, performance APIs or legacy areas that need it. Migrate incrementally; avoid duplicate tests that assert the same behavior indefinitely.
@@ -28,6 +33,11 @@ Use Swift Testing for suitable new unit/integration tests and parameterized beha
 Where supported by the actual project/toolchain, `@Test` declares cases; `#expect` records a failed
 expectation while a failing `#require` throws. Select assertion/early-stop behavior from the tested
 contract, rather than copying conventions without understanding their failure behavior.
+
+Changing framework/conventions needs separately approved scope and actual project/toolchain
+benefit. Preserve required CI reporting, traits/tags and unsupported framework-specific behavior.
+Verify the owning target, test plan, destination, configuration and affected consumers; a passing
+unit target does not prove app/extension build or resource loading.
 
 ## Determinism
 Inject clocks, dates, UUID/random sources, locale/calendar/time zone, file roots, network transport, and schedulers where their variability affects behavior. Use temporary directories inside the approved sandbox. Reset global/process state and avoid test ordering dependencies.
@@ -51,6 +61,9 @@ Prefer observable outputs and state over internal call counts. Contract tests sh
 ## Flaky Tests
 Quarantine only with owner, issue, reason, and expiry. Capture seed, environment, repetition count, timing, simulator/device, and result bundle. Diagnose shared state, time, async completion, animation, network, locale, resource pressure, and order dependence. Retrying CI may gather evidence; it must not redefine failure as success.
 
+Label a plausible flaky-test cause as a hypothesis until observed. Recommend bounded repeat runs
+or another discriminating check only when the evidence is worth its cost and execution is authorized.
+
 ## Debugging Workflow
 1. Preserve exact symptom, environment, build, input, and timeline.
 2. Reduce to the first incorrect state or earliest meaningful error.
@@ -73,6 +86,9 @@ Quarantine only with owner, issue, reason, and expiry. Capture seed, environment
 Symbolicate with matching binary and dSYM. Identify exception/signal, crashed thread or task, last app frame, lifecycle state, memory pressure, and preceding logs. For hangs, capture multiple samples to distinguish deadlock, actor/queue starvation, synchronous I/O, and expensive main-thread work.
 
 ## Evidence Completion
+- Record proposed, permitted, written, executed, failed and deferred checks separately. Denied,
+  unavailable or omitted evidence never becomes PASS; disclose quarantined cases and do not
+  create a hidden test substitute.
 - State what was and was not executed.
 - Record target, configuration, OS/runtime, device/simulator, locale, and data fixture where material.
 - Preserve failing evidence before modifying the system.
