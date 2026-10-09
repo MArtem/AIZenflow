@@ -42947,72 +42947,1038 @@
       "path": "20_MIGRATION_LEGACY/IOS-20-01_SWIFT6_MIGRATION.md",
       "sha256": "326abfe0c51319333607c3135df1fce21aa0b4c78bf053b82811fb76a43e6a80",
       "bytes": 5274,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0236-U01",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-01_SWIFT6_MIGRATION.md",
+          "source_sha256": "326abfe0c51319333607c3135df1fce21aa0b4c78bf053b82811fb76a43e6a80",
+          "source_heading": "Назначение",
+          "source_fragment": "По-модульно включать strict concurrency, классифицировать diagnostics и избегать unchecked escape hatches.",
+          "meaning": "По-модульно включать strict concurrency, классифицировать diagnostics и избегать unchecked escape hatches. Current benefit/parity/risk/evidence and permissions control; no literal tests-first or settings-change authority.",
+          "type": "constraint",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers focus/contract under current scope; no adoption or migration parity proof.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Swift 6.x Discipline; Testing And Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Swift 6.x Discipline",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Configuration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0236-U02",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-01_SWIFT6_MIGRATION.md",
+          "source_sha256": "326abfe0c51319333607c3135df1fce21aa0b4c78bf053b82811fb76a43e6a80",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0236-U03",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-01_SWIFT6_MIGRATION.md",
+          "source_sha256": "326abfe0c51319333607c3135df1fce21aa0b4c78bf053b82811fb76a43e6a80",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full migration/legacy common body/focus reviewed; current permission and user-impact/compatibility contracts control. No migration/settings/dependency/source/test/runtime action; linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0237",
       "path": "20_MIGRATION_LEGACY/IOS-20-02_SWIFTUI_MIGRATION.md",
       "sha256": "be74455417606dff77f767dabc4c170c19172b1bf3e102ee603d6b88eef21b75",
       "bytes": 5085,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0237-U01",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-02_SWIFTUI_MIGRATION.md",
+          "source_sha256": "be74455417606dff77f767dabc4c170c19172b1bf3e102ee603d6b88eef21b75",
+          "source_heading": "Назначение",
+          "source_fragment": "Выбирать feature seams, shared model boundaries, hosting, testing и rollback.",
+          "meaning": "Выбирать feature seams, shared model boundaries, hosting, testing и rollback. Current benefit/parity/risk/evidence and permissions control; no literal tests-first or settings-change authority.",
+          "type": "constraint",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers focus/contract under current scope; no adoption or migration parity proof.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Invalidation And Preview Evidence; UIKit Lifecycle And Reuse Review; Evidence Matrix",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Invalidation And Preview Evidence",
+                "UIKit Lifecycle And Reuse Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0237-U02",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-02_SWIFTUI_MIGRATION.md",
+          "source_sha256": "be74455417606dff77f767dabc4c170c19172b1bf3e102ee603d6b88eef21b75",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0237-U03",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-02_SWIFTUI_MIGRATION.md",
+          "source_sha256": "be74455417606dff77f767dabc4c170c19172b1bf3e102ee603d6b88eef21b75",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full migration/legacy common body/focus reviewed; current permission and user-impact/compatibility contracts control. No migration/settings/dependency/source/test/runtime action; linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0238",
       "path": "20_MIGRATION_LEGACY/IOS-20-03_OBSERVATION_MIGRATION.md",
       "sha256": "89c464c51be63d8fe97427c8a63173bba7a51751d21389c8d413a3b502e604b7",
       "bytes": 5115,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0238-U01",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-03_OBSERVATION_MIGRATION.md",
+          "source_sha256": "89c464c51be63d8fe97427c8a63173bba7a51751d21389c8d413a3b502e604b7",
+          "source_heading": "Назначение",
+          "source_fragment": "Сохранить ownership/update semantics и измерить invalidation/performance.",
+          "meaning": "Сохранить ownership/update semantics и измерить invalidation/performance. Current benefit/parity/risk/evidence and permissions control; no literal tests-first or settings-change authority.",
+          "type": "constraint",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers focus/contract under current scope; no adoption or migration parity proof.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Invalidation And Preview Evidence; State Placement; Ownership And Identity Review",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Invalidation And Preview Evidence",
+                "State Placement",
+                "Ownership And Identity Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0238-U02",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-03_OBSERVATION_MIGRATION.md",
+          "source_sha256": "89c464c51be63d8fe97427c8a63173bba7a51751d21389c8d413a3b502e604b7",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0238-U03",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-03_OBSERVATION_MIGRATION.md",
+          "source_sha256": "89c464c51be63d8fe97427c8a63173bba7a51751d21389c8d413a3b502e604b7",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full migration/legacy common body/focus reviewed; current permission and user-impact/compatibility contracts control. No migration/settings/dependency/source/test/runtime action; linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0239",
       "path": "20_MIGRATION_LEGACY/IOS-20-04_SWIFTDATA_MIGRATION.md",
       "sha256": "bc63648509e180ce4786f4c28faf7ef4e3df037c8d113e512201edb786649ed6",
       "bytes": 5220,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0239-U01",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-04_SWIFTDATA_MIGRATION.md",
+          "source_sha256": "bc63648509e180ce4786f4c28faf7ef4e3df037c8d113e512201edb786649ed6",
+          "source_heading": "Назначение",
+          "source_fragment": "Сначала доказать бизнес-ценность, migration feasibility, store compatibility и feature parity.",
+          "meaning": "Сначала доказать бизнес-ценность, migration feasibility, store compatibility и feature parity. Current benefit/parity/risk/evidence and permissions control; no literal tests-first or settings-change authority.",
+          "type": "constraint",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers focus/contract under current scope; no adoption or migration parity proof.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Choose By Contract; Migration; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Choose By Contract",
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0239-U02",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-04_SWIFTDATA_MIGRATION.md",
+          "source_sha256": "bc63648509e180ce4786f4c28faf7ef4e3df037c8d113e512201edb786649ed6",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0239-U03",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-04_SWIFTDATA_MIGRATION.md",
+          "source_sha256": "bc63648509e180ce4786f4c28faf7ef4e3df037c8d113e512201edb786649ed6",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full migration/legacy common body/focus reviewed; current permission and user-impact/compatibility contracts control. No migration/settings/dependency/source/test/runtime action; linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0240",
       "path": "20_MIGRATION_LEGACY/IOS-20-05_NETWORK_MIGRATION.md",
       "sha256": "bc2d7b04ca05bec335a9c041f418c0c3a226280aebf624aeaba4502f3003181c",
       "bytes": 5097,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0240-U01",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-05_NETWORK_MIGRATION.md",
+          "source_sha256": "bc2d7b04ca05bec335a9c041f418c0c3a226280aebf624aeaba4502f3003181c",
+          "source_heading": "Назначение",
+          "source_fragment": "Сохранить cancellation/retry/auth semantics и migrate layer by layer.",
+          "meaning": "Сохранить cancellation/retry/auth semantics и migrate layer by layer. Current benefit/parity/risk/evidence and permissions control; no literal tests-first or settings-change authority.",
+          "type": "constraint",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers focus/contract under current scope; no adoption or migration parity proof.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Request Contract; Reliability; Caching",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Request Contract",
+                "Reliability",
+                "Caching"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0240-U02",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-05_NETWORK_MIGRATION.md",
+          "source_sha256": "bc2d7b04ca05bec335a9c041f418c0c3a226280aebf624aeaba4502f3003181c",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0240-U03",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-05_NETWORK_MIGRATION.md",
+          "source_sha256": "bc2d7b04ca05bec335a9c041f418c0c3a226280aebf624aeaba4502f3003181c",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full migration/legacy common body/focus reviewed; current permission and user-impact/compatibility contracts control. No migration/settings/dependency/source/test/runtime action; linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0241",
       "path": "20_MIGRATION_LEGACY/IOS-20-06_DEPENDENCY_REMOVAL.md",
       "sha256": "cd835c6578f3dff50e57b19b3dcc89096721036081064efd5e13e541279f138b",
       "bytes": 5127,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0241-U01",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-06_DEPENDENCY_REMOVAL.md",
+          "source_sha256": "cd835c6578f3dff50e57b19b3dcc89096721036081064efd5e13e541279f138b",
+          "source_heading": "Назначение",
+          "source_fragment": "Найти API surface, replace incrementally, compare behavior/performance и clean transitive deps.",
+          "meaning": "Найти API surface, replace incrementally, compare behavior/performance и clean transitive deps. Current benefit/parity/risk/evidence and permissions control; no literal tests-first or settings-change authority.",
+          "type": "constraint",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers focus/contract under current scope; no adoption or migration parity proof.",
+          "destination_path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+          "destination_heading": "Removal Policy; Approval Criteria",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+              "headings": [
+                "Removal Policy",
+                "Approval Criteria"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SDK Consumer Boundary",
+                "SwiftPM And Dependencies"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Public API Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0241-U02",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-06_DEPENDENCY_REMOVAL.md",
+          "source_sha256": "cd835c6578f3dff50e57b19b3dcc89096721036081064efd5e13e541279f138b",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0241-U03",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-06_DEPENDENCY_REMOVAL.md",
+          "source_sha256": "cd835c6578f3dff50e57b19b3dcc89096721036081064efd5e13e541279f138b",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full migration/legacy common body/focus reviewed; current permission and user-impact/compatibility contracts control. No migration/settings/dependency/source/test/runtime action; linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0242",
       "path": "20_MIGRATION_LEGACY/IOS-20-07_MIN_IOS_BUMP.md",
       "sha256": "674f0f714017b65d8e0a5181d0df22fc066cb0a983b09ff508fd69d09d0ed735",
       "bytes": 5112,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0242-U01",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-07_MIN_IOS_BUMP.md",
+          "source_sha256": "674f0f714017b65d8e0a5181d0df22fc066cb0a983b09ff508fd69d09d0ed735",
+          "source_heading": "Назначение",
+          "source_fragment": "Inventory availability shims, usage analytics, CI/device matrix, code deletion и release communication.",
+          "meaning": "Inventory availability shims, usage analytics, CI/device matrix, code deletion и release communication. Current benefit/parity/risk/evidence and permissions control; no literal tests-first or settings-change authority.",
+          "type": "constraint",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "Approved minimum-platform increase requires availability-shim/consumer/profile inventory, actual permitted usage evidence, user-impact decision, scoped removal/communication/recovery and deployment/upload-floor distinction.",
+          "disposition": "MIGRATED",
+          "reason": "Approved minimum-platform increase requires availability-shim/consumer/profile inventory, actual permitted usage evidence, user-impact decision, scoped removal/communication/recovery and deployment/upload-floor distinction.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Configuration",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Configuration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPATIBILITY_MATRIX.md",
+              "headings": [
+                "Matrix Dimensions",
+                "Entry Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0242-U02",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-07_MIN_IOS_BUMP.md",
+          "source_sha256": "674f0f714017b65d8e0a5181d0df22fc066cb0a983b09ff508fd69d09d0ed735",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0242-U03",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-07_MIN_IOS_BUMP.md",
+          "source_sha256": "674f0f714017b65d8e0a5181d0df22fc066cb0a983b09ff508fd69d09d0ed735",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full migration/legacy common body/focus reviewed; current permission and user-impact/compatibility contracts control. No migration/settings/dependency/source/test/runtime action; linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0243",
       "path": "20_MIGRATION_LEGACY/IOS-20-08_LEGACY_MODULE_RESCUE.md",
       "sha256": "483abd2b50e5600b59a40045d28630a0b5e88563d06769ae2cbae5a7ecfa8bd3",
       "bytes": 5094,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0243-U01",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-08_LEGACY_MODULE_RESCUE.md",
+          "source_sha256": "483abd2b50e5600b59a40045d28630a0b5e88563d06769ae2cbae5a7ecfa8bd3",
+          "source_heading": "Назначение",
+          "source_fragment": "Tests/observability first, isolate side effects, reduce crash/race risk, then refactor.",
+          "meaning": "Tests/observability first, isolate side effects, reduce crash/race risk, then refactor. Current benefit/parity/risk/evidence and permissions control; no literal tests-first or settings-change authority.",
+          "type": "constraint",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current addressed owner covers focus/contract under current scope; no adoption or migration parity proof.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+              "headings": [
+                "Permission Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+              "headings": [
+                "Verification And Quality"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0243-U02",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-08_LEGACY_MODULE_RESCUE.md",
+          "source_sha256": "483abd2b50e5600b59a40045d28630a0b5e88563d06769ae2cbae5a7ecfa8bd3",
+          "source_heading": "Алгоритм skill",
+          "source_fragment": "Сравни минимально два варианта",
+          "meaning": "Fixed minimum-two alternative quota archived; current material alternatives depend on actual contract/risk.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "No additional useful rule beyond conditional current comparison; no fixed quota adopted.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        },
+        {
+          "unit_id": "LIB-0243-U03",
+          "source_path": "canonical/20_MIGRATION_LEGACY/IOS-20-08_LEGACY_MODULE_RESCUE.md",
+          "source_sha256": "483abd2b50e5600b59a40045d28630a0b5e88563d06769ae2cbae5a7ecfa8bd3",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Former V2 modes/template/Library/deep-playbook binding archived; linked OP body remains independent and unreviewed.",
+          "type": "historical-routing",
+          "conditions": "Only a currently approved actual migration and defined consumer/product/compatibility contract. Docs only; no app source/settings/dependency/minimumOS/tests/runtime/modernization/transitions. Excluded checks never PASS.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical delivery infrastructure preserved in archive, no second mandatory pass or profiling/test/runtime grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-45-legacy-migration-contracts.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "ios-data-migration",
+            "ios-build-system"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Full migration/legacy common body/focus reviewed; current permission and user-impact/compatibility contracts control. No migration/settings/dependency/source/test/runtime action; linked OP independent/unreviewed."
     },
     {
       "source_id": "LIB-0244",

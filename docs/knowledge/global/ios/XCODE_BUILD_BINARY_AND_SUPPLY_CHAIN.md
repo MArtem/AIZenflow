@@ -16,6 +16,12 @@ An Xcode build is a dependency graph of targets, phases, scripts, generated file
 Review effective compiler flags, warning policy and Swift/concurrency mode per affected
 configuration; target UI defaults or a suppressed diagnostic do not establish the intended contract.
 
+Before an approved minimum-platform increase, inventory availability shims, affected app/extension/
+package consumers and compatibility profiles. Use only supplied or permitted usage evidence;
+record the user-impact decision, scoped shim/dependency removal, release communication and recovery
+limits. Keep deployment-target and upload-toolchain floors distinct. An unavailable diagnostic
+or newer API alone does not justify raising the supported minimum.
+
 ## Targets And Build Phases
 - Every source/resource has intentional target membership.
 - Script phases declare inputs/outputs or explain why they must always run.
