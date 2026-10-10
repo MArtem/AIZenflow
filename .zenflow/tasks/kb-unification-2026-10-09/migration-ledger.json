@@ -171474,135 +171474,1154 @@
       "path": "legacy-source/45_V5_AGENT_ROLES/V5_ROLE_01_ORCHESTRATOR.md",
       "sha256": "d71032fc0b0484a434ddf63c33da2cc4576783fdae38af9d41f107b9c532e205",
       "bytes": 320,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1003-U01",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_01_ORCHESTRATOR.md",
+          "source_sha256": "d71032fc0b0484a434ddf63c33da2cc4576783fdae38af9d41f107b9c532e205",
+          "source_heading": "Role — Orchestrator",
+          "source_fragment": "# Role — Orchestrator",
+          "meaning": "Conditional justified minimal dependency graph and disjoint ownership, evidence/conflict provenance and accountable final integration; stop low-value fanout rather than duplicate coordinator work.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Conditional justified minimal dependency graph and disjoint ownership, evidence/conflict provenance and accountable final integration; stop low-value fanout rather than duplicate coordinator work.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Role — Orchestrator\n\nOwn the problem, not every subtask. Decide whether delegation is justified; construct the minimal DAG; assign disjoint scopes; maintain evidence/conflict ledgers; integrate results; stop fan-out when marginal value disappears. Never redo delegated work. Final answer remains your responsibility."
+          ]
+        },
+        {
+          "unit_id": "LIB-1003-U02",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_01_ORCHESTRATOR.md",
+          "source_sha256": "d71032fc0b0484a434ddf63c33da2cc4576783fdae38af9d41f107b9c532e205",
+          "source_heading": "Role — Orchestrator",
+          "source_fragment": "# Role — Orchestrator",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Role — Orchestrator\n\nOwn the problem, not every subtask. Decide whether delegation is justified; construct the minimal DAG; assign disjoint scopes; maintain evidence/conflict ledgers; integrate results; stop fan-out when marginal value disappears. Never redo delegated work. Final answer remains your responsibility."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1004",
       "path": "legacy-source/45_V5_AGENT_ROLES/V5_ROLE_02_REPOSITORY_SCOUT.md",
       "sha256": "9ca1613b36ba0209aabc15b8974027a4572a1568e853c4114961e2352113fecb",
       "bytes": 257,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1004-U01",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_02_REPOSITORY_SCOUT.md",
+          "source_sha256": "9ca1613b36ba0209aabc15b8974027a4572a1568e853c4114961e2352113fecb",
+          "source_heading": "Role — Repository Scout",
+          "source_fragment": "# Role — Repository Scout",
+          "meaning": "Scoped read-only owner/call-site/target/config/test/analogous-command facts with exact evidence; discovery not permission for implementation or unsolicited architecture.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Scoped read-only owner/call-site/target/config/test/analogous-command facts with exact evidence; discovery not permission for implementation or unsolicited architecture.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Role — Repository Scout\n\nRead-only. Locate owners, call sites, target membership, configuration, tests, analogous implementations and exact commands. Return facts with file/line or command provenance. Do not propose architecture unless explicitly asked."
+          ]
+        },
+        {
+          "unit_id": "LIB-1004-U02",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_02_REPOSITORY_SCOUT.md",
+          "source_sha256": "9ca1613b36ba0209aabc15b8974027a4572a1568e853c4114961e2352113fecb",
+          "source_heading": "Role — Repository Scout",
+          "source_fragment": "# Role — Repository Scout",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Role — Repository Scout\n\nRead-only. Locate owners, call sites, target membership, configuration, tests, analogous implementations and exact commands. Return facts with file/line or command provenance. Do not propose architecture unless explicitly asked."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1005",
       "path": "legacy-source/45_V5_AGENT_ROLES/V5_ROLE_03_DOMAIN_SPECIALIST.md",
       "sha256": "7da73c06038b30c8421d3fdbcdf6962b274504a33d6c44e730a441f7e546c406",
       "bytes": 235,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1005-U01",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_03_DOMAIN_SPECIALIST.md",
+          "source_sha256": "7da73c06038b30c8421d3fdbcdf6962b274504a33d6c44e730a441f7e546c406",
+          "source_heading": "Role — Domain Specialist",
+          "source_fragment": "# Role — Domain Specialist",
+          "meaning": "Narrow relevant domain invariants/failures/availability with severity/evidence/applicability instead of generic style commentary, current scope controls all probes.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Narrow relevant domain invariants/failures/availability with severity/evidence/applicability instead of generic style commentary, current scope controls all probes.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Role — Domain Specialist\n\nUse the narrowest relevant iOS skill. Test the task against domain invariants, failure modes and availability constraints. Return severity-ranked claims with evidence, not generic best-practice commentary."
+          ]
+        },
+        {
+          "unit_id": "LIB-1005-U02",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_03_DOMAIN_SPECIALIST.md",
+          "source_sha256": "7da73c06038b30c8421d3fdbcdf6962b274504a33d6c44e730a441f7e546c406",
+          "source_heading": "Role — Domain Specialist",
+          "source_fragment": "# Role — Domain Specialist",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Role — Domain Specialist\n\nUse the narrowest relevant iOS skill. Test the task against domain invariants, failure modes and availability constraints. Return severity-ranked claims with evidence, not generic best-practice commentary."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1006",
       "path": "legacy-source/45_V5_AGENT_ROLES/V5_ROLE_04_SCOPED_IMPLEMENTER.md",
       "sha256": "e9bde142952d6c27447b1dc148d6ce11974a35908e624eaeeea225519a3c66bd",
       "bytes": 275,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1006-U01",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_04_SCOPED_IMPLEMENTER.md",
+          "source_sha256": "e9bde142952d6c27447b1dc148d6ce11974a35908e624eaeeea225519a3c66bd",
+          "source_heading": "Role — Scoped Implementer",
+          "source_fragment": "# Role — Scoped Implementer",
+          "meaning": "Only exact authorized write scope/current conventions/foreign edits preserved; out-of-scope dependency stops affected write. Source unconditional contract test updates superseded by current explicit test-writing phase.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Only exact authorized write scope/current conventions/foreign edits preserved; out-of-scope dependency stops affected write. Source unconditional contract test updates superseded by current explicit test-writing phase.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Role — Scoped Implementer\n\nModify only assigned write scope. Preserve existing repository conventions and user changes. Add/update contract tests for changed behavior. Stop if correctness requires out-of-scope edits; request scope expansion instead of crossing ownership."
+          ]
+        },
+        {
+          "unit_id": "LIB-1006-U02",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_04_SCOPED_IMPLEMENTER.md",
+          "source_sha256": "e9bde142952d6c27447b1dc148d6ce11974a35908e624eaeeea225519a3c66bd",
+          "source_heading": "Role — Scoped Implementer",
+          "source_fragment": "# Role — Scoped Implementer",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Role — Scoped Implementer\n\nModify only assigned write scope. Preserve existing repository conventions and user changes. Add/update contract tests for changed behavior. Stop if correctness requires out-of-scope edits; request scope expansion instead of crossing ownership."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1007",
       "path": "legacy-source/45_V5_AGENT_ROLES/V5_ROLE_05_INDEPENDENT_REVIEWER.md",
       "sha256": "14521defd5b9a5fc2b8b4f9ae8aa336e7d59e5507f234b16f50f3cd086ffa9f0",
       "bytes": 273,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1007-U01",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_05_INDEPENDENT_REVIEWER.md",
+          "source_sha256": "14521defd5b9a5fc2b8b4f9ae8aa336e7d59e5507f234b16f50f3cd086ffa9f0",
+          "source_heading": "Role — Independent Reviewer",
+          "source_fragment": "# Role — Independent Reviewer",
+          "meaning": "Complete resulting diff and surrounding contracts independently adjudicated against evidence not implementer rationale, regressions/negative paths/boundaries/complexity; source role name not actual independence or write grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete resulting diff and surrounding contracts independently adjudicated against evidence not implementer rationale, regressions/negative paths/boundaries/complexity; source role name not actual independence or write grant.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Role — Independent Reviewer\n\nReview the resulting diff and surrounding contracts without treating the implementer's rationale as proof. Search for regressions, boundary violations, missing negative paths and accidental complexity. Read-only unless explicitly re-scoped."
+          ]
+        },
+        {
+          "unit_id": "LIB-1007-U02",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_05_INDEPENDENT_REVIEWER.md",
+          "source_sha256": "14521defd5b9a5fc2b8b4f9ae8aa336e7d59e5507f234b16f50f3cd086ffa9f0",
+          "source_heading": "Role — Independent Reviewer",
+          "source_fragment": "# Role — Independent Reviewer",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Role — Independent Reviewer\n\nReview the resulting diff and surrounding contracts without treating the implementer's rationale as proof. Search for regressions, boundary violations, missing negative paths and accidental complexity. Read-only unless explicitly re-scoped."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1008",
       "path": "legacy-source/45_V5_AGENT_ROLES/V5_ROLE_06_VERIFICATION_LEAD.md",
       "sha256": "5a406605adaf6d62b337e0d881eae9efd6649837f51983e0183156734072bbea",
       "bytes": 253,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1008-U01",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_06_VERIFICATION_LEAD.md",
+          "source_sha256": "5a406605adaf6d62b337e0d881eae9efd6649837f51983e0183156734072bbea",
+          "source_heading": "Role — Verification Lead",
+          "source_fragment": "# Role — Verification Lead",
+          "meaning": "Falsifiable risk-relevant claims to actual authoritative commands/observed scope and result, no product diagnostic mutation or runtime actions without current permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Falsifiable risk-relevant claims to actual authoritative commands/observed scope and result, no product diagnostic mutation or runtime actions without current permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Role — Verification Lead\n\nMap claims to falsifiable checks. Use repository-observed commands. Prioritize highest-risk negative paths. Record exact commands/results and evidence level. Do not edit product code during verification unless reauthorized."
+          ]
+        },
+        {
+          "unit_id": "LIB-1008-U02",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_06_VERIFICATION_LEAD.md",
+          "source_sha256": "5a406605adaf6d62b337e0d881eae9efd6649837f51983e0183156734072bbea",
+          "source_heading": "Role — Verification Lead",
+          "source_fragment": "# Role — Verification Lead",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Role — Verification Lead\n\nMap claims to falsifiable checks. Use repository-observed commands. Prioritize highest-risk negative paths. Record exact commands/results and evidence level. Do not edit product code during verification unless reauthorized."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1009",
       "path": "legacy-source/45_V5_AGENT_ROLES/V5_ROLE_07_INTEGRATION_ENGINEER.md",
       "sha256": "a266299fd9f7da3bf846c881059c4141ae7cfa07181e05705bbb78c64e003943",
       "bytes": 265,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1009-U01",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_07_INTEGRATION_ENGINEER.md",
+          "source_sha256": "a266299fd9f7da3bf846c881059c4141ae7cfa07181e05705bbb78c64e003943",
+          "source_heading": "Role — Integration Engineer",
+          "source_fragment": "# Role — Integration Engineer",
+          "meaning": "Accountable shared-file/combined consumer API/state/target integration and duplicated abstraction reconciliation; single-slice results not combined success. Source automatic re-run verification superseded by current permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Accountable shared-file/combined consumer API/state/target integration and duplicated abstraction reconciliation; single-slice results not combined success. Source automatic re-run verification superseded by current permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Role — Integration Engineer\n\nOwn shared/collision-prone files and combine disjoint patches into one coherent repository-native change. Resolve API mismatches, duplicated abstractions and test/build integration. Re-run cross-slice verification after integration."
+          ]
+        },
+        {
+          "unit_id": "LIB-1009-U02",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_07_INTEGRATION_ENGINEER.md",
+          "source_sha256": "a266299fd9f7da3bf846c881059c4141ae7cfa07181e05705bbb78c64e003943",
+          "source_heading": "Role — Integration Engineer",
+          "source_fragment": "# Role — Integration Engineer",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Role — Integration Engineer\n\nOwn shared/collision-prone files and combine disjoint patches into one coherent repository-native change. Resolve API mismatches, duplicated abstractions and test/build integration. Re-run cross-slice verification after integration."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1010",
       "path": "legacy-source/45_V5_AGENT_ROLES/V5_ROLE_08_SKEPTIC.md",
       "sha256": "ea34321a9366424431f598df456d9573271d9056279424bc0d3e19e20b416aeb",
       "bytes": 276,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1010-U01",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_08_SKEPTIC.md",
+          "source_sha256": "ea34321a9366424431f598df456d9573271d9056279424bc0d3e19e20b416aeb",
+          "source_heading": "Role — Skeptic / Negative-Path Auditor",
+          "source_fragment": "# Role — Skeptic / Negative-Path Auditor",
+          "meaning": "Concrete credible falsification of design against cancellation/race/retry/stale state/schema/recovery/malformed/OS/security/a11y, not speculative unrelated cases or automatic tests.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Concrete credible falsification of design against cancellation/race/retry/stale state/schema/recovery/malformed/OS/security/a11y, not speculative unrelated cases or automatic tests.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Role — Skeptic / Negative-Path Auditor\n\nAttempt to falsify the selected design: cancellation, races, retries, stale state, migration rollback, unavailable OS versions, malformed inputs, security boundaries, accessibility and recovery. Report concrete counterexamples only."
+          ]
+        },
+        {
+          "unit_id": "LIB-1010-U02",
+          "source_path": "canonical/legacy-source/45_V5_AGENT_ROLES/V5_ROLE_08_SKEPTIC.md",
+          "source_sha256": "ea34321a9366424431f598df456d9573271d9056279424bc0d3e19e20b416aeb",
+          "source_heading": "Role — Skeptic / Negative-Path Auditor",
+          "source_fragment": "# Role — Skeptic / Negative-Path Auditor",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Role — Skeptic / Negative-Path Auditor\n\nAttempt to falsify the selected design: cancellation, races, retries, stale state, migration rollback, unavailable OS versions, malformed inputs, security boundaries, accessibility and recovery. Report concrete counterexamples only."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1011",
       "path": "legacy-source/46_V5_WORKFLOWS/V5-WF-01.md",
       "sha256": "1f07aafba2d1b61e087f6e3e5bf3446612325e86d1c3e09b3581ee18e69a54b4",
       "bytes": 1061,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1011-U01",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-01.md",
+          "source_sha256": "1f07aafba2d1b61e087f6e3e5bf3446612325e86d1c3e09b3581ee18e69a54b4",
+          "source_heading": "Multi-Agent Feature Delivery",
+          "source_fragment": "# Multi-Agent Feature Delivery",
+          "meaning": "Accepted feature outcome/invariants/current consumer facts, bounded independent scope only if currently authorized, evidence before ownership integration and observed negative-path claims.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Accepted feature outcome/invariants/current consumer facts, bounded independent scope only if currently authorized, evidence before ownership integration and observed negative-path claims.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Multi-Agent Feature Delivery\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\nfeature discovery → domain audits → disjoint implementation → independent review → verification.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        },
+        {
+          "unit_id": "LIB-1011-U02",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-01.md",
+          "source_sha256": "1f07aafba2d1b61e087f6e3e5bf3446612325e86d1c3e09b3581ee18e69a54b4",
+          "source_heading": "Multi-Agent Feature Delivery",
+          "source_fragment": "# Multi-Agent Feature Delivery",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Multi-Agent Feature Delivery\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\nfeature discovery → domain audits → disjoint implementation → independent review → verification.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1012",
       "path": "legacy-source/46_V5_WORKFLOWS/V5-WF-02.md",
       "sha256": "f42a9afe0e2b1d6d48946e8ae67ab67caf2e3162741ea207862990cab49db283",
       "bytes": 1062,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1012-U01",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-02.md",
+          "source_sha256": "f42a9afe0e2b1d6d48946e8ae67ab67caf2e3162741ea207862990cab49db283",
+          "source_heading": "Risky Bug Investigation",
+          "source_fragment": "# Risky Bug Investigation",
+          "meaning": "Falsifiable independent evidence hypotheses, current root-cause arbitration and smallest justified correction, not automatic reproduction/agent/instrument/test execution.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Falsifiable independent evidence hypotheses, current root-cause arbitration and smallest justified correction, not automatic reproduction/agent/instrument/test execution.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Risky Bug Investigation\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\nparallel hypotheses/evidence gathering → root-cause arbitration → minimal fix → regression verification.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        },
+        {
+          "unit_id": "LIB-1012-U02",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-02.md",
+          "source_sha256": "f42a9afe0e2b1d6d48946e8ae67ab67caf2e3162741ea207862990cab49db283",
+          "source_heading": "Risky Bug Investigation",
+          "source_fragment": "# Risky Bug Investigation",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Risky Bug Investigation\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\nparallel hypotheses/evidence gathering → root-cause arbitration → minimal fix → regression verification.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1013",
       "path": "legacy-source/46_V5_WORKFLOWS/V5-WF-03.md",
       "sha256": "456c7aea2bb718e3613754facb30dd2be840e3976bb5b3a5e0c52ab27110bb59",
       "bytes": 1032,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1013-U01",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-03.md",
+          "source_sha256": "456c7aea2bb718e3613754facb30dd2be840e3976bb5b3a5e0c52ab27110bb59",
+          "source_heading": "PR Independent Audit",
+          "source_fragment": "# PR Independent Audit",
+          "meaning": "Evidence-backed severity/applicability with semantic deduplication and unresolved conflicts preserved, complete integrated diff not worker prose or model-vote independent PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Evidence-backed severity/applicability with semantic deduplication and unresolved conflicts preserved, complete integrated diff not worker prose or model-vote independent PASS.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# PR Independent Audit\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\ndomain-parallel read-only review → dedupe/conflict matrix → severity synthesis.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        },
+        {
+          "unit_id": "LIB-1013-U02",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-03.md",
+          "source_sha256": "456c7aea2bb718e3613754facb30dd2be840e3976bb5b3a5e0c52ab27110bb59",
+          "source_heading": "PR Independent Audit",
+          "source_fragment": "# PR Independent Audit",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# PR Independent Audit\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\ndomain-parallel read-only review → dedupe/conflict matrix → severity synthesis.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1014",
       "path": "legacy-source/46_V5_WORKFLOWS/V5-WF-04.md",
       "sha256": "b7f284528b25d4dd4e65bdf762daebd3099b8f4709ed2a6ac50888266b34c927",
       "bytes": 1070,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1014-U01",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-04.md",
+          "source_sha256": "b7f284528b25d4dd4e65bdf762daebd3099b8f4709ed2a6ac50888266b34c927",
+          "source_heading": "Swift Concurrency Remediation",
+          "source_fragment": "# Swift Concurrency Remediation",
+          "meaning": "Actual owner/isolation/valid transfer/owned cancellation before any authorized smallest semantic correction, strict Swift no escape; stress/compile objective not permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual owner/isolation/valid transfer/owned cancellation before any authorized smallest semantic correction, strict Swift no escape; stress/compile objective not permission.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Isolation Design; Task Ownership; Swift 6.x Discipline",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership",
+                "Swift 6.x Discipline"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Swift Concurrency Remediation\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\nownership/isolation mapping → independent concurrency review → scoped fixes → stress/compile verification.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        },
+        {
+          "unit_id": "LIB-1014-U02",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-04.md",
+          "source_sha256": "b7f284528b25d4dd4e65bdf762daebd3099b8f4709ed2a6ac50888266b34c927",
+          "source_heading": "Swift Concurrency Remediation",
+          "source_fragment": "# Swift Concurrency Remediation",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Swift Concurrency Remediation\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\nownership/isolation mapping → independent concurrency review → scoped fixes → stress/compile verification.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1015",
       "path": "legacy-source/46_V5_WORKFLOWS/V5-WF-05.md",
       "sha256": "d9d3a2f774a6678fc5686b61ae1d2b8dc9e90c1db9ee12cebc672515090b2eae",
       "bytes": 1050,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1015-U01",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-05.md",
+          "source_sha256": "d9d3a2f774a6678fc5686b61ae1d2b8dc9e90c1db9ee12cebc672515090b2eae",
+          "source_heading": "Authentication & Security Change",
+          "source_fragment": "# Authentication & Security Change",
+          "meaning": "Actual session/auth/transport/privacy boundary and current consumer owner/negative evidence, no agent or security runtime/secret flow initialized.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual session/auth/transport/privacy boundary and current consumer owner/negative evidence, no agent or security runtime/secret flow initialized.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle; Authorization Rules",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Authorization Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Authentication & Security Change\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\nnetwork/auth/security/privacy lenses → implementation owner → negative-path verifier.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        },
+        {
+          "unit_id": "LIB-1015-U02",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-05.md",
+          "source_sha256": "d9d3a2f774a6678fc5686b61ae1d2b8dc9e90c1db9ee12cebc672515090b2eae",
+          "source_heading": "Authentication & Security Change",
+          "source_fragment": "# Authentication & Security Change",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Authentication & Security Change\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\nnetwork/auth/security/privacy lenses → implementation owner → negative-path verifier.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1016",
       "path": "legacy-source/46_V5_WORKFLOWS/V5-WF-06.md",
       "sha256": "9138ba4df4e89c2a788142ff8aff86cdadb19c984f86e928132b98e05a88db5f",
       "bytes": 1030,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1016-U01",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-06.md",
+          "source_sha256": "9138ba4df4e89c2a788142ff8aff86cdadb19c984f86e928132b98e05a88db5f",
+          "source_heading": "Persistence Migration",
+          "source_fragment": "# Persistence Migration",
+          "meaning": "Old/new schema/identity/consumer compatibility and data-integrity/recovery contract before scoped approved migration, rollback/test prescription not execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Old/new schema/identity/consumer compatibility and data-integrity/recovery contract before scoped approved migration, rollback/test prescription not execution authority.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration; Evidence",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Persistence Migration\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\nschema/compatibility/rollback analysis → migrator → data-integrity verifier.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        },
+        {
+          "unit_id": "LIB-1016-U02",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-06.md",
+          "source_sha256": "9138ba4df4e89c2a788142ff8aff86cdadb19c984f86e928132b98e05a88db5f",
+          "source_heading": "Persistence Migration",
+          "source_fragment": "# Persistence Migration",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Persistence Migration\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\nschema/compatibility/rollback analysis → migrator → data-integrity verifier.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1017",
       "path": "legacy-source/46_V5_WORKFLOWS/V5-WF-07.md",
       "sha256": "380b4ad65fe3ea8336192a2ff45acc0f816ec8fe50ce0083b3db1ec707afd55e",
       "bytes": 1043,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1017-U01",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-07.md",
+          "source_sha256": "380b4ad65fe3ea8336192a2ff45acc0f816ec8fe50ce0083b3db1ec707afd55e",
+          "source_heading": "Architecture Refactor",
+          "source_fragment": "# Architecture Refactor",
+          "meaning": "Actual justified ownership/dependency seam/options/decision/parity/coexistence/removal before currently authorized bounded refactor, no speculative architecture rewrite.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual justified ownership/dependency seam/options/decision/parity/coexistence/removal before currently authorized bounded refactor, no speculative architecture rewrite.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "Bounded Investigation And Migration; Stop Rule",
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Architecture Refactor\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\nboundary scout → competing designs → decision record → slice migration → integration.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        },
+        {
+          "unit_id": "LIB-1017-U02",
+          "source_path": "canonical/legacy-source/46_V5_WORKFLOWS/V5-WF-07.md",
+          "source_sha256": "380b4ad65fe3ea8336192a2ff45acc0f816ec8fe50ce0083b3db1ec707afd55e",
+          "source_heading": "Architecture Refactor",
+          "source_fragment": "# Architecture Refactor",
+          "meaning": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 named roles/DO-02 admission pointer/eight-stage specialist/scout/writer/reviewer/verification workflow packaging archived. Useful conditional current evidence/scope/ownership constraints covered separately; source unconditional test updates, re-run/stress/compile/agent instructions grant no execution or delegation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen full V5 role/workflow bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All instructions read as archive data, automatic tests/agents/re-runs scoped by current authority.",
+          "evidence": "block-200-legacy-coordination-roles-workflows.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Architecture Refactor\n\n## Admission\nUse multi-agent execution only if delegation passes `V5-DO-02`. Otherwise run the same workflow as one agent.\n\n## Graph\n1. Orchestrator frames outcome, risk and invariants.\n2. Repository Scout builds a fact packet.\n3. Spawn only the domain specialists materially relevant to this workflow; keep them read-only unless a disjoint implementation slice exists.\n4. Synthesize evidence and resolve conflicts before code ownership is partitioned.\n5. Scoped Implementer(s) change disjoint slices; Integration Engineer owns shared files.\n6. Independent Reviewer/Skeptic inspect the integrated diff.\n7. Verification Lead maps material claims to observed checks.\n8. Orchestrator closes with residual risk and rollback/containment.\n\n## Focus\nboundary scout → competing designs → decision record → slice migration → integration.\n\n## Stop conditions\nDo not add agents after evidence converges or integration is the critical path. Do not let reviewers mutate product code unless the graph is explicitly revised."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1018",
