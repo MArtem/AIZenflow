@@ -162482,9 +162482,39 @@
       "path": "source-catalog.csv",
       "sha256": "12247c5445f40bdc6bf1295cd62483996f55a52790406c76d3676c3dc5a4d3ad",
       "bytes": 105905,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1060-U01",
+          "source_path": "canonical/source-catalog.csv",
+          "source_sha256": "12247c5445f40bdc6bf1295cd62483996f55a52790406c76d3676c3dc5a4d3ad",
+          "source_heading": "Structured historical catalog inventory",
+          "source_fragment": "id,type,path,title",
+          "meaning": "Historical structured catalog only: all1267 rows/four fields parsed, sequential HARD IDs/document types/nonempty titles/safe relative paths validated;1267 unique paths/no duplicates. Section counts match historical INDEX, not current KB or source-body semantic review. No referenced body credited.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical structured catalog only: all1267 rows/four fields parsed, sequential HARD IDs/document types/nonempty titles/safe relative paths validated;1267 unique paths/no duplicates. Section counts match historical INDEX, not current KB or source-body semantic review. No referenced body credited.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "id,type,path,title",
+            "HARD-0001",
+            "HARD-1267"
+          ]
+        }
+      ],
+      "disposition_reason": "Entire inactive tool source or structured historical catalog content independently reviewed; meaningful scan/identity/authority/evidence limits covered, implementation/control recipes and catalog pointers archived, no linked-body or execution proof."
     },
     {
       "source_id": "LIB-1061",
@@ -168656,72 +168686,625 @@
       "path": "source-tools/README.md",
       "sha256": "947550fe85631b728353c14d5676198b38a3b888eff453c463bcfe2dbe722d23",
       "bytes": 1418,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1396-U01",
+          "source_path": "canonical/source-tools/README.md",
+          "source_sha256": "947550fe85631b728353c14d5676198b38a3b888eff453c463bcfe2dbe722d23",
+          "source_heading": "Preserved V5.4 read-only audit tools — inactive source",
+          "source_fragment": "# Preserved V5.4 read-only audit tools — inactive source",
+          "meaning": "Inherited tool names/readonly labels not execution authority or completeness. Historical unbounded traversal/read failures/removed scanner dependency/suppressed supporting errors/missing untracked coverage explicitly preserved; relevant bounded authorized inputs/outputs/time and semantic review leads only, no automatic port or invocation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Inherited tool names/readonly labels not execution authority or completeness. Historical unbounded traversal/read failures/removed scanner dependency/suppressed supporting errors/missing untracked coverage explicitly preserved; relevant bounded authorized inputs/outputs/time and semantic review leads only, no automatic port or invocation.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "must not be run as reference",
+            "omits untracked files"
+          ]
+        },
+        {
+          "unit_id": "LIB-1396-U02",
+          "source_path": "canonical/source-tools/README.md",
+          "source_sha256": "947550fe85631b728353c14d5676198b38a3b888eff453c463bcfe2dbe722d23",
+          "source_heading": "Preserved V5.4 read-only audit tools — inactive source",
+          "source_fragment": "# Preserved V5.4 read-only audit tools — inactive source",
+          "meaning": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "must not be run as reference",
+            "omits untracked files"
+          ]
+        }
+      ],
+      "disposition_reason": "Entire inactive tool source or structured historical catalog content independently reviewed; meaningful scan/identity/authority/evidence limits covered, implementation/control recipes and catalog pointers archived, no linked-body or execution proof."
     },
     {
       "source_id": "LIB-1397",
       "path": "source-tools/discover_xcode.sh",
       "sha256": "2a9dec859a7d3e11016de0b272918c30b2a848e3c8889a1cbcecf729fb63a617",
       "bytes": 382,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1397-U01",
+          "source_path": "canonical/source-tools/discover_xcode.sh",
+          "source_sha256": "2a9dec859a7d3e11016de0b272918c30b2a848e3c8889a1cbcecf729fb63a617",
+          "source_heading": "Historical inactive utility implementation",
+          "source_fragment": "#!/usr/bin/env bash",
+          "meaning": "Discovered workspace/project/scheme paths candidates only; observed CI and exact target/config/testplan govern commands. Unbounded find and suppressed traversal errors not complete/safe discovery; code archived not run/ported.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Discovered workspace/project/scheme paths candidates only; observed CI and exact target/config/testplan govern commands. Unbounded find and suppressed traversal errors not complete/safe discovery; code archived not run/ported.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Reproducibility And CI; Evidence",
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "find .",
+            "Use CI/repository commands"
+          ]
+        },
+        {
+          "unit_id": "LIB-1397-U02",
+          "source_path": "canonical/source-tools/discover_xcode.sh",
+          "source_sha256": "2a9dec859a7d3e11016de0b272918c30b2a848e3c8889a1cbcecf729fb63a617",
+          "source_heading": "Historical inactive utility implementation",
+          "source_fragment": "#!/usr/bin/env bash",
+          "meaning": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "find .",
+            "Use CI/repository commands"
+          ]
+        }
+      ],
+      "disposition_reason": "Entire inactive tool source or structured historical catalog content independently reviewed; meaningful scan/identity/authority/evidence limits covered, implementation/control recipes and catalog pointers archived, no linked-body or execution proof."
     },
     {
       "source_id": "LIB-1398",
       "path": "source-tools/repo_intake.py",
       "sha256": "a312c11105d22831b62306a2571fc29d15aed1e50d88123128bc68595d38b47c",
       "bytes": 2164,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1398-U01",
+          "source_path": "canonical/source-tools/repo_intake.py",
+          "source_sha256": "a312c11105d22831b62306a2571fc29d15aed1e50d88123128bc68595d38b47c",
+          "source_heading": "Historical inactive utility implementation",
+          "source_fragment": "#!/usr/bin/env python3",
+          "meaning": "Actual topology/settings/code-pattern counts are bounded inspected facts/heuristics, not target truth, bugs or full inventory. Recursive unbounded reads/ignored errors/first10000 truncation/empty-on-command-error do not establish freshness/complete PASS; no source logging/tool adoption or execution.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual topology/settings/code-pattern counts are bounded inspected facts/heuristics, not target truth, bugs or full inventory. Recursive unbounded reads/ignored errors/first10000 truncation/empty-on-command-error do not establish freshness/complete PASS; no source logging/tool adoption or execution.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "swift_files[:10000]",
+            "Counts are heuristics, not findings."
+          ]
+        },
+        {
+          "unit_id": "LIB-1398-U02",
+          "source_path": "canonical/source-tools/repo_intake.py",
+          "source_sha256": "a312c11105d22831b62306a2571fc29d15aed1e50d88123128bc68595d38b47c",
+          "source_heading": "Historical inactive utility implementation",
+          "source_fragment": "#!/usr/bin/env python3",
+          "meaning": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "swift_files[:10000]",
+            "Counts are heuristics, not findings."
+          ]
+        }
+      ],
+      "disposition_reason": "Entire inactive tool source or structured historical catalog content independently reviewed; meaningful scan/identity/authority/evidence limits covered, implementation/control recipes and catalog pointers archived, no linked-body or execution proof."
     },
     {
       "source_id": "LIB-1399",
       "path": "source-tools/swift_risk_scan.py",
       "sha256": "d9ea4ee0fe410847cc91c620b0097249a234ac4c1696eb181bcc8c4a3db9b0cd",
       "bytes": 3074,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1399-U01",
+          "source_path": "canonical/source-tools/swift_risk_scan.py",
+          "source_sha256": "d9ea4ee0fe410847cc91c620b0097249a234ac4c1696eb181bcc8c4a3db9b0cd",
+          "source_heading": "Historical inactive utility implementation",
+          "source_fragment": "#!/usr/bin/env python3",
+          "meaning": "Changed-Swift pattern leads need actual semantic/lifetime/input invariants, not regex verdicts; inspect actual relevant source universe, privacy/no source bodies, bounded identity/containment/error evidence. Removed protection import means preserved code not self-contained; no execution/repair/reintroduction of runtime.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Changed-Swift pattern leads need actual semantic/lifetime/input invariants, not regex verdicts; inspect actual relevant source universe, privacy/no source bodies, bounded identity/containment/error evidence. Removed protection import means preserved code not self-contained; no execution/repair/reintroduction of runtime.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "importlib.util.spec_from_file_location",
+            "review_required"
+          ]
+        },
+        {
+          "unit_id": "LIB-1399-U02",
+          "source_path": "canonical/source-tools/swift_risk_scan.py",
+          "source_sha256": "d9ea4ee0fe410847cc91c620b0097249a234ac4c1696eb181bcc8c4a3db9b0cd",
+          "source_heading": "Historical inactive utility implementation",
+          "source_fragment": "#!/usr/bin/env python3",
+          "meaning": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "importlib.util.spec_from_file_location",
+            "review_required"
+          ]
+        }
+      ],
+      "disposition_reason": "Entire inactive tool source or structured historical catalog content independently reviewed; meaningful scan/identity/authority/evidence limits covered, implementation/control recipes and catalog pointers archived, no linked-body or execution proof."
     },
     {
       "source_id": "LIB-1400",
       "path": "source-tools/verify_diff.sh",
       "sha256": "45294e199ce637283c1cb7496a6ecaf773c1930bdebf527e85c8ecadc4a1f086",
       "bytes": 472,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1400-U01",
+          "source_path": "canonical/source-tools/verify_diff.sh",
+          "source_sha256": "45294e199ce637283c1cb7496a6ecaf773c1930bdebf527e85c8ecadc4a1f086",
+          "source_heading": "Historical inactive utility implementation",
+          "source_fragment": "#!/usr/bin/env bash",
+          "meaning": "Whitespace success cannot mask scanner failure/status/untracked/deleted/other affected source views; final trusted full diff and relevant observed inputs required. Suppressed failure and incomplete file selection preserved as inactive-tool limitations, no command execution or new verification wrapper.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Whitespace success cannot mask scanner failure/status/untracked/deleted/other affected source views; final trusted full diff and relevant observed inputs required. Suppressed failure and incomplete file selection preserved as inactive-tool limitations, no command execution or new verification wrapper.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "|| true",
+            "--diff-filter=ACMR"
+          ]
+        },
+        {
+          "unit_id": "LIB-1400-U02",
+          "source_path": "canonical/source-tools/verify_diff.sh",
+          "source_sha256": "45294e199ce637283c1cb7496a6ecaf773c1930bdebf527e85c8ecadc4a1f086",
+          "source_heading": "Historical inactive utility implementation",
+          "source_fragment": "#!/usr/bin/env bash",
+          "meaning": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "|| true",
+            "--diff-filter=ACMR"
+          ]
+        }
+      ],
+      "disposition_reason": "Entire inactive tool source or structured historical catalog content independently reviewed; meaningful scan/identity/authority/evidence limits covered, implementation/control recipes and catalog pointers archived, no linked-body or execution proof."
     },
     {
       "source_id": "LIB-1401",
       "path": "tools/README.md",
       "sha256": "189db56f19726fc9fcae26817f215c187c192480cfc7fcb43e561b06910caabf",
       "bytes": 2742,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1401-U01",
+          "source_path": "canonical/tools/README.md",
+          "source_sha256": "189db56f19726fc9fcae26817f215c187c192480cfc7fcb43e561b06910caabf",
+          "source_heading": "Draft read-only reference utilities",
+          "source_fragment": "# Draft read-only reference utilities",
+          "meaning": "Declared scan scope/exclusions and candidate discovery not full target membership/success, unknown/partial/same-UID mutable source limits explicit. Inactive utility/source synthetics not actual entrypoint/mode/pilot proof; README recovery instruction stale versus disabled code, current U7/real transitions require specific permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Declared scan scope/exclusions and candidate discovery not full target membership/success, unknown/partial/same-UID mutable source limits explicit. Inactive utility/source synthetics not actual entrypoint/mode/pilot proof; README recovery instruction stale versus disabled code, current U7/real transitions require specific permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "scoped_complete",
+            "recover --mode ON|OFF"
+          ]
+        },
+        {
+          "unit_id": "LIB-1401-U02",
+          "source_path": "canonical/tools/README.md",
+          "source_sha256": "189db56f19726fc9fcae26817f215c187c192480cfc7fcb43e561b06910caabf",
+          "source_heading": "Draft read-only reference utilities",
+          "source_fragment": "# Draft read-only reference utilities",
+          "meaning": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "scoped_complete",
+            "recover --mode ON|OFF"
+          ]
+        }
+      ],
+      "disposition_reason": "Entire inactive tool source or structured historical catalog content independently reviewed; meaningful scan/identity/authority/evidence limits covered, implementation/control recipes and catalog pointers archived, no linked-body or execution proof."
     },
     {
       "source_id": "LIB-1402",
       "path": "tools/discover_xcode.py",
       "sha256": "b446f2e1080917236d060c2e3248f3ebc4ad07cec99b7293a04022bc98bf0253",
       "bytes": 5237,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1402-U01",
+          "source_path": "canonical/tools/discover_xcode.py",
+          "source_sha256": "b446f2e1080917236d060c2e3248f3ebc4ad07cec99b7293a04022bc98bf0253",
+          "source_heading": "Historical inactive utility implementation",
+          "source_fragment": "#!/usr/bin/env python3",
+          "meaning": "Exact authorized scan root and bounded entries/depth/results/limitations/time; exclusions produce scoped complete only, symlinks/errors/limits incomplete, zero exit not exhaustive inventory/build success. Source stat/walk logic not concurrent adversarial containment proof; inactive implementation archived without execution or tool port.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact authorized scan root and bounded entries/depth/results/limitations/time; exclusions produce scoped complete only, symlinks/errors/limits incomplete, zero exit not exhaustive inventory/build success. Source stat/walk logic not concurrent adversarial containment proof; inactive implementation archived without execution or tool port.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "excluded_directories",
+            "scoped_complete"
+          ]
+        },
+        {
+          "unit_id": "LIB-1402-U02",
+          "source_path": "canonical/tools/discover_xcode.py",
+          "source_sha256": "b446f2e1080917236d060c2e3248f3ebc4ad07cec99b7293a04022bc98bf0253",
+          "source_heading": "Historical inactive utility implementation",
+          "source_fragment": "#!/usr/bin/env python3",
+          "meaning": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "excluded_directories",
+            "scoped_complete"
+          ]
+        }
+      ],
+      "disposition_reason": "Entire inactive tool source or structured historical catalog content independently reviewed; meaningful scan/identity/authority/evidence limits covered, implementation/control recipes and catalog pointers archived, no linked-body or execution proof."
     },
     {
       "source_id": "LIB-1403",
       "path": "tools/reference_mode.py",
       "sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
       "bytes": 10487,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1403-U01",
+          "source_path": "canonical/tools/reference_mode.py",
+          "source_sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
+          "source_heading": "Historical inactive utility implementation",
+          "source_fragment": "#!/usr/bin/env python3",
+          "meaning": "Current exact selector/identity/authority, malformed/stale unknown fail-closed and invalid record preservation, no inherited grants or automatic correction. Frozen code explicitly disables recover and preserves invalid state; all mode keys/schema/locks/fingerprints/commands/records archival, no status invocation or transition/handler change.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current exact selector/identity/authority, malformed/stale unknown fail-closed and invalid record preservation, no inherited grants or automatic correction. Frozen code explicitly disables recover and preserves invalid state; all mode keys/schema/locks/fingerprints/commands/records archival, no status invocation or transition/handler change.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "recovery disabled; invalid record preserved unchanged",
+            "invalid record preserved; recovery disabled"
+          ]
+        },
+        {
+          "unit_id": "LIB-1403-U02",
+          "source_path": "canonical/tools/reference_mode.py",
+          "source_sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
+          "source_heading": "Historical inactive utility implementation",
+          "source_fragment": "#!/usr/bin/env python3",
+          "meaning": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Inactive preserved historical utility implementation/recipes and mode handler archived, not executed, repaired or ported. Code/source presence and prior synthetic observations do not activate tools or prove current safe/complete runtime behavior. Current authority/owner constraints govern any future adaptation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete tool bodies independently read and full structured catalog content reviewed; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-176-inactive-tools-catalog-scope.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "recovery disabled; invalid record preserved unchanged",
+            "invalid record preserved; recovery disabled"
+          ]
+        }
+      ],
+      "disposition_reason": "Entire inactive tool source or structured historical catalog content independently reviewed; meaningful scan/identity/authority/evidence limits covered, implementation/control recipes and catalog pointers archived, no linked-body or execution proof."
     }
   ],
   "file_status_semantics": {
