@@ -157582,27 +157582,224 @@
       "path": "CAPABILITY_DISPOSITION.md",
       "sha256": "9738160e32cd31c25875ac9a71f1248ca6802eb0de1d73825802b83ed2b0b95a",
       "bytes": 11537,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0851-U01",
+          "source_path": "canonical/CAPABILITY_DISPOSITION.md",
+          "source_sha256": "9738160e32cd31c25875ac9a71f1248ca6802eb0de1d73825802b83ed2b0b95a",
+          "source_heading": "B0 capability disposition — inactive copy-only candidate",
+          "source_fragment": "# B0 capability disposition — inactive copy-only candidate",
+          "meaning": "Source category/inventory/checklist mapping not full body/workflow semantic conversion or current technical/runtime equivalence. Actual useful behavior/applicability/current owner/incremental delta/omission/permissions/consumer review needed, bounded smallest conditional routes; no one-route-per-old-skill explosion, raw archive fallback, unreviewed activation or benefit from counts.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Source category/inventory/checklist mapping not full body/workflow semantic conversion or current technical/runtime equivalence. Actual useful behavior/applicability/current owner/incremental delta/omission/permissions/consumer review needed, bounded smallest conditional routes; no one-route-per-old-skill explosion, raw archive fallback, unreviewed activation or benefit from counts.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Coverage Unit; Maturity Levels; Agent Loading Rule; Completion Gate",
+          "required_verification": "Three complete capability/manifest/quickstart sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-162-capability-manifest-quickstart-dispositions.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Coverage Unit",
+                "Maturity Levels",
+                "Agent Loading Rule",
+                "Completion Gate"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0851-U02",
+          "source_path": "canonical/CAPABILITY_DISPOSITION.md",
+          "source_sha256": "9738160e32cd31c25875ac9a71f1248ca6802eb0de1d73825802b83ed2b0b95a",
+          "source_heading": "B0 capability disposition — inactive copy-only candidate",
+          "source_fragment": "# B0 capability disposition — inactive copy-only candidate",
+          "meaning": "Historical copy-only candidate category/checklist/allowlist/profile/handler/second-layer/quickstart/source counts and future pilot/release commands archived with exact dates/paths/digest algorithm. Neither inventory nor old scoped closure is current reviewed coverage; no imported mandatory Library chain, ask-once mode prompt, handler call, copy/entrypoint/mode/recover/installation authority. Archive provenance and historical limits retained.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical copy-only candidate category/checklist/allowlist/profile/handler/second-layer/quickstart/source counts and future pilot/release commands archived with exact dates/paths/digest algorithm. Neither inventory nor old scoped closure is current reviewed coverage; no imported mandatory Library chain, ask-once mode prompt, handler call, copy/entrypoint/mode/recover/installation authority. Archive provenance and historical limits retained.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Three complete capability/manifest/quickstart sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-162-capability-manifest-quickstart-dispositions.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full source independently reviewed; useful provenance/coverage/authority/evidence requirements covered; historical candidate/control/allowlist/quickstart infrastructure archived. No raw inventory inherited as reviewed coverage."
     },
     {
       "source_id": "LIB-0852",
       "path": "CONTENT_MANIFEST.md",
       "sha256": "baea87cadc624e8263145475bdaec2b96012bb921ae4b4d754cc492271a08423",
       "bytes": 6736,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0852-U01",
+          "source_path": "canonical/CONTENT_MANIFEST.md",
+          "source_sha256": "baea87cadc624e8263145475bdaec2b96012bb921ae4b4d754cc492271a08423",
+          "source_heading": "Candidate content manifest — not a release",
+          "source_fragment": "# Candidate content manifest — not a release",
+          "meaning": "Exact scoped artifact membership/content identity/path/link/dependency and file-type/executable/symlink constraints for actual approved payload; no excluded installer/source hidden via dependency, stale/missing input prevents current readiness. Static membership/hash not semantic coverage/runtime/activation, exact revision-bound proof invalid after changed inputs. Historical copy payload algorithm retained only as provenance, not new KB format.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact scoped artifact membership/content identity/path/link/dependency and file-type/executable/symlink constraints for actual approved payload; no excluded installer/source hidden via dependency, stale/missing input prevents current readiness. Static membership/hash not semantic coverage/runtime/activation, exact revision-bound proof invalid after changed inputs. Historical copy payload algorithm retained only as provenance, not new KB format.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Three complete capability/manifest/quickstart sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-162-capability-manifest-quickstart-dispositions.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Completion Gate"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0852-U02",
+          "source_path": "canonical/CONTENT_MANIFEST.md",
+          "source_sha256": "baea87cadc624e8263145475bdaec2b96012bb921ae4b4d754cc492271a08423",
+          "source_heading": "Candidate content manifest — not a release",
+          "source_fragment": "# Candidate content manifest — not a release",
+          "meaning": "Historical copy-only candidate category/checklist/allowlist/profile/handler/second-layer/quickstart/source counts and future pilot/release commands archived with exact dates/paths/digest algorithm. Neither inventory nor old scoped closure is current reviewed coverage; no imported mandatory Library chain, ask-once mode prompt, handler call, copy/entrypoint/mode/recover/installation authority. Archive provenance and historical limits retained.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical copy-only candidate category/checklist/allowlist/profile/handler/second-layer/quickstart/source counts and future pilot/release commands archived with exact dates/paths/digest algorithm. Neither inventory nor old scoped closure is current reviewed coverage; no imported mandatory Library chain, ask-once mode prompt, handler call, copy/entrypoint/mode/recover/installation authority. Archive provenance and historical limits retained.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Three complete capability/manifest/quickstart sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-162-capability-manifest-quickstart-dispositions.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full source independently reviewed; useful provenance/coverage/authority/evidence requirements covered; historical candidate/control/allowlist/quickstart infrastructure archived. No raw inventory inherited as reviewed coverage."
     },
     {
       "source_id": "LIB-0853",
       "path": "COPY_ONLY_QUICKSTART.md",
       "sha256": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0",
       "bytes": 3111,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0853-U01",
+          "source_path": "canonical/COPY_ONLY_QUICKSTART.md",
+          "source_sha256": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0",
+          "source_heading": "IOS Library — draft copy-only quick start",
+          "source_fragment": "# IOS Library — draft copy-only quick start",
+          "meaning": "Current user/bootstrap/project/task scope first and complete permitted local quality chain; advice explains evidence/minimal scope/cost/permission, not command grant. Missing/failed observation not transition success or PASS; observed facts/unknowns and full changed-artifact review, naming/copying/pilot not general readiness or activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current user/bootstrap/project/task scope first and complete permitted local quality chain; advice explains evidence/minimal scope/cost/permission, not command grant. Missing/failed observation not transition success or PASS; observed facts/unknowns and full changed-artifact review, naming/copying/pilot not general readiness or activation.",
+          "destination_path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "destination_heading": "Checklist; Stop Rule",
+          "required_verification": "Three complete capability/manifest/quickstart sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-162-capability-manifest-quickstart-dispositions.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0853-U02",
+          "source_path": "canonical/COPY_ONLY_QUICKSTART.md",
+          "source_sha256": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0",
+          "source_heading": "IOS Library — draft copy-only quick start",
+          "source_fragment": "# IOS Library — draft copy-only quick start",
+          "meaning": "Historical copy-only candidate category/checklist/allowlist/profile/handler/second-layer/quickstart/source counts and future pilot/release commands archived with exact dates/paths/digest algorithm. Neither inventory nor old scoped closure is current reviewed coverage; no imported mandatory Library chain, ask-once mode prompt, handler call, copy/entrypoint/mode/recover/installation authority. Archive provenance and historical limits retained.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical copy-only candidate category/checklist/allowlist/profile/handler/second-layer/quickstart/source counts and future pilot/release commands archived with exact dates/paths/digest algorithm. Neither inventory nor old scoped closure is current reviewed coverage; no imported mandatory Library chain, ask-once mode prompt, handler call, copy/entrypoint/mode/recover/installation authority. Archive provenance and historical limits retained.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Three complete capability/manifest/quickstart sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-162-capability-manifest-quickstart-dispositions.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full source independently reviewed; useful provenance/coverage/authority/evidence requirements covered; historical candidate/control/allowlist/quickstart infrastructure archived. No raw inventory inherited as reviewed coverage."
     },
     {
       "source_id": "LIB-0854",
