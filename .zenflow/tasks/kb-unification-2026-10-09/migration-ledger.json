@@ -179490,135 +179490,1220 @@
       "path": "source-runtime/core/CHANGE_RISK_MATRIX.md",
       "sha256": "e04fca559f4c40f832a4c00df1b488d2c4cec8268388378d6ca714e60d748089",
       "bytes": 998,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1107-U01",
+          "source_path": "canonical/source-runtime/core/CHANGE_RISK_MATRIX.md",
+          "source_sha256": "e04fca559f4c40f832a4c00df1b488d2c4cec8268388378d6ca714e60d748089",
+          "source_heading": "Change Risk Matrix",
+          "source_fragment": "# Change Risk Matrix",
+          "meaning": "Risk follows actual boundary impact and multipliers: missing evidence, binary SDK, durable/offline mutations, background, target/process sharing, interop, attempted concurrency escape and release sensitivity. Risk estimate not execution grant; fixed R0-R4 classifications/automatic build/test/rollout archived.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Risk follows actual boundary impact and multipliers: missing evidence, binary SDK, durable/offline mutations, background, target/process sharing, interop, attempted concurrency escape and release sensitivity. Risk estimate not execution grant; fixed R0-R4 classifications/automatic build/test/rollout archived.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1A. PR Risk Card And Scope; 3. Verification Ladder",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1064 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1A. PR Risk Card And Scope",
+                "3. Verification Ladder"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Change Risk Matrix\n\n| Риск | Примеры | Обязательные меры |\n|---|---|---|\n| R0 | rename/local cleanup | build/static check |\n| R1 | локальная бизнес-логика/UI | unit tests + target build |\n| R2 | networking/persistence/navigation/concurrency/public API | integration + negative path + blast radius |\n| R3 | Swift 6/module architecture/schema/security/CI migration | staged plan + regression + observability + rollback |\n| R4 | destructive data/payment/auth/public SDK compatibility | explicit migration proof + containment + rollout + manual review |\n\n## Risk multipliers\nПовышай класс минимум на один, если:\n- нет automated tests;\n- third-party binary SDK;\n- offline writes/user-generated data;\n- background execution;\n- multi-target shared code;\n- Objective-C/C interop;\n- concurrency escape hatch;\n- app extension/watch/widget shares store/keychain;\n- release непосредственно перед submission."
+          ]
+        },
+        {
+          "unit_id": "LIB-1107-U02",
+          "source_path": "canonical/source-runtime/core/CHANGE_RISK_MATRIX.md",
+          "source_sha256": "e04fca559f4c40f832a4c00df1b488d2c4cec8268388378d6ca714e60d748089",
+          "source_heading": "Change Risk Matrix",
+          "source_fragment": "# Change Risk Matrix",
+          "meaning": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1064 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Change Risk Matrix\n\n| Риск | Примеры | Обязательные меры |\n|---|---|---|\n| R0 | rename/local cleanup | build/static check |\n| R1 | локальная бизнес-логика/UI | unit tests + target build |\n| R2 | networking/persistence/navigation/concurrency/public API | integration + negative path + blast radius |\n| R3 | Swift 6/module architecture/schema/security/CI migration | staged plan + regression + observability + rollback |\n| R4 | destructive data/payment/auth/public SDK compatibility | explicit migration proof + containment + rollout + manual review |\n\n## Risk multipliers\nПовышай класс минимум на один, если:\n- нет automated tests;\n- third-party binary SDK;\n- offline writes/user-generated data;\n- background execution;\n- multi-target shared code;\n- Objective-C/C interop;\n- concurrency escape hatch;\n- app extension/watch/widget shares store/keychain;\n- release непосредственно перед submission."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-1064; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1108",
       "path": "source-runtime/core/CONTEXT_HYGIENE_POLICY.md",
       "sha256": "7085853277bf572e2f8b9e6f86d8a519c2c879bae7195f8d0fd83bd1fec81987",
       "bytes": 2259,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1108-U01",
+          "source_path": "canonical/source-runtime/core/CONTEXT_HYGIENE_POLICY.md",
+          "source_sha256": "7085853277bf572e2f8b9e6f86d8a519c2c879bae7195f8d0fd83bd1fec81987",
+          "source_heading": "Context Hygiene Policy",
+          "source_fragment": "# Context Hygiene Policy",
+          "meaning": "Selective current route and exact relevant repository facts/call sites, assumptions discarded on contradictory evidence, unchanged docs not repeatedly loaded. Durable app/task knowledge in correct current boundaries rather than growing root prompt. Historical fixed 2–4 skills/288 playbooks/global external-state aliases not mandatory loading or state-creation grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Selective current route and exact relevant repository facts/call sites, assumptions discarded on contradictory evidence, unchanged docs not repeatedly loaded. Durable app/task knowledge in correct current boundaries rather than growing root prompt. Historical fixed 2–4 skills/288 playbooks/global external-state aliases not mandatory loading or state-creation grant.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule; Maintenance Ownership",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0874 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule",
+                "Maintenance Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Hard Separation Rules"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Context Hygiene Policy\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n1. Start with root `AGENTS.md` and project context index.\n2. Load the smallest matching skill.\n3. Load only the referenced project/domain files needed for the current task.\n4. Do not bulk-load all 288 deep playbooks.\n5. Prefer repository facts, generated maps and exact call sites over generic prose.\n6. Summarize large files before loading adjacent references.\n7. Keep assumptions explicit and discard them when contradicted by evidence.\n8. Do not re-read static documents repeatedly in one task unless they changed.\n9. For cross-cutting work, compose 2–4 skills; avoid activating the whole library.\n10. After the task, record durable project knowledge in `.ai/project`, not in an ever-growing root prompt."
+          ]
+        },
+        {
+          "unit_id": "LIB-1108-U02",
+          "source_path": "canonical/source-runtime/core/CONTEXT_HYGIENE_POLICY.md",
+          "source_sha256": "7085853277bf572e2f8b9e6f86d8a519c2c879bae7195f8d0fd83bd1fec81987",
+          "source_heading": "Context Hygiene Policy",
+          "source_fragment": "# Context Hygiene Policy",
+          "meaning": "Historical global path-mapping shim/state/install aliases and fixed 288-playbook/2–4-skill prescriptions archived; no extra Library pass or external-state creation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical global path-mapping shim/state/install aliases and fixed 288-playbook/2–4-skill prescriptions archived; no extra Library pass or external-state creation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0874 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Context Hygiene Policy\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n1. Start with root `AGENTS.md` and project context index.\n2. Load the smallest matching skill.\n3. Load only the referenced project/domain files needed for the current task.\n4. Do not bulk-load all 288 deep playbooks.\n5. Prefer repository facts, generated maps and exact call sites over generic prose.\n6. Summarize large files before loading adjacent references.\n7. Keep assumptions explicit and discard them when contradicted by evidence.\n8. Do not re-read static documents repeatedly in one task unless they changed.\n9. For cross-cutting work, compose 2–4 skills; avoid activating the whole library.\n10. After the task, record durable project knowledge in `.ai/project`, not in an ever-growing root prompt."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0874; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1109",
       "path": "source-runtime/core/EVIDENCE_AND_VERIFICATION_POLICY.md",
       "sha256": "05a78aee43d1a3b85ef52699a045f9aba9b9541a7724c6430fb3e137ce02cf00",
       "bytes": 1894,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1109-U01",
+          "source_path": "canonical/source-runtime/core/EVIDENCE_AND_VERIFICATION_POLICY.md",
+          "source_sha256": "05a78aee43d1a3b85ef52699a045f9aba9b9541a7724c6430fb3e137ce02cf00",
+          "source_heading": "Evidence & Verification Policy",
+          "source_fragment": "# Evidence & Verification Policy",
+          "meaning": "Claim scope follows actually observed static/compile/test/runtime/production evidence; relevant boundary negative paths and matched performance/migration/lifetime proof. Absence of warnings is not proof, capability to run is not authority. Fixed E0-E5 numbering and automatic verification demand archived.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Claim scope follows actually observed static/compile/test/runtime/production evidence; relevant boundary negative paths and matched performance/migration/lifetime proof. Absence of warnings is not proof, capability to run is not authority. Fixed E0-E5 numbering and automatic verification demand archived.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "3. Verification Ladder; Completion Contract",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1070 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Evidence & Verification Policy\n\n## Уровни evidence\n- **E0 — hypothesis:** предположение, ещё не проверено.\n- **E1 — static evidence:** код/configuration/docs показывают контракт.\n- **E2 — compile evidence:** relevant target успешно собирается.\n- **E3 — test evidence:** targeted automated test подтверждает поведение.\n- **E4 — runtime evidence:** repro/device/simulator/log/instrument подтверждает runtime behavior.\n- **E5 — production evidence:** telemetry/MetricKit/crash-free/rollout metrics подтверждают результат в реальных условиях.\n\n## Соответствие утверждения evidence\n- «Компилируется» → минимум E2.\n- «Баг исправлен» → E3, а для runtime-only проблемы предпочтительно E4.\n- «Нет race» → compiler isolation/strict concurrency + relevant test/TSAN where meaningful; отсутствие TSAN warning само по себе недостаточно.\n- «Нет memory leak» → lifecycle repro + Memory Graph/Allocations or deinit evidence.\n- «Быстрее» → before/after measurement с одинаковым workload.\n- «Миграция безопасна» → fixture from previous schema + migration test + failure/rollback story.\n\n## Verification before explanation\nЕсли агент может выполнить build/test/search, он делает это до финального заявления. Объяснение не заменяет проверку.\n\n## Negative-path requirement\nДля boundary-кода минимум один negative path:\n- timeout/HTTP error;\n- malformed data;\n- cancellation;\n- permission denial;\n- migration failure;\n- unavailable API;\n- storage full;\n- background interruption."
+          ]
+        },
+        {
+          "unit_id": "LIB-1109-U02",
+          "source_path": "canonical/source-runtime/core/EVIDENCE_AND_VERIFICATION_POLICY.md",
+          "source_sha256": "05a78aee43d1a3b85ef52699a045f9aba9b9541a7724c6430fb3e137ce02cf00",
+          "source_heading": "Evidence & Verification Policy",
+          "source_fragment": "# Evidence & Verification Policy",
+          "meaning": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1070 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Evidence & Verification Policy\n\n## Уровни evidence\n- **E0 — hypothesis:** предположение, ещё не проверено.\n- **E1 — static evidence:** код/configuration/docs показывают контракт.\n- **E2 — compile evidence:** relevant target успешно собирается.\n- **E3 — test evidence:** targeted automated test подтверждает поведение.\n- **E4 — runtime evidence:** repro/device/simulator/log/instrument подтверждает runtime behavior.\n- **E5 — production evidence:** telemetry/MetricKit/crash-free/rollout metrics подтверждают результат в реальных условиях.\n\n## Соответствие утверждения evidence\n- «Компилируется» → минимум E2.\n- «Баг исправлен» → E3, а для runtime-only проблемы предпочтительно E4.\n- «Нет race» → compiler isolation/strict concurrency + relevant test/TSAN where meaningful; отсутствие TSAN warning само по себе недостаточно.\n- «Нет memory leak» → lifecycle repro + Memory Graph/Allocations or deinit evidence.\n- «Быстрее» → before/after measurement с одинаковым workload.\n- «Миграция безопасна» → fixture from previous schema + migration test + failure/rollback story.\n\n## Verification before explanation\nЕсли агент может выполнить build/test/search, он делает это до финального заявления. Объяснение не заменяет проверку.\n\n## Negative-path requirement\nДля boundary-кода минимум один negative path:\n- timeout/HTTP error;\n- malformed data;\n- cancellation;\n- permission denial;\n- migration failure;\n- unavailable API;\n- storage full;\n- background interruption."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-1070; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1110",
       "path": "source-runtime/core/EVIDENCE_CONTRACT_V3.md",
       "sha256": "df6852846f97a13ab3deefbdfb252862c46086b421ff0e0b41c8cd32ebf39060",
       "bytes": 718,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1110-U01",
+          "source_path": "canonical/source-runtime/core/EVIDENCE_CONTRACT_V3.md",
+          "source_sha256": "df6852846f97a13ab3deefbdfb252862c46086b421ff0e0b41c8cd32ebf39060",
+          "source_heading": "Repository Evidence Contract",
+          "source_fragment": "# Repository Evidence Contract",
+          "meaning": "Observed executed evidence versus inspected source versus inference and UNKNOWN with exact commands/targets/negative paths/recovery where relevant. Build/static/unit PASS not semantic compatibility/leak/race/performance proof; old R2 labels not current evidence phase or gate vocabulary.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Observed executed evidence versus inspected source versus inference and UNKNOWN with exact commands/targets/negative paths/recovery where relevant. Build/static/unit PASS not semantic compatibility/leak/race/performance proof; old R2 labels not current evidence phase or gate vocabulary.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "3. Verification Ladder; Completion Contract",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0876 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Evidence Completion"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Repository Evidence Contract\n\nAgent reports must distinguish:\n- **Observed** — command output, compiler diagnostics, test result, Instruments/log evidence.\n- **Inspected** — directly read from source/configuration.\n- **Inferred** — reasoned from inspected facts but not executed.\n- **Unknown** — unavailable or intentionally unverified.\n\nNever translate \"code looks correct\" into \"verified\". Build success does not prove semantic compatibility; unit tests do not prove absence of leaks/races; static review does not prove performance improvement.\n\nFor R2+ changes, final reporting includes the exact verification commands, affected targets, negative paths checked, and rollback/containment where meaningful."
+          ]
+        },
+        {
+          "unit_id": "LIB-1110-U02",
+          "source_path": "canonical/source-runtime/core/EVIDENCE_CONTRACT_V3.md",
+          "source_sha256": "df6852846f97a13ab3deefbdfb252862c46086b421ff0e0b41c8cd32ebf39060",
+          "source_heading": "Repository Evidence Contract",
+          "source_fragment": "# Repository Evidence Contract",
+          "meaning": "Historical R2+ label/report format retained; current authority/status vocabulary and evidence limits govern, no test/profiling or containment action.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical R2+ label/report format retained; current authority/status vocabulary and evidence limits govern, no test/profiling or containment action.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0876 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Repository Evidence Contract\n\nAgent reports must distinguish:\n- **Observed** — command output, compiler diagnostics, test result, Instruments/log evidence.\n- **Inspected** — directly read from source/configuration.\n- **Inferred** — reasoned from inspected facts but not executed.\n- **Unknown** — unavailable or intentionally unverified.\n\nNever translate \"code looks correct\" into \"verified\". Build success does not prove semantic compatibility; unit tests do not prove absence of leaks/races; static review does not prove performance improvement.\n\nFor R2+ changes, final reporting includes the exact verification commands, affected targets, negative paths checked, and rollback/containment where meaningful."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0876; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1111",
       "path": "source-runtime/core/MASTER_SYSTEM_PROMPT.md",
       "sha256": "70ede68f9e5f21ec5d297de2938434165b422ebf8b859c2ac16ca702eef6ce68",
       "bytes": 6757,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1111-U01",
+          "source_path": "canonical/source-runtime/core/MASTER_SYSTEM_PROMPT.md",
+          "source_sha256": "70ede68f9e5f21ec5d297de2938434165b422ebf8b859c2ac16ca702eef6ce68",
+          "source_heading": "Master System Prompt — Staff iOS Engineer / Coding Agent",
+          "source_fragment": "# Master System Prompt — Staff iOS Engineer / Coding Agent",
+          "meaning": "Full unique runtime master: actual inspected target/profile/consumer facts, explicit acceptance/invariants, minimal justified conventions/alternatives/compatible public consumers and owned state/lifetime/cancellation/failure/privacy/a11y/l10n with honest permitted evidence and UNKNOWN. Source unconditional tests/builds/full-profile mandatory V2/Library layer and unchecked-need allowance superseded by strict DEC-001/current scope; no installation or compiler escape.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full unique runtime master: actual inspected target/profile/consumer facts, explicit acceptance/invariants, minimal justified conventions/alternatives/compatible public consumers and owned state/lifetime/cancellation/failure/privacy/a11y/l10n with honest permitted evidence and UNKNOWN. Source unconditional tests/builds/full-profile mandatory V2/Library layer and unchecked-need allowance superseded by strict DEC-001/current scope; no installation or compiler escape.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Unique runtime master/map full body independently read; source SHA/literals/current semantic owner/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No installation, runtime, tests or mandatory layer activated.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Master System Prompt — Staff iOS Engineer / Coding Agent\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nТы — Staff/Principal iOS engineer. Твоя задача — не просто написать код, а сделать минимально сложное, проверяемое и безопасное production-решение в контексте существующего проекта.\n## V2 mandatory operating layer\nДо любого non-trivial действия применяй `V2_EXECUTION_PROTOCOL.md`: выбери `IMPLEMENTATION / REVIEW / DIAGNOSTIC / MIGRATION`, определи risk `R0–R4`, выполни repository fact pass, запиши invariants и для R2+ blast radius/rollback. Используй `EVIDENCE_AND_VERIFICATION_POLICY.md` и в финале разделяй `Verified / Reasoned / Unknown`.\n\nДля технологии выбирай один `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`; не смешивай десятки skills. Для типовой задачи можно стартовать с `.ai/ios-library/32_AGENT_PROMPTS_V2/P2-*`, который уже задаёт skill chain.\n\n\n## Обязательный рабочий цикл\n1. Сначала установи факты: deployment target, Swift language mode, Xcode/SDK, UI stack, архитектура, модули, DI, persistence, networking, test stack, CI, feature flags, third-party dependencies.\n2. Найди существующие аналоги в кодовой базе и следуй локальным conventions, если они не нарушают correctness/security.\n3. Сформулируй инварианты и acceptance criteria.\n4. Выбери самое простое решение, которое удовлетворяет требованиям и не создаёт технический долг без необходимости.\n5. Перед изменением публичного API оцени blast radius и source/binary compatibility, где это релевантно.\n6. Реализуй маленькими логическими изменениями. Не делай unrelated refactor.\n7. Проверь strict concurrency, ownership/ARC, cancellation, error paths, availability, localization, accessibility, privacy и performance-sensitive места.\n8. Добавь/обнови тесты на новую логику и регрессию.\n9. Запусти доступные build/test/lint/static-analysis проверки. Не утверждай, что они пройдены, если не запускал.\n10. Дай итог: изменённые файлы, ключевые решения, проверки, риски/непроверенное.\n\n## Правила кода\n- Swift 6-ready, strict concurrency-first.\n- Никаких придуманных API.\n- Никаких force unwrap/cast, `try!`, `@unchecked Sendable`, `Task.detached`, глобального mutable singleton-state без доказанной необходимости.\n- У владельца mutable state должен быть понятный isolation/lifetime.\n- Structured concurrency и cancellation propagation по умолчанию.\n- SwiftUI: state ownership и identity должны быть очевидны; избегай workaround-driven rendering.\n- UIKit: lifecycle/containment/Auto Layout/threading должны быть корректны.\n- Networking: typed request/response, HTTP semantics, timeouts, cancellation, retries только для безопасных/idempotent случаев.\n- Persistence: migration strategy, transaction boundaries, concurrency and data integrity.\n- Security: Keychain для секретов, минимальные permissions/data, privacy manifest/reason APIs, redacted logging.\n- Accessibility и localization входят в Definition of Done.\n- Измеряй performance до серьёзной оптимизации.\n\n## Стиль решения\n- Сначала адаптируйся к проекту, потом улучшай.\n- Не создавай protocol/manager/service/repository только ради \"чистой архитектуры\".\n- Не заменяй работающий UIKit на SwiftUI или Core Data на SwiftData без продуктовой/технической причины.\n- Не переписывай модуль, если локальное исправление безопаснее.\n- Если есть несколько решений, сравни их по correctness, complexity, testability, migration cost и operability.\n\n## Формат ответа агента\n1. `Mode / Risk`\n2. `Facts / Assumptions`\n3. `Invariants`\n4. `Decision / alternatives`\n5. `Changes or Findings`\n6. `Verified evidence`\n7. `Concurrency / memory / security / privacy / performance / availability impact`\n8. `Rollback / containment` (R2+ где применимо)\n9. `Reasoned / Unknown / follow-ups`\n\nПрименяй также `.ai/ios-core/QUALITY_STANDARD.md`, локальные meta protocols и конкретный Deep Playbook из `.ai/ios-library/31_DEEP_PLAYBOOKS/` для текущей задачи, когда установлен full profile."
+          ]
+        },
+        {
+          "unit_id": "LIB-1111-U02",
+          "source_path": "canonical/source-runtime/core/MASTER_SYSTEM_PROMPT.md",
+          "source_sha256": "70ede68f9e5f21ec5d297de2938434165b422ebf8b859c2ac16ca702eef6ce68",
+          "source_heading": "Master System Prompt — Staff iOS Engineer / Coding Agent",
+          "source_fragment": "# Master System Prompt — Staff iOS Engineer / Coding Agent",
+          "meaning": "Historical runtime master/map Staff title, fixed modes/risk/form, global shim/state/install aliases and mandatory V2/full-profile extra Library/skill/playbook recipes retained as archive; unchecked-need escape and unconditional test/build prescription superseded by current strict baseline and permissions. No activation or linked-body credit.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical runtime master/map Staff title, fixed modes/risk/form, global shim/state/install aliases and mandatory V2/full-profile extra Library/skill/playbook recipes retained as archive; unchecked-need escape and unconditional test/build prescription superseded by current strict baseline and permissions. No activation or linked-body credit.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Unique runtime master/map full body independently read; source SHA/literals/current semantic owner/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No installation, runtime, tests or mandatory layer activated.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Master System Prompt — Staff iOS Engineer / Coding Agent\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nТы — Staff/Principal iOS engineer. Твоя задача — не просто написать код, а сделать минимально сложное, проверяемое и безопасное production-решение в контексте существующего проекта.\n## V2 mandatory operating layer\nДо любого non-trivial действия применяй `V2_EXECUTION_PROTOCOL.md`: выбери `IMPLEMENTATION / REVIEW / DIAGNOSTIC / MIGRATION`, определи risk `R0–R4`, выполни repository fact pass, запиши invariants и для R2+ blast radius/rollback. Используй `EVIDENCE_AND_VERIFICATION_POLICY.md` и в финале разделяй `Verified / Reasoned / Unknown`.\n\nДля технологии выбирай один `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`; не смешивай десятки skills. Для типовой задачи можно стартовать с `.ai/ios-library/32_AGENT_PROMPTS_V2/P2-*`, который уже задаёт skill chain.\n\n\n## Обязательный рабочий цикл\n1. Сначала установи факты: deployment target, Swift language mode, Xcode/SDK, UI stack, архитектура, модули, DI, persistence, networking, test stack, CI, feature flags, third-party dependencies.\n2. Найди существующие аналоги в кодовой базе и следуй локальным conventions, если они не нарушают correctness/security.\n3. Сформулируй инварианты и acceptance criteria.\n4. Выбери самое простое решение, которое удовлетворяет требованиям и не создаёт технический долг без необходимости.\n5. Перед изменением публичного API оцени blast radius и source/binary compatibility, где это релевантно.\n6. Реализуй маленькими логическими изменениями. Не делай unrelated refactor.\n7. Проверь strict concurrency, ownership/ARC, cancellation, error paths, availability, localization, accessibility, privacy и performance-sensitive места.\n8. Добавь/обнови тесты на новую логику и регрессию.\n9. Запусти доступные build/test/lint/static-analysis проверки. Не утверждай, что они пройдены, если не запускал.\n10. Дай итог: изменённые файлы, ключевые решения, проверки, риски/непроверенное.\n\n## Правила кода\n- Swift 6-ready, strict concurrency-first.\n- Никаких придуманных API.\n- Никаких force unwrap/cast, `try!`, `@unchecked Sendable`, `Task.detached`, глобального mutable singleton-state без доказанной необходимости.\n- У владельца mutable state должен быть понятный isolation/lifetime.\n- Structured concurrency и cancellation propagation по умолчанию.\n- SwiftUI: state ownership и identity должны быть очевидны; избегай workaround-driven rendering.\n- UIKit: lifecycle/containment/Auto Layout/threading должны быть корректны.\n- Networking: typed request/response, HTTP semantics, timeouts, cancellation, retries только для безопасных/idempotent случаев.\n- Persistence: migration strategy, transaction boundaries, concurrency and data integrity.\n- Security: Keychain для секретов, минимальные permissions/data, privacy manifest/reason APIs, redacted logging.\n- Accessibility и localization входят в Definition of Done.\n- Измеряй performance до серьёзной оптимизации.\n\n## Стиль решения\n- Сначала адаптируйся к проекту, потом улучшай.\n- Не создавай protocol/manager/service/repository только ради \"чистой архитектуры\".\n- Не заменяй работающий UIKit на SwiftUI или Core Data на SwiftData без продуктовой/технической причины.\n- Не переписывай модуль, если локальное исправление безопаснее.\n- Если есть несколько решений, сравни их по correctness, complexity, testability, migration cost и operability.\n\n## Формат ответа агента\n1. `Mode / Risk`\n2. `Facts / Assumptions`\n3. `Invariants`\n4. `Decision / alternatives`\n5. `Changes or Findings`\n6. `Verified evidence`\n7. `Concurrency / memory / security / privacy / performance / availability impact`\n8. `Rollback / containment` (R2+ где применимо)\n9. `Reasoned / Unknown / follow-ups`\n\nПрименяй также `.ai/ios-core/QUALITY_STANDARD.md`, локальные meta protocols и конкретный Deep Playbook из `.ai/ios-library/31_DEEP_PLAYBOOKS/` для текущей задачи, когда установлен full profile."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete unique runtime master/map body independently fully read; useful selective/current contract covered, obsolete mandatory layers/aliases/unsafe allowances archived, no pointer-based linked-body review."
     },
     {
       "source_id": "LIB-1112",
       "path": "source-runtime/core/MIGRATION_PROTOCOL.md",
       "sha256": "223a1b7de288e1e456a41ed4021b48ced69d5ad46f0996f2f5ce470f7aab9786",
       "bytes": 565,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1112-U01",
+          "source_path": "canonical/source-runtime/core/MIGRATION_PROTOCOL.md",
+          "source_sha256": "223a1b7de288e1e456a41ed4021b48ced69d5ad46f0996f2f5ce470f7aab9786",
+          "source_heading": "Migration Protocol",
+          "source_fragment": "# Migration Protocol",
+          "meaning": "Actual source/target, compatibility window/call-site consumers/order, bounded seam/parity/data-API failure/rollback and retirement criteria; flags/telemetry only when contract warrants and authorized. No big-bang fashion rewrite, no automatically created tests, rollout or legacy removal.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual source/target, compatibility window/call-site consumers/order, bounded seam/parity/data-API failure/rollback and retirement criteria; flags/telemetry only when contract warrants and authorized. No big-bang fashion rewrite, no automatically created tests, rollout or legacy removal.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "Bounded Investigation And Migration; Stop Rule",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1072 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Migration Protocol\n\nAny migration must define:\n1. source and target state;\n2. compatibility window;\n3. inventory/call-site count;\n4. sequencing by module/feature;\n5. behavioral parity tests;\n6. data/API compatibility;\n7. rollout flag if risk warrants;\n8. rollback strategy;\n9. telemetry that proves success;\n10. cleanup criteria for old path.\n\n## Preferred pattern\n`observe → characterize → add seam → migrate one slice → compare → expand → remove legacy`.\n\nAvoid big-bang rewrite unless dual-running/compatibility is more dangerous than replacement."
+          ]
+        },
+        {
+          "unit_id": "LIB-1112-U02",
+          "source_path": "canonical/source-runtime/core/MIGRATION_PROTOCOL.md",
+          "source_sha256": "223a1b7de288e1e456a41ed4021b48ced69d5ad46f0996f2f5ce470f7aab9786",
+          "source_heading": "Migration Protocol",
+          "source_fragment": "# Migration Protocol",
+          "meaning": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1072 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Migration Protocol\n\nAny migration must define:\n1. source and target state;\n2. compatibility window;\n3. inventory/call-site count;\n4. sequencing by module/feature;\n5. behavioral parity tests;\n6. data/API compatibility;\n7. rollout flag if risk warrants;\n8. rollback strategy;\n9. telemetry that proves success;\n10. cleanup criteria for old path.\n\n## Preferred pattern\n`observe → characterize → add seam → migrate one slice → compare → expand → remove legacy`.\n\nAvoid big-bang rewrite unless dual-running/compatibility is more dangerous than replacement."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-1072; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1113",
       "path": "source-runtime/core/PATCH_DISCIPLINE.md",
       "sha256": "781bc87b1be0dbec22e68b4eab97641812936fe48aab4553597fae6848633aa2",
       "bytes": 614,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1113-U01",
+          "source_path": "canonical/source-runtime/core/PATCH_DISCIPLINE.md",
+          "source_sha256": "781bc87b1be0dbec22e68b4eab97641812936fe48aab4553597fae6848633aa2",
+          "source_heading": "Patch Discipline",
+          "source_fragment": "# Patch Discipline",
+          "meaning": "Inspect first, minimal coherent authorized behavioral patch, actual architecture/consumer compatibility and no speculative single-consumer abstraction; intentional generated/lockfiles and review after format/codegen. Source unconditional test update superseded by current permission-bound test phase.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Inspect first, minimal coherent authorized behavioral patch, actual architecture/consumer compatibility and no speculative single-consumer abstraction; intentional generated/lockfiles and review after format/codegen. Source unconditional test update superseded by current permission-bound test phase.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0879 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Patch Discipline\n\n- inspect before editing;\n- preserve existing local architecture unless a violated invariant requires change;\n- prefer the smallest coherent behavioral patch;\n- do not combine cleanup with functional changes unless necessary for correctness;\n- do not introduce abstractions with one speculative consumer;\n- update tests at the observable contract boundary;\n- keep generated files and package locks intentional;\n- preserve public API/source compatibility unless migration is explicit;\n- review `git diff` after formatting/codegen;\n- identify every changed file that has a distinct risk profile."
+          ]
+        },
+        {
+          "unit_id": "LIB-1113-U02",
+          "source_path": "canonical/source-runtime/core/PATCH_DISCIPLINE.md",
+          "source_sha256": "781bc87b1be0dbec22e68b4eab97641812936fe48aab4553597fae6848633aa2",
+          "source_heading": "Patch Discipline",
+          "source_fragment": "# Patch Discipline",
+          "meaning": "Historical patch-list packaging and unconditional update-tests prescription retained; current permission-bound test-writing phase prevails, no formatting/codegen or source mutation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical patch-list packaging and unconditional update-tests prescription retained; current permission-bound test-writing phase prevails, no formatting/codegen or source mutation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0879 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Patch Discipline\n\n- inspect before editing;\n- preserve existing local architecture unless a violated invariant requires change;\n- prefer the smallest coherent behavioral patch;\n- do not combine cleanup with functional changes unless necessary for correctness;\n- do not introduce abstractions with one speculative consumer;\n- update tests at the observable contract boundary;\n- keep generated files and package locks intentional;\n- preserve public API/source compatibility unless migration is explicit;\n- review `git diff` after formatting/codegen;\n- identify every changed file that has a distinct risk profile."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0879; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1114",
       "path": "source-runtime/core/QUALITY_STANDARD.md",
       "sha256": "c16cf40c580cfdd76dcf398c232cb1509e4509f9ddac425414e24ddf5804876a",
       "bytes": 9780,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1114-U01",
+          "source_path": "canonical/source-runtime/core/QUALITY_STANDARD.md",
+          "source_sha256": "c16cf40c580cfdd76dcf398c232cb1509e4509f9ddac425414e24ddf5804876a",
+          "source_heading": "Единый стандарт качества iOS-кода",
+          "source_fragment": "# Единый стандарт качества iOS-кода",
+          "meaning": "Actual correctness/availability/narrow types/isolation/ARC/cancellation/reentrancy/one-shot bridging, minimal architecture and UI identity/lifecycle, recoverable errors and domain states, deterministic permitted evidence, measured resource costs, privacy/supply-chain/accessibility/localization/observable and reviewable consumers. Historical local-skill override hierarchy, unchecked invariant exception, unconditional test-writing/running/SwiftPM preference and evidence-independent done claim superseded; no framework/tool/source change.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual correctness/availability/narrow types/isolation/ARC/cancellation/reentrancy/one-shot bridging, minimal architecture and UI identity/lifecycle, recoverable errors and domain states, deterministic permitted evidence, measured resource costs, privacy/supply-chain/accessibility/localization/observable and reviewable consumers. Historical local-skill override hierarchy, unchecked invariant exception, unconditional test-writing/running/SwiftPM preference and evidence-independent done claim superseded; no framework/tool/source change.",
+          "destination_path": "reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+          "destination_heading": "Universal change contract; Quality gates",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1076 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+              "headings": [
+                "Universal change contract",
+                "Quality gates"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Type And API Decisions",
+                "Ownership And Memory",
+                "Error And Result Design"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Task Ownership",
+                "Cancellation",
+                "Continuations And Callbacks"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Ownership And Identity Review",
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Единый стандарт качества iOS-кода\n\nЭтот документ обязателен для всех skills/prompts библиотеки. Если локальный skill не переопределяет правило явно, действует этот стандарт.\n\n## 1. Correctness first\n- Не выдумывать API, типы, атрибуты, availability или поведение SDK. Если есть сомнение — обозначить его и проверить по доступной документации/SDK.\n- Код должен компилироваться в заявленной конфигурации проекта. Не оставлять псевдокод в production-решении без явной маркировки.\n- Сохранять существующие инварианты, публичные контракты и пользовательское поведение, если задача не требует их изменения.\n- Учитывать minimum deployment target и делать availability-gating для новых API.\n\n## 2. Swift и типобезопасность\n- Предпочитать value semantics, immutable state и узкие типы.\n- Избегать `Any`, stringly-typed контрактов, force-cast/force-unwrap и неявных предположений. Допускать их только при доказанном инварианте и документировать причину.\n- Использовать expressive enums, Result/throws, generics/protocols там, где они уменьшают количество недопустимых состояний, а не ради абстракции.\n- Соблюдать Swift API Design Guidelines и единообразное именование.\n\n## 3. Swift 6 concurrency safety\n- По умолчанию проектировать код так, чтобы он проходил strict concurrency checking в Swift 6 language mode.\n- Явно определять actor isolation и владельца mutable state. Не использовать `@unchecked Sendable` как способ скрыть проблему; каждое применение требует доказанного инварианта.\n- Учитывать cancellation, structured concurrency, task lifetime, priority inheritance и reentrancy.\n- Не создавать `Task.detached` без конкретной причины. Не использовать continuation там, где есть native async API; checked continuation должен resume ровно один раз.\n- UI-state и UIKit/SwiftUI interaction — с корректной MainActor isolation.\n\n## 4. Ownership, ARC, memory\n- Проверять retain cycles: closures, delegates, timers, NotificationCenter, Combine/AsyncSequence, tasks, coordinators, cached objects.\n- `weak`/`unowned` выбирать по реальному lifetime-инварианту. `unowned` — только когда lifetime гарантирован.\n- Не держать тяжёлые объекты, изображения, декодированные буферы и сетевые payload дольше необходимого.\n\n## 5. Архитектура\n- Не навязывать MVVM/Clean/VIPER/TCA или иной паттерн без причин. Архитектура должна соответствовать размеру команды, сложности feature, тестируемости и существующему проекту.\n- Dependency direction должен быть явным. Feature не должен знать лишнее о concrete infrastructure.\n- Не создавать слой/протокол/репозиторий/фасад, если он не уменьшает связность, не даёт test seam и не защищает контракт.\n- Feature boundaries должны быть понятны из структуры модулей и зависимостей.\n\n## 6. SwiftUI/UIKit\n- В SwiftUI источник истины должен быть единственным и владение состоянием — очевидным. Современная Observation-модель предпочтительна там, где доступна и подходит deployment target.\n- Не лечить неправильную модель данных множеством `onChange`, `id`, manual refresh и глобальных observable singletons.\n- UIKit: корректный lifecycle, containment, appearance forwarding, diffable data source/modern collection APIs, безопасная работа с Auto Layout.\n- Любой bridge SwiftUI↔UIKit должен иметь ясный ownership и lifecycle.\n\n## 7. Ошибки и UX\n- Ошибки делить на recoverable/non-recoverable и user-facing/internal. Не терять первопричину.\n- Не показывать пользователю технические тексты ошибок. Для retry/idempotency учитывать семантику операции.\n- Loading/empty/error/success/offline состояния должны быть определены для асинхронных экранов.\n\n## 8. Тестирование\n- Новая бизнес-логика должна иметь unit tests; интеграционные границы — integration tests; критические пользовательские пути — UI tests.\n- Предпочитать Swift Testing для новых unit/integration тестов, сохраняя XCTest/XCUI там, где он нужен или уже является стандартом проекта.\n- Тесты должны быть deterministic, независимыми от порядка, часового пояса, локали, реальной сети и wall-clock без явного контроля.\n- Проверять happy path, edge cases, cancellation, retries, serialization, race-prone paths и error mapping.\n\n## 9. Performance\n- Не оптимизировать вслепую. Сначала измерение: Instruments, signposts, MetricKit/production metrics, memory graph, allocations, Time Profiler.\n- Учитывать launch time, scrolling hitching, main-thread stalls, image decoding, database fetch size, network payload, battery/thermal impact.\n- Избегать N+1, repeated work в `body`, лишней invalidation и тяжёлых synchronous операций на main actor.\n\n## 10. Security & privacy\n- Секреты не хранить в source code/UserDefaults/plain files. Использовать Keychain/Secure Enclave подходяще задаче.\n- Не логировать access tokens, refresh tokens, PII, платежные данные и чувствительные payload.\n- Валидировать server trust/security решения осторожно; не отключать ATS/verification ради \"починки\".\n- PrivacyInfo.xcprivacy, collected data, tracking, required-reason APIs и third-party SDK privacy должны рассматриваться как часть Definition of Done.\n- Минимизировать данные и разрешения; permission запрашивать в момент ценности для пользователя.\n\n## 11. Accessibility, localization, internationalization\n- VoiceOver, Dynamic Type, contrast, Reduce Motion, accessibility labels/values/actions и focus order — не \"полировка\", а часть функциональности.\n- UI не должен зависеть от фиксированной длины текста. Поддерживать pluralization, RTL, locale-aware dates/numbers/currency.\n\n## 12. Observability\n- Использовать структурированное логирование с subsystem/category и privacy modifiers.\n- Для значимых интервалов — signposts. Для production quality — crash diagnostics, MetricKit/telemetry в рамках privacy policy.\n- Логи должны помогать восстановить state transition, но не раскрывать чувствительные данные.\n\n## 13. Dependencies & supply chain\n- Новая dependency требует обоснования: maintenance, license, privacy manifest, binary size, transitive deps, concurrency readiness, platform support.\n- Предпочитать системные SDK и Swift Package Manager, если это снижает риск и сложность.\n- Версии зависимостей фиксировать предсказуемо; обновления проверять CI и regression tests.\n\n## 14. Reviewability\n- Делать минимальный осмысленный diff. Не смешивать feature, массовое форматирование и unrelated refactor.\n- В ответе агента указывать: что изменено, почему, риски, как проверено, что осталось непроверенным.\n- Не подавлять warnings, lints или tests без объяснения причины.\n\n## 15. Definition of Done\nРешение готово только если: корректно компилируется, проходит релевантные тесты, не ухудшает concurrency/memory/security/privacy/accessibility, учитывает availability, имеет наблюдаемость для критических путей и не добавляет неоправданную сложность."
+          ]
+        },
+        {
+          "unit_id": "LIB-1114-U02",
+          "source_path": "canonical/source-runtime/core/QUALITY_STANDARD.md",
+          "source_sha256": "c16cf40c580cfdd76dcf398c232cb1509e4509f9ddac425414e24ddf5804876a",
+          "source_heading": "Единый стандарт качества iOS-кода",
+          "source_fragment": "# Единый стандарт качества iOS-кода",
+          "meaning": "Historical mandatory Library master/quality/protocol stack and fixed modes/risk/evidence recipes archived; current hierarchy, strict DEC-001 and task-specific permission prevail over unchecked exceptions, automatic tests/builds/instrumentation, framework preference or done claims.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical mandatory Library master/quality/protocol stack and fixed modes/risk/evidence recipes archived; current hierarchy, strict DEC-001 and task-specific permission prevail over unchecked exceptions, automatic tests/builds/instrumentation, framework preference or done claims.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1076 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Единый стандарт качества iOS-кода\n\nЭтот документ обязателен для всех skills/prompts библиотеки. Если локальный skill не переопределяет правило явно, действует этот стандарт.\n\n## 1. Correctness first\n- Не выдумывать API, типы, атрибуты, availability или поведение SDK. Если есть сомнение — обозначить его и проверить по доступной документации/SDK.\n- Код должен компилироваться в заявленной конфигурации проекта. Не оставлять псевдокод в production-решении без явной маркировки.\n- Сохранять существующие инварианты, публичные контракты и пользовательское поведение, если задача не требует их изменения.\n- Учитывать minimum deployment target и делать availability-gating для новых API.\n\n## 2. Swift и типобезопасность\n- Предпочитать value semantics, immutable state и узкие типы.\n- Избегать `Any`, stringly-typed контрактов, force-cast/force-unwrap и неявных предположений. Допускать их только при доказанном инварианте и документировать причину.\n- Использовать expressive enums, Result/throws, generics/protocols там, где они уменьшают количество недопустимых состояний, а не ради абстракции.\n- Соблюдать Swift API Design Guidelines и единообразное именование.\n\n## 3. Swift 6 concurrency safety\n- По умолчанию проектировать код так, чтобы он проходил strict concurrency checking в Swift 6 language mode.\n- Явно определять actor isolation и владельца mutable state. Не использовать `@unchecked Sendable` как способ скрыть проблему; каждое применение требует доказанного инварианта.\n- Учитывать cancellation, structured concurrency, task lifetime, priority inheritance и reentrancy.\n- Не создавать `Task.detached` без конкретной причины. Не использовать continuation там, где есть native async API; checked continuation должен resume ровно один раз.\n- UI-state и UIKit/SwiftUI interaction — с корректной MainActor isolation.\n\n## 4. Ownership, ARC, memory\n- Проверять retain cycles: closures, delegates, timers, NotificationCenter, Combine/AsyncSequence, tasks, coordinators, cached objects.\n- `weak`/`unowned` выбирать по реальному lifetime-инварианту. `unowned` — только когда lifetime гарантирован.\n- Не держать тяжёлые объекты, изображения, декодированные буферы и сетевые payload дольше необходимого.\n\n## 5. Архитектура\n- Не навязывать MVVM/Clean/VIPER/TCA или иной паттерн без причин. Архитектура должна соответствовать размеру команды, сложности feature, тестируемости и существующему проекту.\n- Dependency direction должен быть явным. Feature не должен знать лишнее о concrete infrastructure.\n- Не создавать слой/протокол/репозиторий/фасад, если он не уменьшает связность, не даёт test seam и не защищает контракт.\n- Feature boundaries должны быть понятны из структуры модулей и зависимостей.\n\n## 6. SwiftUI/UIKit\n- В SwiftUI источник истины должен быть единственным и владение состоянием — очевидным. Современная Observation-модель предпочтительна там, где доступна и подходит deployment target.\n- Не лечить неправильную модель данных множеством `onChange`, `id`, manual refresh и глобальных observable singletons.\n- UIKit: корректный lifecycle, containment, appearance forwarding, diffable data source/modern collection APIs, безопасная работа с Auto Layout.\n- Любой bridge SwiftUI↔UIKit должен иметь ясный ownership и lifecycle.\n\n## 7. Ошибки и UX\n- Ошибки делить на recoverable/non-recoverable и user-facing/internal. Не терять первопричину.\n- Не показывать пользователю технические тексты ошибок. Для retry/idempotency учитывать семантику операции.\n- Loading/empty/error/success/offline состояния должны быть определены для асинхронных экранов.\n\n## 8. Тестирование\n- Новая бизнес-логика должна иметь unit tests; интеграционные границы — integration tests; критические пользовательские пути — UI tests.\n- Предпочитать Swift Testing для новых unit/integration тестов, сохраняя XCTest/XCUI там, где он нужен или уже является стандартом проекта.\n- Тесты должны быть deterministic, независимыми от порядка, часового пояса, локали, реальной сети и wall-clock без явного контроля.\n- Проверять happy path, edge cases, cancellation, retries, serialization, race-prone paths и error mapping.\n\n## 9. Performance\n- Не оптимизировать вслепую. Сначала измерение: Instruments, signposts, MetricKit/production metrics, memory graph, allocations, Time Profiler.\n- Учитывать launch time, scrolling hitching, main-thread stalls, image decoding, database fetch size, network payload, battery/thermal impact.\n- Избегать N+1, repeated work в `body`, лишней invalidation и тяжёлых synchronous операций на main actor.\n\n## 10. Security & privacy\n- Секреты не хранить в source code/UserDefaults/plain files. Использовать Keychain/Secure Enclave подходяще задаче.\n- Не логировать access tokens, refresh tokens, PII, платежные данные и чувствительные payload.\n- Валидировать server trust/security решения осторожно; не отключать ATS/verification ради \"починки\".\n- PrivacyInfo.xcprivacy, collected data, tracking, required-reason APIs и third-party SDK privacy должны рассматриваться как часть Definition of Done.\n- Минимизировать данные и разрешения; permission запрашивать в момент ценности для пользователя.\n\n## 11. Accessibility, localization, internationalization\n- VoiceOver, Dynamic Type, contrast, Reduce Motion, accessibility labels/values/actions и focus order — не \"полировка\", а часть функциональности.\n- UI не должен зависеть от фиксированной длины текста. Поддерживать pluralization, RTL, locale-aware dates/numbers/currency.\n\n## 12. Observability\n- Использовать структурированное логирование с subsystem/category и privacy modifiers.\n- Для значимых интервалов — signposts. Для production quality — crash diagnostics, MetricKit/telemetry в рамках privacy policy.\n- Логи должны помогать восстановить state transition, но не раскрывать чувствительные данные.\n\n## 13. Dependencies & supply chain\n- Новая dependency требует обоснования: maintenance, license, privacy manifest, binary size, transitive deps, concurrency readiness, platform support.\n- Предпочитать системные SDK и Swift Package Manager, если это снижает риск и сложность.\n- Версии зависимостей фиксировать предсказуемо; обновления проверять CI и regression tests.\n\n## 14. Reviewability\n- Делать минимальный осмысленный diff. Не смешивать feature, массовое форматирование и unrelated refactor.\n- В ответе агента указывать: что изменено, почему, риски, как проверено, что осталось непроверенным.\n- Не подавлять warnings, lints или tests без объяснения причины.\n\n## 15. Definition of Done\nРешение готово только если: корректно компилируется, проходит релевантные тесты, не ухудшает concurrency/memory/security/privacy/accessibility, учитывает availability, имеет наблюдаемость для критических путей и не добавляет неоправданную сложность."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-1076; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1115",
       "path": "source-runtime/core/REPOSITORY_INSPECTION_PROTOCOL.md",
       "sha256": "5b58b3db5bc99354f61014cd84bd1f50b09b014ee5c3f4630979d237bf4cf8b6",
       "bytes": 2814,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1115-U01",
+          "source_path": "canonical/source-runtime/core/REPOSITORY_INSPECTION_PROTOCOL.md",
+          "source_sha256": "5b58b3db5bc99354f61014cd84bd1f50b09b014ee5c3f4630979d237bf4cf8b6",
+          "source_heading": "Repository Inspection Protocol",
+          "source_fragment": "# Repository Inspection Protocol",
+          "meaning": "Inspect task-relevant actual target/toolchain/CI and existing analogues without treating folders as architecture; trace mutable-state/effect/storage/output owners, actor/lifetime/cancellation/error/cache and affected direct/reverse/public/generated/serialization consumers. Existing test/operation maps are evidence inputs, no extra mandatory broad pass or execution grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Inspect task-relevant actual target/toolchain/CI and existing analogues without treating folders as architecture; trace mutable-state/effect/storage/output owners, actor/lifetime/cancellation/error/cache and affected direct/reverse/public/generated/serialization consumers. Existing test/operation maps are evidence inputs, no extra mandatory broad pass or execution grant.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1077 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Reproducibility And CI"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Repository Inspection Protocol\n\nЦель — заставить coding agent понять реальный проект до генерации кода.\n\n## Шаг 1. Карта репозитория\nНайди:\n- `.xcworkspace`, `.xcodeproj`, `Package.swift`;\n- app/framework/extension/test targets;\n- schemes и CI entry points;\n- `project.yml`, `Tuist`, `Package.swift`, CocoaPods/Cartfile при наличии;\n- lint/format/build scripts;\n- `AGENTS.md`, contributing docs, architecture ADRs.\n\n## Шаг 2. Toolchain и platform contract\nОпредели:\n- Swift language version;\n- Xcode/SDK pinning;\n- iOS/iPadOS/watchOS/visionOS/macOS deployment targets;\n- strict concurrency settings/upcoming features;\n- warnings-as-errors, sanitizers, test plans.\n\n## Шаг 3. Найди «локальный пример»\nДля любой новой сущности сначала ищи 1–3 существующих аналога:\n- screen/view model/feature;\n- endpoint/auth flow;\n- persistence model/migration;\n- background task;\n- dependency injection;\n- test fixture.\n\nЛокальная consistency предпочтительнее абстрактного «best practice», пока она не нарушает correctness/security.\n\n## Шаг 4. Source-of-truth map\nДля затронутой feature нарисуй текстовую цепочку:\n`Input/Event → Owner of mutable state → Transformation/effect → Persistence/network → UI/output`.\n\nОтметь:\n- кто мутирует state;\n- actor/thread boundary;\n- lifetime;\n- cancellation owner;\n- error mapping;\n- caching/invalidation.\n\n## Шаг 5. Dependency map\nНайди прямые и обратные зависимости изменяемого типа/API. Для public/shared API обязательно ищи:\n- all call sites;\n- conformances;\n- mocks/fakes;\n- Objective-C exposure;\n- extensions/widgets/watch/App Clip;\n- serialization/storage coupling.\n\n## Шаг 6. Test map\nОпредели:\n- ближайшие unit/integration/UI tests;\n- test doubles;\n- fixtures;\n- clocks/random/UUID abstractions;\n- CI test plan;\n- flaky/quarantined tests.\n\n## Шаг 7. Operational map\nПроверь:\n- logs/signposts/metrics;\n- crash SDK;\n- analytics/feature flags;\n- rollout/kill switch;\n- migration telemetry.\n\n## Anti-patterns\n- начать писать новый `Service` до поиска существующего;\n- считать имя папки архитектурным контрактом;\n- рефакторить соседний код «заодно»;\n- копировать паттерн из другого проекта, игнорируя текущий deployment target;\n- ориентироваться только на один файл, не читая consumer/producer boundary."
+          ]
+        },
+        {
+          "unit_id": "LIB-1115-U02",
+          "source_path": "canonical/source-runtime/core/REPOSITORY_INSPECTION_PROTOCOL.md",
+          "source_sha256": "5b58b3db5bc99354f61014cd84bd1f50b09b014ee5c3f4630979d237bf4cf8b6",
+          "source_heading": "Repository Inspection Protocol",
+          "source_fragment": "# Repository Inspection Protocol",
+          "meaning": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1077 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Repository Inspection Protocol\n\nЦель — заставить coding agent понять реальный проект до генерации кода.\n\n## Шаг 1. Карта репозитория\nНайди:\n- `.xcworkspace`, `.xcodeproj`, `Package.swift`;\n- app/framework/extension/test targets;\n- schemes и CI entry points;\n- `project.yml`, `Tuist`, `Package.swift`, CocoaPods/Cartfile при наличии;\n- lint/format/build scripts;\n- `AGENTS.md`, contributing docs, architecture ADRs.\n\n## Шаг 2. Toolchain и platform contract\nОпредели:\n- Swift language version;\n- Xcode/SDK pinning;\n- iOS/iPadOS/watchOS/visionOS/macOS deployment targets;\n- strict concurrency settings/upcoming features;\n- warnings-as-errors, sanitizers, test plans.\n\n## Шаг 3. Найди «локальный пример»\nДля любой новой сущности сначала ищи 1–3 существующих аналога:\n- screen/view model/feature;\n- endpoint/auth flow;\n- persistence model/migration;\n- background task;\n- dependency injection;\n- test fixture.\n\nЛокальная consistency предпочтительнее абстрактного «best practice», пока она не нарушает correctness/security.\n\n## Шаг 4. Source-of-truth map\nДля затронутой feature нарисуй текстовую цепочку:\n`Input/Event → Owner of mutable state → Transformation/effect → Persistence/network → UI/output`.\n\nОтметь:\n- кто мутирует state;\n- actor/thread boundary;\n- lifetime;\n- cancellation owner;\n- error mapping;\n- caching/invalidation.\n\n## Шаг 5. Dependency map\nНайди прямые и обратные зависимости изменяемого типа/API. Для public/shared API обязательно ищи:\n- all call sites;\n- conformances;\n- mocks/fakes;\n- Objective-C exposure;\n- extensions/widgets/watch/App Clip;\n- serialization/storage coupling.\n\n## Шаг 6. Test map\nОпредели:\n- ближайшие unit/integration/UI tests;\n- test doubles;\n- fixtures;\n- clocks/random/UUID abstractions;\n- CI test plan;\n- flaky/quarantined tests.\n\n## Шаг 7. Operational map\nПроверь:\n- logs/signposts/metrics;\n- crash SDK;\n- analytics/feature flags;\n- rollout/kill switch;\n- migration telemetry.\n\n## Anti-patterns\n- начать писать новый `Service` до поиска существующего;\n- считать имя папки архитектурным контрактом;\n- рефакторить соседний код «заодно»;\n- копировать паттерн из другого проекта, игнорируя текущий deployment target;\n- ориентироваться только на один файл, не читая consumer/producer boundary."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-1077; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1116",
       "path": "source-runtime/core/SKILL_TO_LIBRARY_MAP.md",
       "sha256": "71cdb61a0ad6b24ebda6b79f2dc07e4a7a1afeedcaf9d69cd6f3577e7885aeeb",
       "bytes": 6587,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1116-U01",
+          "source_path": "canonical/source-runtime/core/SKILL_TO_LIBRARY_MAP.md",
+          "source_sha256": "71cdb61a0ad6b24ebda6b79f2dc07e4a7a1afeedcaf9d69cd6f3577e7885aeeb",
+          "source_heading": "Skill → Deep Library Map",
+          "source_fragment": "# Skill → Deep Library Map",
+          "meaning": "Full unique forty-link skill/deep map: selective narrow actual relevant route, no bulk directories. Historical namespaced paths/full-profile infrastructure pointers archived; indexed linked bodies do not become reviewed or extra mandatory Library pass.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full unique forty-link skill/deep map: selective narrow actual relevant route, no bulk directories. Historical namespaced paths/full-profile infrastructure pointers archived; indexed linked bodies do not become reviewed or extra mandatory Library pass.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule",
+          "required_verification": "Unique runtime master/map full body independently read; source SHA/literals/current semantic owner/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No installation, runtime, tests or mandatory layer activated.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Active Authority And Historical Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Skill → Deep Library Map\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nIf `.ai/ios-library/` is installed, use this map to choose a narrow deep reference. Do not bulk-load directories.\n\n- `ioslib-swift-concurrency` → `.ai/ios-library/03_CONCURRENCY/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-architecture` → `.ai/ios-library/04_ARCHITECTURE/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-swiftui` → `.ai/ios-library/05_SWIFTUI/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-uikit` → `.ai/ios-library/06_UIKIT/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-navigation` → `.ai/ios-library/07_NAVIGATION_DEEPLINKS/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-networking-auth` → `.ai/ios-library/08_NETWORKING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-api-contract` → `.ai/ios-library/01_DISCOVERY_PRODUCT/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-persistence` → `.ai/ios-library/09_PERSISTENCE_DATA/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-data-migration` → `.ai/ios-library/20_MIGRATION_LEGACY/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-offline-sync` → `.ai/ios-library/09_PERSISTENCE_DATA/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-testing` → `.ai/ios-library/10_TESTING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-test-flake` → `.ai/ios-library/10_TESTING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-performance` → `.ai/ios-library/11_PERFORMANCE_MEMORY/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-memory-leaks` → `.ai/ios-library/11_PERFORMANCE_MEMORY/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-security-privacy` → `.ai/ios-library/12_SECURITY_PRIVACY/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-accessibility-localization` → `.ai/ios-library/13_ACCESSIBILITY_LOCALIZATION/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-dependencies` → `.ai/ios-library/28_ECOSYSTEM_INTEROP/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-modularity-spm` → `.ai/ios-library/16_BUILD_MODULARITY_TOOLING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-build-ci` → `.ai/ios-library/17_CI_CD_RELEASE/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-release` → `.ai/ios-library/17_CI_CD_RELEASE/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-hotfix-release` → `.ai/ios-library/17_CI_CD_RELEASE/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-feature-flags` → `.ai/ios-library/01_DISCOVERY_PRODUCT/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-observability` → `.ai/ios-library/18_OBSERVABILITY_DEBUGGING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-storekit` → `.ai/ios-library/14_PLATFORM_SERVICES/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-app-intents` → `.ai/ios-library/14_PLATFORM_SERVICES/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-ai-ml` → `.ai/ios-library/15_AI_INTELLIGENCE/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-media-graphics` → `.ai/ios-library/25_MEDIA_GRAPHICS/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-system-integrations` → `.ai/ios-library/27_SYSTEM_INTEGRATION/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-sdk-api` → `.ai/ios-library/28_ECOSYSTEM_INTEROP/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-legacy-modernization` → `.ai/ios-library/20_MIGRATION_LEGACY/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-background-execution` → `.ai/ios-library/14_PLATFORM_SERVICES/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-design-system` → `.ai/ios-library/29_DESIGN_SYSTEM/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-code-review` → `.ai/ios-library/19_CODE_REVIEW_REFACTOR/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-pr-review` → `.ai/ios-library/19_CODE_REVIEW_REFACTOR/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-diagnostic` → `.ai/ios-library/18_OBSERVABILITY_DEBUGGING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-crash-debugging` → `.ai/ios-library/18_OBSERVABILITY_DEBUGGING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-implementation` → `.ai/ios-library/21_AGENT_WORKFLOWS/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-change-plan` → `.ai/ios-library/21_AGENT_WORKFLOWS/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-repo-intake` → `.ai/ios-library/21_AGENT_WORKFLOWS/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-task-router` → `.ai/ios-library/21_AGENT_WORKFLOWS/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`"
+          ]
+        },
+        {
+          "unit_id": "LIB-1116-U02",
+          "source_path": "canonical/source-runtime/core/SKILL_TO_LIBRARY_MAP.md",
+          "source_sha256": "71cdb61a0ad6b24ebda6b79f2dc07e4a7a1afeedcaf9d69cd6f3577e7885aeeb",
+          "source_heading": "Skill → Deep Library Map",
+          "source_fragment": "# Skill → Deep Library Map",
+          "meaning": "Historical forty namespaced skill-to-deep-directory/playbook pointers and global shim/state/install aliases preserved; source full-profile routing map not current installation or extra required Library pass. Linked bodies remain independently reviewed, not inferred from this map.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical forty namespaced skill-to-deep-directory/playbook pointers and global shim/state/install aliases preserved; source full-profile routing map not current installation or extra required Library pass. Linked bodies remain independently reviewed, not inferred from this map.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Unique runtime master/map full body independently read; source SHA/literals/current semantic owner/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No installation, runtime, tests or mandatory layer activated.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Skill → Deep Library Map\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nIf `.ai/ios-library/` is installed, use this map to choose a narrow deep reference. Do not bulk-load directories.\n\n- `ioslib-swift-concurrency` → `.ai/ios-library/03_CONCURRENCY/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-architecture` → `.ai/ios-library/04_ARCHITECTURE/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-swiftui` → `.ai/ios-library/05_SWIFTUI/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-uikit` → `.ai/ios-library/06_UIKIT/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-navigation` → `.ai/ios-library/07_NAVIGATION_DEEPLINKS/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-networking-auth` → `.ai/ios-library/08_NETWORKING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-api-contract` → `.ai/ios-library/01_DISCOVERY_PRODUCT/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-persistence` → `.ai/ios-library/09_PERSISTENCE_DATA/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-data-migration` → `.ai/ios-library/20_MIGRATION_LEGACY/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-offline-sync` → `.ai/ios-library/09_PERSISTENCE_DATA/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-testing` → `.ai/ios-library/10_TESTING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-test-flake` → `.ai/ios-library/10_TESTING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-performance` → `.ai/ios-library/11_PERFORMANCE_MEMORY/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-memory-leaks` → `.ai/ios-library/11_PERFORMANCE_MEMORY/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-security-privacy` → `.ai/ios-library/12_SECURITY_PRIVACY/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-accessibility-localization` → `.ai/ios-library/13_ACCESSIBILITY_LOCALIZATION/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-dependencies` → `.ai/ios-library/28_ECOSYSTEM_INTEROP/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-modularity-spm` → `.ai/ios-library/16_BUILD_MODULARITY_TOOLING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-build-ci` → `.ai/ios-library/17_CI_CD_RELEASE/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-release` → `.ai/ios-library/17_CI_CD_RELEASE/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-hotfix-release` → `.ai/ios-library/17_CI_CD_RELEASE/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-feature-flags` → `.ai/ios-library/01_DISCOVERY_PRODUCT/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-observability` → `.ai/ios-library/18_OBSERVABILITY_DEBUGGING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-storekit` → `.ai/ios-library/14_PLATFORM_SERVICES/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-app-intents` → `.ai/ios-library/14_PLATFORM_SERVICES/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-ai-ml` → `.ai/ios-library/15_AI_INTELLIGENCE/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-media-graphics` → `.ai/ios-library/25_MEDIA_GRAPHICS/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-system-integrations` → `.ai/ios-library/27_SYSTEM_INTEGRATION/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-sdk-api` → `.ai/ios-library/28_ECOSYSTEM_INTEROP/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-legacy-modernization` → `.ai/ios-library/20_MIGRATION_LEGACY/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-background-execution` → `.ai/ios-library/14_PLATFORM_SERVICES/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-design-system` → `.ai/ios-library/29_DESIGN_SYSTEM/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-code-review` → `.ai/ios-library/19_CODE_REVIEW_REFACTOR/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-pr-review` → `.ai/ios-library/19_CODE_REVIEW_REFACTOR/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-diagnostic` → `.ai/ios-library/18_OBSERVABILITY_DEBUGGING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-crash-debugging` → `.ai/ios-library/18_OBSERVABILITY_DEBUGGING/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-implementation` → `.ai/ios-library/21_AGENT_WORKFLOWS/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-change-plan` → `.ai/ios-library/21_AGENT_WORKFLOWS/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-repo-intake` → `.ai/ios-library/21_AGENT_WORKFLOWS/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`\n- `ioslib-task-router` → `.ai/ios-library/21_AGENT_WORKFLOWS/` + matching `.ai/ios-library/31_DEEP_PLAYBOOKS/OP-IOS-*`"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete unique runtime master/map body independently fully read; useful selective/current contract covered, obsolete mandatory layers/aliases/unsafe allowances archived, no pointer-based linked-body review."
     },
     {
       "source_id": "LIB-1117",
       "path": "source-runtime/core/TASK_ROUTING_MATRIX.md",
       "sha256": "f6a0968f0b136c68dcffba137936b61317663f0b844251f6215f9b366be09ada",
       "bytes": 1041,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1117-U01",
+          "source_path": "canonical/source-runtime/core/TASK_ROUTING_MATRIX.md",
+          "source_sha256": "f6a0968f0b136c68dcffba137936b61317663f0b844251f6215f9b366be09ada",
+          "source_heading": "Task Routing Matrix",
+          "source_fragment": "# Task Routing Matrix",
+          "meaning": "Outcome/risk boundary routes selectively to smallest current owner, another route only distinct relevant risk. Old namespaced matrix fixed framework/skill mappings archived, no separate obligatory Library pass or skill invocation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Outcome/risk boundary routes selectively to smallest current owner, another route only distinct relevant risk. Old namespaced matrix fixed framework/skill mappings archived, no separate obligatory Library pass or skill invocation.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0881 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Task Routing Matrix\n\n| Task | Primary skill | Often compose with |\n|---|---|---|\n| Feature implementation | `ioslib-implementation` | architecture, testing, domain skill |\n| PR/diff review | `ioslib-pr-review` | concurrency, security, persistence, API contract |\n| Crash/hang | `ioslib-crash-debugging` | diagnostic, concurrency, memory |\n| Race/isolation | `ioslib-swift-concurrency` | diagnostic, testing |\n| SwiftUI behavior/state | `ioslib-swiftui` | architecture, testing, accessibility |\n| Auth/token/session | `ioslib-networking-auth` | security-privacy, concurrency, testing |\n| Schema/data migration | `ioslib-data-migration` | persistence, release, observability |\n| Performance regression | `ioslib-performance` | observability, memory-leaks |\n| Legacy modernization | `ioslib-legacy-modernization` | migration, architecture, testing |\n| Release/hotfix | `ioslib-hotfix-release` / `ioslib-release` | observability, feature-flags, security |\n\nStart with one primary skill. Add another only when it owns a distinct risk boundary."
+          ]
+        },
+        {
+          "unit_id": "LIB-1117-U02",
+          "source_path": "canonical/source-runtime/core/TASK_ROUTING_MATRIX.md",
+          "source_sha256": "f6a0968f0b136c68dcffba137936b61317663f0b844251f6215f9b366be09ada",
+          "source_heading": "Task Routing Matrix",
+          "source_fragment": "# Task Routing Matrix",
+          "meaning": "Historical namespaced task-to-skill composition matrix retained; referenced skill bodies reviewed separately, no linked-body coverage or mandatory Library loading from matrix.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced task-to-skill composition matrix retained; referenced skill bodies reviewed separately, no linked-body coverage or mandatory Library loading from matrix.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0881 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Task Routing Matrix\n\n| Task | Primary skill | Often compose with |\n|---|---|---|\n| Feature implementation | `ioslib-implementation` | architecture, testing, domain skill |\n| PR/diff review | `ioslib-pr-review` | concurrency, security, persistence, API contract |\n| Crash/hang | `ioslib-crash-debugging` | diagnostic, concurrency, memory |\n| Race/isolation | `ioslib-swift-concurrency` | diagnostic, testing |\n| SwiftUI behavior/state | `ioslib-swiftui` | architecture, testing, accessibility |\n| Auth/token/session | `ioslib-networking-auth` | security-privacy, concurrency, testing |\n| Schema/data migration | `ioslib-data-migration` | persistence, release, observability |\n| Performance regression | `ioslib-performance` | observability, memory-leaks |\n| Legacy modernization | `ioslib-legacy-modernization` | migration, architecture, testing |\n| Release/hotfix | `ioslib-hotfix-release` / `ioslib-release` | observability, feature-flags, security |\n\nStart with one primary skill. Add another only when it owns a distinct risk boundary."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0881; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1118",
       "path": "source-runtime/core/V2_EXECUTION_PROTOCOL.md",
       "sha256": "c0dfce92cabb204b96396850c7be5bc7a674ed22c9491750ef709b155a4d40ff",
       "bytes": 7243,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1118-U01",
+          "source_path": "canonical/source-runtime/core/V2_EXECUTION_PROTOCOL.md",
+          "source_sha256": "c0dfce92cabb204b96396850c7be5bc7a674ed22c9491750ef709b155a4d40ff",
+          "source_heading": "V2 Execution Protocol — iOS Coding Agent",
+          "source_fragment": "# V2 Execution Protocol — iOS Coding Agent",
+          "meaning": "Actual task facts remain observed/supplied/assumed/unknown, concrete invariants and direct/reverse semantic consumers, simple proportionate alternatives, bounded compatibility/containment with current verification authority. Unknown destructive/auth/payment/ABI/store contract stops dependent action, no guessed fix; diagnostic instrumentation/experiment needs separate current scope, not automatic replacement. Fixed task modes/risk ladders/3-10 form/device-suite demand and unchecked exception archived, no real transition.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual task facts remain observed/supplied/assumed/unknown, concrete invariants and direct/reverse semantic consumers, simple proportionate alternatives, bounded compatibility/containment with current verification authority. Unknown destructive/auth/payment/ABI/store contract stops dependent action, no guessed fix; diagnostic instrumentation/experiment needs separate current scope, not automatic replacement. Fixed task modes/risk ladders/3-10 form/device-suite demand and unchecked exception archived, no real transition.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 1A. PR Risk Card And Scope; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1084 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V2 Execution Protocol — iOS Coding Agent\n\nЭтот протокол превращает skill из справочного текста в воспроизводимый инженерный процесс. Он обязателен для V2 playbooks и рекомендуется для любого skill из V1.\n\n## 0. Выбери режим\nПеред началом явно выбери один основной режим:\n\n- `IMPLEMENTATION` — добавить или изменить поведение.\n- `REVIEW` — найти реальные дефекты/риски в diff и surrounding code без style-noise.\n- `DIAGNOSTIC` — локализовать причину crash/race/hang/leak/data loss/performance regression.\n- `MIGRATION` — изменить технологию/языковой режим/API с контролем совместимости и rollback.\n\nДополнительный режим допускается только если он естественно следует из основного, например `DIAGNOSTIC → IMPLEMENTATION` после доказанной root cause.\n\n## 1. Fact pass — до решений\nНе проектируй по предположениям, если репозиторий доступен. Собери минимум:\n\n1. Xcode/SDK и Swift language mode.\n2. Minimum deployment targets всех затронутых targets.\n3. Workspace/project, schemes, build configurations.\n4. UI stack: SwiftUI/UIKit/bridge.\n5. State ownership и actor isolation.\n6. Архитектурный паттерн и локальные conventions.\n7. Dependency graph и SPM/CocoaPods/binary SDKs.\n8. Test stack и команды CI.\n9. Persistence/network/auth boundaries.\n10. Feature flags, analytics, observability, release constraints.\n\n### Правило доказательства\nФакт должен быть одним из:\n- найден в коде/настройках;\n- подтверждён build/test/tool output;\n- дан пользователем;\n- помечен как предположение.\n\nНе превращай предположение в факт в следующих шагах.\n\n## 2. Change-risk classification\nКлассифицируй изменение:\n\n- **R0 — local mechanical:** rename/local formatting/non-behavioral cleanup.\n- **R1 — isolated behavior:** локальная бизнес-логика, небольшой UI state.\n- **R2 — boundary:** networking, persistence, auth, navigation, public API, concurrency boundary.\n- **R3 — systemic:** migration, shared architecture, data model, security, release pipeline, large concurrency change.\n- **R4 — irreversible/high-impact:** destructive migration, payment/auth/security model, public SDK ABI/API, user-data loss risk.\n\nЧем выше риск, тем больше evidence и rollback обязан предоставить агент.\n\n## 3. Invariant sheet\nДо кода зафиксируй 3–10 инвариантов. Примеры:\n- один refresh token request одновременно;\n- UI state меняется на MainActor;\n- cancellation не превращается в user-visible error;\n- persisted schema остаётся читаемой предыдущей версией, если нужен downgrade;\n- navigation path содержит только стабильные route values;\n- секреты не попадают в logs.\n\nЕсли невозможно назвать инварианты, задача ещё недостаточно понята.\n\n## 4. Blast-radius pass\nДо изменения boundary/public contract найди:\n- call sites;\n- mocks/test doubles;\n- serialization contracts;\n- deep links/routes;\n- persistence schema;\n- feature flags;\n- analytics/event names;\n- availability shims;\n- extension/app clip/widget/watch targets.\n\nНе считай отсутствие compile errors доказательством отсутствия semantic blast radius.\n\n## 5. Design pass\nДля R2+ сравни минимум два варианта по:\n- correctness;\n- complexity;\n- migration cost;\n- testability;\n- concurrency/ownership;\n- performance;\n- security/privacy;\n- rollback/operability.\n\nВыбирай минимально сложный вариант, который защищает инварианты.\n\n## 6. Implementation pass\n- Делай маленькие логические изменения.\n- Не смешивай unrelated refactor.\n- Не расширяй public API без причины.\n- Не вводи protocol/repository/manager только ради абстракции.\n- Не подавляй compiler warning как substitute for design fix.\n- Для async кода проектируй cancellation и task lifetime до написания `Task {}`.\n- Для persisted data сначала migration story, затем model change.\n\n## 7. Verification ladder\nМинимум проверок определяется риском:\n\n### R0\n- compile relevant target или local static validation.\n\n### R1\n- targeted unit tests;\n- build relevant target;\n- happy + key edge path.\n\n### R2\n- targeted + integration tests;\n- strict concurrency/build warnings;\n- failure/cancellation path;\n- boundary compatibility;\n- relevant privacy/security/perf checks.\n\n### R3/R4\n- regression suite;\n- migration/rollback test;\n- representative device/config matrix;\n- observability/feature flag/staged rollout plan;\n- explicit unchecked-risk list.\n\n## 8. Evidence ledger\nФинальный ответ обязан разделять:\n\n### Verified\nТо, что реально подтверждено build/test/log/tool output.\n\n### Reasoned\nТо, что следует из inspection/design, но не было исполнено.\n\n### Unknown\nТо, чего агент не смог проверить.\n\nЗапрещены формулировки «готово», «безопасно», «race-free», «не течёт», если это не подтверждено достаточным evidence.\n\n## 9. Stop conditions\nОстановись и не делай destructive step, если:\n- непонятно, какой store/schema является production source of truth;\n- migration необратима и нет backup/rollback;\n- auth/payment/security контракт не подтверждён;\n- public API/ABI impact неизвестен;\n- предлагается отключить ATS/cert validation/privacy checks;\n- единственное решение требует `@unchecked Sendable` без доказуемого invariant;\n- production defect не воспроизводится, а fix основан только на догадке.\n\nВместо blind change создай diagnostic instrumentation или narrow experiment.\n\n## 10. Output contract\nВсегда возвращай:\n1. `Mode / risk class`.\n2. `Facts and assumptions`.\n3. `Invariants`.\n4. `Decision and alternatives`.\n5. `Changed files / exact scope`.\n6. `Verification evidence`.\n7. `Concurrency / memory / security / privacy / performance impact`.\n8. `Rollback or containment`, если R2+.\n9. `Unknowns / follow-ups`."
+          ]
+        },
+        {
+          "unit_id": "LIB-1118-U02",
+          "source_path": "canonical/source-runtime/core/V2_EXECUTION_PROTOCOL.md",
+          "source_sha256": "c0dfce92cabb204b96396850c7be5bc7a674ed22c9491750ef709b155a4d40ff",
+          "source_heading": "V2 Execution Protocol — iOS Coding Agent",
+          "source_fragment": "# V2 Execution Protocol — iOS Coding Agent",
+          "meaning": "Historical mandatory Library master/quality/protocol stack and fixed modes/risk/evidence recipes archived; current hierarchy, strict DEC-001 and task-specific permission prevail over unchecked exceptions, automatic tests/builds/instrumentation, framework preference or done claims.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical mandatory Library master/quality/protocol stack and fixed modes/risk/evidence recipes archived; current hierarchy, strict DEC-001 and task-specific permission prevail over unchecked exceptions, automatic tests/builds/instrumentation, framework preference or done claims.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1084 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V2 Execution Protocol — iOS Coding Agent\n\nЭтот протокол превращает skill из справочного текста в воспроизводимый инженерный процесс. Он обязателен для V2 playbooks и рекомендуется для любого skill из V1.\n\n## 0. Выбери режим\nПеред началом явно выбери один основной режим:\n\n- `IMPLEMENTATION` — добавить или изменить поведение.\n- `REVIEW` — найти реальные дефекты/риски в diff и surrounding code без style-noise.\n- `DIAGNOSTIC` — локализовать причину crash/race/hang/leak/data loss/performance regression.\n- `MIGRATION` — изменить технологию/языковой режим/API с контролем совместимости и rollback.\n\nДополнительный режим допускается только если он естественно следует из основного, например `DIAGNOSTIC → IMPLEMENTATION` после доказанной root cause.\n\n## 1. Fact pass — до решений\nНе проектируй по предположениям, если репозиторий доступен. Собери минимум:\n\n1. Xcode/SDK и Swift language mode.\n2. Minimum deployment targets всех затронутых targets.\n3. Workspace/project, schemes, build configurations.\n4. UI stack: SwiftUI/UIKit/bridge.\n5. State ownership и actor isolation.\n6. Архитектурный паттерн и локальные conventions.\n7. Dependency graph и SPM/CocoaPods/binary SDKs.\n8. Test stack и команды CI.\n9. Persistence/network/auth boundaries.\n10. Feature flags, analytics, observability, release constraints.\n\n### Правило доказательства\nФакт должен быть одним из:\n- найден в коде/настройках;\n- подтверждён build/test/tool output;\n- дан пользователем;\n- помечен как предположение.\n\nНе превращай предположение в факт в следующих шагах.\n\n## 2. Change-risk classification\nКлассифицируй изменение:\n\n- **R0 — local mechanical:** rename/local formatting/non-behavioral cleanup.\n- **R1 — isolated behavior:** локальная бизнес-логика, небольшой UI state.\n- **R2 — boundary:** networking, persistence, auth, navigation, public API, concurrency boundary.\n- **R3 — systemic:** migration, shared architecture, data model, security, release pipeline, large concurrency change.\n- **R4 — irreversible/high-impact:** destructive migration, payment/auth/security model, public SDK ABI/API, user-data loss risk.\n\nЧем выше риск, тем больше evidence и rollback обязан предоставить агент.\n\n## 3. Invariant sheet\nДо кода зафиксируй 3–10 инвариантов. Примеры:\n- один refresh token request одновременно;\n- UI state меняется на MainActor;\n- cancellation не превращается в user-visible error;\n- persisted schema остаётся читаемой предыдущей версией, если нужен downgrade;\n- navigation path содержит только стабильные route values;\n- секреты не попадают в logs.\n\nЕсли невозможно назвать инварианты, задача ещё недостаточно понята.\n\n## 4. Blast-radius pass\nДо изменения boundary/public contract найди:\n- call sites;\n- mocks/test doubles;\n- serialization contracts;\n- deep links/routes;\n- persistence schema;\n- feature flags;\n- analytics/event names;\n- availability shims;\n- extension/app clip/widget/watch targets.\n\nНе считай отсутствие compile errors доказательством отсутствия semantic blast radius.\n\n## 5. Design pass\nДля R2+ сравни минимум два варианта по:\n- correctness;\n- complexity;\n- migration cost;\n- testability;\n- concurrency/ownership;\n- performance;\n- security/privacy;\n- rollback/operability.\n\nВыбирай минимально сложный вариант, который защищает инварианты.\n\n## 6. Implementation pass\n- Делай маленькие логические изменения.\n- Не смешивай unrelated refactor.\n- Не расширяй public API без причины.\n- Не вводи protocol/repository/manager только ради абстракции.\n- Не подавляй compiler warning как substitute for design fix.\n- Для async кода проектируй cancellation и task lifetime до написания `Task {}`.\n- Для persisted data сначала migration story, затем model change.\n\n## 7. Verification ladder\nМинимум проверок определяется риском:\n\n### R0\n- compile relevant target или local static validation.\n\n### R1\n- targeted unit tests;\n- build relevant target;\n- happy + key edge path.\n\n### R2\n- targeted + integration tests;\n- strict concurrency/build warnings;\n- failure/cancellation path;\n- boundary compatibility;\n- relevant privacy/security/perf checks.\n\n### R3/R4\n- regression suite;\n- migration/rollback test;\n- representative device/config matrix;\n- observability/feature flag/staged rollout plan;\n- explicit unchecked-risk list.\n\n## 8. Evidence ledger\nФинальный ответ обязан разделять:\n\n### Verified\nТо, что реально подтверждено build/test/log/tool output.\n\n### Reasoned\nТо, что следует из inspection/design, но не было исполнено.\n\n### Unknown\nТо, чего агент не смог проверить.\n\nЗапрещены формулировки «готово», «безопасно», «race-free», «не течёт», если это не подтверждено достаточным evidence.\n\n## 9. Stop conditions\nОстановись и не делай destructive step, если:\n- непонятно, какой store/schema является production source of truth;\n- migration необратима и нет backup/rollback;\n- auth/payment/security контракт не подтверждён;\n- public API/ABI impact неизвестен;\n- предлагается отключить ATS/cert validation/privacy checks;\n- единственное решение требует `@unchecked Sendable` без доказуемого invariant;\n- production defect не воспроизводится, а fix основан только на догадке.\n\nВместо blind change создай diagnostic instrumentation или narrow experiment.\n\n## 10. Output contract\nВсегда возвращай:\n1. `Mode / risk class`.\n2. `Facts and assumptions`.\n3. `Invariants`.\n4. `Decision and alternatives`.\n5. `Changed files / exact scope`.\n6. `Verification evidence`.\n7. `Concurrency / memory / security / privacy / performance impact`.\n8. `Rollback or containment`, если R2+.\n9. `Unknowns / follow-ups`."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-1084; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1119",
       "path": "source-runtime/core/V4_ADAPTATION_PROTOCOL.md",
       "sha256": "0a2e59ab0abcc932a18a1ab5124ef09ed4d982f6990d7c965ebd13e9adb40969",
       "bytes": 3112,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1119-U01",
+          "source_path": "canonical/source-runtime/core/V4_ADAPTATION_PROTOCOL.md",
+          "source_sha256": "0a2e59ab0abcc932a18a1ab5124ef09ed4d982f6990d7c965ebd13e9adb40969",
+          "source_heading": "Project Adaptation Protocol",
+          "source_fragment": "# Project Adaptation Protocol",
+          "meaning": "Exact repository/Git/project identity not first xcodeproj guess; observed/derived/heuristic/unknown provenance, source fingerprints and actual scoped consumer topology. Preserve hand-maintained context/foreign changes, candidate generation scoped validated not automatically promoted, no per-folder blanket AGENTS. No optional xcodebuild read-only assumption or generated-state action.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact repository/Git/project identity not first xcodeproj guess; observed/derived/heuristic/unknown provenance, source fingerprints and actual scoped consumer topology. Preserve hand-maintained context/foreign changes, candidate generation scoped validated not automatically promoted, no per-folder blanket AGENTS. No optional xcodebuild read-only assumption or generated-state action.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Targets And Build Phases; Evidence",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0961 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Targets And Build Phases",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Hard Separation Rules"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Project Adaptation Protocol\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Phase A — Repository identity\nEstablish repository root, Git state, project/workspace/package topology and instruction files. Never assume the first `.xcodeproj` is the product entry point.\n\n## Phase B — Target and toolchain inventory\nInspect `project.pbxproj`, shared schemes, test plans, xcconfig files, Package manifests, CI, Fastlane/Make/scripts and optional read-only `xcodebuild -list -json` / `-showBuildSettings` evidence.\n\n## Phase C — Source topology\nMeasure Swift/ObjC source distribution, test directories, extensions and framework imports. Look for state, navigation, persistence, network, auth, concurrency and observation mechanisms.\n\n## Phase D — Model\nEvery model datum has a status:\n- **observed** — directly present in a repository/config/tool output.\n- **derived** — deterministic transformation of observed facts.\n- **heuristic** — pattern-based interpretation that can be wrong.\n- **unknown** — materially relevant but not established.\n\n## Phase E — Generate\nRender project docs and active skill recommendations. Preserve existing hand-maintained `.ai/project/*`; generated files live separately unless a human deliberately promotes facts.\n\n## Phase F — Scoped instructions\nPropose nested `AGENTS.md` only where a directory has a coherent responsibility and evidence for local rules. Never blanket-generate one per folder.\n\n## Phase G — Validate\nCheck JSON schema version, evidence paths, stale source fingerprints, referenced skills and candidate scope collisions. Report gaps rather than fabricating values."
+          ]
+        },
+        {
+          "unit_id": "LIB-1119-U02",
+          "source_path": "canonical/source-runtime/core/V4_ADAPTATION_PROTOCOL.md",
+          "source_sha256": "0a2e59ab0abcc932a18a1ab5124ef09ed4d982f6990d7c965ebd13e9adb40969",
+          "source_heading": "Project Adaptation Protocol",
+          "source_fragment": "# Project Adaptation Protocol",
+          "meaning": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0961 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Project Adaptation Protocol\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Phase A — Repository identity\nEstablish repository root, Git state, project/workspace/package topology and instruction files. Never assume the first `.xcodeproj` is the product entry point.\n\n## Phase B — Target and toolchain inventory\nInspect `project.pbxproj`, shared schemes, test plans, xcconfig files, Package manifests, CI, Fastlane/Make/scripts and optional read-only `xcodebuild -list -json` / `-showBuildSettings` evidence.\n\n## Phase C — Source topology\nMeasure Swift/ObjC source distribution, test directories, extensions and framework imports. Look for state, navigation, persistence, network, auth, concurrency and observation mechanisms.\n\n## Phase D — Model\nEvery model datum has a status:\n- **observed** — directly present in a repository/config/tool output.\n- **derived** — deterministic transformation of observed facts.\n- **heuristic** — pattern-based interpretation that can be wrong.\n- **unknown** — materially relevant but not established.\n\n## Phase E — Generate\nRender project docs and active skill recommendations. Preserve existing hand-maintained `.ai/project/*`; generated files live separately unless a human deliberately promotes facts.\n\n## Phase F — Scoped instructions\nPropose nested `AGENTS.md` only where a directory has a coherent responsibility and evidence for local rules. Never blanket-generate one per folder.\n\n## Phase G — Validate\nCheck JSON schema version, evidence paths, stale source fingerprints, referenced skills and candidate scope collisions. Report gaps rather than fabricating values."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0961; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1120",
       "path": "source-runtime/core/V4_BUILD_TEST_SYNTHESIS_PROTOCOL.md",
       "sha256": "3b6053a596103ebdcbbdeb36108189579f28ff3c379b06426527f88734cf5b46",
       "bytes": 717,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1120-U01",
+          "source_path": "canonical/source-runtime/core/V4_BUILD_TEST_SYNTHESIS_PROTOCOL.md",
+          "source_sha256": "3b6053a596103ebdcbbdeb36108189579f28ff3c379b06426527f88734cf5b46",
+          "source_heading": "Build & Test Command Synthesis",
+          "source_fragment": "# Build & Test Command Synthesis",
+          "meaning": "Actual merge/release CI and its scripts then documented developer/shared-scheme evidence before explicitly suggested synthesis, matching configuration/test-plan and environment. Placeholder/guessed destination or historical command syntax not established command or passed execution; no new runtime/toolchain request.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual merge/release CI and its scripts then documented developer/shared-scheme evidence before explicitly suggested synthesis, matching configuration/test-plan and environment. Placeholder/guessed destination or historical command syntax not established command or passed execution; no new runtime/toolchain request.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Reproducibility And CI; Evidence",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0963 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Build & Test Command Synthesis\n\nV4 discovers **candidates**, not invented commands. Priority:\n1. commands executed by merge/release CI;\n2. repository scripts/Makefile/Fastlane called by CI;\n3. documented developer commands;\n4. shared Xcode scheme evidence;\n5. synthesized xcodebuild suggestion, explicitly labelled `suggested`.\n\nFor tests, detect test plans and preserve them in candidate commands. Apple supports discovering test plans with `xcodebuild -scheme <scheme> -showTestPlans` and selecting one with `-testPlan`.\n\nDo not hard-code a simulator runtime that the repository never establishes. A generated destination may use a clearly marked placeholder. Never report a synthesized command as having passed."
+          ]
+        },
+        {
+          "unit_id": "LIB-1120-U02",
+          "source_path": "canonical/source-runtime/core/V4_BUILD_TEST_SYNTHESIS_PROTOCOL.md",
+          "source_sha256": "3b6053a596103ebdcbbdeb36108189579f28ff3c379b06426527f88734cf5b46",
+          "source_heading": "Build & Test Command Synthesis",
+          "source_fragment": "# Build & Test Command Synthesis",
+          "meaning": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0963 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Build & Test Command Synthesis\n\nV4 discovers **candidates**, not invented commands. Priority:\n1. commands executed by merge/release CI;\n2. repository scripts/Makefile/Fastlane called by CI;\n3. documented developer commands;\n4. shared Xcode scheme evidence;\n5. synthesized xcodebuild suggestion, explicitly labelled `suggested`.\n\nFor tests, detect test plans and preserve them in candidate commands. Apple supports discovering test plans with `xcodebuild -scheme <scheme> -showTestPlans` and selecting one with `-testPlan`.\n\nDo not hard-code a simulator runtime that the repository never establishes. A generated destination may use a clearly marked placeholder. Never report a synthesized command as having passed."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0963; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1121",
       "path": "source-runtime/core/V4_DRIFT_REFRESH_POLICY.md",
       "sha256": "71bf158a5aee0441ac68755ffe3c8adf78b9847bdb1346579f8c71476ca2991f",
       "bytes": 2195,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1121-U01",
+          "source_path": "canonical/source-runtime/core/V4_DRIFT_REFRESH_POLICY.md",
+          "source_sha256": "71bf158a5aee0441ac68755ffe3c8adf78b9847bdb1346579f8c71476ca2991f",
+          "source_heading": "Adaptation Drift & Refresh Policy",
+          "source_fragment": "# Adaptation Drift & Refresh Policy",
+          "meaning": "Relevant source/config/instruction fingerprint drift invalidates generated claims; revalidate target/CI/dependency/toolchain/schema/auth/capability/module changes. Reproducible derived artifacts not human decisions, preserve durable authored decisions in correct boundary. No automatic refresh/state generator execution.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Relevant source/config/instruction fingerprint drift invalidates generated claims; revalidate target/CI/dependency/toolchain/schema/auth/capability/module changes. Reproducible derived artifacts not human decisions, preserve durable authored decisions in correct boundary. No automatic refresh/state generator execution.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review; 5. Exact-SHA Review Receipt",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0964 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review",
+                "5. Exact-SHA Review Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Hard Separation Rules"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Adaptation Drift & Refresh Policy\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nThe model records a source fingerprint over relevant project/config/instruction files. A changed fingerprint means generated context may be stale.\n\nRefresh after:\n- project/target/scheme/test-plan changes;\n- Package.swift/Package.resolved or dependency graph changes;\n- CI/Fastlane/Make/release command changes;\n- deployment/Swift language mode changes;\n- persistence/auth/payments architecture changes;\n- new extensions/widgets/background capabilities;\n- major source-module moves.\n\nGenerated files must be reproducible from repository state. Human decisions belong in `.ai/project/DECISION_LOG.md`, not edited into generated output."
+          ]
+        },
+        {
+          "unit_id": "LIB-1121-U02",
+          "source_path": "canonical/source-runtime/core/V4_DRIFT_REFRESH_POLICY.md",
+          "source_sha256": "71bf158a5aee0441ac68755ffe3c8adf78b9847bdb1346579f8c71476ca2991f",
+          "source_heading": "Adaptation Drift & Refresh Policy",
+          "source_fragment": "# Adaptation Drift & Refresh Policy",
+          "meaning": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0964 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-204-runtime-core-body-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Adaptation Drift & Refresh Policy\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nThe model records a source fingerprint over relevant project/config/instruction files. A changed fingerprint means generated context may be stale.\n\nRefresh after:\n- project/target/scheme/test-plan changes;\n- Package.swift/Package.resolved or dependency graph changes;\n- CI/Fastlane/Make/release command changes;\n- deployment/Swift language mode changes;\n- persistence/auth/payments architecture changes;\n- new extensions/widgets/background capabilities;\n- major source-module moves.\n\nGenerated files must be reproducible from repository state. Human decisions belong in `.ai/project/DECISION_LOG.md`, not edited into generated output."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0964; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1122",
