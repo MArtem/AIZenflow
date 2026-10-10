@@ -151954,9 +151954,37 @@
       "path": "32_AGENT_PROMPTS_V2/PROMPT_INDEX.md",
       "sha256": "e1f0c4a2b41e770b2801e603fc03d891364997e01031a4ea3d80e75a61b432df",
       "bytes": 15049,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0775-U01",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/PROMPT_INDEX.md",
+          "source_sha256": "e1f0c4a2b41e770b2801e603fc03d891364997e01031a4ea3d80e75a61b432df",
+          "source_heading": "V2 Agent Prompt Index",
+          "source_fragment": "# V2 Agent Prompt Index",
+          "meaning": "Entire 120-entry legacy V2 prompt catalog and fixed mode/skill-chain metadata archived. Each title/path/mode/skills independently cross-checked against already source-reviewed numbered body; catalog links never establish body coverage or live task authority. No incremental operating requirement; one current router remains authoritative.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Entire 120-entry legacy V2 prompt catalog and fixed mode/skill-chain metadata archived. Each title/path/mode/skills independently cross-checked against already source-reviewed numbered body; catalog links never establish body coverage or live task authority. No incremental operating requirement; one current router remains authoritative.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full index independently read; all 120 unique literal entries path/title/mode/skills compared against previously source-reviewed bodies; source SHA/prior rows/copies/mirrors/final diff/exact-SHA gates.",
+          "evidence": "block-145-p2-index-source-completion.md",
+          "affected_routes": [
+            "task-type-documentation-router"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Всего: **120** operational prompts."
+          ]
+        }
+      ],
+      "disposition_reason": "Entire 120-entry legacy V2 prompt catalog and fixed mode/skill-chain metadata archived. Each title/path/mode/skills independently cross-checked against already source-reviewed numbered body; catalog links never establish body coverage or live task authority. No incremental operating requirement; one current router remains authoritative."
     },
     {
       "source_id": "LIB-0776",
