@@ -396,3 +396,8 @@ The following export is retained for provenance only. It is not an active bootst
 5. Task overlay rules.
 6. Current task docs.
 7. Archives.
+
+## Project Work-System References
+
+- `./docs/IOS_PROJECT_WORK_SYSTEM.md` — exact project identity, permission-aware preparation and the single selected KB chain; only the matching route selects it.
+- `./docs/templates/IOS_PROJECT_MEMORY.template.md` — optional human memory skeleton for authorized memory work; no automatic template preload or machine-validation claim.

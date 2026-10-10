@@ -63,6 +63,7 @@
     "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
     "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
     "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+    "./docs/IOS_PROJECT_WORK_SYSTEM.md",
     "./docs/IOS_PR_REVIEW_TEMPLATE.md",
     "./docs/IOS_RELEASE_CHECKLIST.md",
     "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
@@ -106,7 +107,8 @@
     "level2": [
       "./docs/agent-prompts/*.md",
       "./.codex/skills/**/SKILL.md",
-      "./PackagesInUse/**/README.md"
+      "./PackagesInUse/**/README.md",
+      "./docs/templates/IOS_PROJECT_MEMORY.template.md"
     ],
     "level3": [
       "./PackagesForReuse/**",

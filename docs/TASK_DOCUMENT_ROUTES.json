@@ -358,6 +358,14 @@
         "./docs/architecture-cases/**",
         "./PackagesForReuse/**"
       ]
+    },
+    "ios-project-work-system": {
+      "documents": [
+        "./docs/IOS_PROJECT_WORK_SYSTEM.md"
+      ],
+      "trigger_patterns": [
+        "./docs/templates/IOS_PROJECT_MEMORY.template.md"
+      ]
     }
   }
 }

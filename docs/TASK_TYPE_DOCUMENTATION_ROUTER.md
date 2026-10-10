@@ -47,6 +47,7 @@ Read only when the route requires it:
 
 | Task type | Read |
 |---|---|
+| iOS project intake, memory refresh or task preparation | `./docs/IOS_PROJECT_WORK_SYSTEM.md`; adapt `./docs/templates/IOS_PROJECT_MEMORY.template.md` only for authorized memory work; add the actual subtask routes |
 | iOS implementation or refactor | `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`, `./docs/PRODUCTION_QUALITY_GATES.md`, `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`, relevant iOS standards below |
 | Universal iOS quality standard or app-neutral quality-control design | `./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md`, `./docs/PRODUCTION_QUALITY_GATES.md`, `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`, `./docs/STATIC_QUALITY_GATE_POLICY.md`, `./docs/CI_CD_QUALITY_GATES.md` |
 | iOS review/audit/production-ready claim | `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`, `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`, `./docs/DEFINITION_OF_DONE.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`, `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md` |
