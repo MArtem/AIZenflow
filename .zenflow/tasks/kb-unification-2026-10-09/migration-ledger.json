@@ -156183,18 +156183,165 @@
       "path": "34_AUDIT_GATES/AUDIT_GATE_INDEX.md",
       "sha256": "51868496cec2bdfa527bb3cbe3f8cd08858fa9c18eaf33a96eefdff66cda2473",
       "bytes": 1154,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0831-U01",
+          "source_path": "canonical/34_AUDIT_GATES/AUDIT_GATE_INDEX.md",
+          "source_sha256": "51868496cec2bdfa527bb3cbe3f8cd08858fa9c18eaf33a96eefdff66cda2473",
+          "source_heading": "V2 Audit Gate Index",
+          "source_fragment": "# V2 Audit Gate Index",
+          "meaning": "Historical 24-entry gate catalog archived; exact unique paths and all labels match independently reviewed bodies, index never substituted body review or gate execution.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical catalog routing already replaced by canonical conditional task routes; exact source provenance retained.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full index read; 24 exact unique paths and titles resolve source-reviewed bodies; source SHA/literals/prior rows/mirrors/final diff/exact-SHA.",
+          "evidence": "block-158-audit-index-curated-route-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full exact historical catalog reviewed independently, not inferred body coverage or runtime readiness."
     },
     {
       "source_id": "LIB-0832",
       "path": "34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
       "sha256": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e",
       "bytes": 2715,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0832-U01",
+          "source_path": "canonical/34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+          "source_sha256": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e",
+          "source_heading": "Full-project iOS audit — curated copy-only route",
+          "source_fragment": "# Full-project iOS audit — curated copy-only route",
+          "meaning": "Actual bounded or whole-project audit identity/scope/target graph and product/platform contract; inventory relevant source/resources/targets/packages/config/locales/supplied tests and applicable cross-domain consumers/failure paths; explicitly checked/not applicable with reason/finding/unverified/blocked per domain and inspected files/evidence limits. Recommendations alone grant no implementation/runtime/network/signing/publishing/settings authority.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual bounded or whole-project audit identity/scope/target graph and product/platform contract; inventory relevant source/resources/targets/packages/config/locales/supplied tests and applicable cross-domain consumers/failure paths; explicitly checked/not applicable with reason/finding/unverified/blocked per domain and inspected files/evidence limits. Recommendations alone grant no implementation/runtime/network/signing/publishing/settings authority.",
+          "destination_path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "destination_heading": "Checklist; Stop Rule",
+          "required_verification": "Two complete sources independently read; current authority and actual canonical semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact SHA. No gate execution or runtime evidence.",
+          "evidence": "block-158-audit-index-curated-route-source-completion.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+              "headings": [
+                "Universal change contract",
+                "Quality gates"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+              "headings": [
+                "Audit Domains",
+                "Required Finding Format"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+              "headings": [
+                "Required Review Output",
+                "Verification Honesty",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0832-U02",
+          "source_path": "canonical/34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+          "source_sha256": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e",
+          "source_heading": "Historical gate authority",
+          "source_fragment": "## Output and decision",
+          "meaning": "Concrete observed/inferred findings with impact severity/path/scenario/evidence/correction/required verification and priority; unresolved/unobserved domains preclude broad readiness, P0-P2 block clean claims, full final code/resources/project/docs diff after fixes and changed artifacts invalidate earlier evidence. No execution permission from audit findings.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Concrete observed/inferred findings with impact severity/path/scenario/evidence/correction/required verification and priority; unresolved/unobserved domains preclude broad readiness, P0-P2 block clean claims, full final code/resources/project/docs diff after fixes and changed artifacts invalidate earlier evidence. No execution permission from audit findings.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Required Audit/Review Output; Severity Policy; Finding Applicability And Adjudication",
+          "required_verification": "Two complete sources independently read; current authority and actual canonical semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact SHA. No gate execution or runtime evidence.",
+          "evidence": "block-158-audit-index-curated-route-source-completion.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Required Audit/Review Output",
+                "Severity Policy",
+                "Finding Applicability And Adjudication"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0832-U03",
+          "source_path": "canonical/34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+          "source_sha256": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e",
+          "source_heading": "Historical gate authority",
+          "source_fragment": "Select at most two supporting reference routes per bounded pass;",
+          "meaning": "Historical copy-only route/allowlisted-payload framing, fixed two-supporting-route pass cap and local/reference sequencing archived; current canonical startup/router and smallest relevant route govern. No separate mandatory Library pass or raw imported active gate.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical copy-only route/allowlisted-payload framing, fixed two-supporting-route pass cap and local/reference sequencing archived; current canonical startup/router and smallest relevant route govern. No separate mandatory Library pass or raw imported active gate.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Two complete sources independently read; current authority and actual canonical semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact SHA. No gate execution or runtime evidence.",
+          "evidence": "block-158-audit-index-curated-route-source-completion.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full curated audit route read; useful scope/domain/evidence/final-diff contracts covered; historical copy-only routing and fixed pass cap archived. No audit execution authority."
     },
     {
       "source_id": "LIB-0833",
