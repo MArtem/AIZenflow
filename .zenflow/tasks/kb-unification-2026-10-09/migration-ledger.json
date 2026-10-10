@@ -102132,63 +102132,1564 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-13-01.md",
       "sha256": "944c58a30ac4acce8786c79d25185b6d3b2942076ecb4b8576ed4e55cd4fa380",
       "bytes": 7503,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0503-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-01.md",
+          "source_sha256": "944c58a30ac4acce8786c79d25185b6d3b2942076ecb4b8576ed4e55cd4fa380",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual semantic labels/values/hints/actions/group/focus/dynamic announcements at known user facts; source review not actual VoiceOver traversal, user exclusion preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual semantic labels/values/hints/actions/group/focus/dynamic announcements at known user facts; source review not actual VoiceOver traversal, user exclusion preserved.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0503-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-01.md",
+          "source_sha256": "944c58a30ac4acce8786c79d25185b6d3b2942076ecb4b8576ed4e55cd4fa380",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0503-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-01.md",
+          "source_sha256": "944c58a30ac4acce8786c79d25185b6d3b2942076ecb4b8576ed4e55cd4fa380",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Design-System Consumers; Layout And Rendering; Navigation And Presentation; Ownership And Identity Review; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Design-System Consumers",
+                "Layout And Rendering",
+                "Navigation And Presentation",
+                "Ownership And Identity Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Purpose",
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0503-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-01.md",
+          "source_sha256": "944c58a30ac4acce8786c79d25185b6d3b2942076ecb4b8576ed4e55cd4fa380",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full accessibility/localization common exact against fully read OP-13-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No accessibility/runtime/source rewrite action/OP execution implied."
     },
     {
       "source_id": "LIB-0504",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-13-02.md",
       "sha256": "2c04f568f0e769d395eae7743ba8183a48a9f86eddbac4013d2f0d8ee6cf28f7",
       "bytes": 7447,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0504-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-02.md",
+          "source_sha256": "2c04f568f0e769d395eae7743ba8183a48a9f86eddbac4013d2f0d8ee6cf28f7",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Supported scalable metrics/wrapping/reflow/truncation access and justified scroll fallback; fixed-size clipped text cannot block actual critical interaction.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Supported scalable metrics/wrapping/reflow/truncation access and justified scroll fallback; fixed-size clipped text cannot block actual critical interaction.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Layout And Rendering; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Layout And Rendering",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0504-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-02.md",
+          "source_sha256": "2c04f568f0e769d395eae7743ba8183a48a9f86eddbac4013d2f0d8ee6cf28f7",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full reuse/cancel/prefetch/decode/diff/hitch trap applies to affected UI consumer under permitted evidence, no runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full reuse/cancel/prefetch/decode/diff/hitch trap applies to affected UI consumer under permitted evidence, no runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Identity And Collections; UIKit Lifecycle And Reuse Review; Layout And Rendering; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Identity And Collections",
+                "UIKit Lifecycle And Reuse Review",
+                "Layout And Rendering",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0504-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-02.md",
+          "source_sha256": "2c04f568f0e769d395eae7743ba8183a48a9f86eddbac4013d2f0d8ee6cf28f7",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Design-System Consumers; Layout And Rendering; Navigation And Presentation; Ownership And Identity Review; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Design-System Consumers",
+                "Layout And Rendering",
+                "Navigation And Presentation",
+                "Ownership And Identity Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Purpose",
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0504-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-02.md",
+          "source_sha256": "2c04f568f0e769d395eae7743ba8183a48a9f86eddbac4013d2f0d8ee6cf28f7",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full accessibility/localization common exact against fully read OP-13-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No accessibility/runtime/source rewrite action/OP execution implied."
     },
     {
       "source_id": "LIB-0505",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-13-03.md",
       "sha256": "256a679beb13c06bebbe41c827b23693d99cfd43a96ff8a6c8c9e6d274d0acbe",
       "bytes": 7563,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0505-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-03.md",
+          "source_sha256": "256a679beb13c06bebbe41c827b23693d99cfd43a96ff8a6c8c9e6d274d0acbe",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Reduce Motion/differentiate-without-color/contrast/transparency and sensory alternatives convey actual product intent; no guessed cues or quota.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Reduce Motion/differentiate-without-color/contrast/transparency and sensory alternatives convey actual product intent; no guessed cues or quota.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Layout And Rendering",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Layout And Rendering"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0505-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-03.md",
+          "source_sha256": "256a679beb13c06bebbe41c827b23693d99cfd43a96ff8a6c8c9e6d274d0acbe",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0505-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-03.md",
+          "source_sha256": "256a679beb13c06bebbe41c827b23693d99cfd43a96ff8a6c8c9e6d274d0acbe",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Design-System Consumers; Layout And Rendering; Navigation And Presentation; Ownership And Identity Review; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Design-System Consumers",
+                "Layout And Rendering",
+                "Navigation And Presentation",
+                "Ownership And Identity Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Purpose",
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0505-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-03.md",
+          "source_sha256": "256a679beb13c06bebbe41c827b23693d99cfd43a96ff8a6c8c9e6d274d0acbe",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full accessibility/localization common exact against fully read OP-13-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No accessibility/runtime/source rewrite action/OP execution implied."
     },
     {
       "source_id": "LIB-0506",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-13-04.md",
       "sha256": "b2db19b308803dde764d9d6443416c6182d110a9d6b9d348c25031efa17513a0",
       "bytes": 7507,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0506-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-04.md",
+          "source_sha256": "b2db19b308803dde764d9d6443416c6182d110a9d6b9d348c25031efa17513a0",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Minimal native accessible traits/actions/hit targets/focus/state announcements/keyboard-SwitchControl at actual component consumers, no recreating native semantics decoratively.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Minimal native accessible traits/actions/hit targets/focus/state announcements/keyboard-SwitchControl at actual component consumers, no recreating native semantics decoratively.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Design-System Consumers; Accessible And Localized Interaction Review; Text, Input, And Focus",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Design-System Consumers",
+                "Accessible And Localized Interaction Review",
+                "Text, Input, And Focus"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0506-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-04.md",
+          "source_sha256": "b2db19b308803dde764d9d6443416c6182d110a9d6b9d348c25031efa17513a0",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Conditional actual AI untrusted/code auth/idempotency/permitted eval only; no mandatory unrelated AI pass.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Conditional actual AI untrusted/code auth/idempotency/permitted eval only; no mandatory unrelated AI pass.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "35. TOOL CALLING; 44. SECURITY; 69. EVALUATION",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0506-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-04.md",
+          "source_sha256": "b2db19b308803dde764d9d6443416c6182d110a9d6b9d348c25031efa17513a0",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Design-System Consumers; Layout And Rendering; Navigation And Presentation; Ownership And Identity Review; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Design-System Consumers",
+                "Layout And Rendering",
+                "Navigation And Presentation",
+                "Ownership And Identity Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Purpose",
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0506-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-04.md",
+          "source_sha256": "b2db19b308803dde764d9d6443416c6182d110a9d6b9d348c25031efa17513a0",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full accessibility/localization common exact against fully read OP-13-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No accessibility/runtime/source rewrite action/OP execution implied."
     },
     {
       "source_id": "LIB-0507",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-13-05.md",
       "sha256": "78bc2f9ec5650d657ecfa953f6523fec539df5698ef14194ddd3c08694894f70",
       "bytes": 7509,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0507-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-05.md",
+          "source_sha256": "78bc2f9ec5650d657ecfa953f6523fec539df5698ef14194ddd3c08694894f70",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual localized/StringCatalog/plural/grammar/translator context resource ownership and translation workflow, no hard-coded user/accessibility strings or English-length assumptions.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual localized/StringCatalog/plural/grammar/translator context resource ownership and translation workflow, no hard-coded user/accessibility strings or English-length assumptions.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0507-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-05.md",
+          "source_sha256": "78bc2f9ec5650d657ecfa953f6523fec539df5698ef14194ddd3c08694894f70",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Complete owner-graph task/timer/notification/delegate/closure plus permitted deinit/MemoryGraph trap only actual affected consumer; static localization not lifetime proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete owner-graph task/timer/notification/delegate/closure plus permitted deinit/MemoryGraph trap only actual affected consumer; static localization not lifetime proof.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Ownership And Memory"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UIKit Lifecycle And Reuse Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0507-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-05.md",
+          "source_sha256": "78bc2f9ec5650d657ecfa953f6523fec539df5698ef14194ddd3c08694894f70",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Design-System Consumers; Layout And Rendering; Navigation And Presentation; Ownership And Identity Review; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Design-System Consumers",
+                "Layout And Rendering",
+                "Navigation And Presentation",
+                "Ownership And Identity Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Purpose",
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0507-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-05.md",
+          "source_sha256": "78bc2f9ec5650d657ecfa953f6523fec539df5698ef14194ddd3c08694894f70",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full accessibility/localization common exact against fully read OP-13-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No accessibility/runtime/source rewrite action/OP execution implied."
     },
     {
       "source_id": "LIB-0508",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-13-06.md",
       "sha256": "576526033293657f0f40aeeba3a850a53c9deca011858008cd6eec4cd981c58f",
       "bytes": 7513,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0508-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-06.md",
+          "source_sha256": "576526033293657f0f40aeeba3a850a53c9deca011858008cd6eec4cd981c58f",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Supported-market leading/trailing/mirrored-meaning/mixed-direction text and real wrapping/resource consumer, not blanket visual flip.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Supported-market leading/trailing/mirrored-meaning/mixed-direction text and real wrapping/resource consumer, not blanket visual flip.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Layout And Rendering",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Layout And Rendering"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0508-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-06.md",
+          "source_sha256": "576526033293657f0f40aeeba3a850a53c9deca011858008cd6eec4cd981c58f",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full traps: controlled clock/random/network/storage/global state; actual AI auth/idempotency/untrusted/permitted eval conditional, no tests/AI action.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full traps: controlled clock/random/network/storage/global state; actual AI auth/idempotency/untrusted/permitted eval conditional, no tests/AI action.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0508-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-06.md",
+          "source_sha256": "576526033293657f0f40aeeba3a850a53c9deca011858008cd6eec4cd981c58f",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Design-System Consumers; Layout And Rendering; Navigation And Presentation; Ownership And Identity Review; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Design-System Consumers",
+                "Layout And Rendering",
+                "Navigation And Presentation",
+                "Ownership And Identity Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Purpose",
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0508-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-06.md",
+          "source_sha256": "576526033293657f0f40aeeba3a850a53c9deca011858008cd6eec4cd981c58f",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full accessibility/localization common exact against fully read OP-13-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No accessibility/runtime/source rewrite action/OP execution implied."
     },
     {
       "source_id": "LIB-0509",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-13-07.md",
       "sha256": "b9af8d0f2f2c6d54aba655e9617c094a04c6ea5343e09ac4aed36503a7c7b318",
       "bytes": 7563,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0509-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-07.md",
+          "source_sha256": "b9af8d0f2f2c6d54aba655e9617c094a04c6ea5343e09ac4aed36503a7c7b318",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual Locale/Calendar/TimeZone/supported FormatStyle currency/measurement display and independent parse/wire boundary, no concatenated locale guesses.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual Locale/Calendar/TimeZone/supported FormatStyle currency/measurement display and independent parse/wire boundary, no concatenated locale guesses.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Text, Input, And Focus",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Text, Input, And Focus"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Type And API Decisions"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0509-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-07.md",
+          "source_sha256": "b9af8d0f2f2c6d54aba655e9617c094a04c6ea5343e09ac4aed36503a7c7b318",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0509-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-07.md",
+          "source_sha256": "b9af8d0f2f2c6d54aba655e9617c094a04c6ea5343e09ac4aed36503a7c7b318",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful inclusive body: source-level actual semantics/actions/focus/text/locales/plural/date-number-currency/motion/contrast/keyboard-SwitchControl facts; native accessible actions, supported layout text/locales, no color-motion-only meaning, explicit Locale/Calendar/TZ and logical focus. Prefer existing native semantics, scalable wrapping, supported localized/plural/FormatStyle resources. Review inaccessible gestures/clipping/hardcoded strings/LTR and async/presentation announcements at user-known facts. Permission-bound setting/hierarchy/layout diagnosis never actual traversal proof. Authorized UI/resource migration preserves IDs/semantics/translation-key consumers/compatibility/parity/rollback. All eight failures and permitted DynamicType/RTL/locale/motion/contrast/diagnostic negative evidence/output covered; actual VoiceOver/iPad/physical checks omitted by user, historical results retained. No runtime/source/resource rewrite grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Accessible And Localized Interaction Review; Design-System Consumers; Layout And Rendering; Navigation And Presentation; Ownership And Identity Review; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review",
+                "Design-System Consumers",
+                "Layout And Rendering",
+                "Navigation And Presentation",
+                "Ownership And Identity Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Purpose",
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0509-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-13-07.md",
+          "source_sha256": "b9af8d0f2f2c6d54aba655e9617c094a04c6ea5343e09ac4aed36503a7c7b318",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/actual VoiceOver execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-13-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-96-accessibility-localization-core-semantics.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full accessibility/localization common exact against fully read OP-13-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No accessibility/runtime/source rewrite action/OP execution implied."
     },
     {
       "source_id": "LIB-0510",
