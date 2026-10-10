@@ -151991,9 +151991,75 @@
       "path": "33_CODE_PATTERNS/CODE_PATTERN_INDEX.md",
       "sha256": "24cabca5ff0668b19ced7b36bae37423ac48a6281c772c22393cccc49fab01ba",
       "bytes": 2618,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0776-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CODE_PATTERN_INDEX.md",
+          "source_sha256": "24cabca5ff0668b19ced7b36bae37423ac48a6281c772c22393cccc49fab01ba",
+          "source_heading": "Reference pattern applicability",
+          "source_fragment": "> Это patterns для reasoning/review",
+          "meaning": "Reference patterns support actual reasoning/review, never universal drop-in production snippets; actual actor isolation/availability/dependency/project consumer contract controls adaptation and current user permissions govern any implementation. Current canonical invariants/contract-first selection already covers this guard.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Reference patterns support actual reasoning/review, never universal drop-in production snippets; actual actor isolation/availability/dependency/project consumer contract controls adaptation and current user permissions govern any implementation. Current canonical invariants/contract-first selection already covers this guard.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; How To Use",
+          "required_verification": "Full index read; 30 unique IDs/path links and title comparison with explicit CP-03 label drift against previously reviewed bodies; SHA/literal/current unique headings/prior rows/copies/mirrors/full semantic diff/exact-SHA gates.",
+          "evidence": "block-152-pattern-index-source-completion.md",
+          "affected_routes": [
+            "task-type-documentation-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "How To Use"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0776-U02",
+          "source_path": "canonical/33_CODE_PATTERNS/CODE_PATTERN_INDEX.md",
+          "source_sha256": "24cabca5ff0668b19ced7b36bae37423ac48a6281c772c22393cccc49fab01ba",
+          "source_heading": "Historical source catalog",
+          "source_fragment": "# Code Pattern Index",
+          "meaning": "Whole historical 30-entry source catalog archived; all unique IDs/path links match already source-reviewed bodies, 29 titles exact and CP-03 semantic historical label Explicit task lifetime differs from current frozen body Owner-bounded unstructured task lifetime. Preserve both provenance labels; no body coverage inferred from list or live second Library chain.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Whole historical 30-entry source catalog archived; all unique IDs/path links match already source-reviewed bodies, 29 titles exact and CP-03 semantic historical label Explicit task lifetime differs from current frozen body Owner-bounded unstructured task lifetime. Preserve both provenance labels; no body coverage inferred from list or live second Library chain.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full index read; 30 unique IDs/path links and title comparison with explicit CP-03 label drift against previously reviewed bodies; SHA/literal/current unique headings/prior rows/copies/mirrors/full semantic diff/exact-SHA gates.",
+          "evidence": "block-152-pattern-index-source-completion.md",
+          "affected_routes": [
+            "task-type-documentation-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full index reviewed; useful non-drop-in applicability already covered; source catalog archived with exact CP-03 historical label drift, no source meaning conflict or active mirror change."
     },
     {
       "source_id": "LIB-0777",
