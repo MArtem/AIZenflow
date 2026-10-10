@@ -158549,18 +158549,156 @@
       "path": "PROJECT_FACTS.md",
       "sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
       "bytes": 2686,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0859-U01",
+          "source_path": "canonical/PROJECT_FACTS.md",
+          "source_sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+          "source_heading": "Project facts to gather before iOS advice or changes",
+          "source_fragment": "# Project facts to gather before iOS advice or changes",
+          "meaning": "Only actual task-relevant product/acceptance/targets/toolchain-language-SDK/deployment/ownership/conventions/integration/public-data-offline-failure/resource/release facts. Separate observed/derived/heuristic/unknown provenance and refresh relevant source/revision, no other-app inference/generated profile/hidden model or availability/min-OS/framework migration from archived dates. Current authority governs documentation work.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Only actual task-relevant product/acceptance/targets/toolchain-language-SDK/deployment/ownership/conventions/integration/public-data-offline-failure/resource/release facts. Separate observed/derived/heuristic/unknown provenance and refresh relevant source/revision, no other-app inference/generated profile/hidden model or availability/min-OS/framework migration from archived dates. Current authority governs documentation work.",
+          "destination_path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "destination_heading": "Checklist; Stop Rule",
+          "required_verification": "Two complete project-facts/mode-contract sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-164-project-facts-mode-contract-dispositions.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Version And Availability Discipline",
+                "Source Authority",
+                "Agent Loading Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0859-U02",
+          "source_path": "canonical/PROJECT_FACTS.md",
+          "source_sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+          "source_heading": "Project facts to gather before iOS advice or changes",
+          "source_fragment": "# Project facts to gather before iOS advice or changes",
+          "meaning": "Historical standalone project-facts/reference-mode/profile/schema/key/fingerprint/status/transition/lock/recovery/copy-entrypoint infrastructure archived. No mandatory mode intake/ask-once prompt, handler invocation, record writes/recovery, global service or new documentation-approval ceremony. Preserve exact mechanism provenance and its limits; current task/user authority remains first.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone project-facts/reference-mode/profile/schema/key/fingerprint/status/transition/lock/recovery/copy-entrypoint infrastructure archived. No mandatory mode intake/ask-once prompt, handler invocation, record writes/recovery, global service or new documentation-approval ceremony. Preserve exact mechanism provenance and its limits; current task/user authority remains first.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Two complete project-facts/mode-contract sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-164-project-facts-mode-contract-dispositions.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full source independently reviewed; useful provenance/coverage/authority/evidence requirements covered; historical candidate/control/allowlist/quickstart infrastructure archived. No raw inventory inherited as reviewed coverage."
     },
     {
       "source_id": "LIB-0860",
       "path": "PROJECT_MODE.md",
       "sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
       "bytes": 7913,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0860-U01",
+          "source_path": "canonical/PROJECT_MODE.md",
+          "source_sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+          "source_heading": "Per-project reference mode — candidate contract",
+          "source_fragment": "# Per-project reference mode — candidate contract",
+          "meaning": "Actual exact scope/current identity/producer-consumer/schema/provenance and permission boundaries; ambiguous/stale/malformed/unreadable/partial observations never authorize mutation or success, preserve unexpected data and distinguish observed result from inference. Mechanism limits such as cooperative lock or nonblocking lock not complete filesystem/security isolation. No mode/profile record or handler adoption; conceptual guards only.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual exact scope/current identity/producer-consumer/schema/provenance and permission boundaries; ambiguous/stale/malformed/unreadable/partial observations never authorize mutation or success, preserve unexpected data and distinguish observed result from inference. Mechanism limits such as cooperative lock or nonblocking lock not complete filesystem/security isolation. No mode/profile record or handler adoption; conceptual guards only.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Two complete project-facts/mode-contract sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-164-project-facts-mode-contract-dispositions.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0860-U02",
+          "source_path": "canonical/PROJECT_MODE.md",
+          "source_sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+          "source_heading": "Per-project reference mode — candidate contract",
+          "source_fragment": "# Per-project reference mode — candidate contract",
+          "meaning": "Historical standalone project-facts/reference-mode/profile/schema/key/fingerprint/status/transition/lock/recovery/copy-entrypoint infrastructure archived. No mandatory mode intake/ask-once prompt, handler invocation, record writes/recovery, global service or new documentation-approval ceremony. Preserve exact mechanism provenance and its limits; current task/user authority remains first.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone project-facts/reference-mode/profile/schema/key/fingerprint/status/transition/lock/recovery/copy-entrypoint infrastructure archived. No mandatory mode intake/ask-once prompt, handler invocation, record writes/recovery, global service or new documentation-approval ceremony. Preserve exact mechanism provenance and its limits; current task/user authority remains first.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Two complete project-facts/mode-contract sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-164-project-facts-mode-contract-dispositions.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full source independently reviewed; useful provenance/coverage/authority/evidence requirements covered; historical candidate/control/allowlist/quickstart infrastructure archived. No raw inventory inherited as reviewed coverage."
     },
     {
       "source_id": "LIB-0861",
