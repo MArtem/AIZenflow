@@ -182969,36 +182969,313 @@
       "path": "source-runtime/templates/project/QUALITY_GATES.md",
       "sha256": "21c784cfc4fba34d1635d464c8c0b2a0ad1af92fa1bd678174767c040f74492a",
       "bytes": 363,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1152-U01",
+          "source_path": "canonical/source-runtime/templates/project/QUALITY_GATES.md",
+          "source_sha256": "21c784cfc4fba34d1635d464c8c0b2a0ad1af92fa1bd678174767c040f74492a",
+          "source_heading": "Project Quality Gates",
+          "source_fragment": "# Project Quality Gates",
+          "meaning": "Risk-relevant actual approved target evidence/thresholds and authoritative project gate configuration; source required-before-merge form not runtime/tests/CI/format/a11y/performance grants, missing/excluded evidence not PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Risk-relevant actual approved target evidence/thresholds and authoritative project gate configuration; source required-before-merge form not runtime/tests/CI/format/a11y/performance grants, missing/excluded evidence not PASS.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1A. PR Risk Card And Scope; 3. Verification Ladder",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0955 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-207-runtime-final-project-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1A. PR Risk Card And Scope",
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Result Semantics"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Project Quality Gates\n\n## Required before merge\n- build gates:\n- unit/integration/UI tests:\n- lint/format:\n- strict concurrency policy:\n- security/privacy checks:\n- accessibility checks:\n- performance thresholds:\n\n## Risk-specific gates\nDefine extra evidence for auth, persistence migration, payment, public SDK/API, background work and release infrastructure."
+          ]
+        },
+        {
+          "unit_id": "LIB-1152-U02",
+          "source_path": "canonical/source-runtime/templates/project/QUALITY_GATES.md",
+          "source_sha256": "21c784cfc4fba34d1635d464c8c0b2a0ad1af92fa1bd678174767c040f74492a",
+          "source_heading": "Project Quality Gates",
+          "source_fragment": "# Project Quality Gates",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0955 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-207-runtime-final-project-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Project Quality Gates\n\n## Required before merge\n- build gates:\n- unit/integration/UI tests:\n- lint/format:\n- strict concurrency policy:\n- security/privacy checks:\n- accessibility checks:\n- performance thresholds:\n\n## Risk-specific gates\nDefine extra evidence for auth, persistence migration, payment, public SDK/API, background work and release infrastructure."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0955; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1153",
       "path": "source-runtime/templates/project/RELEASE_POLICY.md",
       "sha256": "3838b3244e203a06f772ca27fc421f9965e20a53337408d055f8f3cfc209e3be",
       "bytes": 227,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1153-U01",
+          "source_path": "canonical/source-runtime/templates/project/RELEASE_POLICY.md",
+          "source_sha256": "3838b3244e203a06f772ca27fc421f9965e20a53337408d055f8f3cfc209e3be",
+          "source_heading": "Release Policy",
+          "source_fragment": "# Release Policy",
+          "meaning": "Actual branch/candidate/signing owner/rollout/kill/containment and permitted release evidence. Blank form fields not project policy or shipping/Git/config permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual branch/candidate/signing owner/rollout/kill/containment and permitted release evidence. Blank form fields not project policy or shipping/Git/config permission.",
+          "destination_path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "destination_heading": "Build And Signing; Rollout; Release Receipt",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0956 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-207-runtime-final-project-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Build And Signing",
+                "Rollout",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Release Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Release Policy\n\n- Branch/release model:\n- Signing/provisioning ownership:\n- Feature flag system:\n- Staged rollout policy:\n- Kill-switch expectations:\n- TestFlight gates:\n- App Store checklist:\n- Rollback/containment options:"
+          ]
+        },
+        {
+          "unit_id": "LIB-1153-U02",
+          "source_path": "canonical/source-runtime/templates/project/RELEASE_POLICY.md",
+          "source_sha256": "3838b3244e203a06f772ca27fc421f9965e20a53337408d055f8f3cfc209e3be",
+          "source_heading": "Release Policy",
+          "source_fragment": "# Release Policy",
+          "meaning": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0956 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-207-runtime-final-project-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Release Policy\n\n- Branch/release model:\n- Signing/provisioning ownership:\n- Feature flag system:\n- Staged rollout policy:\n- Kill-switch expectations:\n- TestFlight gates:\n- App Store checklist:\n- Rollback/containment options:"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0956; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1154",
       "path": "source-runtime/templates/project/REPO_COMMANDS.md",
       "sha256": "52f8fdd4119fa81953546d2332238b1d1c58feacc5367e44f6095cf8cf50a7c9",
       "bytes": 503,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1154-U01",
+          "source_path": "canonical/source-runtime/templates/project/REPO_COMMANDS.md",
+          "source_sha256": "52f8fdd4119fa81953546d2332238b1d1c58feacc5367e44f6095cf8cf50a7c9",
+          "source_heading": "Repository Commands",
+          "source_fragment": "# Repository Commands",
+          "meaning": "Exact authoritative CI/script/docs/observed commands with target/environment/toolchain/runtime and scoped last verification, UNKNOWN if unavailable. Historical blank command catalog not real command/profile or PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact authoritative CI/script/docs/observed commands with target/environment/toolchain/runtime and scoped last verification, UNKNOWN if unavailable. Historical blank command catalog not real command/profile or PASS.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Reproducibility And CI; Evidence",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0957 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-207-runtime-final-project-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Repository Commands\n\nRecord exact commands that are present in CI/scripts/docs or verified locally.\n\n## Bootstrap\n- dependencies: `UNKNOWN`\n\n## Build\n- main app: `UNKNOWN`\n- packages: `UNKNOWN`\n\n## Tests\n- unit: `UNKNOWN`\n- integration: `UNKNOWN`\n- UI: `UNKNOWN`\n\n## Quality\n- format: `UNKNOWN`\n- lint: `UNKNOWN`\n- generated code: `UNKNOWN`\n\n## Diagnostics\n- strict concurrency/build warnings: `UNKNOWN`\n\nFor each command optionally record required Xcode/runtime/env and last-known verification date."
+          ]
+        },
+        {
+          "unit_id": "LIB-1154-U02",
+          "source_path": "canonical/source-runtime/templates/project/REPO_COMMANDS.md",
+          "source_sha256": "52f8fdd4119fa81953546d2332238b1d1c58feacc5367e44f6095cf8cf50a7c9",
+          "source_heading": "Repository Commands",
+          "source_fragment": "# Repository Commands",
+          "meaning": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0957 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-207-runtime-final-project-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Repository Commands\n\nRecord exact commands that are present in CI/scripts/docs or verified locally.\n\n## Bootstrap\n- dependencies: `UNKNOWN`\n\n## Build\n- main app: `UNKNOWN`\n- packages: `UNKNOWN`\n\n## Tests\n- unit: `UNKNOWN`\n- integration: `UNKNOWN`\n- UI: `UNKNOWN`\n\n## Quality\n- format: `UNKNOWN`\n- lint: `UNKNOWN`\n- generated code: `UNKNOWN`\n\n## Diagnostics\n- strict concurrency/build warnings: `UNKNOWN`\n\nFor each command optionally record required Xcode/runtime/env and last-known verification date."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0957; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1155",
       "path": "source-runtime/templates/project/TARGET_MATRIX.md",
       "sha256": "3999c839651259552f4352684ce7d4b2d65c51fd17d653b98d51421f1241f752",
       "bytes": 297,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1155-U01",
+          "source_path": "canonical/source-runtime/templates/project/TARGET_MATRIX.md",
+          "source_sha256": "3999c839651259552f4352684ce7d4b2d65c51fd17d653b98d51421f1241f752",
+          "source_heading": "Target Matrix",
+          "source_fragment": "# Target Matrix",
+          "meaning": "Actual all affected app/extension/package/test consumers and target/scheme/config/language/SDK/deployment evidence before availability claims. Blank matrix or watch mention not verified topology or platform scope expansion.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual all affected app/extension/package/test consumers and target/scheme/config/language/SDK/deployment evidence before availability claims. Blank matrix or watch mention not verified topology or platform scope expansion.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Targets And Build Phases",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0958 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-207-runtime-final-project-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Targets And Build Phases"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Target Matrix\n\n| Target | Type | Platform | Min OS | Swift mode | Scheme | Key dependencies | Tests |\n|---|---|---|---|---|---|---|---|\n\nInclude app extensions, widgets, watch targets, packages and test bundles. Availability decisions must consider every affected target, not only the main app."
+          ]
+        },
+        {
+          "unit_id": "LIB-1155-U02",
+          "source_path": "canonical/source-runtime/templates/project/TARGET_MATRIX.md",
+          "source_sha256": "3999c839651259552f4352684ce7d4b2d65c51fd17d653b98d51421f1241f752",
+          "source_heading": "Target Matrix",
+          "source_fragment": "# Target Matrix",
+          "meaning": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0958 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-207-runtime-final-project-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Target Matrix\n\n| Target | Type | Platform | Min OS | Swift mode | Scheme | Key dependencies | Tests |\n|---|---|---|---|---|---|---|---|\n\nInclude app extensions, widgets, watch targets, packages and test bundles. Availability decisions must consider every affected target, not only the main app."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0958; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1156",
