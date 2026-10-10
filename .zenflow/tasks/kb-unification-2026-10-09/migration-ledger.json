@@ -164493,99 +164493,803 @@
       "path": "source-protection/CLIENT_CODE_PROTECTION_POLICY.md",
       "sha256": "7b69d1d507b6e3163dd7032792eb48e029fdff088d8953a71e67d35bb136e753",
       "bytes": 1822,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1096-U01",
+          "source_path": "canonical/source-protection/CLIENT_CODE_PROTECTION_POLICY.md",
+          "source_sha256": "7b69d1d507b6e3163dd7032792eb48e029fdff088d8953a71e67d35bb136e753",
+          "source_heading": "Client Code Protection Policy",
+          "source_fragment": "# Client Code Protection Policy",
+          "meaning": "Client preservation/current exact scope before actions; intake not implicit mutation, user-dirty files and control-plane/nested/project/generated state separately owned. Complete observed pre/post evidence, unexpected change stops affected part without hiding/reverting; archived protection installation/begin/verify commands not enabled or required.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Client preservation/current exact scope before actions; intake not implicit mutation, user-dirty files and control-plane/nested/project/generated state separately owned. Complete observed pre/post evidence, unexpected change stops affected part without hiding/reverting; archived protection installation/begin/verify commands not enabled or required.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Client Code Protection Policy\n\nClient repository preservation is the highest operational invariant of the global iOS library.\n\n## Default posture\n- Repository intake/adaptation is read-only and must prove that it did not mutate the client working tree or Git control plane.\n- Protection is not enabled by installing or reading the library. If the task explicitly adopts\n  the protection layer for a product-code write, create an external protection baseline with the\n  intended write scope before the first write.\n- Pre-existing dirty files belong to the user and are immutable unless the user explicitly authorizes that exact dirty path.\n- Git history, refs, index, branch, local Git config, remotes and nested repositories/submodules are protected separately from source-code edits.\n- Generated library state must remain outside the client repository.\n- Do not use destructive recovery commands to make verification pass.\n\n## Required workflow for explicitly protected write tasks\n1. Inspect `git status` and applicable repository instructions.\n2. Decide the smallest exact file/directory write scope before editing.\n3. Run `ios_ai.py protect begin --repo . --allow <path> ... --task \"...\"`.\n4. If a path was dirty before the task, do not include it in normal `--allow`; require explicit user authorization and use `--allow-dirty <exact-path>`.\n5. If an Xcode/project/dependency/CI/signing path must change, require explicit user authorization and add the exact path with `--allow-protected` as well as normal `--allow`.\n6. Perform the smallest coherent patch.\n7. Run `ios_ai.py protect verify --repo .` before claiming completion.\n8. Review `git diff`, `git diff --check`, and relevant build/tests according to risk.\n\nProtection verification failure is a stop condition. Never hide or auto-revert unexpected changes."
+          ]
+        },
+        {
+          "unit_id": "LIB-1096-U02",
+          "source_path": "canonical/source-protection/CLIENT_CODE_PROTECTION_POLICY.md",
+          "source_sha256": "7b69d1d507b6e3163dd7032792eb48e029fdff088d8953a71e67d35bb136e753",
+          "source_heading": "Client Code Protection Policy",
+          "source_fragment": "# Client Code Protection Policy",
+          "meaning": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Client Code Protection Policy\n\nClient repository preservation is the highest operational invariant of the global iOS library.\n\n## Default posture\n- Repository intake/adaptation is read-only and must prove that it did not mutate the client working tree or Git control plane.\n- Protection is not enabled by installing or reading the library. If the task explicitly adopts\n  the protection layer for a product-code write, create an external protection baseline with the\n  intended write scope before the first write.\n- Pre-existing dirty files belong to the user and are immutable unless the user explicitly authorizes that exact dirty path.\n- Git history, refs, index, branch, local Git config, remotes and nested repositories/submodules are protected separately from source-code edits.\n- Generated library state must remain outside the client repository.\n- Do not use destructive recovery commands to make verification pass.\n\n## Required workflow for explicitly protected write tasks\n1. Inspect `git status` and applicable repository instructions.\n2. Decide the smallest exact file/directory write scope before editing.\n3. Run `ios_ai.py protect begin --repo . --allow <path> ... --task \"...\"`.\n4. If a path was dirty before the task, do not include it in normal `--allow`; require explicit user authorization and use `--allow-dirty <exact-path>`.\n5. If an Xcode/project/dependency/CI/signing path must change, require explicit user authorization and add the exact path with `--allow-protected` as well as normal `--allow`.\n6. Perform the smallest coherent patch.\n7. Run `ios_ai.py protect verify --repo .` before claiming completion.\n8. Review `git diff`, `git diff --check`, and relevant build/tests according to risk.\n\nProtection verification failure is a stop condition. Never hide or auto-revert unexpected changes."
+          ]
+        }
+      ],
+      "disposition_reason": "Full protection body independently reviewed; current observed preservation/scope/control-plane/foreign/nested/build-command constraints covered, conditional operational metadata privacy delta migrated, historical inactive CLI machinery archived."
     },
     {
       "source_id": "LIB-1097",
       "path": "source-protection/COMMAND_GUARD_POLICY.md",
       "sha256": "bcb4b2252dc52995b407a001d77c95bca6c1426f2e4fcfb3ef9cca527be55243",
       "bytes": 787,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1097-U01",
+          "source_path": "canonical/source-protection/COMMAND_GUARD_POLICY.md",
+          "source_sha256": "bcb4b2252dc52995b407a001d77c95bca6c1426f2e4fcfb3ef9cca527be55243",
+          "source_heading": "Safe Command Execution Policy",
+          "source_fragment": "# Safe Command Execution Policy",
+          "meaning": "Inspect uncertain exact argv/cwd/effects under actual authority; advisory allowlist verdict not permission, unknown/composed/network/build/interpreter effects unresolved until scoped. Source editing no Git/dependency/release/signing grant; no guard execution or installed sandbox guarantee.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Inspect uncertain exact argv/cwd/effects under actual authority; advisory allowlist verdict not permission, unknown/composed/network/build/interpreter effects unresolved until scoped. Source editing no Git/dependency/release/signing grant; no guard execution or installed sandbox guarantee.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Safe Command Execution Policy\n\nUse `ios_ai.py guard --command \"...\"` before any nontrivial command whose side effects are uncertain.\n\nClassifications:\n- `ALLOW_READ_ONLY`: the parsed argv matches a narrow explicit local read-only allowlist; repository instructions still apply.\n- `REVIEW_UNSUPPORTED`: unknown, malformed, shell-composed, mutating, network/dependency/build/release, interpreter, or otherwise unsupported argv form. It is **not** permission to execute.\n\nThe guard is advisory classification only. A caller that ignores its result can still execute an OS process; this policy is not a kernel/process sandbox.\n\nOrdinary source editing does not authorize commit/push, dependency resolution, package-manager mutation, release/upload, signing changes or destructive cleanup."
+          ]
+        },
+        {
+          "unit_id": "LIB-1097-U02",
+          "source_path": "canonical/source-protection/COMMAND_GUARD_POLICY.md",
+          "source_sha256": "bcb4b2252dc52995b407a001d77c95bca6c1426f2e4fcfb3ef9cca527be55243",
+          "source_heading": "Safe Command Execution Policy",
+          "source_fragment": "# Safe Command Execution Policy",
+          "meaning": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Safe Command Execution Policy\n\nUse `ios_ai.py guard --command \"...\"` before any nontrivial command whose side effects are uncertain.\n\nClassifications:\n- `ALLOW_READ_ONLY`: the parsed argv matches a narrow explicit local read-only allowlist; repository instructions still apply.\n- `REVIEW_UNSUPPORTED`: unknown, malformed, shell-composed, mutating, network/dependency/build/release, interpreter, or otherwise unsupported argv form. It is **not** permission to execute.\n\nThe guard is advisory classification only. A caller that ignores its result can still execute an OS process; this policy is not a kernel/process sandbox.\n\nOrdinary source editing does not authorize commit/push, dependency resolution, package-manager mutation, release/upload, signing changes or destructive cleanup."
+          ]
+        }
+      ],
+      "disposition_reason": "Full protection body independently reviewed; current observed preservation/scope/control-plane/foreign/nested/build-command constraints covered, conditional operational metadata privacy delta migrated, historical inactive CLI machinery archived."
     },
     {
       "source_id": "LIB-1098",
       "path": "source-protection/DIRTY_WORKTREE_POLICY.md",
       "sha256": "7268bca2643a2f643adb53cc63fe3c00cde830ade90f9a31be1100e99c149254",
       "bytes": 644,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1098-U01",
+          "source_path": "canonical/source-protection/DIRTY_WORKTREE_POLICY.md",
+          "source_sha256": "7268bca2643a2f643adb53cc63fe3c00cde830ade90f9a31be1100e99c149254",
+          "source_heading": "Dirty Worktree Policy",
+          "source_fragment": "# Dirty Worktree Policy",
+          "meaning": "Existing tracked/untracked changes user-owned; staging/deleting/replacing/renaming changes them too. Resolve overlap from current explicit task authority, preserve unrelated work, no blanket stash/reset or invented allow-dirty grant. Historical hashing/CLIbaseline mechanism archived.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing tracked/untracked changes user-owned; staging/deleting/replacing/renaming changes them too. Resolve overlap from current explicit task authority, preserve unrelated work, no blanket stash/reset or invented allow-dirty grant. Historical hashing/CLIbaseline mechanism archived.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Dirty Worktree Policy\n\nPre-existing local changes are user-owned state.\n\n- Capture content hashes for every tracked or untracked dirty path at protection-baseline time.\n- A normal task write scope never authorizes modifying a path that was already dirty.\n- Exact `--allow-dirty` authorization is required for such a file.\n- Reverting, deleting, renaming, staging or replacing a pre-existing dirty file counts as mutation.\n- Never use blanket stashing/resetting to get a clean baseline.\n- If the requested task overlaps a dirty file, explain the overlap before touching it unless the user's request already explicitly targets that dirty work."
+          ]
+        },
+        {
+          "unit_id": "LIB-1098-U02",
+          "source_path": "canonical/source-protection/DIRTY_WORKTREE_POLICY.md",
+          "source_sha256": "7268bca2643a2f643adb53cc63fe3c00cde830ade90f9a31be1100e99c149254",
+          "source_heading": "Dirty Worktree Policy",
+          "source_fragment": "# Dirty Worktree Policy",
+          "meaning": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Dirty Worktree Policy\n\nPre-existing local changes are user-owned state.\n\n- Capture content hashes for every tracked or untracked dirty path at protection-baseline time.\n- A normal task write scope never authorizes modifying a path that was already dirty.\n- Exact `--allow-dirty` authorization is required for such a file.\n- Reverting, deleting, renaming, staging or replacing a pre-existing dirty file counts as mutation.\n- Never use blanket stashing/resetting to get a clean baseline.\n- If the requested task overlaps a dirty file, explain the overlap before touching it unless the user's request already explicitly targets that dirty work."
+          ]
+        }
+      ],
+      "disposition_reason": "Full protection body independently reviewed; current observed preservation/scope/control-plane/foreign/nested/build-command constraints covered, conditional operational metadata privacy delta migrated, historical inactive CLI machinery archived."
     },
     {
       "source_id": "LIB-1099",
       "path": "source-protection/EXTERNAL_STATE_PRIVACY.md",
       "sha256": "d1793b9029d3f81f144e1587966779f835e64976091389cc8eca2cd2cd7ad347",
       "bytes": 782,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1099-U01",
+          "source_path": "canonical/source-protection/EXTERNAL_STATE_PRIVACY.md",
+          "source_sha256": "d1793b9029d3f81f144e1587966779f835e64976091389cc8eca2cd2cd7ad347",
+          "source_heading": "External State Privacy and Isolation",
+          "source_fragment": "# External State Privacy and Isolation",
+          "meaning": "For currently authorized local operational metadata only: bounded relevant structural/redacted summaries, not source bodies/raw stdout/raw remote URLs; approved contained non-symlink destinations/private access, state root outside and not ancestor of client, exact identity and cleanup authority. No new state/cache/host/profile/secret operation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "Existing containment/privacy/authority broad rules; operational metadata minimization/private non-symlink state and identity-bound cleanup contract added.",
+          "unique_delta": "For currently authorized local operational metadata only: bounded relevant structural/redacted summaries, not source bodies/raw stdout/raw remote URLs; approved contained non-symlink destinations/private access, state root outside and not ancestor of client, exact identity and cleanup authority. No new state/cache/host/profile/secret operation.",
+          "disposition": "MIGRATED",
+          "reason": "For currently authorized local operational metadata only: bounded relevant structural/redacted summaries, not source bodies/raw stdout/raw remote URLs; approved contained non-symlink destinations/private access, state root outside and not ancestor of client, exact identity and cleanup authority. No new state/cache/host/profile/secret operation.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# External State Privacy and Isolation\n\nProject-adaptive state is local machine metadata, not a mirror of client source.\n\n- State root must be outside the client repository and must not contain the client repository.\n- State directories use private permissions where the OS supports them (`0700` directories, `0600` files).\n- Generated context stores paths, counts, normalized settings, evidence labels, fingerprints and redacted command templates—not Swift/Obj-C source bodies.\n- Raw `xcodebuild` stdout is not retained; only bounded structural summaries are cached.\n- Raw remote URLs are not persisted; only host plus a one-way fingerprint are stored.\n- State writes refuse symlink destinations.\n- `clear` only removes a state directory carrying the expected repository marker."
+          ]
+        },
+        {
+          "unit_id": "LIB-1099-U02",
+          "source_path": "canonical/source-protection/EXTERNAL_STATE_PRIVACY.md",
+          "source_sha256": "d1793b9029d3f81f144e1587966779f835e64976091389cc8eca2cd2cd7ad347",
+          "source_heading": "External State Privacy and Isolation",
+          "source_fragment": "# External State Privacy and Isolation",
+          "meaning": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# External State Privacy and Isolation\n\nProject-adaptive state is local machine metadata, not a mirror of client source.\n\n- State root must be outside the client repository and must not contain the client repository.\n- State directories use private permissions where the OS supports them (`0700` directories, `0600` files).\n- Generated context stores paths, counts, normalized settings, evidence labels, fingerprints and redacted command templates—not Swift/Obj-C source bodies.\n- Raw `xcodebuild` stdout is not retained; only bounded structural summaries are cached.\n- Raw remote URLs are not persisted; only host plus a one-way fingerprint are stored.\n- State writes refuse symlink destinations.\n- `clear` only removes a state directory carrying the expected repository marker."
+          ]
+        }
+      ],
+      "disposition_reason": "Full protection body independently reviewed; current observed preservation/scope/control-plane/foreign/nested/build-command constraints covered, conditional operational metadata privacy delta migrated, historical inactive CLI machinery archived."
     },
     {
       "source_id": "LIB-1100",
       "path": "source-protection/GIT_CONTROL_PLANE_POLICY.md",
       "sha256": "3e820b563c43a84be4bd6fe7e0622deec380df738e72258f524ac6ea5fda912f",
       "bytes": 716,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1100-U01",
+          "source_path": "canonical/source-protection/GIT_CONTROL_PLANE_POLICY.md",
+          "source_sha256": "3e820b563c43a84be4bd6fe7e0622deec380df738e72258f524ac6ea5fda912f",
+          "source_heading": "Git Control-Plane Protection",
+          "source_fragment": "# Git Control-Plane Protection",
+          "meaning": "Git HEAD/refs/index/config/stash/history/remotes separate current authority from source scope; exact observed review before specifically authorized publication, preserve foreign state no destructive agent-error cleanup. Current standing owned-publication permission applies, historical separate-action wording not extra approval ceremony.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Git HEAD/refs/index/config/stash/history/remotes separate current authority from source scope; exact observed review before specifically authorized publication, preserve foreign state no destructive agent-error cleanup. Current standing owned-publication permission applies, historical separate-action wording not extra approval ceremony.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 4. Final Adversarial Review; 5. Exact-SHA Review Receipt",
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review",
+                "5. Exact-SHA Review Receipt"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Git Control-Plane Protection\n\nNormal coding authorization does not imply authorization to mutate Git control state.\n\nProtected by default:\n- `HEAD` and current symbolic branch;\n- refs/tags/remote-tracking refs;\n- index/staging state;\n- local `.git/config` and remotes;\n- stash, commit, merge, rebase, cherry-pick, revert operations;\n- force push and destructive reset/clean/restore operations.\n\nNever run `git reset --hard`, `git clean`, destructive `git checkout/restore`, or equivalent commands to recover from an agent mistake. Preserve evidence and ask for direction.\n\nCommit/push/fetch/pull/rebase/merge are separate user actions. Complete code protection verification before any explicitly requested commit."
+          ]
+        },
+        {
+          "unit_id": "LIB-1100-U02",
+          "source_path": "canonical/source-protection/GIT_CONTROL_PLANE_POLICY.md",
+          "source_sha256": "3e820b563c43a84be4bd6fe7e0622deec380df738e72258f524ac6ea5fda912f",
+          "source_heading": "Git Control-Plane Protection",
+          "source_fragment": "# Git Control-Plane Protection",
+          "meaning": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Git Control-Plane Protection\n\nNormal coding authorization does not imply authorization to mutate Git control state.\n\nProtected by default:\n- `HEAD` and current symbolic branch;\n- refs/tags/remote-tracking refs;\n- index/staging state;\n- local `.git/config` and remotes;\n- stash, commit, merge, rebase, cherry-pick, revert operations;\n- force push and destructive reset/clean/restore operations.\n\nNever run `git reset --hard`, `git clean`, destructive `git checkout/restore`, or equivalent commands to recover from an agent mistake. Preserve evidence and ask for direction.\n\nCommit/push/fetch/pull/rebase/merge are separate user actions. Complete code protection verification before any explicitly requested commit."
+          ]
+        }
+      ],
+      "disposition_reason": "Full protection body independently reviewed; current observed preservation/scope/control-plane/foreign/nested/build-command constraints covered, conditional operational metadata privacy delta migrated, historical inactive CLI machinery archived."
     },
     {
       "source_id": "LIB-1101",
       "path": "source-protection/INCIDENT_RECOVERY.md",
       "sha256": "34146ac7597a9190d515d63921ac805a9b3e77796bc991f70a1dbcae15ed7ae8",
       "bytes": 634,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1101-U01",
+          "source_path": "canonical/source-protection/INCIDENT_RECOVERY.md",
+          "source_sha256": "34146ac7597a9190d515d63921ac805a9b3e77796bc991f70a1dbcae15ed7ae8",
+          "source_heading": "Unexpected Mutation / Incident Recovery",
+          "source_fragment": "# Unexpected Mutation / Incident Recovery",
+          "meaning": "Unexpected mutation stops affected writes, preserve exact dirty/protected/control-plane/nested evidence and bounded recovery options. No reset/clean/stash/restore to hide, no foreign overwrite or retrospective scope expansion; repair/cleanup requires actual ownership/current authority, no auto recovery/rebaseline grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Unexpected mutation stops affected writes, preserve exact dirty/protected/control-plane/nested evidence and bounded recovery options. No reset/clean/stash/restore to hide, no foreign overwrite or retrospective scope expansion; repair/cleanup requires actual ownership/current authority, no auto recovery/rebaseline grant.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "4. Final Adversarial Review",
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Unexpected Mutation / Incident Recovery\n\nWhen protection verification fails:\n\n1. Stop further writes and automation.\n2. Do not run reset/clean/restore/stash to hide the problem.\n3. Report exactly what changed and whether it touches user-dirty/protected/Git/nested state.\n4. Preserve `git diff`, status and protection evidence.\n5. If the unexpected change is generated/build output and safe to remove, still require deliberate confirmation when removal is destructive or ambiguous.\n6. Repair only the agent-owned unintended changes; never overwrite user-owned work.\n7. Re-baseline only after the repository is understood and stable."
+          ]
+        },
+        {
+          "unit_id": "LIB-1101-U02",
+          "source_path": "canonical/source-protection/INCIDENT_RECOVERY.md",
+          "source_sha256": "34146ac7597a9190d515d63921ac805a9b3e77796bc991f70a1dbcae15ed7ae8",
+          "source_heading": "Unexpected Mutation / Incident Recovery",
+          "source_fragment": "# Unexpected Mutation / Incident Recovery",
+          "meaning": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Unexpected Mutation / Incident Recovery\n\nWhen protection verification fails:\n\n1. Stop further writes and automation.\n2. Do not run reset/clean/restore/stash to hide the problem.\n3. Report exactly what changed and whether it touches user-dirty/protected/Git/nested state.\n4. Preserve `git diff`, status and protection evidence.\n5. If the unexpected change is generated/build output and safe to remove, still require deliberate confirmation when removal is destructive or ambiguous.\n6. Repair only the agent-owned unintended changes; never overwrite user-owned work.\n7. Re-baseline only after the repository is understood and stable."
+          ]
+        }
+      ],
+      "disposition_reason": "Full protection body independently reviewed; current observed preservation/scope/control-plane/foreign/nested/build-command constraints covered, conditional operational metadata privacy delta migrated, historical inactive CLI machinery archived."
     },
     {
       "source_id": "LIB-1102",
       "path": "source-protection/NESTED_REPOSITORY_POLICY.md",
       "sha256": "283ac21204f08b52c8b0147867f200c63cf4959084503a85f7de5c37896ead81",
       "bytes": 592,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1102-U01",
+          "source_path": "canonical/source-protection/NESTED_REPOSITORY_POLICY.md",
+          "source_sha256": "283ac21204f08b52c8b0147867f200c63cf4959084503a85f7de5c37896ead81",
+          "source_heading": "Nested Repository and Submodule Policy",
+          "source_fragment": "# Nested Repository and Submodule Policy",
+          "meaning": "Nested repo/submodule independent owned boundary, parent scope no implicit nested scan/source/ref/config/HEAD writes; actual relevant observed topology/status preserve, no recursive cleaning/reset. Frozen fingerprint implementation archived not installed guarantee.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Nested repo/submodule independent owned boundary, parent scope no implicit nested scan/source/ref/config/HEAD writes; actual relevant observed topology/status preserve, no recursive cleaning/reset. Frozen fingerprint implementation archived not installed guarantee.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Nested Repository and Submodule Policy\n\nA nested Git repository or submodule is an independent protected boundary.\n\n- Root project adaptation does not scan nested repository source as if it belonged to the parent project.\n- Capture nested repository HEAD/status/refs/config fingerprints at baseline.\n- Do not change submodule HEAD, nested worktree content, nested Git config or nested refs as a side effect of parent-project work.\n- Explicitly authorize the exact nested path before intentional changes.\n- Never recursively clean/reset nested repositories to make the parent appear stable."
+          ]
+        },
+        {
+          "unit_id": "LIB-1102-U02",
+          "source_path": "canonical/source-protection/NESTED_REPOSITORY_POLICY.md",
+          "source_sha256": "283ac21204f08b52c8b0147867f200c63cf4959084503a85f7de5c37896ead81",
+          "source_heading": "Nested Repository and Submodule Policy",
+          "source_fragment": "# Nested Repository and Submodule Policy",
+          "meaning": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Nested Repository and Submodule Policy\n\nA nested Git repository or submodule is an independent protected boundary.\n\n- Root project adaptation does not scan nested repository source as if it belonged to the parent project.\n- Capture nested repository HEAD/status/refs/config fingerprints at baseline.\n- Do not change submodule HEAD, nested worktree content, nested Git config or nested refs as a side effect of parent-project work.\n- Explicitly authorize the exact nested path before intentional changes.\n- Never recursively clean/reset nested repositories to make the parent appear stable."
+          ]
+        }
+      ],
+      "disposition_reason": "Full protection body independently reviewed; current observed preservation/scope/control-plane/foreign/nested/build-command constraints covered, conditional operational metadata privacy delta migrated, historical inactive CLI machinery archived."
     },
     {
       "source_id": "LIB-1103",
       "path": "source-protection/PROTECTED_PATHS.md",
       "sha256": "4a03b1f60d9aee5fe8248d9f62d67315ed59191daaa57617618df9d6925735d8",
       "bytes": 641,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1103-U01",
+          "source_path": "canonical/source-protection/PROTECTED_PATHS.md",
+          "source_sha256": "4a03b1f60d9aee5fe8248d9f62d67315ed59191daaa57617618df9d6925735d8",
+          "source_heading": "Protected Path Classes",
+          "source_fragment": "# Protected Path Classes",
+          "meaning": "Actual project/schemes/testplans/manifests/locks/entitlements/config/privacy/CI/release/scripts/schema/signing consumers require scoped intent and semantic review, ordinary source scope not authorization. Conservative class labels not universal ban or automatic new approval under existing explicit task scope.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual project/schemes/testplans/manifests/locks/entitlements/config/privacy/CI/release/scripts/schema/signing consumers require scoped intent and semantic review, ordinary source scope not authorization. Conservative class labels not universal ban or automatic new approval under existing explicit task scope.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Protected Path Classes\n\nThe following classes require elevated review and exact protected-path authorization when changed:\n\n- `project.pbxproj` and Xcode schemes/test plans;\n- `Package.swift`, `Package.resolved`, Pod/Carthage/Mint lockfiles;\n- entitlements, xcconfig, `Info.plist`, privacy manifests;\n- CI configuration and release/Fastlane files;\n- repository scripts/tooling;\n- Core Data model bundles and persisted-schema artifacts;\n- signing/release configuration.\n\nThis list is intentionally conservative. A path being protected does not mean it is forbidden; it means accidental mutation is unacceptable and intent must be explicit."
+          ]
+        },
+        {
+          "unit_id": "LIB-1103-U02",
+          "source_path": "canonical/source-protection/PROTECTED_PATHS.md",
+          "source_sha256": "4a03b1f60d9aee5fe8248d9f62d67315ed59191daaa57617618df9d6925735d8",
+          "source_heading": "Protected Path Classes",
+          "source_fragment": "# Protected Path Classes",
+          "meaning": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Protected Path Classes\n\nThe following classes require elevated review and exact protected-path authorization when changed:\n\n- `project.pbxproj` and Xcode schemes/test plans;\n- `Package.swift`, `Package.resolved`, Pod/Carthage/Mint lockfiles;\n- entitlements, xcconfig, `Info.plist`, privacy manifests;\n- CI configuration and release/Fastlane files;\n- repository scripts/tooling;\n- Core Data model bundles and persisted-schema artifacts;\n- signing/release configuration.\n\nThis list is intentionally conservative. A path being protected does not mean it is forbidden; it means accidental mutation is unacceptable and intent must be explicit."
+          ]
+        }
+      ],
+      "disposition_reason": "Full protection body independently reviewed; current observed preservation/scope/control-plane/foreign/nested/build-command constraints covered, conditional operational metadata privacy delta migrated, historical inactive CLI machinery archived."
     },
     {
       "source_id": "LIB-1104",
       "path": "source-protection/THREAT_MODEL.md",
       "sha256": "aca1862cff4c46ccb69716dd23806fbe2ef86864c2ffb8b7ec39d0f4eab65596",
       "bytes": 815,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1104-U01",
+          "source_path": "canonical/source-protection/THREAT_MODEL.md",
+          "source_sha256": "aca1862cff4c46ccb69716dd23806fbe2ef86864c2ffb8b7ec39d0f4eab65596",
+          "source_heading": "Client Repository Threat Model",
+          "source_fragment": "# Client Repository Threat Model",
+          "meaning": "Actual accidental boundary risks: scope/dirty/control-plane/dependency/buildphase/nested/path/privacy/release/cleanup/shared-writer collisions; observed review and conditional authorized integrator cannot replace OS sandbox/backup/credential/remote controls or prove absent failures. No agent/sandbox/host/control-plane adoption.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual accidental boundary risks: scope/dirty/control-plane/dependency/buildphase/nested/path/privacy/release/cleanup/shared-writer collisions; observed review and conditional authorized integrator cannot replace OS sandbox/backup/credential/remote controls or prove absent failures. No agent/sandbox/host/control-plane adoption.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Client Repository Threat Model\n\nPrimary accidental-risk classes addressed by the hardened global library:\n\n- agent edits outside intended task scope;\n- overwriting pre-existing uncommitted user work;\n- hidden Git control-plane mutation that leaves a clean worktree;\n- dependency/lockfile drift;\n- Xcode build-phase side effects;\n- nested-repository/submodule mutation;\n- symlink/path escape during scanning or cache writes;\n- release/signing/upload commands invoked as verification;\n- secrets or source content copied into global state;\n- destructive cleanup used to mask mistakes;\n- multi-agent write collisions.\n\nThe model reduces accidental damage but does not replace OS sandboxing, backups, branch protection, least-privilege credentials, secure secret storage, code review or remote repository protections."
+          ]
+        },
+        {
+          "unit_id": "LIB-1104-U02",
+          "source_path": "canonical/source-protection/THREAT_MODEL.md",
+          "source_sha256": "aca1862cff4c46ccb69716dd23806fbe2ef86864c2ffb8b7ec39d0f4eab65596",
+          "source_heading": "Client Repository Threat Model",
+          "source_fragment": "# Client Repository Threat Model",
+          "meaning": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Client Repository Threat Model\n\nPrimary accidental-risk classes addressed by the hardened global library:\n\n- agent edits outside intended task scope;\n- overwriting pre-existing uncommitted user work;\n- hidden Git control-plane mutation that leaves a clean worktree;\n- dependency/lockfile drift;\n- Xcode build-phase side effects;\n- nested-repository/submodule mutation;\n- symlink/path escape during scanning or cache writes;\n- release/signing/upload commands invoked as verification;\n- secrets or source content copied into global state;\n- destructive cleanup used to mask mistakes;\n- multi-agent write collisions.\n\nThe model reduces accidental damage but does not replace OS sandboxing, backups, branch protection, least-privilege credentials, secure secret storage, code review or remote repository protections."
+          ]
+        }
+      ],
+      "disposition_reason": "Full protection body independently reviewed; current observed preservation/scope/control-plane/foreign/nested/build-command constraints covered, conditional operational metadata privacy delta migrated, historical inactive CLI machinery archived."
     },
     {
       "source_id": "LIB-1105",
       "path": "source-protection/WRITE_SCOPE_PROTOCOL.md",
       "sha256": "41aae1fc63705b0dadcfd7ca97a84ff3c943b56f71e053bc836dcb88cb4b2f6e",
       "bytes": 772,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1105-U01",
+          "source_path": "canonical/source-protection/WRITE_SCOPE_PROTOCOL.md",
+          "source_sha256": "41aae1fc63705b0dadcfd7ca97a84ff3c943b56f71e053bc836dcb88cb4b2f6e",
+          "source_heading": "Predeclared Write Scope Protocol",
+          "source_fragment": "# Predeclared Write Scope Protocol",
+          "meaning": "Narrow exact write scope before work, genuine new-file directory only with actual scope, no root-wide wildcard widening after verification failure. Re-plan actual scope change and resolve separately owned control/data/foreign boundaries; authorized writers disjoint/sharedfilesserialized, no agents activated.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Narrow exact write scope before work, genuine new-file directory only with actual scope, no root-wide wildcard widening after verification failure. Re-plan actual scope change and resolve separately owned control/data/foreign boundaries; authorized writers disjoint/sharedfilesserialized, no agents activated.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1A. PR Risk Card And Scope; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Predeclared Write Scope Protocol\n\nWrite scope is declared before editing so verification cannot be retroactively widened to whatever the agent happened to change.\n\n- Prefer exact file paths.\n- A directory ending in `/` is allowed only when the task genuinely requires multiple/new files under that directory.\n- Wildcards are rejected by the protection CLI.\n- Do not use repository root or broad source roots when a narrower scope is known.\n- Scope expansion after work begins requires a deliberate re-plan. If the expansion touches user-dirty, protected, nested-repo, dependency, signing, CI, release or Git-control-plane state, obtain explicit user authorization first.\n- Parallel agents must have disjoint declared write scopes; shared files belong to one integrator."
+          ]
+        },
+        {
+          "unit_id": "LIB-1105-U02",
+          "source_path": "canonical/source-protection/WRITE_SCOPE_PROTOCOL.md",
+          "source_sha256": "41aae1fc63705b0dadcfd7ca97a84ff3c943b56f71e053bc836dcb88cb4b2f6e",
+          "source_heading": "Predeclared Write Scope Protocol",
+          "source_fragment": "# Predeclared Write Scope Protocol",
+          "meaning": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Predeclared Write Scope Protocol\n\nWrite scope is declared before editing so verification cannot be retroactively widened to whatever the agent happened to change.\n\n- Prefer exact file paths.\n- A directory ending in `/` is allowed only when the task genuinely requires multiple/new files under that directory.\n- Wildcards are rejected by the protection CLI.\n- Do not use repository root or broad source roots when a narrower scope is known.\n- Scope expansion after work begins requires a deliberate re-plan. If the expansion touches user-dirty, protected, nested-repo, dependency, signing, CI, release or Git-control-plane state, obtain explicit user authorization first.\n- Parallel agents must have disjoint declared write scopes; shared files belong to one integrator."
+          ]
+        }
+      ],
+      "disposition_reason": "Full protection body independently reviewed; current observed preservation/scope/control-plane/foreign/nested/build-command constraints covered, conditional operational metadata privacy delta migrated, historical inactive CLI machinery archived."
     },
     {
       "source_id": "LIB-1106",
       "path": "source-protection/XCODE_BUILD_PHASE_POLICY.md",
       "sha256": "4400d76907f3358083b3fee4b68c0c86e226ba79a71a7faefe40047af3990dae",
       "bytes": 772,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1106-U01",
+          "source_path": "canonical/source-protection/XCODE_BUILD_PHASE_POLICY.md",
+          "source_sha256": "4400d76907f3358083b3fee4b68c0c86e226ba79a71a7faefe40047af3990dae",
+          "source_heading": "Xcode Build/Test Side-Effect Policy",
+          "source_fragment": "# Xcode Build/Test Side-Effect Policy",
+          "meaning": "Build/test scripts may write/install/network/sign/upload; inspect task-relevant actual build graph and observed CI commands/effects, current runtime authority required, release/archive/export distinct. Preserve observed pre/post state and bounded diagnostics; old build-phases scanner recipe archived, not executed/read-only proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Build/test scripts may write/install/network/sign/upload; inspect task-relevant actual build graph and observed CI commands/effects, current runtime authority required, release/archive/export distinct. Preserve observed pre/post state and bounded diagnostics; old build-phases scanner recipe archived, not executed/read-only proof.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Targets And Build Phases",
+                "Reproducibility And CI"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Xcode Build/Test Side-Effect Policy\n\n`xcodebuild build` and `xcodebuild test` are not assumed read-only. PBXShellScriptBuildPhase scripts can modify files, install dependencies, access the network, sign artifacts or upload diagnostics.\n\nBefore first build/test in an unfamiliar client repository:\n1. Run `ios_ai.py build-phases --repo .`.\n2. Review every reported shell-script phase and risk category.\n3. Prefer repository/CI-observed commands.\n4. Avoid release/archive/export/signing commands unless explicitly requested.\n5. Preserve the protection baseline across build/test and verify it afterward if build phases could touch repository files.\n\nThe scanner retains only project path, script hash and risk categories; it does not copy script bodies to external state."
+          ]
+        },
+        {
+          "unit_id": "LIB-1106-U02",
+          "source_path": "canonical/source-protection/XCODE_BUILD_PHASE_POLICY.md",
+          "source_sha256": "4400d76907f3358083b3fee4b68c0c86e226ba79a71a7faefe40047af3990dae",
+          "source_heading": "Xcode Build/Test Side-Effect Policy",
+          "source_fragment": "# Xcode Build/Test Side-Effect Policy",
+          "meaning": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical protection CLI/baseline/guard/fingerprint/allowlist/installation and recovery procedures archived; reading these sources activates none. Useful observed preservation/privacy/current-scope contracts remain in existing owner; no host/config/Git/nested/agents/runtime/cleanup grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eleven complete source-protection bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-173-protection-contract-metadata-privacy.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Xcode Build/Test Side-Effect Policy\n\n`xcodebuild build` and `xcodebuild test` are not assumed read-only. PBXShellScriptBuildPhase scripts can modify files, install dependencies, access the network, sign artifacts or upload diagnostics.\n\nBefore first build/test in an unfamiliar client repository:\n1. Run `ios_ai.py build-phases --repo .`.\n2. Review every reported shell-script phase and risk category.\n3. Prefer repository/CI-observed commands.\n4. Avoid release/archive/export/signing commands unless explicitly requested.\n5. Preserve the protection baseline across build/test and verify it afterward if build phases could touch repository files.\n\nThe scanner retains only project path, script hash and risk categories; it does not copy script bodies to external state."
+          ]
+        }
+      ],
+      "disposition_reason": "Full protection body independently reviewed; current observed preservation/scope/control-plane/foreign/nested/build-command constraints covered, conditional operational metadata privacy delta migrated, historical inactive CLI machinery archived."
     },
     {
       "source_id": "LIB-1107",

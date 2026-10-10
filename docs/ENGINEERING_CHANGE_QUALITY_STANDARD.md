@@ -114,6 +114,15 @@ files or initiate network/upload work and require current authority. Source-file
 authorize Git refs/index/config, nested repositories/submodules, dependencies, project/signing,
 CI/release or host settings. Linked worktrees can share refs/config despite disjoint file paths.
 
+If local operational metadata is currently authorized, keep its approved state root outside
+and not an ancestor of the client repository. Retain bounded task-relevant structural/redacted
+summaries, not client source bodies, raw command stdout or raw remote URLs. Use approved contained
+destinations, refuse symlink destinations, and restrict access where supported (for example,
+0700 directories and 0600 files). Cleanup must identify the exact owned state by its expected
+marker and remain within current cleanup authority. This grants no state/cache/profile creation,
+host configuration or deletion; explicitly approved archives and evidence artifacts retain their
+own content and preservation contracts.
+
 ## 3. Verification Ladder
 
 Use the smallest sufficient ladder and stop when its evidence is current.
