@@ -158333,27 +158333,216 @@
       "path": "LEGACY_CAPABILITY_MAP.md",
       "sha256": "724a5ad6d281ccaed5e8598e011c09240df10733888b3691e4058ca5850c4143",
       "bytes": 4952,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0856-U01",
+          "source_path": "canonical/LEGACY_CAPABILITY_MAP.md",
+          "source_sha256": "724a5ad6d281ccaed5e8598e011c09240df10733888b3691e4058ca5850c4143",
+          "source_heading": "V5.4 runtime capabilities → copy-only reference — migration evidence",
+          "source_fragment": "# V5.4 runtime capabilities → copy-only reference — migration evidence",
+          "meaning": "Actual bounded provenance-aware project/target/producer-consumer inspection, uncertain command effects/minimal scope, permission-aware partition, dirty-work/full-diff preservation and exact current evidence consistency. Commands from repository are data, heuristic counts/hits not defects, incomplete observation not PASS; no old CLI/guard/lease/profile/scanner/rollback equivalent claim.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual bounded provenance-aware project/target/producer-consumer inspection, uncertain command effects/minimal scope, permission-aware partition, dirty-work/full-diff preservation and exact current evidence consistency. Commands from repository are data, heuristic counts/hits not defects, incomplete observation not PASS; no old CLI/guard/lease/profile/scanner/rollback equivalent claim.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Three complete legacy capability/scenario/preservation sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-163-legacy-capability-scenario-preservation-receipts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0856-U02",
+          "source_path": "canonical/LEGACY_CAPABILITY_MAP.md",
+          "source_sha256": "724a5ad6d281ccaed5e8598e011c09240df10733888b3691e4058ca5850c4143",
+          "source_heading": "V5.4 runtime capabilities → copy-only reference — migration evidence",
+          "source_fragment": "# V5.4 runtime capabilities → copy-only reference — migration evidence",
+          "meaning": "Historical retired V5.4 command/installer/guard/profile/scanner/test/source-map and dated preservation counts/transform/retirement exclusions/commit receipt archived; semantic advice not executable equivalence or current coverage. No new test suite/evaluation, old commands, installation or deletion authority; preserve frozen provenance.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical retired V5.4 command/installer/guard/profile/scanner/test/source-map and dated preservation counts/transform/retirement exclusions/commit receipt archived; semantic advice not executable equivalence or current coverage. No new test suite/evaluation, old commands, installation or deletion authority; preserve frozen provenance.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Three complete legacy capability/scenario/preservation sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-163-legacy-capability-scenario-preservation-receipts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full source independently reviewed; useful provenance/coverage/authority/evidence requirements covered; historical candidate/control/allowlist/quickstart infrastructure archived. No raw inventory inherited as reviewed coverage."
     },
     {
       "source_id": "LIB-0857",
       "path": "LEGACY_TEST_SCENARIO_MAP.md",
       "sha256": "135a54576168089da888e42238973653a1b60f5d3603494af1ab28ae945eeceb",
       "bytes": 2737,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0857-U01",
+          "source_path": "canonical/LEGACY_TEST_SCENARIO_MAP.md",
+          "source_sha256": "135a54576168089da888e42238973653a1b60f5d3603494af1ab28ae945eeceb",
+          "source_heading": "Retired V5.4 tests → future copy-only reference scenarios",
+          "source_fragment": "# Retired V5.4 tests → future copy-only reference scenarios",
+          "meaning": "Retain actual contract-specific failure questions for unknown command/foreign/shared state/malformed or skipped input/bounds/partial source/stale duplicate knowledge/link mismatch/timeout/concurrent mutation/changed diff, with explicit limitations and failure-closed claims. Old fixtures/runtime tests not current evidence or required new suite; derive tests only if current test-writing phase explicitly opened.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Retain actual contract-specific failure questions for unknown command/foreign/shared state/malformed or skipped input/bounds/partial source/stale duplicate knowledge/link mismatch/timeout/concurrent mutation/changed diff, with explicit limitations and failure-closed claims. Old fixtures/runtime tests not current evidence or required new suite; derive tests only if current test-writing phase explicitly opened.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Three complete legacy capability/scenario/preservation sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-163-legacy-capability-scenario-preservation-receipts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0857-U02",
+          "source_path": "canonical/LEGACY_TEST_SCENARIO_MAP.md",
+          "source_sha256": "135a54576168089da888e42238973653a1b60f5d3603494af1ab28ae945eeceb",
+          "source_heading": "Retired V5.4 tests → future copy-only reference scenarios",
+          "source_fragment": "# Retired V5.4 tests → future copy-only reference scenarios",
+          "meaning": "Historical retired V5.4 command/installer/guard/profile/scanner/test/source-map and dated preservation counts/transform/retirement exclusions/commit receipt archived; semantic advice not executable equivalence or current coverage. No new test suite/evaluation, old commands, installation or deletion authority; preserve frozen provenance.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical retired V5.4 command/installer/guard/profile/scanner/test/source-map and dated preservation counts/transform/retirement exclusions/commit receipt archived; semantic advice not executable equivalence or current coverage. No new test suite/evaluation, old commands, installation or deletion authority; preserve frozen provenance.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Three complete legacy capability/scenario/preservation sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-163-legacy-capability-scenario-preservation-receipts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full source independently reviewed; useful provenance/coverage/authority/evidence requirements covered; historical candidate/control/allowlist/quickstart infrastructure archived. No raw inventory inherited as reviewed coverage."
     },
     {
       "source_id": "LIB-0858",
       "path": "MIGRATION_COVERAGE_RECEIPT.md",
       "sha256": "ac513f92d5a1da791ebdf71dd2c5572eea9da757924e89f9f1f71477adfe2d77",
       "bytes": 2565,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0858-U01",
+          "source_path": "canonical/MIGRATION_COVERAGE_RECEIPT.md",
+          "source_sha256": "ac513f92d5a1da791ebdf71dd2c5572eea9da757924e89f9f1f71477adfe2d77",
+          "source_heading": "V5.4 current-tree retirement — coverage receipt",
+          "source_fragment": "# V5.4 current-tree retirement — coverage receipt",
+          "meaning": "Exact preservation inventory/byte copy/mechanical permission rewrite/file retirement receipt distinct correctness/currency/link/embedded-command semantics or complete reviewed conversion. Snapshot/Git provenance and intentional exclusions remain historical evidence, never all-useful coverage from zero-unmapped count or permission to delete/install/run.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact preservation inventory/byte copy/mechanical permission rewrite/file retirement receipt distinct correctness/currency/link/embedded-command semantics or complete reviewed conversion. Snapshot/Git provenance and intentional exclusions remain historical evidence, never all-useful coverage from zero-unmapped count or permission to delete/install/run.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Coverage Unit; Completion Gate",
+          "required_verification": "Three complete legacy capability/scenario/preservation sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-163-legacy-capability-scenario-preservation-receipts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Coverage Unit",
+                "Completion Gate"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0858-U02",
+          "source_path": "canonical/MIGRATION_COVERAGE_RECEIPT.md",
+          "source_sha256": "ac513f92d5a1da791ebdf71dd2c5572eea9da757924e89f9f1f71477adfe2d77",
+          "source_heading": "V5.4 current-tree retirement — coverage receipt",
+          "source_fragment": "# V5.4 current-tree retirement — coverage receipt",
+          "meaning": "Historical retired V5.4 command/installer/guard/profile/scanner/test/source-map and dated preservation counts/transform/retirement exclusions/commit receipt archived; semantic advice not executable equivalence or current coverage. No new test suite/evaluation, old commands, installation or deletion authority; preserve frozen provenance.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical retired V5.4 command/installer/guard/profile/scanner/test/source-map and dated preservation counts/transform/retirement exclusions/commit receipt archived; semantic advice not executable equivalence or current coverage. No new test suite/evaluation, old commands, installation or deletion authority; preserve frozen provenance.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Three complete legacy capability/scenario/preservation sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-163-legacy-capability-scenario-preservation-receipts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full source independently reviewed; useful provenance/coverage/authority/evidence requirements covered; historical candidate/control/allowlist/quickstart infrastructure archived. No raw inventory inherited as reviewed coverage."
     },
     {
       "source_id": "LIB-0859",
