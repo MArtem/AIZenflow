@@ -86496,27 +86496,707 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-06-08.md",
       "sha256": "582469a96ca90fcb98270845a14816e77a57398c7280fd7844328a200a7bcc3a",
       "bytes": 7578,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0436-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-06-08.md",
+          "source_sha256": "582469a96ca90fcb98270845a14816e77a57398c7280fd7844328a200a7bcc3a",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual delegates/closures/timers/observers/display links/child controllers/reused cell graph and async suspension retention; explicit semantic teardown, not mechanical weak captures.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual delegates/closures/timers/observers/display links/child controllers/reused cell graph and async suspension retention; explicit semantic teardown, not mechanical weak captures.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "UIKit Lifecycle And Reuse Review; UIKit Interoperability",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-06-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-84-uikit-memory-migration-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UIKit Lifecycle And Reuse Review",
+                "UIKit Interoperability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Ownership And Memory"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0436-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-06-08.md",
+          "source_sha256": "582469a96ca90fcb98270845a14816e77a57398c7280fd7844328a200a7bcc3a",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Complete task/timer/notification/delegate/closure ownership graph plus permitted deinit/Memory Graph corroboration; no static leak-fix success.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete task/timer/notification/delegate/closure ownership graph plus permitted deinit/Memory Graph corroboration; no static leak-fix success.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "UIKit Lifecycle And Reuse Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-06-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-84-uikit-memory-migration-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UIKit Lifecycle And Reuse Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Ownership And Memory"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0436-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-06-08.md",
+          "source_sha256": "582469a96ca90fcb98270845a14816e77a57398c7280fd7844328a200a7bcc3a",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful UIKit body: actual VC/view containment/lifecycle, delegate/data-source/reuse, layout/self sizing, tasks/observers/timers/display links/teardown/hosting facts. Real UI actor isolation and balanced containment; no stale reused task/state, satisfiable constraints, intended owner lifetime. Separate setup/binding/appearance/teardown, cancel owner/reuse work, supported modern registrations optional and explicit bridge coordinator ownership. Review retain graph, duplicate lifecycle/stale updates, constraints/appearance; permitted sequence/breakpoint/Memory Graph/layout/profiling evidence. Authorized stable hosting seam preserves shared domain source, compatibility/coexistence/parity/rollback/retirement. All eight failures and conditional lifecycle/reuse/text/rotation/presentation/deinit/diagnostic negative evidence/output covered, no execution or API adoption grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful UIKit body: actual VC/view containment/lifecycle, delegate/data-source/reuse, layout/self sizing, tasks/observers/timers/display links/teardown/hosting facts. Real UI actor isolation and balanced containment; no stale reused task/state, satisfiable constraints, intended owner lifetime. Separate setup/binding/appearance/teardown, cancel owner/reuse work, supported modern registrations optional and explicit bridge coordinator ownership. Review retain graph, duplicate lifecycle/stale updates, constraints/appearance; permitted sequence/breakpoint/Memory Graph/layout/profiling evidence. Authorized stable hosting seam preserves shared domain source, compatibility/coexistence/parity/rollback/retirement. All eight failures and conditional lifecycle/reuse/text/rotation/presentation/deinit/diagnostic negative evidence/output covered, no execution or API adoption grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "UI Runtime Model; State Placement; Identity And Collections; Ownership And Identity Review; UIKit Interoperability; UIKit Lifecycle And Reuse Review; Layout And Rendering; Accessible And Localized Interaction Review; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-06-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-84-uikit-memory-migration-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UI Runtime Model",
+                "State Placement",
+                "Identity And Collections",
+                "Ownership And Identity Review",
+                "UIKit Interoperability",
+                "UIKit Lifecycle And Reuse Review",
+                "Layout And Rendering",
+                "Accessible And Localized Interaction Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Performance Domains",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0436-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-06-08.md",
+          "source_sha256": "582469a96ca90fcb98270845a14816e77a57398c7280fd7844328a200a7bcc3a",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-06-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-84-uikit-memory-migration-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full UIKit common exact against fully read OP-06-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No UIKit adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0437",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-06-09.md",
       "sha256": "a3c3757675109a5754f10de0c5f67d8121681f52fae2d1d1247da3d279cc94d1",
       "bytes": 7884,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0437-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-06-09.md",
+          "source_sha256": "a3c3757675109a5754f10de0c5f67d8121681f52fae2d1d1247da3d279cc94d1",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Only authorized bounded UIKit/SwiftUI seams, hosting lifetime/shared domain model and compatibility/coexistence/rollback/retirement; no automatic or big-bang modernization.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Only authorized bounded UIKit/SwiftUI seams, hosting lifetime/shared domain model and compatibility/coexistence/rollback/retirement; no automatic or big-bang modernization.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "UIKit Interoperability; UIKit Lifecycle And Reuse Review; Invalidation And Preview Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-06-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-84-uikit-memory-migration-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UIKit Interoperability",
+                "UIKit Lifecycle And Reuse Review",
+                "Invalidation And Preview Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0437-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-06-09.md",
+          "source_sha256": "a3c3757675109a5754f10de0c5f67d8121681f52fae2d1d1247da3d279cc94d1",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-06-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-84-uikit-memory-migration-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0437-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-06-09.md",
+          "source_sha256": "a3c3757675109a5754f10de0c5f67d8121681f52fae2d1d1247da3d279cc94d1",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful UIKit body: actual VC/view containment/lifecycle, delegate/data-source/reuse, layout/self sizing, tasks/observers/timers/display links/teardown/hosting facts. Real UI actor isolation and balanced containment; no stale reused task/state, satisfiable constraints, intended owner lifetime. Separate setup/binding/appearance/teardown, cancel owner/reuse work, supported modern registrations optional and explicit bridge coordinator ownership. Review retain graph, duplicate lifecycle/stale updates, constraints/appearance; permitted sequence/breakpoint/Memory Graph/layout/profiling evidence. Authorized stable hosting seam preserves shared domain source, compatibility/coexistence/parity/rollback/retirement. All eight failures and conditional lifecycle/reuse/text/rotation/presentation/deinit/diagnostic negative evidence/output covered, no execution or API adoption grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful UIKit body: actual VC/view containment/lifecycle, delegate/data-source/reuse, layout/self sizing, tasks/observers/timers/display links/teardown/hosting facts. Real UI actor isolation and balanced containment; no stale reused task/state, satisfiable constraints, intended owner lifetime. Separate setup/binding/appearance/teardown, cancel owner/reuse work, supported modern registrations optional and explicit bridge coordinator ownership. Review retain graph, duplicate lifecycle/stale updates, constraints/appearance; permitted sequence/breakpoint/Memory Graph/layout/profiling evidence. Authorized stable hosting seam preserves shared domain source, compatibility/coexistence/parity/rollback/retirement. All eight failures and conditional lifecycle/reuse/text/rotation/presentation/deinit/diagnostic negative evidence/output covered, no execution or API adoption grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "UI Runtime Model; State Placement; Identity And Collections; Ownership And Identity Review; UIKit Interoperability; UIKit Lifecycle And Reuse Review; Layout And Rendering; Accessible And Localized Interaction Review; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-06-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-84-uikit-memory-migration-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UI Runtime Model",
+                "State Placement",
+                "Identity And Collections",
+                "Ownership And Identity Review",
+                "UIKit Interoperability",
+                "UIKit Lifecycle And Reuse Review",
+                "Layout And Rendering",
+                "Accessible And Localized Interaction Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Performance Domains",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0437-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-06-09.md",
+          "source_sha256": "a3c3757675109a5754f10de0c5f67d8121681f52fae2d1d1247da3d279cc94d1",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-06-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-84-uikit-memory-migration-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full UIKit common exact against fully read OP-06-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No UIKit adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0438",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-06-10.md",
       "sha256": "da1ded36ccd12f3e31b71813405615fb8a2ecbbf6643f1109ffe1ba7b7d31e14",
       "bytes": 7707,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0438-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-06-10.md",
+          "source_sha256": "da1ded36ccd12f3e31b71813405615fb8a2ecbbf6643f1109ffe1ba7b7d31e14",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual lifecycle/containment/UI actor/layout/reuse/retention/a11y/appearance edge cases at affected consumers; thread alone not actor isolation proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual lifecycle/containment/UI actor/layout/reuse/retention/a11y/appearance edge cases at affected consumers; thread alone not actor isolation proof.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "UIKit Lifecycle And Reuse Review; UIKit Interoperability; Layout And Rendering; Accessible And Localized Interaction Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-06-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-84-uikit-memory-migration-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UIKit Lifecycle And Reuse Review",
+                "UIKit Interoperability",
+                "Layout And Rendering",
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0438-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-06-10.md",
+          "source_sha256": "da1ded36ccd12f3e31b71813405615fb8a2ecbbf6643f1109ffe1ba7b7d31e14",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full traps retained: ownership graph with permitted deinit/Memory Graph evidence; actual AI untrusted output/code-owned auth/idempotency and permitted eval, no unrelated mandatory pass.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full traps retained: ownership graph with permitted deinit/Memory Graph evidence; actual AI untrusted output/code-owned auth/idempotency and permitted eval, no unrelated mandatory pass.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "UIKit Lifecycle And Reuse Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-06-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-84-uikit-memory-migration-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UIKit Lifecycle And Reuse Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Ownership And Memory"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0438-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-06-10.md",
+          "source_sha256": "da1ded36ccd12f3e31b71813405615fb8a2ecbbf6643f1109ffe1ba7b7d31e14",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful UIKit body: actual VC/view containment/lifecycle, delegate/data-source/reuse, layout/self sizing, tasks/observers/timers/display links/teardown/hosting facts. Real UI actor isolation and balanced containment; no stale reused task/state, satisfiable constraints, intended owner lifetime. Separate setup/binding/appearance/teardown, cancel owner/reuse work, supported modern registrations optional and explicit bridge coordinator ownership. Review retain graph, duplicate lifecycle/stale updates, constraints/appearance; permitted sequence/breakpoint/Memory Graph/layout/profiling evidence. Authorized stable hosting seam preserves shared domain source, compatibility/coexistence/parity/rollback/retirement. All eight failures and conditional lifecycle/reuse/text/rotation/presentation/deinit/diagnostic negative evidence/output covered, no execution or API adoption grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful UIKit body: actual VC/view containment/lifecycle, delegate/data-source/reuse, layout/self sizing, tasks/observers/timers/display links/teardown/hosting facts. Real UI actor isolation and balanced containment; no stale reused task/state, satisfiable constraints, intended owner lifetime. Separate setup/binding/appearance/teardown, cancel owner/reuse work, supported modern registrations optional and explicit bridge coordinator ownership. Review retain graph, duplicate lifecycle/stale updates, constraints/appearance; permitted sequence/breakpoint/Memory Graph/layout/profiling evidence. Authorized stable hosting seam preserves shared domain source, compatibility/coexistence/parity/rollback/retirement. All eight failures and conditional lifecycle/reuse/text/rotation/presentation/deinit/diagnostic negative evidence/output covered, no execution or API adoption grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "UI Runtime Model; State Placement; Identity And Collections; Ownership And Identity Review; UIKit Interoperability; UIKit Lifecycle And Reuse Review; Layout And Rendering; Accessible And Localized Interaction Review; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-06-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-84-uikit-memory-migration-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UI Runtime Model",
+                "State Placement",
+                "Identity And Collections",
+                "Ownership And Identity Review",
+                "UIKit Interoperability",
+                "UIKit Lifecycle And Reuse Review",
+                "Layout And Rendering",
+                "Accessible And Localized Interaction Review",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Performance Domains",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0438-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-06-10.md",
+          "source_sha256": "da1ded36ccd12f3e31b71813405615fb8a2ecbbf6643f1109ffe1ba7b7d31e14",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-06-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-84-uikit-memory-migration-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full UIKit common exact against fully read OP-06-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No UIKit adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0439",
