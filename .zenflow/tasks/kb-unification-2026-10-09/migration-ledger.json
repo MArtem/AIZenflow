@@ -67316,27 +67316,1356 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-02-01.md",
       "sha256": "7de2f16ea09b932deffbf81617a29959581823e1ab1dd95cf8527cf2ff49c4b0",
       "bytes": 7915,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0373-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-01.md",
+          "source_sha256": "7de2f16ea09b932deffbf81617a29959581823e1ab1dd95cf8527cf2ff49c4b0",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual public/internal conventions, callers/generic constraints, compiler/language mode/features, ObjC/C/package exposure and relevant benchmarks; availability/owner facts. Invalid-state type safety, explicit mutation/ownership, required public compatibility, honest errors and measured advanced-feature benefit. Expressive concrete type-safe API, no stringly contracts or hidden failures.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual public/internal conventions, callers/generic constraints, compiler/language mode/features, ObjC/C/package exposure and relevant benchmarks; availability/owner facts. Invalid-state type safety, explicit mutation/ownership, required public compatibility, honest errors and measured advanced-feature benefit. Expressive concrete type-safe API, no stringly contracts or hidden failures.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Mental Model; Type And API Decisions; Ownership And Memory; Error And Result Design; Public API Rules; Interoperability; Performance Discipline",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Mental Model",
+                "Type And API Decisions",
+                "Ownership And Memory",
+                "Error And Result Design",
+                "Public API Rules",
+                "Interoperability",
+                "Performance Discipline"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Fact pass: что найти в репозитории",
+            "## Invariants"
+          ]
+        },
+        {
+          "unit_id": "LIB-0373-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-01.md",
+          "source_sha256": "7de2f16ea09b932deffbf81617a29959581823e1ab1dd95cf8527cf2ff49c4b0",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Actual source/task falsifying failure derived from concrete ownership/callers/criteria; generic topic label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual source/task falsifying failure derived from concrete ownership/callers/criteria; generic topic label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0373-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-01.md",
+          "source_sha256": "7de2f16ea09b932deffbf81617a29959581823e1ab1dd95cf8527cf2ff49c4b0",
+          "source_heading": "Mode A — IMPLEMENTATION",
+          "source_fragment": "## Mode A — IMPLEMENTATION",
+          "meaning": "Useful implementation/review: simple concrete type-safe API, value semantics unless actual identity/shared mutation, generics/protocols at real substitution boundaries and local ownership/borrowing/unsafe documentation. Inspect force unwrap/cast/Any/stringly or accidental reference semantics, real caller complexity and source/resilience compatibility. Minimal invariant-driven change; no artificial alternative quota.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Useful implementation/review: simple concrete type-safe API, value semantics unless actual identity/shared mutation, generics/protocols at real substitution boundaries and local ownership/borrowing/unsafe documentation. Inspect force unwrap/cast/Any/stringly or accidental reference semantics, real caller complexity and source/resilience compatibility. Minimal invariant-driven change; no artificial alternative quota.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Type And API Decisions",
+                "Ownership And Memory",
+                "Error And Result Design",
+                "Public API Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+              "headings": [
+                "Required Comment Dimensions"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Mode B — REVIEW"
+          ]
+        },
+        {
+          "unit_id": "LIB-0373-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-01.md",
+          "source_sha256": "7de2f16ea09b932deffbf81617a29959581823e1ab1dd95cf8527cf2ff49c4b0",
+          "source_heading": "Mode C — DIAGNOSTIC",
+          "source_fragment": "## Mode C — DIAGNOSTIC",
+          "meaning": "Actual compiler/runtime symptom/environment/version/state; smallest type/ownership example and relevant generated interface/macro expansion, controlled Foundation locale/timezone fixtures only when permitted. Falsifiable diagnosis before architecture change; regression evidence permission-bound, unknown provisional, no fixed hypothesis quota.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual compiler/runtime symptom/environment/version/state; smallest type/ownership example and relevant generated interface/macro expansion, controlled Foundation locale/timezone fixtures only when permitted. Falsifiable diagnosis before architecture change; regression evidence permission-bound, unknown provisional, no fixed hypothesis quota.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Debugging Workflow; Determinism; Evidence Completion",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Mental Model",
+                "Macros And Generated Code",
+                "Ownership And Memory"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0373-U05",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-01.md",
+          "source_sha256": "7de2f16ea09b932deffbf81617a29959581823e1ab1dd95cf8527cf2ff49c4b0",
+          "source_heading": "Mode D — MIGRATION",
+          "source_fragment": "## Mode D — MIGRATION",
+          "meaning": "Authorized narrow language slices preserve observable source/serialization/public contracts, compatibility/coexistence/parity/rollout/rollback/retirement and actual consumers. Compiler/language mode separate; compile-time evidence only permitted, no mode or deployment transition.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Authorized narrow language slices preserve observable source/serialization/public contracts, compatibility/coexistence/parity/rollout/rollback/retirement and actual consumers. Compiler/language mode separate; compile-time evidence only permitted, no mode or deployment transition.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Public API Rules; Mental Model; Evidence",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Public API Rules",
+                "Mental Model",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0373-U06",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-01.md",
+          "source_sha256": "7de2f16ea09b932deffbf81617a29959581823e1ab1dd95cf8527cf2ff49c4b0",
+          "source_heading": "Failure-mode checklist",
+          "source_fragment": "## Failure-mode checklist",
+          "meaning": "All eight checklist failures retained through actual contract: stale/impossible failure/cancellation/offline state, lifetime mismatch, availability, weak boundary fixtures, extension/widget/watch/module consumers, PII/secrets logs, unsupported improvement, premature parity cleanup. Each conditional actual consumer/risk, excluded hardware evidence not PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All eight checklist failures retained through actual contract: stale/impossible failure/cancellation/offline state, lifetime mismatch, availability, weak boundary fixtures, extension/widget/watch/module consumers, PII/secrets logs, unsupported improvement, premature parity cleanup. Each conditional actual consumer/risk, excluded hardware evidence not PASS.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Doubles"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0373-U07",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-01.md",
+          "source_sha256": "7de2f16ea09b932deffbf81617a29959581823e1ab1dd95cf8527cf2ff49c4b0",
+          "source_heading": "Verification ladder для этой темы",
+          "source_fragment": "## Verification ladder для этой темы",
+          "meaning": "Actual intended compiler/language mode and consuming targets, permitted boundary/negative tests/API symbol/interface compatibility and relevant diagnostics. Builds cannot prove semantic or ABI compatibility alone; proposed/written/executed/missing separate, no automatic run.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual intended compiler/language mode and consuming targets, permitted boundary/negative tests/API symbol/interface compatibility and relevant diagnostics. Builds cannot prove semantic or ABI compatibility alone; proposed/written/executed/missing separate, no automatic run.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Evidence; Public API Rules",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Evidence",
+                "Public API Rules"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0373-U08",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-01.md",
+          "source_sha256": "7de2f16ea09b932deffbf81617a29959581823e1ab1dd95cf8527cf2ff49c4b0",
+          "source_heading": "Agent output contract",
+          "source_fragment": "## Agent output contract",
+          "meaning": "Facts/assumptions/invariants/decision/alternatives/exact changes/evidence/impact/rollback/unknowns retained using current vocabulary, exact observed result and current scoped authority. Verified/reasoned/unknown not universal readiness proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Facts/assumptions/invariants/decision/alternatives/exact changes/evidence/impact/rollback/unknowns retained using current vocabulary, exact observed result and current scoped authority. Verified/reasoned/unknown not universal readiness proof.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "Completion Contract",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0373-U09",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-01.md",
+          "source_sha256": "7de2f16ea09b932deffbf81617a29959581823e1ab1dd95cf8527cf2ff49c4b0",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Archived source-only mandatory V2/meta protocols, Mode A/B/C/D activation/risk labels, Staff/Principal role/copy-paste delivery and unconditional build/regression-detector or fixed numeric quotas. All useful invariants/authorized evidence retained in units 1–8; no Library pass, model/mode/app/test/runtime/tool grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Archived source-only mandatory V2/meta protocols, Mode A/B/C/D activation/risk labels, Staff/Principal role/copy-paste delivery and unconditional build/regression-detector or fixed numeric quotas. All useful invariants/authorized evidence retained in units 1–8; no Library pass, model/mode/app/test/runtime/tool grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete OP independently reviewed, all substantive sections/current conditional contracts covered; mandatory V2/mode/delivery/unconditional execution wrappers archived. No domain/app verification inferred."
     },
     {
       "source_id": "LIB-0374",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-02-02.md",
       "sha256": "81d7b881cd03bf0658da28016c6c211cc90972d77a59e6a97cd55cf8a574747a",
       "bytes": 7745,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0374-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-02.md",
+          "source_sha256": "81d7b881cd03bf0658da28016c6c211cc90972d77a59e6a97cd55cf8a574747a",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual public/internal conventions, callers/generic constraints, compiler/language mode/features, ObjC/C/package exposure and relevant benchmarks; availability/owner facts. Invalid-state type safety, explicit mutation/ownership, required public compatibility, honest errors and measured advanced-feature benefit. Actual identity/mutation/sharing/concurrency semantics select struct/class/enum; value semantics do not imply stack allocation or cheap copying.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual public/internal conventions, callers/generic constraints, compiler/language mode/features, ObjC/C/package exposure and relevant benchmarks; availability/owner facts. Invalid-state type safety, explicit mutation/ownership, required public compatibility, honest errors and measured advanced-feature benefit. Actual identity/mutation/sharing/concurrency semantics select struct/class/enum; value semantics do not imply stack allocation or cheap copying.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Mental Model; Type And API Decisions; Ownership And Memory; Error And Result Design; Public API Rules; Interoperability; Performance Discipline",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Mental Model",
+                "Type And API Decisions",
+                "Ownership And Memory",
+                "Error And Result Design",
+                "Public API Rules",
+                "Interoperability",
+                "Performance Discipline"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Fact pass: что найти в репозитории",
+            "## Invariants"
+          ]
+        },
+        {
+          "unit_id": "LIB-0374-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-02.md",
+          "source_sha256": "81d7b881cd03bf0658da28016c6c211cc90972d77a59e6a97cd55cf8a574747a",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Value/reference performance claim requires actual baseline/bottleneck instrument/representative workload/before-after; syntax or source pattern not speedup, no excluded device measurement grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Value/reference performance claim requires actual baseline/bottleneck instrument/representative workload/before-after; syntax or source pattern not speedup, no excluded device measurement grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Performance Discipline",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Performance Discipline"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0374-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-02.md",
+          "source_sha256": "81d7b881cd03bf0658da28016c6c211cc90972d77a59e6a97cd55cf8a574747a",
+          "source_heading": "Mode A — IMPLEMENTATION",
+          "source_fragment": "## Mode A — IMPLEMENTATION",
+          "meaning": "Useful implementation/review: simple concrete type-safe API, value semantics unless actual identity/shared mutation, generics/protocols at real substitution boundaries and local ownership/borrowing/unsafe documentation. Inspect force unwrap/cast/Any/stringly or accidental reference semantics, real caller complexity and source/resilience compatibility. Minimal invariant-driven change; no artificial alternative quota.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Useful implementation/review: simple concrete type-safe API, value semantics unless actual identity/shared mutation, generics/protocols at real substitution boundaries and local ownership/borrowing/unsafe documentation. Inspect force unwrap/cast/Any/stringly or accidental reference semantics, real caller complexity and source/resilience compatibility. Minimal invariant-driven change; no artificial alternative quota.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Type And API Decisions",
+                "Ownership And Memory",
+                "Error And Result Design",
+                "Public API Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+              "headings": [
+                "Required Comment Dimensions"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Mode B — REVIEW"
+          ]
+        },
+        {
+          "unit_id": "LIB-0374-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-02.md",
+          "source_sha256": "81d7b881cd03bf0658da28016c6c211cc90972d77a59e6a97cd55cf8a574747a",
+          "source_heading": "Mode C — DIAGNOSTIC",
+          "source_fragment": "## Mode C — DIAGNOSTIC",
+          "meaning": "Actual compiler/runtime symptom/environment/version/state; smallest type/ownership example and relevant generated interface/macro expansion, controlled Foundation locale/timezone fixtures only when permitted. Falsifiable diagnosis before architecture change; regression evidence permission-bound, unknown provisional, no fixed hypothesis quota.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual compiler/runtime symptom/environment/version/state; smallest type/ownership example and relevant generated interface/macro expansion, controlled Foundation locale/timezone fixtures only when permitted. Falsifiable diagnosis before architecture change; regression evidence permission-bound, unknown provisional, no fixed hypothesis quota.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Debugging Workflow; Determinism; Evidence Completion",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Mental Model",
+                "Macros And Generated Code",
+                "Ownership And Memory"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0374-U05",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-02.md",
+          "source_sha256": "81d7b881cd03bf0658da28016c6c211cc90972d77a59e6a97cd55cf8a574747a",
+          "source_heading": "Mode D — MIGRATION",
+          "source_fragment": "## Mode D — MIGRATION",
+          "meaning": "Authorized narrow language slices preserve observable source/serialization/public contracts, compatibility/coexistence/parity/rollout/rollback/retirement and actual consumers. Compiler/language mode separate; compile-time evidence only permitted, no mode or deployment transition.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Authorized narrow language slices preserve observable source/serialization/public contracts, compatibility/coexistence/parity/rollout/rollback/retirement and actual consumers. Compiler/language mode separate; compile-time evidence only permitted, no mode or deployment transition.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Public API Rules; Mental Model; Evidence",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Public API Rules",
+                "Mental Model",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0374-U06",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-02.md",
+          "source_sha256": "81d7b881cd03bf0658da28016c6c211cc90972d77a59e6a97cd55cf8a574747a",
+          "source_heading": "Failure-mode checklist",
+          "source_fragment": "## Failure-mode checklist",
+          "meaning": "All eight checklist failures retained through actual contract: stale/impossible failure/cancellation/offline state, lifetime mismatch, availability, weak boundary fixtures, extension/widget/watch/module consumers, PII/secrets logs, unsupported improvement, premature parity cleanup. Each conditional actual consumer/risk, excluded hardware evidence not PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All eight checklist failures retained through actual contract: stale/impossible failure/cancellation/offline state, lifetime mismatch, availability, weak boundary fixtures, extension/widget/watch/module consumers, PII/secrets logs, unsupported improvement, premature parity cleanup. Each conditional actual consumer/risk, excluded hardware evidence not PASS.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Doubles"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0374-U07",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-02.md",
+          "source_sha256": "81d7b881cd03bf0658da28016c6c211cc90972d77a59e6a97cd55cf8a574747a",
+          "source_heading": "Verification ladder для этой темы",
+          "source_fragment": "## Verification ladder для этой темы",
+          "meaning": "Actual intended compiler/language mode and consuming targets, permitted boundary/negative tests/API symbol/interface compatibility and relevant diagnostics. Builds cannot prove semantic or ABI compatibility alone; proposed/written/executed/missing separate, no automatic run.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual intended compiler/language mode and consuming targets, permitted boundary/negative tests/API symbol/interface compatibility and relevant diagnostics. Builds cannot prove semantic or ABI compatibility alone; proposed/written/executed/missing separate, no automatic run.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Evidence; Public API Rules",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Evidence",
+                "Public API Rules"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0374-U08",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-02.md",
+          "source_sha256": "81d7b881cd03bf0658da28016c6c211cc90972d77a59e6a97cd55cf8a574747a",
+          "source_heading": "Agent output contract",
+          "source_fragment": "## Agent output contract",
+          "meaning": "Facts/assumptions/invariants/decision/alternatives/exact changes/evidence/impact/rollback/unknowns retained using current vocabulary, exact observed result and current scoped authority. Verified/reasoned/unknown not universal readiness proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Facts/assumptions/invariants/decision/alternatives/exact changes/evidence/impact/rollback/unknowns retained using current vocabulary, exact observed result and current scoped authority. Verified/reasoned/unknown not universal readiness proof.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "Completion Contract",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0374-U09",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-02.md",
+          "source_sha256": "81d7b881cd03bf0658da28016c6c211cc90972d77a59e6a97cd55cf8a574747a",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Archived source-only mandatory V2/meta protocols, Mode A/B/C/D activation/risk labels, Staff/Principal role/copy-paste delivery and unconditional build/regression-detector or fixed numeric quotas. All useful invariants/authorized evidence retained in units 1–8; no Library pass, model/mode/app/test/runtime/tool grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Archived source-only mandatory V2/meta protocols, Mode A/B/C/D activation/risk labels, Staff/Principal role/copy-paste delivery and unconditional build/regression-detector or fixed numeric quotas. All useful invariants/authorized evidence retained in units 1–8; no Library pass, model/mode/app/test/runtime/tool grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete OP independently reviewed, all substantive sections/current conditional contracts covered; mandatory V2/mode/delivery/unconditional execution wrappers archived. No domain/app verification inferred."
     },
     {
       "source_id": "LIB-0375",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-02-03.md",
       "sha256": "cc3d5b92e1f18ce1a42279b6b71d005cde4290f9a1d5146263bb1d6b9d3150a0",
       "bytes": 7912,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0375-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-03.md",
+          "source_sha256": "cc3d5b92e1f18ce1a42279b6b71d005cde4290f9a1d5146263bb1d6b9d3150a0",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual public/internal conventions, callers/generic constraints, compiler/language mode/features, ObjC/C/package exposure and relevant benchmarks; availability/owner facts. Invalid-state type safety, explicit mutation/ownership, required public compatibility, honest errors and measured advanced-feature benefit. Generic/existential/opaque/associated-type boundaries only actual type-safety/consumer benefit; no protocol-per-type or speculative erasure.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual public/internal conventions, callers/generic constraints, compiler/language mode/features, ObjC/C/package exposure and relevant benchmarks; availability/owner facts. Invalid-state type safety, explicit mutation/ownership, required public compatibility, honest errors and measured advanced-feature benefit. Generic/existential/opaque/associated-type boundaries only actual type-safety/consumer benefit; no protocol-per-type or speculative erasure.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Mental Model; Type And API Decisions; Ownership And Memory; Error And Result Design; Public API Rules; Interoperability; Performance Discipline",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Mental Model",
+                "Type And API Decisions",
+                "Ownership And Memory",
+                "Error And Result Design",
+                "Public API Rules",
+                "Interoperability",
+                "Performance Discipline"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Fact pass: что найти в репозитории",
+            "## Invariants"
+          ]
+        },
+        {
+          "unit_id": "LIB-0375-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-03.md",
+          "source_sha256": "cc3d5b92e1f18ce1a42279b6b71d005cde4290f9a1d5146263bb1d6b9d3150a0",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Actual source/task falsifying failure derived from concrete ownership/callers/criteria; generic topic label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual source/task falsifying failure derived from concrete ownership/callers/criteria; generic topic label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0375-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-03.md",
+          "source_sha256": "cc3d5b92e1f18ce1a42279b6b71d005cde4290f9a1d5146263bb1d6b9d3150a0",
+          "source_heading": "Mode A — IMPLEMENTATION",
+          "source_fragment": "## Mode A — IMPLEMENTATION",
+          "meaning": "Useful implementation/review: simple concrete type-safe API, value semantics unless actual identity/shared mutation, generics/protocols at real substitution boundaries and local ownership/borrowing/unsafe documentation. Inspect force unwrap/cast/Any/stringly or accidental reference semantics, real caller complexity and source/resilience compatibility. Minimal invariant-driven change; no artificial alternative quota.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Useful implementation/review: simple concrete type-safe API, value semantics unless actual identity/shared mutation, generics/protocols at real substitution boundaries and local ownership/borrowing/unsafe documentation. Inspect force unwrap/cast/Any/stringly or accidental reference semantics, real caller complexity and source/resilience compatibility. Minimal invariant-driven change; no artificial alternative quota.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Type And API Decisions",
+                "Ownership And Memory",
+                "Error And Result Design",
+                "Public API Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+              "headings": [
+                "Required Comment Dimensions"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Mode B — REVIEW"
+          ]
+        },
+        {
+          "unit_id": "LIB-0375-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-03.md",
+          "source_sha256": "cc3d5b92e1f18ce1a42279b6b71d005cde4290f9a1d5146263bb1d6b9d3150a0",
+          "source_heading": "Mode C — DIAGNOSTIC",
+          "source_fragment": "## Mode C — DIAGNOSTIC",
+          "meaning": "Actual compiler/runtime symptom/environment/version/state; smallest type/ownership example and relevant generated interface/macro expansion, controlled Foundation locale/timezone fixtures only when permitted. Falsifiable diagnosis before architecture change; regression evidence permission-bound, unknown provisional, no fixed hypothesis quota.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual compiler/runtime symptom/environment/version/state; smallest type/ownership example and relevant generated interface/macro expansion, controlled Foundation locale/timezone fixtures only when permitted. Falsifiable diagnosis before architecture change; regression evidence permission-bound, unknown provisional, no fixed hypothesis quota.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Debugging Workflow; Determinism; Evidence Completion",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Mental Model",
+                "Macros And Generated Code",
+                "Ownership And Memory"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0375-U05",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-03.md",
+          "source_sha256": "cc3d5b92e1f18ce1a42279b6b71d005cde4290f9a1d5146263bb1d6b9d3150a0",
+          "source_heading": "Mode D — MIGRATION",
+          "source_fragment": "## Mode D — MIGRATION",
+          "meaning": "Authorized narrow language slices preserve observable source/serialization/public contracts, compatibility/coexistence/parity/rollout/rollback/retirement and actual consumers. Compiler/language mode separate; compile-time evidence only permitted, no mode or deployment transition.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Authorized narrow language slices preserve observable source/serialization/public contracts, compatibility/coexistence/parity/rollout/rollback/retirement and actual consumers. Compiler/language mode separate; compile-time evidence only permitted, no mode or deployment transition.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Public API Rules; Mental Model; Evidence",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Public API Rules",
+                "Mental Model",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0375-U06",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-03.md",
+          "source_sha256": "cc3d5b92e1f18ce1a42279b6b71d005cde4290f9a1d5146263bb1d6b9d3150a0",
+          "source_heading": "Failure-mode checklist",
+          "source_fragment": "## Failure-mode checklist",
+          "meaning": "All eight checklist failures retained through actual contract: stale/impossible failure/cancellation/offline state, lifetime mismatch, availability, weak boundary fixtures, extension/widget/watch/module consumers, PII/secrets logs, unsupported improvement, premature parity cleanup. Each conditional actual consumer/risk, excluded hardware evidence not PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All eight checklist failures retained through actual contract: stale/impossible failure/cancellation/offline state, lifetime mismatch, availability, weak boundary fixtures, extension/widget/watch/module consumers, PII/secrets logs, unsupported improvement, premature parity cleanup. Each conditional actual consumer/risk, excluded hardware evidence not PASS.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Doubles"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0375-U07",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-03.md",
+          "source_sha256": "cc3d5b92e1f18ce1a42279b6b71d005cde4290f9a1d5146263bb1d6b9d3150a0",
+          "source_heading": "Verification ladder для этой темы",
+          "source_fragment": "## Verification ladder для этой темы",
+          "meaning": "Actual intended compiler/language mode and consuming targets, permitted boundary/negative tests/API symbol/interface compatibility and relevant diagnostics. Builds cannot prove semantic or ABI compatibility alone; proposed/written/executed/missing separate, no automatic run.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual intended compiler/language mode and consuming targets, permitted boundary/negative tests/API symbol/interface compatibility and relevant diagnostics. Builds cannot prove semantic or ABI compatibility alone; proposed/written/executed/missing separate, no automatic run.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Evidence; Public API Rules",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Evidence",
+                "Public API Rules"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0375-U08",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-03.md",
+          "source_sha256": "cc3d5b92e1f18ce1a42279b6b71d005cde4290f9a1d5146263bb1d6b9d3150a0",
+          "source_heading": "Agent output contract",
+          "source_fragment": "## Agent output contract",
+          "meaning": "Facts/assumptions/invariants/decision/alternatives/exact changes/evidence/impact/rollback/unknowns retained using current vocabulary, exact observed result and current scoped authority. Verified/reasoned/unknown not universal readiness proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Facts/assumptions/invariants/decision/alternatives/exact changes/evidence/impact/rollback/unknowns retained using current vocabulary, exact observed result and current scoped authority. Verified/reasoned/unknown not universal readiness proof.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "Completion Contract",
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0375-U09",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-02-03.md",
+          "source_sha256": "cc3d5b92e1f18ce1a42279b6b71d005cde4290f9a1d5146263bb1d6b9d3150a0",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Archived source-only mandatory V2/meta protocols, Mode A/B/C/D activation/risk labels, Staff/Principal role/copy-paste delivery and unconditional build/regression-detector or fixed numeric quotas. All useful invariants/authorized evidence retained in units 1–8; no Library pass, model/mode/app/test/runtime/tool grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Archived source-only mandatory V2/meta protocols, Mode A/B/C/D activation/risk labels, Staff/Principal role/copy-paste delivery and unconditional build/regression-detector or fixed numeric quotas. All useful invariants/authorized evidence retained in units 1–8; no Library pass, model/mode/app/test/runtime/tool grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full OP body and every topic-specific fact/invariant/trap/mode/failure/verification/output/prompt, immutable SHA/literal/current exact headings/prior rows/task mirrors; complete final-diff/exact-SHA gates.",
+          "evidence": "block-69-swift-api-value-generics-deep-playbooks.md",
+          "affected_routes": [
+            "product-governance",
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete OP independently reviewed, all substantive sections/current conditional contracts covered; mandatory V2/mode/delivery/unconditional execution wrappers archived. No domain/app verification inferred."
     },
     {
       "source_id": "LIB-0376",
