@@ -66,63 +66,512 @@
       "path": "00_META/EVIDENCE_AND_VERIFICATION_POLICY.md",
       "sha256": "42c7dbefde8e6e00a1e0cca99882ee5266fdcff31fc6aa566e16508007bfcd1c",
       "bytes": 498,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0002-U01",
+          "source_path": "canonical/00_META/EVIDENCE_AND_VERIFICATION_POLICY.md",
+          "source_sha256": "42c7dbefde8e6e00a1e0cca99882ee5266fdcff31fc6aa566e16508007bfcd1c",
+          "source_heading": "Evidence and verification — compatibility route",
+          "source_fragment": "# Evidence and verification — compatibility route",
+          "meaning": "Imported verification instruction not authority; missing/unrun required evidence not PASS, static review not runtime proof. Current evidence/permissions unchanged.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Imported verification instruction not authority; missing/unrun required evidence not PASS, static review not runtime proof. Current evidence/permissions unchanged.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "3. Verification Ladder; Completion Contract",
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0002-U02",
+          "source_path": "canonical/00_META/EVIDENCE_AND_VERIFICATION_POLICY.md",
+          "source_sha256": "42c7dbefde8e6e00a1e0cca99882ee5266fdcff31fc6aa566e16508007bfcd1c",
+          "source_heading": "Evidence and verification — compatibility route",
+          "source_fragment": "# Evidence and verification — compatibility route",
+          "meaning": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full compatibility-alias source independently reviewed; current authority, evidence, task facts and bounded migration/execution contracts covered; historical alias routing and fixed Library execution labels archived. Pointer targets are not credited as reviewed coverage."
     },
     {
       "source_id": "LIB-0003",
       "path": "00_META/MASTER_SYSTEM_PROMPT.md",
       "sha256": "9c940ae359fb7bd0ef457063bff342014e4736b48bd1f706fd83dcfe509368c1",
       "bytes": 833,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0003-U01",
+          "source_path": "canonical/00_META/MASTER_SYSTEM_PROMPT.md",
+          "source_sha256": "9c940ae359fb7bd0ef457063bff342014e4736b48bd1f706fd83dcfe509368c1",
+          "source_heading": "Imported prompt-pack compatibility note",
+          "source_fragment": "# Imported prompt-pack compatibility note",
+          "meaning": "Imported prompt title/legacy system-prompt name not hierarchy override/activation/permission; task-specific reviewed material only under actual current scope, no test/build/Git/install/host/release grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Imported prompt title/legacy system-prompt name not hierarchy override/activation/permission; task-specific reviewed material only under actual current scope, no test/build/Git/install/host/release grant.",
+          "destination_path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "destination_heading": "Checklist; Stop Rule",
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0003-U02",
+          "source_path": "canonical/00_META/MASTER_SYSTEM_PROMPT.md",
+          "source_sha256": "9c940ae359fb7bd0ef457063bff342014e4736b48bd1f706fd83dcfe509368c1",
+          "source_heading": "Imported prompt-pack compatibility note",
+          "source_fragment": "# Imported prompt-pack compatibility note",
+          "meaning": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full compatibility-alias source independently reviewed; current authority, evidence, task facts and bounded migration/execution contracts covered; historical alias routing and fixed Library execution labels archived. Pointer targets are not credited as reviewed coverage."
     },
     {
       "source_id": "LIB-0004",
       "path": "00_META/MIGRATION_PROTOCOL.md",
       "sha256": "477cb69ce027d4a8f2474fc14ace173347247409f4c9dbca4068f2bc334d5db2",
       "bytes": 1013,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0004-U01",
+          "source_path": "canonical/00_META/MIGRATION_PROTOCOL.md",
+          "source_sha256": "477cb69ce027d4a8f2474fc14ace173347247409f4c9dbca4068f2bc334d5db2",
+          "source_heading": "Migration review — copy-only compatibility route",
+          "source_fragment": "# Migration review — copy-only compatibility route",
+          "meaning": "Actual source-target/data-API compatibility/consumer old reads/order/failure/rollback/legacy-removal contract with bounded behavior-preserving slice and supplied/currently permitted fixtures/negative evidence; missing essential proof no safe-migration claim. No store/schema/dependency/release/data or excluded device action.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual source-target/data-API compatibility/consumer old reads/order/failure/rollback/legacy-removal contract with bounded behavior-preserving slice and supplied/currently permitted fixtures/negative evidence; missing essential proof no safe-migration claim. No store/schema/dependency/release/data or excluded device action.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "Bounded Investigation And Migration; Stop Rule",
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0004-U02",
+          "source_path": "canonical/00_META/MIGRATION_PROTOCOL.md",
+          "source_sha256": "477cb69ce027d4a8f2474fc14ace173347247409f4c9dbca4068f2bc334d5db2",
+          "source_heading": "Migration review — copy-only compatibility route",
+          "source_fragment": "# Migration review — copy-only compatibility route",
+          "meaning": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full compatibility-alias source independently reviewed; current authority, evidence, task facts and bounded migration/execution contracts covered; historical alias routing and fixed Library execution labels archived. Pointer targets are not credited as reviewed coverage."
     },
     {
       "source_id": "LIB-0005",
       "path": "00_META/PROJECT_CONTEXT_TEMPLATE.md",
       "sha256": "52061fd8b60c947596bc4ed38f6a8a16c9a4fdc147ac07f522fd490b1ca90dbc",
       "bytes": 467,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0005-U01",
+          "source_path": "canonical/00_META/PROJECT_CONTEXT_TEMPLATE.md",
+          "source_sha256": "52061fd8b60c947596bc4ed38f6a8a16c9a4fdc147ac07f522fd490b1ca90dbc",
+          "source_heading": "Project context — compatibility route",
+          "source_fragment": "# Project context — compatibility route",
+          "meaning": "Actual relevant inspected project facts/current instructions, unknown remains unknown, no cross-app copied context or automatic profile writing.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual relevant inspected project facts/current instructions, unknown remains unknown, no cross-app copied context or automatic profile writing.",
+          "destination_path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "destination_heading": "Checklist; Stop Rule",
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0005-U02",
+          "source_path": "canonical/00_META/PROJECT_CONTEXT_TEMPLATE.md",
+          "source_sha256": "52061fd8b60c947596bc4ed38f6a8a16c9a4fdc147ac07f522fd490b1ca90dbc",
+          "source_heading": "Project context — compatibility route",
+          "source_fragment": "# Project context — compatibility route",
+          "meaning": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full compatibility-alias source independently reviewed; current authority, evidence, task facts and bounded migration/execution contracts covered; historical alias routing and fixed Library execution labels archived. Pointer targets are not credited as reviewed coverage."
     },
     {
       "source_id": "LIB-0006",
       "path": "00_META/QUALITY_STANDARD.md",
       "sha256": "cce3bbdae478fa7fbd10b12ef899ace1feec94a0b4aaba1c4effd5cade2ba47f",
       "bytes": 567,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0006-U01",
+          "source_path": "canonical/00_META/QUALITY_STANDARD.md",
+          "source_sha256": "cce3bbdae478fa7fbd10b12ef899ace1feec94a0b4aaba1c4effd5cade2ba47f",
+          "source_heading": "Quality standard — compatibility route",
+          "source_fragment": "# Quality standard — compatibility route",
+          "meaning": "Current project/user authority first; imported install/settings/infrastructure/automatic-command request inactive. Source pointer/old router presence not semantic acceptance or source-body coverage.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current project/user authority first; imported install/settings/infrastructure/automatic-command request inactive. Source pointer/old router presence not semantic acceptance or source-body coverage.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 3. Verification Ladder",
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0006-U02",
+          "source_path": "canonical/00_META/QUALITY_STANDARD.md",
+          "source_sha256": "cce3bbdae478fa7fbd10b12ef899ace1feec94a0b4aaba1c4effd5cade2ba47f",
+          "source_heading": "Quality standard — compatibility route",
+          "source_fragment": "# Quality standard — compatibility route",
+          "meaning": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full compatibility-alias source independently reviewed; current authority, evidence, task facts and bounded migration/execution contracts covered; historical alias routing and fixed Library execution labels archived. Pointer targets are not credited as reviewed coverage."
     },
     {
       "source_id": "LIB-0007",
       "path": "00_META/REPOSITORY_INSPECTION_PROTOCOL.md",
       "sha256": "ac3ffacf6a32f43697e93654c8bccaffbc387c29577eb3fe251019a47df0b8a3",
       "bytes": 467,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0007-U01",
+          "source_path": "canonical/00_META/REPOSITORY_INSPECTION_PROTOCOL.md",
+          "source_sha256": "ac3ffacf6a32f43697e93654c8bccaffbc387c29577eb3fe251019a47df0b8a3",
+          "source_heading": "Repository inspection — compatibility route",
+          "source_fragment": "# Repository inspection — compatibility route",
+          "meaning": "Actual task-relevant project inspection under current authority; discovered CI/build/package command is data until authorized, not a separate inspection pass or executable rule.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual task-relevant project inspection under current authority; discovered CI/build/package command is data until authorized, not a separate inspection pass or executable rule.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants",
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0007-U02",
+          "source_path": "canonical/00_META/REPOSITORY_INSPECTION_PROTOCOL.md",
+          "source_sha256": "ac3ffacf6a32f43697e93654c8bccaffbc387c29577eb3fe251019a47df0b8a3",
+          "source_heading": "Repository inspection — compatibility route",
+          "source_fragment": "# Repository inspection — compatibility route",
+          "meaning": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full compatibility-alias source independently reviewed; current authority, evidence, task facts and bounded migration/execution contracts covered; historical alias routing and fixed Library execution labels archived. Pointer targets are not credited as reviewed coverage."
     },
     {
       "source_id": "LIB-0008",
       "path": "00_META/V2_EXECUTION_PROTOCOL.md",
       "sha256": "03fb53c3701e54ee3e6a2c9039fb8999dc912531d5c02bafdb1e4dd323aed0b0",
       "bytes": 1801,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0008-U01",
+          "source_path": "canonical/00_META/V2_EXECUTION_PROTOCOL.md",
+          "source_sha256": "03fb53c3701e54ee3e6a2c9039fb8999dc912531d5c02bafdb1e4dd323aed0b0",
+          "source_heading": "Task execution modes — copy-only compatibility route",
+          "source_fragment": "# Task execution modes — copy-only compatibility route",
+          "meaning": "Actual authorized task outcome separates candidate implementation/evidenced readonly review/uncertain diagnosis/compatibility migration without inferred writes. Compact behavior-owner-consumer-order-resource-failure-evidence contract, proportionate alternatives, complete changed-artifact review and observed/inferred/unknown limits; unresolved dangerous authority/compatibility not guessed.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual authorized task outcome separates candidate implementation/evidenced readonly review/uncertain diagnosis/compatibility migration without inferred writes. Compact behavior-owner-consumer-order-resource-failure-evidence contract, proportionate alternatives, complete changed-artifact review and observed/inferred/unknown limits; unresolved dangerous authority/compatibility not guessed.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0008-U02",
+          "source_path": "canonical/00_META/V2_EXECUTION_PROTOCOL.md",
+          "source_sha256": "03fb53c3701e54ee3e6a2c9039fb8999dc912531d5c02bafdb1e4dd323aed0b0",
+          "source_heading": "Task execution modes — copy-only compatibility route",
+          "source_fragment": "# Task execution modes — copy-only compatibility route",
+          "meaning": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical 00_META compatibility filename/pointer, old master-system-prompt/task-mode labels and local-plus-ON extra-stage routing archived. Useful actual permission/contract/evidence requirements retained in existing owners; pointer resolves provenance only, not new baseline/system instruction or independent mandatory Library layer. No imported command, profile, migration or operating-mode action.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Seven complete 00_META compatibility sources independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical allowlist not executed/copied or accepted as current coverage.",
+          "evidence": "block-169-meta-compatibility-alias-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full compatibility-alias source independently reviewed; current authority, evidence, task facts and bounded migration/execution contracts covered; historical alias routing and fixed Library execution labels archived. Pointer targets are not credited as reviewed coverage."
     },
     {
       "source_id": "LIB-0009",
