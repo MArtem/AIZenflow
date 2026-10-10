@@ -162509,27 +162509,231 @@
       "path": "source-meta/AI_CODING_AGENT_GUARDRAILS.md",
       "sha256": "e7fd8ef1035b39f33f8f12643876a5a63b489173cb0083fc964873b9ee5073be",
       "bytes": 1010,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1063-U01",
+          "source_path": "canonical/source-meta/AI_CODING_AGENT_GUARDRAILS.md",
+          "source_sha256": "e7fd8ef1035b39f33f8f12643876a5a63b489173cb0083fc964873b9ee5073be",
+          "source_heading": "AI Coding Agent Guardrails",
+          "source_fragment": "# AI Coding Agent Guardrails",
+          "meaning": "Inspect before scoped edits; protect data/security/generated producers/secrets and actual compatibility/rollback consumers. Unknown external input cannot justify forced success. Current strict Swift rules supersede historical unchecked allowance; permission-bound probe only, no automatic test writing.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Inspect before scoped edits; protect data/security/generated producers/secrets and actual compatibility/rollback consumers. Unknown external input cannot justify forced success. Current strict Swift rules supersede historical unchecked allowance; permission-bound probe only, no automatic test writing.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Error And Result Design"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# AI Coding Agent Guardrails\n\n1. Inspect before edit.\n2. Never invent build success.\n3. Never delete data/migrations/signing material to make tests pass.\n4. Never weaken ATS, certificate validation, authorization, privacy or entitlements as a shortcut.\n5. Never silence Swift concurrency with `@unchecked Sendable` unless invariant is documented and audited.\n6. Never use `try!`/force unwrap for unknown external data.\n7. Never rewrite an entire feature when a narrow fix is safer unless requested and justified.\n8. Preserve generated files/build artifacts conventions; do not hand-edit generated code unless source generator is the intended change point.\n9. Keep secrets out of prompts/logs/fixtures.\n10. Every autonomous edit ends with diff review and evidence ledger.\n11. If a change affects persistence/auth/payment/security/public API, automatically elevate risk and require rollback/compatibility analysis.\n12. If a task depends on undocumented SDK behavior, create a small probe/test rather than guess."
+          ]
+        },
+        {
+          "unit_id": "LIB-1063-U02",
+          "source_path": "canonical/source-meta/AI_CODING_AGENT_GUARDRAILS.md",
+          "source_sha256": "e7fd8ef1035b39f33f8f12643876a5a63b489173cb0083fc964873b9ee5073be",
+          "source_heading": "AI Coding Agent Guardrails",
+          "source_fragment": "# AI Coding Agent Guardrails",
+          "meaning": "Historical unchecked Sendable exception superseded by current strict DEC-001; unconditional probe/test demand archived, requires current permission. Other useful guardrails covered.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical unchecked Sendable exception superseded by current strict DEC-001; unconditional probe/test demand archived, requires current permission. Other useful guardrails covered.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# AI Coding Agent Guardrails\n\n1. Inspect before edit.\n2. Never invent build success.\n3. Never delete data/migrations/signing material to make tests pass.\n4. Never weaken ATS, certificate validation, authorization, privacy or entitlements as a shortcut.\n5. Never silence Swift concurrency with `@unchecked Sendable` unless invariant is documented and audited.\n6. Never use `try!`/force unwrap for unknown external data.\n7. Never rewrite an entire feature when a narrow fix is safer unless requested and justified.\n8. Preserve generated files/build artifacts conventions; do not hand-edit generated code unless source generator is the intended change point.\n9. Keep secrets out of prompts/logs/fixtures.\n10. Every autonomous edit ends with diff review and evidence ledger.\n11. If a change affects persistence/auth/payment/security/public API, automatically elevate risk and require rollback/compatibility analysis.\n12. If a task depends on undocumented SDK behavior, create a small probe/test rather than guess."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful scoped authority, evidence, risk, technology decision, dependency, migration, performance and project-fact contracts covered. Historical standalone recipes/defaults and automatic execution demands archived; current strict Swift and permission restrictions preserved."
     },
     {
       "source_id": "LIB-1064",
       "path": "source-meta/CHANGE_RISK_MATRIX.md",
       "sha256": "e04fca559f4c40f832a4c00df1b488d2c4cec8268388378d6ca714e60d748089",
       "bytes": 998,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1064-U01",
+          "source_path": "canonical/source-meta/CHANGE_RISK_MATRIX.md",
+          "source_sha256": "e04fca559f4c40f832a4c00df1b488d2c4cec8268388378d6ca714e60d748089",
+          "source_heading": "Change Risk Matrix",
+          "source_fragment": "# Change Risk Matrix",
+          "meaning": "Risk follows actual boundary impact and multipliers: missing evidence, binary SDK, durable/offline mutations, background, target/process sharing, interop, attempted concurrency escape and release sensitivity. Risk estimate not execution grant; fixed R0-R4 classifications/automatic build/test/rollout archived.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Risk follows actual boundary impact and multipliers: missing evidence, binary SDK, durable/offline mutations, background, target/process sharing, interop, attempted concurrency escape and release sensitivity. Risk estimate not execution grant; fixed R0-R4 classifications/automatic build/test/rollout archived.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1A. PR Risk Card And Scope; 3. Verification Ladder",
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1A. PR Risk Card And Scope",
+                "3. Verification Ladder"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Change Risk Matrix\n\n| Риск | Примеры | Обязательные меры |\n|---|---|---|\n| R0 | rename/local cleanup | build/static check |\n| R1 | локальная бизнес-логика/UI | unit tests + target build |\n| R2 | networking/persistence/navigation/concurrency/public API | integration + negative path + blast radius |\n| R3 | Swift 6/module architecture/schema/security/CI migration | staged plan + regression + observability + rollback |\n| R4 | destructive data/payment/auth/public SDK compatibility | explicit migration proof + containment + rollout + manual review |\n\n## Risk multipliers\nПовышай класс минимум на один, если:\n- нет automated tests;\n- third-party binary SDK;\n- offline writes/user-generated data;\n- background execution;\n- multi-target shared code;\n- Objective-C/C interop;\n- concurrency escape hatch;\n- app extension/watch/widget shares store/keychain;\n- release непосредственно перед submission."
+          ]
+        },
+        {
+          "unit_id": "LIB-1064-U02",
+          "source_path": "canonical/source-meta/CHANGE_RISK_MATRIX.md",
+          "source_sha256": "e04fca559f4c40f832a4c00df1b488d2c4cec8268388378d6ca714e60d748089",
+          "source_heading": "Change Risk Matrix",
+          "source_fragment": "# Change Risk Matrix",
+          "meaning": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Change Risk Matrix\n\n| Риск | Примеры | Обязательные меры |\n|---|---|---|\n| R0 | rename/local cleanup | build/static check |\n| R1 | локальная бизнес-логика/UI | unit tests + target build |\n| R2 | networking/persistence/navigation/concurrency/public API | integration + negative path + blast radius |\n| R3 | Swift 6/module architecture/schema/security/CI migration | staged plan + regression + observability + rollback |\n| R4 | destructive data/payment/auth/public SDK compatibility | explicit migration proof + containment + rollout + manual review |\n\n## Risk multipliers\nПовышай класс минимум на один, если:\n- нет automated tests;\n- third-party binary SDK;\n- offline writes/user-generated data;\n- background execution;\n- multi-target shared code;\n- Objective-C/C interop;\n- concurrency escape hatch;\n- app extension/watch/widget shares store/keychain;\n- release непосредственно перед submission."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful scoped authority, evidence, risk, technology decision, dependency, migration, performance and project-fact contracts covered. Historical standalone recipes/defaults and automatic execution demands archived; current strict Swift and permission restrictions preserved."
     },
     {
       "source_id": "LIB-1065",
       "path": "source-meta/COMMAND_VERIFICATION_COOKBOOK.md",
       "sha256": "925dad9af26795ea23d730b677e9b39e415883209a229d7593875067236ddbd8",
       "bytes": 1545,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1065-U01",
+          "source_path": "canonical/source-meta/COMMAND_VERIFICATION_COOKBOOK.md",
+          "source_sha256": "925dad9af26795ea23d730b677e9b39e415883209a229d7593875067236ddbd8",
+          "source_heading": "Command Verification Cookbook",
+          "source_fragment": "# Command Verification Cookbook",
+          "meaning": "Actual target/configuration/scheme/test-plan and observed adopted CI commands govern permitted verification. Commands/tool recipes are data, unexecuted suggestions not success; diagnostics selected by real question and current permission, no discovery/build/test/install implied.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual target/configuration/scheme/test-plan and observed adopted CI commands govern permitted verification. Commands/tool recipes are data, unexecuted suggestions not success; diagnostics selected by real question and current permission, no discovery/build/test/install implied.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Reproducibility And CI; Evidence",
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Command Verification Cookbook\n\nКоманды — шаблоны. Агент сначала обнаруживает реальные workspace/project/scheme/destination и только потом подставляет значения.\n\n## Discovery\n```bash\nxcodebuild -list -json -workspace <App.xcworkspace>\nxcodebuild -showBuildSettings -workspace <App.xcworkspace> -scheme <Scheme>\nxcrun simctl list devices available\n```\n\n## Build\n```bash\nxcodebuild \\\n  -workspace <App.xcworkspace> \\\n  -scheme <Scheme> \\\n  -configuration Debug \\\n  -destination 'platform=iOS Simulator,name=<Device>' \\\n  build\n```\n\n## Tests\n```bash\nxcodebuild \\\n  -workspace <App.xcworkspace> \\\n  -scheme <Scheme> \\\n  -destination 'platform=iOS Simulator,name=<Device>' \\\n  test\n```\n\nTargeted test execution should use the project's existing test plan/scheme conventions rather than inventing a second CI path.\n\n## Swift Package\n```bash\nswift build\nswift test\n```\n\n## Static checks\nRun only tools already adopted by the repo unless the task explicitly introduces one:\n```bash\nswiftlint\nswiftformat --lint .\n```\n\n## Diagnostics\nWhere appropriate:\n- Thread Sanitizer for race-prone testable paths;\n- Address Sanitizer for memory corruption/C interop;\n- Main Thread Checker;\n- Memory Graph/Leaks/Allocations;\n- Time Profiler/Hangs/Points of Interest;\n- Network template/URLSession metrics;\n- Foundation Models instrument for agentic model flows.\n\n## Rule\nNever claim a command ran unless its output was actually observed. Record command + result in the evidence ledger."
+          ]
+        },
+        {
+          "unit_id": "LIB-1065-U02",
+          "source_path": "canonical/source-meta/COMMAND_VERIFICATION_COOKBOOK.md",
+          "source_sha256": "925dad9af26795ea23d730b677e9b39e415883209a229d7593875067236ddbd8",
+          "source_heading": "Command Verification Cookbook",
+          "source_fragment": "# Command Verification Cookbook",
+          "meaning": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Command Verification Cookbook\n\nКоманды — шаблоны. Агент сначала обнаруживает реальные workspace/project/scheme/destination и только потом подставляет значения.\n\n## Discovery\n```bash\nxcodebuild -list -json -workspace <App.xcworkspace>\nxcodebuild -showBuildSettings -workspace <App.xcworkspace> -scheme <Scheme>\nxcrun simctl list devices available\n```\n\n## Build\n```bash\nxcodebuild \\\n  -workspace <App.xcworkspace> \\\n  -scheme <Scheme> \\\n  -configuration Debug \\\n  -destination 'platform=iOS Simulator,name=<Device>' \\\n  build\n```\n\n## Tests\n```bash\nxcodebuild \\\n  -workspace <App.xcworkspace> \\\n  -scheme <Scheme> \\\n  -destination 'platform=iOS Simulator,name=<Device>' \\\n  test\n```\n\nTargeted test execution should use the project's existing test plan/scheme conventions rather than inventing a second CI path.\n\n## Swift Package\n```bash\nswift build\nswift test\n```\n\n## Static checks\nRun only tools already adopted by the repo unless the task explicitly introduces one:\n```bash\nswiftlint\nswiftformat --lint .\n```\n\n## Diagnostics\nWhere appropriate:\n- Thread Sanitizer for race-prone testable paths;\n- Address Sanitizer for memory corruption/C interop;\n- Main Thread Checker;\n- Memory Graph/Leaks/Allocations;\n- Time Profiler/Hangs/Points of Interest;\n- Network template/URLSession metrics;\n- Foundation Models instrument for agentic model flows.\n\n## Rule\nNever claim a command ran unless its output was actually observed. Record command + result in the evidence ledger."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful scoped authority, evidence, risk, technology decision, dependency, migration, performance and project-fact contracts covered. Historical standalone recipes/defaults and automatic execution demands archived; current strict Swift and permission restrictions preserved."
     },
     {
       "source_id": "LIB-1066",
@@ -162545,36 +162749,329 @@
       "path": "source-meta/DECISION_MATRIX.md",
       "sha256": "671ba2998f1b80b426924d67461fb0f86d94bca8c629a102c2267327b54e8613",
       "bytes": 2841,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1067-U01",
+          "source_path": "canonical/source-meta/DECISION_MATRIX.md",
+          "source_sha256": "671ba2998f1b80b426924d67461fb0f86d94bca8c629a102c2267327b54e8613",
+          "source_heading": "Decision Matrix — выбор технологии без догм",
+          "source_fragment": "# Decision Matrix — выбор технологии без догм",
+          "meaning": "Choose UI/state/store/async/isolation/module/dependency seams from actual availability, ownership, interoperability, consumers and measured costs; existing hybrid/reactive/store behavior preserved, no migration for syntax or protocol/module per type. Historical technology defaults not universal adoption mandates.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Choose UI/state/store/async/isolation/module/dependency seams from actual availability, ownership, interoperability, consumers and measured costs; existing hybrid/reactive/store behavior preserved, no migration for syntax or protocol/module per type. Historical technology defaults not universal adoption mandates.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Selection Priorities",
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Selection Priorities"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "State Placement",
+                "UIKit Interoperability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Protocol Or Concrete Dependency"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Choose By Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Decision Matrix — выбор технологии без догм\n\n## SwiftUI vs UIKit\n**SwiftUI:** новые feature/screens, декларативный state-driven UI, быстрые итерации, cross-platform UI where appropriate.  \n**UIKit:** глубокий legacy integration, зрелые custom components/transitions/layouts, специфический lifecycle/control, постепенная миграция.  \n**Hybrid:** нормальный вариант. Граница должна иметь ясный lifecycle и ownership.\n\n## Observation vs ObservableObject\nИспользуй Observation для современного SwiftUI data flow при подходящей availability. Сохраняй ObservableObject, если deployment target/legacy/Combine integration делает миграцию неоправданной.\n\n## SwiftData vs Core Data\nSwiftData — более декларативная модель для современных проектов. Core Data — зрелый выбор для сложных existing stores, migration history, advanced modeling и долгоживущих приложений. Не мигрируй ради синтаксиса.\n\n## URLSession vs third-party networking\nURLSession + Codable/typed endpoint layer достаточно для большинства приложений. Third-party библиотека оправдана, если реально сокращает сложность (например, сложные middleware/serialization/pinning policies) и проходит dependency audit.\n\n## Async/await vs Combine\nAsync/await — default для request/response и последовательных async workflows. AsyncSequence — для потоков. Combine сохраняй при уже существующих reactive pipelines, сложном operators graph или API, где он естественен.\n\n## Actor vs lock vs MainActor\nActor — default для изолированного mutable state. MainActor — только state, действительно принадлежащий UI/main executor. Lock/atomic — для очень низкоуровневых/performance-sensitive синхронных участков после измерения и с чётким инвариантом.\n\n## SPM modularization\nМодуль создавай для ownership/build isolation/reuse/test boundaries, а не для каждого экрана. Следи за графом зависимостей и временем сборки.\n\n## Protocol abstraction\nВводи protocol на границе изменчивой зависимости или когда нужен test seam/polymorphism. Не создавай protocol для каждого concrete type автоматически."
+          ]
+        },
+        {
+          "unit_id": "LIB-1067-U02",
+          "source_path": "canonical/source-meta/DECISION_MATRIX.md",
+          "source_sha256": "671ba2998f1b80b426924d67461fb0f86d94bca8c629a102c2267327b54e8613",
+          "source_heading": "Decision Matrix — выбор технологии без догм",
+          "source_fragment": "# Decision Matrix — выбор технологии без догм",
+          "meaning": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Decision Matrix — выбор технологии без догм\n\n## SwiftUI vs UIKit\n**SwiftUI:** новые feature/screens, декларативный state-driven UI, быстрые итерации, cross-platform UI where appropriate.  \n**UIKit:** глубокий legacy integration, зрелые custom components/transitions/layouts, специфический lifecycle/control, постепенная миграция.  \n**Hybrid:** нормальный вариант. Граница должна иметь ясный lifecycle и ownership.\n\n## Observation vs ObservableObject\nИспользуй Observation для современного SwiftUI data flow при подходящей availability. Сохраняй ObservableObject, если deployment target/legacy/Combine integration делает миграцию неоправданной.\n\n## SwiftData vs Core Data\nSwiftData — более декларативная модель для современных проектов. Core Data — зрелый выбор для сложных existing stores, migration history, advanced modeling и долгоживущих приложений. Не мигрируй ради синтаксиса.\n\n## URLSession vs third-party networking\nURLSession + Codable/typed endpoint layer достаточно для большинства приложений. Third-party библиотека оправдана, если реально сокращает сложность (например, сложные middleware/serialization/pinning policies) и проходит dependency audit.\n\n## Async/await vs Combine\nAsync/await — default для request/response и последовательных async workflows. AsyncSequence — для потоков. Combine сохраняй при уже существующих reactive pipelines, сложном operators graph или API, где он естественен.\n\n## Actor vs lock vs MainActor\nActor — default для изолированного mutable state. MainActor — только state, действительно принадлежащий UI/main executor. Lock/atomic — для очень низкоуровневых/performance-sensitive синхронных участков после измерения и с чётким инвариантом.\n\n## SPM modularization\nМодуль создавай для ownership/build isolation/reuse/test boundaries, а не для каждого экрана. Следи за графом зависимостей и временем сборки.\n\n## Protocol abstraction\nВводи protocol на границе изменчивой зависимости или когда нужен test seam/polymorphism. Не создавай protocol для каждого concrete type автоматически."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful scoped authority, evidence, risk, technology decision, dependency, migration, performance and project-fact contracts covered. Historical standalone recipes/defaults and automatic execution demands archived; current strict Swift and permission restrictions preserved."
     },
     {
       "source_id": "LIB-1068",
       "path": "source-meta/DEFINITION_OF_DONE.md",
       "sha256": "a221429b299b05b9a777d2a22f61220673faa3657d4a87e6f557c48d1fa921f9",
       "bytes": 1474,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1068-U01",
+          "source_path": "canonical/source-meta/DEFINITION_OF_DONE.md",
+          "source_sha256": "a221429b299b05b9a777d2a22f61220673faa3657d4a87e6f557c48d1fa921f9",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "# Definition of Done — iOS feature / fix",
+          "meaning": "Acceptance and runtime/lifetime/failure/privacy/performance/availability/compatibility consumers require evidence scoped to actual change; missing or unrun evidence explicit, minimal diff and truthful review report. Definition checklist does not open test-writing/runtime/privacy-config phase or claim omitted checks passed.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Acceptance and runtime/lifetime/failure/privacy/performance/availability/compatibility consumers require evidence scoped to actual change; missing or unrun evidence explicit, minimal diff and truthful review report. Definition checklist does not open test-writing/runtime/privacy-config phase or claim omitted checks passed.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 3. Verification Ladder; Completion Contract",
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Definition of Done — iOS feature / fix\n\n- [ ] Acceptance criteria выполнены.\n- [ ] Код компилируется в заявленном toolchain/configuration.\n- [ ] Нет новых warnings/errors/lint violations без явного обоснования.\n- [ ] Swift 6 concurrency safety проверена; actor isolation и Sendable корректны.\n- [ ] Cancellation/lifetime для async work определены.\n- [ ] Retain cycles / memory ownership проверены.\n- [ ] Error/loading/empty/offline states определены.\n- [ ] Unit/integration/UI tests добавлены или обновлены пропорционально риску.\n- [ ] Accessibility и localization проверены для UI change.\n- [ ] Privacy/security impact оценён; privacy manifest/permissions обновлены при необходимости.\n- [ ] Performance-sensitive path измерен или обосновано, почему измерение не нужно.\n- [ ] Logging/metrics позволяют диагностировать критические сбои без утечки PII/secrets.\n- [ ] New dependency прошла audit.\n- [ ] Minimum deployment target и availability соблюдены.\n- [ ] Migration/backward compatibility учтены.\n- [ ] Diff минимален и не содержит unrelated refactor.\n- [ ] PR description описывает решение, риски и verification."
+          ]
+        },
+        {
+          "unit_id": "LIB-1068-U02",
+          "source_path": "canonical/source-meta/DEFINITION_OF_DONE.md",
+          "source_sha256": "a221429b299b05b9a777d2a22f61220673faa3657d4a87e6f557c48d1fa921f9",
+          "source_heading": "Definition of Done — iOS feature / fix",
+          "source_fragment": "# Definition of Done — iOS feature / fix",
+          "meaning": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Definition of Done — iOS feature / fix\n\n- [ ] Acceptance criteria выполнены.\n- [ ] Код компилируется в заявленном toolchain/configuration.\n- [ ] Нет новых warnings/errors/lint violations без явного обоснования.\n- [ ] Swift 6 concurrency safety проверена; actor isolation и Sendable корректны.\n- [ ] Cancellation/lifetime для async work определены.\n- [ ] Retain cycles / memory ownership проверены.\n- [ ] Error/loading/empty/offline states определены.\n- [ ] Unit/integration/UI tests добавлены или обновлены пропорционально риску.\n- [ ] Accessibility и localization проверены для UI change.\n- [ ] Privacy/security impact оценён; privacy manifest/permissions обновлены при необходимости.\n- [ ] Performance-sensitive path измерен или обосновано, почему измерение не нужно.\n- [ ] Logging/metrics позволяют диагностировать критические сбои без утечки PII/secrets.\n- [ ] New dependency прошла audit.\n- [ ] Minimum deployment target и availability соблюдены.\n- [ ] Migration/backward compatibility учтены.\n- [ ] Diff минимален и не содержит unrelated refactor.\n- [ ] PR description описывает решение, риски и verification."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful scoped authority, evidence, risk, technology decision, dependency, migration, performance and project-fact contracts covered. Historical standalone recipes/defaults and automatic execution demands archived; current strict Swift and permission restrictions preserved."
     },
     {
       "source_id": "LIB-1069",
       "path": "source-meta/DEPENDENCY_ADMISSION_POLICY.md",
       "sha256": "e4bfa50fce185c73cf30eb1c8d8fc0fb86fdc293ab24cb3c0ac573882dac1092",
       "bytes": 661,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1069-U01",
+          "source_path": "canonical/source-meta/DEPENDENCY_ADMISSION_POLICY.md",
+          "source_sha256": "e4bfa50fce185c73cf30eb1c8d8fc0fb86fdc293ab24cb3c0ac573882dac1092",
+          "source_heading": "Dependency Admission Policy",
+          "source_fragment": "# Dependency Admission Policy",
+          "meaning": "Dependency necessity versus existing/platform APIs, maintenance owner/license/security/update/exit, actual concurrency/platform compatibility, binary/build/transitive/privacy impacts and applicable current release requirements; no convenience-only adoption or speculative wrapper. No downloading/resolution/install/release grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Dependency necessity versus existing/platform APIs, maintenance owner/license/security/update/exit, actual concurrency/platform compatibility, binary/build/transitive/privacy impacts and applicable current release requirements; no convenience-only adoption or speculative wrapper. No downloading/resolution/install/release grant.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Supply Chain; SDK Consumer Boundary",
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "SDK And Supply-Chain Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Dependency Admission Policy\n\nBefore adding a dependency, answer:\n1. What problem cannot be solved reasonably with system APIs/existing dependencies?\n2. Maintenance cadence and ownership?\n3. License?\n4. Swift 6/concurrency readiness?\n5. Minimum platforms?\n6. Binary/build size impact?\n7. Transitive dependencies?\n8. Privacy manifest/data collection/tracking domains?\n9. Security history and update path?\n10. Exit strategy / wrapper boundary?\n\nFor listed third-party SDKs subject to Apple privacy-manifest/signature requirements, verify compliance before release.\n\nDefault: do not add a dependency for convenience-only syntax when platform APIs are sufficient."
+          ]
+        },
+        {
+          "unit_id": "LIB-1069-U02",
+          "source_path": "canonical/source-meta/DEPENDENCY_ADMISSION_POLICY.md",
+          "source_sha256": "e4bfa50fce185c73cf30eb1c8d8fc0fb86fdc293ab24cb3c0ac573882dac1092",
+          "source_heading": "Dependency Admission Policy",
+          "source_fragment": "# Dependency Admission Policy",
+          "meaning": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Dependency Admission Policy\n\nBefore adding a dependency, answer:\n1. What problem cannot be solved reasonably with system APIs/existing dependencies?\n2. Maintenance cadence and ownership?\n3. License?\n4. Swift 6/concurrency readiness?\n5. Minimum platforms?\n6. Binary/build size impact?\n7. Transitive dependencies?\n8. Privacy manifest/data collection/tracking domains?\n9. Security history and update path?\n10. Exit strategy / wrapper boundary?\n\nFor listed third-party SDKs subject to Apple privacy-manifest/signature requirements, verify compliance before release.\n\nDefault: do not add a dependency for convenience-only syntax when platform APIs are sufficient."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful scoped authority, evidence, risk, technology decision, dependency, migration, performance and project-fact contracts covered. Historical standalone recipes/defaults and automatic execution demands archived; current strict Swift and permission restrictions preserved."
     },
     {
       "source_id": "LIB-1070",
       "path": "source-meta/EVIDENCE_AND_VERIFICATION_POLICY.md",
       "sha256": "05a78aee43d1a3b85ef52699a045f9aba9b9541a7724c6430fb3e137ce02cf00",
       "bytes": 1894,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1070-U01",
+          "source_path": "canonical/source-meta/EVIDENCE_AND_VERIFICATION_POLICY.md",
+          "source_sha256": "05a78aee43d1a3b85ef52699a045f9aba9b9541a7724c6430fb3e137ce02cf00",
+          "source_heading": "Evidence & Verification Policy",
+          "source_fragment": "# Evidence & Verification Policy",
+          "meaning": "Claim scope follows actually observed static/compile/test/runtime/production evidence; relevant boundary negative paths and matched performance/migration/lifetime proof. Absence of warnings is not proof, capability to run is not authority. Fixed E0-E5 numbering and automatic verification demand archived.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Claim scope follows actually observed static/compile/test/runtime/production evidence; relevant boundary negative paths and matched performance/migration/lifetime proof. Absence of warnings is not proof, capability to run is not authority. Fixed E0-E5 numbering and automatic verification demand archived.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "3. Verification Ladder; Completion Contract",
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Evidence & Verification Policy\n\n## Уровни evidence\n- **E0 — hypothesis:** предположение, ещё не проверено.\n- **E1 — static evidence:** код/configuration/docs показывают контракт.\n- **E2 — compile evidence:** relevant target успешно собирается.\n- **E3 — test evidence:** targeted automated test подтверждает поведение.\n- **E4 — runtime evidence:** repro/device/simulator/log/instrument подтверждает runtime behavior.\n- **E5 — production evidence:** telemetry/MetricKit/crash-free/rollout metrics подтверждают результат в реальных условиях.\n\n## Соответствие утверждения evidence\n- «Компилируется» → минимум E2.\n- «Баг исправлен» → E3, а для runtime-only проблемы предпочтительно E4.\n- «Нет race» → compiler isolation/strict concurrency + relevant test/TSAN where meaningful; отсутствие TSAN warning само по себе недостаточно.\n- «Нет memory leak» → lifecycle repro + Memory Graph/Allocations or deinit evidence.\n- «Быстрее» → before/after measurement с одинаковым workload.\n- «Миграция безопасна» → fixture from previous schema + migration test + failure/rollback story.\n\n## Verification before explanation\nЕсли агент может выполнить build/test/search, он делает это до финального заявления. Объяснение не заменяет проверку.\n\n## Negative-path requirement\nДля boundary-кода минимум один negative path:\n- timeout/HTTP error;\n- malformed data;\n- cancellation;\n- permission denial;\n- migration failure;\n- unavailable API;\n- storage full;\n- background interruption."
+          ]
+        },
+        {
+          "unit_id": "LIB-1070-U02",
+          "source_path": "canonical/source-meta/EVIDENCE_AND_VERIFICATION_POLICY.md",
+          "source_sha256": "05a78aee43d1a3b85ef52699a045f9aba9b9541a7724c6430fb3e137ce02cf00",
+          "source_heading": "Evidence & Verification Policy",
+          "source_fragment": "# Evidence & Verification Policy",
+          "meaning": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Evidence & Verification Policy\n\n## Уровни evidence\n- **E0 — hypothesis:** предположение, ещё не проверено.\n- **E1 — static evidence:** код/configuration/docs показывают контракт.\n- **E2 — compile evidence:** relevant target успешно собирается.\n- **E3 — test evidence:** targeted automated test подтверждает поведение.\n- **E4 — runtime evidence:** repro/device/simulator/log/instrument подтверждает runtime behavior.\n- **E5 — production evidence:** telemetry/MetricKit/crash-free/rollout metrics подтверждают результат в реальных условиях.\n\n## Соответствие утверждения evidence\n- «Компилируется» → минимум E2.\n- «Баг исправлен» → E3, а для runtime-only проблемы предпочтительно E4.\n- «Нет race» → compiler isolation/strict concurrency + relevant test/TSAN where meaningful; отсутствие TSAN warning само по себе недостаточно.\n- «Нет memory leak» → lifecycle repro + Memory Graph/Allocations or deinit evidence.\n- «Быстрее» → before/after measurement с одинаковым workload.\n- «Миграция безопасна» → fixture from previous schema + migration test + failure/rollback story.\n\n## Verification before explanation\nЕсли агент может выполнить build/test/search, он делает это до финального заявления. Объяснение не заменяет проверку.\n\n## Negative-path requirement\nДля boundary-кода минимум один negative path:\n- timeout/HTTP error;\n- malformed data;\n- cancellation;\n- permission denial;\n- migration failure;\n- unavailable API;\n- storage full;\n- background interruption."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful scoped authority, evidence, risk, technology decision, dependency, migration, performance and project-fact contracts covered. Historical standalone recipes/defaults and automatic execution demands archived; current strict Swift and permission restrictions preserved."
     },
     {
       "source_id": "LIB-1071",
@@ -162590,27 +163087,238 @@
       "path": "source-meta/MIGRATION_PROTOCOL.md",
       "sha256": "223a1b7de288e1e456a41ed4021b48ced69d5ad46f0996f2f5ce470f7aab9786",
       "bytes": 565,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1072-U01",
+          "source_path": "canonical/source-meta/MIGRATION_PROTOCOL.md",
+          "source_sha256": "223a1b7de288e1e456a41ed4021b48ced69d5ad46f0996f2f5ce470f7aab9786",
+          "source_heading": "Migration Protocol",
+          "source_fragment": "# Migration Protocol",
+          "meaning": "Actual source/target, compatibility window/call-site consumers/order, bounded seam/parity/data-API failure/rollback and retirement criteria; flags/telemetry only when contract warrants and authorized. No big-bang fashion rewrite, no automatically created tests, rollout or legacy removal.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual source/target, compatibility window/call-site consumers/order, bounded seam/parity/data-API failure/rollback and retirement criteria; flags/telemetry only when contract warrants and authorized. No big-bang fashion rewrite, no automatically created tests, rollout or legacy removal.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "Bounded Investigation And Migration; Stop Rule",
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Migration Protocol\n\nAny migration must define:\n1. source and target state;\n2. compatibility window;\n3. inventory/call-site count;\n4. sequencing by module/feature;\n5. behavioral parity tests;\n6. data/API compatibility;\n7. rollout flag if risk warrants;\n8. rollback strategy;\n9. telemetry that proves success;\n10. cleanup criteria for old path.\n\n## Preferred pattern\n`observe → characterize → add seam → migrate one slice → compare → expand → remove legacy`.\n\nAvoid big-bang rewrite unless dual-running/compatibility is more dangerous than replacement."
+          ]
+        },
+        {
+          "unit_id": "LIB-1072-U02",
+          "source_path": "canonical/source-meta/MIGRATION_PROTOCOL.md",
+          "source_sha256": "223a1b7de288e1e456a41ed4021b48ced69d5ad46f0996f2f5ce470f7aab9786",
+          "source_heading": "Migration Protocol",
+          "source_fragment": "# Migration Protocol",
+          "meaning": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Migration Protocol\n\nAny migration must define:\n1. source and target state;\n2. compatibility window;\n3. inventory/call-site count;\n4. sequencing by module/feature;\n5. behavioral parity tests;\n6. data/API compatibility;\n7. rollout flag if risk warrants;\n8. rollback strategy;\n9. telemetry that proves success;\n10. cleanup criteria for old path.\n\n## Preferred pattern\n`observe → characterize → add seam → migrate one slice → compare → expand → remove legacy`.\n\nAvoid big-bang rewrite unless dual-running/compatibility is more dangerous than replacement."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful scoped authority, evidence, risk, technology decision, dependency, migration, performance and project-fact contracts covered. Historical standalone recipes/defaults and automatic execution demands archived; current strict Swift and permission restrictions preserved."
     },
     {
       "source_id": "LIB-1073",
       "path": "source-meta/PERFORMANCE_EVIDENCE_PROTOCOL.md",
       "sha256": "20ed787fee191a171ad05dad9d7b3bc9b10fc2f83b4689abdd1b039c4cf3379d",
       "bytes": 713,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1073-U01",
+          "source_path": "canonical/source-meta/PERFORMANCE_EVIDENCE_PROTOCOL.md",
+          "source_sha256": "20ed787fee191a171ad05dad9d7b3bc9b10fc2f83b4689abdd1b039c4cf3379d",
+          "source_heading": "Performance Evidence Protocol",
+          "source_fragment": "# Performance Evidence Protocol",
+          "meaning": "User-visible metric, stable comparable workload/build baseline and after measurement, observed bottleneck, one dominant change and CPU-memory-energy-staleness tradeoffs/regression evidence. Source aesthetics not performance improvement; historical named iOS27 API recommendation archived without current availability claim/adoption.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "User-visible metric, stable comparable workload/build baseline and after measurement, observed bottleneck, one dominant change and CPU-memory-energy-staleness tradeoffs/regression evidence. Source aesthetics not performance improvement; historical named iOS27 API recommendation archived without current availability claim/adoption.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Optimization Workflow; Evidence",
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Performance Evidence Protocol\n\n1. Define user-visible metric: launch, hitch ratio, frame stall, CPU, memory peak, network latency, energy, DB query time.\n2. Capture baseline with stable workload.\n3. Add signpost/state labeling if attribution is weak.\n4. Profile the bottleneck; do not infer from source aesthetics.\n5. Change one dominant factor.\n6. Measure after with same device/build/workload.\n7. Record trade-offs (memory vs CPU, latency vs battery, caching vs staleness).\n8. Add regression guard when practical.\n\nIn iOS 27+ projects evaluate the modern MetricKit `MetricManager` async-sequence APIs and StateReporting where they fit; keep older `MXMetricManager` paths when deployment targets require them."
+          ]
+        },
+        {
+          "unit_id": "LIB-1073-U02",
+          "source_path": "canonical/source-meta/PERFORMANCE_EVIDENCE_PROTOCOL.md",
+          "source_sha256": "20ed787fee191a171ad05dad9d7b3bc9b10fc2f83b4689abdd1b039c4cf3379d",
+          "source_heading": "Performance Evidence Protocol",
+          "source_fragment": "# Performance Evidence Protocol",
+          "meaning": "Historical named iOS27 MetricManager/StateReporting recommendation archived without current availability or suitability claim; no API adoption or runtime measurement performed.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical named iOS27 MetricManager/StateReporting recommendation archived without current availability or suitability claim; no API adoption or runtime measurement performed.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Performance Evidence Protocol\n\n1. Define user-visible metric: launch, hitch ratio, frame stall, CPU, memory peak, network latency, energy, DB query time.\n2. Capture baseline with stable workload.\n3. Add signpost/state labeling if attribution is weak.\n4. Profile the bottleneck; do not infer from source aesthetics.\n5. Change one dominant factor.\n6. Measure after with same device/build/workload.\n7. Record trade-offs (memory vs CPU, latency vs battery, caching vs staleness).\n8. Add regression guard when practical.\n\nIn iOS 27+ projects evaluate the modern MetricKit `MetricManager` async-sequence APIs and StateReporting where they fit; keep older `MXMetricManager` paths when deployment targets require them."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful scoped authority, evidence, risk, technology decision, dependency, migration, performance and project-fact contracts covered. Historical standalone recipes/defaults and automatic execution demands archived; current strict Swift and permission restrictions preserved."
     },
     {
       "source_id": "LIB-1074",
       "path": "source-meta/PROJECT_CONTEXT_TEMPLATE.md",
       "sha256": "7d41b00c2980bfb9e149627228af27ff5f504783917d2faee7f1eba46be29115",
       "bytes": 1133,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1074-U01",
+          "source_path": "canonical/source-meta/PROJECT_CONTEXT_TEMPLATE.md",
+          "source_sha256": "7d41b00c2980bfb9e149627228af27ff5f504783917d2faee7f1eba46be29115",
+          "source_heading": "Project Context Template",
+          "source_fragment": "# Project Context Template",
+          "meaning": "Task-relevant actual project/product/profile/constraints/conventions and feature acceptance/data/offline/failure/privacy/non-goals, unknown stays UNKNOWN. Template is optional provenance aid, not automatic profile writing or cross-app facts/default platform policy.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Task-relevant actual project/product/profile/constraints/conventions and feature acceptance/data/offline/failure/privacy/non-goals, unknown stays UNKNOWN. Template is optional provenance aid, not automatic profile writing or cross-app facts/default platform policy.",
+          "destination_path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "destination_heading": "Checklist; Stop Rule",
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Project Context Template\n\nЗаполни и храни рядом с репозиторием. Не придумывай неизвестные значения — ставь `UNKNOWN`.\n\n```yaml\nproject_name: \nproduct_domain: \nminimum_ios: \ntarget_platforms: [iOS]\nxcode_version: \nswift_version: \nswift_language_mode: \nstrict_concurrency: \nui_stack: [SwiftUI, UIKit]\nstate_management: \narchitecture: \nmodule_strategy: \ndependency_injection: \nnetworking: \npersistence: \nanalytics_observability: \nauthentication: \nsecurity_constraints: \nprivacy_constraints: \nlocalization: \naccessibility_requirements: \ntesting: \nci: \ndistribution: \nfeature_flags: \nthird_party_dependencies: []\nknown_legacy_constraints: []\nperformance_slos: []\nrelease_constraints: []\n```\n\n## Repository conventions\n- Source layout:\n- Naming:\n- Error model:\n- Logging:\n- DI rules:\n- Test naming:\n- Generated code:\n- Lint/format:\n- Forbidden patterns:\n- ADR links:\n\n## Feature-specific context\n- User problem:\n- Acceptance criteria:\n- Non-goals:\n- Data contract:\n- Offline behavior:\n- Failure behavior:\n- Analytics:\n- Security/privacy:\n- Accessibility/localization:"
+          ]
+        },
+        {
+          "unit_id": "LIB-1074-U02",
+          "source_path": "canonical/source-meta/PROJECT_CONTEXT_TEMPLATE.md",
+          "source_sha256": "7d41b00c2980bfb9e149627228af27ff5f504783917d2faee7f1eba46be29115",
+          "source_heading": "Project Context Template",
+          "source_fragment": "# Project Context Template",
+          "meaning": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone source-meta template/labels/recipes archived; useful task-scoped contracts remain in current owners. No automatic execution, template/profile creation, adoption or extra Library pass.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-170-source-meta-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Project Context Template\n\nЗаполни и храни рядом с репозиторием. Не придумывай неизвестные значения — ставь `UNKNOWN`.\n\n```yaml\nproject_name: \nproduct_domain: \nminimum_ios: \ntarget_platforms: [iOS]\nxcode_version: \nswift_version: \nswift_language_mode: \nstrict_concurrency: \nui_stack: [SwiftUI, UIKit]\nstate_management: \narchitecture: \nmodule_strategy: \ndependency_injection: \nnetworking: \npersistence: \nanalytics_observability: \nauthentication: \nsecurity_constraints: \nprivacy_constraints: \nlocalization: \naccessibility_requirements: \ntesting: \nci: \ndistribution: \nfeature_flags: \nthird_party_dependencies: []\nknown_legacy_constraints: []\nperformance_slos: []\nrelease_constraints: []\n```\n\n## Repository conventions\n- Source layout:\n- Naming:\n- Error model:\n- Logging:\n- DI rules:\n- Test naming:\n- Generated code:\n- Lint/format:\n- Forbidden patterns:\n- ADR links:\n\n## Feature-specific context\n- User problem:\n- Acceptance criteria:\n- Non-goals:\n- Data contract:\n- Offline behavior:\n- Failure behavior:\n- Analytics:\n- Security/privacy:\n- Accessibility/localization:"
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful scoped authority, evidence, risk, technology decision, dependency, migration, performance and project-fact contracts covered. Historical standalone recipes/defaults and automatic execution demands archived; current strict Swift and permission restrictions preserved."
     },
     {
       "source_id": "LIB-1075",
