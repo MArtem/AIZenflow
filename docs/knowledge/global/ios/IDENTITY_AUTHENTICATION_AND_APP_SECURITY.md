@@ -56,6 +56,10 @@ A permitted fixture plan covers concurrent application-auth failures, one curren
 bounded replay, terminal recovery and stale completion after logout/new login; challenge handling
 is a separate case. Background/cancellation paths follow the actual session lifecycle.
 
+Distinguish backend-defined authentication recovery from access refusal: HTTP 401 concerns invalid
+credentials; HTTP 403 is refusal to fulfill the request and may be unrelated to credentials.
+Do not turn every 403 into token refresh or replay; preserve the actual API error contract.
+
 ## LocalAuthentication
 Use LocalAuthentication to gate access or confirm user presence, not as the sole source of remote account identity. Choose whether passcode fallback is allowed. Handle unavailable, not enrolled, lockout, user cancel, system cancel, app cancel, and changed biometric enrollment.
 
@@ -117,6 +121,7 @@ separate; an unverified premise remains UNKNOWN, never PASS. This is evidence ap
 the permitted review, not an additional mandatory Library pass or authority to run a scan.
 
 ## Primary Sources
+- [HTTP 401/403 semantics: RFC 9110 sections 15.5.2 and 15.5.4](https://www.rfc-editor.org/rfc/rfc9110.html#name-401-unauthorized)
 - [AuthenticationServices](https://developer.apple.com/documentation/authenticationservices)
 - [Supporting passkeys](https://developer.apple.com/documentation/authenticationservices/supporting-passkeys)
 - [LocalAuthentication](https://developer.apple.com/documentation/localauthentication)
