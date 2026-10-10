@@ -146848,54 +146848,822 @@
       "path": "32_AGENT_PROMPTS_V2/P2-083_modularization_plan.md",
       "sha256": "89de3a07515cea3673beb29759369183c43b99957efb1434a12aba68c1e11c40",
       "bytes": 2278,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0737-U01",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-083_modularization_plan.md",
+          "source_sha256": "89de3a07515cea3673beb29759369183c43b99957efb1434a12aba68c1e11c40",
+          "source_heading": "Task intent",
+          "source_fragment": "Задача: Раздели graph по ownership/build/test boundaries, измерь build impact и избегай micro-module explosion.",
+          "meaning": "Actual acyclic ownership/build/test seams and comparable build impact with migration/rollback/cleanup; no micro-module explosion, extraction or build execution grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual acyclic ownership/build/test seams and comparable build impact with migration/rollback/cleanup; no micro-module explosion, extraction or build execution grant.",
+          "destination_path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "destination_heading": "Required Checks; Forbidden By Default",
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Modules And Linking",
+                "Build Performance"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0737-U02",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-083_modularization_plan.md",
+          "source_sha256": "89de3a07515cea3673beb29759369183c43b99957efb1434a12aba68c1e11c40",
+          "source_heading": "Common bounded workflow",
+          "source_fragment": "До решения:",
+          "meaning": "Full useful common: actual repository analogues/callers and permitted supplied test evidence, source of truth/mutable resource lifetime/task-actor boundaries/blast radius; invariants and falsifying negative path; no unrelated refactor or speculative dependencies/abstractions, no diagnostic suppression; alternatives proportional to actual risk and rollback/containment proposal; honest permitted evidence and exact locations, facts/assumptions/unknowns and concurrency/memory/security/privacy/performance/availability impact. Current user authority controls all execution and no inherited permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full useful common: actual repository analogues/callers and permitted supplied test evidence, source of truth/mutable resource lifetime/task-actor boundaries/blast radius; invariants and falsifying negative path; no unrelated refactor or speculative dependencies/abstractions, no diagnostic suppression; alternatives proportional to actual risk and rollback/containment proposal; honest permitted evidence and exact locations, facts/assumptions/unknowns and concurrency/memory/security/privacy/performance/availability impact. Current user authority controls all execution and no inherited permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 1A. PR Risk Card And Scope; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Во время работы",
+            "Финал:"
+          ]
+        },
+        {
+          "unit_id": "LIB-0737-U03",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-083_modularization_plan.md",
+          "source_sha256": "89de3a07515cea3673beb29759369183c43b99957efb1434a12aba68c1e11c40",
+          "source_heading": "Historical standalone delivery",
+          "source_fragment": "## Skill chain",
+          "meaning": "Standalone V2/meta/Library and fixed playbook chain, role/mode/risk R0–R4 labels and R2+ fixed two-solution quota plus unconditional available build/test/lint/instrumentation instruction archived. Test/state modeling intent retained under current permission; no runtime/test-writing/Library/mode/agent transition activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library and fixed playbook chain, role/mode/risk R0–R4 labels and R2+ fixed two-solution quota plus unconditional available build/test/lint/instrumentation instruction archived. Test/state modeling intent retained under current permission; no runtime/test-writing/Library/mode/agent transition activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Обязательно используй:",
+            "Выполни доступные build/tests/lint/instrumentation."
+          ]
+        }
+      ],
+      "disposition_reason": "P2 task/skill-chain/mode independently read and entire common verified exact against fully read P2-001; actual build/dependency/release intent and useful common covered by current owners, fixed legacy delivery/execution archived; no inferred implementation/test/runtime grant."
     },
     {
       "source_id": "LIB-0738",
       "path": "32_AGENT_PROMPTS_V2/P2-084_evaluate_dependency.md",
       "sha256": "8de241dcf818566c4f17f3b85ac424d8a7508766eb35412dad39142122a3c582",
       "bytes": 2264,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0738-U01",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-084_evaluate_dependency.md",
+          "source_sha256": "8de241dcf818566c4f17f3b85ac424d8a7508766eb35412dad39142122a3c582",
+          "source_heading": "Task intent",
+          "source_fragment": "Задача: Оцени necessity, maintenance, Swift 6 readiness, license, privacy, security, binary/build cost and exit strategy.",
+          "meaning": "Actual dependency necessity/maintenance/Swift isolation readiness/license/privacy/security/binary-build cost and exit strategy; no fetch/install/adopt or wrapper for hypothetical interchangeability.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual dependency necessity/maintenance/Swift isolation readiness/license/privacy/security/binary-build cost and exit strategy; no fetch/install/adopt or wrapper for hypothetical interchangeability.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Supply Chain; SDK Consumer Boundary",
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0738-U02",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-084_evaluate_dependency.md",
+          "source_sha256": "8de241dcf818566c4f17f3b85ac424d8a7508766eb35412dad39142122a3c582",
+          "source_heading": "Common bounded workflow",
+          "source_fragment": "До решения:",
+          "meaning": "Full useful common: actual repository analogues/callers and permitted supplied test evidence, source of truth/mutable resource lifetime/task-actor boundaries/blast radius; invariants and falsifying negative path; no unrelated refactor or speculative dependencies/abstractions, no diagnostic suppression; alternatives proportional to actual risk and rollback/containment proposal; honest permitted evidence and exact locations, facts/assumptions/unknowns and concurrency/memory/security/privacy/performance/availability impact. Current user authority controls all execution and no inherited permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full useful common: actual repository analogues/callers and permitted supplied test evidence, source of truth/mutable resource lifetime/task-actor boundaries/blast radius; invariants and falsifying negative path; no unrelated refactor or speculative dependencies/abstractions, no diagnostic suppression; alternatives proportional to actual risk and rollback/containment proposal; honest permitted evidence and exact locations, facts/assumptions/unknowns and concurrency/memory/security/privacy/performance/availability impact. Current user authority controls all execution and no inherited permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 1A. PR Risk Card And Scope; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Во время работы",
+            "Финал:"
+          ]
+        },
+        {
+          "unit_id": "LIB-0738-U03",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-084_evaluate_dependency.md",
+          "source_sha256": "8de241dcf818566c4f17f3b85ac424d8a7508766eb35412dad39142122a3c582",
+          "source_heading": "Historical standalone delivery",
+          "source_fragment": "## Skill chain",
+          "meaning": "Standalone V2/meta/Library and fixed playbook chain, role/mode/risk R0–R4 labels and R2+ fixed two-solution quota plus unconditional available build/test/lint/instrumentation instruction archived. Test/state modeling intent retained under current permission; no runtime/test-writing/Library/mode/agent transition activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library and fixed playbook chain, role/mode/risk R0–R4 labels and R2+ fixed two-solution quota plus unconditional available build/test/lint/instrumentation instruction archived. Test/state modeling intent retained under current permission; no runtime/test-writing/Library/mode/agent transition activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Обязательно используй:",
+            "Выполни доступные build/tests/lint/instrumentation."
+          ]
+        }
+      ],
+      "disposition_reason": "P2 task/skill-chain/mode independently read and entire common verified exact against fully read P2-001; actual build/dependency/release intent and useful common covered by current owners, fixed legacy delivery/execution archived; no inferred implementation/test/runtime grant."
     },
     {
       "source_id": "LIB-0739",
       "path": "32_AGENT_PROMPTS_V2/P2-085_optimize_build_time.md",
       "sha256": "746fc1af16a22e3f34fa5288f9c9ce364d1613a490fc350ea57b3640d203c376",
       "bytes": 2261,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0739-U01",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-085_optimize_build_time.md",
+          "source_sha256": "746fc1af16a22e3f34fa5288f9c9ce364d1613a490fc350ea57b3640d203c376",
+          "source_heading": "Task intent",
+          "source_fragment": "Задача: Используй build timing/dependency evidence, отделяя compiler/codegen/link/test bottlenecks.",
+          "meaning": "Actual supplied/permitted build timing/dependency evidence distinguishes compiler/codegen/link/test bottlenecks and comparable configs; no build/test/toolchain/cache/settings change.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual supplied/permitted build timing/dependency evidence distinguishes compiler/codegen/link/test bottlenecks and comparable configs; no build/test/toolchain/cache/settings change.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Performance; Targets And Build Phases; Modules And Linking; Evidence",
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Performance",
+                "Targets And Build Phases",
+                "Modules And Linking",
+                "Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0739-U02",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-085_optimize_build_time.md",
+          "source_sha256": "746fc1af16a22e3f34fa5288f9c9ce364d1613a490fc350ea57b3640d203c376",
+          "source_heading": "Common bounded workflow",
+          "source_fragment": "До решения:",
+          "meaning": "Full useful common: actual repository analogues/callers and permitted supplied test evidence, source of truth/mutable resource lifetime/task-actor boundaries/blast radius; invariants and falsifying negative path; no unrelated refactor or speculative dependencies/abstractions, no diagnostic suppression; alternatives proportional to actual risk and rollback/containment proposal; honest permitted evidence and exact locations, facts/assumptions/unknowns and concurrency/memory/security/privacy/performance/availability impact. Current user authority controls all execution and no inherited permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full useful common: actual repository analogues/callers and permitted supplied test evidence, source of truth/mutable resource lifetime/task-actor boundaries/blast radius; invariants and falsifying negative path; no unrelated refactor or speculative dependencies/abstractions, no diagnostic suppression; alternatives proportional to actual risk and rollback/containment proposal; honest permitted evidence and exact locations, facts/assumptions/unknowns and concurrency/memory/security/privacy/performance/availability impact. Current user authority controls all execution and no inherited permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 1A. PR Risk Card And Scope; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Во время работы",
+            "Финал:"
+          ]
+        },
+        {
+          "unit_id": "LIB-0739-U03",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-085_optimize_build_time.md",
+          "source_sha256": "746fc1af16a22e3f34fa5288f9c9ce364d1613a490fc350ea57b3640d203c376",
+          "source_heading": "Historical standalone delivery",
+          "source_fragment": "## Skill chain",
+          "meaning": "Standalone V2/meta/Library and fixed playbook chain, role/mode/risk R0–R4 labels and R2+ fixed two-solution quota plus unconditional available build/test/lint/instrumentation instruction archived. Test/state modeling intent retained under current permission; no runtime/test-writing/Library/mode/agent transition activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library and fixed playbook chain, role/mode/risk R0–R4 labels and R2+ fixed two-solution quota plus unconditional available build/test/lint/instrumentation instruction archived. Test/state modeling intent retained under current permission; no runtime/test-writing/Library/mode/agent transition activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Обязательно используй:",
+            "Выполни доступные build/tests/lint/instrumentation."
+          ]
+        }
+      ],
+      "disposition_reason": "P2 task/skill-chain/mode independently read and entire common verified exact against fully read P2-001; actual build/dependency/release intent and useful common covered by current owners, fixed legacy delivery/execution archived; no inferred implementation/test/runtime grant."
     },
     {
       "source_id": "LIB-0740",
       "path": "32_AGENT_PROMPTS_V2/P2-086_design_ci_pipeline.md",
       "sha256": "d6e90f80fa3c931b8efdeb17c46e1202720e0649d0497a0cfdaf63260c6ec4c0",
       "bytes": 2274,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0740-U01",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-086_design_ci_pipeline.md",
+          "source_sha256": "d6e90f80fa3c931b8efdeb17c46e1202720e0649d0497a0cfdaf63260c6ec4c0",
+          "source_heading": "Task intent",
+          "source_fragment": "Задача: Сделай reproducible CI с risk-based gates, deterministic parallel tests, caching and artifact traceability.",
+          "meaning": "Actual reproducible manual-only workflow-dispatch CI under zero-extra-cost authority, meaningful risk gates, allocated deterministic shard results/cache/artifact trace; no jobs/triggers/paid AI/parallel test execution or CI implementation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+          "existing_coverage": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual reproducible manual-only workflow-dispatch CI under zero-extra-cost authority, meaningful risk gates, allocated deterministic shard results/cache/artifact trace; no jobs/triggers/paid AI/parallel test execution or CI implementation.",
+          "destination_path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+          "destination_heading": "Execution Authority; Cost Boundary; Reproducibility Rules; Result Semantics",
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Cost Boundary",
+                "Reproducibility Rules",
+                "Result Semantics"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Reproducibility And CI"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Flaky Tests"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0740-U02",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-086_design_ci_pipeline.md",
+          "source_sha256": "d6e90f80fa3c931b8efdeb17c46e1202720e0649d0497a0cfdaf63260c6ec4c0",
+          "source_heading": "Common bounded workflow",
+          "source_fragment": "До решения:",
+          "meaning": "Full useful common: actual repository analogues/callers and permitted supplied test evidence, source of truth/mutable resource lifetime/task-actor boundaries/blast radius; invariants and falsifying negative path; no unrelated refactor or speculative dependencies/abstractions, no diagnostic suppression; alternatives proportional to actual risk and rollback/containment proposal; honest permitted evidence and exact locations, facts/assumptions/unknowns and concurrency/memory/security/privacy/performance/availability impact. Current user authority controls all execution and no inherited permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full useful common: actual repository analogues/callers and permitted supplied test evidence, source of truth/mutable resource lifetime/task-actor boundaries/blast radius; invariants and falsifying negative path; no unrelated refactor or speculative dependencies/abstractions, no diagnostic suppression; alternatives proportional to actual risk and rollback/containment proposal; honest permitted evidence and exact locations, facts/assumptions/unknowns and concurrency/memory/security/privacy/performance/availability impact. Current user authority controls all execution and no inherited permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 1A. PR Risk Card And Scope; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Во время работы",
+            "Финал:"
+          ]
+        },
+        {
+          "unit_id": "LIB-0740-U03",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-086_design_ci_pipeline.md",
+          "source_sha256": "d6e90f80fa3c931b8efdeb17c46e1202720e0649d0497a0cfdaf63260c6ec4c0",
+          "source_heading": "Historical standalone delivery",
+          "source_fragment": "## Skill chain",
+          "meaning": "Standalone V2/meta/Library and fixed playbook chain, role/mode/risk R0–R4 labels and R2+ fixed two-solution quota plus unconditional available build/test/lint/instrumentation instruction archived. Test/state modeling intent retained under current permission; no runtime/test-writing/Library/mode/agent transition activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library and fixed playbook chain, role/mode/risk R0–R4 labels and R2+ fixed two-solution quota plus unconditional available build/test/lint/instrumentation instruction archived. Test/state modeling intent retained under current permission; no runtime/test-writing/Library/mode/agent transition activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Обязательно используй:",
+            "Выполни доступные build/tests/lint/instrumentation."
+          ]
+        }
+      ],
+      "disposition_reason": "P2 task/skill-chain/mode independently read and entire common verified exact against fully read P2-001; actual build/dependency/release intent and useful common covered by current owners, fixed legacy delivery/execution archived; no inferred implementation/test/runtime grant."
     },
     {
       "source_id": "LIB-0741",
       "path": "32_AGENT_PROMPTS_V2/P2-087_pre_release_audit.md",
       "sha256": "cafb77cc139f834a1f354a4cdd0b7768f414c3a6d281da9999bdb375d9ee00ce",
       "bytes": 2256,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0741-U01",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-087_pre_release_audit.md",
+          "source_sha256": "cafb77cc139f834a1f354a4cdd0b7768f414c3a6d281da9999bdb375d9ee00ce",
+          "source_heading": "Task intent",
+          "source_fragment": "Задача: Проверь build/tests/signing/privacy/migrations/crash-perf/a11y/localization/backend compatibility/rollback.",
+          "meaning": "Actual exact candidate evidence binds build/tests/signing/privacy/migration/crash-performance/accessibility/localization/backend parity/rollback under current scope; omitted/unrun never PASS or current release readiness.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual exact candidate evidence binds build/tests/signing/privacy/migration/crash-performance/accessibility/localization/backend parity/rollback under current scope; omitted/unrun never PASS or current release readiness.",
+          "destination_path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "destination_heading": "Build And Signing; Runtime Readiness; Diagnostics; Rollout; Release Receipt",
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Build And Signing",
+                "Runtime Readiness",
+                "Diagnostics",
+                "Rollout",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Release Candidate Trace",
+                "Release Evidence",
+                "Living Requirements"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration",
+                "Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0741-U02",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-087_pre_release_audit.md",
+          "source_sha256": "cafb77cc139f834a1f354a4cdd0b7768f414c3a6d281da9999bdb375d9ee00ce",
+          "source_heading": "Common bounded workflow",
+          "source_fragment": "До решения:",
+          "meaning": "Full useful common: actual repository analogues/callers and permitted supplied test evidence, source of truth/mutable resource lifetime/task-actor boundaries/blast radius; invariants and falsifying negative path; no unrelated refactor or speculative dependencies/abstractions, no diagnostic suppression; alternatives proportional to actual risk and rollback/containment proposal; honest permitted evidence and exact locations, facts/assumptions/unknowns and concurrency/memory/security/privacy/performance/availability impact. Current user authority controls all execution and no inherited permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full useful common: actual repository analogues/callers and permitted supplied test evidence, source of truth/mutable resource lifetime/task-actor boundaries/blast radius; invariants and falsifying negative path; no unrelated refactor or speculative dependencies/abstractions, no diagnostic suppression; alternatives proportional to actual risk and rollback/containment proposal; honest permitted evidence and exact locations, facts/assumptions/unknowns and concurrency/memory/security/privacy/performance/availability impact. Current user authority controls all execution and no inherited permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 1A. PR Risk Card And Scope; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Во время работы",
+            "Финал:"
+          ]
+        },
+        {
+          "unit_id": "LIB-0741-U03",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-087_pre_release_audit.md",
+          "source_sha256": "cafb77cc139f834a1f354a4cdd0b7768f414c3a6d281da9999bdb375d9ee00ce",
+          "source_heading": "Historical standalone delivery",
+          "source_fragment": "## Skill chain",
+          "meaning": "Standalone V2/meta/Library and fixed playbook chain, role/mode/risk R0–R4 labels and R2+ fixed two-solution quota plus unconditional available build/test/lint/instrumentation instruction archived. Test/state modeling intent retained under current permission; no runtime/test-writing/Library/mode/agent transition activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library and fixed playbook chain, role/mode/risk R0–R4 labels and R2+ fixed two-solution quota plus unconditional available build/test/lint/instrumentation instruction archived. Test/state modeling intent retained under current permission; no runtime/test-writing/Library/mode/agent transition activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Обязательно используй:",
+            "Выполни доступные build/tests/lint/instrumentation."
+          ]
+        }
+      ],
+      "disposition_reason": "P2 task/skill-chain/mode independently read and entire common verified exact against fully read P2-001; actual build/dependency/release intent and useful common covered by current owners, fixed legacy delivery/execution archived; no inferred implementation/test/runtime grant."
     },
     {
       "source_id": "LIB-0742",
       "path": "32_AGENT_PROMPTS_V2/P2-088_hotfix_workflow.md",
       "sha256": "b8f2509bf73ede4d1aa7efba3f9ae2f9cb7123b5b3eaead558ce95273ba5bc8c",
       "bytes": 2257,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0742-U01",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-088_hotfix_workflow.md",
+          "source_sha256": "b8f2509bf73ede4d1aa7efba3f9ae2f9cb7123b5b3eaead558ce95273ba5bc8c",
+          "source_heading": "Task intent",
+          "source_fragment": "Задача: Минимизируй scope, докажи root cause/regression test, оцени release risk and containment.",
+          "meaning": "Bounded hotfix scope/observed root cause and supplied/permitted regression evidence, exact shipped-to-candidate delta/release risk/containment; urgency no test/deploy/rollback or app change permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Bounded hotfix scope/observed root cause and supplied/permitted regression evidence, exact shipped-to-candidate delta/release risk/containment; urgency no test/deploy/rollback or app change permission.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Runtime Operations",
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Release Receipt"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0742-U02",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-088_hotfix_workflow.md",
+          "source_sha256": "b8f2509bf73ede4d1aa7efba3f9ae2f9cb7123b5b3eaead558ce95273ba5bc8c",
+          "source_heading": "Common bounded workflow",
+          "source_fragment": "До решения:",
+          "meaning": "Full useful common: actual repository analogues/callers and permitted supplied test evidence, source of truth/mutable resource lifetime/task-actor boundaries/blast radius; invariants and falsifying negative path; no unrelated refactor or speculative dependencies/abstractions, no diagnostic suppression; alternatives proportional to actual risk and rollback/containment proposal; honest permitted evidence and exact locations, facts/assumptions/unknowns and concurrency/memory/security/privacy/performance/availability impact. Current user authority controls all execution and no inherited permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full useful common: actual repository analogues/callers and permitted supplied test evidence, source of truth/mutable resource lifetime/task-actor boundaries/blast radius; invariants and falsifying negative path; no unrelated refactor or speculative dependencies/abstractions, no diagnostic suppression; alternatives proportional to actual risk and rollback/containment proposal; honest permitted evidence and exact locations, facts/assumptions/unknowns and concurrency/memory/security/privacy/performance/availability impact. Current user authority controls all execution and no inherited permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 1A. PR Risk Card And Scope; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Во время работы",
+            "Финал:"
+          ]
+        },
+        {
+          "unit_id": "LIB-0742-U03",
+          "source_path": "canonical/32_AGENT_PROMPTS_V2/P2-088_hotfix_workflow.md",
+          "source_sha256": "b8f2509bf73ede4d1aa7efba3f9ae2f9cb7123b5b3eaead558ce95273ba5bc8c",
+          "source_heading": "Historical standalone delivery",
+          "source_fragment": "## Skill chain",
+          "meaning": "Standalone V2/meta/Library and fixed playbook chain, role/mode/risk R0–R4 labels and R2+ fixed two-solution quota plus unconditional available build/test/lint/instrumentation instruction archived. Test/state modeling intent retained under current permission; no runtime/test-writing/Library/mode/agent transition activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library and fixed playbook chain, role/mode/risk R0–R4 labels and R2+ fixed two-solution quota plus unconditional available build/test/lint/instrumentation instruction archived. Test/state modeling intent retained under current permission; no runtime/test-writing/Library/mode/agent transition activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Six task/skill-chain/mode variants independently read; exact whole common against previously fully read P2-001 after only title/id/skills/chain/mission/mode substitution; actual literal fragments and unique current headings, prior rows/copies/mirrors, semantic final diff and exact-SHA publication gates.",
+          "evidence": "block-139-build-release-prompts.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Обязательно используй:",
+            "Выполни доступные build/tests/lint/instrumentation."
+          ]
+        }
+      ],
+      "disposition_reason": "P2 task/skill-chain/mode independently read and entire common verified exact against fully read P2-001; actual build/dependency/release intent and useful common covered by current owners, fixed legacy delivery/execution archived; no inferred implementation/test/runtime grant."
     },
     {
       "source_id": "LIB-0743",
