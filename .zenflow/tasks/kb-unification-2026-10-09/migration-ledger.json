@@ -153808,45 +153808,293 @@
       "path": "33_CODE_PATTERNS/CP-26_STORE_MIGRATION_INVARIANT.md",
       "sha256": "22135125960b7bf296d6df9233685845bb3ad666101989f75eea43b4fc7f9b62",
       "bytes": 473,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0802-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-26_STORE_MIGRATION_INVARIANT.md",
+          "source_sha256": "22135125960b7bf296d6df9233685845bb3ad666101989f75eea43b4fc7f9b62",
+          "source_heading": "CP-26 — Migration tests assert semantic invariants",
+          "source_fragment": "# CP-26 — Migration tests assert semantic invariants",
+          "meaning": "Actual promised historical upgrade-path fixture checks stable IDs/records/relationships/counts/defaults/no duplicates/user-visible meaning; store open alone not semantic preservation. Tests/fixtures only supplied or currently authorized, no test-writing phase.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual promised historical upgrade-path fixture checks stable IDs/records/relationships/counts/defaults/no duplicates/user-visible meaning; store open alone not semantic preservation. Tests/fixtures only supplied or currently authorized, no test-writing phase.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration; Evidence",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-151-data-privacy-ai-refactor-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Evidence Completion"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full independent data/privacy/AI/refactor contract covered; historical unconditional execution separately archived where present; no code snippets in these five sources. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0803",
       "path": "33_CODE_PATTERNS/CP-27_PRIVACY_MANIFEST_REVIEW.md",
       "sha256": "bca7dba30b93432a84660334dd6ed7c1ae734f62982c7b7373bbd2d70265b876",
       "bytes": 442,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0803-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-27_PRIVACY_MANIFEST_REVIEW.md",
+          "source_sha256": "bca7dba30b93432a84660334dd6ed7c1ae734f62982c7b7373bbd2d70265b876",
+          "source_heading": "CP-27 — Privacy manifest is a generated-report comparison task",
+          "source_fragment": "# CP-27 — Privacy manifest is a generated-report comparison task",
+          "meaning": "Actual app/SDK collection/required-reason inventory/bundled manifest/report/declarations/runtime agreement bound to candidate and actual dependency updates; valid syntax not correct privacy declarations. Report/runtime only supplied or explicitly permitted, no current compliance verdict.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual app/SDK collection/required-reason inventory/bundled manifest/report/declarations/runtime agreement bound to candidate and actual dependency updates; valid syntax not correct privacy declarations. Report/runtime only supplied or explicitly permitted, no current compliance verdict.",
+          "destination_path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "destination_heading": "Privacy Manifest And Required-Reason APIs; Privacy Labels And Data Lifecycle; SDK And Supply-Chain Review; Release Evidence; Living Requirements",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-151-data-privacy-ai-refactor-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Privacy Manifest And Required-Reason APIs",
+                "Privacy Labels And Data Lifecycle",
+                "SDK And Supply-Chain Review",
+                "Release Evidence",
+                "Living Requirements"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0803-U02",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-27_PRIVACY_MANIFEST_REVIEW.md",
+          "source_sha256": "bca7dba30b93432a84660334dd6ed7c1ae734f62982c7b7373bbd2d70265b876",
+          "source_heading": "Historical unconditional execution",
+          "source_fragment": "3. Generate Xcode privacy report.",
+          "meaning": "Historical fixed execution sequence to generate Xcode report/re-run actual runtime privacy checks or add and run tests per refactor step archived. Useful current permission-bound evidence contract retained separately; no Xcode/report/runtime/test-writing/refactor execution grant.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical fixed execution sequence to generate Xcode report/re-run actual runtime privacy checks or add and run tests per refactor step archived. Useful current permission-bound evidence contract retained separately; no Xcode/report/runtime/test-writing/refactor execution grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-151-data-privacy-ai-refactor-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full independent data/privacy/AI/refactor contract covered; historical unconditional execution separately archived where present; no code snippets in these five sources. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0804",
       "path": "33_CODE_PATTERNS/CP-28_MODEL_OUTPUT_VALIDATION.md",
       "sha256": "4b5cf6d9763f82a1c9ae22373a00e75a58fad5b490e5e73a85964e5fcef19284",
       "bytes": 449,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0804-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-28_MODEL_OUTPUT_VALIDATION.md",
+          "source_sha256": "4b5cf6d9763f82a1c9ae22373a00e75a58fad5b490e5e73a85964e5fcef19284",
+          "source_heading": "CP-28 — AI model output is untrusted input",
+          "source_fragment": "# CP-28 — AI model output is untrusted input",
+          "meaning": "Actual structured untrusted model output validated for enum/range/entity/business constraints with code-owned current authorization/idempotency and invalid-output retry/fallback; prompt wording/schema/model-generated text not privileged action/security boundary.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual structured untrusted model output validated for enum/range/entity/business constraints with code-owned current authorization/idempotency and invalid-output retry/fallback; prompt wording/schema/model-generated text not privileged action/security boundary.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "37. STRUCTURED OUTPUT; 35. TOOL CALLING; 44. SECURITY; 53. ERROR MODEL; 55. FALLBACK",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-151-data-privacy-ai-refactor-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "37. STRUCTURED OUTPUT",
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "53. ERROR MODEL",
+                "55. FALLBACK"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full independent data/privacy/AI/refactor contract covered; historical unconditional execution separately archived where present; no code snippets in these five sources. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0805",
       "path": "33_CODE_PATTERNS/CP-29_TOOL_CALL_AUTHORIZATION.md",
       "sha256": "6e076bca64528f096e1055a6004db762cc6b94d5013a6d6df66a4c9a089bd795",
       "bytes": 483,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0805-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-29_TOOL_CALL_AUTHORIZATION.md",
+          "source_sha256": "6e076bca64528f096e1055a6004db762cc6b94d5013a6d6df66a4c9a089bd795",
+          "source_heading": "CP-29 — Tool calling: authorization stays in code",
+          "source_fragment": "# CP-29 — Tool calling: authorization stays in code",
+          "meaning": "Model tool request independently validated against current user/session/resource/action/argument/repeat/idempotency/system consent with redacted audit; narrow schemas, no arbitrary execute tool or tool/agent invocation grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Model tool request independently validated against current user/session/resource/action/argument/repeat/idempotency/system consent with redacted audit; narrow schemas, no arbitrary execute tool or tool/agent invocation grant.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "35. TOOL CALLING; 41. PRIVACY; 44. SECURITY; 89. USER CONFIRMATION",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-151-data-privacy-ai-refactor-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "41. PRIVACY",
+                "44. SECURITY",
+                "89. USER CONFIRMATION"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full independent data/privacy/AI/refactor contract covered; historical unconditional execution separately archived where present; no code snippets in these five sources. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0806",
       "path": "33_CODE_PATTERNS/CP-30_MINIMAL_REFACTOR.md",
       "sha256": "35e9f8759909770231eeaa47c18a45b80c2727aef9956089f683d9a35e483e50",
       "bytes": 482,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0806-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-30_MINIMAL_REFACTOR.md",
+          "source_sha256": "35e9f8759909770231eeaa47c18a45b80c2727aef9956089f683d9a35e483e50",
+          "source_heading": "CP-30 — Characterize → refactor → compare",
+          "source_fragment": "# CP-30 — Characterize → refactor → compare",
+          "meaning": "Actual supplied/permitted behavior characterization/comparable performance baseline, one bounded responsibility/dependency slice, stable public contract and final semantic diff before refactor claim; smaller diff not automatically safe, no test-writing/refactor/runtime phase.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual supplied/permitted behavior characterization/comparable performance baseline, one bounded responsibility/dependency slice, stable public contract and final semantic diff before refactor claim; smaller diff not automatically safe, no test-writing/refactor/runtime phase.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "Bounded Investigation And Migration",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-151-data-privacy-ai-refactor-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Completion"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0806-U02",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-30_MINIMAL_REFACTOR.md",
+          "source_sha256": "35e9f8759909770231eeaa47c18a45b80c2727aef9956089f683d9a35e483e50",
+          "source_heading": "Historical unconditional execution",
+          "source_fragment": "5. Run tests after each coherent step.",
+          "meaning": "Historical fixed execution sequence to generate Xcode report/re-run actual runtime privacy checks or add and run tests per refactor step archived. Useful current permission-bound evidence contract retained separately; no Xcode/report/runtime/test-writing/refactor execution grant.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical fixed execution sequence to generate Xcode report/re-run actual runtime privacy checks or add and run tests per refactor step archived. Useful current permission-bound evidence contract retained separately; no Xcode/report/runtime/test-writing/refactor execution grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-151-data-privacy-ai-refactor-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full independent data/privacy/AI/refactor contract covered; historical unconditional execution separately archived where present; no code snippets in these five sources. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0807",
