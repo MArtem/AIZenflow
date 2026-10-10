@@ -1,6 +1,6 @@
 # KB unification — current execution
 
-2026-10-09. **IMPLEMENTATION_STARTED; U0_PASS; U1_PARTIAL; U2_BLOCK_PASS.** Planning/preservation: GPT-6 Astra; planned executor GPT-6.1 Sol/low; persistent mode эконом.
+2026-10-09. **IMPLEMENTATION_STARTED; U0_PASS; U1_BOUNDED_PASS; U2_BLOCK_PASS.** Planning/preservation: GPT-6 Astra; planned executor GPT-6.1 Sol/low; persistent mode эконом.
 
 User authorized execution of the accepted migration plan after preservation of current Library and a detailed plan for transferring useful content into one balanced KB. [Detailed plan](migration-plan.md) defines scope, decisions, per-stage checks/acceptance/drift checks and the execution prompt. It is task-local planning, not active reusable policy. Previous effectiveness cycle remains closed; quality/token benefit not established.
 
@@ -15,7 +15,7 @@ User authorized execution of the accepted migration plan after preservation of c
 ## Implementation checklist — user authorized execution 2026-10-09
 
 - [x] U0 Revalidate snapshot, current sources and exact permissions; [receipt](u0-u1-report.md).
-- [ ] U1 Complete inventory/copy-delta reconciliation, freeze KB/read-cost baseline, finish bounded calibration and complete consumer/copy reconciliation. Calibration: five canonical files + one copy content group, 30 units; broader acceptance pending.
+- [x] U1 Complete inventory/copy-delta reconciliation, freeze KB/read-cost baseline, finish bounded calibration and complete consumer/copy reconciliation. Calibration and bounded inventory/copy/cost/consumer acceptance complete; block214.
 - [x] U2 First complete thematic transfer, cancellation/publication; [30-unit block receipt](block-01-concurrency.md).
 - [x] U3 Review every source file/unit and transfer all accepted useful deltas. 1403 canonical files reviewed; [block 02](block-02-concurrency.md); DEC-001 resolved by current user approval; all 16 files of 03_CONCURRENCY reviewed.
 - [x] U4 Unify routes and enforce bounded mandatory reading.
@@ -31,8 +31,8 @@ Only .zenflow, shell login:false. No new agents/chats/MCP/host/config/secrets/in
 
 Source review through block207: 1403 REVIEWED / 0 UNREVIEWED, zero partial; exact units and source provenance in [ledger](migration-ledger.json). Counts are bookkeeping, not measured benefit or whole-system readiness. All deep OP, P2 prompt, code-pattern, audit-gate and engineering-template source families reviewed independently, including their indexes; All preserved skill/runtime/legacy bodies reviewed independently; current coverage reconciliation remains pending.
 
-Useful coordination/repository-preservation constraints moved into the existing engineering owner and exact current mirror in [block160](block-160-coordination-repository-preservation-delta.md); current docs index/router/vault/manifest evidence passed. [Block164](block-164-project-facts-mode-contract-dispositions.md) classifies project facts/mode infrastructure without handler actions. Next: full dispositions/current coverage and consumer/route-cost reconciliation; source-body review is complete. U1/U8/U9 remain incomplete; U3/U5 accepted in block212, U4/U6 candidate accepted in block213; U7 NOT_RUN. U7 NOT_RUN/BENEFIT_NOT_ESTABLISHED; token/cost benefit UNKNOWN.
+Useful coordination/repository-preservation constraints moved into the existing engineering owner and exact current mirror in [block160](block-160-coordination-repository-preservation-delta.md); current docs index/router/vault/manifest evidence passed. [Block164](block-164-project-facts-mode-contract-dispositions.md) classifies project facts/mode infrastructure without handler actions. Next: full dispositions/current coverage and consumer/route-cost reconciliation; source-body review is complete. U8/U9 remain incomplete; U1 bounded acceptance block214; U3/U5 accepted in block212, U4/U6 candidate accepted in block213; U7 NOT_RUN. U7 NOT_RUN/BENEFIT_NOT_ESTABLISHED; token/cost benefit UNKNOWN.
 
 [Original full plan through block164](archive/through-block-164-plan.txt) and [original full handoff](archive/through-block-164-handoff.txt) retain every historical paragraph/link verbatim. [Compaction receipt](block-165-active-task-state-compaction.md). Continue ordinary accepted documentation blocks autonomously; pause only for an actual required human decision.
 
-[Current user decision](block-210-user-full-route-reading-decision.md): full selected-route reads/growth accepted, model/mode unchanged. [Candidate route/static acceptance](block-213-full-selected-chain-static-acceptance.md): U3–U6 accepted for prepared chain; full selected-file envelope median15602.5→17388.5 words, not tokens or actual reads. U7 NOT_RUN/BENEFIT_NOT_ESTABLISHED. Next: finish exact consumer inventory and documentation-only U8; mode records untouched.
+[Current user decision](block-210-user-full-route-reading-decision.md): complete selected-route reads, growth accepted, model/mode unchanged. [Consumer/U1 acceptance](block-214-consumer-inventory-and-u1-acceptance.md): exact bounded live entrypoints/workflow/template/app memory fingerprinted; archives preserved, saved modes unobserved. U1–U6 prepared-chain accepted; U7 NOT_RUN. Next: bounded documentation-only U8 retirement and fallback; no actual transition authority.
