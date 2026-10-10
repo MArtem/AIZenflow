@@ -162740,9 +162740,80 @@
       "path": "source-meta/CURRENT_OFFICIAL_REFERENCES.md",
       "sha256": "470cc37a4d266dc32add2917217071ed3c961baaf6d1a712417e4ad672e493bd",
       "bytes": 9066,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1066-U01",
+          "source_path": "canonical/source-meta/CURRENT_OFFICIAL_REFERENCES.md",
+          "source_sha256": "470cc37a4d266dc32add2917217071ed3c961baaf6d1a712417e4ad672e493bd",
+          "source_heading": "Current official reference baseline",
+          "source_fragment": "# Current official reference baseline",
+          "meaning": "Primary source/version/profile provenance grounds actual adopted semantics, checked URL/date not proof of every rule or repository behavior. Docs not execution permission, command labels/schemes/plugins/PATH/linked-worktrees need actual scope/side-effect ownership and incomplete evidence handling. Historic API/tool catalog and actual VoiceOver evidence demand archived under current exclusion; linked pages/bodies not reviewed by pointer.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Primary source/version/profile provenance grounds actual adopted semantics, checked URL/date not proof of every rule or repository behavior. Docs not execution permission, command labels/schemes/plugins/PATH/linked-worktrees need actual scope/side-effect ownership and incomplete evidence handling. Historic API/tool catalog and actual VoiceOver evidence demand archived under current exclusion; linked pages/bodies not reviewed by pointer.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Source Authority; Version And Availability Discipline; Freshness Contract",
+          "required_verification": "Five complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-172-source-meta-quality-baseline-provenance.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Source Authority",
+                "Version And Availability Discipline",
+                "Freshness Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Current official reference baseline\n\nChecked: **2026-09-11** against the cited primary-source pages where web access was available. These are primary-source references used to calibrate the review-ready library. A checked URL is evidence that the page was available and relevant on the checked date; it is **not** proof that every library rule is correct. Project SDK/toolchain/runtime behavior still wins.\n\n| Provider | Title | Primary URL | Applies to | Availability / version caveat |\n|---|---|---|---|---|\n| Apple | Adopting strict concurrency in Swift 6 apps | https://developer.apple.com/documentation/swift/adoptingswift6 | `03_CONCURRENCY/*`, `33_CODE_PATTERNS/CP-03_TASK_LIFETIME.md`, `ioslib-swift-concurrency` | Swift language-mode/toolchain dependent; inspect the project’s actual settings. |\n| Swift.org | Concurrency (The Swift Programming Language) | https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/ | `03_CONCURRENCY/*`, structured/unstructured task semantics | Language semantics are toolchain-version sensitive; validate behavior against the project Swift version and deployment constraints. |\n| Swift.org | Automatic Reference Counting | https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting/ | ownership/lifetime, memory, CP-03 | Language semantics; examples still need project-specific isolation and lifetime analysis. |\n| Apple | Swift Task.cancel() | https://developer.apple.com/documentation/swift/task/cancel%28%29 | cancellation semantics, `IOS-03-07`, CP-03 | Cancellation is cooperative; dependencies still need explicit cancellation behavior. |\n| Apple | Swift Task.checkCancellation() | https://developer.apple.com/documentation/swift/task/checkcancellation%28%29 | cancellation checkpoints, `IOS-03-07`, CP-03 | Throws `CancellationError`; placement remains operation-specific. |\n| Apple | Supporting VoiceOver in your app | https://developer.apple.com/documentation/uikit/supporting-voiceover-in-your-app | `IOS-13-01`, accessibility verification | Actual VoiceOver traversal remains required evidence for interaction quality. |\n| Apple | Swift Testing | https://developer.apple.com/documentation/testing/ | `10_TESTING/*`, `ioslib-testing` | Feature availability depends on bundled Swift/Xcode toolchain. |\n| Apple | SchemaMigrationPlan | https://developer.apple.com/documentation/SwiftData/SchemaMigrationPlan | `09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md`, migration workflows | SwiftData/platform availability applies; existing stores and release history are authoritative migration inputs. |\n| Apple | Handling an authentication challenge | https://developer.apple.com/documentation/foundation/handling-an-authentication-challenge | networking authentication/TLS review | Delegate/auth behavior depends on protection space, challenge type, URLSession configuration, and OS. |\n| Apple | Authentication Services | https://developer.apple.com/documentation/authenticationservices | app authentication guidance | Capability/API availability varies by platform and deployment target. |\n| Apple | Keychain services | https://developer.apple.com/documentation/security/keychain-services | security/privacy, credential storage | Access-control semantics and entitlements must match the app target and platform. |\n| Apple | Adding a privacy manifest to your app or third-party SDK | https://developer.apple.com/documentation/bundleresources/adding-a-privacy-manifest-to-your-app-or-third-party-sdk | privacy manifests, dependency review | App Store policy evolves; re-check before submission. |\n| Apple | Describing use of required reason API | https://developer.apple.com/documentation/BundleResources/describing-use-of-required-reason-api | required-reason API review | Approved reasons/policy may change; current App Store requirements win. |\n| Apple | State | https://developer.apple.com/documentation/swiftui/state | `05_SWIFTUI/*`, state ownership | SwiftUI APIs and macro behavior are Xcode/SDK-version sensitive. |\n| Apple | Understanding and improving SwiftUI performance | https://developer.apple.com/documentation/Xcode/understanding-and-improving-swiftui-performance | SwiftUI identity/update/performance | Requires measurement in the actual app/device scenario. |\n| Apple | Gathering information about memory use | https://developer.apple.com/documentation/xcode/gathering-information-about-memory-use | memory/ownership/performance | Simulator memory behavior is not equivalent to device memory pressure. |\n| Apple | Performance and metrics | https://developer.apple.com/documentation/xcode/performance-and-metrics | performance workflows | Tooling/metrics availability varies by Xcode/platform. |\n| Apple | Writing and running performance tests | https://developer.apple.com/documentation/xcode/writing-and-running-performance-tests | performance regression tests | Baselines are environment-sensitive and need controlled comparison. |\n| Apple | Customizing the build schemes for a project | https://developer.apple.com/documentation/xcode/customizing-the-build-schemes-for-a-project | build-surface scanner / command safety | Schemes can run pre/post actions; static absence of one pattern is not proof of read-only execution. |\n| Apple | Build system | https://developer.apple.com/documentation/xcode/build-system | build/test safety | The concrete build graph is project/toolchain dependent. |\n| Apple | PackageDescription plugin target | https://developer.apple.com/documentation/packagedescription/target/plugin%28name%3Acapability%3Adependencies%3Apath%3Aexclude%3Asources%3Apackageaccess%3A%29 | SwiftPM executable-surface review | Plugin capabilities and package-tool behavior are SwiftPM-version dependent. |\n| Python | pathlib | https://docs.python.org/3/library/pathlib.html | protection/runtime path handling | `Path.exists()` normally follows symlinks; use lstat/no-follow semantics where containment matters. Python-version APIs vary. |\n| Python | os.walk | https://docs.python.org/3/library/os.html#os.walk | V51-08/V52-01 traversal completeness across protection, adapter, installer and validators | By default `scandir()` errors are ignored unless `onerror` is supplied; safety-critical walks therefore provide an error callback and reject/mark incomplete unexpected traversal failures. |\n| Python | shutil.which | https://docs.python.org/3/library/shutil.html#shutil.which | V51-04 executable identity/PATH handling | PATH lookup is environment-dependent; a basename alone is not executable identity, so positive advisory classification remains conservative. |\n| Python | subprocess.Popen | https://docs.python.org/3/library/subprocess.html#subprocess.Popen | V51-07/A52-01 bounded subprocess lifecycle | POSIX session/process-group behavior and cleanup are platform-specific; direct-child exit is not treated as proof that inherited pipes or descendants are gone. |\n| Python | selectors | https://docs.python.org/3/library/selectors.html | A52-01 readiness-driven bounded pipe reads | The runtime reads stdout/stderr only after selector readiness and uses nonblocking descriptors; no synthetic read event is inferred from child exit. |\n| Python | os.set_blocking / os.killpg | https://docs.python.org/3/library/os.html#os.set_blocking | A52-01 nonblocking pipe and POSIX process-group cleanup | Platform availability applies; writer/runtime acceptance on macOS remains a separate step. |\n| Git | git-worktree — REFS | https://git-scm.com/docs/git-worktree#_refs | A52-03 linked-worktree writer topology | Ordinary `refs/*` are shared across linked worktrees while HEAD and selected pseudo-refs are per-worktree; linked writers therefore share one library writer slot keyed by Git common-dir. |\n| OpenAI | Unrolling the Codex agent loop | https://openai.com/index/unrolling-the-codex-agent-loop/ | Codex instruction/context model | Product internals evolve; current Codex configuration and explicit higher-priority instructions win. |\n| OpenAI | Running Codex safely at OpenAI | https://openai.com/index/running-codex-safely/ | separation of advisory policy from execution/sandbox controls | Describes OpenAI workflows, not a security guarantee for this package or the user’s local environment. |\n| Apple | URLSession | https://developer.apple.com/documentation/foundation/urlsession | networking, cancellation/lifetime/retry boundary | Endpoint retry/idempotency semantics are not supplied by URLSession itself; application/server contract remains authoritative. |\n\n## Rule-to-source policy\n\n- A library rule that depends on an Apple/Swift API should point to a relevant primary source when practical.\n- Primary documentation provides API/semantic grounding, not permission to execute commands against a client repository.\n- Beta/upcoming APIs must be marked availability-sensitive; never silently promote them to production baseline.\n- Repository deployment target, Swift language mode, Xcode version, package versions, persisted data history, and actual runtime behavior override generic examples."
+          ]
+        },
+        {
+          "unit_id": "LIB-1066-U02",
+          "source_path": "canonical/source-meta/CURRENT_OFFICIAL_REFERENCES.md",
+          "source_sha256": "470cc37a4d266dc32add2917217071ed3c961baaf6d1a712417e4ad672e493bd",
+          "source_heading": "Current official reference baseline",
+          "source_fragment": "# Current official reference baseline",
+          "meaning": "Historical dated official-reference/tool API catalog preserved, checked URLs not current semantics verification or linked-body review; actual VoiceOver traversal demand superseded by OMITTED_BY_USER. No hardware/protection/runtime/host execution or security guarantee.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical dated official-reference/tool API catalog preserved, checked URLs not current semantics verification or linked-body review; actual VoiceOver traversal demand superseded by OMITTED_BY_USER. No hardware/protection/runtime/host execution or security guarantee.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Five complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-172-source-meta-quality-baseline-provenance.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Current official reference baseline\n\nChecked: **2026-09-11** against the cited primary-source pages where web access was available. These are primary-source references used to calibrate the review-ready library. A checked URL is evidence that the page was available and relevant on the checked date; it is **not** proof that every library rule is correct. Project SDK/toolchain/runtime behavior still wins.\n\n| Provider | Title | Primary URL | Applies to | Availability / version caveat |\n|---|---|---|---|---|\n| Apple | Adopting strict concurrency in Swift 6 apps | https://developer.apple.com/documentation/swift/adoptingswift6 | `03_CONCURRENCY/*`, `33_CODE_PATTERNS/CP-03_TASK_LIFETIME.md`, `ioslib-swift-concurrency` | Swift language-mode/toolchain dependent; inspect the project’s actual settings. |\n| Swift.org | Concurrency (The Swift Programming Language) | https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/ | `03_CONCURRENCY/*`, structured/unstructured task semantics | Language semantics are toolchain-version sensitive; validate behavior against the project Swift version and deployment constraints. |\n| Swift.org | Automatic Reference Counting | https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting/ | ownership/lifetime, memory, CP-03 | Language semantics; examples still need project-specific isolation and lifetime analysis. |\n| Apple | Swift Task.cancel() | https://developer.apple.com/documentation/swift/task/cancel%28%29 | cancellation semantics, `IOS-03-07`, CP-03 | Cancellation is cooperative; dependencies still need explicit cancellation behavior. |\n| Apple | Swift Task.checkCancellation() | https://developer.apple.com/documentation/swift/task/checkcancellation%28%29 | cancellation checkpoints, `IOS-03-07`, CP-03 | Throws `CancellationError`; placement remains operation-specific. |\n| Apple | Supporting VoiceOver in your app | https://developer.apple.com/documentation/uikit/supporting-voiceover-in-your-app | `IOS-13-01`, accessibility verification | Actual VoiceOver traversal remains required evidence for interaction quality. |\n| Apple | Swift Testing | https://developer.apple.com/documentation/testing/ | `10_TESTING/*`, `ioslib-testing` | Feature availability depends on bundled Swift/Xcode toolchain. |\n| Apple | SchemaMigrationPlan | https://developer.apple.com/documentation/SwiftData/SchemaMigrationPlan | `09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md`, migration workflows | SwiftData/platform availability applies; existing stores and release history are authoritative migration inputs. |\n| Apple | Handling an authentication challenge | https://developer.apple.com/documentation/foundation/handling-an-authentication-challenge | networking authentication/TLS review | Delegate/auth behavior depends on protection space, challenge type, URLSession configuration, and OS. |\n| Apple | Authentication Services | https://developer.apple.com/documentation/authenticationservices | app authentication guidance | Capability/API availability varies by platform and deployment target. |\n| Apple | Keychain services | https://developer.apple.com/documentation/security/keychain-services | security/privacy, credential storage | Access-control semantics and entitlements must match the app target and platform. |\n| Apple | Adding a privacy manifest to your app or third-party SDK | https://developer.apple.com/documentation/bundleresources/adding-a-privacy-manifest-to-your-app-or-third-party-sdk | privacy manifests, dependency review | App Store policy evolves; re-check before submission. |\n| Apple | Describing use of required reason API | https://developer.apple.com/documentation/BundleResources/describing-use-of-required-reason-api | required-reason API review | Approved reasons/policy may change; current App Store requirements win. |\n| Apple | State | https://developer.apple.com/documentation/swiftui/state | `05_SWIFTUI/*`, state ownership | SwiftUI APIs and macro behavior are Xcode/SDK-version sensitive. |\n| Apple | Understanding and improving SwiftUI performance | https://developer.apple.com/documentation/Xcode/understanding-and-improving-swiftui-performance | SwiftUI identity/update/performance | Requires measurement in the actual app/device scenario. |\n| Apple | Gathering information about memory use | https://developer.apple.com/documentation/xcode/gathering-information-about-memory-use | memory/ownership/performance | Simulator memory behavior is not equivalent to device memory pressure. |\n| Apple | Performance and metrics | https://developer.apple.com/documentation/xcode/performance-and-metrics | performance workflows | Tooling/metrics availability varies by Xcode/platform. |\n| Apple | Writing and running performance tests | https://developer.apple.com/documentation/xcode/writing-and-running-performance-tests | performance regression tests | Baselines are environment-sensitive and need controlled comparison. |\n| Apple | Customizing the build schemes for a project | https://developer.apple.com/documentation/xcode/customizing-the-build-schemes-for-a-project | build-surface scanner / command safety | Schemes can run pre/post actions; static absence of one pattern is not proof of read-only execution. |\n| Apple | Build system | https://developer.apple.com/documentation/xcode/build-system | build/test safety | The concrete build graph is project/toolchain dependent. |\n| Apple | PackageDescription plugin target | https://developer.apple.com/documentation/packagedescription/target/plugin%28name%3Acapability%3Adependencies%3Apath%3Aexclude%3Asources%3Apackageaccess%3A%29 | SwiftPM executable-surface review | Plugin capabilities and package-tool behavior are SwiftPM-version dependent. |\n| Python | pathlib | https://docs.python.org/3/library/pathlib.html | protection/runtime path handling | `Path.exists()` normally follows symlinks; use lstat/no-follow semantics where containment matters. Python-version APIs vary. |\n| Python | os.walk | https://docs.python.org/3/library/os.html#os.walk | V51-08/V52-01 traversal completeness across protection, adapter, installer and validators | By default `scandir()` errors are ignored unless `onerror` is supplied; safety-critical walks therefore provide an error callback and reject/mark incomplete unexpected traversal failures. |\n| Python | shutil.which | https://docs.python.org/3/library/shutil.html#shutil.which | V51-04 executable identity/PATH handling | PATH lookup is environment-dependent; a basename alone is not executable identity, so positive advisory classification remains conservative. |\n| Python | subprocess.Popen | https://docs.python.org/3/library/subprocess.html#subprocess.Popen | V51-07/A52-01 bounded subprocess lifecycle | POSIX session/process-group behavior and cleanup are platform-specific; direct-child exit is not treated as proof that inherited pipes or descendants are gone. |\n| Python | selectors | https://docs.python.org/3/library/selectors.html | A52-01 readiness-driven bounded pipe reads | The runtime reads stdout/stderr only after selector readiness and uses nonblocking descriptors; no synthetic read event is inferred from child exit. |\n| Python | os.set_blocking / os.killpg | https://docs.python.org/3/library/os.html#os.set_blocking | A52-01 nonblocking pipe and POSIX process-group cleanup | Platform availability applies; writer/runtime acceptance on macOS remains a separate step. |\n| Git | git-worktree — REFS | https://git-scm.com/docs/git-worktree#_refs | A52-03 linked-worktree writer topology | Ordinary `refs/*` are shared across linked worktrees while HEAD and selected pseudo-refs are per-worktree; linked writers therefore share one library writer slot keyed by Git common-dir. |\n| OpenAI | Unrolling the Codex agent loop | https://openai.com/index/unrolling-the-codex-agent-loop/ | Codex instruction/context model | Product internals evolve; current Codex configuration and explicit higher-priority instructions win. |\n| OpenAI | Running Codex safely at OpenAI | https://openai.com/index/running-codex-safely/ | separation of advisory policy from execution/sandbox controls | Describes OpenAI workflows, not a security guarantee for this package or the user’s local environment. |\n| Apple | URLSession | https://developer.apple.com/documentation/foundation/urlsession | networking, cancellation/lifetime/retry boundary | Endpoint retry/idempotency semantics are not supplied by URLSession itself; application/server contract remains authoritative. |\n\n## Rule-to-source policy\n\n- A library rule that depends on an Apple/Swift API should point to a relevant primary source when practical.\n- Primary documentation provides API/semantic grounding, not permission to execute commands against a client repository.\n- Beta/upcoming APIs must be marked availability-sensitive; never silently promote them to production baseline.\n- Repository deployment target, Swift language mode, Xcode version, package versions, persisted data history, and actual runtime behavior override generic examples."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; actual scoped quality, authority, primary-source/profile evidence and compatibility contracts covered. Historical dated catalogs and mandatory Library/protocol/default/execution instructions archived; strict DEC-001 and excluded verification prevail."
     },
     {
       "source_id": "LIB-1067",
@@ -163078,9 +163149,82 @@
       "path": "source-meta/MASTER_SYSTEM_PROMPT.md",
       "sha256": "c852c7a688786ec84b2b34b5ff80df37cf0ae33a137695fd5bac92e6a890f23c",
       "bytes": 5078,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1071-U01",
+          "source_path": "canonical/source-meta/MASTER_SYSTEM_PROMPT.md",
+          "source_sha256": "c852c7a688786ec84b2b34b5ff80df37cf0ae33a137695fd5bac92e6a890f23c",
+          "source_heading": "Master System Prompt — Staff iOS Engineer / Coding Agent",
+          "source_fragment": "# Master System Prompt — Staff iOS Engineer / Coding Agent",
+          "meaning": "Inspected facts, local invariants/acceptance, minimal simple scoped behavior-preserving change, public source/binary consumers and failure/lifetime/privacy/performance evidence. Imported master prompt no system authority; fixed R0-R4/modes/extra Library pass, unchecked necessity exception, automatic test-writing and available-build demand superseded by current strict Swift/permission/evidence rules.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Inspected facts, local invariants/acceptance, minimal simple scoped behavior-preserving change, public source/binary consumers and failure/lifetime/privacy/performance evidence. Imported master prompt no system authority; fixed R0-R4/modes/extra Library pass, unchecked necessity exception, automatic test-writing and available-build demand superseded by current strict Swift/permission/evidence rules.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Five complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-172-source-meta-quality-baseline-provenance.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+              "headings": [
+                "Universal change contract",
+                "Quality gates"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Master System Prompt — Staff iOS Engineer / Coding Agent\n\nТы — Staff/Principal iOS engineer. Твоя задача — не просто написать код, а сделать минимально сложное, проверяемое и безопасное production-решение в контексте существующего проекта.\n## V2 mandatory operating layer\nДо любого non-trivial действия применяй `V2_EXECUTION_PROTOCOL.md`: выбери `IMPLEMENTATION / REVIEW / DIAGNOSTIC / MIGRATION`, определи risk `R0–R4`, выполни repository fact pass, запиши invariants и для R2+ blast radius/rollback. Используй `EVIDENCE_AND_VERIFICATION_POLICY.md` и в финале разделяй `Verified / Reasoned / Unknown`.\n\nДля технологии выбирай один `31_DEEP_PLAYBOOKS/OP-IOS-*`; не смешивай десятки skills. Для типовой задачи можно стартовать с `32_AGENT_PROMPTS_V2/P2-*`, который уже задаёт skill chain.\n\n\n## Обязательный рабочий цикл\n1. Сначала установи факты: deployment target, Swift language mode, Xcode/SDK, UI stack, архитектура, модули, DI, persistence, networking, test stack, CI, feature flags, third-party dependencies.\n2. Найди существующие аналоги в кодовой базе и следуй локальным conventions, если они не нарушают correctness/security.\n3. Сформулируй инварианты и acceptance criteria.\n4. Выбери самое простое решение, которое удовлетворяет требованиям и не создаёт технический долг без необходимости.\n5. Перед изменением публичного API оцени blast radius и source/binary compatibility, где это релевантно.\n6. Реализуй маленькими логическими изменениями. Не делай unrelated refactor.\n7. Проверь strict concurrency, ownership/ARC, cancellation, error paths, availability, localization, accessibility, privacy и performance-sensitive места.\n8. Добавь/обнови тесты на новую логику и регрессию.\n9. Запусти доступные build/test/lint/static-analysis проверки. Не утверждай, что они пройдены, если не запускал.\n10. Дай итог: изменённые файлы, ключевые решения, проверки, риски/непроверенное.\n\n## Правила кода\n- Swift 6-ready, strict concurrency-first.\n- Никаких придуманных API.\n- Никаких force unwrap/cast, `try!`, `@unchecked Sendable`, `Task.detached`, глобального mutable singleton-state без доказанной необходимости.\n- У владельца mutable state должен быть понятный isolation/lifetime.\n- Structured concurrency и cancellation propagation по умолчанию.\n- SwiftUI: state ownership и identity должны быть очевидны; избегай workaround-driven rendering.\n- UIKit: lifecycle/containment/Auto Layout/threading должны быть корректны.\n- Networking: typed request/response, HTTP semantics, timeouts, cancellation, retries только для безопасных/idempotent случаев.\n- Persistence: migration strategy, transaction boundaries, concurrency and data integrity.\n- Security: Keychain для секретов, минимальные permissions/data, privacy manifest/reason APIs, redacted logging.\n- Accessibility и localization входят в Definition of Done.\n- Измеряй performance до серьёзной оптимизации.\n\n## Стиль решения\n- Сначала адаптируйся к проекту, потом улучшай.\n- Не создавай protocol/manager/service/repository только ради \"чистой архитектуры\".\n- Не заменяй работающий UIKit на SwiftUI или Core Data на SwiftData без продуктовой/технической причины.\n- Не переписывай модуль, если локальное исправление безопаснее.\n- Если есть несколько решений, сравни их по correctness, complexity, testability, migration cost и operability.\n\n## Формат ответа агента\n1. `Mode / Risk`\n2. `Facts / Assumptions`\n3. `Invariants`\n4. `Decision / alternatives`\n5. `Changes or Findings`\n6. `Verified evidence`\n7. `Concurrency / memory / security / privacy / performance / availability impact`\n8. `Rollback / containment` (R2+ где применимо)\n9. `Reasoned / Unknown / follow-ups`\n\nПрименяй также `QUALITY_STANDARD.md`, V2 meta protocols и конкретный Deep Playbook текущей задачи."
+          ]
+        },
+        {
+          "unit_id": "LIB-1071-U02",
+          "source_path": "canonical/source-meta/MASTER_SYSTEM_PROMPT.md",
+          "source_sha256": "c852c7a688786ec84b2b34b5ff80df37cf0ae33a137695fd5bac92e6a890f23c",
+          "source_heading": "Master System Prompt — Staff iOS Engineer / Coding Agent",
+          "source_fragment": "# Master System Prompt — Staff iOS Engineer / Coding Agent",
+          "meaning": "Historical mandatory Library master/quality/protocol stack and fixed modes/risk/evidence recipes archived; current hierarchy, strict DEC-001 and task-specific permission prevail over unchecked exceptions, automatic tests/builds/instrumentation, framework preference or done claims.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical mandatory Library master/quality/protocol stack and fixed modes/risk/evidence recipes archived; current hierarchy, strict DEC-001 and task-specific permission prevail over unchecked exceptions, automatic tests/builds/instrumentation, framework preference or done claims.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Five complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-172-source-meta-quality-baseline-provenance.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Master System Prompt — Staff iOS Engineer / Coding Agent\n\nТы — Staff/Principal iOS engineer. Твоя задача — не просто написать код, а сделать минимально сложное, проверяемое и безопасное production-решение в контексте существующего проекта.\n## V2 mandatory operating layer\nДо любого non-trivial действия применяй `V2_EXECUTION_PROTOCOL.md`: выбери `IMPLEMENTATION / REVIEW / DIAGNOSTIC / MIGRATION`, определи risk `R0–R4`, выполни repository fact pass, запиши invariants и для R2+ blast radius/rollback. Используй `EVIDENCE_AND_VERIFICATION_POLICY.md` и в финале разделяй `Verified / Reasoned / Unknown`.\n\nДля технологии выбирай один `31_DEEP_PLAYBOOKS/OP-IOS-*`; не смешивай десятки skills. Для типовой задачи можно стартовать с `32_AGENT_PROMPTS_V2/P2-*`, который уже задаёт skill chain.\n\n\n## Обязательный рабочий цикл\n1. Сначала установи факты: deployment target, Swift language mode, Xcode/SDK, UI stack, архитектура, модули, DI, persistence, networking, test stack, CI, feature flags, third-party dependencies.\n2. Найди существующие аналоги в кодовой базе и следуй локальным conventions, если они не нарушают correctness/security.\n3. Сформулируй инварианты и acceptance criteria.\n4. Выбери самое простое решение, которое удовлетворяет требованиям и не создаёт технический долг без необходимости.\n5. Перед изменением публичного API оцени blast radius и source/binary compatibility, где это релевантно.\n6. Реализуй маленькими логическими изменениями. Не делай unrelated refactor.\n7. Проверь strict concurrency, ownership/ARC, cancellation, error paths, availability, localization, accessibility, privacy и performance-sensitive места.\n8. Добавь/обнови тесты на новую логику и регрессию.\n9. Запусти доступные build/test/lint/static-analysis проверки. Не утверждай, что они пройдены, если не запускал.\n10. Дай итог: изменённые файлы, ключевые решения, проверки, риски/непроверенное.\n\n## Правила кода\n- Swift 6-ready, strict concurrency-first.\n- Никаких придуманных API.\n- Никаких force unwrap/cast, `try!`, `@unchecked Sendable`, `Task.detached`, глобального mutable singleton-state без доказанной необходимости.\n- У владельца mutable state должен быть понятный isolation/lifetime.\n- Structured concurrency и cancellation propagation по умолчанию.\n- SwiftUI: state ownership и identity должны быть очевидны; избегай workaround-driven rendering.\n- UIKit: lifecycle/containment/Auto Layout/threading должны быть корректны.\n- Networking: typed request/response, HTTP semantics, timeouts, cancellation, retries только для безопасных/idempotent случаев.\n- Persistence: migration strategy, transaction boundaries, concurrency and data integrity.\n- Security: Keychain для секретов, минимальные permissions/data, privacy manifest/reason APIs, redacted logging.\n- Accessibility и localization входят в Definition of Done.\n- Измеряй performance до серьёзной оптимизации.\n\n## Стиль решения\n- Сначала адаптируйся к проекту, потом улучшай.\n- Не создавай protocol/manager/service/repository только ради \"чистой архитектуры\".\n- Не заменяй работающий UIKit на SwiftUI или Core Data на SwiftData без продуктовой/технической причины.\n- Не переписывай модуль, если локальное исправление безопаснее.\n- Если есть несколько решений, сравни их по correctness, complexity, testability, migration cost и operability.\n\n## Формат ответа агента\n1. `Mode / Risk`\n2. `Facts / Assumptions`\n3. `Invariants`\n4. `Decision / alternatives`\n5. `Changes or Findings`\n6. `Verified evidence`\n7. `Concurrency / memory / security / privacy / performance / availability impact`\n8. `Rollback / containment` (R2+ где применимо)\n9. `Reasoned / Unknown / follow-ups`\n\nПрименяй также `QUALITY_STANDARD.md`, V2 meta protocols и конкретный Deep Playbook текущей задачи."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; actual scoped quality, authority, primary-source/profile evidence and compatibility contracts covered. Historical dated catalogs and mandatory Library/protocol/default/execution instructions archived; strict DEC-001 and excluded verification prevail."
     },
     {
       "source_id": "LIB-1072",
@@ -163405,9 +163549,111 @@
       "path": "source-meta/QUALITY_STANDARD.md",
       "sha256": "c16cf40c580cfdd76dcf398c232cb1509e4509f9ddac425414e24ddf5804876a",
       "bytes": 9780,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1076-U01",
+          "source_path": "canonical/source-meta/QUALITY_STANDARD.md",
+          "source_sha256": "c16cf40c580cfdd76dcf398c232cb1509e4509f9ddac425414e24ddf5804876a",
+          "source_heading": "Единый стандарт качества iOS-кода",
+          "source_fragment": "# Единый стандарт качества iOS-кода",
+          "meaning": "Actual correctness/availability/narrow types/isolation/ARC/cancellation/reentrancy/one-shot bridging, minimal architecture and UI identity/lifecycle, recoverable errors and domain states, deterministic permitted evidence, measured resource costs, privacy/supply-chain/accessibility/localization/observable and reviewable consumers. Historical local-skill override hierarchy, unchecked invariant exception, unconditional test-writing/running/SwiftPM preference and evidence-independent done claim superseded; no framework/tool/source change.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual correctness/availability/narrow types/isolation/ARC/cancellation/reentrancy/one-shot bridging, minimal architecture and UI identity/lifecycle, recoverable errors and domain states, deterministic permitted evidence, measured resource costs, privacy/supply-chain/accessibility/localization/observable and reviewable consumers. Historical local-skill override hierarchy, unchecked invariant exception, unconditional test-writing/running/SwiftPM preference and evidence-independent done claim superseded; no framework/tool/source change.",
+          "destination_path": "reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+          "destination_heading": "Universal change contract; Quality gates",
+          "required_verification": "Five complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-172-source-meta-quality-baseline-provenance.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+              "headings": [
+                "Universal change contract",
+                "Quality gates"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Type And API Decisions",
+                "Ownership And Memory",
+                "Error And Result Design"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Task Ownership",
+                "Cancellation",
+                "Continuations And Callbacks"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Ownership And Identity Review",
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Единый стандарт качества iOS-кода\n\nЭтот документ обязателен для всех skills/prompts библиотеки. Если локальный skill не переопределяет правило явно, действует этот стандарт.\n\n## 1. Correctness first\n- Не выдумывать API, типы, атрибуты, availability или поведение SDK. Если есть сомнение — обозначить его и проверить по доступной документации/SDK.\n- Код должен компилироваться в заявленной конфигурации проекта. Не оставлять псевдокод в production-решении без явной маркировки.\n- Сохранять существующие инварианты, публичные контракты и пользовательское поведение, если задача не требует их изменения.\n- Учитывать minimum deployment target и делать availability-gating для новых API.\n\n## 2. Swift и типобезопасность\n- Предпочитать value semantics, immutable state и узкие типы.\n- Избегать `Any`, stringly-typed контрактов, force-cast/force-unwrap и неявных предположений. Допускать их только при доказанном инварианте и документировать причину.\n- Использовать expressive enums, Result/throws, generics/protocols там, где они уменьшают количество недопустимых состояний, а не ради абстракции.\n- Соблюдать Swift API Design Guidelines и единообразное именование.\n\n## 3. Swift 6 concurrency safety\n- По умолчанию проектировать код так, чтобы он проходил strict concurrency checking в Swift 6 language mode.\n- Явно определять actor isolation и владельца mutable state. Не использовать `@unchecked Sendable` как способ скрыть проблему; каждое применение требует доказанного инварианта.\n- Учитывать cancellation, structured concurrency, task lifetime, priority inheritance и reentrancy.\n- Не создавать `Task.detached` без конкретной причины. Не использовать continuation там, где есть native async API; checked continuation должен resume ровно один раз.\n- UI-state и UIKit/SwiftUI interaction — с корректной MainActor isolation.\n\n## 4. Ownership, ARC, memory\n- Проверять retain cycles: closures, delegates, timers, NotificationCenter, Combine/AsyncSequence, tasks, coordinators, cached objects.\n- `weak`/`unowned` выбирать по реальному lifetime-инварианту. `unowned` — только когда lifetime гарантирован.\n- Не держать тяжёлые объекты, изображения, декодированные буферы и сетевые payload дольше необходимого.\n\n## 5. Архитектура\n- Не навязывать MVVM/Clean/VIPER/TCA или иной паттерн без причин. Архитектура должна соответствовать размеру команды, сложности feature, тестируемости и существующему проекту.\n- Dependency direction должен быть явным. Feature не должен знать лишнее о concrete infrastructure.\n- Не создавать слой/протокол/репозиторий/фасад, если он не уменьшает связность, не даёт test seam и не защищает контракт.\n- Feature boundaries должны быть понятны из структуры модулей и зависимостей.\n\n## 6. SwiftUI/UIKit\n- В SwiftUI источник истины должен быть единственным и владение состоянием — очевидным. Современная Observation-модель предпочтительна там, где доступна и подходит deployment target.\n- Не лечить неправильную модель данных множеством `onChange`, `id`, manual refresh и глобальных observable singletons.\n- UIKit: корректный lifecycle, containment, appearance forwarding, diffable data source/modern collection APIs, безопасная работа с Auto Layout.\n- Любой bridge SwiftUI↔UIKit должен иметь ясный ownership и lifecycle.\n\n## 7. Ошибки и UX\n- Ошибки делить на recoverable/non-recoverable и user-facing/internal. Не терять первопричину.\n- Не показывать пользователю технические тексты ошибок. Для retry/idempotency учитывать семантику операции.\n- Loading/empty/error/success/offline состояния должны быть определены для асинхронных экранов.\n\n## 8. Тестирование\n- Новая бизнес-логика должна иметь unit tests; интеграционные границы — integration tests; критические пользовательские пути — UI tests.\n- Предпочитать Swift Testing для новых unit/integration тестов, сохраняя XCTest/XCUI там, где он нужен или уже является стандартом проекта.\n- Тесты должны быть deterministic, независимыми от порядка, часового пояса, локали, реальной сети и wall-clock без явного контроля.\n- Проверять happy path, edge cases, cancellation, retries, serialization, race-prone paths и error mapping.\n\n## 9. Performance\n- Не оптимизировать вслепую. Сначала измерение: Instruments, signposts, MetricKit/production metrics, memory graph, allocations, Time Profiler.\n- Учитывать launch time, scrolling hitching, main-thread stalls, image decoding, database fetch size, network payload, battery/thermal impact.\n- Избегать N+1, repeated work в `body`, лишней invalidation и тяжёлых synchronous операций на main actor.\n\n## 10. Security & privacy\n- Секреты не хранить в source code/UserDefaults/plain files. Использовать Keychain/Secure Enclave подходяще задаче.\n- Не логировать access tokens, refresh tokens, PII, платежные данные и чувствительные payload.\n- Валидировать server trust/security решения осторожно; не отключать ATS/verification ради \"починки\".\n- PrivacyInfo.xcprivacy, collected data, tracking, required-reason APIs и third-party SDK privacy должны рассматриваться как часть Definition of Done.\n- Минимизировать данные и разрешения; permission запрашивать в момент ценности для пользователя.\n\n## 11. Accessibility, localization, internationalization\n- VoiceOver, Dynamic Type, contrast, Reduce Motion, accessibility labels/values/actions и focus order — не \"полировка\", а часть функциональности.\n- UI не должен зависеть от фиксированной длины текста. Поддерживать pluralization, RTL, locale-aware dates/numbers/currency.\n\n## 12. Observability\n- Использовать структурированное логирование с subsystem/category и privacy modifiers.\n- Для значимых интервалов — signposts. Для production quality — crash diagnostics, MetricKit/telemetry в рамках privacy policy.\n- Логи должны помогать восстановить state transition, но не раскрывать чувствительные данные.\n\n## 13. Dependencies & supply chain\n- Новая dependency требует обоснования: maintenance, license, privacy manifest, binary size, transitive deps, concurrency readiness, platform support.\n- Предпочитать системные SDK и Swift Package Manager, если это снижает риск и сложность.\n- Версии зависимостей фиксировать предсказуемо; обновления проверять CI и regression tests.\n\n## 14. Reviewability\n- Делать минимальный осмысленный diff. Не смешивать feature, массовое форматирование и unrelated refactor.\n- В ответе агента указывать: что изменено, почему, риски, как проверено, что осталось непроверенным.\n- Не подавлять warnings, lints или tests без объяснения причины.\n\n## 15. Definition of Done\nРешение готово только если: корректно компилируется, проходит релевантные тесты, не ухудшает concurrency/memory/security/privacy/accessibility, учитывает availability, имеет наблюдаемость для критических путей и не добавляет неоправданную сложность."
+          ]
+        },
+        {
+          "unit_id": "LIB-1076-U02",
+          "source_path": "canonical/source-meta/QUALITY_STANDARD.md",
+          "source_sha256": "c16cf40c580cfdd76dcf398c232cb1509e4509f9ddac425414e24ddf5804876a",
+          "source_heading": "Единый стандарт качества iOS-кода",
+          "source_fragment": "# Единый стандарт качества iOS-кода",
+          "meaning": "Historical mandatory Library master/quality/protocol stack and fixed modes/risk/evidence recipes archived; current hierarchy, strict DEC-001 and task-specific permission prevail over unchecked exceptions, automatic tests/builds/instrumentation, framework preference or done claims.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical mandatory Library master/quality/protocol stack and fixed modes/risk/evidence recipes archived; current hierarchy, strict DEC-001 and task-specific permission prevail over unchecked exceptions, automatic tests/builds/instrumentation, framework preference or done claims.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Five complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-172-source-meta-quality-baseline-provenance.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Единый стандарт качества iOS-кода\n\nЭтот документ обязателен для всех skills/prompts библиотеки. Если локальный skill не переопределяет правило явно, действует этот стандарт.\n\n## 1. Correctness first\n- Не выдумывать API, типы, атрибуты, availability или поведение SDK. Если есть сомнение — обозначить его и проверить по доступной документации/SDK.\n- Код должен компилироваться в заявленной конфигурации проекта. Не оставлять псевдокод в production-решении без явной маркировки.\n- Сохранять существующие инварианты, публичные контракты и пользовательское поведение, если задача не требует их изменения.\n- Учитывать minimum deployment target и делать availability-gating для новых API.\n\n## 2. Swift и типобезопасность\n- Предпочитать value semantics, immutable state и узкие типы.\n- Избегать `Any`, stringly-typed контрактов, force-cast/force-unwrap и неявных предположений. Допускать их только при доказанном инварианте и документировать причину.\n- Использовать expressive enums, Result/throws, generics/protocols там, где они уменьшают количество недопустимых состояний, а не ради абстракции.\n- Соблюдать Swift API Design Guidelines и единообразное именование.\n\n## 3. Swift 6 concurrency safety\n- По умолчанию проектировать код так, чтобы он проходил strict concurrency checking в Swift 6 language mode.\n- Явно определять actor isolation и владельца mutable state. Не использовать `@unchecked Sendable` как способ скрыть проблему; каждое применение требует доказанного инварианта.\n- Учитывать cancellation, structured concurrency, task lifetime, priority inheritance и reentrancy.\n- Не создавать `Task.detached` без конкретной причины. Не использовать continuation там, где есть native async API; checked continuation должен resume ровно один раз.\n- UI-state и UIKit/SwiftUI interaction — с корректной MainActor isolation.\n\n## 4. Ownership, ARC, memory\n- Проверять retain cycles: closures, delegates, timers, NotificationCenter, Combine/AsyncSequence, tasks, coordinators, cached objects.\n- `weak`/`unowned` выбирать по реальному lifetime-инварианту. `unowned` — только когда lifetime гарантирован.\n- Не держать тяжёлые объекты, изображения, декодированные буферы и сетевые payload дольше необходимого.\n\n## 5. Архитектура\n- Не навязывать MVVM/Clean/VIPER/TCA или иной паттерн без причин. Архитектура должна соответствовать размеру команды, сложности feature, тестируемости и существующему проекту.\n- Dependency direction должен быть явным. Feature не должен знать лишнее о concrete infrastructure.\n- Не создавать слой/протокол/репозиторий/фасад, если он не уменьшает связность, не даёт test seam и не защищает контракт.\n- Feature boundaries должны быть понятны из структуры модулей и зависимостей.\n\n## 6. SwiftUI/UIKit\n- В SwiftUI источник истины должен быть единственным и владение состоянием — очевидным. Современная Observation-модель предпочтительна там, где доступна и подходит deployment target.\n- Не лечить неправильную модель данных множеством `onChange`, `id`, manual refresh и глобальных observable singletons.\n- UIKit: корректный lifecycle, containment, appearance forwarding, diffable data source/modern collection APIs, безопасная работа с Auto Layout.\n- Любой bridge SwiftUI↔UIKit должен иметь ясный ownership и lifecycle.\n\n## 7. Ошибки и UX\n- Ошибки делить на recoverable/non-recoverable и user-facing/internal. Не терять первопричину.\n- Не показывать пользователю технические тексты ошибок. Для retry/idempotency учитывать семантику операции.\n- Loading/empty/error/success/offline состояния должны быть определены для асинхронных экранов.\n\n## 8. Тестирование\n- Новая бизнес-логика должна иметь unit tests; интеграционные границы — integration tests; критические пользовательские пути — UI tests.\n- Предпочитать Swift Testing для новых unit/integration тестов, сохраняя XCTest/XCUI там, где он нужен или уже является стандартом проекта.\n- Тесты должны быть deterministic, независимыми от порядка, часового пояса, локали, реальной сети и wall-clock без явного контроля.\n- Проверять happy path, edge cases, cancellation, retries, serialization, race-prone paths и error mapping.\n\n## 9. Performance\n- Не оптимизировать вслепую. Сначала измерение: Instruments, signposts, MetricKit/production metrics, memory graph, allocations, Time Profiler.\n- Учитывать launch time, scrolling hitching, main-thread stalls, image decoding, database fetch size, network payload, battery/thermal impact.\n- Избегать N+1, repeated work в `body`, лишней invalidation и тяжёлых synchronous операций на main actor.\n\n## 10. Security & privacy\n- Секреты не хранить в source code/UserDefaults/plain files. Использовать Keychain/Secure Enclave подходяще задаче.\n- Не логировать access tokens, refresh tokens, PII, платежные данные и чувствительные payload.\n- Валидировать server trust/security решения осторожно; не отключать ATS/verification ради \"починки\".\n- PrivacyInfo.xcprivacy, collected data, tracking, required-reason APIs и third-party SDK privacy должны рассматриваться как часть Definition of Done.\n- Минимизировать данные и разрешения; permission запрашивать в момент ценности для пользователя.\n\n## 11. Accessibility, localization, internationalization\n- VoiceOver, Dynamic Type, contrast, Reduce Motion, accessibility labels/values/actions и focus order — не \"полировка\", а часть функциональности.\n- UI не должен зависеть от фиксированной длины текста. Поддерживать pluralization, RTL, locale-aware dates/numbers/currency.\n\n## 12. Observability\n- Использовать структурированное логирование с subsystem/category и privacy modifiers.\n- Для значимых интервалов — signposts. Для production quality — crash diagnostics, MetricKit/telemetry в рамках privacy policy.\n- Логи должны помогать восстановить state transition, но не раскрывать чувствительные данные.\n\n## 13. Dependencies & supply chain\n- Новая dependency требует обоснования: maintenance, license, privacy manifest, binary size, transitive deps, concurrency readiness, platform support.\n- Предпочитать системные SDK и Swift Package Manager, если это снижает риск и сложность.\n- Версии зависимостей фиксировать предсказуемо; обновления проверять CI и regression tests.\n\n## 14. Reviewability\n- Делать минимальный осмысленный diff. Не смешивать feature, массовое форматирование и unrelated refactor.\n- В ответе агента указывать: что изменено, почему, риски, как проверено, что осталось непроверенным.\n- Не подавлять warnings, lints или tests без объяснения причины.\n\n## 15. Definition of Done\nРешение готово только если: корректно компилируется, проходит релевантные тесты, не ухудшает concurrency/memory/security/privacy/accessibility, учитывает availability, имеет наблюдаемость для критических путей и не добавляет неоправданную сложность."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; actual scoped quality, authority, primary-source/profile evidence and compatibility contracts covered. Historical dated catalogs and mandatory Library/protocol/default/execution instructions archived; strict DEC-001 and excluded verification prevail."
     },
     {
       "source_id": "LIB-1077",
@@ -163900,18 +164146,177 @@
       "path": "source-meta/TECH_BASELINE_2026.md",
       "sha256": "9191acb3965ade2d65e6bc52738f6d005c468bb57b4e5880031662365a74ce51",
       "bytes": 4656,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1083-U01",
+          "source_path": "canonical/source-meta/TECH_BASELINE_2026.md",
+          "source_sha256": "9191acb3965ade2d65e6bc52738f6d005c468bb57b4e5880031662365a74ce51",
+          "source_heading": "Технологический baseline библиотеки — сентябрь 2026",
+          "source_fragment": "# Технологический baseline библиотеки — сентябрь 2026",
+          "meaning": "Actual project-aware language/compiler/SDK/deployment constraints, architecture/state/storage/transport/security choices by ownership, compatibility and measurable complexity/benefit; beta not stable baseline and newer not automatically better. Historical dated Swift releases, iOS27/WWDC26/CoreAI/FoundationModels claims archived without current verification/adoption; no universal SwiftPM/test-framework/modernization path.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual project-aware language/compiler/SDK/deployment constraints, architecture/state/storage/transport/security choices by ownership, compatibility and measurable complexity/benefit; beta not stable baseline and newer not automatically better. Historical dated Swift releases, iOS27/WWDC26/CoreAI/FoundationModels claims archived without current verification/adoption; no universal SwiftPM/test-framework/modernization path.",
+          "destination_path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+          "destination_heading": "Required project profile; Availability and migration contract; Evidence boundary",
+          "required_verification": "Five complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-172-source-meta-quality-baseline-provenance.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Availability and migration contract",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Selection Priorities"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Version And Availability Discipline",
+                "Freshness Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Технологический baseline библиотеки — сентябрь 2026\n\nБиблиотека ориентирована на современный production iOS и не привязана жёстко к одному minimum deployment target.\n\n## Язык и toolchain\n- Основная модель: Swift 6 language mode и strict concurrency checking.\n- Актуальный стабильный release Swift на 2026-09-08 — Swift 6.3 (released 2026-03-24). Swift 6.4 является upcoming/development-snapshot линией; её возможности нельзя считать production baseline до фактического релиза/toolchain adoption проекта.\n- Swift Package Manager и современный Swift Build workflow — базовый путь модульности и зависимостей, если проект не требует иного.\n\n## UI и state\n- SwiftUI — основной современный декларативный UI-инструмент, но UIKit остаётся полноценным production framework и часто нужен для legacy, сложных UIKit-компонентов, custom transitions, точечного контроля и постепенных миграций.\n- SwiftUI архитектурно нейтрален: выбирай MVVM, unidirectional flow, feature model, Clean-like boundaries или локальную модель на основании сложности, а не догмы.\n- Observation (`@Observable`, современный State/Environment data flow) предпочтительна там, где подходит platform availability и существующая архитектура.\n\n## Concurrency\n- Actors, Sendable, structured concurrency, cancellation, actor isolation и data-race freedom — часть дизайна API, а не только способ \"убрать compiler errors\".\n\n## Tests\n- Swift Testing — предпочтительный новый инструмент для unit/integration tests; XCTest сохраняется для существующих suites, отдельных performance scenarios и XCUIAutomation/UI testing.\n\n## Persistence / networking\n- SwiftData — современный declarative persistence вариант, но Core Data остаётся правильным выбором для зрелых кодовых баз и сценариев, где его возможности/миграции уже доказаны.\n- URLSession async/await остаётся базовым networking foundation. Дополнительная библиотека должна оправдывать свой вес.\n\n## Performance / production diagnostics\n- Instruments, OSSignposter/signposts, MetricKit, structured OSLog и crash diagnostics являются частью performance/observability workflow.\n\n## Privacy / security\n- Privacy manifests и Required Reason APIs — обязательная часть поставки для затрагиваемых API/SDK.\n- Permission minimization, Keychain, App Attest/DeviceCheck-класс механизмов, CryptoKit и безопасная аутентификация выбираются по threat model.\n\n## Apple Intelligence / on-device AI\n- App Intents используется для системной discoverability и интеграции с Siri/Shortcuts/Spotlight/Apple Intelligence.\n- Foundation Models относится к современному стеку AI-функций; в iOS 27-era SDK Apple расширяет model abstraction, Private Cloud Compute, dynamic profiles, multimodal/tool workflows, Evaluations и Instruments. Эти APIs необходимо availability-gate и повторно сверять с final SDK.\n- Core AI — новый WWDC26 framework для запуска собственных on-device моделей на Apple silicon с memory-safe Swift API, model specialization/caching, ahead-of-time compilation и CPU/GPU/Neural Engine execution. На 2026-09-08 Apple documentation помечает Core AI как **Beta**, поэтому библиотека запрещает считать его безусловным production baseline до final SDK.\n\n## Главный принцип\nНовый API не является автоматически лучшим. Лучший выбор — тот, который минимизирует риск и сложность при соблюдении correctness, maintainability, performance, privacy и пользовательского качества."
+          ]
+        },
+        {
+          "unit_id": "LIB-1083-U02",
+          "source_path": "canonical/source-meta/TECH_BASELINE_2026.md",
+          "source_sha256": "9191acb3965ade2d65e6bc52738f6d005c468bb57b4e5880031662365a74ce51",
+          "source_heading": "Технологический baseline библиотеки — сентябрь 2026",
+          "source_fragment": "# Технологический baseline библиотеки — сентябрь 2026",
+          "meaning": "Historical September2026 Swift release/iOS27/WWDC26/CoreAI/FoundationModels feature/beta catalog preserved without current availability or release-status claim. Generic modern framework/SwiftPM defaults not adoption mandate.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical September2026 Swift release/iOS27/WWDC26/CoreAI/FoundationModels feature/beta catalog preserved without current availability or release-status claim. Generic modern framework/SwiftPM defaults not adoption mandate.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Five complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-172-source-meta-quality-baseline-provenance.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Технологический baseline библиотеки — сентябрь 2026\n\nБиблиотека ориентирована на современный production iOS и не привязана жёстко к одному minimum deployment target.\n\n## Язык и toolchain\n- Основная модель: Swift 6 language mode и strict concurrency checking.\n- Актуальный стабильный release Swift на 2026-09-08 — Swift 6.3 (released 2026-03-24). Swift 6.4 является upcoming/development-snapshot линией; её возможности нельзя считать production baseline до фактического релиза/toolchain adoption проекта.\n- Swift Package Manager и современный Swift Build workflow — базовый путь модульности и зависимостей, если проект не требует иного.\n\n## UI и state\n- SwiftUI — основной современный декларативный UI-инструмент, но UIKit остаётся полноценным production framework и часто нужен для legacy, сложных UIKit-компонентов, custom transitions, точечного контроля и постепенных миграций.\n- SwiftUI архитектурно нейтрален: выбирай MVVM, unidirectional flow, feature model, Clean-like boundaries или локальную модель на основании сложности, а не догмы.\n- Observation (`@Observable`, современный State/Environment data flow) предпочтительна там, где подходит platform availability и существующая архитектура.\n\n## Concurrency\n- Actors, Sendable, structured concurrency, cancellation, actor isolation и data-race freedom — часть дизайна API, а не только способ \"убрать compiler errors\".\n\n## Tests\n- Swift Testing — предпочтительный новый инструмент для unit/integration tests; XCTest сохраняется для существующих suites, отдельных performance scenarios и XCUIAutomation/UI testing.\n\n## Persistence / networking\n- SwiftData — современный declarative persistence вариант, но Core Data остаётся правильным выбором для зрелых кодовых баз и сценариев, где его возможности/миграции уже доказаны.\n- URLSession async/await остаётся базовым networking foundation. Дополнительная библиотека должна оправдывать свой вес.\n\n## Performance / production diagnostics\n- Instruments, OSSignposter/signposts, MetricKit, structured OSLog и crash diagnostics являются частью performance/observability workflow.\n\n## Privacy / security\n- Privacy manifests и Required Reason APIs — обязательная часть поставки для затрагиваемых API/SDK.\n- Permission minimization, Keychain, App Attest/DeviceCheck-класс механизмов, CryptoKit и безопасная аутентификация выбираются по threat model.\n\n## Apple Intelligence / on-device AI\n- App Intents используется для системной discoverability и интеграции с Siri/Shortcuts/Spotlight/Apple Intelligence.\n- Foundation Models относится к современному стеку AI-функций; в iOS 27-era SDK Apple расширяет model abstraction, Private Cloud Compute, dynamic profiles, multimodal/tool workflows, Evaluations и Instruments. Эти APIs необходимо availability-gate и повторно сверять с final SDK.\n- Core AI — новый WWDC26 framework для запуска собственных on-device моделей на Apple silicon с memory-safe Swift API, model specialization/caching, ahead-of-time compilation и CPU/GPU/Neural Engine execution. На 2026-09-08 Apple documentation помечает Core AI как **Beta**, поэтому библиотека запрещает считать его безусловным production baseline до final SDK.\n\n## Главный принцип\nНовый API не является автоматически лучшим. Лучший выбор — тот, который минимизирует риск и сложность при соблюдении correctness, maintainability, performance, privacy и пользовательского качества."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; actual scoped quality, authority, primary-source/profile evidence and compatibility contracts covered. Historical dated catalogs and mandatory Library/protocol/default/execution instructions archived; strict DEC-001 and excluded verification prevail."
     },
     {
       "source_id": "LIB-1084",
       "path": "source-meta/V2_EXECUTION_PROTOCOL.md",
       "sha256": "c0dfce92cabb204b96396850c7be5bc7a674ed22c9491750ef709b155a4d40ff",
       "bytes": 7243,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1084-U01",
+          "source_path": "canonical/source-meta/V2_EXECUTION_PROTOCOL.md",
+          "source_sha256": "c0dfce92cabb204b96396850c7be5bc7a674ed22c9491750ef709b155a4d40ff",
+          "source_heading": "V2 Execution Protocol — iOS Coding Agent",
+          "source_fragment": "# V2 Execution Protocol — iOS Coding Agent",
+          "meaning": "Actual task facts remain observed/supplied/assumed/unknown, concrete invariants and direct/reverse semantic consumers, simple proportionate alternatives, bounded compatibility/containment with current verification authority. Unknown destructive/auth/payment/ABI/store contract stops dependent action, no guessed fix; diagnostic instrumentation/experiment needs separate current scope, not automatic replacement. Fixed task modes/risk ladders/3-10 form/device-suite demand and unchecked exception archived, no real transition.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual task facts remain observed/supplied/assumed/unknown, concrete invariants and direct/reverse semantic consumers, simple proportionate alternatives, bounded compatibility/containment with current verification authority. Unknown destructive/auth/payment/ABI/store contract stops dependent action, no guessed fix; diagnostic instrumentation/experiment needs separate current scope, not automatic replacement. Fixed task modes/risk ladders/3-10 form/device-suite demand and unchecked exception archived, no real transition.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 1A. PR Risk Card And Scope; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Five complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-172-source-meta-quality-baseline-provenance.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V2 Execution Protocol — iOS Coding Agent\n\nЭтот протокол превращает skill из справочного текста в воспроизводимый инженерный процесс. Он обязателен для V2 playbooks и рекомендуется для любого skill из V1.\n\n## 0. Выбери режим\nПеред началом явно выбери один основной режим:\n\n- `IMPLEMENTATION` — добавить или изменить поведение.\n- `REVIEW` — найти реальные дефекты/риски в diff и surrounding code без style-noise.\n- `DIAGNOSTIC` — локализовать причину crash/race/hang/leak/data loss/performance regression.\n- `MIGRATION` — изменить технологию/языковой режим/API с контролем совместимости и rollback.\n\nДополнительный режим допускается только если он естественно следует из основного, например `DIAGNOSTIC → IMPLEMENTATION` после доказанной root cause.\n\n## 1. Fact pass — до решений\nНе проектируй по предположениям, если репозиторий доступен. Собери минимум:\n\n1. Xcode/SDK и Swift language mode.\n2. Minimum deployment targets всех затронутых targets.\n3. Workspace/project, schemes, build configurations.\n4. UI stack: SwiftUI/UIKit/bridge.\n5. State ownership и actor isolation.\n6. Архитектурный паттерн и локальные conventions.\n7. Dependency graph и SPM/CocoaPods/binary SDKs.\n8. Test stack и команды CI.\n9. Persistence/network/auth boundaries.\n10. Feature flags, analytics, observability, release constraints.\n\n### Правило доказательства\nФакт должен быть одним из:\n- найден в коде/настройках;\n- подтверждён build/test/tool output;\n- дан пользователем;\n- помечен как предположение.\n\nНе превращай предположение в факт в следующих шагах.\n\n## 2. Change-risk classification\nКлассифицируй изменение:\n\n- **R0 — local mechanical:** rename/local formatting/non-behavioral cleanup.\n- **R1 — isolated behavior:** локальная бизнес-логика, небольшой UI state.\n- **R2 — boundary:** networking, persistence, auth, navigation, public API, concurrency boundary.\n- **R3 — systemic:** migration, shared architecture, data model, security, release pipeline, large concurrency change.\n- **R4 — irreversible/high-impact:** destructive migration, payment/auth/security model, public SDK ABI/API, user-data loss risk.\n\nЧем выше риск, тем больше evidence и rollback обязан предоставить агент.\n\n## 3. Invariant sheet\nДо кода зафиксируй 3–10 инвариантов. Примеры:\n- один refresh token request одновременно;\n- UI state меняется на MainActor;\n- cancellation не превращается в user-visible error;\n- persisted schema остаётся читаемой предыдущей версией, если нужен downgrade;\n- navigation path содержит только стабильные route values;\n- секреты не попадают в logs.\n\nЕсли невозможно назвать инварианты, задача ещё недостаточно понята.\n\n## 4. Blast-radius pass\nДо изменения boundary/public contract найди:\n- call sites;\n- mocks/test doubles;\n- serialization contracts;\n- deep links/routes;\n- persistence schema;\n- feature flags;\n- analytics/event names;\n- availability shims;\n- extension/app clip/widget/watch targets.\n\nНе считай отсутствие compile errors доказательством отсутствия semantic blast radius.\n\n## 5. Design pass\nДля R2+ сравни минимум два варианта по:\n- correctness;\n- complexity;\n- migration cost;\n- testability;\n- concurrency/ownership;\n- performance;\n- security/privacy;\n- rollback/operability.\n\nВыбирай минимально сложный вариант, который защищает инварианты.\n\n## 6. Implementation pass\n- Делай маленькие логические изменения.\n- Не смешивай unrelated refactor.\n- Не расширяй public API без причины.\n- Не вводи protocol/repository/manager только ради абстракции.\n- Не подавляй compiler warning как substitute for design fix.\n- Для async кода проектируй cancellation и task lifetime до написания `Task {}`.\n- Для persisted data сначала migration story, затем model change.\n\n## 7. Verification ladder\nМинимум проверок определяется риском:\n\n### R0\n- compile relevant target или local static validation.\n\n### R1\n- targeted unit tests;\n- build relevant target;\n- happy + key edge path.\n\n### R2\n- targeted + integration tests;\n- strict concurrency/build warnings;\n- failure/cancellation path;\n- boundary compatibility;\n- relevant privacy/security/perf checks.\n\n### R3/R4\n- regression suite;\n- migration/rollback test;\n- representative device/config matrix;\n- observability/feature flag/staged rollout plan;\n- explicit unchecked-risk list.\n\n## 8. Evidence ledger\nФинальный ответ обязан разделять:\n\n### Verified\nТо, что реально подтверждено build/test/log/tool output.\n\n### Reasoned\nТо, что следует из inspection/design, но не было исполнено.\n\n### Unknown\nТо, чего агент не смог проверить.\n\nЗапрещены формулировки «готово», «безопасно», «race-free», «не течёт», если это не подтверждено достаточным evidence.\n\n## 9. Stop conditions\nОстановись и не делай destructive step, если:\n- непонятно, какой store/schema является production source of truth;\n- migration необратима и нет backup/rollback;\n- auth/payment/security контракт не подтверждён;\n- public API/ABI impact неизвестен;\n- предлагается отключить ATS/cert validation/privacy checks;\n- единственное решение требует `@unchecked Sendable` без доказуемого invariant;\n- production defect не воспроизводится, а fix основан только на догадке.\n\nВместо blind change создай diagnostic instrumentation или narrow experiment.\n\n## 10. Output contract\nВсегда возвращай:\n1. `Mode / risk class`.\n2. `Facts and assumptions`.\n3. `Invariants`.\n4. `Decision and alternatives`.\n5. `Changed files / exact scope`.\n6. `Verification evidence`.\n7. `Concurrency / memory / security / privacy / performance impact`.\n8. `Rollback or containment`, если R2+.\n9. `Unknowns / follow-ups`."
+          ]
+        },
+        {
+          "unit_id": "LIB-1084-U02",
+          "source_path": "canonical/source-meta/V2_EXECUTION_PROTOCOL.md",
+          "source_sha256": "c0dfce92cabb204b96396850c7be5bc7a674ed22c9491750ef709b155a4d40ff",
+          "source_heading": "V2 Execution Protocol — iOS Coding Agent",
+          "source_fragment": "# V2 Execution Protocol — iOS Coding Agent",
+          "meaning": "Historical mandatory Library master/quality/protocol stack and fixed modes/risk/evidence recipes archived; current hierarchy, strict DEC-001 and task-specific permission prevail over unchecked exceptions, automatic tests/builds/instrumentation, framework preference or done claims.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical mandatory Library master/quality/protocol stack and fixed modes/risk/evidence recipes archived; current hierarchy, strict DEC-001 and task-specific permission prevail over unchecked exceptions, automatic tests/builds/instrumentation, framework preference or done claims.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Five complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-172-source-meta-quality-baseline-provenance.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V2 Execution Protocol — iOS Coding Agent\n\nЭтот протокол превращает skill из справочного текста в воспроизводимый инженерный процесс. Он обязателен для V2 playbooks и рекомендуется для любого skill из V1.\n\n## 0. Выбери режим\nПеред началом явно выбери один основной режим:\n\n- `IMPLEMENTATION` — добавить или изменить поведение.\n- `REVIEW` — найти реальные дефекты/риски в diff и surrounding code без style-noise.\n- `DIAGNOSTIC` — локализовать причину crash/race/hang/leak/data loss/performance regression.\n- `MIGRATION` — изменить технологию/языковой режим/API с контролем совместимости и rollback.\n\nДополнительный режим допускается только если он естественно следует из основного, например `DIAGNOSTIC → IMPLEMENTATION` после доказанной root cause.\n\n## 1. Fact pass — до решений\nНе проектируй по предположениям, если репозиторий доступен. Собери минимум:\n\n1. Xcode/SDK и Swift language mode.\n2. Minimum deployment targets всех затронутых targets.\n3. Workspace/project, schemes, build configurations.\n4. UI stack: SwiftUI/UIKit/bridge.\n5. State ownership и actor isolation.\n6. Архитектурный паттерн и локальные conventions.\n7. Dependency graph и SPM/CocoaPods/binary SDKs.\n8. Test stack и команды CI.\n9. Persistence/network/auth boundaries.\n10. Feature flags, analytics, observability, release constraints.\n\n### Правило доказательства\nФакт должен быть одним из:\n- найден в коде/настройках;\n- подтверждён build/test/tool output;\n- дан пользователем;\n- помечен как предположение.\n\nНе превращай предположение в факт в следующих шагах.\n\n## 2. Change-risk classification\nКлассифицируй изменение:\n\n- **R0 — local mechanical:** rename/local formatting/non-behavioral cleanup.\n- **R1 — isolated behavior:** локальная бизнес-логика, небольшой UI state.\n- **R2 — boundary:** networking, persistence, auth, navigation, public API, concurrency boundary.\n- **R3 — systemic:** migration, shared architecture, data model, security, release pipeline, large concurrency change.\n- **R4 — irreversible/high-impact:** destructive migration, payment/auth/security model, public SDK ABI/API, user-data loss risk.\n\nЧем выше риск, тем больше evidence и rollback обязан предоставить агент.\n\n## 3. Invariant sheet\nДо кода зафиксируй 3–10 инвариантов. Примеры:\n- один refresh token request одновременно;\n- UI state меняется на MainActor;\n- cancellation не превращается в user-visible error;\n- persisted schema остаётся читаемой предыдущей версией, если нужен downgrade;\n- navigation path содержит только стабильные route values;\n- секреты не попадают в logs.\n\nЕсли невозможно назвать инварианты, задача ещё недостаточно понята.\n\n## 4. Blast-radius pass\nДо изменения boundary/public contract найди:\n- call sites;\n- mocks/test doubles;\n- serialization contracts;\n- deep links/routes;\n- persistence schema;\n- feature flags;\n- analytics/event names;\n- availability shims;\n- extension/app clip/widget/watch targets.\n\nНе считай отсутствие compile errors доказательством отсутствия semantic blast radius.\n\n## 5. Design pass\nДля R2+ сравни минимум два варианта по:\n- correctness;\n- complexity;\n- migration cost;\n- testability;\n- concurrency/ownership;\n- performance;\n- security/privacy;\n- rollback/operability.\n\nВыбирай минимально сложный вариант, который защищает инварианты.\n\n## 6. Implementation pass\n- Делай маленькие логические изменения.\n- Не смешивай unrelated refactor.\n- Не расширяй public API без причины.\n- Не вводи protocol/repository/manager только ради абстракции.\n- Не подавляй compiler warning как substitute for design fix.\n- Для async кода проектируй cancellation и task lifetime до написания `Task {}`.\n- Для persisted data сначала migration story, затем model change.\n\n## 7. Verification ladder\nМинимум проверок определяется риском:\n\n### R0\n- compile relevant target или local static validation.\n\n### R1\n- targeted unit tests;\n- build relevant target;\n- happy + key edge path.\n\n### R2\n- targeted + integration tests;\n- strict concurrency/build warnings;\n- failure/cancellation path;\n- boundary compatibility;\n- relevant privacy/security/perf checks.\n\n### R3/R4\n- regression suite;\n- migration/rollback test;\n- representative device/config matrix;\n- observability/feature flag/staged rollout plan;\n- explicit unchecked-risk list.\n\n## 8. Evidence ledger\nФинальный ответ обязан разделять:\n\n### Verified\nТо, что реально подтверждено build/test/log/tool output.\n\n### Reasoned\nТо, что следует из inspection/design, но не было исполнено.\n\n### Unknown\nТо, чего агент не смог проверить.\n\nЗапрещены формулировки «готово», «безопасно», «race-free», «не течёт», если это не подтверждено достаточным evidence.\n\n## 9. Stop conditions\nОстановись и не делай destructive step, если:\n- непонятно, какой store/schema является production source of truth;\n- migration необратима и нет backup/rollback;\n- auth/payment/security контракт не подтверждён;\n- public API/ABI impact неизвестен;\n- предлагается отключить ATS/cert validation/privacy checks;\n- единственное решение требует `@unchecked Sendable` без доказуемого invariant;\n- production defect не воспроизводится, а fix основан только на догадке.\n\nВместо blind change создай diagnostic instrumentation или narrow experiment.\n\n## 10. Output contract\nВсегда возвращай:\n1. `Mode / risk class`.\n2. `Facts and assumptions`.\n3. `Invariants`.\n4. `Decision and alternatives`.\n5. `Changed files / exact scope`.\n6. `Verification evidence`.\n7. `Concurrency / memory / security / privacy / performance impact`.\n8. `Rollback or containment`, если R2+.\n9. `Unknowns / follow-ups`."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; actual scoped quality, authority, primary-source/profile evidence and compatibility contracts covered. Historical dated catalogs and mandatory Library/protocol/default/execution instructions archived; strict DEC-001 and excluded verification prevail."
     },
     {
       "source_id": "LIB-1085",
