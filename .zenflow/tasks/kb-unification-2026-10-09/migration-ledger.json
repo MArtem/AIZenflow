@@ -156348,99 +156348,769 @@
       "path": "35_ENGINEERING_TEMPLATES_V2/T2-01_TASK_BRIEF.md",
       "sha256": "f8c907202d956356aa893e16ef6d19e6312980762e69ce0c13be1ebec0b46b5f",
       "bytes": 370,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0833-U01",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-01_TASK_BRIEF.md",
+          "source_sha256": "f8c907202d956356aa893e16ef6d19e6312980762e69ce0c13be1ebec0b46b5f",
+          "source_heading": "Task Brief",
+          "source_fragment": "# Task Brief",
+          "meaning": "Observable outcome/non-goals/current project toolchain/language/deployment/UI/state/module/test-plan facts, public/data/dependency/release constraints, acceptance criteria and unknowns. Project facts not invented or settings/test authority.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Observable outcome/non-goals/current project toolchain/language/deployment/UI/state/module/test-plan facts, public/data/dependency/release constraints, acceptance criteria and unknowns. Project facts not invented or settings/test authority.",
+          "destination_path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+          "destination_heading": "Required Artifact; Stop Rule",
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+              "headings": [
+                "Required Artifact",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0833-U02",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-01_TASK_BRIEF.md",
+          "source_sha256": "f8c907202d956356aa893e16ef6d19e6312980762e69ce0c13be1ebec0b46b5f",
+          "source_heading": "Task Brief",
+          "source_fragment": "# Task Brief",
+          "meaning": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete template independently read; useful actual contract covered, historical standalone form/taxonomy/permission assumptions archived."
     },
     {
       "source_id": "LIB-0834",
       "path": "35_ENGINEERING_TEMPLATES_V2/T2-02_INVARIANT_SHEET.md",
       "sha256": "5ebc7c7b32d372ed0aa43c92169adec9ab7bd8fe66c964c85f87417ce20d4d16",
       "bytes": 295,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0834-U01",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-02_INVARIANT_SHEET.md",
+          "source_sha256": "5ebc7c7b32d372ed0aa43c92169adec9ab7bd8fe66c964c85f87417ce20d4d16",
+          "source_heading": "Invariant Sheet",
+          "source_fragment": "# Invariant Sheet",
+          "meaning": "Actual task/risk and state/data/concurrency/lifetime/security/privacy/compatibility invariants, dangerous negative path and evidence required for success. Risk impact/evidence separate, unknown not PASS.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual task/risk and state/data/concurrency/lifetime/security/privacy/compatibility invariants, dangerous negative path and evidence required for success. Risk impact/evidence separate, unknown not PASS.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0834-U02",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-02_INVARIANT_SHEET.md",
+          "source_sha256": "5ebc7c7b32d372ed0aa43c92169adec9ab7bd8fe66c964c85f87417ce20d4d16",
+          "source_heading": "Invariant Sheet",
+          "source_fragment": "# Invariant Sheet",
+          "meaning": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Fixed R0-R4 taxonomy archived; current governance risk/evidence axes apply.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Fixed R0-R4 taxonomy archived; current governance risk/evidence axes apply.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete template independently read; useful actual contract covered, historical standalone form/taxonomy/permission assumptions archived."
     },
     {
       "source_id": "LIB-0835",
       "path": "35_ENGINEERING_TEMPLATES_V2/T2-03_DESIGN_COMPARISON.md",
       "sha256": "fc88f669ddecd00471392a1ff408a9f64775e0eeadd6595e5a270e27f78449e0",
       "bytes": 407,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0835-U01",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-03_DESIGN_COMPARISON.md",
+          "source_sha256": "fc88f669ddecd00471392a1ff408a9f64775e0eeadd6595e5a270e27f78449e0",
+          "source_heading": "Design Comparison",
+          "source_fragment": "# Design Comparison",
+          "meaning": "Real alternatives compared by correctness/complexity/testability/ownership/performance/security/migration/rollback/team/operability with decisive reason and rejected alternatives. Proportionate actual decision, no three-option ceremony or architecture conversion.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Real alternatives compared by correctness/complexity/testability/ownership/performance/security/migration/rollback/team/operability with decisive reason and rejected alternatives. Proportionate actual decision, no three-option ceremony or architecture conversion.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Template; Bounded Investigation And Migration",
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template",
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Selection Priorities",
+                "Review Output Contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0835-U02",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-03_DESIGN_COMPARISON.md",
+          "source_sha256": "fc88f669ddecd00471392a1ff408a9f64775e0eeadd6595e5a270e27f78449e0",
+          "source_heading": "Design Comparison",
+          "source_fragment": "# Design Comparison",
+          "meaning": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Fixed Option A/B/C table does not require three alternatives.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Fixed Option A/B/C table does not require three alternatives.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete template independently read; useful actual contract covered, historical standalone form/taxonomy/permission assumptions archived."
     },
     {
       "source_id": "LIB-0836",
       "path": "35_ENGINEERING_TEMPLATES_V2/T2-04_EVIDENCE_LEDGER.md",
       "sha256": "a292f4c326848a5f08d9b24ef45c4c29ddf3ae93f65c10fabba9d4869b879126",
       "bytes": 229,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0836-U01",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-04_EVIDENCE_LEDGER.md",
+          "source_sha256": "a292f4c326848a5f08d9b24ef45c4c29ddf3ae93f65c10fabba9d4869b879126",
+          "source_heading": "Evidence Ledger",
+          "source_fragment": "# Evidence Ledger",
+          "meaning": "Per-claim observed commands/results and supporting evidence distinct reasoned but unexecuted/unknown and claims not yet allowed; permission-bound evidence freshness/exact revision, no fabricated execution.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+          "existing_coverage": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Per-claim observed commands/results and supporting evidence distinct reasoned but unexecuted/unknown and claims not yet allowed; permission-bound evidence freshness/exact revision, no fabricated execution.",
+          "destination_path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+          "destination_heading": "Required Report Shape; Stop Rule",
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0836-U02",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-04_EVIDENCE_LEDGER.md",
+          "source_sha256": "a292f4c326848a5f08d9b24ef45c4c29ddf3ae93f65c10fabba9d4869b879126",
+          "source_heading": "Evidence Ledger",
+          "source_fragment": "# Evidence Ledger",
+          "meaning": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. E2/E3/E4/E5 labels archived; no mapping to PASS or current evidence levels inferred.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. E2/E3/E4/E5 labels archived; no mapping to PASS or current evidence levels inferred.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete template independently read; useful actual contract covered, historical standalone form/taxonomy/permission assumptions archived."
     },
     {
       "source_id": "LIB-0837",
       "path": "35_ENGINEERING_TEMPLATES_V2/T2-05_MIGRATION_PLAN.md",
       "sha256": "689d0e59f7f97a810f5d67caccb7e6e520037ccb0796af2239930bb6830e7bb8",
       "bytes": 446,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0837-U01",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-05_MIGRATION_PLAN.md",
+          "source_sha256": "689d0e59f7f97a810f5d67caccb7e6e520037ccb0796af2239930bb6830e7bb8",
+          "source_heading": "Migration Plan",
+          "source_fragment": "# Migration Plan",
+          "meaning": "Actual business value/source-target/consumer-store-target inventory and compatibility window, supplied/permitted characterization, bounded first seam/slice/parity before expansion, API/data compatibility, rollout/rollback/cleanup. No migration/test phase/legacy removal authority.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual business value/source-target/consumer-store-target inventory and compatibility window, supplied/permitted characterization, bounded first seam/slice/parity before expansion, API/data compatibility, rollout/rollback/cleanup. No migration/test phase/legacy removal authority.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Template; Bounded Investigation And Migration; Stop Rule",
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template",
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration",
+                "Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0837-U02",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-05_MIGRATION_PLAN.md",
+          "source_sha256": "689d0e59f7f97a810f5d67caccb7e6e520037ccb0796af2239930bb6830e7bb8",
+          "source_heading": "Migration Plan",
+          "source_fragment": "# Migration Plan",
+          "meaning": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Test/experiment/production-verification fields are currently permission-bound, no writing/running/transition grant.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Test/experiment/production-verification fields are currently permission-bound, no writing/running/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete template independently read; useful actual contract covered, historical standalone form/taxonomy/permission assumptions archived."
     },
     {
       "source_id": "LIB-0838",
       "path": "35_ENGINEERING_TEMPLATES_V2/T2-06_BUG_INVESTIGATION.md",
       "sha256": "37b240270c2cdc1fd29dea9a1047ec942a70bc0a51380bf2f1a65995f76aa83d",
       "bytes": 436,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0838-U01",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-06_BUG_INVESTIGATION.md",
+          "source_sha256": "37b240270c2cdc1fd29dea9a1047ec942a70bc0a51380bf2f1a65995f76aa83d",
+          "source_heading": "Bug Investigation",
+          "source_fragment": "# Bug Investigation",
+          "meaning": "Exact observable symptom/current app-build-OS-account-flags environment/repro/regression range and falsifiable hypotheses before root-cause claim, minimal scoped correction and actual regression detector/production success metric. No tests/runtime/incident action grant.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact observable symptom/current app-build-OS-account-flags environment/repro/regression range and falsifiable hypotheses before root-cause claim, minimal scoped correction and actual regression detector/production success metric. No tests/runtime/incident action grant.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Debugging Workflow; Crash And Hang Triage; Evidence Completion",
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Crash And Hang Triage",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations",
+                "Metric Design"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0838-U02",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-06_BUG_INVESTIGATION.md",
+          "source_sha256": "37b240270c2cdc1fd29dea9a1047ec942a70bc0a51380bf2f1a65995f76aa83d",
+          "source_heading": "Bug Investigation",
+          "source_fragment": "# Bug Investigation",
+          "meaning": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Test/experiment/production-verification fields are currently permission-bound, no writing/running/transition grant.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Test/experiment/production-verification fields are currently permission-bound, no writing/running/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete template independently read; useful actual contract covered, historical standalone form/taxonomy/permission assumptions archived."
     },
     {
       "source_id": "LIB-0839",
       "path": "35_ENGINEERING_TEMPLATES_V2/T2-07_PR_REVIEW_REPORT.md",
       "sha256": "45326af147bd5a441e4f3a7cfd44fbdb11073e03ae0730b38a86fb6f9525f682",
       "bytes": 322,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0839-U01",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-07_PR_REVIEW_REPORT.md",
+          "source_sha256": "45326af147bd5a441e4f3a7cfd44fbdb11073e03ae0730b38a86fb6f9525f682",
+          "source_heading": "PR Review Report",
+          "source_fragment": "# PR Review Report",
+          "meaning": "Actual diff/commit/ticket scope/risk, location/violated invariant/failure scenario/minimal correction/needed permitted verification, explicit evidence gaps/nonfindings/exclusions; impact severity separate confidence/applicability, no taste-only findings.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual diff/commit/ticket scope/risk, location/violated invariant/failure scenario/minimal correction/needed permitted verification, explicit evidence gaps/nonfindings/exclusions; impact severity separate confidence/applicability, no taste-only findings.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Finding Applicability And Adjudication; Severity Policy; Required Audit/Review Output; Completion Report Requirements",
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy",
+                "Required Audit/Review Output",
+                "Completion Report Requirements"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0839-U02",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-07_PR_REVIEW_REPORT.md",
+          "source_sha256": "45326af147bd5a441e4f3a7cfd44fbdb11073e03ae0730b38a86fb6f9525f682",
+          "source_heading": "PR Review Report",
+          "source_fragment": "# PR Review Report",
+          "meaning": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Fixed R0-R4 taxonomy archived; current governance risk/evidence axes apply. Test/experiment/production-verification fields are currently permission-bound, no writing/running/transition grant.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Fixed R0-R4 taxonomy archived; current governance risk/evidence axes apply. Test/experiment/production-verification fields are currently permission-bound, no writing/running/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete template independently read; useful actual contract covered, historical standalone form/taxonomy/permission assumptions archived."
     },
     {
       "source_id": "LIB-0840",
       "path": "35_ENGINEERING_TEMPLATES_V2/T2-08_PERFORMANCE_EXPERIMENT.md",
       "sha256": "c49fb1b4e144ef5f3c11d77f02ab9a9189203f95d31b332898da8ee4e7317ac4",
       "bytes": 471,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0840-U01",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-08_PERFORMANCE_EXPERIMENT.md",
+          "source_sha256": "c49fb1b4e144ef5f3c11d77f02ab9a9189203f95d31b332898da8ee4e7317ac4",
+          "source_heading": "Performance Experiment",
+          "source_fragment": "# Performance Experiment",
+          "meaning": "Actual user metric and comparable version/OS/workload/power/thermal baseline repetitions/distribution, observed bottleneck and bounded hypothesis, same-workload result, memory/CPU/energy/correctness/staleness tradeoffs and meaningful regression metric. No experiment activation or source-only improvement claim.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual user metric and comparable version/OS/workload/power/thermal baseline repetitions/distribution, observed bottleneck and bounded hypothesis, same-workload result, memory/CPU/energy/correctness/staleness tradeoffs and meaningful regression metric. No experiment activation or source-only improvement claim.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains; Optimization Workflow; Metric Design; Evidence",
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains",
+                "Optimization Workflow",
+                "Metric Design",
+                "Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0840-U02",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-08_PERFORMANCE_EXPERIMENT.md",
+          "source_sha256": "c49fb1b4e144ef5f3c11d77f02ab9a9189203f95d31b332898da8ee4e7317ac4",
+          "source_heading": "Performance Experiment",
+          "source_fragment": "# Performance Experiment",
+          "meaning": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Test/experiment/production-verification fields are currently permission-bound, no writing/running/transition grant.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Test/experiment/production-verification fields are currently permission-bound, no writing/running/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete template independently read; useful actual contract covered, historical standalone form/taxonomy/permission assumptions archived."
     },
     {
       "source_id": "LIB-0841",
       "path": "35_ENGINEERING_TEMPLATES_V2/T2-09_SECURITY_REVIEW.md",
       "sha256": "87e918eaccf512d4968f1912ddbf6746a4ae1facaae17667165bd08d5e430369",
       "bytes": 408,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0841-U01",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-09_SECURITY_REVIEW.md",
+          "source_sha256": "87e918eaccf512d4968f1912ddbf6746a4ae1facaae17667165bd08d5e430369",
+          "source_heading": "Security / Privacy Review",
+          "source_fragment": "# Security / Privacy Review",
+          "meaning": "Actual sensitive assets/trust boundaries/abuse likelihood-impact-control-gap, authentication versus authorization/storage/transport/external route-web-model-tool-SDK input and actual purpose/retention/permission/logging/manifests with supplied/permitted negative evidence. No secrets/security weakening/test/SDK actions.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual sensitive assets/trust boundaries/abuse likelihood-impact-control-gap, authentication versus authorization/storage/transport/external route-web-model-tool-SDK input and actual purpose/retention/permission/logging/manifests with supplied/permitted negative evidence. No secrets/security weakening/test/SDK actions.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Security Model; Threat Model Intake; Authorization Rules; Keychain And Data Protection; Evidence",
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Security Model",
+                "Threat Model Intake",
+                "Authorization Rules",
+                "Keychain And Data Protection",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Privacy Labels And Data Lifecycle",
+                "Privacy Manifest And Required-Reason APIs"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0841-U02",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-09_SECURITY_REVIEW.md",
+          "source_sha256": "87e918eaccf512d4968f1912ddbf6746a4ae1facaae17667165bd08d5e430369",
+          "source_heading": "Security / Privacy Review",
+          "source_fragment": "# Security / Privacy Review",
+          "meaning": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Test/experiment/production-verification fields are currently permission-bound, no writing/running/transition grant.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Test/experiment/production-verification fields are currently permission-bound, no writing/running/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete template independently read; useful actual contract covered, historical standalone form/taxonomy/permission assumptions archived."
     },
     {
       "source_id": "LIB-0842",
       "path": "35_ENGINEERING_TEMPLATES_V2/T2-10_RELEASE_RISK_BRIEF.md",
       "sha256": "e7c52eb2a966536ef1f07c5a2d359613e00f0dad7b85a5708648cdbc170eafa1",
       "bytes": 394,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0842-U01",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-10_RELEASE_RISK_BRIEF.md",
+          "source_sha256": "e7c52eb2a966536ef1f07c5a2d359613e00f0dad7b85a5708648cdbc170eafa1",
+          "source_heading": "Release Risk Brief",
+          "source_fragment": "# Release Risk Brief",
+          "meaning": "Exact version/build candidate risk for data/auth/payments/network/backend/concurrency/dependencies/privacy and applicable permission-bound gates, owned rollout/flags/rollback/containment and observed release metric. Kill switch not undo, no build/sign/deploy/TestFlight/monitoring authority.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact version/build candidate risk for data/auth/payments/network/backend/concurrency/dependencies/privacy and applicable permission-bound gates, owned rollout/flags/rollback/containment and observed release metric. Kill switch not undo, no build/sign/deploy/TestFlight/monitoring authority.",
+          "destination_path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "destination_heading": "Build And Signing; Runtime Readiness; Rollout; Release Receipt",
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Build And Signing",
+                "Runtime Readiness",
+                "Rollout",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Release Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Release Candidate Trace",
+                "Release Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0842-U02",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/T2-10_RELEASE_RISK_BRIEF.md",
+          "source_sha256": "e7c52eb2a966536ef1f07c5a2d359613e00f0dad7b85a5708648cdbc170eafa1",
+          "source_heading": "Release Risk Brief",
+          "source_fragment": "# Release Risk Brief",
+          "meaning": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Test/experiment/production-verification fields are currently permission-bound, no writing/running/transition grant.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone V2 template/form and placeholders archived; useful actual contract retained in existing canonical owners, no mandatory extra artifact or execution from template. Test/experiment/production-verification fields are currently permission-bound, no writing/running/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete template independently read; useful actual contract covered, historical standalone form/taxonomy/permission assumptions archived."
     },
     {
       "source_id": "LIB-0843",
       "path": "35_ENGINEERING_TEMPLATES_V2/TEMPLATE_INDEX.md",
       "sha256": "63f9177ef200bce8c0390c6efef36432dc4840e868184298a99c7f01918bdf00",
       "bytes": 549,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0843-U01",
+          "source_path": "canonical/35_ENGINEERING_TEMPLATES_V2/TEMPLATE_INDEX.md",
+          "source_sha256": "63f9177ef200bce8c0390c6efef36432dc4840e868184298a99c7f01918bdf00",
+          "source_heading": "Engineering Template Index",
+          "source_fragment": "# Engineering Template Index",
+          "meaning": "Historical ten-entry template index archived after exact unique paths/titles matched independently reviewed bodies; catalog never substitutes body coverage or execution.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical ten-entry template index archived after exact unique paths/titles matched independently reviewed bodies; catalog never substitutes body coverage or execution.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Ten full template bodies and independent index read; current owner semantic coverage, source SHA/literals/unique headings/index entries/prior rows/copies/mirrors/full final diff/exact-SHA; no execution evidence.",
+          "evidence": "block-159-engineering-template-contracts-source-completion.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Independent full index source reviewed; all ten entries exact against reviewed source bodies."
     },
     {
       "source_id": "LIB-0844",
