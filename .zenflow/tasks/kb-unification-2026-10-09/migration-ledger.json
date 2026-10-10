@@ -115397,27 +115397,632 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-18-08.md",
       "sha256": "26381b683aeea054ef84a0864a9875355c08195643dc8a1eccf474de13cf9ae0",
       "bytes": 7529,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0562-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-18-08.md",
+          "source_sha256": "26381b683aeea054ef84a0864a9875355c08195643dc8a1eccf474de13cf9ae0",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual corruption scope/evidence preservation/schema/migration/recovery/user-data protection; stop-writes is responsible-owner containment proposal until specifically authorized, not file deletion/store reset or guaranteed rollback.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual corruption scope/evidence preservation/schema/migration/recovery/user-data protection; stop-writes is responsible-owner containment proposal until specifically authorized, not file deletion/store reset or guaranteed rollback.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Data Ownership; Migration; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-18-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-107-corruption-metrics-debuggability.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0562-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-18-08.md",
+          "source_sha256": "26381b683aeea054ef84a0864a9875355c08195643dc8a1eccf474de13cf9ae0",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full schema history/previous-version fixtures/context isolation/uniqueness/delete/rollback data-loss trap retained, no fixture/test/store execution.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full schema history/previous-version fixtures/context isolation/uniqueness/delete/rollback data-loss trap retained, no fixture/test/store execution.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data; Migration; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-18-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-107-corruption-metrics-debuggability.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data",
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0562-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-18-08.md",
+          "source_sha256": "26381b683aeea054ef84a0864a9875355c08195643dc8a1eccf474de13cf9ae0",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful observability body: actual crash/hang/race/network/data/version symptom, symbolication/UUID/dSYM, OSLog/signposts/MetricKit/crash SDK, permitted reproduction state/flags and regression range/owners/consumers/availability. Separate root cause from correlated symptom, privacy-minimized sufficient context, bounded instrumentation cost, regression question and responsible authorized containment before risky refactor. Narrow stable structured events/correlation/state transitions where missing evidence justifies, minimal root-cause fix with only permitted detector. Review reconstructable failure/swallowed errors/state-version dimensions/privacy-safe breadcrumbs. Falsify task-specific hypotheses using permitted symbolication/compiler/race/trace/network/store evidence and source history without access grants. Authorized tool/architecture migration maps old/new metric semantics preserving population/observability/parity/rollback/cleanup. All eight failure guards and scoped original-condition/regression/permitted production follow-up/negative/warning evidence/output; absent runtime/production evidence never PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful observability body: actual crash/hang/race/network/data/version symptom, symbolication/UUID/dSYM, OSLog/signposts/MetricKit/crash SDK, permitted reproduction state/flags and regression range/owners/consumers/availability. Separate root cause from correlated symptom, privacy-minimized sufficient context, bounded instrumentation cost, regression question and responsible authorized containment before risky refactor. Narrow stable structured events/correlation/state transitions where missing evidence justifies, minimal root-cause fix with only permitted detector. Review reconstructable failure/swallowed errors/state-version dimensions/privacy-safe breadcrumbs. Falsify task-specific hypotheses using permitted symbolication/compiler/race/trace/network/store evidence and source history without access grants. Authorized tool/architecture migration maps old/new metric semantics preserving population/observability/parity/rollback/cleanup. All eight failure guards and scoped original-condition/regression/permitted production follow-up/negative/warning evidence/output; absent runtime/production evidence never PASS.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Debugging Workflow; Tools; Crash And Hang Triage; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-18-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-107-corruption-metrics-debuggability.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Tools",
+                "Crash And Hang Triage",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Observability",
+                "Metric Design",
+                "Runtime Operations",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Swift 6.x Discipline",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0562-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-18-08.md",
+          "source_sha256": "26381b683aeea054ef84a0864a9875355c08195643dc8a1eccf474de13cf9ae0",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/regression/runtime/production follow-up and numeric hypothesis/option execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/regression/runtime/production follow-up and numeric hypothesis/option execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-18-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-107-corruption-metrics-debuggability.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full observability common exact against fully read OP-18-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No telemetry/production/credentials/build/test/runtime/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0563",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-18-09.md",
       "sha256": "003f760a6524723a4ec9ee174c214f3d3debe6166576c8f8fc4fcf6a0bc2713c",
       "bytes": 7539,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0563-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-18-09.md",
+          "source_sha256": "003f760a6524723a4ec9ee174c214f3d3debe6166576c8f8fc4fcf6a0bc2713c",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual success/failure/latency/cancellation population/denominator/window/dimensions/SLO/threshold owner and privacy; client telemetry missing/delayed/duplicate not transaction truth or observed improvement.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual success/failure/latency/cancellation population/denominator/window/dimensions/SLO/threshold owner and privacy; client telemetry missing/delayed/duplicate not transaction truth or observed improvement.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Metric Design; Runtime Operations; Observability",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-18-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-107-corruption-metrics-debuggability.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Metric Design",
+                "Runtime Operations",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0563-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-18-09.md",
+          "source_sha256": "003f760a6524723a4ec9ee174c214f3d3debe6166576c8f8fc4fcf6a0bc2713c",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full conditional AI untrusted output/code-owned auth/idempotency/permitted model-OS eval trap retained only when actual consumer relevant, no provider/tool/eval grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full conditional AI untrusted output/code-owned auth/idempotency/permitted model-OS eval trap retained only when actual consumer relevant, no provider/tool/eval grant.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "35. TOOL CALLING; 44. SECURITY; 69. EVALUATION",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-18-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-107-corruption-metrics-debuggability.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0563-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-18-09.md",
+          "source_sha256": "003f760a6524723a4ec9ee174c214f3d3debe6166576c8f8fc4fcf6a0bc2713c",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful observability body: actual crash/hang/race/network/data/version symptom, symbolication/UUID/dSYM, OSLog/signposts/MetricKit/crash SDK, permitted reproduction state/flags and regression range/owners/consumers/availability. Separate root cause from correlated symptom, privacy-minimized sufficient context, bounded instrumentation cost, regression question and responsible authorized containment before risky refactor. Narrow stable structured events/correlation/state transitions where missing evidence justifies, minimal root-cause fix with only permitted detector. Review reconstructable failure/swallowed errors/state-version dimensions/privacy-safe breadcrumbs. Falsify task-specific hypotheses using permitted symbolication/compiler/race/trace/network/store evidence and source history without access grants. Authorized tool/architecture migration maps old/new metric semantics preserving population/observability/parity/rollback/cleanup. All eight failure guards and scoped original-condition/regression/permitted production follow-up/negative/warning evidence/output; absent runtime/production evidence never PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful observability body: actual crash/hang/race/network/data/version symptom, symbolication/UUID/dSYM, OSLog/signposts/MetricKit/crash SDK, permitted reproduction state/flags and regression range/owners/consumers/availability. Separate root cause from correlated symptom, privacy-minimized sufficient context, bounded instrumentation cost, regression question and responsible authorized containment before risky refactor. Narrow stable structured events/correlation/state transitions where missing evidence justifies, minimal root-cause fix with only permitted detector. Review reconstructable failure/swallowed errors/state-version dimensions/privacy-safe breadcrumbs. Falsify task-specific hypotheses using permitted symbolication/compiler/race/trace/network/store evidence and source history without access grants. Authorized tool/architecture migration maps old/new metric semantics preserving population/observability/parity/rollback/cleanup. All eight failure guards and scoped original-condition/regression/permitted production follow-up/negative/warning evidence/output; absent runtime/production evidence never PASS.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Debugging Workflow; Tools; Crash And Hang Triage; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-18-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-107-corruption-metrics-debuggability.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Tools",
+                "Crash And Hang Triage",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Observability",
+                "Metric Design",
+                "Runtime Operations",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Swift 6.x Discipline",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0563-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-18-09.md",
+          "source_sha256": "003f760a6524723a4ec9ee174c214f3d3debe6166576c8f8fc4fcf6a0bc2713c",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/regression/runtime/production follow-up and numeric hypothesis/option execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/regression/runtime/production follow-up and numeric hypothesis/option execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-18-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-107-corruption-metrics-debuggability.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full observability common exact against fully read OP-18-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No telemetry/production/credentials/build/test/runtime/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0564",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-18-10.md",
       "sha256": "6a90b083b6dd9430bcb7dd9a9d6e2867d4c9d4dd5e84960317cd9419bd5b1933",
       "bytes": 7699,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0564-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-18-10.md",
+          "source_sha256": "6a90b083b6dd9430bcb7dd9a9d6e2867d4c9d4dd5e84960317cd9419bd5b1933",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual reconstructable logs/metrics/correlation IDs/state-version transitions and actionable missing evidence, not reproducing everything or speculative instrumentation/production access.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual reconstructable logs/metrics/correlation IDs/state-version transitions and actionable missing evidence, not reproducing everything or speculative instrumentation/production access.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Observability; Metric Design",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-18-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-107-corruption-metrics-debuggability.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0564-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-18-10.md",
+          "source_sha256": "6a90b083b6dd9430bcb7dd9a9d6e2867d4c9d4dd5e84960317cd9419bd5b1933",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-18-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-107-corruption-metrics-debuggability.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0564-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-18-10.md",
+          "source_sha256": "6a90b083b6dd9430bcb7dd9a9d6e2867d4c9d4dd5e84960317cd9419bd5b1933",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful observability body: actual crash/hang/race/network/data/version symptom, symbolication/UUID/dSYM, OSLog/signposts/MetricKit/crash SDK, permitted reproduction state/flags and regression range/owners/consumers/availability. Separate root cause from correlated symptom, privacy-minimized sufficient context, bounded instrumentation cost, regression question and responsible authorized containment before risky refactor. Narrow stable structured events/correlation/state transitions where missing evidence justifies, minimal root-cause fix with only permitted detector. Review reconstructable failure/swallowed errors/state-version dimensions/privacy-safe breadcrumbs. Falsify task-specific hypotheses using permitted symbolication/compiler/race/trace/network/store evidence and source history without access grants. Authorized tool/architecture migration maps old/new metric semantics preserving population/observability/parity/rollback/cleanup. All eight failure guards and scoped original-condition/regression/permitted production follow-up/negative/warning evidence/output; absent runtime/production evidence never PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful observability body: actual crash/hang/race/network/data/version symptom, symbolication/UUID/dSYM, OSLog/signposts/MetricKit/crash SDK, permitted reproduction state/flags and regression range/owners/consumers/availability. Separate root cause from correlated symptom, privacy-minimized sufficient context, bounded instrumentation cost, regression question and responsible authorized containment before risky refactor. Narrow stable structured events/correlation/state transitions where missing evidence justifies, minimal root-cause fix with only permitted detector. Review reconstructable failure/swallowed errors/state-version dimensions/privacy-safe breadcrumbs. Falsify task-specific hypotheses using permitted symbolication/compiler/race/trace/network/store evidence and source history without access grants. Authorized tool/architecture migration maps old/new metric semantics preserving population/observability/parity/rollback/cleanup. All eight failure guards and scoped original-condition/regression/permitted production follow-up/negative/warning evidence/output; absent runtime/production evidence never PASS.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Debugging Workflow; Tools; Crash And Hang Triage; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-18-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-107-corruption-metrics-debuggability.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Tools",
+                "Crash And Hang Triage",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Observability",
+                "Metric Design",
+                "Runtime Operations",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Swift 6.x Discipline",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0564-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-18-10.md",
+          "source_sha256": "6a90b083b6dd9430bcb7dd9a9d6e2867d4c9d4dd5e84960317cd9419bd5b1933",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/regression/runtime/production follow-up and numeric hypothesis/option execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/regression/runtime/production follow-up and numeric hypothesis/option execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-18-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-107-corruption-metrics-debuggability.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full observability common exact against fully read OP-18-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No telemetry/production/credentials/build/test/runtime/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0565",
