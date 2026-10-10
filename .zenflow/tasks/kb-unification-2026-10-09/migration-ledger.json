@@ -159114,18 +159114,188 @@
       "path": "README.md",
       "sha256": "135f6ca7dfebee302d6b26e2271a7f2b3b3276a20be727f8389e42442e90f9d6",
       "bytes": 3988,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0862-U01",
+          "source_path": "canonical/README.md",
+          "source_sha256": "135f6ca7dfebee302d6b26e2271a7f2b3b3276a20be727f8389e42442e90f9d6",
+          "source_heading": "Intended contract",
+          "source_fragment": "## Intended contract",
+          "meaning": "Current user/project/task authority, complete applicable changed-deliverable quality/evidence and permission boundaries; unknown/unrun/pilot/naming not general readiness. Preserve all useful source behavior in current owners, no source labels/skilled front matter imply activation or installation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current user/project/task authority, complete applicable changed-deliverable quality/evidence and permission boundaries; unknown/unrun/pilot/naming not general readiness. Preserve all useful source behavior in current owners, no source labels/skilled front matter imply activation or installation.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Two full new sources; unchanged previously reviewed guide read; current semantic owner/delta mirror; SHA/literals/unique headings/prior rows/copies/mirrors/full semantic diff/static docs/exact SHA. No project command/build/runtime/design check execution.",
+          "evidence": "block-166-inspection-command-provenance-review-guide.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Coverage Unit",
+                "Completion Gate"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0862-U02",
+          "source_path": "canonical/README.md",
+          "source_sha256": "135f6ca7dfebee302d6b26e2271a7f2b3b3276a20be727f8389e42442e90f9d6",
+          "source_heading": "iOS reference — copy-only candidate",
+          "source_fragment": "# iOS reference — copy-only candidate",
+          "meaning": "Historical README/copy-only/OFF/ON/profile/status/allowlist/source retirement/new-chat/second-layer adoption protocol archived; no selection/copy/installation/project entrypoint or handler command authority.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical README/copy-only/OFF/ON/profile/status/allowlist/source retirement/new-chat/second-layer adoption protocol archived; no selection/copy/installation/project entrypoint or handler command authority.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Two full new sources; unchanged previously reviewed guide read; current semantic owner/delta mirror; SHA/literals/unique headings/prior rows/copies/mirrors/full semantic diff/static docs/exact SHA. No project command/build/runtime/design check execution.",
+          "evidence": "block-166-inspection-command-provenance-review-guide.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete source independently read; current useful contracts covered and actual build-command provenance delta migrated; standalone historical reference layer archived, no command authority."
     },
     {
       "source_id": "LIB-0863",
       "path": "REPOSITORY_INSPECTION.md",
       "sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
       "bytes": 4040,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0863-U01",
+          "source_path": "canonical/REPOSITORY_INSPECTION.md",
+          "source_sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+          "source_heading": "Bounded repository inspection for iOS tasks",
+          "source_fragment": "# Bounded repository inspection for iOS tasks",
+          "meaning": "Actual bounded relevant feature/project/source/resource producers/consumers with input-owner-effect-data-UI/isolation/lifetime/error/cache contracts, one-to-three real analogues without unsafe copying, supplied/permitted evidence and current fact freshness; nested boundary separate, skipped/unreadable/symlink/budget input incomplete, heuristic hits not findings.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual bounded relevant feature/project/source/resource producers/consumers with input-owner-effect-data-UI/isolation/lifetime/error/cache contracts, one-to-three real analogues without unsafe copying, supplied/permitted evidence and current fact freshness; nested boundary separate, skipped/unreadable/symlink/budget input incomplete, heuristic hits not findings.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Two full new sources; unchanged previously reviewed guide read; current semantic owner/delta mirror; SHA/literals/unique headings/prior rows/copies/mirrors/full semantic diff/static docs/exact SHA. No project command/build/runtime/design check execution.",
+          "evidence": "block-166-inspection-command-provenance-review-guide.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0863-U02",
+          "source_path": "canonical/REPOSITORY_INSPECTION.md",
+          "source_sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+          "source_heading": "2. Confirm deployment range, Swift language mode, concurrency settings and the affected target",
+          "source_fragment": "2. Confirm deployment range, Swift language mode, concurrency settings and the affected target",
+          "meaning": "Actual target/configuration/scheme build-test/test-plan relationship and scoped setting summaries; observed merge/release CI then invoked scripts/maintained commands/matching scheme evidence for advice. Discovered scheme or synthesized unresolved command not established CI/success; unknown dynamic facts and permission-controlled script/build outputs.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "Actual target/configuration/scheme build-test/test-plan relationship and scoped setting summaries; observed merge/release CI then invoked scripts/maintained commands/matching scheme evidence for advice. Discovered scheme or synthesized unresolved command not established CI/success; unknown dynamic facts and permission-controlled script/build outputs.",
+          "disposition": "MIGRATED",
+          "reason": "Actual target/configuration/scheme build-test/test-plan relationship and scoped setting summaries; observed merge/release CI then invoked scripts/maintained commands/matching scheme evidence for advice. Discovered scheme or synthesized unresolved command not established CI/success; unknown dynamic facts and permission-controlled script/build outputs.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Reproducibility And CI; Evidence",
+          "required_verification": "Two full new sources; unchanged previously reviewed guide read; current semantic owner/delta mirror; SHA/literals/unique headings/prior rows/copies/mirrors/full semantic diff/static docs/exact SHA. No project command/build/runtime/design check execution.",
+          "evidence": "block-166-inspection-command-provenance-review-guide.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-build-system"
+          ],
+          "mirrors": [
+            "docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md"
+          ],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0863-U03",
+          "source_path": "canonical/REPOSITORY_INSPECTION.md",
+          "source_sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+          "source_heading": "Bounded repository inspection for iOS tasks",
+          "source_fragment": "# Bounded repository inspection for iOS tasks",
+          "meaning": "Historical standalone reference inspection/provenance/profile/old generated state framing archived; no extra mandatory layer/intake command/generated profile or xcodebuild permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone reference inspection/provenance/profile/old generated state framing archived; no extra mandatory layer/intake command/generated profile or xcodebuild permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Two full new sources; unchanged previously reviewed guide read; current semantic owner/delta mirror; SHA/literals/unique headings/prior rows/copies/mirrors/full semantic diff/static docs/exact SHA. No project command/build/runtime/design check execution.",
+          "evidence": "block-166-inspection-command-provenance-review-guide.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-build-system"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Complete source independently read; current useful contracts covered and actual build-command provenance delta migrated; standalone historical reference layer archived, no command authority."
     },
     {
       "source_id": "LIB-0864",
