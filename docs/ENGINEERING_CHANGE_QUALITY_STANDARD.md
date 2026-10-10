@@ -123,6 +123,15 @@ marker and remain within current cleanup authority. This grants no state/cache/p
 host configuration or deletion; explicitly approved archives and evidence artifacts retain their
 own content and preservation contracts.
 
+When an authorized change claims transactional publication or rollback, define the publication
+commit point and record ownership/recoverable state before a potentially published operation.
+Distinguish failure before commit, applied state with cleanup incomplete, and unknown outcome.
+A cleanup failure after commit must not trigger destructive rollback from already-deleted backups;
+preserve the published state and remaining owned recovery evidence, and report the exact outcome.
+Rollback may restore only known recoverable owned bytes within current authority. Exception-injection
+evidence is not proof of crash/power-loss atomicity. These requirements grant no installation,
+publication, rollback or cleanup action and do not require a transaction for ordinary scoped edits.
+
 ## 3. Verification Ladder
 
 Use the smallest sufficient ladder and stop when its evidence is current.
