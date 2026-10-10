@@ -155847,36 +155847,336 @@
       "path": "34_AUDIT_GATES/AG-21_PUBLIC_API.md",
       "sha256": "8dadc4eb6358844224fee1768ccd2f39e0cfa1e513b7495ba4c038a410860325",
       "bytes": 615,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0827-U01",
+          "source_path": "canonical/34_AUDIT_GATES/AG-21_PUBLIC_API.md",
+          "source_sha256": "8dadc4eb6358844224fee1768ccd2f39e0cfa1e513b7495ba4c038a410860325",
+          "source_heading": "AG-21 — Public/package API gate",
+          "source_fragment": "# AG-21 — Public/package API gate",
+          "meaning": "Actual minimal semantic public surface, source/ABI/interop consumers when relevant, justified concrete/generic/protocol/opaque/existential choice, documented error/lifetime and availability/package compatibility promises with breaking-change version/changelog/migration guidance. No extraction/API redesign/package adoption or compile grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual minimal semantic public surface, source/ABI/interop consumers when relevant, justified concrete/generic/protocol/opaque/existential choice, documented error/lifetime and availability/package compatibility promises with breaking-change version/changelog/migration guidance. No extraction/API redesign/package adoption or compile grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Type And API Decisions; Protocol Or Concrete Dependency; Public API Rules; Error And Result Design; Ownership And Memory; Interoperability; Evidence",
+          "required_verification": "Four complete source gates independently read; current authority and actual canonical semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact SHA. No gate execution or runtime evidence.",
+          "evidence": "block-157-api-navigation-observability-agent-gates.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Type And API Decisions",
+                "Protocol Or Concrete Dependency",
+                "Public API Rules",
+                "Error And Result Design",
+                "Ownership And Memory",
+                "Interoperability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SDK Consumer Boundary"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0827-U02",
+          "source_path": "canonical/34_AUDIT_GATES/AG-21_PUBLIC_API.md",
+          "source_sha256": "8dadc4eb6358844224fee1768ccd2f39e0cfa1e513b7495ba4c038a410860325",
+          "source_heading": "Historical gate authority",
+          "source_fragment": "## Gate result",
+          "meaning": "Historical standalone checklist/status vocabulary archived. Current evidence-bound applicable PASS requires verified facts; unknown/omitted/not-run never PASS, accepted risk only explicit current owner authority, P0-P2 block commit/push. No independent mandatory Library gate or inherited execution permission.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone checklist/status vocabulary archived. Current evidence-bound applicable PASS requires verified facts; unknown/omitted/not-run never PASS, accepted risk only explicit current owner authority, P0-P2 block commit/push. No independent mandatory Library gate or inherited execution permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Four complete source gates independently read; current authority and actual canonical semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact SHA. No gate execution or runtime evidence.",
+          "evidence": "block-157-api-navigation-observability-agent-gates.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full gate read; useful current contracts already covered; historical standalone status and source-specific fixed-risk mandate separately archived. No current scope expansion."
     },
     {
       "source_id": "LIB-0828",
       "path": "34_AUDIT_GATES/AG-22_NAVIGATION.md",
       "sha256": "1cf9998a3bde955bed828ecc7deb50aa6edb6b1b4f7e4a8d4bb7997963b52904",
       "bytes": 541,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0828-U01",
+          "source_path": "canonical/34_AUDIT_GATES/AG-22_NAVIGATION.md",
+          "source_sha256": "1cf9998a3bde955bed828ecc7deb50aa6edb6b1b4f7e4a8d4bb7997963b52904",
+          "source_heading": "AG-22 — Navigation/deep-link gate",
+          "source_fragment": "# AG-22 — Navigation/deep-link gate",
+          "meaning": "Actual stable typed navigation and cold/warm/background/multi-scene entry, validated external input, current authorization-aware deterministic auth/replay, compatible safe restoration, exclusive modal/push state and safe unknown/removed route behavior. No new coordinator/route/runtime or app transition permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual stable typed navigation and cold/warm/background/multi-scene entry, validated external input, current authorization-aware deterministic auth/replay, compatible safe restoration, exclusive modal/push state and safe unknown/removed route behavior. No new coordinator/route/runtime or app transition permission.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Navigation And Presentation",
+          "required_verification": "Four complete source gates independently read; current authority and actual canonical semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact SHA. No gate execution or runtime evidence.",
+          "evidence": "block-157-api-navigation-observability-agent-gates.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Navigation And Presentation"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Associated Domains And Deep Links"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Authorization Rules"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0828-U02",
+          "source_path": "canonical/34_AUDIT_GATES/AG-22_NAVIGATION.md",
+          "source_sha256": "1cf9998a3bde955bed828ecc7deb50aa6edb6b1b4f7e4a8d4bb7997963b52904",
+          "source_heading": "Historical gate authority",
+          "source_fragment": "## Gate result",
+          "meaning": "Historical standalone checklist/status vocabulary archived. Current evidence-bound applicable PASS requires verified facts; unknown/omitted/not-run never PASS, accepted risk only explicit current owner authority, P0-P2 block commit/push. No independent mandatory Library gate or inherited execution permission.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone checklist/status vocabulary archived. Current evidence-bound applicable PASS requires verified facts; unknown/omitted/not-run never PASS, accepted risk only explicit current owner authority, P0-P2 block commit/push. No independent mandatory Library gate or inherited execution permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Four complete source gates independently read; current authority and actual canonical semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact SHA. No gate execution or runtime evidence.",
+          "evidence": "block-157-api-navigation-observability-agent-gates.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full gate read; useful current contracts already covered; historical standalone status and source-specific fixed-risk mandate separately archived. No current scope expansion."
     },
     {
       "source_id": "LIB-0829",
       "path": "34_AUDIT_GATES/AG-23_OBSERVABILITY.md",
       "sha256": "cf13c9b5c9b9f2cf45bc45dd53292746da108f1e924cb96ec119b2aff0a3c72e",
       "bytes": 640,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0829-U01",
+          "source_path": "canonical/34_AUDIT_GATES/AG-23_OBSERVABILITY.md",
+          "source_sha256": "cf13c9b5c9b9f2cf45bc45dd53292746da108f1e924cb96ec119b2aff0a3c72e",
+          "source_heading": "AG-23 — Observability gate",
+          "source_fragment": "# AG-23 — Observability gate",
+          "meaning": "Actual stable log/event semantics with redaction/privacy, useful bounded correlation/current-state transitions and semantic signpost intervals, success/failure/latency/cancel metrics with population/denominator/window and bounded non-PII dimensions, actionable critical-path threshold/owner. Telemetry not transaction truth or measured optimization; no collection/monitoring/automation activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual stable log/event semantics with redaction/privacy, useful bounded correlation/current-state transitions and semantic signpost intervals, success/failure/latency/cancel metrics with population/denominator/window and bounded non-PII dimensions, actionable critical-path threshold/owner. Telemetry not transaction truth or measured optimization; no collection/monitoring/automation activation.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Observability; Metric Design; Runtime Operations; Evidence",
+          "required_verification": "Four complete source gates independently read; current authority and actual canonical semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact SHA. No gate execution or runtime evidence.",
+          "evidence": "block-157-api-navigation-observability-agent-gates.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design",
+                "Runtime Operations",
+                "Evidence"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0829-U02",
+          "source_path": "canonical/34_AUDIT_GATES/AG-23_OBSERVABILITY.md",
+          "source_sha256": "cf13c9b5c9b9f2cf45bc45dd53292746da108f1e924cb96ec119b2aff0a3c72e",
+          "source_heading": "Historical gate authority",
+          "source_fragment": "## Gate result",
+          "meaning": "Historical standalone checklist/status vocabulary archived. Current evidence-bound applicable PASS requires verified facts; unknown/omitted/not-run never PASS, accepted risk only explicit current owner authority, P0-P2 block commit/push. No independent mandatory Library gate or inherited execution permission.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone checklist/status vocabulary archived. Current evidence-bound applicable PASS requires verified facts; unknown/omitted/not-run never PASS, accepted risk only explicit current owner authority, P0-P2 block commit/push. No independent mandatory Library gate or inherited execution permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Four complete source gates independently read; current authority and actual canonical semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact SHA. No gate execution or runtime evidence.",
+          "evidence": "block-157-api-navigation-observability-agent-gates.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full gate read; useful current contracts already covered; historical standalone status and source-specific fixed-risk mandate separately archived. No current scope expansion."
     },
     {
       "source_id": "LIB-0830",
       "path": "34_AUDIT_GATES/AG-24_AUTONOMOUS_AGENT.md",
       "sha256": "f260eb485de6e87e87b68c220ef7d1c42d867f0e46d16e352e6020c8a5436122",
       "bytes": 654,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0830-U01",
+          "source_path": "canonical/34_AUDIT_GATES/AG-24_AUTONOMOUS_AGENT.md",
+          "source_sha256": "f260eb485de6e87e87b68c220ef7d1c42d867f0e46d16e352e6020c8a5436122",
+          "source_heading": "AG-24 — Autonomous coding-agent gate",
+          "source_fragment": "# AG-24 — Autonomous coding-agent gate",
+          "meaning": "Actual current instructions/scope/risk/invariants before edits, separate facts/inference/unknowns, no destructive or security-relaxing shortcut, whole final diff and observed permission-bound evidence for claims with meaningful human decision/rollback boundaries. No agent spawning, inherited code/build/test/execution permission or fixed risk classifier.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual current instructions/scope/risk/invariants before edits, separate facts/inference/unknowns, no destructive or security-relaxing shortcut, whole final diff and observed permission-bound evidence for claims with meaningful human decision/rollback boundaries. No agent spawning, inherited code/build/test/execution permission or fixed risk classifier.",
+          "destination_path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "destination_heading": "Checklist; Stop Rule",
+          "required_verification": "Four complete source gates independently read; current authority and actual canonical semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact SHA. No gate execution or runtime evidence.",
+          "evidence": "block-157-api-navigation-observability-agent-gates.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0830-U02",
+          "source_path": "canonical/34_AUDIT_GATES/AG-24_AUTONOMOUS_AGENT.md",
+          "source_sha256": "f260eb485de6e87e87b68c220ef7d1c42d867f0e46d16e352e6020c8a5436122",
+          "source_heading": "Historical gate authority",
+          "source_fragment": "## Gate result",
+          "meaning": "Historical standalone checklist/status vocabulary archived. Current evidence-bound applicable PASS requires verified facts; unknown/omitted/not-run never PASS, accepted risk only explicit current owner authority, P0-P2 block commit/push. No independent mandatory Library gate or inherited execution permission.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone checklist/status vocabulary archived. Current evidence-bound applicable PASS requires verified facts; unknown/omitted/not-run never PASS, accepted risk only explicit current owner authority, P0-P2 block commit/push. No independent mandatory Library gate or inherited execution permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Four complete source gates independently read; current authority and actual canonical semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact SHA. No gate execution or runtime evidence.",
+          "evidence": "block-157-api-navigation-observability-agent-gates.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        },
+        {
+          "unit_id": "LIB-0830-U03",
+          "source_path": "canonical/34_AUDIT_GATES/AG-24_AUTONOMOUS_AGENT.md",
+          "source_sha256": "f260eb485de6e87e87b68c220ef7d1c42d867f0e46d16e352e6020c8a5436122",
+          "source_heading": "Historical gate authority",
+          "source_fragment": "- [ ] R3+ changes left with human-review/rollback boundary.",
+          "meaning": "Historical fixed R3+ classifier trigger archived; current scope/risk/engineering authority governs actual human decision and rollback requirements. No new agent/human-review execution gate from imported Library.",
+          "type": "historical-procedure",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical fixed R3+ classifier trigger archived; current scope/risk/engineering authority governs actual human decision and rollback requirements. No new agent/human-review execution gate from imported Library.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Four complete source gates independently read; current authority and actual canonical semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact SHA. No gate execution or runtime evidence.",
+          "evidence": "block-157-api-navigation-observability-agent-gates.md",
+          "affected_routes": [
+            "engineering-change-quality",
+            "ios-concurrency-runtime"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full gate read; useful current contracts already covered; historical standalone status and source-specific fixed-risk mandate separately archived. No current scope expansion."
     },
     {
       "source_id": "LIB-0831",
