@@ -157140,7 +157140,9 @@
           "affected_routes": [
             "engineering-change-quality"
           ],
-          "mirrors": [],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ],
           "coverage_locations": [
             {
               "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
@@ -157149,9 +157151,6 @@
                 "4. Final Adversarial Review"
               ]
             }
-          ],
-          "mirrored_files": [
-            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
           ]
         },
         {
@@ -157176,8 +157175,7 @@
             "engineering-change-quality"
           ],
           "mirrors": [],
-          "coverage_locations": [],
-          "mirrored_files": []
+          "coverage_locations": []
         }
       ],
       "disposition_reason": "Full curated route independently read; verified operational constraint delta migrated to existing engineering owner, standalone infrastructure archived; current scope preserved."
@@ -157210,7 +157208,9 @@
           "affected_routes": [
             "engineering-change-quality"
           ],
-          "mirrors": [],
+          "mirrors": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ],
           "coverage_locations": [
             {
               "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
@@ -157219,9 +157219,6 @@
                 "4. Final Adversarial Review"
               ]
             }
-          ],
-          "mirrored_files": [
-            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
           ]
         },
         {
@@ -157246,8 +157243,7 @@
             "engineering-change-quality"
           ],
           "mirrors": [],
-          "coverage_locations": [],
-          "mirrored_files": []
+          "coverage_locations": []
         }
       ],
       "disposition_reason": "Full curated route independently read; verified operational constraint delta migrated to existing engineering owner, standalone infrastructure archived; current scope preserved."
@@ -157257,45 +157253,329 @@
       "path": "ACTION_RANKING_LEDGER.md",
       "sha256": "b2916e33cf59dd120ea44a5b1f96b7f27dffd4cedb3340207df5e9e0201c6e11",
       "bytes": 4799,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0846-U01",
+          "source_path": "canonical/ACTION_RANKING_LEDGER.md",
+          "source_sha256": "b2916e33cf59dd120ea44a5b1f96b7f27dffd4cedb3340207df5e9e0201c6e11",
+          "source_heading": "Reference action-ranking ledger — provisional, inactive",
+          "source_fragment": "# Reference action-ranking ledger — provisional, inactive",
+          "meaning": "Actual applicable intake/scope/invariant/foreign-preservation/consumer-negative-path reasoning; consequential recommendation states question/expected evidence/minimal scope/cost/risk/current permission/skipped gap. Topology and heuristic leads only actual bounded facts, no generated state/scanner execution, advice never authority or proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual applicable intake/scope/invariant/foreign-preservation/consumer-negative-path reasoning; consequential recommendation states question/expected evidence/minimal scope/cost/risk/current permission/skipped gap. Topology and heuristic leads only actual bounded facts, no generated state/scanner execution, advice never authority or proof.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Five complete ranking/mode/tool/trace/review records read independently including full chronological B6; source SHA/literals/current unique headings/prior units/copies/mirrors/full semantic diff/exact SHA. Historical results not rerun or generalized.",
+          "evidence": "block-161-ranking-mode-tool-trace-review-history.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0846-U02",
+          "source_path": "canonical/ACTION_RANKING_LEDGER.md",
+          "source_sha256": "b2916e33cf59dd120ea44a5b1f96b7f27dffd4cedb3340207df5e9e0201c6e11",
+          "source_heading": "Reference action-ranking ledger — provisional, inactive",
+          "source_fragment": "# Reference action-ranking ledger — provisional, inactive",
+          "meaning": "Historical provisional A0/A1/A2/X ranks, ON/AUTO/ADVISORY profile/handler/old tool proposals, dated source accounting/payload digests/pilot comparisons/OPEN and scoped-closed review history preserved in frozen archive. Not current task queue, active rule, general acceptance or execution grant. Current closed experiment NOT reactivated; U7/current transitions separately permission-bound.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical provisional A0/A1/A2/X ranks, ON/AUTO/ADVISORY profile/handler/old tool proposals, dated source accounting/payload digests/pilot comparisons/OPEN and scoped-closed review history preserved in frozen archive. Not current task queue, active rule, general acceptance or execution grant. Current closed experiment NOT reactivated; U7/current transitions separately permission-bound.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Five complete ranking/mode/tool/trace/review records read independently including full chronological B6; source SHA/literals/current unique headings/prior units/copies/mirrors/full semantic diff/exact SHA. Historical results not rerun or generalized.",
+          "evidence": "block-161-ranking-mode-tool-trace-review-history.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full historical source read; actual reusable evidence/authority contracts covered where present; dated provisional mode/tool/pilot/review infrastructure archived, no current activation or benefit claim."
     },
     {
       "source_id": "LIB-0847",
       "path": "B2_MODE_REVIEW.md",
       "sha256": "f3df1f087f72c9269b5af04f99df51f512cdf662e9c03bc4e50343b2297aa913",
       "bytes": 2775,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0847-U01",
+          "source_path": "canonical/B2_MODE_REVIEW.md",
+          "source_sha256": "f3df1f087f72c9269b5af04f99df51f512cdf662e9c03bc4e50343b2297aa913",
+          "source_heading": "B2 mode contract review — no activation",
+          "source_fragment": "# B2 mode contract review — no activation",
+          "meaning": "Historical B2 project-key/linked-worktree/missing-invalid-mode/recovery/multiple-project contract and inactive handler/synthetic evidence with separate pilot requirements preserved as dated provenance. No handler invocation, state write/recovery, fresh chat or actual transition. Historical scoped observations do not activate arbitrary projects or supersede current task.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical B2 project-key/linked-worktree/missing-invalid-mode/recovery/multiple-project contract and inactive handler/synthetic evidence with separate pilot requirements preserved as dated provenance. No handler invocation, state write/recovery, fresh chat or actual transition. Historical scoped observations do not activate arbitrary projects or supersede current task.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Five complete ranking/mode/tool/trace/review records read independently including full chronological B6; source SHA/literals/current unique headings/prior units/copies/mirrors/full semantic diff/exact SHA. Historical results not rerun or generalized.",
+          "evidence": "block-161-ranking-mode-tool-trace-review-history.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full historical source read; actual reusable evidence/authority contracts covered where present; dated provisional mode/tool/pilot/review infrastructure archived, no current activation or benefit claim."
     },
     {
       "source_id": "LIB-0848",
       "path": "B4_TOOL_REVIEW.md",
       "sha256": "d11f5c393cbd2e734611ce71d827abee4b861fe25b4bd5778fc453ab02cd35ca",
       "bytes": 2008,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0848-U01",
+          "source_path": "canonical/B4_TOOL_REVIEW.md",
+          "source_sha256": "d11f5c393cbd2e734611ce71d827abee4b861fe25b4bd5778fc453ab02cd35ca",
+          "source_heading": "B4 preserved tools — static disposition",
+          "source_fragment": "# B4 preserved tools — static disposition",
+          "meaning": "Actual bounded complete/scoped/incomplete inspection universe and failure signaling; repeated recursive walks/read failures or partial Git views cannot yield broad PASS. Heuristic hits are review leads, not defects; complete observed staged/unstaged/untracked diff/status and consumer review required, old wrappers/guard labels not safety/execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual bounded complete/scoped/incomplete inspection universe and failure signaling; repeated recursive walks/read failures or partial Git views cannot yield broad PASS. Heuristic hits are review leads, not defects; complete observed staged/unstaged/untracked diff/status and consumer review required, old wrappers/guard labels not safety/execution authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Five complete ranking/mode/tool/trace/review records read independently including full chronological B6; source SHA/literals/current unique headings/prior units/copies/mirrors/full semantic diff/exact SHA. Historical results not rerun or generalized.",
+          "evidence": "block-161-ranking-mode-tool-trace-review-history.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0848-U02",
+          "source_path": "canonical/B4_TOOL_REVIEW.md",
+          "source_sha256": "d11f5c393cbd2e734611ce71d827abee4b861fe25b4bd5778fc453ab02cd35ca",
+          "source_heading": "B4 preserved tools — static disposition",
+          "source_fragment": "# B4 preserved tools — static disposition",
+          "meaning": "Historical provisional A0/A1/A2/X ranks, ON/AUTO/ADVISORY profile/handler/old tool proposals, dated source accounting/payload digests/pilot comparisons/OPEN and scoped-closed review history preserved in frozen archive. Not current task queue, active rule, general acceptance or execution grant. Current closed experiment NOT reactivated; U7/current transitions separately permission-bound.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical provisional A0/A1/A2/X ranks, ON/AUTO/ADVISORY profile/handler/old tool proposals, dated source accounting/payload digests/pilot comparisons/OPEN and scoped-closed review history preserved in frozen archive. Not current task queue, active rule, general acceptance or execution grant. Current closed experiment NOT reactivated; U7/current transitions separately permission-bound.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Five complete ranking/mode/tool/trace/review records read independently including full chronological B6; source SHA/literals/current unique headings/prior units/copies/mirrors/full semantic diff/exact SHA. Historical results not rerun or generalized.",
+          "evidence": "block-161-ranking-mode-tool-trace-review-history.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full historical source read; actual reusable evidence/authority contracts covered where present; dated provisional mode/tool/pilot/review infrastructure archived, no current activation or benefit claim."
     },
     {
       "source_id": "LIB-0849",
       "path": "B5_STATIC_TRACE.md",
       "sha256": "11b7eca35777b2caca7026ecf2a27f5e2b737fd739ee9710c714150f4aa009e4",
       "bytes": 2630,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0849-U01",
+          "source_path": "canonical/B5_STATIC_TRACE.md",
+          "source_sha256": "11b7eca35777b2caca7026ecf2a27f5e2b737fd739ee9710c714150f4aa009e4",
+          "source_heading": "B5 offline trace — partial evidence, not library acceptance",
+          "source_fragment": "# B5 offline trace — partial evidence, not library acceptance",
+          "meaning": "Document-level expected scenario outcomes/link/regular-file checks not observed activation/build/test/independent review or measured comparative benefit. Actual changed diff invalidates its own final-review proof, bounded relevant routes and honest scoped unknowns; words/bytes proxy not tokens/cost. No second mandatory review layer or experiment activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+          "existing_coverage": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Document-level expected scenario outcomes/link/regular-file checks not observed activation/build/test/independent review or measured comparative benefit. Actual changed diff invalidates its own final-review proof, bounded relevant routes and honest scoped unknowns; words/bytes proxy not tokens/cost. No second mandatory review layer or experiment activation.",
+          "destination_path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+          "destination_heading": "Required Report Shape; Stop Rule",
+          "required_verification": "Five complete ranking/mode/tool/trace/review records read independently including full chronological B6; source SHA/literals/current unique headings/prior units/copies/mirrors/full semantic diff/exact SHA. Historical results not rerun or generalized.",
+          "evidence": "block-161-ranking-mode-tool-trace-review-history.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0849-U02",
+          "source_path": "canonical/B5_STATIC_TRACE.md",
+          "source_sha256": "11b7eca35777b2caca7026ecf2a27f5e2b737fd739ee9710c714150f4aa009e4",
+          "source_heading": "B5 offline trace — partial evidence, not library acceptance",
+          "source_fragment": "# B5 offline trace — partial evidence, not library acceptance",
+          "meaning": "Historical provisional A0/A1/A2/X ranks, ON/AUTO/ADVISORY profile/handler/old tool proposals, dated source accounting/payload digests/pilot comparisons/OPEN and scoped-closed review history preserved in frozen archive. Not current task queue, active rule, general acceptance or execution grant. Current closed experiment NOT reactivated; U7/current transitions separately permission-bound.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical provisional A0/A1/A2/X ranks, ON/AUTO/ADVISORY profile/handler/old tool proposals, dated source accounting/payload digests/pilot comparisons/OPEN and scoped-closed review history preserved in frozen archive. Not current task queue, active rule, general acceptance or execution grant. Current closed experiment NOT reactivated; U7/current transitions separately permission-bound.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Five complete ranking/mode/tool/trace/review records read independently including full chronological B6; source SHA/literals/current unique headings/prior units/copies/mirrors/full semantic diff/exact SHA. Historical results not rerun or generalized.",
+          "evidence": "block-161-ranking-mode-tool-trace-review-history.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full historical source read; actual reusable evidence/authority contracts covered where present; dated provisional mode/tool/pilot/review infrastructure archived, no current activation or benefit claim."
     },
     {
       "source_id": "LIB-0850",
       "path": "B6_PRE_RELEASE_REVIEW.md",
       "sha256": "ed306c1b6ab8ce4b260656ec92c876dd5695c7277e8b8193938fd82be2278c50",
       "bytes": 17155,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0850-U01",
+          "source_path": "canonical/B6_PRE_RELEASE_REVIEW.md",
+          "source_sha256": "ed306c1b6ab8ce4b260656ec92c876dd5695c7277e8b8193938fd82be2278c50",
+          "source_heading": "B6 review history — general readiness not established",
+          "source_fragment": "# B6 review history — general readiness not established",
+          "meaning": "Snapshot-bound exact candidate/revision/evidence and scoped closure separate general readiness; distinguish static facts/current reachable product applicability/impact and preserve rejected/refined findings. False-positive reduction not incremental defect discovery or measured token benefit, counterexample retained, old synthetic/self/user-supplied observation not independent review. Historical queue does not authorize repeats, sealed comparisons or execution.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Snapshot-bound exact candidate/revision/evidence and scoped closure separate general readiness; distinguish static facts/current reachable product applicability/impact and preserve rejected/refined findings. False-positive reduction not incremental defect discovery or measured token benefit, counterexample retained, old synthetic/self/user-supplied observation not independent review. Historical queue does not authorize repeats, sealed comparisons or execution.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Finding Applicability And Adjudication; Severity Policy; Completion Report Requirements",
+          "required_verification": "Five complete ranking/mode/tool/trace/review records read independently including full chronological B6; source SHA/literals/current unique headings/prior units/copies/mirrors/full semantic diff/exact SHA. Historical results not rerun or generalized.",
+          "evidence": "block-161-ranking-mode-tool-trace-review-history.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy",
+                "Completion Report Requirements"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape",
+                "Stop Rule"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0850-U02",
+          "source_path": "canonical/B6_PRE_RELEASE_REVIEW.md",
+          "source_sha256": "ed306c1b6ab8ce4b260656ec92c876dd5695c7277e8b8193938fd82be2278c50",
+          "source_heading": "B6 review history — general readiness not established",
+          "source_fragment": "# B6 review history — general readiness not established",
+          "meaning": "Historical provisional A0/A1/A2/X ranks, ON/AUTO/ADVISORY profile/handler/old tool proposals, dated source accounting/payload digests/pilot comparisons/OPEN and scoped-closed review history preserved in frozen archive. Not current task queue, active rule, general acceptance or execution grant. Current closed experiment NOT reactivated; U7/current transitions separately permission-bound.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical provisional A0/A1/A2/X ranks, ON/AUTO/ADVISORY profile/handler/old tool proposals, dated source accounting/payload digests/pilot comparisons/OPEN and scoped-closed review history preserved in frozen archive. Not current task queue, active rule, general acceptance or execution grant. Current closed experiment NOT reactivated; U7/current transitions separately permission-bound.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Five complete ranking/mode/tool/trace/review records read independently including full chronological B6; source SHA/literals/current unique headings/prior units/copies/mirrors/full semantic diff/exact SHA. Historical results not rerun or generalized.",
+          "evidence": "block-161-ranking-mode-tool-trace-review-history.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full historical source read; actual reusable evidence/authority contracts covered where present; dated provisional mode/tool/pilot/review infrastructure archived, no current activation or benefit claim."
     },
     {
       "source_id": "LIB-0851",
