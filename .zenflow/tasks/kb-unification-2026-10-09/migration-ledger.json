@@ -170319,135 +170319,1155 @@
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/AGENT_TASK_PACKET_CONTRACT.md",
       "sha256": "e933dfecea128110565ceb41323322a60fab20df528309d1482280b92f62f640",
       "bytes": 759,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0988-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/AGENT_TASK_PACKET_CONTRACT.md",
+          "source_sha256": "e933dfecea128110565ceb41323322a60fab20df528309d1482280b92f62f640",
+          "source_heading": "Agent Task Packet Contract",
+          "source_fragment": "# Agent Task Packet Contract",
+          "meaning": "Self-contained solvable packet exact outcome/known facts/unknowns/invariants/read-write/do-not-touch scopes/commands/evidence/result/escalation and observed partial/conflict report, no success summary hides incomplete node.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Self-contained solvable packet exact outcome/known facts/unknowns/invariants/read-write/do-not-touch scopes/commands/evidence/result/escalation and observed partial/conflict report, no success summary hides incomplete node.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Agent Task Packet Contract\n\nA delegated task must be solvable without reconstructing the coordinator's entire reasoning.\n\n## Required packet\n- **Task name / node ID**\n- **Role**\n- **Outcome** — one observable deliverable\n- **Known facts** — repository-observed facts only\n- **Assumptions/unknowns**\n- **Invariants**\n- **Read scope**\n- **Write scope**\n- **Do not touch**\n- **Relevant commands** — observed commands only\n- **Evidence required**\n- **Result schema**\n- **Escalate when**\n\n## Result contract\nReturn: status, findings/changes, claims with evidence, files inspected/changed, commands actually run, verification result, confidence, unresolved unknowns, and conflicts with task assumptions. Never hide partial failure behind a success summary."
+          ]
+        },
+        {
+          "unit_id": "LIB-0988-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/AGENT_TASK_PACKET_CONTRACT.md",
+          "source_sha256": "e933dfecea128110565ceb41323322a60fab20df528309d1482280b92f62f640",
+          "source_heading": "Agent Task Packet Contract",
+          "source_fragment": "# Agent Task Packet Contract",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Agent Task Packet Contract\n\nA delegated task must be solvable without reconstructing the coordinator's entire reasoning.\n\n## Required packet\n- **Task name / node ID**\n- **Role**\n- **Outcome** — one observable deliverable\n- **Known facts** — repository-observed facts only\n- **Assumptions/unknowns**\n- **Invariants**\n- **Read scope**\n- **Write scope**\n- **Do not touch**\n- **Relevant commands** — observed commands only\n- **Evidence required**\n- **Result schema**\n- **Escalate when**\n\n## Result contract\nReturn: status, findings/changes, claims with evidence, files inspected/changed, commands actually run, verification result, confidence, unresolved unknowns, and conflicts with task assumptions. Never hide partial failure behind a success summary."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0989",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/BUDGETS_AND_LIMITS.md",
       "sha256": "fa7761c792e0eb9986eb28bb060065a846ad6c0d18087eae0d9ec2c700ca03ce",
       "bytes": 789,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0989-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/BUDGETS_AND_LIMITS.md",
+          "source_sha256": "fa7761c792e0eb9986eb28bb060065a846ad6c0d18087eae0d9ec2c700ca03ce",
+          "source_heading": "Budgets and Limits",
+          "source_fragment": "# Budgets and Limits",
+          "meaning": "Conditional approved task budget/resource ceilings and minimum sufficient context, stop duplicate/dependent/low marginal-value fanout when integration is bottleneck; old numeric defaults archived, no new budget or spawn grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Conditional approved task budget/resource ceilings and minimum sufficient context, stop duplicate/dependent/low marginal-value fanout when integration is bottleneck; old numeric defaults archived, no new budget or spawn grant.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Budgets and Limits\n\nV5 uses explicit repository budgets regardless of runtime capability.\n\n## Defaults\n- max child agents per wave: 4\n- max total child agents per task: 8\n- max nesting depth: 1\n- max duplicate independent reviewers for one question: 2\n- max arbitration agents: 1 per unresolved conflict\n- child context: minimum sufficient task packet; avoid full-history cloning when a scoped packet is enough and the runtime supports scoped forks\n\n## Stop conditions\nStop spawning when: task graph is covered; remaining nodes are dependent; new work duplicates existing nodes; evidence converges; token/context cost exceeds expected risk reduction; or integration becomes the critical path.\n\nBudgets may be raised by explicit user instruction, but write-scope and safety gates remain."
+          ]
+        },
+        {
+          "unit_id": "LIB-0989-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/BUDGETS_AND_LIMITS.md",
+          "source_sha256": "fa7761c792e0eb9986eb28bb060065a846ad6c0d18087eae0d9ec2c700ca03ce",
+          "source_heading": "Budgets and Limits",
+          "source_fragment": "# Budgets and Limits",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Budgets and Limits\n\nV5 uses explicit repository budgets regardless of runtime capability.\n\n## Defaults\n- max child agents per wave: 4\n- max total child agents per task: 8\n- max nesting depth: 1\n- max duplicate independent reviewers for one question: 2\n- max arbitration agents: 1 per unresolved conflict\n- child context: minimum sufficient task packet; avoid full-history cloning when a scoped packet is enough and the runtime supports scoped forks\n\n## Stop conditions\nStop spawning when: task graph is covered; remaining nodes are dependent; new work duplicates existing nodes; evidence converges; token/context cost exceeds expected risk reduction; or integration becomes the critical path.\n\nBudgets may be raised by explicit user instruction, but write-scope and safety gates remain."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0990",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/CONFLICT_RESOLUTION_PROTOCOL.md",
       "sha256": "e0e4873f20792e1c03de3742019f961e0845da1e5f460a8a0f9b9a455cf33046",
       "bytes": 604,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0990-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/CONFLICT_RESOLUTION_PROTOCOL.md",
+          "source_sha256": "e0e4873f20792e1c03de3742019f961e0845da1e5f460a8a0f9b9a455cf33046",
+          "source_heading": "Conflict Resolution Protocol",
+          "source_fragment": "# Conflict Resolution Protocol",
+          "meaning": "Exact conflicting claims/current deciding invariant/fresh evidence and narrow missing fact before escalation; no majority/model/seniority/verbosity arbitration, targeted test/arbiter recipe needs current permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact conflicting claims/current deciding invariant/fresh evidence and narrow missing fact before escalation; no majority/model/seniority/verbosity arbitration, targeted test/arbiter recipe needs current permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Conflict Resolution Protocol\n\nWhen specialists disagree:\n1. State the exact conflicting claims.\n2. Identify the invariant/requirement that decides the issue.\n3. Compare evidence freshness and strength.\n4. Inspect the narrowest missing repository fact.\n5. If still unresolved, run a targeted experiment/test or assign one read-only arbiter with a precise question.\n6. Escalate to the user only when the decision is a product/business preference, destructive boundary, or cannot be resolved from available evidence.\n\nDo not use majority vote, role seniority, verbosity or model identity as tie-breakers."
+          ]
+        },
+        {
+          "unit_id": "LIB-0990-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/CONFLICT_RESOLUTION_PROTOCOL.md",
+          "source_sha256": "e0e4873f20792e1c03de3742019f961e0845da1e5f460a8a0f9b9a455cf33046",
+          "source_heading": "Conflict Resolution Protocol",
+          "source_fragment": "# Conflict Resolution Protocol",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Conflict Resolution Protocol\n\nWhen specialists disagree:\n1. State the exact conflicting claims.\n2. Identify the invariant/requirement that decides the issue.\n3. Compare evidence freshness and strength.\n4. Inspect the narrowest missing repository fact.\n5. If still unresolved, run a targeted experiment/test or assign one read-only arbiter with a precise question.\n6. Escalate to the user only when the decision is a product/business preference, destructive boundary, or cannot be resolved from available evidence.\n\nDo not use majority vote, role seniority, verbosity or model identity as tie-breakers."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0991",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/DELEGATION_ADMISSION_POLICY.md",
       "sha256": "124dd363cb66dbfd4abe2139a8ee690fc5e775a613857ae215042a72e5c7cc60",
       "bytes": 1164,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0991-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/DELEGATION_ADMISSION_POLICY.md",
+          "source_sha256": "124dd363cb66dbfd4abe2139a8ee690fc5e775a613857ae215042a72e5c7cc60",
+          "source_heading": "Delegation Admission Policy",
+          "source_fragment": "# Delegation Admission Policy",
+          "meaning": "Conditional authorized delegation justified by materially independent bounded questions/real value/scopable facts/disjoint writes; avoid trivial/tightly coupled/shared-file duplicate work. Fixed admission scores and risk thresholds historical, not permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Conditional authorized delegation justified by materially independent bounded questions/real value/scopable facts/disjoint writes; avoid trivial/tightly coupled/shared-file duplicate work. Fixed admission scores and risk thresholds historical, not permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Delegation Admission Policy\n\nDelegate only when **all** are true:\n1. There are at least two materially distinct questions or disjoint code slices.\n2. Each delegated node has a bounded deliverable and evidence contract.\n3. Parallelism or independent review has concrete value.\n4. Context can be scoped without hiding facts needed for correctness.\n5. Write ownership can be made disjoint or read-only.\n\nStrong reasons to delegate: cross-domain R3/R4 change; independent security/concurrency review; large repository discovery split by module; disjoint implementation slices; verification that can run independently.\n\nReject delegation for: formatting; small localized fixes; a single tightly coupled state machine; one shared file; work requiring continuous back-and-forth; tasks where every agent would read the same full repository and produce the same artifact.\n\n## Admission score\nScore 0–2 for each: domain independence, parallel value, verification independence, write separability, risk reduction. Delegate at **7+**, consider at **5–6**, otherwise remain single-agent. Explicit user request may override the threshold but not safety/write-scope rules."
+          ]
+        },
+        {
+          "unit_id": "LIB-0991-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/DELEGATION_ADMISSION_POLICY.md",
+          "source_sha256": "124dd363cb66dbfd4abe2139a8ee690fc5e775a613857ae215042a72e5c7cc60",
+          "source_heading": "Delegation Admission Policy",
+          "source_fragment": "# Delegation Admission Policy",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Delegation Admission Policy\n\nDelegate only when **all** are true:\n1. There are at least two materially distinct questions or disjoint code slices.\n2. Each delegated node has a bounded deliverable and evidence contract.\n3. Parallelism or independent review has concrete value.\n4. Context can be scoped without hiding facts needed for correctness.\n5. Write ownership can be made disjoint or read-only.\n\nStrong reasons to delegate: cross-domain R3/R4 change; independent security/concurrency review; large repository discovery split by module; disjoint implementation slices; verification that can run independently.\n\nReject delegation for: formatting; small localized fixes; a single tightly coupled state machine; one shared file; work requiring continuous back-and-forth; tasks where every agent would read the same full repository and produce the same artifact.\n\n## Admission score\nScore 0–2 for each: domain independence, parallel value, verification independence, write separability, risk reduction. Delegate at **7+**, consider at **5–6**, otherwise remain single-agent. Explicit user request may override the threshold but not safety/write-scope rules."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0992",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/EVIDENCE_LEDGER_PROTOCOL.md",
       "sha256": "0111f6f743b8e201bb2722d56f5b76f9e3d26c00fc2dc939de83052683edf096",
       "bytes": 612,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0992-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/EVIDENCE_LEDGER_PROTOCOL.md",
+          "source_sha256": "0111f6f743b8e201bb2722d56f5b76f9e3d26c00fc2dc939de83052683edf096",
+          "source_heading": "Evidence Ledger Protocol",
+          "source_fragment": "# Evidence Ledger Protocol",
+          "meaning": "Every material claim provenance/source/revision/contextual evidence strength/status and freshness; worker opinion not proof, stale/contested/UNKNOWN preserved and underlying evidence compared.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Every material claim provenance/source/revision/contextual evidence strength/status and freshness; worker opinion not proof, stale/contested/UNKNOWN preserved and underlying evidence compared.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Evidence Ledger Protocol\n\nThe coordinator keeps a ledger for every material claim.\n\nFields: `claim_id`, claim, status (`supported|contested|unknown|stale`), evidence type, source/file/command, agent/node, confidence, timestamp/run, affected decision.\n\nEvidence priority is contextual but generally: observed runtime/test/build output > repository source/config > deterministic derivation > heuristic inference > agent opinion.\n\nAn agent report is provenance, not proof. When two reports conflict, compare their underlying evidence. Evidence becomes stale when the project fingerprint or relevant files change."
+          ]
+        },
+        {
+          "unit_id": "LIB-0992-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/EVIDENCE_LEDGER_PROTOCOL.md",
+          "source_sha256": "0111f6f743b8e201bb2722d56f5b76f9e3d26c00fc2dc939de83052683edf096",
+          "source_heading": "Evidence Ledger Protocol",
+          "source_fragment": "# Evidence Ledger Protocol",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Evidence Ledger Protocol\n\nThe coordinator keeps a ledger for every material claim.\n\nFields: `claim_id`, claim, status (`supported|contested|unknown|stale`), evidence type, source/file/command, agent/node, confidence, timestamp/run, affected decision.\n\nEvidence priority is contextual but generally: observed runtime/test/build output > repository source/config > deterministic derivation > heuristic inference > agent opinion.\n\nAn agent report is provenance, not proof. When two reports conflict, compare their underlying evidence. Evidence becomes stale when the project fingerprint or relevant files change."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0993",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/FAILURE_RECOVERY_PROTOCOL.md",
       "sha256": "3a547945d955e573e8be9bbf40ed59ee378dcce6e0f6a385e627808212aeabe4",
       "bytes": 740,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0993-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/FAILURE_RECOVERY_PROTOCOL.md",
+          "source_sha256": "3a547945d955e573e8be9bbf40ed59ee378dcce6e0f6a385e627808212aeabe4",
+          "source_heading": "Failure Recovery Protocol",
+          "source_fragment": "# Failure Recovery Protocol",
+          "meaning": "Incomplete timeout/partial retained with limits, unavailable tool/sequential review honestly downgraded, failed writer actual diff inspected before changed retry, conflicting ownership stops integration, diagnostic failure no scope expansion.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Incomplete timeout/partial retained with limits, unavailable tool/sequential review honestly downgraded, failed writer actual diff inspected before changed retry, conflicting ownership stops integration, diagnostic failure no scope expansion.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Failure Recovery Protocol\n\nAgent failure is not whole-task failure.\n\n- Timeout/no result: mark node incomplete; decide whether it is critical-path.\n- Partial result: retain supported evidence; do not discard useful observations.\n- Tool unavailable: fall back to sequential role pass or static analysis and label evidence downgrade.\n- Writer failure: inspect actual diff before retrying; never assume rollback occurred.\n- Conflicting edits: stop integration, restore ownership, reconcile from diff rather than asking both writers to continue.\n- Verification failure: keep product patch separate from diagnostic edits; return to integrator.\n\nRetry only when the failure mode is understood and the second attempt changes something material."
+          ]
+        },
+        {
+          "unit_id": "LIB-0993-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/FAILURE_RECOVERY_PROTOCOL.md",
+          "source_sha256": "3a547945d955e573e8be9bbf40ed59ee378dcce6e0f6a385e627808212aeabe4",
+          "source_heading": "Failure Recovery Protocol",
+          "source_fragment": "# Failure Recovery Protocol",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Failure Recovery Protocol\n\nAgent failure is not whole-task failure.\n\n- Timeout/no result: mark node incomplete; decide whether it is critical-path.\n- Partial result: retain supported evidence; do not discard useful observations.\n- Tool unavailable: fall back to sequential role pass or static analysis and label evidence downgrade.\n- Writer failure: inspect actual diff before retrying; never assume rollback occurred.\n- Conflicting edits: stop integration, restore ownership, reconcile from diff rather than asking both writers to continue.\n- Verification failure: keep product patch separate from diagnostic edits; return to integrator.\n\nRetry only when the failure mode is understood and the second attempt changes something material."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0994",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/HUMAN_GATE_POLICY.md",
       "sha256": "24fb799b6c40befad0666bb91edb9a1567d09a6717b587f7ac8ecbb42d8647f1",
       "bytes": 463,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0994-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/HUMAN_GATE_POLICY.md",
+          "source_sha256": "24fb799b6c40befad0666bb91edb9a1567d09a6717b587f7ac8ecbb42d8647f1",
+          "source_heading": "Human Gate Policy",
+          "source_fragment": "# Human Gate Policy",
+          "meaning": "Consensus not user authority, concrete current grants for destructive/migration/credentials/publication/release/remote deletion/product actions; useful reversible plans prepared before actual required gate. Existing explicit docs publication scope remains current, no invented repeated approval.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Consensus not user authority, concrete current grants for destructive/migration/credentials/publication/release/remote deletion/product actions; useful reversible plans prepared before actual required gate. Existing explicit docs publication scope remains current, no invented repeated approval.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Human Gate Policy\n\nMulti-agent consensus does not replace user authorization.\n\nRequire explicit human approval for destructive production actions, irreversible migrations without proven rollback, credential/key rotation, publishing/releasing, deleting remote data, changing paid-product behavior, or any operation already requiring confirmation under repository/tool policy.\n\nAgents may prepare plans, patches, dry-runs and rollback procedures before the gate."
+          ]
+        },
+        {
+          "unit_id": "LIB-0994-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/HUMAN_GATE_POLICY.md",
+          "source_sha256": "24fb799b6c40befad0666bb91edb9a1567d09a6717b587f7ac8ecbb42d8647f1",
+          "source_heading": "Human Gate Policy",
+          "source_fragment": "# Human Gate Policy",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Human Gate Policy\n\nMulti-agent consensus does not replace user authorization.\n\nRequire explicit human approval for destructive production actions, irreversible migrations without proven rollback, credential/key rotation, publishing/releasing, deleting remote data, changing paid-product behavior, or any operation already requiring confirmation under repository/tool policy.\n\nAgents may prepare plans, patches, dry-runs and rollback procedures before the gate."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0995",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/MODEL_ROUTING_POLICY.md",
       "sha256": "b7f26f06c7aff83d9023c958029bace91a18bea68fd306cd420600a09bf6f927",
       "bytes": 657,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0995-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/MODEL_ROUTING_POLICY.md",
+          "source_sha256": "b7f26f06c7aff83d9023c958029bace91a18bea68fd306cd420600a09bf6f927",
+          "source_heading": "Model Routing Policy",
+          "source_fragment": "# Model Routing Policy",
+          "meaning": "Adequate available supported current model/reasoning under user mode and routing authority; model identity not evidence and archived child-routing policy not selector/config or delegation override grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Adequate available supported current model/reasoning under user mode and routing authority; model identity not evidence and archived child-routing policy not selector/config or delegation override grant.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+              "headings": [
+                "Authority",
+                "Command-Time Decision Rule",
+                "Execution Economy Heuristics"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Model Routing Policy\n\nCorrectness and capability come before micro-optimizing model cost.\n\n- Default: child agents inherit the parent model and reasoning effort.\n- Do not override model/effort unless the runtime exposes the control and there is a material reason.\n- Use cheaper/faster workers only for genuinely bounded low-risk extraction or mechanical checks when quality remains sufficient.\n- Keep high-risk synthesis, architecture, concurrency/security arbitration and final integration on a sufficiently capable configuration.\n- Never assume a model name implies support for custom-agent routing; use the tool schema actually exposed in the session."
+          ]
+        },
+        {
+          "unit_id": "LIB-0995-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/MODEL_ROUTING_POLICY.md",
+          "source_sha256": "b7f26f06c7aff83d9023c958029bace91a18bea68fd306cd420600a09bf6f927",
+          "source_heading": "Model Routing Policy",
+          "source_fragment": "# Model Routing Policy",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Model Routing Policy\n\nCorrectness and capability come before micro-optimizing model cost.\n\n- Default: child agents inherit the parent model and reasoning effort.\n- Do not override model/effort unless the runtime exposes the control and there is a material reason.\n- Use cheaper/faster workers only for genuinely bounded low-risk extraction or mechanical checks when quality remains sufficient.\n- Keep high-risk synthesis, architecture, concurrency/security arbitration and final integration on a sufficiently capable configuration.\n- Never assume a model name implies support for custom-agent routing; use the tool schema actually exposed in the session."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0996",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/NATIVE_SUBAGENT_COMPATIBILITY.md",
       "sha256": "f0bec63731972fc318fc7ff9656a4eaac3d0a758009fbf2c0ad270bac1da7e8b",
       "bytes": 909,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0996-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/NATIVE_SUBAGENT_COMPATIBILITY.md",
+          "source_sha256": "f0bec63731972fc318fc7ff9656a4eaac3d0a758009fbf2c0ad270bac1da7e8b",
+          "source_heading": "Native Subagent Compatibility — September 2026",
+          "source_fragment": "# Native Subagent Compatibility — September 2026",
+          "meaning": "Conditional authorized coordination uses only actually exposed tool schema, minimum sufficient scoped inputs, no guessed runtime flags, sequential pass labelled not independent review. Dated native capability claims historical, no tool invocation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Conditional authorized coordination uses only actually exposed tool schema, minimum sufficient scoped inputs, no guessed runtime flags, sequential pass labelled not independent review. Dated native capability claims historical, no tool invocation.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+              "headings": [
+                "Authority",
+                "Command-Time Decision Rule",
+                "Execution Economy Heuristics"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Native Subagent Compatibility — September 2026\n\nV5 is orchestration-policy-first, runtime-second.\n\nWhen a native subagent primitive is available, use its actual exposed schema rather than assuming fields such as role/model overrides exist. Spawned agents should normally inherit the parent model/effort; override only when the user asks or the runtime explicitly exposes and the task benefits.\n\nPrefer independent tasks in parallel; avoid reflexive waiting and duplicate coordinator work. When scoped-history controls are available, send the minimum sufficient context packet.\n\nIf native delegation is unavailable or a desired custom role cannot be selected, execute the same role contract sequentially in the root context. Label the result **sequential role pass**, not independent review.\n\nDo not encode undocumented CLI/config flags as hard requirements. Feature-detect capabilities at execution time."
+          ]
+        },
+        {
+          "unit_id": "LIB-0996-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/NATIVE_SUBAGENT_COMPATIBILITY.md",
+          "source_sha256": "f0bec63731972fc318fc7ff9656a4eaac3d0a758009fbf2c0ad270bac1da7e8b",
+          "source_heading": "Native Subagent Compatibility — September 2026",
+          "source_fragment": "# Native Subagent Compatibility — September 2026",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Native Subagent Compatibility — September 2026\n\nV5 is orchestration-policy-first, runtime-second.\n\nWhen a native subagent primitive is available, use its actual exposed schema rather than assuming fields such as role/model overrides exist. Spawned agents should normally inherit the parent model/effort; override only when the user asks or the runtime explicitly exposes and the task benefits.\n\nPrefer independent tasks in parallel; avoid reflexive waiting and duplicate coordinator work. When scoped-history controls are available, send the minimum sufficient context packet.\n\nIf native delegation is unavailable or a desired custom role cannot be selected, execute the same role contract sequentially in the root context. Label the result **sequential role pass**, not independent review.\n\nDo not encode undocumented CLI/config flags as hard requirements. Feature-detect capabilities at execution time."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0997",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/ORCHESTRATION_PROTOCOL.md",
       "sha256": "567204ba167494cf1aa40437dfa2114bd2ee8add6d2d13fa01fd017a58fa4d90",
       "bytes": 3020,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0997-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/ORCHESTRATION_PROTOCOL.md",
+          "source_sha256": "567204ba167494cf1aa40437dfa2114bd2ee8add6d2d13fa01fd017a58fa4d90",
+          "source_heading": "V5 Multi-Agent Orchestration Protocol",
+          "source_fragment": "# V5 Multi-Agent Orchestration Protocol",
+          "meaning": "Conditional authorized bounded independent task/dependency/ownership/evidence/integration/verification contract with no duplicated questions/shared concurrent writers, evidence-ranked conflict and honest observed limits. Fixed R envelopes/waves/depth archived, no automatic orchestration.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Conditional authorized bounded independent task/dependency/ownership/evidence/integration/verification contract with no duplicated questions/shared concurrent writers, evidence-ranked conflict and honest observed limits. Fixed R envelopes/waves/depth archived, no automatic orchestration.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V5 Multi-Agent Orchestration Protocol\n\n## Objective\nUse multiple agents only when independent specialist work improves correctness, latency, or review independence enough to justify extra context and coordination cost.\n\n## Operating sequence\n1. **Frame** — load applicable `AGENTS.md`, current adaptive project facts and exact task outcome. Classify R0–R4 risk.\n2. **Admit or reject delegation** — delegation is not a synonym for depth. Reject it for trivial, tightly coupled, or single-file work where coordination exceeds value.\n3. **Build a task graph** — every node has role, objective, read scope, optional write scope, dependencies, evidence requirements and stop condition.\n4. **Partition ownership** — parallel writers must have disjoint write scopes. Shared files are owned by one integrator or serialized.\n5. **Dispatch bounded waves** — prefer independent investigation/review in parallel before parallel editing. Do not recursively delegate by default.\n6. **Collect structured results** — every material claim must identify evidence, confidence and unresolved unknowns.\n7. **Arbitrate disagreement** — disagreements are data. Resolve with repository evidence, invariants, tests or a narrowly scoped arbiter; never majority vote.\n8. **Integrate** — one integration owner reconciles changes, repository conventions and cross-domain invariants.\n9. **Verify independently** — highest-risk assertions receive independent verification when feasible.\n10. **Close** — produce one final report: decisions, evidence, verification actually observed, residual risks, rollback/containment and unknowns.\n\n## Default delegation envelope\n- R0–R1: single agent unless the user explicitly requests multiple agents.\n- R2: 0–2 child specialists when domains are genuinely independent.\n- R3: 2–4 child specialists; one integration owner; one verification pass.\n- R4: 3–6 bounded specialists only when the task can be decomposed safely; human gates remain authoritative.\n- Default nesting depth: **1**. Child agents must not spawn grandchildren unless an applicable orchestration skill explicitly authorizes it and the coordinator records why.\n- Default waves: **2** — investigation/review, then implementation/verification. Add a third only to resolve a concrete blocker.\n\nThese are repository policy limits, not claims about any runtime's hard limits.\n\n## Non-negotiable rules\n- Do not delegate the same question to multiple agents unless independence is the purpose (e.g. adversarial review).\n- Do not redo a delegated task in the coordinator. Integrate it or investigate only a non-overlapping question.\n- Do not let multiple agents edit the same file concurrently.\n- Do not treat an agent conclusion as evidence by itself.\n- Do not claim verification that no agent actually observed.\n- Stop fan-out when new agents are unlikely to change the decision.\n- If native subagents are unavailable, execute role packets sequentially and label them as sequential role passes, not independent agents."
+          ]
+        },
+        {
+          "unit_id": "LIB-0997-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/ORCHESTRATION_PROTOCOL.md",
+          "source_sha256": "567204ba167494cf1aa40437dfa2114bd2ee8add6d2d13fa01fd017a58fa4d90",
+          "source_heading": "V5 Multi-Agent Orchestration Protocol",
+          "source_fragment": "# V5 Multi-Agent Orchestration Protocol",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V5 Multi-Agent Orchestration Protocol\n\n## Objective\nUse multiple agents only when independent specialist work improves correctness, latency, or review independence enough to justify extra context and coordination cost.\n\n## Operating sequence\n1. **Frame** — load applicable `AGENTS.md`, current adaptive project facts and exact task outcome. Classify R0–R4 risk.\n2. **Admit or reject delegation** — delegation is not a synonym for depth. Reject it for trivial, tightly coupled, or single-file work where coordination exceeds value.\n3. **Build a task graph** — every node has role, objective, read scope, optional write scope, dependencies, evidence requirements and stop condition.\n4. **Partition ownership** — parallel writers must have disjoint write scopes. Shared files are owned by one integrator or serialized.\n5. **Dispatch bounded waves** — prefer independent investigation/review in parallel before parallel editing. Do not recursively delegate by default.\n6. **Collect structured results** — every material claim must identify evidence, confidence and unresolved unknowns.\n7. **Arbitrate disagreement** — disagreements are data. Resolve with repository evidence, invariants, tests or a narrowly scoped arbiter; never majority vote.\n8. **Integrate** — one integration owner reconciles changes, repository conventions and cross-domain invariants.\n9. **Verify independently** — highest-risk assertions receive independent verification when feasible.\n10. **Close** — produce one final report: decisions, evidence, verification actually observed, residual risks, rollback/containment and unknowns.\n\n## Default delegation envelope\n- R0–R1: single agent unless the user explicitly requests multiple agents.\n- R2: 0–2 child specialists when domains are genuinely independent.\n- R3: 2–4 child specialists; one integration owner; one verification pass.\n- R4: 3–6 bounded specialists only when the task can be decomposed safely; human gates remain authoritative.\n- Default nesting depth: **1**. Child agents must not spawn grandchildren unless an applicable orchestration skill explicitly authorizes it and the coordinator records why.\n- Default waves: **2** — investigation/review, then implementation/verification. Add a third only to resolve a concrete blocker.\n\nThese are repository policy limits, not claims about any runtime's hard limits.\n\n## Non-negotiable rules\n- Do not delegate the same question to multiple agents unless independence is the purpose (e.g. adversarial review).\n- Do not redo a delegated task in the coordinator. Integrate it or investigate only a non-overlapping question.\n- Do not let multiple agents edit the same file concurrently.\n- Do not treat an agent conclusion as evidence by itself.\n- Do not claim verification that no agent actually observed.\n- Stop fan-out when new agents are unlikely to change the decision.\n- If native subagents are unavailable, execute role packets sequentially and label them as sequential role passes, not independent agents."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0998",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/SECURITY_PRIVACY_BOUNDARIES.md",
       "sha256": "711a901c9952d8242cef2246cb3cb2fc8201727aaa3f3ef53fa7fd6d27af11ce",
       "bytes": 546,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0998-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/SECURITY_PRIVACY_BOUNDARIES.md",
+          "source_sha256": "711a901c9952d8242cef2246cb3cb2fc8201727aaa3f3ef53fa7fd6d27af11ce",
+          "source_heading": "Security & Privacy Boundaries",
+          "source_fragment": "# Security & Privacy Boundaries",
+          "meaning": "Least-privilege task/context scope with necessary currently authorized redacted evidence, no unrelated user data/secret/PII propagation, parent permissions apply; diagnostic/log/analytics/prompt data surfaces reviewed, no external delegation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Least-privilege task/context scope with necessary currently authorized redacted evidence, no unrelated user data/secret/PII propagation, parent permissions apply; diagnostic/log/analytics/prompt data surfaces reviewed, no external delegation.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Security & Privacy Boundaries\n\n- Give each agent the least context needed.\n- Do not propagate secrets, tokens, production data or PII into task packets unless essential and authorized; redact by default.\n- Security-sensitive agents should receive interfaces and evidence, not unrelated user data.\n- Tool/action permissions remain least privilege.\n- Child agents cannot bypass confirmation or repository rules inherited from the parent task.\n- Treat logs, crash payloads, analytics schemas and AI prompts as possible data-exfiltration surfaces."
+          ]
+        },
+        {
+          "unit_id": "LIB-0998-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/SECURITY_PRIVACY_BOUNDARIES.md",
+          "source_sha256": "711a901c9952d8242cef2246cb3cb2fc8201727aaa3f3ef53fa7fd6d27af11ce",
+          "source_heading": "Security & Privacy Boundaries",
+          "source_fragment": "# Security & Privacy Boundaries",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Security & Privacy Boundaries\n\n- Give each agent the least context needed.\n- Do not propagate secrets, tokens, production data or PII into task packets unless essential and authorized; redact by default.\n- Security-sensitive agents should receive interfaces and evidence, not unrelated user data.\n- Tool/action permissions remain least privilege.\n- Child agents cannot bypass confirmation or repository rules inherited from the parent task.\n- Treat logs, crash payloads, analytics schemas and AI prompts as possible data-exfiltration surfaces."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0999",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/SYNTHESIS_PROTOCOL.md",
       "sha256": "406722dcc822ba1970367f6720cb681cdc7ab888a26ecd61be7d2b41765ed92c",
       "bytes": 536,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0999-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/SYNTHESIS_PROTOCOL.md",
+          "source_sha256": "406722dcc822ba1970367f6720cb681cdc7ab888a26ecd61be7d2b41765ed92c",
+          "source_heading": "Synthesis Protocol",
+          "source_fragment": "# Synthesis Protocol",
+          "meaning": "Semantic deduplication retains contested/rejected/stale claims and reasons until resolved against actual invariant/evidence, accountable owner/verification per current action; no consensus language erases disagreement.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Semantic deduplication retains contested/rejected/stale claims and reasons until resolved against actual invariant/evidence, accountable owner/verification per current action; no consensus language erases disagreement.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Synthesis Protocol\n\nSynthesis preserves distinctions between findings.\n\n1. Normalize claims into the evidence ledger.\n2. Deduplicate only semantically identical claims.\n3. Keep conflicting claims side-by-side until resolved.\n4. Group by invariant/risk boundary, not by agent name.\n5. Prefer evidence-backed minimal decisions over consensus language.\n6. Mark rejected recommendations with the reason and evidence.\n7. Produce one integrated plan with explicit owner and verification for each action.\n\nNever summarize disagreement away."
+          ]
+        },
+        {
+          "unit_id": "LIB-0999-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/SYNTHESIS_PROTOCOL.md",
+          "source_sha256": "406722dcc822ba1970367f6720cb681cdc7ab888a26ecd61be7d2b41765ed92c",
+          "source_heading": "Synthesis Protocol",
+          "source_fragment": "# Synthesis Protocol",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Synthesis Protocol\n\nSynthesis preserves distinctions between findings.\n\n1. Normalize claims into the evidence ledger.\n2. Deduplicate only semantically identical claims.\n3. Keep conflicting claims side-by-side until resolved.\n4. Group by invariant/risk boundary, not by agent name.\n5. Prefer evidence-backed minimal decisions over consensus language.\n6. Mark rejected recommendations with the reason and evidence.\n7. Produce one integrated plan with explicit owner and verification for each action.\n\nNever summarize disagreement away."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1000",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/TASK_GRAPH_PROTOCOL.md",
       "sha256": "95fdbe9e82ed1205de4836a71f08f179d57906acee716bd2452e01058d10fe97",
       "bytes": 814,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1000-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/TASK_GRAPH_PROTOCOL.md",
+          "source_sha256": "95fdbe9e82ed1205de4836a71f08f179d57906acee716bd2452e01058d10fe97",
+          "source_heading": "Task Graph Protocol",
+          "source_fragment": "# Task Graph Protocol",
+          "meaning": "Small actual dependency graph needs ready input facts before dependent work, bounded output/stop/escalation, disjoint writes and shared project/package/schema/DI serialization under owner; missing/cyclic unresolved inputs cannot complete, no graph/runtime creation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Small actual dependency graph needs ready input facts before dependent work, bounded output/stop/escalation, disjoint writes and shared project/package/schema/DI serialization under owner; missing/cyclic unresolved inputs cannot complete, no graph/runtime creation.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Task Graph Protocol\n\nRepresent work as a DAG, not a flat agent list.\n\nEach node requires:\n- stable `node_id`\n- role and objective\n- dependencies\n- read scope\n- write scope (`[]` for read-only)\n- required facts/invariants\n- required evidence level\n- output contract\n- stop condition\n- escalation condition\n\n## Graph rules\n- No cycles.\n- A node may start only when dependencies that affect its correctness are closed.\n- Parallel writable nodes must have disjoint file/glob ownership.\n- Cross-cutting shared files (`project.pbxproj`, package manifests, generated schemas, central DI containers) are serialized under one owner.\n- Verification nodes do not silently mutate product code; findings return to the integrator unless explicitly authorized.\n- Prefer the smallest graph that covers material risk boundaries."
+          ]
+        },
+        {
+          "unit_id": "LIB-1000-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/TASK_GRAPH_PROTOCOL.md",
+          "source_sha256": "95fdbe9e82ed1205de4836a71f08f179d57906acee716bd2452e01058d10fe97",
+          "source_heading": "Task Graph Protocol",
+          "source_fragment": "# Task Graph Protocol",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Task Graph Protocol\n\nRepresent work as a DAG, not a flat agent list.\n\nEach node requires:\n- stable `node_id`\n- role and objective\n- dependencies\n- read scope\n- write scope (`[]` for read-only)\n- required facts/invariants\n- required evidence level\n- output contract\n- stop condition\n- escalation condition\n\n## Graph rules\n- No cycles.\n- A node may start only when dependencies that affect its correctness are closed.\n- Parallel writable nodes must have disjoint file/glob ownership.\n- Cross-cutting shared files (`project.pbxproj`, package manifests, generated schemas, central DI containers) are serialized under one owner.\n- Verification nodes do not silently mutate product code; findings return to the integrator unless explicitly authorized.\n- Prefer the smallest graph that covers material risk boundaries."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1001",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/VERIFICATION_PROTOCOL.md",
       "sha256": "408050c41079407e59f82b19806bc5815542a277c565e3c345645559afdd81fb",
       "bytes": 545,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1001-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/VERIFICATION_PROTOCOL.md",
+          "source_sha256": "408050c41079407e59f82b19806bc5815542a277c565e3c345645559afdd81fb",
+          "source_heading": "Verification Fan-out Protocol",
+          "source_fragment": "# Verification Fan-out Protocol",
+          "meaning": "Highest-risk falsifiable claims and scoped currently permitted independent checks, observer provenance not green report, unavailable verification downgrade/no static-as-runtime PASS; no verification fanout activated.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Highest-risk falsifiable claims and scoped currently permitted independent checks, observer provenance not green report, unavailable verification downgrade/no static-as-runtime PASS; no verification fanout activated.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Verification Fan-out Protocol\n\nVerification must target the highest-risk falsifiable claims.\n\nUse parallel verification only when checks are independent: e.g. targeted tests, concurrency audit, migration compatibility review, security negative paths, performance measurement analysis.\n\nVerification agents are read-only by default and report failures to the integrator. A green child report is insufficient without command/output provenance. If verification cannot run, explicitly downgrade evidence instead of substituting static confidence."
+          ]
+        },
+        {
+          "unit_id": "LIB-1001-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/VERIFICATION_PROTOCOL.md",
+          "source_sha256": "408050c41079407e59f82b19806bc5815542a277c565e3c345645559afdd81fb",
+          "source_heading": "Verification Fan-out Protocol",
+          "source_fragment": "# Verification Fan-out Protocol",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Verification Fan-out Protocol\n\nVerification must target the highest-risk falsifiable claims.\n\nUse parallel verification only when checks are independent: e.g. targeted tests, concurrency audit, migration compatibility review, security negative paths, performance measurement analysis.\n\nVerification agents are read-only by default and report failures to the integrator. A green child report is insufficient without command/output provenance. If verification cannot run, explicitly downgrade evidence instead of substituting static confidence."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1002",
       "path": "legacy-source/44_MULTI_AGENT_ORCHESTRATION/WRITE_SCOPE_POLICY.md",
       "sha256": "f8bf530351991ba9e19bb1e54e7373abe5ba4c9cf41172e969952af1242acc90",
       "bytes": 738,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1002-U01",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/WRITE_SCOPE_POLICY.md",
+          "source_sha256": "f8bf530351991ba9e19bb1e54e7373abe5ba4c9cf41172e969952af1242acc90",
+          "source_heading": "Write Scope Policy",
+          "source_fragment": "# Write Scope Policy",
+          "meaning": "One actual writer per shared resource with real directory ownership/excluded generated/collision files, integration after child writes closed; out-of-scope need stops dependent edit, no silent crossing or scope expansion.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "One actual writer per shared resource with real directory ownership/excluded generated/collision files, integration after child writes closed; out-of-scope need stops dependent edit, no silent crossing or scope expansion.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Write Scope Policy\n\n## Default\nExplorers, auditors and reviewers are read-only. Parallel editing is allowed only after ownership partitioning.\n\n## Rules\n- One file has one writer per wave.\n- Directory ownership is acceptable only when boundaries are real and generated/shared files are excluded.\n- If two tasks need the same file, serialize them or assign the shared file to the integrator.\n- `project.pbxproj`, shared package manifests, central routing/DI registries, localization catalogs and generated outputs are high-collision resources.\n- A writer discovering required out-of-scope edits must stop and request scope expansion; it must not silently cross ownership.\n- Integration changes occur after child write scopes are closed."
+          ]
+        },
+        {
+          "unit_id": "LIB-1002-U02",
+          "source_path": "canonical/legacy-source/44_MULTI_AGENT_ORCHESTRATION/WRITE_SCOPE_POLICY.md",
+          "source_sha256": "f8bf530351991ba9e19bb1e54e7373abe5ba4c9cf41172e969952af1242acc90",
+          "source_heading": "Write Scope Policy",
+          "source_fragment": "# Write Scope Policy",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen complete coordination protocol bodies independently fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Conditional authority and archived numeric envelopes explicitly reviewed, no agents/chats/tool/runtime invoked.",
+          "evidence": "block-199-legacy-coordination-protocol-constraints.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Write Scope Policy\n\n## Default\nExplorers, auditors and reviewers are read-only. Parallel editing is allowed only after ownership partitioning.\n\n## Rules\n- One file has one writer per wave.\n- Directory ownership is acceptable only when boundaries are real and generated/shared files are excluded.\n- If two tasks need the same file, serialize them or assign the shared file to the integrator.\n- `project.pbxproj`, shared package manifests, central routing/DI registries, localization catalogs and generated outputs are high-collision resources.\n- A writer discovering required out-of-scope edits must stop and request scope expansion; it must not silently cross ownership.\n- Integration changes occur after child write scopes are closed."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1003",
