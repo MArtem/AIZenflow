@@ -167752,72 +167752,622 @@
       "path": "legacy-source/39_PROJECT_CONTEXT/RELEASE_POLICY.md",
       "sha256": "3838b3244e203a06f772ca27fc421f9965e20a53337408d055f8f3cfc209e3be",
       "bytes": 227,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0956-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/RELEASE_POLICY.md",
+          "source_sha256": "3838b3244e203a06f772ca27fc421f9965e20a53337408d055f8f3cfc209e3be",
+          "source_heading": "Release Policy",
+          "source_fragment": "# Release Policy",
+          "meaning": "Actual branch/candidate/signing owner/rollout/kill/containment and permitted release evidence. Blank form fields not project policy or shipping/Git/config permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual branch/candidate/signing owner/rollout/kill/containment and permitted release evidence. Blank form fields not project policy or shipping/Git/config permission.",
+          "destination_path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "destination_heading": "Build And Signing; Rollout; Release Receipt",
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Build And Signing",
+                "Rollout",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+              "headings": [
+                "Required Checks",
+                "Release Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Release Policy\n\n- Branch/release model:\n- Signing/provisioning ownership:\n- Feature flag system:\n- Staged rollout policy:\n- Kill-switch expectations:\n- TestFlight gates:\n- App Store checklist:\n- Rollback/containment options:"
+          ]
+        },
+        {
+          "unit_id": "LIB-0956-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/RELEASE_POLICY.md",
+          "source_sha256": "3838b3244e203a06f772ca27fc421f9965e20a53337408d055f8f3cfc209e3be",
+          "source_heading": "Release Policy",
+          "source_fragment": "# Release Policy",
+          "meaning": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Release Policy\n\n- Branch/release model:\n- Signing/provisioning ownership:\n- Feature flag system:\n- Staged rollout policy:\n- Kill-switch expectations:\n- TestFlight gates:\n- App Store checklist:\n- Rollback/containment options:"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0957",
       "path": "legacy-source/39_PROJECT_CONTEXT/REPO_COMMANDS.md",
       "sha256": "52f8fdd4119fa81953546d2332238b1d1c58feacc5367e44f6095cf8cf50a7c9",
       "bytes": 503,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0957-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/REPO_COMMANDS.md",
+          "source_sha256": "52f8fdd4119fa81953546d2332238b1d1c58feacc5367e44f6095cf8cf50a7c9",
+          "source_heading": "Repository Commands",
+          "source_fragment": "# Repository Commands",
+          "meaning": "Exact authoritative CI/script/docs/observed commands with target/environment/toolchain/runtime and scoped last verification, UNKNOWN if unavailable. Historical blank command catalog not real command/profile or PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact authoritative CI/script/docs/observed commands with target/environment/toolchain/runtime and scoped last verification, UNKNOWN if unavailable. Historical blank command catalog not real command/profile or PASS.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Reproducibility And CI; Evidence",
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Repository Commands\n\nRecord exact commands that are present in CI/scripts/docs or verified locally.\n\n## Bootstrap\n- dependencies: `UNKNOWN`\n\n## Build\n- main app: `UNKNOWN`\n- packages: `UNKNOWN`\n\n## Tests\n- unit: `UNKNOWN`\n- integration: `UNKNOWN`\n- UI: `UNKNOWN`\n\n## Quality\n- format: `UNKNOWN`\n- lint: `UNKNOWN`\n- generated code: `UNKNOWN`\n\n## Diagnostics\n- strict concurrency/build warnings: `UNKNOWN`\n\nFor each command optionally record required Xcode/runtime/env and last-known verification date."
+          ]
+        },
+        {
+          "unit_id": "LIB-0957-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/REPO_COMMANDS.md",
+          "source_sha256": "52f8fdd4119fa81953546d2332238b1d1c58feacc5367e44f6095cf8cf50a7c9",
+          "source_heading": "Repository Commands",
+          "source_fragment": "# Repository Commands",
+          "meaning": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Repository Commands\n\nRecord exact commands that are present in CI/scripts/docs or verified locally.\n\n## Bootstrap\n- dependencies: `UNKNOWN`\n\n## Build\n- main app: `UNKNOWN`\n- packages: `UNKNOWN`\n\n## Tests\n- unit: `UNKNOWN`\n- integration: `UNKNOWN`\n- UI: `UNKNOWN`\n\n## Quality\n- format: `UNKNOWN`\n- lint: `UNKNOWN`\n- generated code: `UNKNOWN`\n\n## Diagnostics\n- strict concurrency/build warnings: `UNKNOWN`\n\nFor each command optionally record required Xcode/runtime/env and last-known verification date."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0958",
       "path": "legacy-source/39_PROJECT_CONTEXT/TARGET_MATRIX.md",
       "sha256": "3999c839651259552f4352684ce7d4b2d65c51fd17d653b98d51421f1241f752",
       "bytes": 297,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0958-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/TARGET_MATRIX.md",
+          "source_sha256": "3999c839651259552f4352684ce7d4b2d65c51fd17d653b98d51421f1241f752",
+          "source_heading": "Target Matrix",
+          "source_fragment": "# Target Matrix",
+          "meaning": "Actual all affected app/extension/package/test consumers and target/scheme/config/language/SDK/deployment evidence before availability claims. Blank matrix or watch mention not verified topology or platform scope expansion.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual all affected app/extension/package/test consumers and target/scheme/config/language/SDK/deployment evidence before availability claims. Blank matrix or watch mention not verified topology or platform scope expansion.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Targets And Build Phases",
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Targets And Build Phases"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Evidence boundary"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Target Matrix\n\n| Target | Type | Platform | Min OS | Swift mode | Scheme | Key dependencies | Tests |\n|---|---|---|---|---|---|---|---|\n\nInclude app extensions, widgets, watch targets, packages and test bundles. Availability decisions must consider every affected target, not only the main app."
+          ]
+        },
+        {
+          "unit_id": "LIB-0958-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/TARGET_MATRIX.md",
+          "source_sha256": "3999c839651259552f4352684ce7d4b2d65c51fd17d653b98d51421f1241f752",
+          "source_heading": "Target Matrix",
+          "source_fragment": "# Target Matrix",
+          "meaning": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Target Matrix\n\n| Target | Type | Platform | Min OS | Swift mode | Scheme | Key dependencies | Tests |\n|---|---|---|---|---|---|---|---|\n\nInclude app extensions, widgets, watch targets, packages and test bundles. Availability decisions must consider every affected target, not only the main app."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0959",
       "path": "legacy-source/40_REPO_AUTOMATION/README.md",
       "sha256": "2bec01a8e0d559fa2f6ca49889e4420fd992af6f69a94a24a2b24cacd0441cf1",
       "bytes": 2269,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0959-U01",
+          "source_path": "canonical/legacy-source/40_REPO_AUTOMATION/README.md",
+          "source_sha256": "2bec01a8e0d559fa2f6ca49889e4420fd992af6f69a94a24a2b24cacd0441cf1",
+          "source_heading": "Repository Automation Helpers",
+          "source_fragment": "# Repository Automation Helpers",
+          "meaning": "Discovery inventories/scanner leads/metadata checks never engineering verdict or runtime/performance/security proof, effects inspected rather than read-only label. Historical read-only helper claim qualified by independently reviewed block176 actual suppressions/inactive limitations; no script import/execution/install.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Discovery inventories/scanner leads/metadata checks never engineering verdict or runtime/performance/security proof, effects inspected rather than read-only label. Historical read-only helper claim qualified by independently reviewed block176 actual suppressions/inactive limitations; no script import/execution/install.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 3. Verification Ladder",
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Repository Automation Helpers\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nThese helpers are deliberately read-only or diff-only. They discover facts and produce review leads; they do not replace Xcode build/test, Instruments, security review or engineering judgment. The installable copies live in `REPOSITORY_KIT/repo-root/scripts/ai/`.\n\n- `repo_intake.py` — JSON inventory of projects/workspaces/schemes/settings/CI and heuristic technology signals.\n- `discover_xcode.sh` — list shared schemes and project/workspace candidates.\n- `swift_risk_scan.py` — scan changed Swift lines for high-risk constructs; output is leads, not defects.\n- `verify_diff.sh` — status + `git diff --check` + changed files + risk leads.\n- `validate_ai_layer.py` — validate installed skill metadata."
+          ]
+        },
+        {
+          "unit_id": "LIB-0959-U02",
+          "source_path": "canonical/legacy-source/40_REPO_AUTOMATION/README.md",
+          "source_sha256": "2bec01a8e0d559fa2f6ca49889e4420fd992af6f69a94a24a2b24cacd0441cf1",
+          "source_heading": "Repository Automation Helpers",
+          "source_fragment": "# Repository Automation Helpers",
+          "meaning": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Repository Automation Helpers\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nThese helpers are deliberately read-only or diff-only. They discover facts and produce review leads; they do not replace Xcode build/test, Instruments, security review or engineering judgment. The installable copies live in `REPOSITORY_KIT/repo-root/scripts/ai/`.\n\n- `repo_intake.py` — JSON inventory of projects/workspaces/schemes/settings/CI and heuristic technology signals.\n- `discover_xcode.sh` — list shared schemes and project/workspace candidates.\n- `swift_risk_scan.py` — scan changed Swift lines for high-risk constructs; output is leads, not defects.\n- `verify_diff.sh` — status + `git diff --check` + changed files + risk leads.\n- `validate_ai_layer.py` — validate installed skill metadata."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0960",
       "path": "legacy-source/41_PROJECT_ADAPTIVE/ACTIVE_SKILL_SELECTION.md",
       "sha256": "a82ee0476f5c75c5b324f808a1eb879d4964df185ab580c56aa1e7042c971084",
       "bytes": 775,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0960-U01",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/ACTIVE_SKILL_SELECTION.md",
+          "source_sha256": "a82ee0476f5c75c5b324f808a1eb879d4964df185ab580c56aa1e7042c971084",
+          "source_heading": "Active Skill Selection",
+          "source_fragment": "# Active Skill Selection",
+          "meaning": "Relevant actual technology/risk boundary selects smallest current owner route; automatic selection not permission to ignore relevant evidence. Source always-include intake/router/implementation/review/testing/planning and fixed namespaced mappings superseded by selective current chain.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Relevant actual technology/risk boundary selects smallest current owner route; automatic selection not permission to ignore relevant evidence. Source always-include intake/router/implementation/review/testing/planning and fixed namespaced mappings superseded by selective current chain.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule",
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1A. PR Risk Card And Scope"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Active Skill Selection\n\nAlways include repository intake, task routing, implementation, review, testing and change planning. Add domain skills based on observed technologies and risk boundaries. Examples:\n- SwiftUI signal → `ioslib-swiftui`\n- UIKit signal → `ioslib-uikit`\n- Swift concurrency constructs → `ioslib-swift-concurrency`\n- Core Data / SwiftData / Realm / GRDB → persistence and migration skills\n- auth/session terms → `ioslib-networking-auth` + security/privacy\n- StoreKit → `ioslib-storekit`\n- App Intents → `ioslib-app-intents`\n- widgets/extensions/background → `ioslib-background-execution` and system integrations\n\nSkill selection is a routing optimization, not permission to ignore a relevant skill merely because it was not auto-selected."
+          ]
+        },
+        {
+          "unit_id": "LIB-0960-U02",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/ACTIVE_SKILL_SELECTION.md",
+          "source_sha256": "a82ee0476f5c75c5b324f808a1eb879d4964df185ab580c56aa1e7042c971084",
+          "source_heading": "Active Skill Selection",
+          "source_fragment": "# Active Skill Selection",
+          "meaning": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Active Skill Selection\n\nAlways include repository intake, task routing, implementation, review, testing and change planning. Add domain skills based on observed technologies and risk boundaries. Examples:\n- SwiftUI signal → `ioslib-swiftui`\n- UIKit signal → `ioslib-uikit`\n- Swift concurrency constructs → `ioslib-swift-concurrency`\n- Core Data / SwiftData / Realm / GRDB → persistence and migration skills\n- auth/session terms → `ioslib-networking-auth` + security/privacy\n- StoreKit → `ioslib-storekit`\n- App Intents → `ioslib-app-intents`\n- widgets/extensions/background → `ioslib-background-execution` and system integrations\n\nSkill selection is a routing optimization, not permission to ignore a relevant skill merely because it was not auto-selected."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0961",
       "path": "legacy-source/41_PROJECT_ADAPTIVE/ADAPTATION_PROTOCOL.md",
       "sha256": "0a2e59ab0abcc932a18a1ab5124ef09ed4d982f6990d7c965ebd13e9adb40969",
       "bytes": 3112,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0961-U01",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/ADAPTATION_PROTOCOL.md",
+          "source_sha256": "0a2e59ab0abcc932a18a1ab5124ef09ed4d982f6990d7c965ebd13e9adb40969",
+          "source_heading": "Project Adaptation Protocol",
+          "source_fragment": "# Project Adaptation Protocol",
+          "meaning": "Exact repository/Git/project identity not first xcodeproj guess; observed/derived/heuristic/unknown provenance, source fingerprints and actual scoped consumer topology. Preserve hand-maintained context/foreign changes, candidate generation scoped validated not automatically promoted, no per-folder blanket AGENTS. No optional xcodebuild read-only assumption or generated-state action.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact repository/Git/project identity not first xcodeproj guess; observed/derived/heuristic/unknown provenance, source fingerprints and actual scoped consumer topology. Preserve hand-maintained context/foreign changes, candidate generation scoped validated not automatically promoted, no per-folder blanket AGENTS. No optional xcodebuild read-only assumption or generated-state action.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Targets And Build Phases; Evidence",
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Targets And Build Phases",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Hard Separation Rules"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Project Adaptation Protocol\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Phase A — Repository identity\nEstablish repository root, Git state, project/workspace/package topology and instruction files. Never assume the first `.xcodeproj` is the product entry point.\n\n## Phase B — Target and toolchain inventory\nInspect `project.pbxproj`, shared schemes, test plans, xcconfig files, Package manifests, CI, Fastlane/Make/scripts and optional read-only `xcodebuild -list -json` / `-showBuildSettings` evidence.\n\n## Phase C — Source topology\nMeasure Swift/ObjC source distribution, test directories, extensions and framework imports. Look for state, navigation, persistence, network, auth, concurrency and observation mechanisms.\n\n## Phase D — Model\nEvery model datum has a status:\n- **observed** — directly present in a repository/config/tool output.\n- **derived** — deterministic transformation of observed facts.\n- **heuristic** — pattern-based interpretation that can be wrong.\n- **unknown** — materially relevant but not established.\n\n## Phase E — Generate\nRender project docs and active skill recommendations. Preserve existing hand-maintained `.ai/project/*`; generated files live separately unless a human deliberately promotes facts.\n\n## Phase F — Scoped instructions\nPropose nested `AGENTS.md` only where a directory has a coherent responsibility and evidence for local rules. Never blanket-generate one per folder.\n\n## Phase G — Validate\nCheck JSON schema version, evidence paths, stale source fingerprints, referenced skills and candidate scope collisions. Report gaps rather than fabricating values."
+          ]
+        },
+        {
+          "unit_id": "LIB-0961-U02",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/ADAPTATION_PROTOCOL.md",
+          "source_sha256": "0a2e59ab0abcc932a18a1ab5124ef09ed4d982f6990d7c965ebd13e9adb40969",
+          "source_heading": "Project Adaptation Protocol",
+          "source_fragment": "# Project Adaptation Protocol",
+          "meaning": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Project Adaptation Protocol\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Phase A — Repository identity\nEstablish repository root, Git state, project/workspace/package topology and instruction files. Never assume the first `.xcodeproj` is the product entry point.\n\n## Phase B — Target and toolchain inventory\nInspect `project.pbxproj`, shared schemes, test plans, xcconfig files, Package manifests, CI, Fastlane/Make/scripts and optional read-only `xcodebuild -list -json` / `-showBuildSettings` evidence.\n\n## Phase C — Source topology\nMeasure Swift/ObjC source distribution, test directories, extensions and framework imports. Look for state, navigation, persistence, network, auth, concurrency and observation mechanisms.\n\n## Phase D — Model\nEvery model datum has a status:\n- **observed** — directly present in a repository/config/tool output.\n- **derived** — deterministic transformation of observed facts.\n- **heuristic** — pattern-based interpretation that can be wrong.\n- **unknown** — materially relevant but not established.\n\n## Phase E — Generate\nRender project docs and active skill recommendations. Preserve existing hand-maintained `.ai/project/*`; generated files live separately unless a human deliberately promotes facts.\n\n## Phase F — Scoped instructions\nPropose nested `AGENTS.md` only where a directory has a coherent responsibility and evidence for local rules. Never blanket-generate one per folder.\n\n## Phase G — Validate\nCheck JSON schema version, evidence paths, stale source fingerprints, referenced skills and candidate scope collisions. Report gaps rather than fabricating values."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0962",
       "path": "legacy-source/41_PROJECT_ADAPTIVE/ARCHITECTURE_INFERENCE_PROTOCOL.md",
       "sha256": "c351956e221d3ca07c6ccc06856c7c0b7539b40e7b5c2cff07d57c3dae9c23ed",
       "bytes": 714,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0962-U01",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/ARCHITECTURE_INFERENCE_PROTOCOL.md",
+          "source_sha256": "c351956e221d3ca07c6ccc06856c7c0b7539b40e7b5c2cff07d57c3dae9c23ed",
+          "source_heading": "Architecture Inference Protocol",
+          "source_fragment": "# Architecture Inference Protocol",
+          "meaning": "Directory/type suffix/import/state/nav/creation graph signals advisory until actual architecture docs/structural ownership evidence confirms; concentrated Coordinator names not architecture verdict. No migration/style rewrite from inferred label.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Directory/type suffix/import/state/nav/creation graph signals advisory until actual architecture docs/structural ownership evidence confirms; concentrated Coordinator names not architecture verdict. No migration/style rewrite from inferred label.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Architecture Detection And Review Gates; Invariants Before Style",
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Architecture Detection And Review Gates",
+                "Invariants Before Style"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Architecture Inference Protocol\n\nArchitecture inference is advisory. Inspect:\n- source directory/module boundaries;\n- suffix/type signals (`ViewModel`, `Reducer`, `Store`, `Coordinator`, `Router`, `Repository`, `UseCase`, `Interactor`, `Presenter`);\n- imports (`SwiftUI`, `UIKit`, `ComposableArchitecture`, RxSwift, Combine, SwiftData/CoreData etc.);\n- dependency direction visible in packages/projects;\n- state/observation primitives;\n- navigation ownership and dependency construction roots.\n\nOutput should prefer statements such as “Coordinator types are concentrated in X and Y” over “the app uses Coordinator architecture” unless project docs or structural evidence explicitly establish that claim."
+          ]
+        },
+        {
+          "unit_id": "LIB-0962-U02",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/ARCHITECTURE_INFERENCE_PROTOCOL.md",
+          "source_sha256": "c351956e221d3ca07c6ccc06856c7c0b7539b40e7b5c2cff07d57c3dae9c23ed",
+          "source_heading": "Architecture Inference Protocol",
+          "source_fragment": "# Architecture Inference Protocol",
+          "meaning": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Architecture Inference Protocol\n\nArchitecture inference is advisory. Inspect:\n- source directory/module boundaries;\n- suffix/type signals (`ViewModel`, `Reducer`, `Store`, `Coordinator`, `Router`, `Repository`, `UseCase`, `Interactor`, `Presenter`);\n- imports (`SwiftUI`, `UIKit`, `ComposableArchitecture`, RxSwift, Combine, SwiftData/CoreData etc.);\n- dependency direction visible in packages/projects;\n- state/observation primitives;\n- navigation ownership and dependency construction roots.\n\nOutput should prefer statements such as “Coordinator types are concentrated in X and Y” over “the app uses Coordinator architecture” unless project docs or structural evidence explicitly establish that claim."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0963",
       "path": "legacy-source/41_PROJECT_ADAPTIVE/BUILD_TEST_SYNTHESIS_PROTOCOL.md",
       "sha256": "3b6053a596103ebdcbbdeb36108189579f28ff3c379b06426527f88734cf5b46",
       "bytes": 717,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0963-U01",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/BUILD_TEST_SYNTHESIS_PROTOCOL.md",
+          "source_sha256": "3b6053a596103ebdcbbdeb36108189579f28ff3c379b06426527f88734cf5b46",
+          "source_heading": "Build & Test Command Synthesis",
+          "source_fragment": "# Build & Test Command Synthesis",
+          "meaning": "Actual merge/release CI and its scripts then documented developer/shared-scheme evidence before explicitly suggested synthesis, matching configuration/test-plan and environment. Placeholder/guessed destination or historical command syntax not established command or passed execution; no new runtime/toolchain request.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual merge/release CI and its scripts then documented developer/shared-scheme evidence before explicitly suggested synthesis, matching configuration/test-plan and environment. Placeholder/guessed destination or historical command syntax not established command or passed execution; no new runtime/toolchain request.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Reproducibility And CI; Evidence",
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Build & Test Command Synthesis\n\nV4 discovers **candidates**, not invented commands. Priority:\n1. commands executed by merge/release CI;\n2. repository scripts/Makefile/Fastlane called by CI;\n3. documented developer commands;\n4. shared Xcode scheme evidence;\n5. synthesized xcodebuild suggestion, explicitly labelled `suggested`.\n\nFor tests, detect test plans and preserve them in candidate commands. Apple supports discovering test plans with `xcodebuild -scheme <scheme> -showTestPlans` and selecting one with `-testPlan`.\n\nDo not hard-code a simulator runtime that the repository never establishes. A generated destination may use a clearly marked placeholder. Never report a synthesized command as having passed."
+          ]
+        },
+        {
+          "unit_id": "LIB-0963-U02",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/BUILD_TEST_SYNTHESIS_PROTOCOL.md",
+          "source_sha256": "3b6053a596103ebdcbbdeb36108189579f28ff3c379b06426527f88734cf5b46",
+          "source_heading": "Build & Test Command Synthesis",
+          "source_fragment": "# Build & Test Command Synthesis",
+          "meaning": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank release/command/target forms or fixed helper/adaptation/skill selection protocol packaging and global state/install aliases retained; useful actual constraints covered separately. Mandatory always-include skills and read-only labels are not current authority or proof, no generated context/command/AGENTS activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight project-context/automation/adaptation source bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Historical helper read-only claims qualified against already reviewed actual tools176; no commands executed or generated facts activated.",
+          "evidence": "block-196-legacy-project-adaptation-authority.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Build & Test Command Synthesis\n\nV4 discovers **candidates**, not invented commands. Priority:\n1. commands executed by merge/release CI;\n2. repository scripts/Makefile/Fastlane called by CI;\n3. documented developer commands;\n4. shared Xcode scheme evidence;\n5. synthesized xcodebuild suggestion, explicitly labelled `suggested`.\n\nFor tests, detect test plans and preserve them in candidate commands. Apple supports discovering test plans with `xcodebuild -scheme <scheme> -showTestPlans` and selecting one with `-testPlan`.\n\nDo not hard-code a simulator runtime that the repository never establishes. A generated destination may use a clearly marked placeholder. Never report a synthesized command as having passed."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0964",
