@@ -160781,108 +160781,903 @@
       "path": "legacy-source/36_REPOSITORY_NATIVE/AGENTS_DESIGN_STANDARD.md",
       "sha256": "5c87356ad96746dbbd622f4ae6f3f4920c332079f82ba7d57b01723174bc6fec",
       "bytes": 1089,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0871-U01",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/AGENTS_DESIGN_STANDARD.md",
+          "source_sha256": "5c87356ad96746dbbd622f4ae6f3f4920c332079f82ba7d57b01723174bc6fec",
+          "source_heading": "AGENTS.md Design Standard",
+          "source_fragment": "# AGENTS.md Design Standard",
+          "meaning": "Small scoped routing/ownership/source-of-truth rules rather than tutorials or volatile facts; local subtree narrows scope without weakening higher authority, actual owner and drift surfaced. No root/nested AGENTS placement or U8 entrypoint change.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Small scoped routing/ownership/source-of-truth rules rather than tutorials or volatile facts; local subtree narrows scope without weakening higher authority, actual owner and drift surfaced. No root/nested AGENTS placement or U8 entrypoint change.",
+          "destination_path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "destination_heading": "Active Authority And Historical Evidence; Import Gate",
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Active Authority And Historical Evidence",
+                "Import Gate"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# AGENTS.md Design Standard\n\nUse `AGENTS.md` as a routing map, not as an encyclopedia.\n\n## Root file should contain\n- project identity and top-level module map;\n- source-of-truth links for architecture, commands and quality gates;\n- mandatory before/after-edit behavior;\n- risk/evidence rules;\n- explicit paths to specialized skills;\n- local non-obvious constraints that materially change decisions.\n\n## Keep out of the root file\n- long framework tutorials;\n- duplicated Swift style guides;\n- every possible edge case;\n- volatile facts that can be mechanically discovered;\n- instructions that apply only to one subtree.\n\n## Nested AGENTS.md\nUse a nested file when a subtree has distinct invariants: persistence schemas, SDK public API, extension targets, test fixtures, generated code, security-sensitive modules, or scripts. More local rules should narrow the parent, not duplicate it.\n\n## Freshness\nEvery rule should have a clear owner/source. If the project reality differs from documentation, surface the drift and update the system of record instead of silently following stale text."
+          ]
+        },
+        {
+          "unit_id": "LIB-0871-U02",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/AGENTS_DESIGN_STANDARD.md",
+          "source_sha256": "5c87356ad96746dbbd622f4ae6f3f4920c332079f82ba7d57b01723174bc6fec",
+          "source_heading": "AGENTS.md Design Standard",
+          "source_fragment": "# AGENTS.md Design Standard",
+          "meaning": "Historical root/nested instruction-file layout and candidate placement preserved; actual root/entrypoint modification deferred under U8 and current authority, no template placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical root/nested instruction-file layout and candidate placement preserved; actual root/entrypoint modification deferred under U8 and current authority, no template placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# AGENTS.md Design Standard\n\nUse `AGENTS.md` as a routing map, not as an encyclopedia.\n\n## Root file should contain\n- project identity and top-level module map;\n- source-of-truth links for architecture, commands and quality gates;\n- mandatory before/after-edit behavior;\n- risk/evidence rules;\n- explicit paths to specialized skills;\n- local non-obvious constraints that materially change decisions.\n\n## Keep out of the root file\n- long framework tutorials;\n- duplicated Swift style guides;\n- every possible edge case;\n- volatile facts that can be mechanically discovered;\n- instructions that apply only to one subtree.\n\n## Nested AGENTS.md\nUse a nested file when a subtree has distinct invariants: persistence schemas, SDK public API, extension targets, test fixtures, generated code, security-sensitive modules, or scripts. More local rules should narrow the parent, not duplicate it.\n\n## Freshness\nEvery rule should have a clear owner/source. If the project reality differs from documentation, surface the drift and update the system of record instead of silently following stale text."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete repository-native legacy body independently read; exact current useful constraints covered where present, old packaging/installation/fixed modes or tests prescriptions archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0872",
       "path": "legacy-source/36_REPOSITORY_NATIVE/BUILD_TEST_COMMAND_DISCOVERY.md",
       "sha256": "e20ea0f79af52e9dd68bdf79fc2771d6471d797b460d7c0de047ad81bd7bb877",
       "bytes": 569,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0872-U01",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/BUILD_TEST_COMMAND_DISCOVERY.md",
+          "source_sha256": "e20ea0f79af52e9dd68bdf79fc2771d6471d797b460d7c0de047ad81bd7bb877",
+          "source_heading": "Build & Test Command Discovery",
+          "source_fragment": "# Build & Test Command Discovery",
+          "meaning": "Actual gating CI/script/shared scheme command provenance before synthesized candidates, exact target/configuration/availability and observed failure limits. No guessed simulator destination or substitute counted equivalent PASS; command remains data until currently authorized.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual gating CI/script/shared scheme command provenance before synthesized candidates, exact target/configuration/availability and observed failure limits. No guessed simulator destination or substitute counted equivalent PASS; command remains data until currently authorized.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Reproducibility And CI; Evidence",
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Build & Test Command Discovery\n\nPriority order:\n1. CI workflow commands that gate merges/releases.\n2. Repository scripts / Makefile / justfile / Fastlane lanes.\n3. Shared Xcode schemes in `xcshareddata/xcschemes`.\n4. Swift Package commands for package-only modules.\n5. Explicit project documentation.\n\nDo not guess a simulator destination, scheme or workspace when the repo can reveal it. If a command cannot run in the current environment (signing, unavailable runtime, network), preserve its exact failure as evidence and choose the narrowest available substitute."
+          ]
+        },
+        {
+          "unit_id": "LIB-0872-U02",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/BUILD_TEST_COMMAND_DISCOVERY.md",
+          "source_sha256": "e20ea0f79af52e9dd68bdf79fc2771d6471d797b460d7c0de047ad81bd7bb877",
+          "source_heading": "Build & Test Command Discovery",
+          "source_fragment": "# Build & Test Command Discovery",
+          "meaning": "Historical fixed discovery priority list and unavailable-command substitution recipe retained; exact current authority and evidence scope govern, no attempted command execution.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical fixed discovery priority list and unavailable-command substitution recipe retained; exact current authority and evidence scope govern, no attempted command execution.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Build & Test Command Discovery\n\nPriority order:\n1. CI workflow commands that gate merges/releases.\n2. Repository scripts / Makefile / justfile / Fastlane lanes.\n3. Shared Xcode schemes in `xcshareddata/xcschemes`.\n4. Swift Package commands for package-only modules.\n5. Explicit project documentation.\n\nDo not guess a simulator destination, scheme or workspace when the repo can reveal it. If a command cannot run in the current environment (signing, unavailable runtime, network), preserve its exact failure as evidence and choose the narrowest available substitute."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete repository-native legacy body independently read; exact current useful constraints covered where present, old packaging/installation/fixed modes or tests prescriptions archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0873",
       "path": "legacy-source/36_REPOSITORY_NATIVE/CODEX_SKILL_FORMAT_NOTES.md",
       "sha256": "bf3d8d3fcebf7b7077ac4a4a8d9ae60f4ac4bcad55f8452233a339f0e49b5c68",
       "bytes": 437,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0873-U01",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/CODEX_SKILL_FORMAT_NOTES.md",
+          "source_sha256": "bf3d8d3fcebf7b7077ac4a4a8d9ae60f4ac4bcad55f8452233a339f0e49b5c68",
+          "source_heading": "Codex Skill Format Notes",
+          "source_fragment": "# Codex Skill Format Notes",
+          "meaning": "Historical namespaced skill file/YAML/reference packaging instructions retained as metadata, not current installation/schema correctness or activation permission. Linked bodies independently reviewed elsewhere; this note supplies no linked-body coverage.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill file/YAML/reference packaging instructions retained as metadata, not current installation/schema correctness or activation permission. Linked bodies independently reviewed elsewhere; this note supplies no linked-body coverage.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Codex Skill Format Notes\n\nV3 skills use a required `SKILL.md` with YAML `name` and `description`; the body is loaded after the skill triggers. `agents/openai.yaml` carries user-facing display metadata/default prompt. References are kept in `references/` and should be loaded only when needed. The repository kit intentionally uses narrow skills rather than one giant iOS skill so context stays bounded and routing remains predictable."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete repository-native legacy body independently read; exact current useful constraints covered where present, old packaging/installation/fixed modes or tests prescriptions archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0874",
       "path": "legacy-source/36_REPOSITORY_NATIVE/CONTEXT_HYGIENE_POLICY.md",
       "sha256": "7085853277bf572e2f8b9e6f86d8a519c2c879bae7195f8d0fd83bd1fec81987",
       "bytes": 2259,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0874-U01",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/CONTEXT_HYGIENE_POLICY.md",
+          "source_sha256": "7085853277bf572e2f8b9e6f86d8a519c2c879bae7195f8d0fd83bd1fec81987",
+          "source_heading": "Context Hygiene Policy",
+          "source_fragment": "# Context Hygiene Policy",
+          "meaning": "Selective current route and exact relevant repository facts/call sites, assumptions discarded on contradictory evidence, unchanged docs not repeatedly loaded. Durable app/task knowledge in correct current boundaries rather than growing root prompt. Historical fixed 2–4 skills/288 playbooks/global external-state aliases not mandatory loading or state-creation grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Selective current route and exact relevant repository facts/call sites, assumptions discarded on contradictory evidence, unchanged docs not repeatedly loaded. Durable app/task knowledge in correct current boundaries rather than growing root prompt. Historical fixed 2–4 skills/288 playbooks/global external-state aliases not mandatory loading or state-creation grant.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule; Maintenance Ownership",
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule",
+                "Maintenance Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Hard Separation Rules"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Context Hygiene Policy\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n1. Start with root `AGENTS.md` and project context index.\n2. Load the smallest matching skill.\n3. Load only the referenced project/domain files needed for the current task.\n4. Do not bulk-load all 288 deep playbooks.\n5. Prefer repository facts, generated maps and exact call sites over generic prose.\n6. Summarize large files before loading adjacent references.\n7. Keep assumptions explicit and discard them when contradicted by evidence.\n8. Do not re-read static documents repeatedly in one task unless they changed.\n9. For cross-cutting work, compose 2–4 skills; avoid activating the whole library.\n10. After the task, record durable project knowledge in `.ai/project`, not in an ever-growing root prompt."
+          ]
+        },
+        {
+          "unit_id": "LIB-0874-U02",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/CONTEXT_HYGIENE_POLICY.md",
+          "source_sha256": "7085853277bf572e2f8b9e6f86d8a519c2c879bae7195f8d0fd83bd1fec81987",
+          "source_heading": "Context Hygiene Policy",
+          "source_fragment": "# Context Hygiene Policy",
+          "meaning": "Historical global path-mapping shim/state/install aliases and fixed 288-playbook/2–4-skill prescriptions archived; no extra Library pass or external-state creation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical global path-mapping shim/state/install aliases and fixed 288-playbook/2–4-skill prescriptions archived; no extra Library pass or external-state creation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Context Hygiene Policy\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n1. Start with root `AGENTS.md` and project context index.\n2. Load the smallest matching skill.\n3. Load only the referenced project/domain files needed for the current task.\n4. Do not bulk-load all 288 deep playbooks.\n5. Prefer repository facts, generated maps and exact call sites over generic prose.\n6. Summarize large files before loading adjacent references.\n7. Keep assumptions explicit and discard them when contradicted by evidence.\n8. Do not re-read static documents repeatedly in one task unless they changed.\n9. For cross-cutting work, compose 2–4 skills; avoid activating the whole library.\n10. After the task, record durable project knowledge in `.ai/project`, not in an ever-growing root prompt."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete repository-native legacy body independently read; exact current useful constraints covered where present, old packaging/installation/fixed modes or tests prescriptions archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0875",
       "path": "legacy-source/36_REPOSITORY_NATIVE/DEPENDENCY_ADMISSION_PROTOCOL.md",
       "sha256": "7db7194afe3fd512866cce406ee336812ff6cae46918c7b1c3d2246b94b58edd",
       "bytes": 589,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0875-U01",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/DEPENDENCY_ADMISSION_PROTOCOL.md",
+          "source_sha256": "7db7194afe3fd512866cce406ee336812ff6cae46918c7b1c3d2246b94b58edd",
+          "source_heading": "Dependency Admission Protocol",
+          "source_fragment": "# Dependency Admission Protocol",
+          "meaning": "Concrete needed dependency ownership/maintenance/license/distribution/toolchain/deployment/runtime/privacy/concurrency/transitive graph and testability/exit decision, actual consumer costs not shortcut/fashion. No dependency download/install/integration authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Concrete needed dependency ownership/maintenance/license/distribution/toolchain/deployment/runtime/privacy/concurrency/transitive graph and testability/exit decision, actual consumer costs not shortcut/fashion. No dependency download/install/integration authority.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Supply Chain; SDK Consumer Boundary",
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1A. PR Risk Card And Scope"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Dependency Admission Protocol\n\nBefore adding an SPM/binary/CocoaPods dependency, record:\n- problem impossible or costly to solve with platform/local code;\n- maintenance/release cadence and ownership;\n- license and distribution implications;\n- supported deployment/toolchain matrix;\n- binary size/startup/runtime impact;\n- privacy manifest / required-reason API / network behavior;\n- concurrency/sendability model;\n- transitive graph and supply-chain risk;\n- testability and removal/exit plan.\n\nA dependency is an architectural decision, not a shortcut to avoid writing 50 lines of code."
+          ]
+        },
+        {
+          "unit_id": "LIB-0875-U02",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/DEPENDENCY_ADMISSION_PROTOCOL.md",
+          "source_sha256": "7db7194afe3fd512866cce406ee336812ff6cae46918c7b1c3d2246b94b58edd",
+          "source_heading": "Dependency Admission Protocol",
+          "source_fragment": "# Dependency Admission Protocol",
+          "meaning": "Historical standalone dependency-admission protocol packaging preserved; substantive need/license/cost/exit constraints covered by current owners, no package admission or installation from this source.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone dependency-admission protocol packaging preserved; substantive need/license/cost/exit constraints covered by current owners, no package admission or installation from this source.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Dependency Admission Protocol\n\nBefore adding an SPM/binary/CocoaPods dependency, record:\n- problem impossible or costly to solve with platform/local code;\n- maintenance/release cadence and ownership;\n- license and distribution implications;\n- supported deployment/toolchain matrix;\n- binary size/startup/runtime impact;\n- privacy manifest / required-reason API / network behavior;\n- concurrency/sendability model;\n- transitive graph and supply-chain risk;\n- testability and removal/exit plan.\n\nA dependency is an architectural decision, not a shortcut to avoid writing 50 lines of code."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete repository-native legacy body independently read; exact current useful constraints covered where present, old packaging/installation/fixed modes or tests prescriptions archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0876",
       "path": "legacy-source/36_REPOSITORY_NATIVE/EVIDENCE_CONTRACT_V3.md",
       "sha256": "df6852846f97a13ab3deefbdfb252862c46086b421ff0e0b41c8cd32ebf39060",
       "bytes": 718,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0876-U01",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/EVIDENCE_CONTRACT_V3.md",
+          "source_sha256": "df6852846f97a13ab3deefbdfb252862c46086b421ff0e0b41c8cd32ebf39060",
+          "source_heading": "Repository Evidence Contract",
+          "source_fragment": "# Repository Evidence Contract",
+          "meaning": "Observed executed evidence versus inspected source versus inference and UNKNOWN with exact commands/targets/negative paths/recovery where relevant. Build/static/unit PASS not semantic compatibility/leak/race/performance proof; old R2 labels not current evidence phase or gate vocabulary.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Observed executed evidence versus inspected source versus inference and UNKNOWN with exact commands/targets/negative paths/recovery where relevant. Build/static/unit PASS not semantic compatibility/leak/race/performance proof; old R2 labels not current evidence phase or gate vocabulary.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "3. Verification Ladder; Completion Contract",
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Evidence Completion"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Repository Evidence Contract\n\nAgent reports must distinguish:\n- **Observed** — command output, compiler diagnostics, test result, Instruments/log evidence.\n- **Inspected** — directly read from source/configuration.\n- **Inferred** — reasoned from inspected facts but not executed.\n- **Unknown** — unavailable or intentionally unverified.\n\nNever translate \"code looks correct\" into \"verified\". Build success does not prove semantic compatibility; unit tests do not prove absence of leaks/races; static review does not prove performance improvement.\n\nFor R2+ changes, final reporting includes the exact verification commands, affected targets, negative paths checked, and rollback/containment where meaningful."
+          ]
+        },
+        {
+          "unit_id": "LIB-0876-U02",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/EVIDENCE_CONTRACT_V3.md",
+          "source_sha256": "df6852846f97a13ab3deefbdfb252862c46086b421ff0e0b41c8cd32ebf39060",
+          "source_heading": "Repository Evidence Contract",
+          "source_fragment": "# Repository Evidence Contract",
+          "meaning": "Historical R2+ label/report format retained; current authority/status vocabulary and evidence limits govern, no test/profiling or containment action.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical R2+ label/report format retained; current authority/status vocabulary and evidence limits govern, no test/profiling or containment action.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Repository Evidence Contract\n\nAgent reports must distinguish:\n- **Observed** — command output, compiler diagnostics, test result, Instruments/log evidence.\n- **Inspected** — directly read from source/configuration.\n- **Inferred** — reasoned from inspected facts but not executed.\n- **Unknown** — unavailable or intentionally unverified.\n\nNever translate \"code looks correct\" into \"verified\". Build success does not prove semantic compatibility; unit tests do not prove absence of leaks/races; static review does not prove performance improvement.\n\nFor R2+ changes, final reporting includes the exact verification commands, affected targets, negative paths checked, and rollback/containment where meaningful."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete repository-native legacy body independently read; exact current useful constraints covered where present, old packaging/installation/fixed modes or tests prescriptions archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0877",
       "path": "legacy-source/36_REPOSITORY_NATIVE/GIT_PR_POLICY.md",
       "sha256": "b252b36b571740323cc0b16e78c9178e614b61e8f0720aa21dfa1cdfcbf853f4",
       "bytes": 578,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0877-U01",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/GIT_PR_POLICY.md",
+          "source_sha256": "b252b36b571740323cc0b16e78c9178e614b61e8f0720aa21dfa1cdfcbf853f4",
+          "source_heading": "Git / PR Policy",
+          "source_fragment": "# Git / PR Policy",
+          "meaning": "Inspect exact status/current diff and actual contract, preserve unrelated work, final full consumer/generated/lockfile review and concrete failure/minimal fix with verification gaps. High-risk invariants/migration/observation/recovery current-scoped; no new Git class authorized.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Inspect exact status/current diff and actual contract, preserve unrelated work, final full consumer/generated/lockfile review and concrete failure/minimal fix with verification gaps. High-risk invariants/migration/observation/recovery current-scoped; no new Git class authorized.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 4. Final Adversarial Review; 5. Exact-SHA Review Receipt",
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review",
+                "5. Exact-SHA Review Receipt"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Git / PR Policy\n\nBefore editing: inspect `git status`, current diff and relevant history when behavior is unclear. Never overwrite unrelated user changes.\n\nBefore finalizing: run `git diff --check`, inspect the final diff, identify generated/lockfile changes, and report unverified areas. PR review findings must name a concrete failure scenario and a minimal correction; style-only noise is not a finding unless the repository explicitly gates it.\n\nHigh-risk PRs should state: invariants, migration/compatibility, rollout/feature flag, observability, rollback, and evidence."
+          ]
+        },
+        {
+          "unit_id": "LIB-0877-U02",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/GIT_PR_POLICY.md",
+          "source_sha256": "b252b36b571740323cc0b16e78c9178e614b61e8f0720aa21dfa1cdfcbf853f4",
+          "source_heading": "Git / PR Policy",
+          "source_fragment": "# Git / PR Policy",
+          "meaning": "Historical Git/PR standalone policy/report format retained; source workflow instruction supplies no new Git authority, actual user-owned docs publication separately authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical Git/PR standalone policy/report format retained; source workflow instruction supplies no new Git authority, actual user-owned docs publication separately authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Git / PR Policy\n\nBefore editing: inspect `git status`, current diff and relevant history when behavior is unclear. Never overwrite unrelated user changes.\n\nBefore finalizing: run `git diff --check`, inspect the final diff, identify generated/lockfile changes, and report unverified areas. PR review findings must name a concrete failure scenario and a minimal correction; style-only noise is not a finding unless the repository explicitly gates it.\n\nHigh-risk PRs should state: invariants, migration/compatibility, rollout/feature flag, observability, rollback, and evidence."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete repository-native legacy body independently read; exact current useful constraints covered where present, old packaging/installation/fixed modes or tests prescriptions archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0878",
       "path": "legacy-source/36_REPOSITORY_NATIVE/NESTED_AGENTS_STRATEGY.md",
       "sha256": "484a872d442d4903095385832bea49258008ccc4399b5ada4fcb8c01dccb265c",
       "bytes": 604,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0878-U01",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/NESTED_AGENTS_STRATEGY.md",
+          "source_sha256": "484a872d442d4903095385832bea49258008ccc4399b5ada4fcb8c01dccb265c",
+          "source_heading": "Nested AGENTS Strategy",
+          "source_fragment": "# Nested AGENTS Strategy",
+          "meaning": "Known actual subtree path/owner and distinct data/auth/API/extension/generated/fixture/release invariants before scoped rule proposal; stronger parent/current user authority retained, templates not automatically placed.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Known actual subtree path/owner and distinct data/auth/API/extension/generated/fixture/release invariants before scoped rule proposal; stronger parent/current user authority retained, templates not automatically placed.",
+          "destination_path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "destination_heading": "Active Authority And Historical Evidence; Hard Separation Rules",
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Active Authority And Historical Evidence",
+                "Hard Separation Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Nested AGENTS Strategy\n\nGood candidates for nested instruction files:\n- `Sources/Persistence/` — schema/migration invariants.\n- `Sources/Auth/` — secret/session/logout semantics.\n- `Sources/SDK/` — public API/ABI/source compatibility.\n- `Extensions/` — restricted APIs, lifecycle/background budgets.\n- `Tests/` — fixture/test isolation conventions.\n- `Generated/` — never hand-edit; regeneration command.\n- `Scripts/Release/` — signing/release safety.\n\nInstall a nested file only after the real repository paths are known. Templates live in `39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/`."
+          ]
+        },
+        {
+          "unit_id": "LIB-0878-U02",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/NESTED_AGENTS_STRATEGY.md",
+          "source_sha256": "484a872d442d4903095385832bea49258008ccc4399b5ada4fcb8c01dccb265c",
+          "source_heading": "Nested AGENTS Strategy",
+          "source_fragment": "# Nested AGENTS Strategy",
+          "meaning": "Historical suggested Sources/Extensions/Tests/Generated/Release paths and linked template locations archived; actual paths/authority required before placement, no nested rule activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical suggested Sources/Extensions/Tests/Generated/Release paths and linked template locations archived; actual paths/authority required before placement, no nested rule activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Nested AGENTS Strategy\n\nGood candidates for nested instruction files:\n- `Sources/Persistence/` — schema/migration invariants.\n- `Sources/Auth/` — secret/session/logout semantics.\n- `Sources/SDK/` — public API/ABI/source compatibility.\n- `Extensions/` — restricted APIs, lifecycle/background budgets.\n- `Tests/` — fixture/test isolation conventions.\n- `Generated/` — never hand-edit; regeneration command.\n- `Scripts/Release/` — signing/release safety.\n\nInstall a nested file only after the real repository paths are known. Templates live in `39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/`."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete repository-native legacy body independently read; exact current useful constraints covered where present, old packaging/installation/fixed modes or tests prescriptions archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0879",
       "path": "legacy-source/36_REPOSITORY_NATIVE/PATCH_DISCIPLINE.md",
       "sha256": "781bc87b1be0dbec22e68b4eab97641812936fe48aab4553597fae6848633aa2",
       "bytes": 614,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0879-U01",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/PATCH_DISCIPLINE.md",
+          "source_sha256": "781bc87b1be0dbec22e68b4eab97641812936fe48aab4553597fae6848633aa2",
+          "source_heading": "Patch Discipline",
+          "source_fragment": "# Patch Discipline",
+          "meaning": "Inspect first, minimal coherent authorized behavioral patch, actual architecture/consumer compatibility and no speculative single-consumer abstraction; intentional generated/lockfiles and review after format/codegen. Source unconditional test update superseded by current permission-bound test phase.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Inspect first, minimal coherent authorized behavioral patch, actual architecture/consumer compatibility and no speculative single-consumer abstraction; intentional generated/lockfiles and review after format/codegen. Source unconditional test update superseded by current permission-bound test phase.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Patch Discipline\n\n- inspect before editing;\n- preserve existing local architecture unless a violated invariant requires change;\n- prefer the smallest coherent behavioral patch;\n- do not combine cleanup with functional changes unless necessary for correctness;\n- do not introduce abstractions with one speculative consumer;\n- update tests at the observable contract boundary;\n- keep generated files and package locks intentional;\n- preserve public API/source compatibility unless migration is explicit;\n- review `git diff` after formatting/codegen;\n- identify every changed file that has a distinct risk profile."
+          ]
+        },
+        {
+          "unit_id": "LIB-0879-U02",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/PATCH_DISCIPLINE.md",
+          "source_sha256": "781bc87b1be0dbec22e68b4eab97641812936fe48aab4553597fae6848633aa2",
+          "source_heading": "Patch Discipline",
+          "source_fragment": "# Patch Discipline",
+          "meaning": "Historical patch-list packaging and unconditional update-tests prescription retained; current permission-bound test-writing phase prevails, no formatting/codegen or source mutation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical patch-list packaging and unconditional update-tests prescription retained; current permission-bound test-writing phase prevails, no formatting/codegen or source mutation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Patch Discipline\n\n- inspect before editing;\n- preserve existing local architecture unless a violated invariant requires change;\n- prefer the smallest coherent behavioral patch;\n- do not combine cleanup with functional changes unless necessary for correctness;\n- do not introduce abstractions with one speculative consumer;\n- update tests at the observable contract boundary;\n- keep generated files and package locks intentional;\n- preserve public API/source compatibility unless migration is explicit;\n- review `git diff` after formatting/codegen;\n- identify every changed file that has a distinct risk profile."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete repository-native legacy body independently read; exact current useful constraints covered where present, old packaging/installation/fixed modes or tests prescriptions archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0880",
       "path": "legacy-source/36_REPOSITORY_NATIVE/REPO_BOOTSTRAP_PROTOCOL.md",
       "sha256": "b59779149c12146daa7869146e1ffc9888aafe1eaa5b73ce60d5b457264b01e1",
       "bytes": 2681,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0880-U01",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/REPO_BOOTSTRAP_PROTOCOL.md",
+          "source_sha256": "b59779149c12146daa7869146e1ffc9888aafe1eaa5b73ce60d5b457264b01e1",
+          "source_heading": "Repository Bootstrap Protocol",
+          "source_fragment": "# Repository Bootstrap Protocol",
+          "meaning": "Actual project/target/CI/ownership/high-risk boundary discovery and exact source-of-truth/UNKNOWN, known versus observed commands and scoped validation. Historical six-phase install/bootstrap/global-state paths archived; no skill/AGENTS/helper/profile creation or command run.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual project/target/CI/ownership/high-risk boundary discovery and exact source-of-truth/UNKNOWN, known versus observed commands and scoped validation. Historical six-phase install/bootstrap/global-state paths archived; no skill/AGENTS/helper/profile creation or command run.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Targets And Build Phases; Evidence",
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Targets And Build Phases",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Import Gate"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Repository Bootstrap Protocol\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Phase 1 — Discovery\nDetect workspace/project, packages, targets, schemes, deployment targets, Swift mode, UI stacks, persistence, networking/auth, extensions, CI and test systems.\n\n## Phase 2 — Source-of-truth map\nFill `.ai/project/PROJECT_CONTEXT.md`, `TARGET_MATRIX.md`, `REPO_COMMANDS.md`, `ARCHITECTURE_MAP.md`, and ownership/boundary documents. Unknown facts stay `UNKNOWN`; never fill by invention.\n\n## Phase 3 — Command verification\nResolve real build/test/lint commands from CI, scripts, Makefiles, package manifests and Xcode schemes. Record only commands that are known or observed.\n\n## Phase 4 — Risk map\nIdentify user-data stores, auth/payment boundaries, public SDK/API surfaces, concurrency hot spots, third-party binary SDKs, release gates and irreversible migrations.\n\n## Phase 5 — Agent layer\nInstall root map + narrow skills. Add nested AGENTS templates only where the repo needs subtree-specific rules.\n\n## Phase 6 — Validation\nValidate skill metadata, links and scripts. Run repository inspection read-only. Do not run destructive migrations or signing/release operations during bootstrap."
+          ]
+        },
+        {
+          "unit_id": "LIB-0880-U02",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/REPO_BOOTSTRAP_PROTOCOL.md",
+          "source_sha256": "b59779149c12146daa7869146e1ffc9888aafe1eaa5b73ce60d5b457264b01e1",
+          "source_heading": "Repository Bootstrap Protocol",
+          "source_fragment": "# Repository Bootstrap Protocol",
+          "meaning": "Historical six-phase bootstrap/install sequence, global state/shim aliases and generated project fact templates preserved; discovery/read instructions not execution/install permission.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical six-phase bootstrap/install sequence, global state/shim aliases and generated project fact templates preserved; discovery/read instructions not execution/install permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Repository Bootstrap Protocol\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Phase 1 — Discovery\nDetect workspace/project, packages, targets, schemes, deployment targets, Swift mode, UI stacks, persistence, networking/auth, extensions, CI and test systems.\n\n## Phase 2 — Source-of-truth map\nFill `.ai/project/PROJECT_CONTEXT.md`, `TARGET_MATRIX.md`, `REPO_COMMANDS.md`, `ARCHITECTURE_MAP.md`, and ownership/boundary documents. Unknown facts stay `UNKNOWN`; never fill by invention.\n\n## Phase 3 — Command verification\nResolve real build/test/lint commands from CI, scripts, Makefiles, package manifests and Xcode schemes. Record only commands that are known or observed.\n\n## Phase 4 — Risk map\nIdentify user-data stores, auth/payment boundaries, public SDK/API surfaces, concurrency hot spots, third-party binary SDKs, release gates and irreversible migrations.\n\n## Phase 5 — Agent layer\nInstall root map + narrow skills. Add nested AGENTS templates only where the repo needs subtree-specific rules.\n\n## Phase 6 — Validation\nValidate skill metadata, links and scripts. Run repository inspection read-only. Do not run destructive migrations or signing/release operations during bootstrap."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete repository-native legacy body independently read; exact current useful constraints covered where present, old packaging/installation/fixed modes or tests prescriptions archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0881",
       "path": "legacy-source/36_REPOSITORY_NATIVE/TASK_ROUTING_MATRIX.md",
       "sha256": "f6a0968f0b136c68dcffba137936b61317663f0b844251f6215f9b366be09ada",
       "bytes": 1041,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0881-U01",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/TASK_ROUTING_MATRIX.md",
+          "source_sha256": "f6a0968f0b136c68dcffba137936b61317663f0b844251f6215f9b366be09ada",
+          "source_heading": "Task Routing Matrix",
+          "source_fragment": "# Task Routing Matrix",
+          "meaning": "Outcome/risk boundary routes selectively to smallest current owner, another route only distinct relevant risk. Old namespaced matrix fixed framework/skill mappings archived, no separate obligatory Library pass or skill invocation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Outcome/risk boundary routes selectively to smallest current owner, another route only distinct relevant risk. Old namespaced matrix fixed framework/skill mappings archived, no separate obligatory Library pass or skill invocation.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule",
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Task Routing Matrix\n\n| Task | Primary skill | Often compose with |\n|---|---|---|\n| Feature implementation | `ioslib-implementation` | architecture, testing, domain skill |\n| PR/diff review | `ioslib-pr-review` | concurrency, security, persistence, API contract |\n| Crash/hang | `ioslib-crash-debugging` | diagnostic, concurrency, memory |\n| Race/isolation | `ioslib-swift-concurrency` | diagnostic, testing |\n| SwiftUI behavior/state | `ioslib-swiftui` | architecture, testing, accessibility |\n| Auth/token/session | `ioslib-networking-auth` | security-privacy, concurrency, testing |\n| Schema/data migration | `ioslib-data-migration` | persistence, release, observability |\n| Performance regression | `ioslib-performance` | observability, memory-leaks |\n| Legacy modernization | `ioslib-legacy-modernization` | migration, architecture, testing |\n| Release/hotfix | `ioslib-hotfix-release` / `ioslib-release` | observability, feature-flags, security |\n\nStart with one primary skill. Add another only when it owns a distinct risk boundary."
+          ]
+        },
+        {
+          "unit_id": "LIB-0881-U02",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/TASK_ROUTING_MATRIX.md",
+          "source_sha256": "f6a0968f0b136c68dcffba137936b61317663f0b844251f6215f9b366be09ada",
+          "source_heading": "Task Routing Matrix",
+          "source_fragment": "# Task Routing Matrix",
+          "meaning": "Historical namespaced task-to-skill composition matrix retained; referenced skill bodies reviewed separately, no linked-body coverage or mandatory Library loading from matrix.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced task-to-skill composition matrix retained; referenced skill bodies reviewed separately, no linked-body coverage or mandatory Library loading from matrix.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Task Routing Matrix\n\n| Task | Primary skill | Often compose with |\n|---|---|---|\n| Feature implementation | `ioslib-implementation` | architecture, testing, domain skill |\n| PR/diff review | `ioslib-pr-review` | concurrency, security, persistence, API contract |\n| Crash/hang | `ioslib-crash-debugging` | diagnostic, concurrency, memory |\n| Race/isolation | `ioslib-swift-concurrency` | diagnostic, testing |\n| SwiftUI behavior/state | `ioslib-swiftui` | architecture, testing, accessibility |\n| Auth/token/session | `ioslib-networking-auth` | security-privacy, concurrency, testing |\n| Schema/data migration | `ioslib-data-migration` | persistence, release, observability |\n| Performance regression | `ioslib-performance` | observability, memory-leaks |\n| Legacy modernization | `ioslib-legacy-modernization` | migration, architecture, testing |\n| Release/hotfix | `ioslib-hotfix-release` / `ioslib-release` | observability, feature-flags, security |\n\nStart with one primary skill. Add another only when it owns a distinct risk boundary."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete repository-native legacy body independently read; exact current useful constraints covered where present, old packaging/installation/fixed modes or tests prescriptions archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0882",
       "path": "legacy-source/36_REPOSITORY_NATIVE/V3_REPOSITORY_NATIVE_OVERVIEW.md",
       "sha256": "c3a4f32b33eec0972f5a84fb94cb6f00a0f6ef7110a814586eba008931525c9e",
       "bytes": 3073,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0882-U01",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/V3_REPOSITORY_NATIVE_OVERVIEW.md",
+          "source_sha256": "c3a4f32b33eec0972f5a84fb94cb6f00a0f6ef7110a814586eba008931525c9e",
+          "source_heading": "V3 Repository-Native Edition",
+          "source_fragment": "# V3 Repository-Native Edition",
+          "meaning": "Specific actual repository facts within higher-priority current authority, selective disclosure/scoped rules/deterministic scripts not engineering judgment, discovered commands and proportionate evidence/recovery. V3 repository-kit/global aliases/installation architecture archived, no activation or lowered bootstrap.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Specific actual repository facts within higher-priority current authority, selective disclosure/scoped rules/deterministic scripts not engineering judgment, discovered commands and proportionate evidence/recovery. V3 repository-kit/global aliases/installation architecture archived, no activation or lowered bootstrap.",
+          "destination_path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "destination_heading": "Canonical Roots; Hard Separation Rules; Active Authority And Historical Evidence",
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Hard Separation Rules",
+                "Active Authority And Historical Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3 Repository-Native Edition\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nV3 превращает библиотеку V2 в слой инженерного управления, который можно установить непосредственно в iOS-репозиторий.\n\n## Цель\nНе заставлять coding agent помнить сотни страниц. Корневой `AGENTS.md` работает как карта, `.agents/skills` — как маршрутизируемые operational skills, `.ai/project` — как project-specific source of truth, а полная V2/V3 library загружается только по необходимости.\n\n## Слои\n1. **Repository map** — короткий `AGENTS.md`.\n2. **Project truth** — `.ai/project/*.md`.\n3. **Executable skills** — `.agents/skills/<skill>/SKILL.md`.\n4. **Deterministic helpers** — `scripts/ai/*`.\n5. **Deep knowledge** — optional `.ai/ios-library` (full profile).\n6. **Evidence contract** — build/test/diagnostic claims only from observed output.\n\n## Инварианты V3\n- repository facts beat generic best practices;\n- nested `AGENTS.md` may narrow rules for their subtree;\n- context is progressively disclosed;\n- skills are narrow enough to trigger predictably;\n- scripts automate deterministic inspection, not engineering judgment;\n- no destructive write is performed by bootstrap tools unless explicitly requested;\n- project commands are discovered and recorded rather than guessed;\n- high-risk changes require rollout/rollback and evidence proportional to risk."
+          ]
+        },
+        {
+          "unit_id": "LIB-0882-U02",
+          "source_path": "canonical/legacy-source/36_REPOSITORY_NATIVE/V3_REPOSITORY_NATIVE_OVERVIEW.md",
+          "source_sha256": "c3a4f32b33eec0972f5a84fb94cb6f00a0f6ef7110a814586eba008931525c9e",
+          "source_heading": "V3 Repository-Native Edition",
+          "source_fragment": "# V3 Repository-Native Edition",
+          "meaning": "Historical V3 repository-kit layers and global external-state/CLI installation aliases preserved as provenance; no generated state/helper/bootstrap infrastructure activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 repository-kit layers and global external-state/CLI installation aliases preserved as provenance; no generated state/helper/bootstrap infrastructure activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve repository-native legacy bodies fully read; SHA/literals/current unique headings and semantic owners/task mirrors/prior rows/copies/full final diff/exact-SHA verified. No runtime/tool/installation/global alias executed; source prescriptions superseded by current authority.",
+          "evidence": "block-189-legacy-repository-native-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3 Repository-Native Edition\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nV3 превращает библиотеку V2 в слой инженерного управления, который можно установить непосредственно в iOS-репозиторий.\n\n## Цель\nНе заставлять coding agent помнить сотни страниц. Корневой `AGENTS.md` работает как карта, `.agents/skills` — как маршрутизируемые operational skills, `.ai/project` — как project-specific source of truth, а полная V2/V3 library загружается только по необходимости.\n\n## Слои\n1. **Repository map** — короткий `AGENTS.md`.\n2. **Project truth** — `.ai/project/*.md`.\n3. **Executable skills** — `.agents/skills/<skill>/SKILL.md`.\n4. **Deterministic helpers** — `scripts/ai/*`.\n5. **Deep knowledge** — optional `.ai/ios-library` (full profile).\n6. **Evidence contract** — build/test/diagnostic claims only from observed output.\n\n## Инварианты V3\n- repository facts beat generic best practices;\n- nested `AGENTS.md` may narrow rules for their subtree;\n- context is progressively disclosed;\n- skills are narrow enough to trigger predictably;\n- scripts automate deterministic inspection, not engineering judgment;\n- no destructive write is performed by bootstrap tools unless explicitly requested;\n- project commands are discovered and recorded rather than guessed;\n- high-risk changes require rollout/rollback and evidence proportional to risk."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete repository-native legacy body independently read; exact current useful constraints covered where present, old packaging/installation/fixed modes or tests prescriptions archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0883",
