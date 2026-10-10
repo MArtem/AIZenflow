@@ -169081,135 +169081,1238 @@
       "path": "legacy-source/42_V4_AGENT_ROLES/V4-ROLE-01_PROJECT_MAPPER.md",
       "sha256": "11097b45a985e9cb79a81fd9e3c2c0a13186ef136468cc99a6139a1952e8c380",
       "bytes": 480,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0973-U01",
+          "source_path": "canonical/legacy-source/42_V4_AGENT_ROLES/V4-ROLE-01_PROJECT_MAPPER.md",
+          "source_sha256": "11097b45a985e9cb79a81fd9e3c2c0a13186ef136468cc99a6139a1952e8c380",
+          "source_heading": "Project Mapper",
+          "source_fragment": "# Project Mapper",
+          "meaning": "Actual scoped objective: Build and maintain the evidence-labelled repository model; never convert heuristic architecture signals into facts. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Build and maintain the evidence-labelled repository model; never convert heuristic architecture signals into facts. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule; Maintenance Ownership",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule",
+                "Maintenance Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Project Mapper\n\n## Mission\nBuild and maintain the evidence-labelled repository model; never convert heuristic architecture signals into facts.\n\n## Required output\nObserved evidence, derived facts, heuristic leads with confidence, unknowns, recommended next inspection, and any stale-context warning.\n\n## Guardrails\nDo not edit product code while mapping. Do not execute discovered repository commands merely because they appear in CI text. Prefer UNKNOWN to invented certainty."
+          ]
+        },
+        {
+          "unit_id": "LIB-0973-U02",
+          "source_path": "canonical/legacy-source/42_V4_AGENT_ROLES/V4-ROLE-01_PROJECT_MAPPER.md",
+          "source_sha256": "11097b45a985e9cb79a81fd9e3c2c0a13186ef136468cc99a6139a1952e8c380",
+          "source_heading": "Project Mapper",
+          "source_fragment": "# Project Mapper",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Project Mapper\n\n## Mission\nBuild and maintain the evidence-labelled repository model; never convert heuristic architecture signals into facts.\n\n## Required output\nObserved evidence, derived facts, heuristic leads with confidence, unknowns, recommended next inspection, and any stale-context warning.\n\n## Guardrails\nDo not edit product code while mapping. Do not execute discovered repository commands merely because they appear in CI text. Prefer UNKNOWN to invented certainty."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0974",
       "path": "legacy-source/42_V4_AGENT_ROLES/V4-ROLE-02_TARGET_MATRIX_ENGINEER.md",
       "sha256": "d39fe1351fb1831ff1e7afe4f0964eec409ab32c58a8e3f0ef99706934022151",
       "bytes": 483,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0974-U01",
+          "source_path": "canonical/legacy-source/42_V4_AGENT_ROLES/V4-ROLE-02_TARGET_MATRIX_ENGINEER.md",
+          "source_sha256": "d39fe1351fb1831ff1e7afe4f0964eec409ab32c58a8e3f0ef99706934022151",
+          "source_heading": "Target Matrix Engineer",
+          "source_fragment": "# Target Matrix Engineer",
+          "meaning": "Actual scoped objective: Resolve projects, workspaces, schemes, targets, configurations, deployment ranges and extension/test topology. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Resolve projects, workspaces, schemes, targets, configurations, deployment ranges and extension/test topology. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Targets And Build Phases; Reproducibility And CI; Evidence",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Targets And Build Phases",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Target Matrix Engineer\n\n## Mission\nResolve projects, workspaces, schemes, targets, configurations, deployment ranges and extension/test topology.\n\n## Required output\nObserved evidence, derived facts, heuristic leads with confidence, unknowns, recommended next inspection, and any stale-context warning.\n\n## Guardrails\nDo not edit product code while mapping. Do not execute discovered repository commands merely because they appear in CI text. Prefer UNKNOWN to invented certainty."
+          ]
+        },
+        {
+          "unit_id": "LIB-0974-U02",
+          "source_path": "canonical/legacy-source/42_V4_AGENT_ROLES/V4-ROLE-02_TARGET_MATRIX_ENGINEER.md",
+          "source_sha256": "d39fe1351fb1831ff1e7afe4f0964eec409ab32c58a8e3f0ef99706934022151",
+          "source_heading": "Target Matrix Engineer",
+          "source_fragment": "# Target Matrix Engineer",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Target Matrix Engineer\n\n## Mission\nResolve projects, workspaces, schemes, targets, configurations, deployment ranges and extension/test topology.\n\n## Required output\nObserved evidence, derived facts, heuristic leads with confidence, unknowns, recommended next inspection, and any stale-context warning.\n\n## Guardrails\nDo not edit product code while mapping. Do not execute discovered repository commands merely because they appear in CI text. Prefer UNKNOWN to invented certainty."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0975",
       "path": "legacy-source/42_V4_AGENT_ROLES/V4-ROLE-03_COMMAND_DISCOVERY_ENGINEER.md",
       "sha256": "c07a8f20869d8c409ba2728f6a47746a4f7a7335306c32eeea680f85ea351202",
       "bytes": 506,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0975-U01",
+          "source_path": "canonical/legacy-source/42_V4_AGENT_ROLES/V4-ROLE-03_COMMAND_DISCOVERY_ENGINEER.md",
+          "source_sha256": "c07a8f20869d8c409ba2728f6a47746a4f7a7335306c32eeea680f85ea351202",
+          "source_heading": "Build/Test Command Discovery Engineer",
+          "source_fragment": "# Build/Test Command Discovery Engineer",
+          "meaning": "Actual scoped objective: Trace merge/release CI to executable repository commands and keep synthesized xcodebuild invocations clearly labelled. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Trace merge/release CI to executable repository commands and keep synthesized xcodebuild invocations clearly labelled. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Targets And Build Phases; Reproducibility And CI; Evidence",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Targets And Build Phases",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Build/Test Command Discovery Engineer\n\n## Mission\nTrace merge/release CI to executable repository commands and keep synthesized xcodebuild invocations clearly labelled.\n\n## Required output\nObserved evidence, derived facts, heuristic leads with confidence, unknowns, recommended next inspection, and any stale-context warning.\n\n## Guardrails\nDo not edit product code while mapping. Do not execute discovered repository commands merely because they appear in CI text. Prefer UNKNOWN to invented certainty."
+          ]
+        },
+        {
+          "unit_id": "LIB-0975-U02",
+          "source_path": "canonical/legacy-source/42_V4_AGENT_ROLES/V4-ROLE-03_COMMAND_DISCOVERY_ENGINEER.md",
+          "source_sha256": "c07a8f20869d8c409ba2728f6a47746a4f7a7335306c32eeea680f85ea351202",
+          "source_heading": "Build/Test Command Discovery Engineer",
+          "source_fragment": "# Build/Test Command Discovery Engineer",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Build/Test Command Discovery Engineer\n\n## Mission\nTrace merge/release CI to executable repository commands and keep synthesized xcodebuild invocations clearly labelled.\n\n## Required output\nObserved evidence, derived facts, heuristic leads with confidence, unknowns, recommended next inspection, and any stale-context warning.\n\n## Guardrails\nDo not edit product code while mapping. Do not execute discovered repository commands merely because they appear in CI text. Prefer UNKNOWN to invented certainty."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0976",
       "path": "legacy-source/42_V4_AGENT_ROLES/V4-ROLE-04_ARCHITECTURE_CARTOGRAPHER.md",
       "sha256": "23537dd81c5f215e9e918da09ab926fac697ab11f0395f7c91a77069679aa3d4",
       "bytes": 482,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0976-U01",
+          "source_path": "canonical/legacy-source/42_V4_AGENT_ROLES/V4-ROLE-04_ARCHITECTURE_CARTOGRAPHER.md",
+          "source_sha256": "23537dd81c5f215e9e918da09ab926fac697ab11f0395f7c91a77069679aa3d4",
+          "source_heading": "Architecture Cartographer",
+          "source_fragment": "# Architecture Cartographer",
+          "meaning": "Actual scoped objective: Map state ownership, module boundaries, navigation roots and dependency directions from concrete evidence. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Map state ownership, module boundaries, navigation roots and dependency directions from concrete evidence. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Detection And Review Gates",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Architecture Cartographer\n\n## Mission\nMap state ownership, module boundaries, navigation roots and dependency directions from concrete evidence.\n\n## Required output\nObserved evidence, derived facts, heuristic leads with confidence, unknowns, recommended next inspection, and any stale-context warning.\n\n## Guardrails\nDo not edit product code while mapping. Do not execute discovered repository commands merely because they appear in CI text. Prefer UNKNOWN to invented certainty."
+          ]
+        },
+        {
+          "unit_id": "LIB-0976-U02",
+          "source_path": "canonical/legacy-source/42_V4_AGENT_ROLES/V4-ROLE-04_ARCHITECTURE_CARTOGRAPHER.md",
+          "source_sha256": "23537dd81c5f215e9e918da09ab926fac697ab11f0395f7c91a77069679aa3d4",
+          "source_heading": "Architecture Cartographer",
+          "source_fragment": "# Architecture Cartographer",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Architecture Cartographer\n\n## Mission\nMap state ownership, module boundaries, navigation roots and dependency directions from concrete evidence.\n\n## Required output\nObserved evidence, derived facts, heuristic leads with confidence, unknowns, recommended next inspection, and any stale-context warning.\n\n## Guardrails\nDo not edit product code while mapping. Do not execute discovered repository commands merely because they appear in CI text. Prefer UNKNOWN to invented certainty."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0977",
       "path": "legacy-source/42_V4_AGENT_ROLES/V4-ROLE-05_AI_CONTEXT_CURATOR.md",
       "sha256": "e813ca993420eb9d58ff490fbc99d999bfcf0cc65dba232a6613e995d3b64842",
       "bytes": 470,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0977-U01",
+          "source_path": "canonical/legacy-source/42_V4_AGENT_ROLES/V4-ROLE-05_AI_CONTEXT_CURATOR.md",
+          "source_sha256": "e813ca993420eb9d58ff490fbc99d999bfcf0cc65dba232a6613e995d3b64842",
+          "source_heading": "AI Context Curator",
+          "source_fragment": "# AI Context Curator",
+          "meaning": "Actual scoped objective: Keep generated project context fresh, minimal, scoped, non-secret and separated from human decisions. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Keep generated project context fresh, minimal, scoped, non-secret and separated from human decisions. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "destination_heading": "Canonical Roots; Hard Separation Rules; Active Authority And Historical Evidence",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Hard Separation Rules",
+                "Active Authority And Historical Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# AI Context Curator\n\n## Mission\nKeep generated project context fresh, minimal, scoped, non-secret and separated from human decisions.\n\n## Required output\nObserved evidence, derived facts, heuristic leads with confidence, unknowns, recommended next inspection, and any stale-context warning.\n\n## Guardrails\nDo not edit product code while mapping. Do not execute discovered repository commands merely because they appear in CI text. Prefer UNKNOWN to invented certainty."
+          ]
+        },
+        {
+          "unit_id": "LIB-0977-U02",
+          "source_path": "canonical/legacy-source/42_V4_AGENT_ROLES/V4-ROLE-05_AI_CONTEXT_CURATOR.md",
+          "source_sha256": "e813ca993420eb9d58ff490fbc99d999bfcf0cc65dba232a6613e995d3b64842",
+          "source_heading": "AI Context Curator",
+          "source_fragment": "# AI Context Curator",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# AI Context Curator\n\n## Mission\nKeep generated project context fresh, minimal, scoped, non-secret and separated from human decisions.\n\n## Required output\nObserved evidence, derived facts, heuristic leads with confidence, unknowns, recommended next inspection, and any stale-context warning.\n\n## Guardrails\nDo not edit product code while mapping. Do not execute discovered repository commands merely because they appear in CI text. Prefer UNKNOWN to invented certainty."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0978",
       "path": "legacy-source/43_V4_WORKFLOWS/V4-WF-01_FIRST_ADAPTATION.md",
       "sha256": "2da492666a63e482e71e9b2378939de591ef7bb7fd72b5c31c8a7b7be1560b3f",
       "bytes": 422,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0978-U01",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-01_FIRST_ADAPTATION.md",
+          "source_sha256": "2da492666a63e482e71e9b2378939de591ef7bb7fd72b5c31c8a7b7be1560b3f",
+          "source_heading": "First repository adaptation",
+          "source_fragment": "# First repository adaptation",
+          "meaning": "Actual scoped objective: Run static intake, generate PROJECT_MODEL, render docs, review unknowns, optionally use read-only Xcode discovery, then promote only confirmed facts to hand-maintained project context. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Run static intake, generate PROJECT_MODEL, render docs, review unknowns, optionally use read-only Xcode discovery, then promote only confirmed facts to hand-maintained project context. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule; Maintenance Ownership",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule",
+                "Maintenance Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# First repository adaptation\n\n## Procedure\nRun static intake, generate PROJECT_MODEL, render docs, review unknowns, optionally use read-only Xcode discovery, then promote only confirmed facts to hand-maintained project context.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        },
+        {
+          "unit_id": "LIB-0978-U02",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-01_FIRST_ADAPTATION.md",
+          "source_sha256": "2da492666a63e482e71e9b2378939de591ef7bb7fd72b5c31c8a7b7be1560b3f",
+          "source_heading": "First repository adaptation",
+          "source_fragment": "# First repository adaptation",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# First repository adaptation\n\n## Procedure\nRun static intake, generate PROJECT_MODEL, render docs, review unknowns, optionally use read-only Xcode discovery, then promote only confirmed facts to hand-maintained project context.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0979",
       "path": "legacy-source/43_V4_WORKFLOWS/V4-WF-02_CONTEXT_REFRESH.md",
       "sha256": "e2cf97c1cdf1fa0dd13588d6b0b56f2dcc3d13ea6806aa0677f8609d2860ca05",
       "bytes": 400,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0979-U01",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-02_CONTEXT_REFRESH.md",
+          "source_sha256": "e2cf97c1cdf1fa0dd13588d6b0b56f2dcc3d13ea6806aa0677f8609d2860ca05",
+          "source_heading": "Refresh after repository drift",
+          "source_fragment": "# Refresh after repository drift",
+          "meaning": "Actual scoped objective: Compare fingerprint, re-run adaptation, inspect changed targets/dependencies/commands/signals, preserve decision log, and review candidate nested instructions. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Compare fingerprint, re-run adaptation, inspect changed targets/dependencies/commands/signals, preserve decision log, and review candidate nested instructions. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "destination_heading": "Canonical Roots; Hard Separation Rules; Active Authority And Historical Evidence",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Hard Separation Rules",
+                "Active Authority And Historical Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Refresh after repository drift\n\n## Procedure\nCompare fingerprint, re-run adaptation, inspect changed targets/dependencies/commands/signals, preserve decision log, and review candidate nested instructions.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        },
+        {
+          "unit_id": "LIB-0979-U02",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-02_CONTEXT_REFRESH.md",
+          "source_sha256": "e2cf97c1cdf1fa0dd13588d6b0b56f2dcc3d13ea6806aa0677f8609d2860ca05",
+          "source_heading": "Refresh after repository drift",
+          "source_fragment": "# Refresh after repository drift",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Refresh after repository drift\n\n## Procedure\nCompare fingerprint, re-run adaptation, inspect changed targets/dependencies/commands/signals, preserve decision log, and review candidate nested instructions.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0980",
       "path": "legacy-source/43_V4_WORKFLOWS/V4-WF-03_TARGET_CHANGE.md",
       "sha256": "ebd02f0a6f40bc89dc9c78aa85a58bdcdcc704bff923b1b19b028f25249930a0",
       "bytes": 356,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0980-U01",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-03_TARGET_CHANGE.md",
+          "source_sha256": "ebd02f0a6f40bc89dc9c78aa85a58bdcdcc704bff923b1b19b028f25249930a0",
+          "source_heading": "New or changed Xcode target",
+          "source_fragment": "# New or changed Xcode target",
+          "meaning": "Actual scoped objective: Rebuild target matrix, availability impact, scheme/test-plan coverage, entitlements/capabilities and active skill set. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Rebuild target matrix, availability impact, scheme/test-plan coverage, entitlements/capabilities and active skill set. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Targets And Build Phases; Reproducibility And CI; Evidence",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Targets And Build Phases",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# New or changed Xcode target\n\n## Procedure\nRebuild target matrix, availability impact, scheme/test-plan coverage, entitlements/capabilities and active skill set.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        },
+        {
+          "unit_id": "LIB-0980-U02",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-03_TARGET_CHANGE.md",
+          "source_sha256": "ebd02f0a6f40bc89dc9c78aa85a58bdcdcc704bff923b1b19b028f25249930a0",
+          "source_heading": "New or changed Xcode target",
+          "source_fragment": "# New or changed Xcode target",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# New or changed Xcode target\n\n## Procedure\nRebuild target matrix, availability impact, scheme/test-plan coverage, entitlements/capabilities and active skill set.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0981",
       "path": "legacy-source/43_V4_WORKFLOWS/V4-WF-04_CI_COMMAND_CHANGE.md",
       "sha256": "64140d70cf0bfa8eb7b58541d847eabe430cc10fce62461a9cf79eba9781b85d",
       "bytes": 374,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0981-U01",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-04_CI_COMMAND_CHANGE.md",
+          "source_sha256": "64140d70cf0bfa8eb7b58541d847eabe430cc10fce62461a9cf79eba9781b85d",
+          "source_heading": "CI or build command change",
+          "source_fragment": "# CI or build command change",
+          "meaning": "Actual scoped objective: Trace new CI invocation to local command candidates, update provenance and verify no stale synthesized command remains canonical-looking. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Trace new CI invocation to local command candidates, update provenance and verify no stale synthesized command remains canonical-looking. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Targets And Build Phases; Reproducibility And CI; Evidence",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Targets And Build Phases",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# CI or build command change\n\n## Procedure\nTrace new CI invocation to local command candidates, update provenance and verify no stale synthesized command remains canonical-looking.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        },
+        {
+          "unit_id": "LIB-0981-U02",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-04_CI_COMMAND_CHANGE.md",
+          "source_sha256": "64140d70cf0bfa8eb7b58541d847eabe430cc10fce62461a9cf79eba9781b85d",
+          "source_heading": "CI or build command change",
+          "source_fragment": "# CI or build command change",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# CI or build command change\n\n## Procedure\nTrace new CI invocation to local command candidates, update provenance and verify no stale synthesized command remains canonical-looking.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0982",
       "path": "legacy-source/43_V4_WORKFLOWS/V4-WF-05_ARCHITECTURE_REMAP.md",
       "sha256": "a5543bae9e7c3009e918a44e7d8e2a1977a62376cd43c4a91706a97f300dc883",
       "bytes": 348,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0982-U01",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-05_ARCHITECTURE_REMAP.md",
+          "source_sha256": "a5543bae9e7c3009e918a44e7d8e2a1977a62376cd43c4a91706a97f300dc883",
+          "source_heading": "Architecture remap",
+          "source_fragment": "# Architecture remap",
+          "meaning": "Actual scoped objective: Compare directory/type/import signals before/after, map owners/callers and record human-confirmed decisions separately. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Compare directory/type/import signals before/after, map owners/callers and record human-confirmed decisions separately. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Detection And Review Gates",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Architecture remap\n\n## Procedure\nCompare directory/type/import signals before/after, map owners/callers and record human-confirmed decisions separately.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        },
+        {
+          "unit_id": "LIB-0982-U02",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-05_ARCHITECTURE_REMAP.md",
+          "source_sha256": "a5543bae9e7c3009e918a44e7d8e2a1977a62376cd43c4a91706a97f300dc883",
+          "source_heading": "Architecture remap",
+          "source_fragment": "# Architecture remap",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Architecture remap\n\n## Procedure\nCompare directory/type/import signals before/after, map owners/callers and record human-confirmed decisions separately.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0983",
       "path": "legacy-source/43_V4_WORKFLOWS/V4-WF-06_DEPENDENCY_CHANGE.md",
       "sha256": "cacad974cc936f97cc054eb82911a0f63ebcb634e2e9361419bac32f8ab53984",
       "bytes": 392,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0983-U01",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-06_DEPENDENCY_CHANGE.md",
+          "source_sha256": "cacad974cc936f97cc054eb82911a0f63ebcb634e2e9361419bac32f8ab53984",
+          "source_heading": "Dependency graph adaptation",
+          "source_fragment": "# Dependency graph adaptation",
+          "meaning": "Actual scoped objective: Refresh Package and project dependency evidence, identify new trust/runtime/build boundaries and enable admission/security/performance skills as relevant. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Refresh Package and project dependency evidence, identify new trust/runtime/build boundaries and enable admission/security/performance skills as relevant. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Supply Chain; SDK Consumer Boundary",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Dependency graph adaptation\n\n## Procedure\nRefresh Package and project dependency evidence, identify new trust/runtime/build boundaries and enable admission/security/performance skills as relevant.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        },
+        {
+          "unit_id": "LIB-0983-U02",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-06_DEPENDENCY_CHANGE.md",
+          "source_sha256": "cacad974cc936f97cc054eb82911a0f63ebcb634e2e9361419bac32f8ab53984",
+          "source_heading": "Dependency graph adaptation",
+          "source_fragment": "# Dependency graph adaptation",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Dependency graph adaptation\n\n## Procedure\nRefresh Package and project dependency evidence, identify new trust/runtime/build boundaries and enable admission/security/performance skills as relevant.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0984",
       "path": "legacy-source/43_V4_WORKFLOWS/V4-WF-07_PERSISTENCE_AUTH_RISK_REFRESH.md",
       "sha256": "87b79737301710c03bb883b5f1a90a444aed8dc5f5b1f5f732465f5ef0535d92",
       "bytes": 364,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0984-U01",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-07_PERSISTENCE_AUTH_RISK_REFRESH.md",
+          "source_sha256": "87b79737301710c03bb883b5f1a90a444aed8dc5f5b1f5f732465f5ef0535d92",
+          "source_heading": "Persistence/auth risk refresh",
+          "source_fragment": "# Persistence/auth risk refresh",
+          "meaning": "Actual scoped objective: Re-evaluate high-blast-radius boundaries after schema, session or token changes and surface migration/security audit skills. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Re-evaluate high-blast-radius boundaries after schema, session or token changes and surface migration/security audit skills. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle; Authorization Rules",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Authorization Rules"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Persistence/auth risk refresh\n\n## Procedure\nRe-evaluate high-blast-radius boundaries after schema, session or token changes and surface migration/security audit skills.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        },
+        {
+          "unit_id": "LIB-0984-U02",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-07_PERSISTENCE_AUTH_RISK_REFRESH.md",
+          "source_sha256": "87b79737301710c03bb883b5f1a90a444aed8dc5f5b1f5f732465f5ef0535d92",
+          "source_heading": "Persistence/auth risk refresh",
+          "source_fragment": "# Persistence/auth risk refresh",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Persistence/auth risk refresh\n\n## Procedure\nRe-evaluate high-blast-radius boundaries after schema, session or token changes and surface migration/security audit skills.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0985",
       "path": "legacy-source/43_V4_WORKFLOWS/V4-WF-08_NESTED_AGENTS_REVIEW.md",
       "sha256": "e03dc541d8d6f7e90ac2cb59445625e608c3e122c13cde61c223452421dc86fb",
       "bytes": 357,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0985-U01",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-08_NESTED_AGENTS_REVIEW.md",
+          "source_sha256": "e03dc541d8d6f7e90ac2cb59445625e608c3e122c13cde61c223452421dc86fb",
+          "source_heading": "Nested AGENTS review",
+          "source_fragment": "# Nested AGENTS review",
+          "meaning": "Actual scoped objective: Generate candidates, check overlap and precedence, remove generic duplication, then manually place only stable local policies. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Generate candidates, check overlap and precedence, remove generic duplication, then manually place only stable local policies. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "destination_heading": "Canonical Roots; Hard Separation Rules; Active Authority And Historical Evidence",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Hard Separation Rules",
+                "Active Authority And Historical Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Nested AGENTS review\n\n## Procedure\nGenerate candidates, check overlap and precedence, remove generic duplication, then manually place only stable local policies.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        },
+        {
+          "unit_id": "LIB-0985-U02",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-08_NESTED_AGENTS_REVIEW.md",
+          "source_sha256": "e03dc541d8d6f7e90ac2cb59445625e608c3e122c13cde61c223452421dc86fb",
+          "source_heading": "Nested AGENTS review",
+          "source_fragment": "# Nested AGENTS review",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Nested AGENTS review\n\n## Procedure\nGenerate candidates, check overlap and precedence, remove generic duplication, then manually place only stable local policies.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0986",
       "path": "legacy-source/43_V4_WORKFLOWS/V4-WF-09_PROJECT_ONBOARDING.md",
       "sha256": "bf25e22cfab562ae4ef58a4d9a9b27ac8d4681ecdc4f7da4028581b66a047fc2",
       "bytes": 408,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0986-U01",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-09_PROJECT_ONBOARDING.md",
+          "source_sha256": "bf25e22cfab562ae4ef58a4d9a9b27ac8d4681ecdc4f7da4028581b66a047fc2",
+          "source_heading": "AI-assisted engineer onboarding",
+          "source_fragment": "# AI-assisted engineer onboarding",
+          "meaning": "Actual scoped objective: Use generated maps to explain target topology, commands, architecture signals, risks, active skills and unknowns without presenting heuristics as documentation truth. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Use generated maps to explain target topology, commands, architecture signals, risks, active skills and unknowns without presenting heuristics as documentation truth. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule; Maintenance Ownership",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule",
+                "Maintenance Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# AI-assisted engineer onboarding\n\n## Procedure\nUse generated maps to explain target topology, commands, architecture signals, risks, active skills and unknowns without presenting heuristics as documentation truth.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        },
+        {
+          "unit_id": "LIB-0986-U02",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-09_PROJECT_ONBOARDING.md",
+          "source_sha256": "bf25e22cfab562ae4ef58a4d9a9b27ac8d4681ecdc4f7da4028581b66a047fc2",
+          "source_heading": "AI-assisted engineer onboarding",
+          "source_fragment": "# AI-assisted engineer onboarding",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# AI-assisted engineer onboarding\n\n## Procedure\nUse generated maps to explain target topology, commands, architecture signals, risks, active skills and unknowns without presenting heuristics as documentation truth.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0987",
       "path": "legacy-source/43_V4_WORKFLOWS/V4-WF-10_PRE_CHANGE_ADAPTIVE_ROUTING.md",
       "sha256": "f2bbe1324739db4edbcdfcf6cacf0566e0ea98b7e569d98c16fa246b121f348b",
       "bytes": 383,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0987-U01",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-10_PRE_CHANGE_ADAPTIVE_ROUTING.md",
+          "source_sha256": "f2bbe1324739db4edbcdfcf6cacf0566e0ea98b7e569d98c16fa246b121f348b",
+          "source_heading": "Pre-change adaptive routing",
+          "source_fragment": "# Pre-change adaptive routing",
+          "meaning": "Actual scoped objective: Load current model, identify affected targets/boundaries, select task/domain skills, assign R-level and verification matrix before changing code. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped objective: Load current model, identify affected targets/boundaries, select task/domain skills, assign R-level and verification matrix before changing code. Current evidence/provenance separates observed/derived/heuristic/UNKNOWN, actual fingerprints/targets/consumer ownership, authoritative command candidates and human decisions. No product mutation during mapping and discovered commands remain data. All run/generate/refresh/enable/place/model-load prescriptions conditional on current scope; no profile/AGENTS/tool/skill activation.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule; Maintenance Ownership",
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule",
+                "Maintenance Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Pre-change adaptive routing\n\n## Procedure\nLoad current model, identify affected targets/boundaries, select task/domain skills, assign R-level and verification matrix before changing code.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        },
+        {
+          "unit_id": "LIB-0987-U02",
+          "source_path": "canonical/legacy-source/43_V4_WORKFLOWS/V4-WF-10_PRE_CHANGE_ADAPTIVE_ROUTING.md",
+          "source_sha256": "f2bbe1324739db4edbcdfcf6cacf0566e0ea98b7e569d98c16fa246b121f348b",
+          "source_heading": "Pre-change adaptive routing",
+          "source_fragment": "# Pre-change adaptive routing",
+          "meaning": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 role/procedure/exit form and generated PROJECT_MODEL/fingerprint/active-skill/R-level adaptation machinery archived. Current useful scoped provenance/ownership/UNKNOWN constraints covered separately; no intake/refresh/generation/Xcode discovery/skill enablement/nested rule placement.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V4 role/workflow full bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. All unique procedures and shared outputs/exits read, no generation/placement or runtime actions.",
+          "evidence": "block-198-legacy-adaptive-role-workflow-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Pre-change adaptive routing\n\n## Procedure\nLoad current model, identify affected targets/boundaries, select task/domain skills, assign R-level and verification matrix before changing code.\n\n## Exit criteria\nFacts and unknowns are explicit; generated artifacts match the current fingerprint; no product files were modified by adaptation; recommended next engineering skill is named."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0988",
