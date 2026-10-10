@@ -162491,18 +162491,116 @@
       "path": "source-global/KNOWLEDGE_ROUTER.md",
       "sha256": "5f2f8d6f6e31ffc2da70ecb7d367884debc9424ba937993649b008de3ae07491",
       "bytes": 3252,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1061-U01",
+          "source_path": "canonical/source-global/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "5f2f8d6f6e31ffc2da70ecb7d367884debc9424ba937993649b008de3ae07491",
+          "source_heading": "Knowledge router — review candidate",
+          "source_fragment": "# Knowledge router — review candidate",
+          "meaning": "Minimal actual task-relevant owner route, current user/project authority and observed scope/evidence; pointer/skill/full-mode existence not mandatory whole corpus or unavailable independence. External profile exact-duplicate/exclusion/activation machinery archived, no new profile/control/state workflow or linked-body coverage.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Minimal actual task-relevant owner route, current user/project authority and observed scope/evidence; pointer/skill/full-mode existence not mandatory whole corpus or unavailable independence. External profile exact-duplicate/exclusion/activation machinery archived, no new profile/control/state workflow or linked-body coverage.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule; Source Authority",
+          "required_verification": "Eight complete global/package bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-174-global-package-maps-evidence-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule",
+                "Source Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Knowledge router — review candidate\n\nThis is the single shipped entrypoint for the library's knowledge. Read it first, then load one\ncommon baseline and only the smallest relevant route. Do not paste the complete corpus, all 60\noptional skills, or all deep playbooks into context.\n\n## Common baseline\n\nFor every task covered by this iOS library, read:\n\n1. `00_META/START_HERE.md`;\n2. `GLOBAL_CODEX/runtime/core/QUALITY_STANDARD.md`;\n3. `GLOBAL_CODEX/runtime/core/EVIDENCE_AND_VERIFICATION_POLICY.md`.\n\nThe repository's own instructions and the user's explicit safety constraints remain authoritative.\nKnowledge never grants permission to run commands, use Git, delegate work, change dependencies,\nor release an app.\n\n## Route selection\n\nChoose one primary route from the task and repository evidence:\n\n| Task shape | Primary material |\n| --- | --- |\n| ordinary implementation or bug fix | matching `31_DEEP_PLAYBOOKS/OP-IOS-*` plus the affected numbered section |\n| code review or refactor | `38_REPO_WORKFLOWS/V3-WF-02_PR_REVIEW.md` plus the affected numbered section |\n| cross-domain task | one playbook for each explicitly evidenced domain, maximum two supporting routes |\n| protection, release, or high-risk migration | matching workflow, `50_CLIENT_CODE_PROTECTION/`, and an explicit human gate |\n| unclear/unsupported task | stop with `review_required`; do not infer a low-risk route |\n\nThe bundled namespaced skills are optional indexes into these documents. `full` mode does not make\nall skills mandatory. Review, subagent, and runtime actions are bounded by available tools and the\nactive task's permissions; unavailable independence must be reported, never simulated.\n\n## External knowledge compatibility\n\nThe profile is separate from this immutable corpus and lives at the external state root as\n`knowledge-profile.json`. Build or refresh it only with an explicit source root and confirmation:\n\n```text\npython3 <runtime>/ios_ai.py profile build --source-root <external-root> --activate --write\n```\n\nIf the external library uses a different layout, an explicit mapping may be supplied for each\nknown equivalent path, for example\n`--map 03_CONCURRENCY/IOS-03-01_STRICT_CONCURRENCY_MIGRATION.md=concurrency/strict.md`.\nOnly an exact mapped relative-path and SHA-256 match from a revalidated, explicitly active source\nmay be marked `disabled_exact_duplicates`. `profile status` always observes the active runtime\nlibrary selected by `INSTALLATION.json`; it never adopts a persisted candidate root or an arbitrary\ndiagnostic replacement. An external `--source-root` must be supplied for the current task before\nany exclusions are returned. A persisted `active` flag is eligibility metadata, not proof that the\nreplacement was selected or read for this task. Changed, missing, malformed, or merely similar\nmaterial invalidates the profile or remains an overlap; it never disables a whole section. A clean\ninstallation or a status call without an explicitly selected source has no duplicate exclusions.\n\n## Stop and report\n\nEvery route reports selected documents, missing/partial observations, and whether any external\nprofile was active. The useful outcome is bounded task guidance and evidence, not maximum context\nsize or automatic fan-out."
+          ]
+        },
+        {
+          "unit_id": "LIB-1061-U02",
+          "source_path": "canonical/source-global/KNOWLEDGE_ROUTER.md",
+          "source_sha256": "5f2f8d6f6e31ffc2da70ecb7d367884debc9424ba937993649b008de3ae07491",
+          "source_heading": "Knowledge router — review candidate",
+          "source_fragment": "# Knowledge router — review candidate",
+          "meaning": "Historical global/package router/profile/activation/installation/guard/protection/skill stacks, asset counts and delivery-report references archived. Availability/pointer/count does not prove actual usage, authority or linked-body review; no extra Library pass, current capability assurance or evaluation activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical global/package router/profile/activation/installation/guard/protection/skill stacks, asset counts and delivery-report references archived. Availability/pointer/count does not prove actual usage, authority or linked-body review; no extra Library pass, current capability assurance or evaluation activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete global/package bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-174-global-package-maps-evidence-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Knowledge router — review candidate\n\nThis is the single shipped entrypoint for the library's knowledge. Read it first, then load one\ncommon baseline and only the smallest relevant route. Do not paste the complete corpus, all 60\noptional skills, or all deep playbooks into context.\n\n## Common baseline\n\nFor every task covered by this iOS library, read:\n\n1. `00_META/START_HERE.md`;\n2. `GLOBAL_CODEX/runtime/core/QUALITY_STANDARD.md`;\n3. `GLOBAL_CODEX/runtime/core/EVIDENCE_AND_VERIFICATION_POLICY.md`.\n\nThe repository's own instructions and the user's explicit safety constraints remain authoritative.\nKnowledge never grants permission to run commands, use Git, delegate work, change dependencies,\nor release an app.\n\n## Route selection\n\nChoose one primary route from the task and repository evidence:\n\n| Task shape | Primary material |\n| --- | --- |\n| ordinary implementation or bug fix | matching `31_DEEP_PLAYBOOKS/OP-IOS-*` plus the affected numbered section |\n| code review or refactor | `38_REPO_WORKFLOWS/V3-WF-02_PR_REVIEW.md` plus the affected numbered section |\n| cross-domain task | one playbook for each explicitly evidenced domain, maximum two supporting routes |\n| protection, release, or high-risk migration | matching workflow, `50_CLIENT_CODE_PROTECTION/`, and an explicit human gate |\n| unclear/unsupported task | stop with `review_required`; do not infer a low-risk route |\n\nThe bundled namespaced skills are optional indexes into these documents. `full` mode does not make\nall skills mandatory. Review, subagent, and runtime actions are bounded by available tools and the\nactive task's permissions; unavailable independence must be reported, never simulated.\n\n## External knowledge compatibility\n\nThe profile is separate from this immutable corpus and lives at the external state root as\n`knowledge-profile.json`. Build or refresh it only with an explicit source root and confirmation:\n\n```text\npython3 <runtime>/ios_ai.py profile build --source-root <external-root> --activate --write\n```\n\nIf the external library uses a different layout, an explicit mapping may be supplied for each\nknown equivalent path, for example\n`--map 03_CONCURRENCY/IOS-03-01_STRICT_CONCURRENCY_MIGRATION.md=concurrency/strict.md`.\nOnly an exact mapped relative-path and SHA-256 match from a revalidated, explicitly active source\nmay be marked `disabled_exact_duplicates`. `profile status` always observes the active runtime\nlibrary selected by `INSTALLATION.json`; it never adopts a persisted candidate root or an arbitrary\ndiagnostic replacement. An external `--source-root` must be supplied for the current task before\nany exclusions are returned. A persisted `active` flag is eligibility metadata, not proof that the\nreplacement was selected or read for this task. Changed, missing, malformed, or merely similar\nmaterial invalidates the profile or remains an overlap; it never disables a whole section. A clean\ninstallation or a status call without an explicitly selected source has no duplicate exclusions.\n\n## Stop and report\n\nEvery route reports selected documents, missing/partial observations, and whether any external\nprofile was active. The useful outcome is bounded task guidance and evidence, not maximum context\nsize or automatic fan-out."
+          ]
+        }
+      ],
+      "disposition_reason": "Full global/package source independently reviewed; current scoped routing and authority/evidence distinctions covered where substantive; historical maps/counts/activation stacks/report pointers archived, referenced bodies not credited."
     },
     {
       "source_id": "LIB-1062",
       "path": "source-global/LEGACY_PATH_MAPPING.json",
       "sha256": "5444eaddefdaee94fedc773eb1bdc5335aed241a41005cfba68f00fce1d99bbc",
       "bytes": 3548,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1062-U01",
+          "source_path": "canonical/source-global/LEGACY_PATH_MAPPING.json",
+          "source_sha256": "5444eaddefdaee94fedc773eb1bdc5335aed241a41005cfba68f00fce1d99bbc",
+          "source_heading": "Historical mapped_files JSON inventory",
+          "source_fragment": "{",
+          "meaning": "Historical 74-path mapping JSON preserved as exact source inventory/provenance; no semantic acceptance, referenced-body review, current routing or migration/activation proof.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical 74-path mapping JSON preserved as exact source inventory/provenance; no semantic acceptance, referenced-body review, current routing or migration/activation proof.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete global/package bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-174-global-package-maps-evidence-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "{\n  \"marker\": \"GLOBAL CODEX EDITION \\u2014 PATH MAPPING\",\n  \"mapped_files\": [\n    \"36_REPOSITORY_NATIVE/V3_REPOSITORY_NATIVE_OVERVIEW.md\",\n    \"36_REPOSITORY_NATIVE/REPO_BOOTSTRAP_PROTOCOL.md\",\n    \"36_REPOSITORY_NATIVE/CONTEXT_HYGIENE_POLICY.md\",\n    \"40_REPO_AUTOMATION/README.md\",\n    \"37_AGENT_ROLES/V3-ROLE-11_DEPENDENCY.md\",\n    \"37_AGENT_ROLES/V3-ROLE-09_NETWORK.md\",\n    \"37_AGENT_ROLES/V3-ROLE-01_ARCHITECT.md\",\n    \"37_AGENT_ROLES/V3-ROLE-16_AI.md\",\n    \"37_AGENT_ROLES/V3-ROLE-14_MEMORY.md\",\n    \"37_AGENT_ROLES/V3-ROLE-17_CI.md\",\n    \"37_AGENT_ROLES/V3-ROLE-06_PERF.md\",\n    \"37_AGENT_ROLES/V3-ROLE-07_SECURITY.md\",\n    \"37_AGENT_ROLES/V3-ROLE-08_PERSISTENCE.md\",\n    \"37_AGENT_ROLES/V3-ROLE-03_SWIFTUI.md\",\n    \"37_AGENT_ROLES/V3-ROLE-05_TEST.md\",\n    \"37_AGENT_ROLES/V3-ROLE-04_UIKIT.md\",\n    \"37_AGENT_ROLES/V3-ROLE-02_CONCURRENCY.md\",\n    \"37_AGENT_ROLES/V3-ROLE-12_A11Y.md\",\n    \"37_AGENT_ROLES/V3-ROLE-13_CRASH.md\",\n    \"37_AGENT_ROLES/V3-ROLE-15_SDK.md\",\n    \"37_AGENT_ROLES/V3-ROLE-10_RELEASE.md\",\n    \"37_AGENT_ROLES/V3-ROLE-18_LEGACY.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-27_MEDIA.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-25_APP_INTENTS.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-13_API.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-11_NAV.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-37_DESIGN_SYSTEM.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-19_UIKIT_SWIFTUI.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-05_HANG.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-10_SWIFTUI_STATE.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-33_SECURITY.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-15_DATA_MIG.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-01_FEATURE.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-12_AUTH.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-06_RACE.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-35_SDK.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-07_LEAK.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-39_FEATURE_FLAG.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-21_LOCALIZE.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-02_PR_REVIEW.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-29_CI.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-23_PUSH.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-04_CRASH.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-38_OBSERVABILITY.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-31_HOTFIX.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-18_SWIFT6.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-20_A11Y.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-26_AI.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-14_OFFLINE.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-17_MODULARIZE.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-32_RELEASE.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-03_BUG.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-09_LAUNCH.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-30_FLAKE.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-34_PRIVACY.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-16_SPM.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-24_WIDGET.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-36_LEGACY.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-08_PERF.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-28_BLE_NFC.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-22_STOREKIT.md\",\n    \"38_REPO_WORKFLOWS/V3-WF-40_DEPRECATION.md\",\n    \"41_PROJECT_ADAPTIVE/VALIDATION_EVIDENCE_V4.md\",\n    \"41_PROJECT_ADAPTIVE/V4_PROJECT_ADAPTIVE_OVERVIEW.md\",\n    \"41_PROJECT_ADAPTIVE/DRIFT_REFRESH_POLICY.md\",\n    \"41_PROJECT_ADAPTIVE/SAFE_AUTOMATION_BOUNDARIES.md\",\n    \"41_PROJECT_ADAPTIVE/NESTED_AGENTS_GENERATION.md\",\n    \"41_PROJECT_ADAPTIVE/ADAPTATION_PROTOCOL.md\",\n    \"GLOBAL_CODEX/runtime/core/V4_SAFE_AUTOMATION_BOUNDARIES.md\",\n    \"GLOBAL_CODEX/runtime/core/MASTER_SYSTEM_PROMPT.md\",\n    \"GLOBAL_CODEX/runtime/core/V4_ADAPTATION_PROTOCOL.md\",\n    \"GLOBAL_CODEX/runtime/core/CONTEXT_HYGIENE_POLICY.md\",\n    \"GLOBAL_CODEX/runtime/core/SKILL_TO_LIBRARY_MAP.md\",\n    \"GLOBAL_CODEX/runtime/core/V4_DRIFT_REFRESH_POLICY.md\"\n  ],\n  \"count\": 74\n}"
+          ]
+        }
+      ],
+      "disposition_reason": "Full global/package source independently reviewed; current scoped routing and authority/evidence distinctions covered where substantive; historical maps/counts/activation stacks/report pointers archived, referenced bodies not credited."
     },
     {
       "source_id": "LIB-1063",
@@ -164403,9 +164501,73 @@
       "path": "source-package-docs/CAPABILITY_MATRIX.md",
       "sha256": "5e8e553b28dec6bf513ebb33ad374822ef6653b66febcdd857fa2c89816eb642",
       "bytes": 1215,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1086-U01",
+          "source_path": "canonical/source-package-docs/CAPABILITY_MATRIX.md",
+          "source_sha256": "5e8e553b28dec6bf513ebb33ad374822ef6653b66febcdd857fa2c89816eb642",
+          "source_heading": "Capability matrix — review candidate",
+          "source_fragment": "# Capability matrix — review candidate",
+          "meaning": "Capability availability not task usage or authority; partial observation not fresh, advisory classification/detection not prevention/sandbox/backup, unavailable independence honest. Historical reference/full/install/profile/skills capability matrix archived, no activation or current guaranteed capability.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Capability availability not task usage or authority; partial observation not fresh, advisory classification/detection not prevention/sandbox/backup, unavailable independence honest. Historical reference/full/install/profile/skills capability matrix archived, no activation or current guaranteed capability.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 3. Verification Ladder; Completion Contract",
+          "required_verification": "Eight complete global/package bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-174-global-package-maps-evidence-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Capability matrix — review candidate\n\n| Capability | Reference mode | Full mode | Evidence boundary |\n| --- | --- | --- | --- |\n| Read-only knowledge routing | yes | yes | router and selected-document report |\n| Risk/plan classifier | yes | yes | `ios_ai.py plan`; advisory only |\n| Protection sessions and before/after detection | yes | yes | external state; no kernel sandbox or backup |\n| Command guard | yes | yes | classifier; it does not execute or intercept commands |\n| Bounded project adaptation | yes | yes | metadata only; partial is never fresh |\n| Namespaced Codex skills | no | explicit opt-in | matching dry-run/preflight and target hashes |\n| Exact external duplicate profile | explicit opt-in | explicit opt-in | source identity revalidated before exclusions |\n| Automatic subagent fan-out | no | no | availability/permission must be reported honestly |\n| Installer ownership and rollback | installer only | installer only | manual path uses read-only preflight and operator backup |\n\nNo row in this table grants build, test, network, Git, signing, release, or client-repository\nwrite permission. “Yes” means the shipped capability is available, not that it was used for a\nparticular task."
+          ]
+        },
+        {
+          "unit_id": "LIB-1086-U02",
+          "source_path": "canonical/source-package-docs/CAPABILITY_MATRIX.md",
+          "source_sha256": "5e8e553b28dec6bf513ebb33ad374822ef6653b66febcdd857fa2c89816eb642",
+          "source_heading": "Capability matrix — review candidate",
+          "source_fragment": "# Capability matrix — review candidate",
+          "meaning": "Historical global/package router/profile/activation/installation/guard/protection/skill stacks, asset counts and delivery-report references archived. Availability/pointer/count does not prove actual usage, authority or linked-body review; no extra Library pass, current capability assurance or evaluation activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical global/package router/profile/activation/installation/guard/protection/skill stacks, asset counts and delivery-report references archived. Availability/pointer/count does not prove actual usage, authority or linked-body review; no extra Library pass, current capability assurance or evaluation activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete global/package bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-174-global-package-maps-evidence-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Capability matrix — review candidate\n\n| Capability | Reference mode | Full mode | Evidence boundary |\n| --- | --- | --- | --- |\n| Read-only knowledge routing | yes | yes | router and selected-document report |\n| Risk/plan classifier | yes | yes | `ios_ai.py plan`; advisory only |\n| Protection sessions and before/after detection | yes | yes | external state; no kernel sandbox or backup |\n| Command guard | yes | yes | classifier; it does not execute or intercept commands |\n| Bounded project adaptation | yes | yes | metadata only; partial is never fresh |\n| Namespaced Codex skills | no | explicit opt-in | matching dry-run/preflight and target hashes |\n| Exact external duplicate profile | explicit opt-in | explicit opt-in | source identity revalidated before exclusions |\n| Automatic subagent fan-out | no | no | availability/permission must be reported honestly |\n| Installer ownership and rollback | installer only | installer only | manual path uses read-only preflight and operator backup |\n\nNo row in this table grants build, test, network, Git, signing, release, or client-repository\nwrite permission. “Yes” means the shipped capability is available, not that it was used for a\nparticular task."
+          ]
+        }
+      ],
+      "disposition_reason": "Full global/package source independently reviewed; current scoped routing and authority/evidence distinctions covered where substantive; historical maps/counts/activation stacks/report pointers archived, referenced bodies not credited."
     },
     {
       "source_id": "LIB-1087",
@@ -164421,36 +164583,225 @@
       "path": "source-package-docs/GLOBAL_VALIDATION_REPORT.md",
       "sha256": "8d3c7d23115048a29adb32c17f7b1c1e89251ec7675a0fa72bdb1ed940b85421",
       "bytes": 940,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1088-U01",
+          "source_path": "canonical/source-package-docs/GLOBAL_VALIDATION_REPORT.md",
+          "source_sha256": "8d3c7d23115048a29adb32c17f7b1c1e89251ec7675a0fa72bdb1ed940b85421",
+          "source_heading": "Legacy HARDENED self-validation report — superseded",
+          "source_fragment": "# Legacy HARDENED self-validation report — superseded",
+          "meaning": "Superseded PASS cannot establish current candidate acceptance; distinguish prevention/rejection, postmutation detection, advisory classification and exact observed evidence/version. Historical F01-F10/status/runner/independent delivery review references retained, referenced findings/tests not reviewed or run from report pointer.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Superseded PASS cannot establish current candidate acceptance; distinguish prevention/rejection, postmutation detection, advisory classification and exact observed evidence/version. Historical F01-F10/status/runner/independent delivery review references retained, referenced findings/tests not reviewed or run from report pointer.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Eight complete global/package bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-174-global-package-maps-evidence-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Legacy HARDENED self-validation report — superseded\n\nThis filename existed in the immutable reviewed V5 HARDENED baseline. Its former PASS/BLOCKED claims are **not validation evidence for V5.4 REVIEW READY** and must not be used to accept this candidate. The independent review found that the old report could pass while executable defects F01–F10 remained.\n\nCurrent candidate evidence is intentionally separated into:\n\n- `REVIEW_FINDINGS_MATRIX.md` — finding → root cause → patch → regression evidence → candidate status.\n- `REVIEW_READY_VALIDATION_REPORT.md` — only tests and validations actually executed for the V5.4 candidate.\n- `tests/run_all.py` — reproducible synthetic regression runner.\n\nTerminology in the current candidate distinguishes **prevention/rejection before mutation**, **detection after mutation**, and **advisory classification**. Independent repeat review of the delivered ZIP is still required."
+          ]
+        },
+        {
+          "unit_id": "LIB-1088-U02",
+          "source_path": "canonical/source-package-docs/GLOBAL_VALIDATION_REPORT.md",
+          "source_sha256": "8d3c7d23115048a29adb32c17f7b1c1e89251ec7675a0fa72bdb1ed940b85421",
+          "source_heading": "Legacy HARDENED self-validation report — superseded",
+          "source_fragment": "# Legacy HARDENED self-validation report — superseded",
+          "meaning": "Historical global/package router/profile/activation/installation/guard/protection/skill stacks, asset counts and delivery-report references archived. Availability/pointer/count does not prove actual usage, authority or linked-body review; no extra Library pass, current capability assurance or evaluation activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical global/package router/profile/activation/installation/guard/protection/skill stacks, asset counts and delivery-report references archived. Availability/pointer/count does not prove actual usage, authority or linked-body review; no extra Library pass, current capability assurance or evaluation activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete global/package bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-174-global-package-maps-evidence-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Legacy HARDENED self-validation report — superseded\n\nThis filename existed in the immutable reviewed V5 HARDENED baseline. Its former PASS/BLOCKED claims are **not validation evidence for V5.4 REVIEW READY** and must not be used to accept this candidate. The independent review found that the old report could pass while executable defects F01–F10 remained.\n\nCurrent candidate evidence is intentionally separated into:\n\n- `REVIEW_FINDINGS_MATRIX.md` — finding → root cause → patch → regression evidence → candidate status.\n- `REVIEW_READY_VALIDATION_REPORT.md` — only tests and validations actually executed for the V5.4 candidate.\n- `tests/run_all.py` — reproducible synthetic regression runner.\n\nTerminology in the current candidate distinguishes **prevention/rejection before mutation**, **detection after mutation**, and **advisory classification**. Independent repeat review of the delivered ZIP is still required."
+          ]
+        }
+      ],
+      "disposition_reason": "Full global/package source independently reviewed; current scoped routing and authority/evidence distinctions covered where substantive; historical maps/counts/activation stacks/report pointers archived, referenced bodies not credited."
     },
     {
       "source_id": "LIB-1089",
       "path": "source-package-docs/INDEX.md",
       "sha256": "04d42fd5dd8b5be4f200a30d3857b576bcd1159a59fc7fa64cb36dbcc74c3b85",
       "bytes": 2702,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1089-U01",
+          "source_path": "canonical/source-package-docs/INDEX.md",
+          "source_sha256": "04d42fd5dd8b5be4f200a30d3857b576bcd1159a59fc7fa64cb36dbcc74c3b85",
+          "source_heading": "INDEX — Global Codex Hardened Edition",
+          "source_fragment": "# INDEX — Global Codex Hardened Edition",
+          "meaning": "Historical 1267-Markdown section counts and catalog pointers preserved as source inventory, not current KB inventory or reviewed coverage of indexed source bodies.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical 1267-Markdown section counts and catalog pointers preserved as source inventory, not current KB inventory or reviewed coverage of indexed source bodies.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete global/package bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-174-global-package-maps-evidence-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# INDEX — Global Codex Hardened Edition\n\nTotal indexed Markdown assets: **1267**.\n\n## Sections\n- `00_META` — 23 Markdown assets.\n- `01_DISCOVERY_PRODUCT` — 6 Markdown assets.\n- `02_SWIFT_LANGUAGE` — 14 Markdown assets.\n- `03_CONCURRENCY` — 14 Markdown assets.\n- `04_ARCHITECTURE` — 12 Markdown assets.\n- `05_SWIFTUI` — 16 Markdown assets.\n- `06_UIKIT` — 10 Markdown assets.\n- `07_NAVIGATION_DEEPLINKS` — 6 Markdown assets.\n- `08_NETWORKING` — 10 Markdown assets.\n- `09_PERSISTENCE_DATA` — 10 Markdown assets.\n- `10_TESTING` — 14 Markdown assets.\n- `11_PERFORMANCE_MEMORY` — 12 Markdown assets.\n- `12_SECURITY_PRIVACY` — 12 Markdown assets.\n- `13_ACCESSIBILITY_LOCALIZATION` — 8 Markdown assets.\n- `14_PLATFORM_SERVICES` — 14 Markdown assets.\n- `15_AI_INTELLIGENCE` — 10 Markdown assets.\n- `16_BUILD_MODULARITY_TOOLING` — 10 Markdown assets.\n- `17_CI_CD_RELEASE` — 10 Markdown assets.\n- `18_OBSERVABILITY_DEBUGGING` — 10 Markdown assets.\n- `19_CODE_REVIEW_REFACTOR` — 10 Markdown assets.\n- `20_MIGRATION_LEGACY` — 8 Markdown assets.\n- `21_AGENT_WORKFLOWS` — 10 Markdown assets.\n- `22_CHECKLISTS` — 10 Markdown assets.\n- `23_PROMPT_PACKS` — 32 Markdown assets.\n- `24_TEMPLATES` — 6 Markdown assets.\n- `25_MEDIA_GRAPHICS` — 12 Markdown assets.\n- `26_ML_VISION_AR` — 10 Markdown assets.\n- `27_SYSTEM_INTEGRATION` — 14 Markdown assets.\n- `28_ECOSYSTEM_INTEROP` — 10 Markdown assets.\n- `29_DESIGN_SYSTEM` — 8 Markdown assets.\n- `30_TEAM_ENGINEERING` — 8 Markdown assets.\n- `31_DEEP_PLAYBOOKS` — 288 Markdown assets.\n- `32_AGENT_PROMPTS_V2` — 121 Markdown assets.\n- `33_CODE_PATTERNS` — 31 Markdown assets.\n- `34_AUDIT_GATES` — 25 Markdown assets.\n- `35_ENGINEERING_TEMPLATES_V2` — 11 Markdown assets.\n- `36_REPOSITORY_NATIVE` — 12 Markdown assets.\n- `37_AGENT_ROLES` — 18 Markdown assets.\n- `38_REPO_WORKFLOWS` — 40 Markdown assets.\n- `39_PROJECT_CONTEXT` — 18 Markdown assets.\n- `40_REPO_AUTOMATION` — 1 Markdown assets.\n- `41_PROJECT_ADAPTIVE` — 13 Markdown assets.\n- `42_V4_AGENT_ROLES` — 5 Markdown assets.\n- `43_V4_WORKFLOWS` — 10 Markdown assets.\n- `44_MULTI_AGENT_ORCHESTRATION` — 15 Markdown assets.\n- `45_V5_AGENT_ROLES` — 8 Markdown assets.\n- `46_V5_WORKFLOWS` — 12 Markdown assets.\n- `47_V5_PROMPTS` — 20 Markdown assets.\n- `48_V5_TEMPLATES` — 7 Markdown assets.\n- `49_V5_AUDIT_GATES` — 6 Markdown assets.\n- `50_CLIENT_CODE_PROTECTION` — 11 Markdown assets.\n- `GLOBAL_CODEX` — 228 Markdown assets.\n- `(root)` — 8 Markdown assets.\n\nSee `CATALOG.csv` for exact indexed paths. Client-code protection is under `50_CLIENT_CODE_PROTECTION/`; global runtime and skills are under `GLOBAL_CODEX/`."
+          ]
+        }
+      ],
+      "disposition_reason": "Full global/package source independently reviewed; current scoped routing and authority/evidence distinctions covered where substantive; historical maps/counts/activation stacks/report pointers archived, referenced bodies not credited."
     },
     {
       "source_id": "LIB-1090",
       "path": "source-package-docs/LIBRARY_MAP.md",
       "sha256": "faced787b8bd3ebc7a02b67220da72b4c7daf41ce5b0d1a441a6e4a04e0e18d6",
       "bytes": 954,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1090-U01",
+          "source_path": "canonical/source-package-docs/LIBRARY_MAP.md",
+          "source_sha256": "faced787b8bd3ebc7a02b67220da72b4c7daf41ce5b0d1a441a6e4a04e0e18d6",
+          "source_heading": "Library Map — V5 Global Codex Hardened",
+          "source_fragment": "# Library Map — V5 Global Codex Hardened",
+          "meaning": "Historical 60-skills/51-sections/288-playbooks/1267-assets and global operational layer map preserved, not current activation, mandatory client workflow, installation or linked-body review.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical 60-skills/51-sections/288-playbooks/1267-assets and global operational layer map preserved, not current activation, mandatory client workflow, installation or linked-body review.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete global/package bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-174-global-package-maps-evidence-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Library Map — V5 Global Codex Hardened\n\n- **60** user-global Codex skills.\n- **51** numbered knowledge sections.\n- **288** Deep Playbooks.\n- **1267** indexed Markdown assets.\n\n## Operational layers\n1. `GLOBAL_CODEX/AGENTS.global.block.md` — global activation + mandatory safety rules.\n2. `GLOBAL_CODEX/skills/` — global workflows, including `ioslib-client-code-protection` and `ioslib-safe-command-execution`.\n3. `GLOBAL_CODEX/runtime/bin/ios_ai.py` — global runtime CLI.\n4. `GLOBAL_CODEX/runtime/protection/protection.py` — Git/worktree/nested-repo/command protection engine.\n5. `GLOBAL_CODEX/runtime/vendor/adapt_project.py` — metadata-only, read-only project adaptation.\n6. `50_CLIENT_CODE_PROTECTION/` — full threat model and safety protocols.\n7. `00_META`–`49_V5_AUDIT_GATES` — engineering knowledge, deep playbooks, prompts, workflows, roles, templates and gates.\n\nClient repositories are consumers, not hosts, of this library."
+          ]
+        }
+      ],
+      "disposition_reason": "Full global/package source independently reviewed; current scoped routing and authority/evidence distinctions covered where substantive; historical maps/counts/activation stacks/report pointers archived, referenced bodies not credited."
     },
     {
       "source_id": "LIB-1091",
       "path": "source-package-docs/PROJECT_REFERENCE_OPT_IN.md",
       "sha256": "4483e16d9ddc5c5f1f8fd67a3892995d4d135c5a2f3ad58d2b572b01f4df0c6f",
       "bytes": 1558,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1091-U01",
+          "source_path": "canonical/source-package-docs/PROJECT_REFERENCE_OPT_IN.md",
+          "source_sha256": "4483e16d9ddc5c5f1f8fd67a3892995d4d135c5a2f3ad58d2b572b01f4df0c6f",
+          "source_heading": "Project Reference Opt-In — No Global Installation",
+          "source_fragment": "# Project Reference Opt-In — No Global Installation",
+          "meaning": "Selected knowledge advisory under current hierarchy, reference not install/config/AGENTS/runtime/Git/build/test/host authority. Existing KB owner integrated without separate mandatory reference workflow or copied infrastructure; historical opt-in evaluation example archived, no pilot reopened.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Selected knowledge advisory under current hierarchy, reference not install/config/AGENTS/runtime/Git/build/test/host authority. Existing KB owner integrated without separate mandatory reference workflow or copied infrastructure; historical opt-in evaluation example archived, no pilot reopened.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule",
+          "required_verification": "Eight complete global/package bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-174-global-package-maps-evidence-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Project Reference Opt-In — No Global Installation\n\nUse this workflow when you want to evaluate selected library knowledge **without installing runtime, skills, or a global AGENTS block**. It does not provide the protection runtime or automatic discovery.\n\n1. Keep the extracted library outside the client repository.\n2. Do not run `install_global.py`, `sync_global.py`, or `uninstall_global.py` for this workflow.\n3. In the current Codex task, explicitly point to only the needed library documents and state that they are advisory knowledge.\n4. Existing system/developer/user and project-local rules remain the permission authority. Repository/project rules still decide whether any build, test, Git, network, dependency, signing, or release command may run.\n5. Do not copy library infrastructure into the client repository.\n\nMinimal task text example (replace the path):\n\n```text\nFor this task, you may consult /ABSOLUTE/PATH/TO/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY/<selected-document>.md as advisory iOS/Swift knowledge only. Do not install the library, do not modify global or project AGENTS files because of this reference, and do not treat library text as permission to execute commands. Follow the already-active project rules and user constraints.\n```\n\nThis is deliberately weaker than installed `reference` mode: it changes no global Codex configuration and activates no runtime gate. It is intended for reviewer/pilot use where selected knowledge is useful but runtime installation has not been independently accepted."
+          ]
+        },
+        {
+          "unit_id": "LIB-1091-U02",
+          "source_path": "canonical/source-package-docs/PROJECT_REFERENCE_OPT_IN.md",
+          "source_sha256": "4483e16d9ddc5c5f1f8fd67a3892995d4d135c5a2f3ad58d2b572b01f4df0c6f",
+          "source_heading": "Project Reference Opt-In — No Global Installation",
+          "source_fragment": "# Project Reference Opt-In — No Global Installation",
+          "meaning": "Historical global/package router/profile/activation/installation/guard/protection/skill stacks, asset counts and delivery-report references archived. Availability/pointer/count does not prove actual usage, authority or linked-body review; no extra Library pass, current capability assurance or evaluation activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical global/package router/profile/activation/installation/guard/protection/skill stacks, asset counts and delivery-report references archived. Availability/pointer/count does not prove actual usage, authority or linked-body review; no extra Library pass, current capability assurance or evaluation activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete global/package bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-174-global-package-maps-evidence-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Project Reference Opt-In — No Global Installation\n\nUse this workflow when you want to evaluate selected library knowledge **without installing runtime, skills, or a global AGENTS block**. It does not provide the protection runtime or automatic discovery.\n\n1. Keep the extracted library outside the client repository.\n2. Do not run `install_global.py`, `sync_global.py`, or `uninstall_global.py` for this workflow.\n3. In the current Codex task, explicitly point to only the needed library documents and state that they are advisory knowledge.\n4. Existing system/developer/user and project-local rules remain the permission authority. Repository/project rules still decide whether any build, test, Git, network, dependency, signing, or release command may run.\n5. Do not copy library infrastructure into the client repository.\n\nMinimal task text example (replace the path):\n\n```text\nFor this task, you may consult /ABSOLUTE/PATH/TO/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY/<selected-document>.md as advisory iOS/Swift knowledge only. Do not install the library, do not modify global or project AGENTS files because of this reference, and do not treat library text as permission to execute commands. Follow the already-active project rules and user constraints.\n```\n\nThis is deliberately weaker than installed `reference` mode: it changes no global Codex configuration and activates no runtime gate. It is intended for reviewer/pilot use where selected knowledge is useful but runtime installation has not been independently accepted."
+          ]
+        }
+      ],
+      "disposition_reason": "Full global/package source independently reviewed; current scoped routing and authority/evidence distinctions covered where substantive; historical maps/counts/activation stacks/report pointers archived, referenced bodies not credited."
     },
     {
       "source_id": "LIB-1092",
@@ -164466,9 +164817,73 @@
       "path": "source-package-docs/RECOMMENDED_SETS.md",
       "sha256": "2e363c2ecf4e9b6f882f50ee7a8f6e7143ec859309f238d5d174bb06f9ec68cd",
       "bytes": 668,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1093-U01",
+          "source_path": "canonical/source-package-docs/RECOMMENDED_SETS.md",
+          "source_sha256": "2e363c2ecf4e9b6f882f50ee7a8f6e7143ec859309f238d5d174bb06f9ec68cd",
+          "source_heading": "Recommended Sets — Hardened Global Edition",
+          "source_fragment": "# Recommended Sets — Hardened Global Edition",
+          "meaning": "Actual narrow domain risks, scoped plan/currently authorized coordination/integrator/independent evidence only when applicable and available; high-risk class alone not agents/build/tests/protection execution authority. Historical mandatory protection/guard/intake/skill stacks archived.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual narrow domain risks, scoped plan/currently authorized coordination/integrator/independent evidence only when applicable and available; high-risk class alone not agents/build/tests/protection execution authority. Historical mandatory protection/guard/intake/skill stacks archived.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1A. PR Risk Card And Scope; 2. Implementation From Invariants; 3. Verification Ladder",
+          "required_verification": "Eight complete global/package bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-174-global-package-maps-evidence-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Recommended Sets — Hardened Global Edition\n\n## Every client write task\n1. `$ioslib-client-code-protection`\n2. narrow domain skill (`$ioslib-implementation`, `$ioslib-swift-concurrency`, `$ioslib-networking-auth`, etc.)\n3. `$ioslib-safe-command-execution` before uncertain commands\n4. protection verification + task-specific build/tests\n\n## New/unfamiliar repository\n`$ioslib-repo-intake` + `$ioslib-project-adaptation` + `$ioslib-client-code-protection` before any write.\n\n## R3/R4 change\nAdd `$ioslib-change-plan`, bounded `$ioslib-delegation-planner`/`$ioslib-multi-agent-orchestrator`, one integration owner, independent verification and protected-path review."
+          ]
+        },
+        {
+          "unit_id": "LIB-1093-U02",
+          "source_path": "canonical/source-package-docs/RECOMMENDED_SETS.md",
+          "source_sha256": "2e363c2ecf4e9b6f882f50ee7a8f6e7143ec859309f238d5d174bb06f9ec68cd",
+          "source_heading": "Recommended Sets — Hardened Global Edition",
+          "source_fragment": "# Recommended Sets — Hardened Global Edition",
+          "meaning": "Historical global/package router/profile/activation/installation/guard/protection/skill stacks, asset counts and delivery-report references archived. Availability/pointer/count does not prove actual usage, authority or linked-body review; no extra Library pass, current capability assurance or evaluation activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical global/package router/profile/activation/installation/guard/protection/skill stacks, asset counts and delivery-report references archived. Availability/pointer/count does not prove actual usage, authority or linked-body review; no extra Library pass, current capability assurance or evaluation activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete global/package bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-174-global-package-maps-evidence-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Recommended Sets — Hardened Global Edition\n\n## Every client write task\n1. `$ioslib-client-code-protection`\n2. narrow domain skill (`$ioslib-implementation`, `$ioslib-swift-concurrency`, `$ioslib-networking-auth`, etc.)\n3. `$ioslib-safe-command-execution` before uncertain commands\n4. protection verification + task-specific build/tests\n\n## New/unfamiliar repository\n`$ioslib-repo-intake` + `$ioslib-project-adaptation` + `$ioslib-client-code-protection` before any write.\n\n## R3/R4 change\nAdd `$ioslib-change-plan`, bounded `$ioslib-delegation-planner`/`$ioslib-multi-agent-orchestrator`, one integration owner, independent verification and protected-path review."
+          ]
+        }
+      ],
+      "disposition_reason": "Full global/package source independently reviewed; current scoped routing and authority/evidence distinctions covered where substantive; historical maps/counts/activation stacks/report pointers archived, referenced bodies not credited."
     },
     {
       "source_id": "LIB-1094",
