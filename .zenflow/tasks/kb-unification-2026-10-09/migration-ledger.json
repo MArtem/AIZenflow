@@ -76715,54 +76715,1487 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-03-07.md",
       "sha256": "382eee9ba401e9103e2e2b866d1bcbe618c5683b794e86e086c53f7d946c0448",
       "bytes": 8072,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0393-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-07.md",
+          "source_sha256": "382eee9ba401e9103e2e2b866d1bcbe618c5683b794e86e086c53f7d946c0448",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual cooperative cancel across network/parsing/loops/children/UI publication; cleanup/failure/success authority, cancellation does not undo committed effects.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual cooperative cancel across network/parsing/loops/children/UI publication; cleanup/failure/success authority, cancellation does not undo committed effects.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Cancellation; Task Ownership; Ordering And Stale Results",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Cancellation",
+                "Task Ownership",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0393-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-07.md",
+          "source_sha256": "382eee9ba401e9103e2e2b866d1bcbe618c5683b794e86e086c53f7d946c0448",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Actual source/task falsifying failure, not generic label proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual source/task falsifying failure, not generic label proof.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0393-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-07.md",
+          "source_sha256": "382eee9ba401e9103e2e2b866d1bcbe618c5683b794e86e086c53f7d946c0448",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete shared useful body: actual compiler/mode/strict/isolation/state/task/transfer/queue facts; four valid isolation/lifetime/cancel invariants, minimal concrete patch, pre-await invariants, structured/priority/bridge ownership, surrounding-code review, root competing-access diagnosis/redacted telemetry, bounded authorized queue/module migration/compatibility/rollback/retirement; all eight generic failure routes, permitted exact negative/diagnostic evidence, honest facts/assumptions/impact/unknown output. No numeric option/hypothesis quota or source mode execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete shared useful body: actual compiler/mode/strict/isolation/state/task/transfer/queue facts; four valid isolation/lifetime/cancel invariants, minimal concrete patch, pre-await invariants, structured/priority/bridge ownership, surrounding-code review, root competing-access diagnosis/redacted telemetry, bounded authorized queue/module migration/compatibility/rollback/retirement; all eight generic failure routes, permitted exact negative/diagnostic evidence, honest facts/assumptions/impact/unknown output. No numeric option/hypothesis quota or source mode execution authority.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Isolation Design; Task Ownership; Cancellation; Continuations And Callbacks; Ordering And Stale Results; Reactive And Queue Bridges; Swift 6.x Discipline; Testing And Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Continuations And Callbacks",
+                "Ordering And Stale Results",
+                "Reactive And Queue Bridges",
+                "Swift 6.x Discipline",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist",
+                "Stop Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0393-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-07.md",
+          "source_sha256": "382eee9ba401e9103e2e2b866d1bcbe618c5683b794e86e086c53f7d946c0448",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional checking/build/TSAN/stress/test/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/checking-mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional checking/build/TSAN/stress/test/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/checking-mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0393-U05",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-07.md",
+          "source_sha256": "382eee9ba401e9103e2e2b866d1bcbe618c5683b794e86e086c53f7d946c0448",
+          "source_heading": "no unchecked sendability without a documented synchronization invariant",
+          "source_fragment": "no unchecked sendability without a documented synchronization invariant",
+          "meaning": "Historical conditional unchecked escape individually archived under current absolute baseline prohibition and approved DEC-001 alignment. A synchronization explanation never authorizes unchecked/unsafe/preconcurrency/suppression/fake MainActor; real isolation/immutable transfer required.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical conditional unchecked escape individually archived under current absolute baseline prohibition and approved DEC-001 alignment. A synchronization explanation never authorizes unchecked/unsafe/preconcurrency/suppression/fake MainActor; real isolation/immutable transfer required.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full common body exact against read source after only identity/title/mission/trap substitution; each mission/trap independently mapped, useful common guards covered, retired execution and unchecked exception individually archived. No OP execution implied."
     },
     {
       "source_id": "LIB-0394",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-03-08.md",
       "sha256": "548868911e761b94b0c7c552ebf4783e9961e132287d129582343152ac6bf832",
       "bytes": 8023,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0394-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-08.md",
+          "source_sha256": "548868911e761b94b0c7c552ebf4783e9961e132287d129582343152ac6bf832",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual long-lived stream producer/consumer owner, cancellation/buffer/overflow/backpressure/termination/fan-out contract; no unbounded memory.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual long-lived stream producer/consumer owner, cancellation/buffer/overflow/backpressure/termination/fan-out contract; no unbounded memory.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Streams; Task Ownership; Cancellation",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Streams",
+                "Task Ownership",
+                "Cancellation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0394-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-08.md",
+          "source_sha256": "548868911e761b94b0c7c552ebf4783e9961e132287d129582343152ac6bf832",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Conditional actual realtime consumer connection state/heartbeat/reconnect/backoff/order/duplicates/background-lifecycle transitions; connected/reconnected not proof of all event delivery, no new background capability.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Conditional actual realtime consumer connection state/heartbeat/reconnect/backoff/order/duplicates/background-lifecycle transitions; connected/reconnected not proof of all event delivery, no new background capability.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Realtime Protocols; Reliability; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Realtime Protocols",
+                "Reliability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0394-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-08.md",
+          "source_sha256": "548868911e761b94b0c7c552ebf4783e9961e132287d129582343152ac6bf832",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete shared useful body: actual compiler/mode/strict/isolation/state/task/transfer/queue facts; four valid isolation/lifetime/cancel invariants, minimal concrete patch, pre-await invariants, structured/priority/bridge ownership, surrounding-code review, root competing-access diagnosis/redacted telemetry, bounded authorized queue/module migration/compatibility/rollback/retirement; all eight generic failure routes, permitted exact negative/diagnostic evidence, honest facts/assumptions/impact/unknown output. No numeric option/hypothesis quota or source mode execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete shared useful body: actual compiler/mode/strict/isolation/state/task/transfer/queue facts; four valid isolation/lifetime/cancel invariants, minimal concrete patch, pre-await invariants, structured/priority/bridge ownership, surrounding-code review, root competing-access diagnosis/redacted telemetry, bounded authorized queue/module migration/compatibility/rollback/retirement; all eight generic failure routes, permitted exact negative/diagnostic evidence, honest facts/assumptions/impact/unknown output. No numeric option/hypothesis quota or source mode execution authority.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Isolation Design; Task Ownership; Cancellation; Continuations And Callbacks; Ordering And Stale Results; Reactive And Queue Bridges; Swift 6.x Discipline; Testing And Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Continuations And Callbacks",
+                "Ordering And Stale Results",
+                "Reactive And Queue Bridges",
+                "Swift 6.x Discipline",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist",
+                "Stop Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0394-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-08.md",
+          "source_sha256": "548868911e761b94b0c7c552ebf4783e9961e132287d129582343152ac6bf832",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional checking/build/TSAN/stress/test/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/checking-mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional checking/build/TSAN/stress/test/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/checking-mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0394-U05",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-08.md",
+          "source_sha256": "548868911e761b94b0c7c552ebf4783e9961e132287d129582343152ac6bf832",
+          "source_heading": "no unchecked sendability without a documented synchronization invariant",
+          "source_fragment": "no unchecked sendability without a documented synchronization invariant",
+          "meaning": "Historical conditional unchecked escape individually archived under current absolute baseline prohibition and approved DEC-001 alignment. A synchronization explanation never authorizes unchecked/unsafe/preconcurrency/suppression/fake MainActor; real isolation/immutable transfer required.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical conditional unchecked escape individually archived under current absolute baseline prohibition and approved DEC-001 alignment. A synchronization explanation never authorizes unchecked/unsafe/preconcurrency/suppression/fake MainActor; real isolation/immutable transfer required.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full common body exact against read source after only identity/title/mission/trap substitution; each mission/trap independently mapped, useful common guards covered, retired execution and unchecked exception individually archived. No OP execution implied."
     },
     {
       "source_id": "LIB-0395",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-03-09.md",
       "sha256": "8f073b8314ff4c57c9b9ef43a59473c6f69507f38ea14133e32000e81df5b4cc",
       "bytes": 8026,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0395-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-09.md",
+          "source_sha256": "8f073b8314ff4c57c9b9ef43a59473c6f69507f38ea14133e32000e81df5b4cc",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual callback bridge owner/isolation/lifetime and checked exactly-once resume; continuation alone does not cancel underlying work.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual callback bridge owner/isolation/lifetime and checked exactly-once resume; continuation alone does not cancel underlying work.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Continuations And Callbacks; Task Ownership; Cancellation",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Continuations And Callbacks",
+                "Task Ownership",
+                "Cancellation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0395-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-09.md",
+          "source_sha256": "8f073b8314ff4c57c9b9ef43a59473c6f69507f38ea14133e32000e81df5b4cc",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Success/error/cancel and synchronous callback during registration all considered; registered lifetime/underlying cancel/cleanup, no merely nominal continuation safety.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Success/error/cancel and synchronous callback during registration all considered; registered lifetime/underlying cancel/cleanup, no merely nominal continuation safety.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Continuations And Callbacks; Cancellation",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Continuations And Callbacks",
+                "Cancellation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0395-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-09.md",
+          "source_sha256": "8f073b8314ff4c57c9b9ef43a59473c6f69507f38ea14133e32000e81df5b4cc",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete shared useful body: actual compiler/mode/strict/isolation/state/task/transfer/queue facts; four valid isolation/lifetime/cancel invariants, minimal concrete patch, pre-await invariants, structured/priority/bridge ownership, surrounding-code review, root competing-access diagnosis/redacted telemetry, bounded authorized queue/module migration/compatibility/rollback/retirement; all eight generic failure routes, permitted exact negative/diagnostic evidence, honest facts/assumptions/impact/unknown output. No numeric option/hypothesis quota or source mode execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete shared useful body: actual compiler/mode/strict/isolation/state/task/transfer/queue facts; four valid isolation/lifetime/cancel invariants, minimal concrete patch, pre-await invariants, structured/priority/bridge ownership, surrounding-code review, root competing-access diagnosis/redacted telemetry, bounded authorized queue/module migration/compatibility/rollback/retirement; all eight generic failure routes, permitted exact negative/diagnostic evidence, honest facts/assumptions/impact/unknown output. No numeric option/hypothesis quota or source mode execution authority.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Isolation Design; Task Ownership; Cancellation; Continuations And Callbacks; Ordering And Stale Results; Reactive And Queue Bridges; Swift 6.x Discipline; Testing And Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Continuations And Callbacks",
+                "Ordering And Stale Results",
+                "Reactive And Queue Bridges",
+                "Swift 6.x Discipline",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist",
+                "Stop Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0395-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-09.md",
+          "source_sha256": "8f073b8314ff4c57c9b9ef43a59473c6f69507f38ea14133e32000e81df5b4cc",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional checking/build/TSAN/stress/test/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/checking-mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional checking/build/TSAN/stress/test/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/checking-mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0395-U05",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-09.md",
+          "source_sha256": "8f073b8314ff4c57c9b9ef43a59473c6f69507f38ea14133e32000e81df5b4cc",
+          "source_heading": "no unchecked sendability without a documented synchronization invariant",
+          "source_fragment": "no unchecked sendability without a documented synchronization invariant",
+          "meaning": "Historical conditional unchecked escape individually archived under current absolute baseline prohibition and approved DEC-001 alignment. A synchronization explanation never authorizes unchecked/unsafe/preconcurrency/suppression/fake MainActor; real isolation/immutable transfer required.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical conditional unchecked escape individually archived under current absolute baseline prohibition and approved DEC-001 alignment. A synchronization explanation never authorizes unchecked/unsafe/preconcurrency/suppression/fake MainActor; real isolation/immutable transfer required.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full common body exact against read source after only identity/title/mission/trap substitution; each mission/trap independently mapped, useful common guards covered, retired execution and unchecked exception individually archived. No OP execution implied."
     },
     {
       "source_id": "LIB-0396",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-03-10.md",
       "sha256": "20c43e8a88c17af5b5637e49b4112da65cdd07879bb99540a7486f432ee2b57b",
       "bytes": 8119,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0396-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-10.md",
+          "source_sha256": "20c43e8a88c17af5b5637e49b4112da65cdd07879bb99540a7486f432ee2b57b",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual pre/post-await invariants and interleaving publication guard on authoritative actor; await is not operation-order proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual pre/post-await invariants and interleaving publication guard on authoritative actor; await is not operation-order proof.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Isolation Design; Ordering And Stale Results; Cancellation",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Ordering And Stale Results",
+                "Cancellation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0396-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-10.md",
+          "source_sha256": "20c43e8a88c17af5b5637e49b4112da65cdd07879bb99540a7486f432ee2b57b",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both traps: intervening actor mutation at suspensions and conditional actual AI untrusted output/code authorization/idempotency/changed-model-OS evaluation; no AI/eval or new mechanism grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both traps: intervening actor mutation at suspensions and conditional actual AI untrusted output/code authorization/idempotency/changed-model-OS evaluation; no AI/eval or new mechanism grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Isolation Design; Ordering And Stale Results",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0396-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-10.md",
+          "source_sha256": "20c43e8a88c17af5b5637e49b4112da65cdd07879bb99540a7486f432ee2b57b",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete shared useful body: actual compiler/mode/strict/isolation/state/task/transfer/queue facts; four valid isolation/lifetime/cancel invariants, minimal concrete patch, pre-await invariants, structured/priority/bridge ownership, surrounding-code review, root competing-access diagnosis/redacted telemetry, bounded authorized queue/module migration/compatibility/rollback/retirement; all eight generic failure routes, permitted exact negative/diagnostic evidence, honest facts/assumptions/impact/unknown output. No numeric option/hypothesis quota or source mode execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete shared useful body: actual compiler/mode/strict/isolation/state/task/transfer/queue facts; four valid isolation/lifetime/cancel invariants, minimal concrete patch, pre-await invariants, structured/priority/bridge ownership, surrounding-code review, root competing-access diagnosis/redacted telemetry, bounded authorized queue/module migration/compatibility/rollback/retirement; all eight generic failure routes, permitted exact negative/diagnostic evidence, honest facts/assumptions/impact/unknown output. No numeric option/hypothesis quota or source mode execution authority.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Isolation Design; Task Ownership; Cancellation; Continuations And Callbacks; Ordering And Stale Results; Reactive And Queue Bridges; Swift 6.x Discipline; Testing And Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Continuations And Callbacks",
+                "Ordering And Stale Results",
+                "Reactive And Queue Bridges",
+                "Swift 6.x Discipline",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist",
+                "Stop Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0396-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-10.md",
+          "source_sha256": "20c43e8a88c17af5b5637e49b4112da65cdd07879bb99540a7486f432ee2b57b",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional checking/build/TSAN/stress/test/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/checking-mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional checking/build/TSAN/stress/test/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/checking-mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0396-U05",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-10.md",
+          "source_sha256": "20c43e8a88c17af5b5637e49b4112da65cdd07879bb99540a7486f432ee2b57b",
+          "source_heading": "no unchecked sendability without a documented synchronization invariant",
+          "source_fragment": "no unchecked sendability without a documented synchronization invariant",
+          "meaning": "Historical conditional unchecked escape individually archived under current absolute baseline prohibition and approved DEC-001 alignment. A synchronization explanation never authorizes unchecked/unsafe/preconcurrency/suppression/fake MainActor; real isolation/immutable transfer required.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical conditional unchecked escape individually archived under current absolute baseline prohibition and approved DEC-001 alignment. A synchronization explanation never authorizes unchecked/unsafe/preconcurrency/suppression/fake MainActor; real isolation/immutable transfer required.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full common body exact against read source after only identity/title/mission/trap substitution; each mission/trap independently mapped, useful common guards covered, retired execution and unchecked exception individually archived. No OP execution implied."
     },
     {
       "source_id": "LIB-0397",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-03-11.md",
       "sha256": "db78d5bf5af7784ca2764b04fbc116006c8364c970aed5c65129da992f111918",
       "bytes": 8063,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0397-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-11.md",
+          "source_sha256": "db78d5bf5af7784ca2764b04fbc116006c8364c970aed5c65129da992f111918",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual independent-work fan-out/memory/priority bounds with lexical/result/lifetime ownership; no unbounded parallelism or assumed speedup.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual independent-work fan-out/memory/priority bounds with lexical/result/lifetime ownership; no unbounded parallelism or assumed speedup.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Streams; Task Ownership",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Streams",
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0397-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-11.md",
+          "source_sha256": "db78d5bf5af7784ca2764b04fbc116006c8364c970aed5c65129da992f111918",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Ownership graph through tasks/timers/notifications/delegates/closures and separately permitted deinit/Memory Graph; source/weak capture not proof of release/cycle.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Ownership graph through tasks/timers/notifications/delegates/closures and separately permitted deinit/Memory Graph; source/weak capture not proof of release/cycle.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains; Optimization Workflow",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0397-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-11.md",
+          "source_sha256": "db78d5bf5af7784ca2764b04fbc116006c8364c970aed5c65129da992f111918",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete shared useful body: actual compiler/mode/strict/isolation/state/task/transfer/queue facts; four valid isolation/lifetime/cancel invariants, minimal concrete patch, pre-await invariants, structured/priority/bridge ownership, surrounding-code review, root competing-access diagnosis/redacted telemetry, bounded authorized queue/module migration/compatibility/rollback/retirement; all eight generic failure routes, permitted exact negative/diagnostic evidence, honest facts/assumptions/impact/unknown output. No numeric option/hypothesis quota or source mode execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete shared useful body: actual compiler/mode/strict/isolation/state/task/transfer/queue facts; four valid isolation/lifetime/cancel invariants, minimal concrete patch, pre-await invariants, structured/priority/bridge ownership, surrounding-code review, root competing-access diagnosis/redacted telemetry, bounded authorized queue/module migration/compatibility/rollback/retirement; all eight generic failure routes, permitted exact negative/diagnostic evidence, honest facts/assumptions/impact/unknown output. No numeric option/hypothesis quota or source mode execution authority.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Isolation Design; Task Ownership; Cancellation; Continuations And Callbacks; Ordering And Stale Results; Reactive And Queue Bridges; Swift 6.x Discipline; Testing And Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Continuations And Callbacks",
+                "Ordering And Stale Results",
+                "Reactive And Queue Bridges",
+                "Swift 6.x Discipline",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist",
+                "Stop Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0397-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-11.md",
+          "source_sha256": "db78d5bf5af7784ca2764b04fbc116006c8364c970aed5c65129da992f111918",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional checking/build/TSAN/stress/test/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/checking-mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional checking/build/TSAN/stress/test/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/checking-mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0397-U05",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-11.md",
+          "source_sha256": "db78d5bf5af7784ca2764b04fbc116006c8364c970aed5c65129da992f111918",
+          "source_heading": "no unchecked sendability without a documented synchronization invariant",
+          "source_fragment": "no unchecked sendability without a documented synchronization invariant",
+          "meaning": "Historical conditional unchecked escape individually archived under current absolute baseline prohibition and approved DEC-001 alignment. A synchronization explanation never authorizes unchecked/unsafe/preconcurrency/suppression/fake MainActor; real isolation/immutable transfer required.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical conditional unchecked escape individually archived under current absolute baseline prohibition and approved DEC-001 alignment. A synchronization explanation never authorizes unchecked/unsafe/preconcurrency/suppression/fake MainActor; real isolation/immutable transfer required.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full common body exact against read source after only identity/title/mission/trap substitution; each mission/trap independently mapped, useful common guards covered, retired execution and unchecked exception individually archived. No OP execution implied."
     },
     {
       "source_id": "LIB-0398",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-03-12.md",
       "sha256": "9a957be74e2f9a29fdd764ccc8b66e85476b04a75fd7d5bf774cf8c7375dbe03",
       "bytes": 8130,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0398-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-12.md",
+          "source_sha256": "9a957be74e2f9a29fdd764ccc8b66e85476b04a75fd7d5bf774cf8c7375dbe03",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual priority inheritance/executor decisions tied to bottleneck/UI responsiveness and supported toolchain, no priority abuse/custom executor solely from template.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual priority inheritance/executor decisions tied to bottleneck/UI responsiveness and supported toolchain, no priority abuse/custom executor solely from template.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Task Ownership; Testing And Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Task Ownership",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0398-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-12.md",
+          "source_sha256": "9a957be74e2f9a29fdd764ccc8b66e85476b04a75fd7d5bf774cf8c7375dbe03",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Actual owner/caller/task falsifying invariant; generic priority label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual owner/caller/task falsifying invariant; generic priority label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0398-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-12.md",
+          "source_sha256": "9a957be74e2f9a29fdd764ccc8b66e85476b04a75fd7d5bf774cf8c7375dbe03",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete shared useful body: actual compiler/mode/strict/isolation/state/task/transfer/queue facts; four valid isolation/lifetime/cancel invariants, minimal concrete patch, pre-await invariants, structured/priority/bridge ownership, surrounding-code review, root competing-access diagnosis/redacted telemetry, bounded authorized queue/module migration/compatibility/rollback/retirement; all eight generic failure routes, permitted exact negative/diagnostic evidence, honest facts/assumptions/impact/unknown output. No numeric option/hypothesis quota or source mode execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete shared useful body: actual compiler/mode/strict/isolation/state/task/transfer/queue facts; four valid isolation/lifetime/cancel invariants, minimal concrete patch, pre-await invariants, structured/priority/bridge ownership, surrounding-code review, root competing-access diagnosis/redacted telemetry, bounded authorized queue/module migration/compatibility/rollback/retirement; all eight generic failure routes, permitted exact negative/diagnostic evidence, honest facts/assumptions/impact/unknown output. No numeric option/hypothesis quota or source mode execution authority.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Isolation Design; Task Ownership; Cancellation; Continuations And Callbacks; Ordering And Stale Results; Reactive And Queue Bridges; Swift 6.x Discipline; Testing And Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Continuations And Callbacks",
+                "Ordering And Stale Results",
+                "Reactive And Queue Bridges",
+                "Swift 6.x Discipline",
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist",
+                "Stop Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0398-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-12.md",
+          "source_sha256": "9a957be74e2f9a29fdd764ccc8b66e85476b04a75fd7d5bf774cf8c7375dbe03",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional checking/build/TSAN/stress/test/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/checking-mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional checking/build/TSAN/stress/test/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/checking-mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0398-U05",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-03-12.md",
+          "source_sha256": "9a957be74e2f9a29fdd764ccc8b66e85476b04a75fd7d5bf774cf8c7375dbe03",
+          "source_heading": "no unchecked sendability without a documented synchronization invariant",
+          "source_fragment": "no unchecked sendability without a documented synchronization invariant",
+          "meaning": "Historical conditional unchecked escape individually archived under current absolute baseline prohibition and approved DEC-001 alignment. A synchronization explanation never authorizes unchecked/unsafe/preconcurrency/suppression/fake MainActor; real isolation/immutable transfer required.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical conditional unchecked escape individually archived under current absolute baseline prohibition and approved DEC-001 alignment. A synchronization explanation never authorizes unchecked/unsafe/preconcurrency/suppression/fake MainActor; real isolation/immutable transfer required.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-76-cancellation-streams-continuations-ordering.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full common body exact against read source after only identity/title/mission/trap substitution; each mission/trap independently mapped, useful common guards covered, retired execution and unchecked exception individually archived. No OP execution implied."
     },
     {
       "source_id": "LIB-0399",
