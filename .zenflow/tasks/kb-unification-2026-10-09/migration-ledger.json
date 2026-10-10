@@ -78703,63 +78703,1516 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-04-01.md",
       "sha256": "2172092d9bc8f64e68be38acf158f4f43eaa0e311ae420e023cc65ad86cee1b7",
       "bytes": 7952,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0401-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-01.md",
+          "source_sha256": "2172092d9bc8f64e68be38acf158f4f43eaa0e311ae420e023cc65ad86cee1b7",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Separate presentation/domain/data/infrastructure only actual coupling/test seam/team ownership warrants; no symmetrical layer count.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Separate presentation/domain/data/infrastructure only actual coupling/test seam/team ownership warrants; no symmetrical layer count.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Detection And Review Gates; Stop List",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Stop List"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0401-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-01.md",
+          "source_sha256": "2172092d9bc8f64e68be38acf158f4f43eaa0e311ae420e023cc65ad86cee1b7",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both conditional actual boundary traps: controlled clock/random/network/storage/globals/no sleeps/order fixtures; AI output untrusted/code authorization/idempotency/permitted changed-model-OS eval, no grants.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both conditional actual boundary traps: controlled clock/random/network/storage/globals/no sleeps/order fixtures; AI output untrusted/code authorization/idempotency/permitted changed-model-OS eval, no grants.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0401-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-01.md",
+          "source_sha256": "2172092d9bc8f64e68be38acf158f4f43eaa0e311ae420e023cc65ad86cee1b7",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List; Review Output Contract",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List",
+                "Review Output Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Required When",
+                "ADR Template",
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Doubles",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0401-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-01.md",
+          "source_sha256": "2172092d9bc8f64e68be38acf158f4f43eaa0e311ae420e023cc65ad86cee1b7",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full architecture common exact against fully read OP-04-01 after only identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No architecture adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0402",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-04-02.md",
       "sha256": "c2802c74afc10922ebbd51822b305f8fe479aaac241c71b6f9a6da90b57576c0",
       "bytes": 7853,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0402-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-02.md",
+          "source_sha256": "c2802c74afc10922ebbd51822b305f8fe479aaac241c71b6f9a6da90b57576c0",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual single state truth/transitions/derived state/effect ownership, no duplicate stores or refresh hacks.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual single state truth/transitions/derived state/effect ownership, no duplicate stores or refresh hacks.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "State Placement",
+                "Invalidation And Preview Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0402-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-02.md",
+          "source_sha256": "c2802c74afc10922ebbd51822b305f8fe479aaac241c71b6f9a6da90b57576c0",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0402-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-02.md",
+          "source_sha256": "c2802c74afc10922ebbd51822b305f8fe479aaac241c71b6f9a6da90b57576c0",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List; Review Output Contract",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List",
+                "Review Output Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Required When",
+                "ADR Template",
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Doubles",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0402-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-02.md",
+          "source_sha256": "c2802c74afc10922ebbd51822b305f8fe479aaac241c71b6f9a6da90b57576c0",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full architecture common exact against fully read OP-04-01 after only identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No architecture adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0403",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-04-03.md",
       "sha256": "82b74dd578735fbee270129812548822c5b8ff52bc4644ad41a6260c7ea98e83",
       "bytes": 7831,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0403-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-03.md",
+          "source_sha256": "82b74dd578735fbee270129812548822c5b8ff52bc4644ad41a6260c7ea98e83",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual MVVM UI state/intents/dependencies/async lifetime; prevent ViewModel god object, no per-view model mandate.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual MVVM UI state/intents/dependencies/async lifetime; prevent ViewModel god object, no per-view model mandate.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Architecture Detection And Review Gates; Architecture-Specific Interaction Rule",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "State Placement"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0403-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-03.md",
+          "source_sha256": "82b74dd578735fbee270129812548822c5b8ff52bc4644ad41a6260c7ea98e83",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0403-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-03.md",
+          "source_sha256": "82b74dd578735fbee270129812548822c5b8ff52bc4644ad41a6260c7ea98e83",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List; Review Output Contract",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List",
+                "Review Output Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Required When",
+                "ADR Template",
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Doubles",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0403-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-03.md",
+          "source_sha256": "82b74dd578735fbee270129812548822c5b8ff52bc4644ad41a6260c7ea98e83",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full architecture common exact against fully read OP-04-01 after only identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No architecture adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0404",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-04-04.md",
       "sha256": "313209996d37616e690a37393a1e65a6a8192d702c99fc6b6dce15be5572c09a",
       "bytes": 7786,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0404-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-04.md",
+          "source_sha256": "313209996d37616e690a37393a1e65a6a8192d702c99fc6b6dce15be5572c09a",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actions/reducer/effects only actual explicitly approved complex UDF boundary; traceable/testable pure reducer/effect cancellation, no generic send/dispatch in ordinary MVVM.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actions/reducer/effects only actual explicitly approved complex UDF boundary; traceable/testable pure reducer/effect cancellation, no generic send/dispatch in ordinary MVVM.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0404-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-04.md",
+          "source_sha256": "313209996d37616e690a37393a1e65a6a8192d702c99fc6b6dce15be5572c09a",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Actual permitted deterministic reducer/effect evidence controls clock/random/network/storage/globals, no fixed sleeps/order fixtures or test grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual permitted deterministic reducer/effect evidence controls clock/random/network/storage/globals, no fixed sleeps/order fixtures or test grant.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0404-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-04.md",
+          "source_sha256": "313209996d37616e690a37393a1e65a6a8192d702c99fc6b6dce15be5572c09a",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List; Review Output Contract",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List",
+                "Review Output Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Required When",
+                "ADR Template",
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Doubles",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0404-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-04.md",
+          "source_sha256": "313209996d37616e690a37393a1e65a6a8192d702c99fc6b6dce15be5572c09a",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full architecture common exact against fully read OP-04-01 after only identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No architecture adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0405",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-04-05.md",
       "sha256": "52ca2a40e4859804d75fd4239b5c1e2a074812a84107d6b60b919dc0ae5c80e8",
       "bytes": 7912,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0405-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-05.md",
+          "source_sha256": "52ca2a40e4859804d75fd4239b5c1e2a074812a84107d6b60b919dc0ae5c80e8",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual volatile domain/infrastructure seam justifies dependency inversion; no protocol explosion/pass-through layers.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual volatile domain/infrastructure seam justifies dependency inversion; no protocol explosion/pass-through layers.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Detection And Review Gates; Stop List",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Stop List"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Protocol Or Concrete Dependency"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0405-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-05.md",
+          "source_sha256": "52ca2a40e4859804d75fd4239b5c1e2a074812a84107d6b60b919dc0ae5c80e8",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0405-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-05.md",
+          "source_sha256": "52ca2a40e4859804d75fd4239b5c1e2a074812a84107d6b60b919dc0ae5c80e8",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List; Review Output Contract",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List",
+                "Review Output Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Required When",
+                "ADR Template",
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Doubles",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0405-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-05.md",
+          "source_sha256": "52ca2a40e4859804d75fd4239b5c1e2a074812a84107d6b60b919dc0ae5c80e8",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full architecture common exact against fully read OP-04-01 after only identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No architecture adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0406",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-04-06.md",
       "sha256": "2ab10850a7d2679e5102cdc7ef9d9a59dde6e277a54c57ad6d002847b8702e23",
       "bytes": 7963,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0406-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-06.md",
+          "source_sha256": "2ab10850a7d2679e5102cdc7ef9d9a59dde6e277a54c57ad6d002847b8702e23",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Navigation/deep-link ownership isolated; coordinator only actual flow need, never service locator/API/business/data owner.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Navigation/deep-link ownership isolated; coordinator only actual flow need, never service locator/API/business/data owner.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Architecture Detection And Review Gates; Architecture-Specific Interaction Rule",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Navigation And Presentation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0406-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-06.md",
+          "source_sha256": "2ab10850a7d2679e5102cdc7ef9d9a59dde6e277a54c57ad6d002847b8702e23",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both navigation traps: cold/warm/auth deferred replay/modal/restoration/external-input validation at actual owner and consumer; tasks/timers/notifications/delegates/closures graph with permitted deinit/Memory Graph, no observed runtime claim.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both navigation traps: cold/warm/auth deferred replay/modal/restoration/external-input validation at actual owner and consumer; tasks/timers/notifications/delegates/closures graph with permitted deinit/Memory Graph, no observed runtime claim.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Navigation And Presentation",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Navigation And Presentation"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0406-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-06.md",
+          "source_sha256": "2ab10850a7d2679e5102cdc7ef9d9a59dde6e277a54c57ad6d002847b8702e23",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List; Review Output Contract",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List",
+                "Review Output Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Required When",
+                "ADR Template",
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Doubles",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0406-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-06.md",
+          "source_sha256": "2ab10850a7d2679e5102cdc7ef9d9a59dde6e277a54c57ad6d002847b8702e23",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full architecture common exact against fully read OP-04-01 after only identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No architecture adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0407",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-04-07.md",
       "sha256": "f488704d2d7d6eec4b750d632118bd8bb7d29fde093d26211de9e80adbd665ee",
       "bytes": 7868,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0407-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-07.md",
+          "source_sha256": "f488704d2d7d6eec4b750d632118bd8bb7d29fde093d26211de9e80adbd665ee",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual consumer dependencies/scopes/test doubles explicit, no global container or unnecessary protocol/DI framework.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual consumer dependencies/scopes/test doubles explicit, no global container or unnecessary protocol/DI framework.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Detection And Review Gates",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Protocol Or Concrete Dependency"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0407-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-07.md",
+          "source_sha256": "f488704d2d7d6eec4b750d632118bd8bb7d29fde093d26211de9e80adbd665ee",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both conditional actual DI traps: controlled clock/random/network/storage/globals/no sleeps/order fixtures; untrusted AI output/code authorization/idempotency/permitted changed-model-OS eval; no framework or test/tool adoption.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both conditional actual DI traps: controlled clock/random/network/storage/globals/no sleeps/order fixtures; untrusted AI output/code authorization/idempotency/permitted changed-model-OS eval; no framework or test/tool adoption.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0407-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-07.md",
+          "source_sha256": "f488704d2d7d6eec4b750d632118bd8bb7d29fde093d26211de9e80adbd665ee",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful architecture body: actual feature graph/state/effect/DI/test seam/public/cross-feature/team/release facts, one state owner/dependency direction/volatile seam/no god object and change amplification versus file count. Design domain/transitions before layers, inject actual consumer needs, real protocol seams/small observable boundary; review duplicate state/service locator/pass-through/cancellation/errors; trace invalid boundary/root cause and local seam before rewrite. Authorized narrow vertical-slice migration with actual compatibility/behavior/metrics/rollback, no cycles/public bloat; all eight generic failures/negative evidence/honest output retained. No architecture/numeric quotas or execution authority.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Detection And Review Gates; Architecture-Specific Interaction Rule; Stop List; Review Output Contract",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates",
+                "Architecture-Specific Interaction Rule",
+                "Stop List",
+                "Review Output Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Required When",
+                "ADR Template",
+                "Bounded Investigation And Migration",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Doubles",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0407-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-04-07.md",
+          "source_sha256": "f488704d2d7d6eec4b750d632118bd8bb7d29fde093d26211de9e80adbd665ee",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-03-04; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-78-feature-state-di-architecture-deep-playbooks.md",
+          "affected_routes": [
+            "ios-architecture-router",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full architecture common exact against fully read OP-04-01 after only identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No architecture adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0408",
