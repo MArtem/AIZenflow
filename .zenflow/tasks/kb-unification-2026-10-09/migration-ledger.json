@@ -64411,9 +64411,156 @@
       "path": "31_DEEP_PLAYBOOKS/COMMON_EXECUTION_CONTRACT.md",
       "sha256": "b3ddf4df34f201f6c043c608752825ea8969540e836cb3d5d1a29cdc04b285bb",
       "bytes": 1436,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0366-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/COMMON_EXECUTION_CONTRACT.md",
+          "source_sha256": "b3ddf4df34f201f6c043c608752825ea8969540e836cb3d5d1a29cdc04b285bb",
+          "source_heading": "Shared workflow",
+          "source_fragment": "## Shared workflow",
+          "meaning": "All six steps: current authority/toolchain and concrete owners/callers/state/lifetime/dependencies; actual change invariants and falsifiable scenarios; minimal contract-preserving patch, permission-bound verification and scoped observed/reasoned/unknown residual risk. Historical R2 classification does not replace current change contract or severity.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All six steps: current authority/toolchain and concrete owners/callers/state/lifetime/dependencies; actual change invariants and falsifiable scenarios; minimal contract-preserving patch, permission-bound verification and scoped observed/reasoned/unknown residual risk. Historical R2 classification does not replace current change contract or severity.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "Trigger And Authority; 1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; Completion Contract",
+          "required_verification": "Complete common source body, SHA/literal fragments/current canonical heading locators, prior reviewed rows/copies and task mirror parity; exact final-diff/SHA publication gates.",
+          "evidence": "block-66-common-deep-contract-coverage.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "Trigger And Authority",
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0366-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/COMMON_EXECUTION_CONTRACT.md",
+          "source_sha256": "b3ddf4df34f201f6c043c608752825ea8969540e836cb3d5d1a29cdc04b285bb",
+          "source_heading": "Shared stop conditions",
+          "source_fragment": "## Shared stop conditions",
+          "meaning": "Incomplete repository/permission/invariant evidence cannot invent confidence or authorize unknown executable surfaces, out-of-scope operations or migration/security/concurrency changes; dependent work remains blocked, independent authorized work may proceed.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Incomplete repository/permission/invariant evidence cannot invent confidence or authorize unknown executable surfaces, out-of-scope operations or migration/security/concurrency changes; dependent work remains blocked, independent authorized work may proceed.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Complete common source body, SHA/literal fragments/current canonical heading locators, prior reviewed rows/copies and task mirror parity; exact final-diff/SHA publication gates.",
+          "evidence": "block-66-common-deep-contract-coverage.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0366-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/COMMON_EXECUTION_CONTRACT.md",
+          "source_sha256": "b3ddf4df34f201f6c043c608752825ea8969540e836cb3d5d1a29cdc04b285bb",
+          "source_heading": "Topic-specific requirement",
+          "source_fragment": "## Topic-specific requirement",
+          "meaning": "Actual source/task-specific owners, consumers, boundaries and falsifying failures govern; generic checklists never replace the local contract. No topic coverage inferred from this common source.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual source/task-specific owners, consumers, boundaries and falsifying failures govern; generic checklists never replace the local contract. No topic coverage inferred from this common source.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Complete common source body, SHA/literal fragments/current canonical heading locators, prior reviewed rows/copies and task mirror parity; exact final-diff/SHA publication gates.",
+          "evidence": "block-66-common-deep-contract-coverage.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0366-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/COMMON_EXECUTION_CONTRACT.md",
+          "source_sha256": "b3ddf4df34f201f6c043c608752825ea8969540e836cb3d5d1a29cdc04b285bb",
+          "source_heading": "This file contains the workflow intentionally shared",
+          "source_fragment": "This file contains the workflow intentionally shared",
+          "meaning": "Standalone OP shared-execution file/mandatory Library delivery archived. Useful quality-not-file-count/minimal-reading principles already in current quality authority; no separate pass, old mode activation or execution grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone OP shared-execution file/mandatory Library delivery archived. Useful quality-not-file-count/minimal-reading principles already in current quality authority; no separate pass, old mode activation or execution grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete common source body, SHA/literal fragments/current canonical heading locators, prior reviewed rows/copies and task mirror parity; exact final-diff/SHA publication gates.",
+          "evidence": "block-66-common-deep-contract-coverage.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full common contract independently reviewed; meaningful workflow/stops/topic-specificity covered by current quality authority, standalone deep-playbook infrastructure archived."
     },
     {
       "source_id": "LIB-0367",
