@@ -32,3 +32,8 @@ Unchanged index/archive evidence reused; full route/cost/scenario/cutover still 
 417 REVIEWED/986 UNREVIEWED/zero partial;1884 terminal units including copy groups.
 Source coverage not UI fidelity/runtime/OP/app/domain completion; tokens/benefit UNKNOWN.
 U1/U4/U6/full-cost/scenarios/cutover pending;U7 NOT_RUN/BENEFIT_NOT_ESTABLISHED.
+
+Provenance correction: post-publication review found two copied metadata labels referring to
+OP-03-04/OP-04-01 and architecture. Corrected to actual OP-05-01/SwiftUI comparison.
+Dispositions, source fragments, coverage locations and counts unchanged; original publication
+receipt/history retained. This correction does not establish runtime or benefit evidence.
