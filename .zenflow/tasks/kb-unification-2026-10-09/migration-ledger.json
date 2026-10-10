@@ -91003,63 +91003,1634 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-09-01.md",
       "sha256": "2c2f7692c416fb8daa9d7b8fa639aea9e69ed9c68442bce0eea935393553ff7b",
       "bytes": 7791,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0455-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-01.md",
+          "source_sha256": "2c2f7692c416fb8daa9d7b8fa639aea9e69ed9c68442bce0eea935393553ff7b",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual supported SwiftData model/relationships/uniqueness/index/fetch/migration/availability contract before convenience syntax; no new schema API adoption.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual supported SwiftData model/relationships/uniqueness/index/fetch/migration/availability contract before convenience syntax; no new schema API adoption.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Choose By Contract; SwiftData And Core Data; Migration",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Choose By Contract",
+                "SwiftData And Core Data",
+                "Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0455-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-01.md",
+          "source_sha256": "2c2f7692c416fb8daa9d7b8fa639aea9e69ed9c68442bce0eea935393553ff7b",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Complete schema/history/previous store/isolation/unique/delete/rollback/data-loss trap plus conditional actual AI code auth/idempotency/untrusted/permitted eval.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete schema/history/previous store/isolation/unique/delete/rollback/data-loss trap plus conditional actual AI code auth/idempotency/untrusted/permitted eval.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data; Migration; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data",
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0455-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-01.md",
+          "source_sha256": "2c2f7692c416fb8daa9d7b8fa639aea9e69ed9c68442bce0eea935393553ff7b",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Choose By Contract; Data Ownership; SwiftData And Core Data; Migration; CloudKit; Offline And Sync; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Choose By Contract",
+                "Data Ownership",
+                "SwiftData And Core Data",
+                "Migration",
+                "CloudKit",
+                "Offline And Sync",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0455-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-01.md",
+          "source_sha256": "2c2f7692c416fb8daa9d7b8fa639aea9e69ed9c68442bce0eea935393553ff7b",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full persistence common exact against fully read OP-09-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No persistence framework/schema adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0456",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-09-02.md",
       "sha256": "d051bd561fd26b1da7afb12d61fcc9afb09d766617fa24c0651c871ac224339f",
       "bytes": 7794,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0456-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-02.md",
+          "source_sha256": "d051bd561fd26b1da7afb12d61fcc9afb09d766617fa24c0651c871ac224339f",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual ModelActor/context isolate work; stable IDs/immutable snapshots resolved by receiver, transaction/background merge/user refresh without crossing live models.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual ModelActor/context isolate work; stable IDs/immutable snapshots resolved by receiver, transaction/background merge/user refresh without crossing live models.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0456-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-02.md",
+          "source_sha256": "d051bd561fd26b1da7afb12d61fcc9afb09d766617fa24c0651c871ac224339f",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full traps: old-store/isolation/unique/delete/rollback/data loss; system timing/background restoration/process death/shared containers and timeline only actual supported widget consumer.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full traps: old-store/isolation/unique/delete/rollback/data loss; system timing/background restoration/process death/shared containers and timeline only actual supported widget consumer.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data; Migration; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data",
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Background Execution",
+                "Widgets",
+                "App Groups"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0456-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-02.md",
+          "source_sha256": "d051bd561fd26b1da7afb12d61fcc9afb09d766617fa24c0651c871ac224339f",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Choose By Contract; Data Ownership; SwiftData And Core Data; Migration; CloudKit; Offline And Sync; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Choose By Contract",
+                "Data Ownership",
+                "SwiftData And Core Data",
+                "Migration",
+                "CloudKit",
+                "Offline And Sync",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0456-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-02.md",
+          "source_sha256": "d051bd561fd26b1da7afb12d61fcc9afb09d766617fa24c0651c871ac224339f",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full persistence common exact against fully read OP-09-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No persistence framework/schema adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0457",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-09-03.md",
       "sha256": "74d0f74abdedfdcf10d5f1cb7d085671ecfbb8df08db9beb5d75d267e4e15b56",
       "bytes": 7782,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0457-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-03.md",
+          "source_sha256": "74d0f74abdedfdcf10d5f1cb7d085671ecfbb8df08db9beb5d75d267e4e15b56",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual CoreData entity/relationship/fault/fetch/constraint/context/save/merge contract and schema-aware access-volume boundaries.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual CoreData entity/relationship/fault/fetch/constraint/context/save/merge contract and schema-aware access-volume boundaries.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data; Migration",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data",
+                "Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0457-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-03.md",
+          "source_sha256": "74d0f74abdedfdcf10d5f1cb7d085671ecfbb8df08db9beb5d75d267e4e15b56",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full schema/history/previous store/isolation/unique/delete/rollback/data-loss plus conditional actual AI auth/idempotency/untrusted/permitted eval, no execution grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full schema/history/previous store/isolation/unique/delete/rollback/data-loss plus conditional actual AI auth/idempotency/untrusted/permitted eval, no execution grant.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data; Migration; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data",
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0457-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-03.md",
+          "source_sha256": "74d0f74abdedfdcf10d5f1cb7d085671ecfbb8df08db9beb5d75d267e4e15b56",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Choose By Contract; Data Ownership; SwiftData And Core Data; Migration; CloudKit; Offline And Sync; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Choose By Contract",
+                "Data Ownership",
+                "SwiftData And Core Data",
+                "Migration",
+                "CloudKit",
+                "Offline And Sync",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0457-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-03.md",
+          "source_sha256": "74d0f74abdedfdcf10d5f1cb7d085671ecfbb8df08db9beb5d75d267e4e15b56",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full persistence common exact against fully read OP-09-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No persistence framework/schema adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0458",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-09-04.md",
       "sha256": "71882543f633a873af2f1532e6ce8a123d1446d7cdeb145be67ada18dc742217",
       "bytes": 7781,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0458-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-04.md",
+          "source_sha256": "71882543f633a873af2f1532e6ce8a123d1446d7cdeb145be67ada18dc742217",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual CoreData confinement/receiver IDs/background transactions and explicit merge/user-visible refresh, no cross-context live objects.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual CoreData confinement/receiver IDs/background transactions and explicit merge/user-visible refresh, no cross-context live objects.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0458-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-04.md",
+          "source_sha256": "71882543f633a873af2f1532e6ce8a123d1446d7cdeb145be67ada18dc742217",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full traps retained: old store/schema/isolated context/unique/delete/rollback/data loss; system timing/restoration/shared containers/process death and conditional actual widget timeline.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full traps retained: old store/schema/isolated context/unique/delete/rollback/data loss; system timing/restoration/shared containers/process death and conditional actual widget timeline.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data; Migration; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data",
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Background Execution",
+                "Widgets",
+                "App Groups"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0458-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-04.md",
+          "source_sha256": "71882543f633a873af2f1532e6ce8a123d1446d7cdeb145be67ada18dc742217",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Choose By Contract; Data Ownership; SwiftData And Core Data; Migration; CloudKit; Offline And Sync; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Choose By Contract",
+                "Data Ownership",
+                "SwiftData And Core Data",
+                "Migration",
+                "CloudKit",
+                "Offline And Sync",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0458-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-04.md",
+          "source_sha256": "71882543f633a873af2f1532e6ce8a123d1446d7cdeb145be67ada18dc742217",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full persistence common exact against fully read OP-09-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No persistence framework/schema adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0459",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-09-05.md",
       "sha256": "77500f76c955703c82441fbea14d8f0baa2f4c20e4c4fa7df59333894ce87561",
       "bytes": 7789,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0459-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-05.md",
+          "source_sha256": "77500f76c955703c82441fbea14d8f0baa2f4c20e4c4fa7df59333894ce87561",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Supported schema/version/default/relationship paths and backup/idempotent interrupted recovery/rollback/telemetry/large-store envelopes; clean install not preservation and deletion needs authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Supported schema/version/default/relationship paths and backup/idempotent interrupted recovery/rollback/telemetry/large-store envelopes; clean install not preservation and deletion needs authority.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration; Data Ownership; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration",
+                "Data Ownership",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0459-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-05.md",
+          "source_sha256": "77500f76c955703c82441fbea14d8f0baa2f4c20e4c4fa7df59333894ce87561",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full traps: historical store/isolation/unique/delete/rollback/data loss and comparable representative baseline/bottleneck/instrument/before-after; no runtime preservation/performance proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full traps: historical store/isolation/unique/delete/rollback/data loss and comparable representative baseline/bottleneck/instrument/before-after; no runtime preservation/performance proof.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data; Migration; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data",
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0459-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-05.md",
+          "source_sha256": "77500f76c955703c82441fbea14d8f0baa2f4c20e4c4fa7df59333894ce87561",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Choose By Contract; Data Ownership; SwiftData And Core Data; Migration; CloudKit; Offline And Sync; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Choose By Contract",
+                "Data Ownership",
+                "SwiftData And Core Data",
+                "Migration",
+                "CloudKit",
+                "Offline And Sync",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0459-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-05.md",
+          "source_sha256": "77500f76c955703c82441fbea14d8f0baa2f4c20e4c4fa7df59333894ce87561",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full persistence common exact against fully read OP-09-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No persistence framework/schema adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0460",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-09-06.md",
       "sha256": "4a6232a8d1f5f5e15cc3ae821ad087ab5131297a9ae6134f3aac4e882b22158b",
       "bytes": 7621,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0460-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-06.md",
+          "source_sha256": "4a6232a8d1f5f5e15cc3ae821ad087ab5131297a9ae6134f3aac4e882b22158b",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual cache source/key/version/TTL/ETag/stale-revalidate/eviction/disk bounds and privacy/invalidation; reset only verified rebuildability/consumer contract.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual cache source/key/version/TTL/ETag/stale-revalidate/eviction/disk bounds and privacy/invalidation; reset only verified rebuildability/consumer contract.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Preferences And Derived Caches; Data Ownership",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Preferences And Derived Caches",
+                "Data Ownership"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Caching"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0460-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-06.md",
+          "source_sha256": "4a6232a8d1f5f5e15cc3ae821ad087ab5131297a9ae6134f3aac4e882b22158b",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full key/TTL/validator/invalidation/stale-offline/memory-disk trap; derived cache not durable truth.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full key/TTL/validator/invalidation/stale-offline/memory-disk trap; derived cache not durable truth.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Preferences And Derived Caches",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Preferences And Derived Caches"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Caching"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0460-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-06.md",
+          "source_sha256": "4a6232a8d1f5f5e15cc3ae821ad087ab5131297a9ae6134f3aac4e882b22158b",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Choose By Contract; Data Ownership; SwiftData And Core Data; Migration; CloudKit; Offline And Sync; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Choose By Contract",
+                "Data Ownership",
+                "SwiftData And Core Data",
+                "Migration",
+                "CloudKit",
+                "Offline And Sync",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0460-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-06.md",
+          "source_sha256": "4a6232a8d1f5f5e15cc3ae821ad087ab5131297a9ae6134f3aac4e882b22158b",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full persistence common exact against fully read OP-09-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No persistence framework/schema adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0461",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-09-07.md",
       "sha256": "489de55cae3c4be6a679b911041c926a860ea27b473391f76264fc9978c02f37",
       "bytes": 7739,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0461-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-07.md",
+          "source_sha256": "489de55cae3c4be6a679b911041c926a860ea27b473391f76264fc9978c02f37",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Durable operation log/ordering/version/retry/idempotency/conflict/tombstone and honest queued/sync/conflict/failure user consistency; optimistic UI not server acknowledgment.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Durable operation log/ordering/version/retry/idempotency/conflict/tombstone and honest queued/sync/conflict/failure user consistency; optimistic UI not server acknowledgment.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Offline And Sync",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Offline And Sync"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Pagination And Sync",
+                "Offline"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0461-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-07.md",
+          "source_sha256": "489de55cae3c4be6a679b911041c926a860ea27b473391f76264fc9978c02f37",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0461-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-07.md",
+          "source_sha256": "489de55cae3c4be6a679b911041c926a860ea27b473391f76264fc9978c02f37",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful persistence body: actual store/schema history/isolation/relationships/unique/index/fetch/migration/old fixtures/cache-conflict-backup facts; supported upgrades readable, domain transactions, no cross-owner live models, explicit cache staleness and no silent destruction. Stable IDs/constraints, bounded fetch/blob, actual mapping seam, schema plan before mutation; review confinement/hidden I/O/optionality/delete gaps/data loss. Recommend scoped responsible-owner containment if writes threaten corruption evidence, no freeze authority; permitted old-store evidence separates schema/transaction/concurrency/filesystem. Authorized backup/fixture-migrate-invariant-validation-rollback and staged backend/schema coexistence with parity/retirement. All eight failure clauses and permission-bound historical upgrade/transaction/isolation/integrity/storage-pressure/diagnostic negative evidence/output covered. No store mutation/test/action grant.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Choose By Contract; Data Ownership; SwiftData And Core Data; Migration; CloudKit; Offline And Sync; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Choose By Contract",
+                "Data Ownership",
+                "SwiftData And Core Data",
+                "Migration",
+                "CloudKit",
+                "Offline And Sync",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Determinism",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0461-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-09-07.md",
+          "source_sha256": "489de55cae3c4be6a679b911041c926a860ea27b473391f76264fc9978c02f37",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-09-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-88-persistence-models-isolation-migration-cache-offline.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full persistence common exact against fully read OP-09-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No persistence framework/schema adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0462",
