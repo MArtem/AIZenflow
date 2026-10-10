@@ -24,6 +24,10 @@ benefit and separate authorization.
 - Security/privacy and migration changes require explicit gate review.
 - Release branches require release engineering review.
 
+Where the existing project contract requires it, record review response expectations, escalation
+and backup ownership/knowledge continuity for critical modules and incident paths. Identify
+single-owner bottlenecks without inventing people, staffing targets or an unapproved review SLA.
+
 ## Output For Reviews
 - Owners/reviewers needed.
 - Areas reviewed.

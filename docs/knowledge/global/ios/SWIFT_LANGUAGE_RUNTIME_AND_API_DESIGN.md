@@ -59,6 +59,11 @@ supported toolchain; do not adopt advanced syntax merely because an archived sou
 - Default arguments are compiled at the call site; changing them may not change already-compiled clients.
 - `@inlinable`, `@usableFromInline`, specialization attributes, and underscored attributes are advanced compatibility commitments. Use only with measured need and toolchain-specific review.
 
+For an authorized staged deprecation, name the affected usage inventory, compatibility,
+deprecation annotations/diagnostics, migration aids/docs and planned removal version or timeline.
+Preserve consumer communication and rollback limits; deprecation is not permission to waive
+compiler diagnostics or remove a still-used API.
+
 Before deleting apparently unused code, establish actual reachability beyond direct references:
 selectors/reflection, generated/resource lookup, external routes, feature flags and public consumers.
 Absence of static call sites alone does not establish safe removal. Preserve real dependency seams

@@ -63495,72 +63495,916 @@
       "path": "30_TEAM_ENGINEERING/IOS-27-01_CODE_OWNERSHIP.md",
       "sha256": "fca7320a4ea7099651fde51f14c5ab1c8393f7e1b847dd103fbd2c3457b934fa",
       "bytes": 3762,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0358-U01",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-01_CODE_OWNERSHIP.md",
+          "source_sha256": "fca7320a4ea7099651fde51f14c5ab1c8393f7e1b847dd103fbd2c3457b934fa",
+          "source_heading": "Определить module/feature ownership, review paths, incident responsibility and avoid bottlenecks.",
+          "source_fragment": "Определить module/feature ownership, review paths, incident responsibility and avoid bottlenecks.",
+          "meaning": "Определить module/feature ownership, review paths, incident responsibility and avoid bottlenecks. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: ownership clarity, bus factor, review SLA, escalation, docs, boundaries.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "unique_delta": "Определить module/feature ownership, review paths, incident responsibility and avoid bottlenecks. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: ownership clarity, bus factor, review SLA, escalation, docs, boundaries.",
+          "disposition": "MIGRATED",
+          "reason": "Определить module/feature ownership, review paths, incident responsibility and avoid bottlenecks. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: ownership clarity, bus factor, review SLA, escalation, docs, boundaries.",
+          "destination_path": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "destination_heading": "Review Rules; Ownership Areas; Output For Reviews",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+              "headings": [
+                "Review Rules",
+                "Ownership Areas",
+                "Output For Reviews"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "6. Escaped-Finding Feedback"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: ownership clarity, bus factor, review SLA, escalation, docs, boundaries.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0358-U02",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-01_CODE_OWNERSHIP.md",
+          "source_sha256": "fca7320a4ea7099651fde51f14c5ab1c8393f7e1b847dd103fbd2c3457b934fa",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0358-U03",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-01_CODE_OWNERSHIP.md",
+          "source_sha256": "fca7320a4ea7099651fde51f14c5ab1c8393f7e1b847dd103fbd2c3457b934fa",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0359",
       "path": "30_TEAM_ENGINEERING/IOS-27-02_TECH_DEBT.md",
       "sha256": "cfd77ed5369b346431f74cfdbafb13ab2b55a3283bdf452a5ca299fae1b82e46",
       "bytes": 3803,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0359-U01",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-02_TECH_DEBT.md",
+          "source_sha256": "cfd77ed5369b346431f74cfdbafb13ab2b55a3283bdf452a5ca299fae1b82e46",
+          "source_heading": "Оценить debt по risk/change frequency/impact, связать с measurable outcome and staged payoff.",
+          "source_fragment": "Оценить debt по risk/change frequency/impact, связать с measurable outcome and staged payoff.",
+          "meaning": "Оценить debt по risk/change frequency/impact, связать с measurable outcome and staged payoff. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: risk, change frequency, incident cost, migration path, tests, owner/date.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/TECH_DEBT_REGISTER.md",
+          "existing_coverage": "reusable/baseline/docs/TECH_DEBT_REGISTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Оценить debt по risk/change frequency/impact, связать с measurable outcome and staged payoff. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: risk, change frequency, incident cost, migration path, tests, owner/date.",
+          "destination_path": "reusable/baseline/docs/TECH_DEBT_REGISTER.md",
+          "destination_heading": "Rule; Entry Template",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/TECH_DEBT_REGISTER.md",
+              "headings": [
+                "Rule",
+                "Entry Template"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "6. Escaped-Finding Feedback"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: risk, change frequency, incident cost, migration path, tests, owner/date.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0359-U02",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-02_TECH_DEBT.md",
+          "source_sha256": "cfd77ed5369b346431f74cfdbafb13ab2b55a3283bdf452a5ca299fae1b82e46",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0359-U03",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-02_TECH_DEBT.md",
+          "source_sha256": "cfd77ed5369b346431f74cfdbafb13ab2b55a3283bdf452a5ca299fae1b82e46",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0360",
       "path": "30_TEAM_ENGINEERING/IOS-27-03_API_DEPRECATION.md",
       "sha256": "dc5808fe8af8f1f375f2820f1b75ef8254458c41189493ece13a1eef6eb07923",
       "bytes": 3733,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0360-U01",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-03_API_DEPRECATION.md",
+          "source_sha256": "dc5808fe8af8f1f375f2820f1b75ef8254458c41189493ece13a1eef6eb07923",
+          "source_heading": "Staged deprecation annotations/docs/migration aids/usage tracking and removal version.",
+          "source_fragment": "Staged deprecation annotations/docs/migration aids/usage tracking and removal version.",
+          "meaning": "Staged deprecation annotations/docs/migration aids/usage tracking and removal version. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: usage inventory, compatibility, migration docs, warnings, timeline, rollback.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "Staged deprecation annotations/docs/migration aids/usage tracking and removal version. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: usage inventory, compatibility, migration docs, warnings, timeline, rollback.",
+          "disposition": "MIGRATED",
+          "reason": "Staged deprecation annotations/docs/migration aids/usage tracking and removal version. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: usage inventory, compatibility, migration docs, warnings, timeline, rollback.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Public API Rules; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Public API Rules",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "6. Escaped-Finding Feedback"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: usage inventory, compatibility, migration docs, warnings, timeline, rollback.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0360-U02",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-03_API_DEPRECATION.md",
+          "source_sha256": "dc5808fe8af8f1f375f2820f1b75ef8254458c41189493ece13a1eef6eb07923",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0360-U03",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-03_API_DEPRECATION.md",
+          "source_sha256": "dc5808fe8af8f1f375f2820f1b75ef8254458c41189493ece13a1eef6eb07923",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0361",
       "path": "30_TEAM_ENGINEERING/IOS-27-04_BREAKING_CHANGE.md",
       "sha256": "be9d668ff97ba49adc9d2471989a49e114c6a6fa6666634ba81a9d07a25be751",
       "bytes": 3786,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0361-U01",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-04_BREAKING_CHANGE.md",
+          "source_sha256": "be9d668ff97ba49adc9d2471989a49e114c6a6fa6666634ba81a9d07a25be751",
+          "source_heading": "Blast radius, source/data compatibility, rollout coordination, versioning and consumer migration.",
+          "source_fragment": "Blast radius, source/data compatibility, rollout coordination, versioning and consumer migration.",
+          "meaning": "Blast radius, source/data compatibility, rollout coordination, versioning and consumer migration. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: consumer inventory, compatibility, migration, versioning, rollback, communication.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Blast radius, source/data compatibility, rollout coordination, versioning and consumer migration. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: consumer inventory, compatibility, migration, versioning, rollback, communication.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Public API Rules; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Public API Rules",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "6. Escaped-Finding Feedback"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: consumer inventory, compatibility, migration, versioning, rollback, communication.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0361-U02",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-04_BREAKING_CHANGE.md",
+          "source_sha256": "be9d668ff97ba49adc9d2471989a49e114c6a6fa6666634ba81a9d07a25be751",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0361-U03",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-04_BREAKING_CHANGE.md",
+          "source_sha256": "be9d668ff97ba49adc9d2471989a49e114c6a6fa6666634ba81a9d07a25be751",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0362",
       "path": "30_TEAM_ENGINEERING/IOS-27-05_INCIDENT_POSTMORTEM.md",
       "sha256": "186181166020592fe539dd7f49b1f00ec8bf32e5939581afd13107e701fc1c0f",
       "bytes": 3777,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0362-U01",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-05_INCIDENT_POSTMORTEM.md",
+          "source_sha256": "186181166020592fe539dd7f49b1f00ec8bf32e5939581afd13107e701fc1c0f",
+          "source_heading": "Blameless timeline/root cause/contributors/detection gaps/action items with owners and verification.",
+          "source_fragment": "Blameless timeline/root cause/contributors/detection gaps/action items with owners and verification.",
+          "meaning": "Blameless timeline/root cause/contributors/detection gaps/action items with owners and verification. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: evidence, root cause, detection, guardrails, owner/date, recurrence prevention.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Blameless timeline/root cause/contributors/detection gaps/action items with owners and verification. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: evidence, root cause, detection, guardrails, owner/date, recurrence prevention.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Runtime Operations; Observability; Evidence",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations",
+                "Observability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "6. Escaped-Finding Feedback"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: evidence, root cause, detection, guardrails, owner/date, recurrence prevention.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0362-U02",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-05_INCIDENT_POSTMORTEM.md",
+          "source_sha256": "186181166020592fe539dd7f49b1f00ec8bf32e5939581afd13107e701fc1c0f",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0362-U03",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-05_INCIDENT_POSTMORTEM.md",
+          "source_sha256": "186181166020592fe539dd7f49b1f00ec8bf32e5939581afd13107e701fc1c0f",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0363",
       "path": "30_TEAM_ENGINEERING/IOS-27-06_ENGINEERING_DOCS.md",
       "sha256": "baa54766d82b9daa12883c7a75fbc54d110a0b70967fa124e656f46685ad881e",
       "bytes": 3813,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0363-U01",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-06_ENGINEERING_DOCS.md",
+          "source_sha256": "baa54766d82b9daa12883c7a75fbc54d110a0b70967fa124e656f46685ad881e",
+          "source_heading": "Document invariants/decisions/runbooks, tie updates to code/release triggers and avoid stale tutorials.",
+          "source_fragment": "Document invariants/decisions/runbooks, tie updates to code/release triggers and avoid stale tutorials.",
+          "meaning": "Document invariants/decisions/runbooks, tie updates to code/release triggers and avoid stale tutorials. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: ownership, update trigger, source of truth, examples, decision history, discoverability.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Document invariants/decisions/runbooks, tie updates to code/release triggers and avoid stale tutorials. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: ownership, update trigger, source of truth, examples, decision history, discoverability.",
+          "destination_path": "reusable/baseline/docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+          "destination_heading": "Required Rules; Review Checklist",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "6. Escaped-Finding Feedback"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: ownership, update trigger, source of truth, examples, decision history, discoverability.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0363-U02",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-06_ENGINEERING_DOCS.md",
+          "source_sha256": "baa54766d82b9daa12883c7a75fbc54d110a0b70967fa124e656f46685ad881e",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0363-U03",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-06_ENGINEERING_DOCS.md",
+          "source_sha256": "baa54766d82b9daa12883c7a75fbc54d110a0b70967fa124e656f46685ad881e",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0364",
       "path": "30_TEAM_ENGINEERING/IOS-27-07_MENTOR_REVIEW.md",
       "sha256": "72efebc7aa12bc501dbbf53ffbbdadaa9acc6f2c9974c886ed56538c9a2d11d1",
       "bytes": 3797,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0364-U01",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-07_MENTOR_REVIEW.md",
+          "source_sha256": "72efebc7aa12bc501dbbf53ffbbdadaa9acc6f2c9974c886ed56538c9a2d11d1",
+          "source_heading": "Объяснять trade-offs and teach review heuristics, not rewrite everything to reviewer preference.",
+          "source_fragment": "Объяснять trade-offs and teach review heuristics, not rewrite everything to reviewer preference.",
+          "meaning": "Объяснять trade-offs and teach review heuristics, not rewrite everything to reviewer preference. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: correctness vs preference, rationale, learning, scope, follow-up, consistency.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Объяснять trade-offs and teach review heuristics, not rewrite everything to reviewer preference. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: correctness vs preference, rationale, learning, scope, follow-up, consistency.",
+          "destination_path": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "destination_heading": "Review Rules; Ownership Areas; Output For Reviews",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+              "headings": [
+                "Review Rules",
+                "Ownership Areas",
+                "Output For Reviews"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "6. Escaped-Finding Feedback"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: correctness vs preference, rationale, learning, scope, follow-up, consistency.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0364-U02",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-07_MENTOR_REVIEW.md",
+          "source_sha256": "72efebc7aa12bc501dbbf53ffbbdadaa9acc6f2c9974c886ed56538c9a2d11d1",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0364-U03",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-07_MENTOR_REVIEW.md",
+          "source_sha256": "72efebc7aa12bc501dbbf53ffbbdadaa9acc6f2c9974c886ed56538c9a2d11d1",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0365",
       "path": "30_TEAM_ENGINEERING/IOS-27-08_TEAM_QUALITY_REVIEW.md",
       "sha256": "795fec79b0b878255c3a3e1ae1c69d881a1efd8baa71e8c2e8982c5815fb632b",
       "bytes": 3809,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0365-U01",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-08_TEAM_QUALITY_REVIEW.md",
+          "source_sha256": "795fec79b0b878255c3a3e1ae1c69d881a1efd8baa71e8c2e8982c5815fb632b",
+          "source_heading": "Связать CI gates, code review, observability, incident feedback, dependency updates and release checklist.",
+          "source_fragment": "Связать CI gates, code review, observability, incident feedback, dependency updates and release checklist.",
+          "meaning": "Связать CI gates, code review, observability, incident feedback, dependency updates and release checklist. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: feedback loops, gate signal, ownership, automation, metrics, developer ergonomics.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Связать CI gates, code review, observability, incident feedback, dependency updates and release checklist. Full reviewed common method/gates: real platform/permission/product inputs, existing owner, state/failure/interruption/recovery, bounded API/diff, callback uncertainty, resource teardown, denied/unavailable/thermal/memory/background, dependency/privacy cost, truthful evidence. Gate: feedback loops, gate signal, ownership, automation, metrics, developer ergonomics.",
+          "destination_path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "destination_heading": "Authority, Verdict, And Readiness Contract; Manual GitHub Verification; Mandatory Internal Pre-PR Review Gate; Evidence And Verdict Rules; User Authority",
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "Manual GitHub Verification",
+                "Mandatory Internal Pre-PR Review Gate",
+                "Evidence And Verdict Rules",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "6. Escaped-Finding Feedback"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Cost Boundary",
+                "Result Semantics"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "5. Проверь: feedback loops, gate signal, ownership, automation, metrics, developer ergonomics.",
+            "Не выдумывай API/availability."
+          ]
+        },
+        {
+          "unit_id": "LIB-0365-U02",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-08_TEAM_QUALITY_REVIEW.md",
+          "source_sha256": "795fec79b0b878255c3a3e1ae1c69d881a1efd8baa71e8c2e8982c5815fb632b",
+          "source_heading": "6. Добавь deterministic tests",
+          "source_fragment": "6. Добавь deterministic tests",
+          "meaning": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Unconditional test/fixture/measurement/build directives archived as execution wrapper; conditional useful evidence retained current owners, hardware seam is not hardware verification or test-writing permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "source_additional_fragments": [
+            "7. Для performance-sensitive API добавь measurement/signpost",
+            "добавь tests/fixtures/diagnostics и выполни доступные build/test checks."
+          ]
+        },
+        {
+          "unit_id": "LIB-0365-U03",
+          "source_path": "canonical/30_TEAM_ENGINEERING/IOS-27-08_TEAM_QUALITY_REVIEW.md",
+          "source_sha256": "795fec79b0b878255c3a3e1ae1c69d881a1efd8baa71e8c2e8982c5815fb632b",
+          "source_heading": "V2 operational binding",
+          "source_fragment": "## V2 operational binding",
+          "meaning": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Retired mode/master/Library operational binding archived; linked OP source remains independent UNREVIEWED, no separate mandatory Library pass or transition permission.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
+          "evidence": "block-65-team-ownership-deprecation-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": []
+        }
+      ],
+      "disposition_reason": "Complete common body and individual focus/gates reviewed; conditional criteria merged/covered, execution/retired infrastructure archived, no linked playbook or actual app evidence inferred."
     },
     {
       "source_id": "LIB-0366",
