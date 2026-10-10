@@ -124690,63 +124690,1598 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-23-01.md",
       "sha256": "f90b4fbcbd4270281dab3ce419a465ac861bb5d63699283240abcb260e9497f5",
       "bytes": 7470,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0605-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-01.md",
+          "source_sha256": "f90b4fbcbd4270281dab3ce419a465ac861bb5d63699283240abcb260e9497f5",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual approved request/model revision/capability/orientation/color/ROI/deterministic preprocessing/batching/scheduling/bounds/quality/fallback; confidence not factual guarantee.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual approved request/model revision/capability/orientation/color/ROI/deterministic preprocessing/batching/scheduling/bounds/quality/fallback; confidence not factual guarantee.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "30. VISION И OCR; 10. CORE ML; 58. DEVICE CAPABILITY; 69. EVALUATION",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "30. VISION И OCR",
+                "10. CORE ML",
+                "58. DEVICE CAPABILITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Performance And Privacy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0605-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-01.md",
+          "source_sha256": "f90b4fbcbd4270281dab3ce419a465ac861bb5d63699283240abcb260e9497f5",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full conditional AI untrusted/code-owned auth/idempotency/permitted eval and media interruption/capability/pressure/nonblocking buffer traps; no hardware/eval execution.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full conditional AI untrusted/code-owned auth/idempotency/permitted eval and media interruption/capability/pressure/nonblocking buffer traps; no hardware/eval execution.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "35. TOOL CALLING; 44. SECURITY; 69. EVALUATION",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0605-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-01.md",
+          "source_sha256": "f90b4fbcbd4270281dab3ce419a465ac861bb5d63699283240abcb260e9497f5",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 55. FALLBACK; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 60. MEMORY; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "55. FALLBACK",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "60. MEMORY",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Simulator Versus Device",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0605-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-01.md",
+          "source_sha256": "f90b4fbcbd4270281dab3ce419a465ac861bb5d63699283240abcb260e9497f5",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full ML/spatial common exact against fully read OP-23-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No Vision/model/AR/spatial/app/test/runtime/download/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0606",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-23-02.md",
       "sha256": "202d4926d5736a888a172a1a5d4ee4cf05c2dbfd373860be594e76ef7f7c26d8",
       "bytes": 7478,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0606-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-02.md",
+          "source_sha256": "202d4926d5736a888a172a1a5d4ee4cf05c2dbfd373860be594e76ef7f7c26d8",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual OCR recognition level/languages/ROI/page-pagination/confidence/privacy contract; one page/fixture not full-document accuracy and page policy not backend cursor assumption.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual OCR recognition level/languages/ROI/page-pagination/confidence/privacy contract; one page/fixture not full-document accuracy and page policy not backend cursor assumption.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "30. VISION И OCR; 41. PRIVACY; 69. EVALUATION",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "30. VISION И OCR",
+                "41. PRIVACY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0606-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-02.md",
+          "source_sha256": "202d4926d5736a888a172a1a5d4ee4cf05c2dbfd373860be594e76ef7f7c26d8",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full actual cursor invalidation/dedupe/refresh-load races/stable IDs/partial recovery and threat/negative/privacy traps only relevant consumers.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full actual cursor invalidation/dedupe/refresh-load races/stable IDs/partial recovery and threat/negative/privacy traps only relevant consumers.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0606-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-02.md",
+          "source_sha256": "202d4926d5736a888a172a1a5d4ee4cf05c2dbfd373860be594e76ef7f7c26d8",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 55. FALLBACK; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 60. MEMORY; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "55. FALLBACK",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "60. MEMORY",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Simulator Versus Device",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0606-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-02.md",
+          "source_sha256": "202d4926d5736a888a172a1a5d4ee4cf05c2dbfd373860be594e76ef7f7c26d8",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full ML/spatial common exact against fully read OP-23-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No Vision/model/AR/spatial/app/test/runtime/download/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0607",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-23-03.md",
       "sha256": "49e61985cb5745d168a40dfbc924162f8c447e78978468c9f634faf294d6092a",
       "bytes": 7486,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0607-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-03.md",
+          "source_sha256": "49e61985cb5745d168a40dfbc924162f8c447e78978468c9f634faf294d6092a",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual approved model loading/compile/config/compute/preprocessing/scheduling/latency/memory/thermal/version resources off UI/realtime bottlenecks; no model/runtime/adoption/download.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual approved model loading/compile/config/compute/preprocessing/scheduling/latency/memory/thermal/version resources off UI/realtime bottlenecks; no model/runtime/adoption/download.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 39. PROMPT VERSIONING; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 60. MEMORY",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "39. PROMPT VERSIONING",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "60. MEMORY"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Performance And Privacy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0607-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-03.md",
+          "source_sha256": "49e61985cb5745d168a40dfbc924162f8c447e78978468c9f634faf294d6092a",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full owner graph/task-timer-token-delegate-closure/permitted deinit and interruption/capability/pressure/nonblocking/buffer traps; hardware checks omitted.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full owner graph/task-timer-token-delegate-closure/permitted deinit and interruption/capability/pressure/nonblocking/buffer traps; hardware checks omitted.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Ownership And Memory"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0607-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-03.md",
+          "source_sha256": "49e61985cb5745d168a40dfbc924162f8c447e78978468c9f634faf294d6092a",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 55. FALLBACK; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 60. MEMORY; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "55. FALLBACK",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "60. MEMORY",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Simulator Versus Device",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0607-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-03.md",
+          "source_sha256": "49e61985cb5745d168a40dfbc924162f8c447e78978468c9f634faf294d6092a",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full ML/spatial common exact against fully read OP-23-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No Vision/model/AR/spatial/app/test/runtime/download/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0608",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-23-04.md",
       "sha256": "5c0ba4db105b9b501268afdaf9abcdfbd825d4d56415227b0dd119ba4e60da56",
       "bytes": 7555,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0608-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-04.md",
+          "source_sha256": "5c0ba4db105b9b501268afdaf9abcdfbd825d4d56415227b0dd119ba4e60da56",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual authorized versioned artifact/preprocessing/schema/provenance/signature where distribution contract supports/compatibility/storage/cancel cleanup/staged threshold/fallback; model ID alone not authenticity.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual authorized versioned artifact/preprocessing/schema/provenance/signature where distribution contract supports/compatibility/storage/cancel cleanup/staged threshold/fallback; model ID alone not authenticity.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "39. PROMPT VERSIONING; 57. MODEL DOWNLOADS; 55. FALLBACK; 69. EVALUATION",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "39. PROMPT VERSIONING",
+                "57. MODEL DOWNLOADS",
+                "55. FALLBACK",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0608-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-04.md",
+          "source_sha256": "5c0ba4db105b9b501268afdaf9abcdfbd825d4d56415227b0dd119ba4e60da56",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0608-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-04.md",
+          "source_sha256": "5c0ba4db105b9b501268afdaf9abcdfbd825d4d56415227b0dd119ba4e60da56",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 55. FALLBACK; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 60. MEMORY; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "55. FALLBACK",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "60. MEMORY",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Simulator Versus Device",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0608-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-04.md",
+          "source_sha256": "5c0ba4db105b9b501268afdaf9abcdfbd825d4d56415227b0dd119ba4e60da56",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full ML/spatial common exact against fully read OP-23-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No Vision/model/AR/spatial/app/test/runtime/download/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0609",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-23-05.md",
       "sha256": "02714f912f5400c9fc7d6600e4f62087966ade714c13bfedbb588bf67a8e84f7",
       "bytes": 7336,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0609-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-05.md",
+          "source_sha256": "02714f912f5400c9fc7d6600e4f62087966ade714c13bfedbb588bf67a8e84f7",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual approved AR config/support/tracking/permission/world mapping/interruption/relocalization/recovery and fallback; support/mapping not guaranteed tracking recovery.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual approved AR config/support/tracking/permission/world mapping/interruption/relocalization/recovery and fallback; support/mapping not guaranteed tracking recovery.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Permission Model; Runtime Ownership; Performance And Privacy; Simulator Versus Device",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Simulator Versus Device"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0609-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-05.md",
+          "source_sha256": "02714f912f5400c9fc7d6600e4f62087966ade714c13bfedbb588bf67a8e84f7",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full interruption/capability/resource-pressure/nonblocking/buffer trap retained; hardware claims unverified/excluded never PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full interruption/capability/resource-pressure/nonblocking/buffer trap retained; hardware claims unverified/excluded never PASS.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Runtime Ownership; Performance And Privacy; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0609-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-05.md",
+          "source_sha256": "02714f912f5400c9fc7d6600e4f62087966ade714c13bfedbb588bf67a8e84f7",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 55. FALLBACK; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 60. MEMORY; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "55. FALLBACK",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "60. MEMORY",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Simulator Versus Device",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0609-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-05.md",
+          "source_sha256": "02714f912f5400c9fc7d6600e4f62087966ade714c13bfedbb588bf67a8e84f7",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full ML/spatial common exact against fully read OP-23-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No Vision/model/AR/spatial/app/test/runtime/download/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0610",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-23-06.md",
       "sha256": "30b6dfc992c71fcd6bef245f2c919a1b80068721d3fc614da666f864627f2e1b",
       "bytes": 7324,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0610-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-06.md",
+          "source_sha256": "30b6dfc992c71fcd6bef245f2c919a1b80068721d3fc614da666f864627f2e1b",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual approved RealityKit entity/component/async-asset ownership/collision-physics step/resource/GPU-memory-thermal bounds and recovery, no framework/project adoption.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual approved RealityKit entity/component/async-asset ownership/collision-physics step/resource/GPU-memory-thermal bounds and recovery, no framework/project adoption.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Runtime Ownership; Performance And Privacy",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Runtime Ownership",
+                "Performance And Privacy"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0610-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-06.md",
+          "source_sha256": "30b6dfc992c71fcd6bef245f2c919a1b80068721d3fc614da666f864627f2e1b",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full baseline/bottleneck/permitted representative workload/before-after trap; no physical/Simulator/runtime tests.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full baseline/bottleneck/permitted representative workload/before-after trap; no physical/Simulator/runtime tests.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Optimization Workflow; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0610-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-06.md",
+          "source_sha256": "30b6dfc992c71fcd6bef245f2c919a1b80068721d3fc614da666f864627f2e1b",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 55. FALLBACK; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 60. MEMORY; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "55. FALLBACK",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "60. MEMORY",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Simulator Versus Device",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0610-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-06.md",
+          "source_sha256": "30b6dfc992c71fcd6bef245f2c919a1b80068721d3fc614da666f864627f2e1b",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full ML/spatial common exact against fully read OP-23-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No Vision/model/AR/spatial/app/test/runtime/download/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0611",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-23-07.md",
       "sha256": "809dbf67ffd621c999cb6c5550026b620d4f18d06d210101ca4b558ceb78d5da",
       "bytes": 7416,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0611-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-07.md",
+          "source_sha256": "809dbf67ffd621c999cb6c5550026b620d4f18d06d210101ca4b558ceb78d5da",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual approved platform/product input/window/depth-space/resizing interaction with shared domain ownership and platform-specific presentation; no lowest-common UI or new visionOS/iPad support.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual approved platform/product input/window/depth-space/resizing interaction with shared domain ownership and platform-specific presentation; no lowest-common UI or new visionOS/iPad support.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "iPhone And iPad Core; State Placement; Navigation And Presentation",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "iPhone And iPad Core",
+                "State Placement",
+                "Navigation And Presentation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0611-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-07.md",
+          "source_sha256": "809dbf67ffd621c999cb6c5550026b620d4f18d06d210101ca4b558ceb78d5da",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full conditional AI untrusted/code auth/idempotency/permitted eval trap retained for actual model consumers, no provider/tool execution.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full conditional AI untrusted/code auth/idempotency/permitted eval trap retained for actual model consumers, no provider/tool execution.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "35. TOOL CALLING; 44. SECURITY; 69. EVALUATION",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0611-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-07.md",
+          "source_sha256": "809dbf67ffd621c999cb6c5550026b620d4f18d06d210101ca4b558ceb78d5da",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful ML/spatial body: actual model/request revision/capability, deterministic input/output orientation/color/ROI preprocessing, permitted latency/memory/thermal/quality/dataset and camera-sensor privacy owners/consumers/availability. Quality actual representative fixtures, defined unsupported fallback, captured features retention/privacy and bounded session/model resources. Version model/preprocessing together, on-device only when actual product/privacy goals met, schedule inference outside UI/realtime bottlenecks, explicit confidence/tolerance not accuracy guarantee. Review mismatch/silent revision/resource fan-out/privacy/fallback. Diagnose actual golden-fixture/model quality separately preprocessing/session and only permitted pipeline evidence; excluded hardware not PASS. Authorized model update has quality/latency thresholds/old model-schema compatibility/fallback/parity/rollback/cleanup and A-B/staged actions separately permitted. All eight failures and permission-bound dataset/negative/privacy/capability/diagnostic output; no model download/training/inference/eval/AR/framework/platform/test/runtime activation.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "10. CORE ML; 30. VISION И OCR; 39. PROMPT VERSIONING; 41. PRIVACY; 55. FALLBACK; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 60. MEMORY; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "10. CORE ML",
+                "30. VISION И OCR",
+                "39. PROMPT VERSIONING",
+                "41. PRIVACY",
+                "55. FALLBACK",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "60. MEMORY",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Simulator Versus Device",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0611-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-23-07.md",
+          "source_sha256": "809dbf67ffd621c999cb6c5550026b620d4f18d06d210101ca4b558ceb78d5da",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional device/performance/thermal/quality dataset/negative tests/model rollout/build and fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-23-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-116-vision-ml-model-ar-spatial-contracts.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full ML/spatial common exact against fully read OP-23-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No Vision/model/AR/spatial/app/test/runtime/download/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0612",
