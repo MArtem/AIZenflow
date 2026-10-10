@@ -157117,18 +157117,140 @@
       "path": "44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
       "sha256": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5",
       "bytes": 3101,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0844-U01",
+          "source_path": "canonical/44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
+          "source_sha256": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5",
+          "source_heading": "Agent coordination — curated copy-only route",
+          "source_fragment": "# Agent coordination — curated copy-only route",
+          "meaning": "Currently authorized delegation admission/budget, accountable integrator, bounded exact packets/disjoint/shared scopes/dependencies, source/evidence integrity/conflict closure, partial node semantics/failed-writer diff/changed retry, no verifier scope widening/model voting/false independence; conditional rules only, no agent/chat execution.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "Broad authority/change/evidence gates previously covered; specific operational preservation/delegation nuance added.",
+          "unique_delta": "Currently authorized delegation admission/budget, accountable integrator, bounded exact packets/disjoint/shared scopes/dependencies, source/evidence integrity/conflict closure, partial node semantics/failed-writer diff/changed retry, no verifier scope widening/model voting/false independence; conditional rules only, no agent/chat execution.",
+          "disposition": "MIGRATED",
+          "reason": "Currently authorized delegation admission/budget, accountable integrator, bounded exact packets/disjoint/shared scopes/dependencies, source/evidence integrity/conflict closure, partial node semantics/failed-writer diff/changed retry, no verifier scope widening/model voting/false independence; conditional rules only, no agent/chat execution.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants",
+          "required_verification": "Two full routes independently read; conditional semantic delta in existing owner/current mirror; SHA/literals/headings/prior rows/copies/final diff/docs validators/exact-SHA; no runtime/agents/tool execution.",
+          "evidence": "block-160-coordination-repository-preservation-delta.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "mirrored_files": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0844-U02",
+          "source_path": "canonical/44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
+          "source_sha256": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5",
+          "source_heading": "Historical route infrastructure",
+          "source_fragment": "# Agent coordination — curated copy-only route",
+          "meaning": "Historical curated copy-only route and retired machinery/source references archived; current owner holds useful constraints, no standalone Library pass, installed CLI/global skill/host state, agent activation or extra approval ceremony.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical curated copy-only route and retired machinery/source references archived; current owner holds useful constraints, no standalone Library pass, installed CLI/global skill/host state, agent activation or extra approval ceremony.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Two full routes independently read; conditional semantic delta in existing owner/current mirror; SHA/literals/headings/prior rows/copies/final diff/docs validators/exact-SHA; no runtime/agents/tool execution.",
+          "evidence": "block-160-coordination-repository-preservation-delta.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "mirrored_files": []
+        }
+      ],
+      "disposition_reason": "Full curated route independently read; verified operational constraint delta migrated to existing engineering owner, standalone infrastructure archived; current scope preserved."
     },
     {
       "source_id": "LIB-0845",
       "path": "50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
       "sha256": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f",
       "bytes": 3421,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0845-U01",
+          "source_path": "canonical/50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
+          "source_sha256": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f",
+          "source_heading": "Client repository safety — curated copy-only route",
+          "source_fragment": "# Client repository safety — curated copy-only route",
+          "meaning": "Exact repository dirty/foreign ownership, command arguments/effects/cache/network and unknown snippet/build-script boundary, control-plane versus file-scope authority/shared linked-worktree refs, complete pre/post preservation review, unexpected mutation stops affected action without reset/clean/stash/revert or scope expansion; observed review not guard/rollback guarantee.",
+          "type": "procedure-and-constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "Broad authority/change/evidence gates previously covered; specific operational preservation/delegation nuance added.",
+          "unique_delta": "Exact repository dirty/foreign ownership, command arguments/effects/cache/network and unknown snippet/build-script boundary, control-plane versus file-scope authority/shared linked-worktree refs, complete pre/post preservation review, unexpected mutation stops affected action without reset/clean/stash/revert or scope expansion; observed review not guard/rollback guarantee.",
+          "disposition": "MIGRATED",
+          "reason": "Exact repository dirty/foreign ownership, command arguments/effects/cache/network and unknown snippet/build-script boundary, control-plane versus file-scope authority/shared linked-worktree refs, complete pre/post preservation review, unexpected mutation stops affected action without reset/clean/stash/revert or scope expansion; observed review not guard/rollback guarantee.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "4. Final Adversarial Review",
+          "required_verification": "Two full routes independently read; conditional semantic delta in existing owner/current mirror; SHA/literals/headings/prior rows/copies/final diff/docs validators/exact-SHA; no runtime/agents/tool execution.",
+          "evidence": "block-160-coordination-repository-preservation-delta.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "mirrored_files": [
+            "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+          ]
+        },
+        {
+          "unit_id": "LIB-0845-U02",
+          "source_path": "canonical/50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
+          "source_sha256": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f",
+          "source_heading": "Historical route infrastructure",
+          "source_fragment": "# Client repository safety — curated copy-only route",
+          "meaning": "Historical curated copy-only route and retired machinery/source references archived; current owner holds useful constraints, no standalone Library pass, installed CLI/global skill/host state, agent activation or extra approval ceremony.",
+          "type": "historical-routing",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical curated copy-only route and retired machinery/source references archived; current owner holds useful constraints, no standalone Library pass, installed CLI/global skill/host state, agent activation or extra approval ceremony.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Two full routes independently read; conditional semantic delta in existing owner/current mirror; SHA/literals/headings/prior rows/copies/final diff/docs validators/exact-SHA; no runtime/agents/tool execution.",
+          "evidence": "block-160-coordination-repository-preservation-delta.md",
+          "affected_routes": [
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "mirrored_files": []
+        }
+      ],
+      "disposition_reason": "Full curated route independently read; verified operational constraint delta migrated to existing engineering owner, standalone infrastructure archived; current scope preserved."
     },
     {
       "source_id": "LIB-0846",

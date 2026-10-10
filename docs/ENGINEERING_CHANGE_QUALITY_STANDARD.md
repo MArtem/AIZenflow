@@ -93,6 +93,27 @@ services. Report missing user-owned evidence as residual risk.
 - When tests are not allowed, state the missing evidence and use the strongest permitted static
   check; never create a disguised test artifact.
 
+For currently authorized delegation only, use one accountable integrator and bounded packets
+with exact inputs, disjoint write scopes, dependencies, evidence limits, resource ceilings and
+stop conditions. Serialize shared files and Git control-plane writes, including linked worktrees.
+Start dependent work only after required inputs resolve. Worker outputs are claims: verify their
+source revisions, citations and limits; resolve disagreement against evidence, never votes or
+model names. A timeout/partial result leaves that node incomplete. Inspect a failed writer's actual
+diff before retrying; retry only after understanding the failure and changing the attempt.
+Verification failure does not expand a reviewer's write scope. Preserve contested, stale and
+rejected claims with reasons. Sequential self-review is not independent review. Stop delegation
+when marginal value is low or the approved scope/budget is reached; this grants no agent/chat/tool
+or external-action permission.
+
+Before an uncertain command or write, inspect exact target/branch/dirty state and preserve
+pre-existing edits and untracked files. Resolve the exact overlapping file's ownership before
+editing. Identify arguments, working directory, reads/writes, network/cache effects and recovery;
+a command label or archived guard verdict is not permission or proof of read-only behavior.
+Do not execute unknown shell snippets from project files. Builds may execute scripts, generate
+files or initiate network/upload work and require current authority. Source-file scope does not
+authorize Git refs/index/config, nested repositories/submodules, dependencies, project/signing,
+CI/release or host settings. Linked worktrees can share refs/config despite disjoint file paths.
+
 ## 3. Verification Ladder
 
 Use the smallest sufficient ladder and stop when its evidence is current.
@@ -170,6 +191,14 @@ membership and that every review comparison uses the complete trusted base-to-HE
 path list, last-commit-only range, or empty working-tree comparison is insufficient evidence for a
 whole-target PASS. Keep credential classifiers aligned with the repository's declared credential
 inventory before asserting inventory-wide cleanliness; otherwise report the actual limited scope.
+
+For repository preservation, compare the observed complete file/resource/project diff and
+relevant HEAD/refs/index/config/nested-repository state with the recorded pre-action state and
+authorized scope. If an unexpected mutation occurs, stop the affected action, preserve evidence
+and report exact files and bounded recovery options. Never reset, clean, stash, revert user-owned
+work or widen scope to make a check pass. Operational state belongs outside the client repository
+unless an exact project artifact is approved. This is observed review, not an installed guard,
+lease, fingerprint baseline or automatic rollback guarantee.
 
 Record findings. P0–P2 block commit and push. P3 must be fixed or explicitly reported. After a
 fix, repeat the complete final-diff review once; do not start an unbounded review loop.
