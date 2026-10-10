@@ -1,25 +1,47 @@
-# Handoff — unified KB migration plan
+# Handoff — completed KB unification
 
-Task `kb-unification-2026-10-09`; worktree `/Users/Artem/.zenflow/worktrees/knowledge-base-next`, `codex/knowledge-base-next`. Canonical task `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/kb-unification-2026-10-09/`. Date 2026-10-09. Persistent эконом. Planner GPT-6 Astra; executor selected by user: GPT-6.1 Sol/low for this plan only.
+Task `kb-unification-2026-10-09`; root `/Users/Artem/.zenflow/worktrees/knowledge-base-next`,
+branch `codex/knowledge-base-next`; canonical recovery
+`/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/kb-unification-2026-10-09/`.
+Executor GPT-6.1 Sol/low, persistent **эконом**. DEC-002 accepts full reads of selected route
+files/context growth; no implicit switch to quality mode. [Final report](block-223-final-migration-acceptance.md).
 
-**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**: canonical bootstrap → baseline/router → current Level 0 → this plan/handoff → applicable governance, knowledge/routing and changed-domain references. Read [migration-plan.md](migration-plan.md) once when starting implementation; thereafter use only the current block and changed references.
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**:
+canonical bootstrap → baseline/router → current Level0 → current plan/handoff → only applicable
+routes/overlays. Read selected files fully under DEC-002; no archive/whole-KB default preload.
+Original [migration-plan.md](migration-plan.md) is historical accepted design, not a live grant.
 
-**IMPLEMENTATION_STARTED; U0_PASS; U1_BOUNDED_PASS; U2_BLOCK_PASS.** User explicitly started the accepted plan. U0 integrity passed; U1 accounting/baseline saved in [receipt](u0-u1-report.md). First [concurrency block](block-01-concurrency.md) migrated useful details into existing owners; no entrypoint/mode transition performed. Main design: one canonical KB/authority chain, compact Level 0, addressed practical references inside KB, no obligatory second Library pass. Do not equate one layer with one large file.
+Documentation migration U0–U6/U8 complete in bounded owned scope. U7 NOT_RUN /
+BENEFIT_NOT_ESTABLISHED; U9 content complete, exact current publication/clean main-development
+confirmation owned by external block223 receipt, not a self-invalidating tracked SHA.
+1403 canonical bodies plus37 copy units reviewed:4322 units,222 migrated/2362 covered/
+1468 archived infrastructure/270 no incremental value. Zero unreviewed/partial source rows.
+All accepted useful deltas have current canonical owners, locators and exact distribution.
+Prior source/semantic/copy gates208/211/212 reused; cutover final review223. Registry-domain
+maturity unchanged; counts/static checks do not prove decision quality or token saving.
 
-Snapshot [README](archive/library-snapshot/README.md): 1,403 canonical files + 34 Tchop + 34 Battleship + three AGENTS = 1,474; ZIP/SHA/CRC and Git-byte parity checked. Includes inactive source families and CXL-01. [Ledger](migration-ledger.json): 1403 REVIEWED files, 0 UNREVIEWED, zero NEEDS_VERIFICATION files; 4322 terminal units across blocks 01–207 including reviewed copy groups (222 migrated / 2362 covered / 1468 historical infrastructure / 270 nonincremental units); four copy-delta groups reviewed; broader consumer/baseline reconciliation pending. No full-system readiness or measured benefit implied. Sources pinned to Documentation dba11900be2e694c77ad392759280dd56fc86a6e and AIZenflow 82294ae7fc4e3946e5ea957f885844e79284d04e. Frozen snapshot never overwritten.
+Frozen [snapshot](archive/library-snapshot/README.md)1474 files SHA
+9c3e80135ef713a205f6e0481b9c6eecae8836b51df16d9e2ce459d0dfeee76f preserved.
+All68 live project payload files unchanged; old3 entrypoints archived. [Ledger](migration-ledger.json)
+retains provenance/terminal reasons; DEC-001 strict ownership/isolation conflict resolved by user.
+Previous evaluation remains CLOSED_BY_USER; never open sealed holdout/oracle or replay grants.
 
-Previous experiment remains CLOSED_BY_USER / BENEFIT_NOT_ESTABLISHED. Do not read sealed holdout/oracle bodies or reactivate consumed agent grants. Historical results are not new evaluation evidence.
+Single KB chain: exact worktree root/Tchop/Battleship overlays, canonical workflow/template,
+affected canonical app manifest/context/audit/card. Separate Library startup/status/pass
+retired; saved modes unobserved/unchanged and without active entrypoint consumer in this traced
+chain, never OFF. No host/other-worktree/global rollout claim. All app evidence/findings/paused
+Share preserved; old app/runtime/common-cycle grants explicitly historical. Local workflow
+exact; template canonical-only, no portable instantiation if unavailable. Broad drift31
+preexisting stale paths (28skills/policy/two newer tools),0missing/0unexpected; no bulk sync.
 
-Next: continue bounded current coverage and consumer/route-cost reconciliation. DEC-001 is resolved; current strict no-escape Swift policy governs. Initial U1 inventory was 1,288 unique hashes/45 duplicate groups; project copies had 30 aliases/four deltas each, four copy groups now reviewed. These are source accounting, not review of remaining bodies. Initial route/cost evidence is historical, not current full-corpus acceptance: broader consumer/baseline reconciliation, whole-document cost and U4/U6 twelve-scenario gates remain pending. Broad drift checkpoint: 32 stale/one missing preexisting paths; changed owner mirrors exact. No speculative bulk baseline sync. U7 fresh evaluations and actual mode transitions require concrete current authority; migration can close with benefit unestablished.
+Only .zenflow, login:false; no app source/tests/runtime/mode/host/config/secrets/installers,
+new agents/chats/MCP/automations/package-resource downloads/Xcode/Simulator modernization.
+iPad/physical/actualVoiceOver OMITTED_BY_USER. Owned AIZenflow/Documentation main/development
+publication permitted after exact-SHA gates; no upstream remotes. Main checkout new-task-be0b
+advances only reviewed fast-forward. Preserve foreign changes and existing app decisions.
 
-All deep OP/P2/code-pattern/audit/template source families were independently dispositioned, indexes separately checked. Current owner delta: conditional authorized coordination and repository preservation in [block160](block-160-coordination-repository-preservation-delta.md), with exact mirror/docs index/router/vault/manifest PASS. [Block156](block-156-dependency-ai-background-media-migration-incident-gates.md) explicitly supersedes thirteen inaccurate row descriptors; [block161](block-161-ranking-mode-tool-trace-review-history.md) corrects two rows to canonical mirrors metadata. Prior meanings/status/SHA/dispositions remain intact; historical receipts retained. [Block164](block-164-project-facts-mode-contract-dispositions.md) retains current fact/evidence limits and archives mode infrastructure.
-
-All preserved source bodies terminal; next reconcile current consumers/coverage/routes in bounded blocks. Stop only the dependent part on an unresolved meaning/authority conflict; no routine status pause. Exact dispositions, SHA/literal owner locators and drift checks required. Source completion never implies registry-domain COMPLETE, current API verification or measured benefit.
-
-Only `/Users/Artem/.zenflow`, login:false. Preserve source/Git/foreign edits. No secrets/host/config/installers/automations/agents/chats/MCP, package downloads, Xcode updates, Simulator installs, project modernization. No app source/test/runtime work. All iPad/physical/actualVoiceOver checks omitted by user. Useful owned AIZenflow and Documentation commits/pushes authorized after gates; both main/development must contain results. Main is checked out in `new-task-be0b`: never move its ref behind the checkout; use reviewed fast-forward there. No app-upstream pushes or historical-worktree edits.
-
-Publication completion is recorded in external exact-SHA receipt, not by adding a self-invalidating postcommit SHA to these files. Current task continues without creating chats or reopening the closed experiment.
-
-Full chronological records remain verbatim in [archived plan](archive/through-block-164-plan.txt) and [archived handoff](archive/through-block-164-handoff.txt); [compaction receipt](block-165-active-task-state-compaction.md). Active docs carry current state only.
-
-[Current user decision](block-210-user-full-route-reading-decision.md): full selected-route reads/growth accepted. [Distribution correction](block-222-canonical-only-template-drift-correction.md) removes block218 local canonical-only template; workflow mirror retained, policy unchanged. All owned entrypoints/app administrative consumers retired; final bounded trace and U9 remain. Saved modes untouched, U7 benefit unestablished; inherited31 stale paths explicitly retained.
+No migration decision remains pending. Next safe step is a separately scoped real KB task.
+U7 experiments or actual mode/handler operations require concrete current authorization.
+Recovery uses immutable snapshot into new inactive .zenflow location or reviewed selective
+revert after later-edit inspection; never reset/clean, restore handlers/grants or rewrite history.
+Context health: контекст обновлять не нужно for closing this bounded task.
