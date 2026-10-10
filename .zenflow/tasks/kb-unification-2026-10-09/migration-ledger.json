@@ -175273,180 +175273,1219 @@
       "path": "source-skills/ioslib-offline-sync/SKILL.md",
       "sha256": "a4e83e0651bddb7fa9e9695a289f961ee499714f03819a191f169897717289ba",
       "bytes": 3016,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1296-U01",
+          "source_path": "canonical/source-skills/ioslib-offline-sync/SKILL.md",
+          "source_sha256": "a4e83e0651bddb7fa9e9695a289f961ee499714f03819a191f169897717289ba",
+          "source_heading": "Offline Sync",
+          "source_fragment": "# Offline Sync",
+          "meaning": "Actual authoritative state and durable versioned operation IDs/idempotency, deterministic conflict/replay ordering and clock assumptions, bounded retries, tombstones before loss of only local copy. Queued/optimistic local change not remote acknowledgement; no sync runtime/source migration or deletion. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual authoritative state and durable versioned operation IDs/idempotency, deterministic conflict/replay ordering and clock assumptions, bounded retries, tombstones before loss of only local copy. Queued/optimistic local change not remote acknowledgement; no sync runtime/source migration or deletion. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Data Ownership; Offline And Sync; Import, Export, And Deletion",
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Offline And Sync",
+                "Import, Export, And Deletion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Define authoritative state and deterministic conflict/replay semantics.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        },
+        {
+          "unit_id": "LIB-1296-U02",
+          "source_path": "canonical/source-skills/ioslib-offline-sync/SKILL.md",
+          "source_sha256": "a4e83e0651bddb7fa9e9695a289f961ee499714f03819a191f169897717289ba",
+          "source_heading": "Offline Sync",
+          "source_fragment": "# Offline Sync",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Define authoritative state and deterministic conflict/replay semantics.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1297",
       "path": "source-skills/ioslib-offline-sync/agents/openai.yaml",
       "sha256": "346ac4968f30aa1b4cda8e8182f35af045cac301b290e130011d81a228aff802",
       "bytes": 246,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1297-U01",
+          "source_path": "canonical/source-skills/ioslib-offline-sync/agents/openai.yaml",
+          "source_sha256": "346ac4968f30aa1b4cda8e8182f35af045cac301b290e130011d81a228aff802",
+          "source_heading": "Historical skill metadata/runtime reference",
+          "source_fragment": "interface:",
+          "meaning": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "interface:\n  display_name: \"Offline Sync\"\n  short_description: \"Define authoritative state and deterministic conflict/replay\"\n  default_prompt: \"Use $ioslib-offline-sync to define authoritative state and deterministic conflict/replay semantics.\""
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1298",
       "path": "source-skills/ioslib-offline-sync/references/domain-checklist.md",
       "sha256": "7362b1cd98e63362a45116281d235b92013411af01ca8f85d0e2de44e8ffa0c7",
       "bytes": 645,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1298-U01",
+          "source_path": "canonical/source-skills/ioslib-offline-sync/references/domain-checklist.md",
+          "source_sha256": "7362b1cd98e63362a45116281d235b92013411af01ca8f85d0e2de44e8ffa0c7",
+          "source_heading": "Domain Checklist — Offline Sync",
+          "source_fragment": "# Domain Checklist — Offline Sync",
+          "meaning": "Actual authoritative state and durable versioned operation IDs/idempotency, deterministic conflict/replay ordering and clock assumptions, bounded retries, tombstones before loss of only local copy. Queued/optimistic local change not remote acknowledgement; no sync runtime/source migration or deletion. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual authoritative state and durable versioned operation IDs/idempotency, deterministic conflict/replay ordering and clock assumptions, bounded retries, tombstones before loss of only local copy. Queued/optimistic local change not remote acknowledgement; no sync runtime/source migration or deletion. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Data Ownership; Offline And Sync; Import, Export, And Deletion",
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Offline And Sync",
+                "Import, Export, And Deletion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Domain Checklist — Offline Sync\n\n- source of truth\n- operation IDs/idempotency\n- conflict policy\n- ordering/clocks\n- retry/backoff\n- tombstones/deletes\n\n## Deep reference\nWhen installed, search only the relevant the global deep library root described in `INSTALLATION.md` + `/09_PERSISTENCE_DATA/` files and matching `31_DEEP_PLAYBOOKS/OP-IOS-*`; do not load the entire section unless necessary.\n\n## Stop / escalate\nStop destructive action and surface the unknown when the unresolved fact can cause data loss, auth/security failure, public API breakage, irreversible migration, signing/release mutation, or an unsafe concurrency workaround."
+          ]
+        },
+        {
+          "unit_id": "LIB-1298-U02",
+          "source_path": "canonical/source-skills/ioslib-offline-sync/references/domain-checklist.md",
+          "source_sha256": "7362b1cd98e63362a45116281d235b92013411af01ca8f85d0e2de44e8ffa0c7",
+          "source_heading": "Domain Checklist — Offline Sync",
+          "source_fragment": "# Domain Checklist — Offline Sync",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Domain Checklist — Offline Sync\n\n- source of truth\n- operation IDs/idempotency\n- conflict policy\n- ordering/clocks\n- retry/backoff\n- tombstones/deletes\n\n## Deep reference\nWhen installed, search only the relevant the global deep library root described in `INSTALLATION.md` + `/09_PERSISTENCE_DATA/` files and matching `31_DEEP_PLAYBOOKS/OP-IOS-*`; do not load the entire section unless necessary.\n\n## Stop / escalate\nStop destructive action and surface the unknown when the unresolved fact can cause data loss, auth/security failure, public API breakage, irreversible migration, signing/release mutation, or an unsafe concurrency workaround."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1299",
       "path": "source-skills/ioslib-offline-sync/references/global-runtime.md",
       "sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
       "bytes": 565,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1299-U01",
+          "source_path": "canonical/source-skills/ioslib-offline-sync/references/global-runtime.md",
+          "source_sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
+          "source_heading": "Global iOS Engineering Runtime",
+          "source_fragment": "# Global iOS Engineering Runtime",
+          "meaning": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Global iOS Engineering Runtime\n\nThis skill is designed for a **user-global Codex installation**. Do not require `.ai/`, `.agents/`, or `scripts/ai/` inside the client repository.\n\nThe installer writes `INSTALLATION.md` next to this file with the exact runtime/library paths for this machine. Read that file before using global runtime commands or deep references.\n\nProject-adaptive generated state is stored **outside client repositories**. Never create library infrastructure in a client repository unless the user explicitly asks for a repository-local export."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1300",
       "path": "source-skills/ioslib-orchestration-budget/SKILL.md",
       "sha256": "2fd72e8bd7862d75f1c26da3dc5f55fac0aa9f59309bb1dea80c2ac1352744c6",
       "bytes": 2415,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1300-U01",
+          "source_path": "canonical/source-skills/ioslib-orchestration-budget/SKILL.md",
+          "source_sha256": "2fd72e8bd7862d75f1c26da3dc5f55fac0aa9f59309bb1dea80c2ac1352744c6",
+          "source_heading": "ioslib-orchestration-budget",
+          "source_fragment": "# ioslib-orchestration-budget",
+          "meaning": "Only currently authorized delegation: bounded fanout/depth/context duplication/retry with exact scopes, dependencies and accountable integration; stop at low marginal value or approved budget. Timeout/partial not success, no agents activated by archived skill. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Only currently authorized delegation: bounded fanout/depth/context duplication/retry with exact scopes, dependencies and accountable integration; stop at low marginal value or approved budget. Timeout/partial not success, no agents activated by archived skill. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; Completion Contract",
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Use to bound subagent fan-out, depth, context duplication and retries; stop spawning when marginal risk reduction is low.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        },
+        {
+          "unit_id": "LIB-1300-U02",
+          "source_path": "canonical/source-skills/ioslib-orchestration-budget/SKILL.md",
+          "source_sha256": "2fd72e8bd7862d75f1c26da3dc5f55fac0aa9f59309bb1dea80c2ac1352744c6",
+          "source_heading": "ioslib-orchestration-budget",
+          "source_fragment": "# ioslib-orchestration-budget",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Use to bound subagent fan-out, depth, context duplication and retries; stop spawning when marginal risk reduction is low.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1301",
       "path": "source-skills/ioslib-orchestration-budget/agents/openai.yaml",
       "sha256": "19fe004afffaf0cae861ceb7fdc817dd2aee20461521ff8c628461669872a759",
       "bytes": 232,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1301-U01",
+          "source_path": "canonical/source-skills/ioslib-orchestration-budget/agents/openai.yaml",
+          "source_sha256": "19fe004afffaf0cae861ceb7fdc817dd2aee20461521ff8c628461669872a759",
+          "source_heading": "Historical skill metadata/runtime reference",
+          "source_fragment": "interface:",
+          "meaning": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "interface:\n  display_name: \"Orchestration Budget\"\n  short_description: \"Orchestration Budget for iOS repositories\"\n  default_prompt: \"Use $ioslib-orchestration-budget to handle this task with bounded evidence-driven orchestration.\""
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1302",
       "path": "source-skills/ioslib-orchestration-budget/references/domain-checklist.md",
       "sha256": "3d7be3fc06096fa6af1c256f62b2836da91aec93ab187fac3c60a3aafa365a11",
       "bytes": 312,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1302-U01",
+          "source_path": "canonical/source-skills/ioslib-orchestration-budget/references/domain-checklist.md",
+          "source_sha256": "3d7be3fc06096fa6af1c256f62b2836da91aec93ab187fac3c60a3aafa365a11",
+          "source_heading": "Domain checklist",
+          "source_fragment": "# Domain checklist",
+          "meaning": "Only currently authorized delegation: bounded fanout/depth/context duplication/retry with exact scopes, dependencies and accountable integration; stop at low marginal value or approved budget. Timeout/partial not success, no agents activated by archived skill. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Only currently authorized delegation: bounded fanout/depth/context duplication/retry with exact scopes, dependencies and accountable integration; stop at low marginal value or approved budget. Timeout/partial not success, no agents activated by archived skill. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; Completion Contract",
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Domain checklist\n\n- delegation admission justified\n- task packet self-contained\n- read/write scopes explicit\n- child work non-duplicative\n- evidence attached to material claims\n- conflicts surfaced and resolved\n- integration owner clear\n- verification actually observed\n- budgets and stop conditions respected"
+          ]
+        },
+        {
+          "unit_id": "LIB-1302-U02",
+          "source_path": "canonical/source-skills/ioslib-orchestration-budget/references/domain-checklist.md",
+          "source_sha256": "3d7be3fc06096fa6af1c256f62b2836da91aec93ab187fac3c60a3aafa365a11",
+          "source_heading": "Domain checklist",
+          "source_fragment": "# Domain checklist",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Domain checklist\n\n- delegation admission justified\n- task packet self-contained\n- read/write scopes explicit\n- child work non-duplicative\n- evidence attached to material claims\n- conflicts surfaced and resolved\n- integration owner clear\n- verification actually observed\n- budgets and stop conditions respected"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1303",
       "path": "source-skills/ioslib-orchestration-budget/references/global-runtime.md",
       "sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
       "bytes": 565,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1303-U01",
+          "source_path": "canonical/source-skills/ioslib-orchestration-budget/references/global-runtime.md",
+          "source_sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
+          "source_heading": "Global iOS Engineering Runtime",
+          "source_fragment": "# Global iOS Engineering Runtime",
+          "meaning": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Global iOS Engineering Runtime\n\nThis skill is designed for a **user-global Codex installation**. Do not require `.ai/`, `.agents/`, or `scripts/ai/` inside the client repository.\n\nThe installer writes `INSTALLATION.md` next to this file with the exact runtime/library paths for this machine. Read that file before using global runtime commands or deep references.\n\nProject-adaptive generated state is stored **outside client repositories**. Never create library infrastructure in a client repository unless the user explicitly asks for a repository-local export."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1304",
       "path": "source-skills/ioslib-parallel-investigation/SKILL.md",
       "sha256": "2e0ae6e0e48985386e7e50361c4cf5bcf590bdecce3899da74a1567f2f1275a0",
       "bytes": 2455,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1304-U01",
+          "source_path": "canonical/source-skills/ioslib-parallel-investigation/SKILL.md",
+          "source_sha256": "2e0ae6e0e48985386e7e50361c4cf5bcf590bdecce3899da74a1567f2f1275a0",
+          "source_heading": "ioslib-parallel-investigation",
+          "source_fragment": "# ioslib-parallel-investigation",
+          "meaning": "Conditional authorized independent read-only investigations with self-contained nonduplicative scopes, explicit provenance/hypothesis confidence and unresolved conflicts, integrator-owned evidence. Read-only name not command-effect guarantee and no agent permission. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Conditional authorized independent read-only investigations with self-contained nonduplicative scopes, explicit provenance/hypothesis confidence and unresolved conflicts, integrator-owned evidence. Read-only name not command-effect guarantee and no agent permission. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Use for independent read-only repository investigations such as module discovery, root-cause hypotheses or cross-domain evidence gathering.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        },
+        {
+          "unit_id": "LIB-1304-U02",
+          "source_path": "canonical/source-skills/ioslib-parallel-investigation/SKILL.md",
+          "source_sha256": "2e0ae6e0e48985386e7e50361c4cf5bcf590bdecce3899da74a1567f2f1275a0",
+          "source_heading": "ioslib-parallel-investigation",
+          "source_fragment": "# ioslib-parallel-investigation",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Use for independent read-only repository investigations such as module discovery, root-cause hypotheses or cross-domain evidence gathering.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1305",
       "path": "source-skills/ioslib-parallel-investigation/agents/openai.yaml",
       "sha256": "f7a51bd4b64779e21fb9103e646645841ddaec0d90d9f4c18775cb7a55086ed1",
       "bytes": 238,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1305-U01",
+          "source_path": "canonical/source-skills/ioslib-parallel-investigation/agents/openai.yaml",
+          "source_sha256": "f7a51bd4b64779e21fb9103e646645841ddaec0d90d9f4c18775cb7a55086ed1",
+          "source_heading": "Historical skill metadata/runtime reference",
+          "source_fragment": "interface:",
+          "meaning": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "interface:\n  display_name: \"Parallel Investigation\"\n  short_description: \"Parallel Investigation for iOS repositories\"\n  default_prompt: \"Use $ioslib-parallel-investigation to handle this task with bounded evidence-driven orchestration.\""
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1306",
       "path": "source-skills/ioslib-parallel-investigation/references/domain-checklist.md",
       "sha256": "3d7be3fc06096fa6af1c256f62b2836da91aec93ab187fac3c60a3aafa365a11",
       "bytes": 312,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1306-U01",
+          "source_path": "canonical/source-skills/ioslib-parallel-investigation/references/domain-checklist.md",
+          "source_sha256": "3d7be3fc06096fa6af1c256f62b2836da91aec93ab187fac3c60a3aafa365a11",
+          "source_heading": "Domain checklist",
+          "source_fragment": "# Domain checklist",
+          "meaning": "Conditional authorized independent read-only investigations with self-contained nonduplicative scopes, explicit provenance/hypothesis confidence and unresolved conflicts, integrator-owned evidence. Read-only name not command-effect guarantee and no agent permission. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Conditional authorized independent read-only investigations with self-contained nonduplicative scopes, explicit provenance/hypothesis confidence and unresolved conflicts, integrator-owned evidence. Read-only name not command-effect guarantee and no agent permission. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Domain checklist\n\n- delegation admission justified\n- task packet self-contained\n- read/write scopes explicit\n- child work non-duplicative\n- evidence attached to material claims\n- conflicts surfaced and resolved\n- integration owner clear\n- verification actually observed\n- budgets and stop conditions respected"
+          ]
+        },
+        {
+          "unit_id": "LIB-1306-U02",
+          "source_path": "canonical/source-skills/ioslib-parallel-investigation/references/domain-checklist.md",
+          "source_sha256": "3d7be3fc06096fa6af1c256f62b2836da91aec93ab187fac3c60a3aafa365a11",
+          "source_heading": "Domain checklist",
+          "source_fragment": "# Domain checklist",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Domain checklist\n\n- delegation admission justified\n- task packet self-contained\n- read/write scopes explicit\n- child work non-duplicative\n- evidence attached to material claims\n- conflicts surfaced and resolved\n- integration owner clear\n- verification actually observed\n- budgets and stop conditions respected"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1307",
       "path": "source-skills/ioslib-parallel-investigation/references/global-runtime.md",
       "sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
       "bytes": 565,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1307-U01",
+          "source_path": "canonical/source-skills/ioslib-parallel-investigation/references/global-runtime.md",
+          "source_sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
+          "source_heading": "Global iOS Engineering Runtime",
+          "source_fragment": "# Global iOS Engineering Runtime",
+          "meaning": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Global iOS Engineering Runtime\n\nThis skill is designed for a **user-global Codex installation**. Do not require `.ai/`, `.agents/`, or `scripts/ai/` inside the client repository.\n\nThe installer writes `INSTALLATION.md` next to this file with the exact runtime/library paths for this machine. Read that file before using global runtime commands or deep references.\n\nProject-adaptive generated state is stored **outside client repositories**. Never create library infrastructure in a client repository unless the user explicitly asks for a repository-local export."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1308",
       "path": "source-skills/ioslib-parallel-review/SKILL.md",
       "sha256": "8772a8757202da89e699a64cdde2522df3efaf24969a85adbb629bd26d607078",
       "bytes": 2443,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1308-U01",
+          "source_path": "canonical/source-skills/ioslib-parallel-review/SKILL.md",
+          "source_sha256": "8772a8757202da89e699a64cdde2522df3efaf24969a85adbb629bd26d607078",
+          "source_heading": "ioslib-parallel-review",
+          "source_fragment": "# ioslib-parallel-review",
+          "meaning": "Conditional authorized review lenses deduplicate and rank evidence against actual applicability, resolve disagreement using source not votes/model names; serial self-review not independence and worker prose not proof. No external review or agents run. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Conditional authorized review lenses deduplicate and rank evidence against actual applicability, resolve disagreement using source not votes/model names; serial self-review not independence and worker prose not proof. No external review or agents run. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Use for independent read-only iOS review lenses whose findings must be evidence-ranked, deduplicated and conflict-resolved before synthesis.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        },
+        {
+          "unit_id": "LIB-1308-U02",
+          "source_path": "canonical/source-skills/ioslib-parallel-review/SKILL.md",
+          "source_sha256": "8772a8757202da89e699a64cdde2522df3efaf24969a85adbb629bd26d607078",
+          "source_heading": "ioslib-parallel-review",
+          "source_fragment": "# ioslib-parallel-review",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Use for independent read-only iOS review lenses whose findings must be evidence-ranked, deduplicated and conflict-resolved before synthesis.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1309",
       "path": "source-skills/ioslib-parallel-review/agents/openai.yaml",
       "sha256": "ffd3df8932a330662fcaa7308616a7e1339c212e91e30b7499c6c71d51d09a71",
       "bytes": 217,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1309-U01",
+          "source_path": "canonical/source-skills/ioslib-parallel-review/agents/openai.yaml",
+          "source_sha256": "ffd3df8932a330662fcaa7308616a7e1339c212e91e30b7499c6c71d51d09a71",
+          "source_heading": "Historical skill metadata/runtime reference",
+          "source_fragment": "interface:",
+          "meaning": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "interface:\n  display_name: \"Parallel Review\"\n  short_description: \"Parallel Review for iOS repositories\"\n  default_prompt: \"Use $ioslib-parallel-review to handle this task with bounded evidence-driven orchestration.\""
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1310",
       "path": "source-skills/ioslib-parallel-review/references/domain-checklist.md",
       "sha256": "3d7be3fc06096fa6af1c256f62b2836da91aec93ab187fac3c60a3aafa365a11",
       "bytes": 312,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1310-U01",
+          "source_path": "canonical/source-skills/ioslib-parallel-review/references/domain-checklist.md",
+          "source_sha256": "3d7be3fc06096fa6af1c256f62b2836da91aec93ab187fac3c60a3aafa365a11",
+          "source_heading": "Domain checklist",
+          "source_fragment": "# Domain checklist",
+          "meaning": "Conditional authorized review lenses deduplicate and rank evidence against actual applicability, resolve disagreement using source not votes/model names; serial self-review not independence and worker prose not proof. No external review or agents run. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Conditional authorized review lenses deduplicate and rank evidence against actual applicability, resolve disagreement using source not votes/model names; serial self-review not independence and worker prose not proof. No external review or agents run. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Domain checklist\n\n- delegation admission justified\n- task packet self-contained\n- read/write scopes explicit\n- child work non-duplicative\n- evidence attached to material claims\n- conflicts surfaced and resolved\n- integration owner clear\n- verification actually observed\n- budgets and stop conditions respected"
+          ]
+        },
+        {
+          "unit_id": "LIB-1310-U02",
+          "source_path": "canonical/source-skills/ioslib-parallel-review/references/domain-checklist.md",
+          "source_sha256": "3d7be3fc06096fa6af1c256f62b2836da91aec93ab187fac3c60a3aafa365a11",
+          "source_heading": "Domain checklist",
+          "source_fragment": "# Domain checklist",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Domain checklist\n\n- delegation admission justified\n- task packet self-contained\n- read/write scopes explicit\n- child work non-duplicative\n- evidence attached to material claims\n- conflicts surfaced and resolved\n- integration owner clear\n- verification actually observed\n- budgets and stop conditions respected"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1311",
       "path": "source-skills/ioslib-parallel-review/references/global-runtime.md",
       "sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
       "bytes": 565,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1311-U01",
+          "source_path": "canonical/source-skills/ioslib-parallel-review/references/global-runtime.md",
+          "source_sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
+          "source_heading": "Global iOS Engineering Runtime",
+          "source_fragment": "# Global iOS Engineering Runtime",
+          "meaning": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Global iOS Engineering Runtime\n\nThis skill is designed for a **user-global Codex installation**. Do not require `.ai/`, `.agents/`, or `scripts/ai/` inside the client repository.\n\nThe installer writes `INSTALLATION.md` next to this file with the exact runtime/library paths for this machine. Read that file before using global runtime commands or deep references.\n\nProject-adaptive generated state is stored **outside client repositories**. Never create library infrastructure in a client repository unless the user explicitly asks for a repository-local export."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1312",
       "path": "source-skills/ioslib-performance/SKILL.md",
       "sha256": "ce7cd868dadb55b5fcbb49ad7c092c8980649a6e3c1d7f8bd377c376cfc89c3d",
       "bytes": 3029,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1312-U01",
+          "source_path": "canonical/source-skills/ioslib-performance/SKILL.md",
+          "source_sha256": "ce7cd868dadb55b5fcbb49ad7c092c8980649a6e3c1d7f8bd377c376cfc89c3d",
+          "source_heading": "iOS Performance",
+          "source_fragment": "# iOS Performance",
+          "meaning": "Actual user-impact bottleneck, representative permitted scenario and comparable measured baseline/after distribution/resource trade-offs plus regression question. Tool names/source hotspots not observed speedup, no Instruments/build/tests/runtime or excluded physical-device evidence. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual user-impact bottleneck, representative permitted scenario and comparable measured baseline/after distribution/resource trade-offs plus regression question. Tool names/source hotspots not observed speedup, no Instruments/build/tests/runtime or excluded physical-device evidence. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains; Optimization Workflow; Evidence",
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains",
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Measure the user-relevant bottleneck and require before/after evidence.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        },
+        {
+          "unit_id": "LIB-1312-U02",
+          "source_path": "canonical/source-skills/ioslib-performance/SKILL.md",
+          "source_sha256": "ce7cd868dadb55b5fcbb49ad7c092c8980649a6e3c1d7f8bd377c376cfc89c3d",
+          "source_heading": "iOS Performance",
+          "source_fragment": "# iOS Performance",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Measure the user-relevant bottleneck and require before/after evidence.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1313",
       "path": "source-skills/ioslib-performance/agents/openai.yaml",
       "sha256": "f395f6d3099f50bdbf747016a38d3034f32cfb8bd0211754f6e935939b96b598",
       "bytes": 249,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1313-U01",
+          "source_path": "canonical/source-skills/ioslib-performance/agents/openai.yaml",
+          "source_sha256": "f395f6d3099f50bdbf747016a38d3034f32cfb8bd0211754f6e935939b96b598",
+          "source_heading": "Historical skill metadata/runtime reference",
+          "source_fragment": "interface:",
+          "meaning": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "interface:\n  display_name: \"iOS Performance\"\n  short_description: \"Measure the user-relevant bottleneck and require before/after\"\n  default_prompt: \"Use $ioslib-performance to measure the user-relevant bottleneck and require before/after evidence.\""
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1314",
       "path": "source-skills/ioslib-performance/references/domain-checklist.md",
       "sha256": "6b04fe2693c4114f282742fd20e1e9681ed893246b4ebe3e425bc7519db47fc6",
       "bytes": 673,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1314-U01",
+          "source_path": "canonical/source-skills/ioslib-performance/references/domain-checklist.md",
+          "source_sha256": "6b04fe2693c4114f282742fd20e1e9681ed893246b4ebe3e425bc7519db47fc6",
+          "source_heading": "Domain Checklist — iOS Performance",
+          "source_fragment": "# Domain Checklist — iOS Performance",
+          "meaning": "Actual user-impact bottleneck, representative permitted scenario and comparable measured baseline/after distribution/resource trade-offs plus regression question. Tool names/source hotspots not observed speedup, no Instruments/build/tests/runtime or excluded physical-device evidence. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual user-impact bottleneck, representative permitted scenario and comparable measured baseline/after distribution/resource trade-offs plus regression question. Tool names/source hotspots not observed speedup, no Instruments/build/tests/runtime or excluded physical-device evidence. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains; Optimization Workflow; Evidence",
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains",
+                "Optimization Workflow",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Domain Checklist — iOS Performance\n\n- baseline metric\n- representative device/scenario\n- Instruments/signposts\n- allocation/I/O/render hotspots\n- before/after\n- regression guard\n\n## Deep reference\nWhen installed, search only the relevant the global deep library root described in `INSTALLATION.md` + `/11_PERFORMANCE_MEMORY/` files and matching `31_DEEP_PLAYBOOKS/OP-IOS-*`; do not load the entire section unless necessary.\n\n## Stop / escalate\nStop destructive action and surface the unknown when the unresolved fact can cause data loss, auth/security failure, public API breakage, irreversible migration, signing/release mutation, or an unsafe concurrency workaround."
+          ]
+        },
+        {
+          "unit_id": "LIB-1314-U02",
+          "source_path": "canonical/source-skills/ioslib-performance/references/domain-checklist.md",
+          "source_sha256": "6b04fe2693c4114f282742fd20e1e9681ed893246b4ebe3e425bc7519db47fc6",
+          "source_heading": "Domain Checklist — iOS Performance",
+          "source_fragment": "# Domain Checklist — iOS Performance",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Domain Checklist — iOS Performance\n\n- baseline metric\n- representative device/scenario\n- Instruments/signposts\n- allocation/I/O/render hotspots\n- before/after\n- regression guard\n\n## Deep reference\nWhen installed, search only the relevant the global deep library root described in `INSTALLATION.md` + `/11_PERFORMANCE_MEMORY/` files and matching `31_DEEP_PLAYBOOKS/OP-IOS-*`; do not load the entire section unless necessary.\n\n## Stop / escalate\nStop destructive action and surface the unknown when the unresolved fact can cause data loss, auth/security failure, public API breakage, irreversible migration, signing/release mutation, or an unsafe concurrency workaround."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1315",
       "path": "source-skills/ioslib-performance/references/global-runtime.md",
       "sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
       "bytes": 565,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1315-U01",
+          "source_path": "canonical/source-skills/ioslib-performance/references/global-runtime.md",
+          "source_sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
+          "source_heading": "Global iOS Engineering Runtime",
+          "source_fragment": "# Global iOS Engineering Runtime",
+          "meaning": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1300/1304/1308 exact orchestration1208,1296/1312 exact regular1156 after declared fields only; all unique fields/YAML/checklists read, five runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-184-offline-coordination-performance-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Global iOS Engineering Runtime\n\nThis skill is designed for a **user-global Codex installation**. Do not require `.ai/`, `.agents/`, or `scripts/ai/` inside the client repository.\n\nThe installer writes `INSTALLATION.md` next to this file with the exact runtime/library paths for this machine. Read that file before using global runtime commands or deep references.\n\nProject-adaptive generated state is stored **outside client repositories**. Never create library infrastructure in a client repository unless the user explicitly asks for a repository-local export."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1316",
