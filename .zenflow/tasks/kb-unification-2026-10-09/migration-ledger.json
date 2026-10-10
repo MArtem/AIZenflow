@@ -161684,135 +161684,1268 @@
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-01_ARCHITECT.md",
       "sha256": "116bb551ad785237324a9deabe322a44c48031f0b8c7afa3e7d2d288795ef48f",
       "bytes": 2618,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0883-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-01_ARCHITECT.md",
+          "source_sha256": "116bb551ad785237324a9deabe322a44c48031f0b8c7afa3e7d2d288795ef48f",
+          "source_heading": "V3-ROLE-01 — iOS Architect",
+          "source_fragment": "# V3-ROLE-01 — iOS Architect",
+          "meaning": "Own cross-module boundaries, state ownership, dependency direction, public contracts and architectural tradeoffs. Actual role risk boundary: architecture, modularity, dependency boundaries, navigation ownership, state/source-of-truth. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Own cross-module boundaries, state ownership, dependency direction, public contracts and architectural tradeoffs. Actual role risk boundary: architecture, modularity, dependency boundaries, navigation ownership, state/source-of-truth. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "destination_heading": "Required Checks; Forbidden By Default",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-01 — iOS Architect\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nOwn cross-module boundaries, state ownership, dependency direction, public contracts and architectural tradeoffs.\n\n## Activate when\nThe task has material risk in: architecture, modularity, dependency boundaries, navigation ownership, state/source-of-truth.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\narchitecture, modularity, dependency boundaries, navigation ownership, state/source-of-truth.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0883-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-01_ARCHITECT.md",
+          "source_sha256": "116bb551ad785237324a9deabe322a44c48031f0b8c7afa3e7d2d288795ef48f",
+          "source_heading": "V3-ROLE-01 — iOS Architect",
+          "source_fragment": "# V3-ROLE-01 — iOS Architect",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-01 — iOS Architect\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nOwn cross-module boundaries, state ownership, dependency direction, public contracts and architectural tradeoffs.\n\n## Activate when\nThe task has material risk in: architecture, modularity, dependency boundaries, navigation ownership, state/source-of-truth.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\narchitecture, modularity, dependency boundaries, navigation ownership, state/source-of-truth.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0884",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-02_CONCURRENCY.md",
       "sha256": "0328cf390fbc6c5222cd4ca8ec4612e5c04a94acdb77bf43257fe99a155df88b",
       "bytes": 2608,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0884-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-02_CONCURRENCY.md",
+          "source_sha256": "0328cf390fbc6c5222cd4ca8ec4612e5c04a94acdb77bf43257fe99a155df88b",
+          "source_heading": "V3-ROLE-02 — Swift Concurrency Auditor",
+          "source_fragment": "# V3-ROLE-02 — Swift Concurrency Auditor",
+          "meaning": "Audit actor isolation, Sendable correctness, task lifetime, cancellation, structured concurrency and races. Actual role risk boundary: actor isolation, Sendable, Task lifetime, cancellation, AsyncSequence, continuations. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Audit actor isolation, Sendable correctness, task lifetime, cancellation, structured concurrency and races. Actual role risk boundary: actor isolation, Sendable, Task lifetime, cancellation, AsyncSequence, continuations. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Isolation Design; Task Ownership; Cancellation; Swift 6.x Discipline",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership",
+                "Cancellation",
+                "Swift 6.x Discipline"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-02 — Swift Concurrency Auditor\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nAudit actor isolation, Sendable correctness, task lifetime, cancellation, structured concurrency and races.\n\n## Activate when\nThe task has material risk in: actor isolation, Sendable, Task lifetime, cancellation, AsyncSequence, continuations.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nactor isolation, Sendable, Task lifetime, cancellation, AsyncSequence, continuations.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0884-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-02_CONCURRENCY.md",
+          "source_sha256": "0328cf390fbc6c5222cd4ca8ec4612e5c04a94acdb77bf43257fe99a155df88b",
+          "source_heading": "V3-ROLE-02 — Swift Concurrency Auditor",
+          "source_fragment": "# V3-ROLE-02 — Swift Concurrency Auditor",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-02 — Swift Concurrency Auditor\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nAudit actor isolation, Sendable correctness, task lifetime, cancellation, structured concurrency and races.\n\n## Activate when\nThe task has material risk in: actor isolation, Sendable, Task lifetime, cancellation, AsyncSequence, continuations.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nactor isolation, Sendable, Task lifetime, cancellation, AsyncSequence, continuations.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0885",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-03_SWIFTUI.md",
       "sha256": "e493d3c8e295e35664acaab09cd7913eb03250056ba23bca539939ad7fb00583",
       "bytes": 2619,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0885-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-03_SWIFTUI.md",
+          "source_sha256": "e493d3c8e295e35664acaab09cd7913eb03250056ba23bca539939ad7fb00583",
+          "source_heading": "V3-ROLE-03 — SwiftUI Reviewer",
+          "source_fragment": "# V3-ROLE-03 — SwiftUI Reviewer",
+          "meaning": "Review state identity, Observation, rendering invalidation, navigation, lifecycle, accessibility and UIKit bridges. Actual role risk boundary: @Observable/state ownership, identity, bindings, navigation, task lifecycle, accessibility. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Review state identity, Observation, rendering invalidation, navigation, lifecycle, accessibility and UIKit bridges. Actual role risk boundary: @Observable/state ownership, identity, bindings, navigation, task lifecycle, accessibility. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "State Placement; Ownership And Identity Review; Navigation And Presentation",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "State Placement",
+                "Ownership And Identity Review",
+                "Navigation And Presentation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-03 — SwiftUI Reviewer\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nReview state identity, Observation, rendering invalidation, navigation, lifecycle, accessibility and UIKit bridges.\n\n## Activate when\nThe task has material risk in: @Observable/state ownership, identity, bindings, navigation, task lifecycle, accessibility.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\n@Observable/state ownership, identity, bindings, navigation, task lifecycle, accessibility.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0885-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-03_SWIFTUI.md",
+          "source_sha256": "e493d3c8e295e35664acaab09cd7913eb03250056ba23bca539939ad7fb00583",
+          "source_heading": "V3-ROLE-03 — SwiftUI Reviewer",
+          "source_fragment": "# V3-ROLE-03 — SwiftUI Reviewer",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-03 — SwiftUI Reviewer\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nReview state identity, Observation, rendering invalidation, navigation, lifecycle, accessibility and UIKit bridges.\n\n## Activate when\nThe task has material risk in: @Observable/state ownership, identity, bindings, navigation, task lifecycle, accessibility.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\n@Observable/state ownership, identity, bindings, navigation, task lifecycle, accessibility.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0886",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-04_UIKIT.md",
       "sha256": "2df89ca3d34f8f30b0bf80e66fd82b1457d942856385bfcfe938ae2ef793d267",
       "bytes": 2566,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0886-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-04_UIKIT.md",
+          "source_sha256": "2df89ca3d34f8f30b0bf80e66fd82b1457d942856385bfcfe938ae2ef793d267",
+          "source_heading": "V3-ROLE-04 — UIKit Reviewer",
+          "source_fragment": "# V3-ROLE-04 — UIKit Reviewer",
+          "meaning": "Review controller/view lifecycle, containment, reuse, Auto Layout, diffable data sources and bridging. Actual role risk boundary: lifecycle, containment, reuse, constraints, diffable updates, MainActor. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Review controller/view lifecycle, containment, reuse, Auto Layout, diffable data sources and bridging. Actual role risk boundary: lifecycle, containment, reuse, constraints, diffable updates, MainActor. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "UIKit Interoperability; UIKit Lifecycle And Reuse Review",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UIKit Interoperability",
+                "UIKit Lifecycle And Reuse Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-04 — UIKit Reviewer\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nReview controller/view lifecycle, containment, reuse, Auto Layout, diffable data sources and bridging.\n\n## Activate when\nThe task has material risk in: lifecycle, containment, reuse, constraints, diffable updates, MainActor.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nlifecycle, containment, reuse, constraints, diffable updates, MainActor.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0886-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-04_UIKIT.md",
+          "source_sha256": "2df89ca3d34f8f30b0bf80e66fd82b1457d942856385bfcfe938ae2ef793d267",
+          "source_heading": "V3-ROLE-04 — UIKit Reviewer",
+          "source_fragment": "# V3-ROLE-04 — UIKit Reviewer",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-04 — UIKit Reviewer\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nReview controller/view lifecycle, containment, reuse, Auto Layout, diffable data sources and bridging.\n\n## Activate when\nThe task has material risk in: lifecycle, containment, reuse, constraints, diffable updates, MainActor.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nlifecycle, containment, reuse, constraints, diffable updates, MainActor.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0887",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-05_TEST.md",
       "sha256": "c6b20309ba4fb46b60e8c3c4600923f19ed666e1cf4da0d10592966ed79b8786",
       "bytes": 2585,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0887-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-05_TEST.md",
+          "source_sha256": "c6b20309ba4fb46b60e8c3c4600923f19ed666e1cf4da0d10592966ed79b8786",
+          "source_heading": "V3-ROLE-05 — Test Engineer",
+          "source_fragment": "# V3-ROLE-05 — Test Engineer",
+          "meaning": "Design high-signal tests at contract boundaries and eliminate nondeterminism without over-mocking. Actual role risk boundary: Swift Testing/XCTest/XCUITest, fixtures, async tests, contract tests, flake control. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Design high-signal tests at contract boundaries and eliminate nondeterminism without over-mocking. Actual role risk boundary: Swift Testing/XCTest/XCUITest, fixtures, async tests, contract tests, flake control. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Test Portfolio; Determinism; Test Doubles; Flaky Tests",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Test Portfolio",
+                "Determinism",
+                "Test Doubles",
+                "Flaky Tests"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-05 — Test Engineer\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nDesign high-signal tests at contract boundaries and eliminate nondeterminism without over-mocking.\n\n## Activate when\nThe task has material risk in: Swift Testing/XCTest/XCUITest, fixtures, async tests, contract tests, flake control.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nSwift Testing/XCTest/XCUITest, fixtures, async tests, contract tests, flake control.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0887-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-05_TEST.md",
+          "source_sha256": "c6b20309ba4fb46b60e8c3c4600923f19ed666e1cf4da0d10592966ed79b8786",
+          "source_heading": "V3-ROLE-05 — Test Engineer",
+          "source_fragment": "# V3-ROLE-05 — Test Engineer",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-05 — Test Engineer\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nDesign high-signal tests at contract boundaries and eliminate nondeterminism without over-mocking.\n\n## Activate when\nThe task has material risk in: Swift Testing/XCTest/XCUITest, fixtures, async tests, contract tests, flake control.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nSwift Testing/XCTest/XCUITest, fixtures, async tests, contract tests, flake control.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0888",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-06_PERF.md",
       "sha256": "0b36e2a6c49d6cbed44c5601deadc0c10060f0c50143ac7962a3852ff79b84c7",
       "bytes": 2572,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0888-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-06_PERF.md",
+          "source_sha256": "0b36e2a6c49d6cbed44c5601deadc0c10060f0c50143ac7962a3852ff79b84c7",
+          "source_heading": "V3-ROLE-06 — Performance Investigator",
+          "source_fragment": "# V3-ROLE-06 — Performance Investigator",
+          "meaning": "Find measured CPU, memory, launch, hang, energy, rendering and I/O regressions using evidence. Actual role risk boundary: Instruments, signposts, MetricKit, launch, allocations, rendering, energy. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Find measured CPU, memory, launch, hang, energy, rendering and I/O regressions using evidence. Actual role risk boundary: Instruments, signposts, MetricKit, launch, allocations, rendering, energy. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Measure From User Impact; Performance Domains; Optimization Workflow",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Performance Domains",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-06 — Performance Investigator\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nFind measured CPU, memory, launch, hang, energy, rendering and I/O regressions using evidence.\n\n## Activate when\nThe task has material risk in: Instruments, signposts, MetricKit, launch, allocations, rendering, energy.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nInstruments, signposts, MetricKit, launch, allocations, rendering, energy.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0888-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-06_PERF.md",
+          "source_sha256": "0b36e2a6c49d6cbed44c5601deadc0c10060f0c50143ac7962a3852ff79b84c7",
+          "source_heading": "V3-ROLE-06 — Performance Investigator",
+          "source_fragment": "# V3-ROLE-06 — Performance Investigator",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-06 — Performance Investigator\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nFind measured CPU, memory, launch, hang, energy, rendering and I/O regressions using evidence.\n\n## Activate when\nThe task has material risk in: Instruments, signposts, MetricKit, launch, allocations, rendering, energy.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nInstruments, signposts, MetricKit, launch, allocations, rendering, energy.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0889",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-07_SECURITY.md",
       "sha256": "8a316948cbb3bb813a51f262a2cabe65fb534bbdb224d5feeecb7afa77c06520",
       "bytes": 2585,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0889-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-07_SECURITY.md",
+          "source_sha256": "8a316948cbb3bb813a51f262a2cabe65fb534bbdb224d5feeecb7afa77c06520",
+          "source_heading": "V3-ROLE-07 — Security & Privacy Auditor",
+          "source_fragment": "# V3-ROLE-07 — Security & Privacy Auditor",
+          "meaning": "Audit secrets, auth, transport, local data, privacy manifests, permissions and logging. Actual role risk boundary: Keychain, ATS, auth/session, CryptoKit, privacy manifests, PII/logging, App Attest. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Audit secrets, auth, transport, local data, privacy manifests, permissions and logging. Actual role risk boundary: Keychain, ATS, auth/session, CryptoKit, privacy manifests, PII/logging, App Attest. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Security Model; Keychain And Data Protection; Session Lifecycle; Authorization Rules",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Security Model",
+                "Keychain And Data Protection",
+                "Session Lifecycle",
+                "Authorization Rules"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Privacy Manifest And Required-Reason APIs"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-07 — Security & Privacy Auditor\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nAudit secrets, auth, transport, local data, privacy manifests, permissions and logging.\n\n## Activate when\nThe task has material risk in: Keychain, ATS, auth/session, CryptoKit, privacy manifests, PII/logging, App Attest.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nKeychain, ATS, auth/session, CryptoKit, privacy manifests, PII/logging, App Attest.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0889-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-07_SECURITY.md",
+          "source_sha256": "8a316948cbb3bb813a51f262a2cabe65fb534bbdb224d5feeecb7afa77c06520",
+          "source_heading": "V3-ROLE-07 — Security & Privacy Auditor",
+          "source_fragment": "# V3-ROLE-07 — Security & Privacy Auditor",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-07 — Security & Privacy Auditor\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nAudit secrets, auth, transport, local data, privacy manifests, permissions and logging.\n\n## Activate when\nThe task has material risk in: Keychain, ATS, auth/session, CryptoKit, privacy manifests, PII/logging, App Attest.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nKeychain, ATS, auth/session, CryptoKit, privacy manifests, PII/logging, App Attest.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0890",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-08_PERSISTENCE.md",
       "sha256": "b8c62b1cf65ed2f70dedae2d8af646850791905f395b18e1a31088ea543b786a",
       "bytes": 2605,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0890-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-08_PERSISTENCE.md",
+          "source_sha256": "b8c62b1cf65ed2f70dedae2d8af646850791905f395b18e1a31088ea543b786a",
+          "source_heading": "V3-ROLE-08 — Persistence Migration Engineer",
+          "source_fragment": "# V3-ROLE-08 — Persistence Migration Engineer",
+          "meaning": "Own schema evolution, transactional correctness, backward compatibility, rollback and data-loss prevention. Actual role risk boundary: SwiftData/Core Data, SQLite/files, migration, rollback, transactional invariants. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Own schema evolution, transactional correctness, backward compatibility, rollback and data-loss prevention. Actual role risk boundary: SwiftData/Core Data, SQLite/files, migration, rollback, transactional invariants. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Data Ownership; SwiftData And Core Data; Migration; Evidence",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "SwiftData And Core Data",
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-08 — Persistence Migration Engineer\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nOwn schema evolution, transactional correctness, backward compatibility, rollback and data-loss prevention.\n\n## Activate when\nThe task has material risk in: SwiftData/Core Data, SQLite/files, migration, rollback, transactional invariants.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nSwiftData/Core Data, SQLite/files, migration, rollback, transactional invariants.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0890-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-08_PERSISTENCE.md",
+          "source_sha256": "b8c62b1cf65ed2f70dedae2d8af646850791905f395b18e1a31088ea543b786a",
+          "source_heading": "V3-ROLE-08 — Persistence Migration Engineer",
+          "source_fragment": "# V3-ROLE-08 — Persistence Migration Engineer",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-08 — Persistence Migration Engineer\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nOwn schema evolution, transactional correctness, backward compatibility, rollback and data-loss prevention.\n\n## Activate when\nThe task has material risk in: SwiftData/Core Data, SQLite/files, migration, rollback, transactional invariants.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nSwiftData/Core Data, SQLite/files, migration, rollback, transactional invariants.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0891",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-09_NETWORK.md",
       "sha256": "ce776d26ad2670de73ac559050c98e3470e39d1638d9ded12aec2e9b45db8af8",
       "bytes": 2579,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0891-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-09_NETWORK.md",
+          "source_sha256": "ce776d26ad2670de73ac559050c98e3470e39d1638d9ded12aec2e9b45db8af8",
+          "source_heading": "V3-ROLE-09 — Networking & Auth Auditor",
+          "source_fragment": "# V3-ROLE-09 — Networking & Auth Auditor",
+          "meaning": "Audit API contracts, request semantics, retries, token refresh, offline/cache and observability. Actual role risk boundary: URLSession, HTTP semantics, auth refresh, idempotency, retry/backoff, cache. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Audit API contracts, request semantics, retries, token refresh, offline/cache and observability. Actual role risk boundary: URLSession, HTTP semantics, auth refresh, idempotency, retry/backoff, cache. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Request Contract; Reliability; Caching",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Request Contract",
+                "Reliability",
+                "Caching"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-09 — Networking & Auth Auditor\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nAudit API contracts, request semantics, retries, token refresh, offline/cache and observability.\n\n## Activate when\nThe task has material risk in: URLSession, HTTP semantics, auth refresh, idempotency, retry/backoff, cache.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nURLSession, HTTP semantics, auth refresh, idempotency, retry/backoff, cache.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0891-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-09_NETWORK.md",
+          "source_sha256": "ce776d26ad2670de73ac559050c98e3470e39d1638d9ded12aec2e9b45db8af8",
+          "source_heading": "V3-ROLE-09 — Networking & Auth Auditor",
+          "source_fragment": "# V3-ROLE-09 — Networking & Auth Auditor",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-09 — Networking & Auth Auditor\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nAudit API contracts, request semantics, retries, token refresh, offline/cache and observability.\n\n## Activate when\nThe task has material risk in: URLSession, HTTP semantics, auth refresh, idempotency, retry/backoff, cache.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nURLSession, HTTP semantics, auth refresh, idempotency, retry/backoff, cache.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0892",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-10_RELEASE.md",
       "sha256": "3a1a5925d28a15c43c99bd7bb69b5667474de0f8ea6c08ffd00d91251247a037",
       "bytes": 2570,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0892-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-10_RELEASE.md",
+          "source_sha256": "3a1a5925d28a15c43c99bd7bb69b5667474de0f8ea6c08ffd00d91251247a037",
+          "source_heading": "V3-ROLE-10 — Release Auditor",
+          "source_fragment": "# V3-ROLE-10 — Release Auditor",
+          "meaning": "Validate release gates, signing/configuration, staged rollout, feature flags, telemetry and rollback. Actual role risk boundary: CI, signing, TestFlight/App Store, rollout, kill switch, release evidence. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Validate release gates, signing/configuration, staged rollout, feature flags, telemetry and rollback. Actual role risk boundary: CI, signing, TestFlight/App Store, rollout, kill switch, release evidence. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "destination_heading": "Build And Signing; Diagnostics; Rollout; Release Receipt",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Build And Signing",
+                "Diagnostics",
+                "Rollout",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-10 — Release Auditor\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nValidate release gates, signing/configuration, staged rollout, feature flags, telemetry and rollback.\n\n## Activate when\nThe task has material risk in: CI, signing, TestFlight/App Store, rollout, kill switch, release evidence.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nCI, signing, TestFlight/App Store, rollout, kill switch, release evidence.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0892-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-10_RELEASE.md",
+          "source_sha256": "3a1a5925d28a15c43c99bd7bb69b5667474de0f8ea6c08ffd00d91251247a037",
+          "source_heading": "V3-ROLE-10 — Release Auditor",
+          "source_fragment": "# V3-ROLE-10 — Release Auditor",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-10 — Release Auditor\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nValidate release gates, signing/configuration, staged rollout, feature flags, telemetry and rollback.\n\n## Activate when\nThe task has material risk in: CI, signing, TestFlight/App Store, rollout, kill switch, release evidence.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nCI, signing, TestFlight/App Store, rollout, kill switch, release evidence.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0893",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-11_DEPENDENCY.md",
       "sha256": "019f00c3752c9868870d4ba39789c376a9c7c98041bfa720d455f452b2d040d6",
       "bytes": 2576,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0893-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-11_DEPENDENCY.md",
+          "source_sha256": "019f00c3752c9868870d4ba39789c376a9c7c98041bfa720d455f452b2d040d6",
+          "source_heading": "V3-ROLE-11 — Dependency Governor",
+          "source_fragment": "# V3-ROLE-11 — Dependency Governor",
+          "meaning": "Approve or reject dependencies using maintenance, security, privacy, size, compatibility and exit criteria. Actual role risk boundary: SPM, binary SDKs, supply chain, licenses, size, transitive dependencies. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Approve or reject dependencies using maintenance, security, privacy, size, compatibility and exit criteria. Actual role risk boundary: SPM, binary SDKs, supply chain, licenses, size, transitive dependencies. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Supply Chain; SDK Consumer Boundary",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-11 — Dependency Governor\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nApprove or reject dependencies using maintenance, security, privacy, size, compatibility and exit criteria.\n\n## Activate when\nThe task has material risk in: SPM, binary SDKs, supply chain, licenses, size, transitive dependencies.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nSPM, binary SDKs, supply chain, licenses, size, transitive dependencies.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0893-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-11_DEPENDENCY.md",
+          "source_sha256": "019f00c3752c9868870d4ba39789c376a9c7c98041bfa720d455f452b2d040d6",
+          "source_heading": "V3-ROLE-11 — Dependency Governor",
+          "source_fragment": "# V3-ROLE-11 — Dependency Governor",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-11 — Dependency Governor\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nApprove or reject dependencies using maintenance, security, privacy, size, compatibility and exit criteria.\n\n## Activate when\nThe task has material risk in: SPM, binary SDKs, supply chain, licenses, size, transitive dependencies.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nSPM, binary SDKs, supply chain, licenses, size, transitive dependencies.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0894",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-12_A11Y.md",
       "sha256": "6dc357f9e157d1c08d3bb59a84e6915465713f4cb2fa1c28e114e7e255dc9aeb",
       "bytes": 2592,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0894-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-12_A11Y.md",
+          "source_sha256": "6dc357f9e157d1c08d3bb59a84e6915465713f4cb2fa1c28e114e7e255dc9aeb",
+          "source_heading": "V3-ROLE-12 — Accessibility & Localization Auditor",
+          "source_fragment": "# V3-ROLE-12 — Accessibility & Localization Auditor",
+          "meaning": "Treat accessibility and localization as functional correctness across dynamic content and locales. Actual role risk boundary: VoiceOver, Dynamic Type, contrast, RTL, localization, dates/numbers/plurals. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Treat accessibility and localization as functional correctness across dynamic content and locales. Actual role risk boundary: VoiceOver, Dynamic Type, contrast, RTL, localization, dates/numbers/plurals. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+          "destination_heading": "Required Checks; Blocking Issues",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Blocking Issues"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks",
+                "Forbidden By Default"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-12 — Accessibility & Localization Auditor\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nTreat accessibility and localization as functional correctness across dynamic content and locales.\n\n## Activate when\nThe task has material risk in: VoiceOver, Dynamic Type, contrast, RTL, localization, dates/numbers/plurals.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nVoiceOver, Dynamic Type, contrast, RTL, localization, dates/numbers/plurals.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0894-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-12_A11Y.md",
+          "source_sha256": "6dc357f9e157d1c08d3bb59a84e6915465713f4cb2fa1c28e114e7e255dc9aeb",
+          "source_heading": "V3-ROLE-12 — Accessibility & Localization Auditor",
+          "source_fragment": "# V3-ROLE-12 — Accessibility & Localization Auditor",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-12 — Accessibility & Localization Auditor\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nTreat accessibility and localization as functional correctness across dynamic content and locales.\n\n## Activate when\nThe task has material risk in: VoiceOver, Dynamic Type, contrast, RTL, localization, dates/numbers/plurals.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nVoiceOver, Dynamic Type, contrast, RTL, localization, dates/numbers/plurals.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0895",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-13_CRASH.md",
       "sha256": "ece0848cbe22e6bdf82eb49fe781ac1192586d2e932e971babe48f6f8692e9ca",
       "bytes": 2570,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0895-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-13_CRASH.md",
+          "source_sha256": "ece0848cbe22e6bdf82eb49fe781ac1192586d2e932e971babe48f6f8692e9ca",
+          "source_heading": "V3-ROLE-13 — Crash & Hang Investigator",
+          "source_fragment": "# V3-ROLE-13 — Crash & Hang Investigator",
+          "meaning": "Form falsifiable hypotheses from crash/hang evidence and localize root cause before patching. Actual role risk boundary: crash logs, symbolication, Main Thread, deadlocks, watchdog, breadcrumbs. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Form falsifiable hypotheses from crash/hang evidence and localize root cause before patching. Actual role risk boundary: crash logs, symbolication, Main Thread, deadlocks, watchdog, breadcrumbs. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Debugging Workflow; Crash And Hang Triage; Evidence Completion",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Crash And Hang Triage",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-13 — Crash & Hang Investigator\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nForm falsifiable hypotheses from crash/hang evidence and localize root cause before patching.\n\n## Activate when\nThe task has material risk in: crash logs, symbolication, Main Thread, deadlocks, watchdog, breadcrumbs.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\ncrash logs, symbolication, Main Thread, deadlocks, watchdog, breadcrumbs.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0895-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-13_CRASH.md",
+          "source_sha256": "ece0848cbe22e6bdf82eb49fe781ac1192586d2e932e971babe48f6f8692e9ca",
+          "source_heading": "V3-ROLE-13 — Crash & Hang Investigator",
+          "source_fragment": "# V3-ROLE-13 — Crash & Hang Investigator",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-13 — Crash & Hang Investigator\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nForm falsifiable hypotheses from crash/hang evidence and localize root cause before patching.\n\n## Activate when\nThe task has material risk in: crash logs, symbolication, Main Thread, deadlocks, watchdog, breadcrumbs.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\ncrash logs, symbolication, Main Thread, deadlocks, watchdog, breadcrumbs.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0896",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-14_MEMORY.md",
       "sha256": "60c8b3036516177ffca9c3ac15f2420b097b75149ebbc41e08cb2b4874a7f315",
       "bytes": 2570,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0896-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-14_MEMORY.md",
+          "source_sha256": "60c8b3036516177ffca9c3ac15f2420b097b75149ebbc41e08cb2b4874a7f315",
+          "source_heading": "V3-ROLE-14 — Memory Ownership Investigator",
+          "source_fragment": "# V3-ROLE-14 — Memory Ownership Investigator",
+          "meaning": "Trace ownership graphs and resource lifetime for leaks, retain cycles and unbounded caches/tasks. Actual role risk boundary: ARC, closures, tasks, timers, delegates, subscriptions, Memory Graph. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Trace ownership graphs and resource lifetime for leaks, retain cycles and unbounded caches/tasks. Actual role risk boundary: ARC, closures, tasks, timers, delegates, subscriptions, Memory Graph. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains; Evidence",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Ownership And Memory"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-14 — Memory Ownership Investigator\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nTrace ownership graphs and resource lifetime for leaks, retain cycles and unbounded caches/tasks.\n\n## Activate when\nThe task has material risk in: ARC, closures, tasks, timers, delegates, subscriptions, Memory Graph.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nARC, closures, tasks, timers, delegates, subscriptions, Memory Graph.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0896-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-14_MEMORY.md",
+          "source_sha256": "60c8b3036516177ffca9c3ac15f2420b097b75149ebbc41e08cb2b4874a7f315",
+          "source_heading": "V3-ROLE-14 — Memory Ownership Investigator",
+          "source_fragment": "# V3-ROLE-14 — Memory Ownership Investigator",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-14 — Memory Ownership Investigator\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nTrace ownership graphs and resource lifetime for leaks, retain cycles and unbounded caches/tasks.\n\n## Activate when\nThe task has material risk in: ARC, closures, tasks, timers, delegates, subscriptions, Memory Graph.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\nARC, closures, tasks, timers, delegates, subscriptions, Memory Graph.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0897",
       "path": "legacy-source/37_AGENT_ROLES/V3-ROLE-15_SDK.md",
       "sha256": "03f1a0d76778b867edaab9eb8dc7fd205d741ede37a1c6b31c6bc404ed1e6611",
       "bytes": 2572,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0897-U01",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-15_SDK.md",
+          "source_sha256": "03f1a0d76778b867edaab9eb8dc7fd205d741ede37a1c6b31c6bc404ed1e6611",
+          "source_heading": "V3-ROLE-15 — SDK / Public API Reviewer",
+          "source_fragment": "# V3-ROLE-15 — SDK / Public API Reviewer",
+          "meaning": "Protect source/API/ABI semantics, versioning and consumer compatibility for reusable modules. Actual role risk boundary: public API, semver, resilience, Objective-C exposure, docs, compatibility. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Protect source/API/ABI semantics, versioning and consumer compatibility for reusable modules. Actual role risk boundary: public API, semver, resilience, Objective-C exposure, docs, compatibility. Current scoped authority, surrounding consumers/invariants and observed versus inferred evidence, concrete failures and recovery/verification limits. Role title is no execution or delegation permission; physical/iPad/actualVoiceOver excluded, strict Swift preserved.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Public API Rules; Interoperability",
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Public API Rules",
+                "Interoperability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V3-ROLE-15 — SDK / Public API Reviewer\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nProtect source/API/ABI semantics, versioning and consumer compatibility for reusable modules.\n\n## Activate when\nThe task has material risk in: public API, semver, resilience, Objective-C exposure, docs, compatibility.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\npublic API, semver, resilience, Objective-C exposure, docs, compatibility.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        },
+        {
+          "unit_id": "LIB-0897-U02",
+          "source_path": "canonical/legacy-source/37_AGENT_ROLES/V3-ROLE-15_SDK.md",
+          "source_sha256": "03f1a0d76778b867edaab9eb8dc7fd205d741ede37a1c6b31c6bc404ed1e6611",
+          "source_heading": "V3-ROLE-15 — SDK / Public API Reviewer",
+          "source_fragment": "# V3-ROLE-15 — SDK / Public API Reviewer",
+          "meaning": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V3 role title/activation wording, global path/shim/install-state aliases, fixed R2+ and namespaced skill workflow retained as provenance. Conditional useful domain/evidence requirements covered separately; no role/delegation/runtime/test/build/installation or mode action authorized.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen V3 role bodies SHA checked; title/Mission/Activate when/Role-specific axis uniquely read, remaining common bytes exact normalized comparison to fully read883 SHAf0142ee9fd6c04ffb328ac964d6419e240a2febcca375fdab95d53e0ca87d92d; semantic owner/literals/prior rows/copies/mirrors/full final diff/exact-SHA. No role activated.",
+          "evidence": "block-191-legacy-domain-role-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V3-ROLE-15 — SDK / Public API Reviewer\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\n## Mission\nProtect source/API/ABI semantics, versioning and consumer compatibility for reusable modules.\n\n## Activate when\nThe task has material risk in: public API, semver, resilience, Objective-C exposure, docs, compatibility.\n\n## Required behavior\n1. Read repository `AGENTS.md` hierarchy and `.ai/project` facts.\n2. Select the smallest matching `.agents/skills` workflow.\n3. State invariants and risk class before changing R2+ boundaries.\n4. Inspect surrounding callers/consumers, not only the requested file.\n5. Separate observed evidence from reasoning.\n6. Escalate unknowns that can cause data loss, security breakage, public API breakage or release failure.\n\n## Role-specific review axis\npublic API, semver, resilience, Objective-C exposure, docs, compatibility.\n\n## Deliverable\nA decision or patch with concrete affected files, failure modes, verification evidence, and rollback/containment when appropriate. Findings are prioritized by user impact and reproducibility, not stylistic preference."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete V3 role verified by exact four-slot comparison to fully read883 plus every unique mission/axis/activation/title read; useful current constraints covered, old role/installation recipes archived; no pointer-based body coverage."
     },
     {
       "source_id": "LIB-0898",

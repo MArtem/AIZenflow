@@ -17,7 +17,7 @@ User authorized execution of the accepted migration plan after preservation of c
 - [x] U0 Revalidate snapshot, current sources and exact permissions; [receipt](u0-u1-report.md).
 - [ ] U1 Complete inventory/copy-delta reconciliation, freeze KB/read-cost baseline, finish bounded calibration and complete consumer/copy reconciliation. Calibration: five canonical files + one copy content group, 30 units; broader acceptance pending.
 - [x] U2 First complete thematic transfer, cancellation/publication; [30-unit block receipt](block-01-concurrency.md).
-- [ ] U3 Review every source file/unit and transfer all accepted useful deltas. 1177 canonical files reviewed; [block 02](block-02-concurrency.md); DEC-001 resolved by current user approval; all 16 files of 03_CONCURRENCY reviewed.
+- [ ] U3 Review every source file/unit and transfer all accepted useful deltas. 1192 canonical files reviewed; [block 02](block-02-concurrency.md); DEC-001 resolved by current user approval; all 16 files of 03_CONCURRENCY reviewed.
 - [ ] U4 Unify routes and enforce bounded mandatory reading.
 - [ ] U5 Review semantics, authority and critical technical claims.
 - [ ] U6 Static acceptance: coverage, mirrors, links, 12 routing scenarios and cost limits.
@@ -29,10 +29,10 @@ Only .zenflow, shell login:false. No new agents/chats/MCP/host/config/secrets/in
 
 ## Current outcome and next block
 
-Source review through block189: 1177 REVIEWED / 226 UNREVIEWED, zero partial; exact units and source provenance in [ledger](migration-ledger.json). Counts are bookkeeping, not measured benefit or whole-system readiness. All deep OP, P2 prompt, code-pattern, audit-gate and engineering-template source families reviewed independently, including their indexes; remaining preserved skill/runtime/legacy bodies remain independent.
+Source review through block191: 1192 REVIEWED / 211 UNREVIEWED, zero partial; exact units and source provenance in [ledger](migration-ledger.json). Counts are bookkeeping, not measured benefit or whole-system readiness. All deep OP, P2 prompt, code-pattern, audit-gate and engineering-template source families reviewed independently, including their indexes; remaining preserved skill/runtime/legacy bodies remain independent.
 
 Useful coordination/repository-preservation constraints moved into the existing engineering owner and exact current mirror in [block160](block-160-coordination-repository-preservation-delta.md); current docs index/router/vault/manifest evidence passed. [Block164](block-164-project-facts-mode-contract-dispositions.md) classifies project facts/mode infrastructure without handler actions. Next: remaining root provenance/inspection documents, then bounded preserved-source families; no source inventory inherits reviewed coverage. U1/U4/U5/U6/U8/U9 remain incomplete. U7 NOT_RUN/BENEFIT_NOT_ESTABLISHED; token/cost benefit UNKNOWN.
 
 [Original full plan through block164](archive/through-block-164-plan.txt) and [original full handoff](archive/through-block-164-handoff.txt) retain every historical paragraph/link verbatim. [Compaction receipt](block-165-active-task-state-compaction.md). Continue ordinary accepted documentation blocks autonomously; pause only for an actual required human decision.
 
-[Latest source receipt](block-189-legacy-repository-native-contracts.md): twelve complete repository-native bodies reviewed; scoped rules/commands/dependency/evidence/patch/context contracts covered; historical installation/aliases and fixed skill/test prescriptions archived. All skill sources terminal. Next: independent 177 legacy/49 runtime bodies. Current owner evidence in block175; fresh scoped inventory/static receipt in [block190](block-190-task-inventory-boundary-refresh.md); inventory not source-body coverage.
+[Latest source receipt](block-191-legacy-domain-role-contracts.md): fifteen V3 domain roles independently reviewed via exact four-slot common comparison plus every mission/axis/title/activation field; current constraints covered, role/installation recipes archived. Next: independent 162 legacy/49 runtime bodies. Current owner evidence in block175; scoped static/inventory boundary in block190; inventory not source-body coverage.
