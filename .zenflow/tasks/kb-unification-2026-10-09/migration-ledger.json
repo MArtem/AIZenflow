@@ -152000,45 +152000,371 @@
       "path": "33_CODE_PATTERNS/CP-01_ACTOR_OWNED_STATE.md",
       "sha256": "708bab64ec4005f621358bbafaf6d400635af04c04b7dc4b67790ada0dd6922f",
       "bytes": 718,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0777-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-01_ACTOR_OWNED_STATE.md",
+          "source_sha256": "708bab64ec4005f621358bbafaf6d400635af04c04b7dc4b67790ada0dd6922f",
+          "source_heading": "CP-01 — Actor-owned mutable state",
+          "source_fragment": "# CP-01 — Actor-owned mutable state",
+          "meaning": "Actual shared mutable invariant actor ownership and Sendable exchange, non-Sendable escape and half-updated pre/post-await state review; usually on one queue not isolation contract, no decorative actor wrapping.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual shared mutable invariant actor ownership and Sendable exchange, non-Sendable escape and half-updated pre/post-await state review; usually on one queue not isolation contract, no decorative actor wrapping.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Core Model; Isolation Design",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-146-concurrency-code-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Core Model",
+                "Isolation Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0777-U02",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-01_ACTOR_OWNED_STATE.md",
+          "source_sha256": "708bab64ec4005f621358bbafaf6d400635af04c04b7dc4b67790ada0dd6922f",
+          "source_heading": "Illustrative Swift snippet",
+          "source_fragment": "```swift",
+          "meaning": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "type": "mechanism",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-146-concurrency-code-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full independent useful ownership/cancellation/ordering contract covered; illustrative implementation archived without unrun compilation or production claim. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0778",
       "path": "33_CODE_PATTERNS/CP-02_ACTOR_REENTRANCY_STATE_MACHINE.md",
       "sha256": "de1b32477d99c56e3b684df5402a31cfdc0391197559034623faeed0f3d42e30",
       "bytes": 1032,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0778-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-02_ACTOR_REENTRANCY_STATE_MACHINE.md",
+          "source_sha256": "de1b32477d99c56e3b684df5402a31cfdc0391197559034623faeed0f3d42e30",
+          "source_heading": "CP-02 — Actor reentrancy-safe transition",
+          "source_fragment": "# CP-02 — Actor reentrancy-safe transition",
+          "meaning": "Actual actor reentrancy and operation identity/publication authority revalidated after suspension on success/error; project-specific state model, no prescribed universal state-machine/UUID implementation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual actor reentrancy and operation identity/publication authority revalidated after suspension on success/error; project-specific state model, no prescribed universal state-machine/UUID implementation.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Isolation Design; Ordering And Stale Results",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-146-concurrency-code-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Ordering And Stale Results"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0778-U02",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-02_ACTOR_REENTRANCY_STATE_MACHINE.md",
+          "source_sha256": "de1b32477d99c56e3b684df5402a31cfdc0391197559034623faeed0f3d42e30",
+          "source_heading": "Illustrative Swift snippet",
+          "source_fragment": "```swift",
+          "meaning": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "type": "mechanism",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-146-concurrency-code-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full independent useful ownership/cancellation/ordering contract covered; illustrative implementation archived without unrun compilation or production claim. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0779",
       "path": "33_CODE_PATTERNS/CP-03_TASK_LIFETIME.md",
       "sha256": "58ce2f66ac8ada0bac96eb07cfe07b57a5fb091539e52084a473be15ed7308b4",
       "bytes": 3280,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0779-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-03_TASK_LIFETIME.md",
+          "source_sha256": "58ce2f66ac8ada0bac96eb07cfe07b57a5fb091539e52084a473be15ed7308b4",
+          "source_heading": "CP-03 — Owner-bounded unstructured task lifetime",
+          "source_fragment": "# CP-03 — Owner-bounded unstructured task lifetime",
+          "meaning": "Owner-bounded unstructured task retains independent dependency across await rather than promoting weak owner early; dependency must not retain owner. Check cooperative cancellation and current invocation on stale success/generic error, owner-actor serialized publication; deinit cancel useful only without task-retained owner. Deliberately longer-lived work separate actual owner; physical stop not guaranteed.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Owner-bounded unstructured task retains independent dependency across await rather than promoting weak owner early; dependency must not retain owner. Check cooperative cancellation and current invocation on stale success/generic error, owner-actor serialized publication; deinit cancel useful only without task-retained owner. Deliberately longer-lived work separate actual owner; physical stop not guaranteed.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Task Ownership; Cancellation; Ordering And Stale Results",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-146-concurrency-code-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Ownership And Memory"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0779-U02",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-03_TASK_LIFETIME.md",
+          "source_sha256": "58ce2f66ac8ada0bac96eb07cfe07b57a5fb091539e52084a473be15ed7308b4",
+          "source_heading": "Illustrative Swift snippet",
+          "source_fragment": "```swift",
+          "meaning": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "type": "mechanism",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-146-concurrency-code-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full independent useful ownership/cancellation/ordering contract covered; illustrative implementation archived without unrun compilation or production claim. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0780",
       "path": "33_CODE_PATTERNS/CP-04_CANCELLATION_PROPAGATION.md",
       "sha256": "fc208334bf2694e17f7ed7e00a527e81306b7d68576f2e3b7695727b862d09c9",
       "bytes": 502,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0780-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-04_CANCELLATION_PROPAGATION.md",
+          "source_sha256": "fc208334bf2694e17f7ed7e00a527e81306b7d68576f2e3b7695727b862d09c9",
+          "source_heading": "CP-04 — Cooperative cancellation",
+          "source_fragment": "# CP-04 — Cooperative cancellation",
+          "meaning": "Check cooperative cancellation around meaningful suspension/CPU/parsing/publication boundaries and propagate it rather than normal error/retry unless actual product defines otherwise; no immediate producer stop guarantee.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Check cooperative cancellation around meaningful suspension/CPU/parsing/publication boundaries and propagate it rather than normal error/retry unless actual product defines otherwise; no immediate producer stop guarantee.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Cancellation",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-146-concurrency-code-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Cancellation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0780-U02",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-04_CANCELLATION_PROPAGATION.md",
+          "source_sha256": "fc208334bf2694e17f7ed7e00a527e81306b7d68576f2e3b7695727b862d09c9",
+          "source_heading": "Illustrative Swift snippet",
+          "source_fragment": "```swift",
+          "meaning": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "type": "mechanism",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-146-concurrency-code-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full independent useful ownership/cancellation/ordering contract covered; illustrative implementation archived without unrun compilation or production claim. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0781",
       "path": "33_CODE_PATTERNS/CP-05_SINGLE_FLIGHT_REFRESH.md",
       "sha256": "4e61c05eabffb80a6826809665eaf5a44eb7dc6df29e847e247210d0b3c760a5",
       "bytes": 802,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0781-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-05_SINGLE_FLIGHT_REFRESH.md",
+          "source_sha256": "4e61c05eabffb80a6826809665eaf5a44eb7dc6df29e847e247210d0b3c760a5",
+          "source_heading": "CP-05 — Single-flight token refresh",
+          "source_fragment": "# CP-05 — Single-flight token refresh",
+          "meaning": "One actual current-session refresh owner/in-flight task with waiters, explicit logout-versus-refresh ordering/cancellation/safe replay/secure persistence; conceptual actor sample not complete session contract or non-idempotent replay permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "One actual current-session refresh owner/in-flight task with waiters, explicit logout-versus-refresh ordering/cancellation/safe replay/secure persistence; conceptual actor sample not complete session contract or non-idempotent replay permission.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-146-concurrency-code-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Ordering And Stale Results"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0781-U02",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-05_SINGLE_FLIGHT_REFRESH.md",
+          "source_sha256": "4e61c05eabffb80a6826809665eaf5a44eb7dc6df29e847e247210d0b3c760a5",
+          "source_heading": "Illustrative Swift snippet",
+          "source_fragment": "```swift",
+          "meaning": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "type": "mechanism",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-146-concurrency-code-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full independent useful ownership/cancellation/ordering contract covered; illustrative implementation archived without unrun compilation or production claim. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0782",
