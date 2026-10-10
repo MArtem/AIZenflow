@@ -22,4 +22,4 @@ Publication completion is recorded in external exact-SHA receipt, not by adding 
 
 Full chronological records remain verbatim in [archived plan](archive/through-block-164-plan.txt) and [archived handoff](archive/through-block-164-handoff.txt); [compaction receipt](block-165-active-task-state-compaction.md). Active docs carry current state only.
 
-[Latest reconciliation receipt](block-208-corpus-locators-build-mirror-reconciliation.md): all canonical hashes/literals/current locators valid; block166 governed build mirror omission repaired exactly. Source-body review complete; full semantic/copy/consumer/route-cost reconciliation remains pending. Historical unrelated32stale/1missing mirrors preserved.
+[Latest reconciliation receipt](block-209-route-scenario-cost-reconciliation.md): fixed12 route scenarios reach owners without Library/archive or forbidden deep loads; local-envelope median7283→8212.5 words, several increases exceed10%. U4 budget NOT_ACCEPTED; dependent U8 waits for a decision: accept scoped reading growth or authorize bounded section selection preserving constraints. Full-chain cost/copy/semantic acceptance still pending; tokens UNKNOWN.
