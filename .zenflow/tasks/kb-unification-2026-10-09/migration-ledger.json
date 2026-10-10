@@ -131771,27 +131771,662 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-25-08.md",
       "sha256": "7d9961c6e445089208322ec7237f62cd0e0cb8b0258a5a315b684aa0962384ff",
       "bytes": 7472,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0636-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-25-08.md",
+          "source_sha256": "7d9961c6e445089208322ec7237f62cd0e0cb8b0258a5a315b684aa0962384ff",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual crash symbolication/source-artifact/version UUID-dSYM mapping/consented user-ID policy/redacted breadcrumbs/init/startup-memory cost; crash SDK existence not root cause or permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual crash symbolication/source-artifact/version UUID-dSYM mapping/consented user-ID policy/redacted breadcrumbs/init/startup-memory cost; crash SDK existence not root cause or permission.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Observability; Metric Design",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-25-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-121-crash-sdk-boundary-ecosystem-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Crash And Hang Triage"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0636-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-25-08.md",
+          "source_sha256": "7d9961c6e445089208322ec7237f62cd0e0cb8b0258a5a315b684aa0962384ff",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-25-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-121-crash-sdk-boundary-ecosystem-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0636-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-25-08.md",
+          "source_sha256": "7d9961c6e445089208322ec7237f62cd0e0cb8b0258a5a315b684aa0962384ff",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful ecosystem body: actual dependency reason/API surface/version-license-maintenance-concurrency/privacy manifest-signature-dataflow/vendor seam-lockin/startup-build-binary-performance costs and actual consumers/availability. Vendor types only at necessary boundaries, consent governs actual initialization/data calls, controlled unavailable/failure/upgrade/removal contract. Wrap only actual unstable seam, lazy init only lifecycle-compatible/measured, map callback isolation/vendor errors to actual domain. Review SDK spread/uncontrolled analytics identity/thread assumptions/privacy/transitive cost. Diagnose vendor versus integration defect only permitted redacted app/vendor evidence, no debug/production access grant. Authorized replacement compares event/error/performance compatibility/parity/recovery/removal and uses dual adapter/flag only justified actual consumer need, not mandatory scaffolding or duplicated collection/effects. All eight failures and permission-bound contract/privacy/release/upgrade/regression/negative/warnings/output; no package/download/SDK/framework/config/test/runtime/adoption activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful ecosystem body: actual dependency reason/API surface/version-license-maintenance-concurrency/privacy manifest-signature-dataflow/vendor seam-lockin/startup-build-binary-performance costs and actual consumers/availability. Vendor types only at necessary boundaries, consent governs actual initialization/data calls, controlled unavailable/failure/upgrade/removal contract. Wrap only actual unstable seam, lazy init only lifecycle-compatible/measured, map callback isolation/vendor errors to actual domain. Review SDK spread/uncontrolled analytics identity/thread assumptions/privacy/transitive cost. Diagnose vendor versus integration defect only permitted redacted app/vendor evidence, no debug/production access grant. Authorized replacement compares event/error/performance compatibility/parity/recovery/removal and uses dual adapter/flag only justified actual consumer need, not mandatory scaffolding or duplicated collection/effects. All eight failures and permission-bound contract/privacy/release/upgrade/regression/negative/warnings/output; no package/download/SDK/framework/config/test/runtime/adoption activation.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Supply Chain; SDK Consumer Boundary",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-25-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-121-crash-sdk-boundary-ecosystem-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design",
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Reactive And Queue Bridges"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Test Doubles",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0636-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-25-08.md",
+          "source_sha256": "7d9961c6e445089208322ec7237f62cd0e0cb8b0258a5a315b684aa0962384ff",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional adapter contract/privacy-release audit/upgrade-smoke/build/tests and automatic dual-adapter/flag plus fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional adapter contract/privacy-release audit/upgrade-smoke/build/tests and automatic dual-adapter/flag plus fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-25-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-121-crash-sdk-boundary-ecosystem-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full ecosystem common exact against fully read OP-25-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No SDK/framework/adoption/download/config/network/app/test/runtime/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0637",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-25-09.md",
       "sha256": "f79c57070e55d8f981219b2da82a787af649dab8329ee65904517afd48c90acb",
       "bytes": 7496,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0637-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-25-09.md",
+          "source_sha256": "f79c57070e55d8f981219b2da82a787af649dab8329ee65904517afd48c90acb",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Existing actual vendor seam only when unstable boundary/consumer need warrants, lifecycle/callback-isolation/errors/config/consent/replace-rollback; no decorative facade or interchangeable guarantee.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Existing actual vendor seam only when unstable boundary/consumer need warrants, lifecycle/callback-isolation/errors/config/consent/replace-rollback; no decorative facade or interchangeable guarantee.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SDK Consumer Boundary",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-25-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-121-crash-sdk-boundary-ecosystem-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0637-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-25-09.md",
+          "source_sha256": "f79c57070e55d8f981219b2da82a787af649dab8329ee65904517afd48c90acb",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-25-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-121-crash-sdk-boundary-ecosystem-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0637-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-25-09.md",
+          "source_sha256": "f79c57070e55d8f981219b2da82a787af649dab8329ee65904517afd48c90acb",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful ecosystem body: actual dependency reason/API surface/version-license-maintenance-concurrency/privacy manifest-signature-dataflow/vendor seam-lockin/startup-build-binary-performance costs and actual consumers/availability. Vendor types only at necessary boundaries, consent governs actual initialization/data calls, controlled unavailable/failure/upgrade/removal contract. Wrap only actual unstable seam, lazy init only lifecycle-compatible/measured, map callback isolation/vendor errors to actual domain. Review SDK spread/uncontrolled analytics identity/thread assumptions/privacy/transitive cost. Diagnose vendor versus integration defect only permitted redacted app/vendor evidence, no debug/production access grant. Authorized replacement compares event/error/performance compatibility/parity/recovery/removal and uses dual adapter/flag only justified actual consumer need, not mandatory scaffolding or duplicated collection/effects. All eight failures and permission-bound contract/privacy/release/upgrade/regression/negative/warnings/output; no package/download/SDK/framework/config/test/runtime/adoption activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful ecosystem body: actual dependency reason/API surface/version-license-maintenance-concurrency/privacy manifest-signature-dataflow/vendor seam-lockin/startup-build-binary-performance costs and actual consumers/availability. Vendor types only at necessary boundaries, consent governs actual initialization/data calls, controlled unavailable/failure/upgrade/removal contract. Wrap only actual unstable seam, lazy init only lifecycle-compatible/measured, map callback isolation/vendor errors to actual domain. Review SDK spread/uncontrolled analytics identity/thread assumptions/privacy/transitive cost. Diagnose vendor versus integration defect only permitted redacted app/vendor evidence, no debug/production access grant. Authorized replacement compares event/error/performance compatibility/parity/recovery/removal and uses dual adapter/flag only justified actual consumer need, not mandatory scaffolding or duplicated collection/effects. All eight failures and permission-bound contract/privacy/release/upgrade/regression/negative/warnings/output; no package/download/SDK/framework/config/test/runtime/adoption activation.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Supply Chain; SDK Consumer Boundary",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-25-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-121-crash-sdk-boundary-ecosystem-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design",
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Reactive And Queue Bridges"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Test Doubles",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0637-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-25-09.md",
+          "source_sha256": "f79c57070e55d8f981219b2da82a787af649dab8329ee65904517afd48c90acb",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional adapter contract/privacy-release audit/upgrade-smoke/build/tests and automatic dual-adapter/flag plus fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional adapter contract/privacy-release audit/upgrade-smoke/build/tests and automatic dual-adapter/flag plus fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-25-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-121-crash-sdk-boundary-ecosystem-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full ecosystem common exact against fully read OP-25-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No SDK/framework/adoption/download/config/network/app/test/runtime/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0638",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-25-10.md",
       "sha256": "3ebd20f9cd987dbc89b25be0ee73493920f40c85066af1ad7adb4da7de2b9374",
       "bytes": 7515,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0638-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-25-10.md",
+          "source_sha256": "3ebd20f9cd987dbc89b25be0ee73493920f40c85066af1ad7adb4da7de2b9374",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual dependency necessity/owner/maintenance/platform/concurrency/privacy-security/license/transitives/build-binary-startup/removal costs; approved adoption separate no blanket SDK migration.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual dependency necessity/owner/maintenance/platform/concurrency/privacy-security/license/transitives/build-binary-startup/removal costs; approved adoption separate no blanket SDK migration.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Supply Chain; SDK Consumer Boundary",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-25-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-121-crash-sdk-boundary-ecosystem-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0638-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-25-10.md",
+          "source_sha256": "3ebd20f9cd987dbc89b25be0ee73493920f40c85066af1ad7adb4da7de2b9374",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full threat/negative/privacy and conditional AI untrusted/code auth-idempotency/permitted model-OS eval traps retained, no secrets/provider/tool/eval access.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full threat/negative/privacy and conditional AI untrusted/code auth-idempotency/permitted model-OS eval traps retained, no secrets/provider/tool/eval access.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-25-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-121-crash-sdk-boundary-ecosystem-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0638-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-25-10.md",
+          "source_sha256": "3ebd20f9cd987dbc89b25be0ee73493920f40c85066af1ad7adb4da7de2b9374",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful ecosystem body: actual dependency reason/API surface/version-license-maintenance-concurrency/privacy manifest-signature-dataflow/vendor seam-lockin/startup-build-binary-performance costs and actual consumers/availability. Vendor types only at necessary boundaries, consent governs actual initialization/data calls, controlled unavailable/failure/upgrade/removal contract. Wrap only actual unstable seam, lazy init only lifecycle-compatible/measured, map callback isolation/vendor errors to actual domain. Review SDK spread/uncontrolled analytics identity/thread assumptions/privacy/transitive cost. Diagnose vendor versus integration defect only permitted redacted app/vendor evidence, no debug/production access grant. Authorized replacement compares event/error/performance compatibility/parity/recovery/removal and uses dual adapter/flag only justified actual consumer need, not mandatory scaffolding or duplicated collection/effects. All eight failures and permission-bound contract/privacy/release/upgrade/regression/negative/warnings/output; no package/download/SDK/framework/config/test/runtime/adoption activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful ecosystem body: actual dependency reason/API surface/version-license-maintenance-concurrency/privacy manifest-signature-dataflow/vendor seam-lockin/startup-build-binary-performance costs and actual consumers/availability. Vendor types only at necessary boundaries, consent governs actual initialization/data calls, controlled unavailable/failure/upgrade/removal contract. Wrap only actual unstable seam, lazy init only lifecycle-compatible/measured, map callback isolation/vendor errors to actual domain. Review SDK spread/uncontrolled analytics identity/thread assumptions/privacy/transitive cost. Diagnose vendor versus integration defect only permitted redacted app/vendor evidence, no debug/production access grant. Authorized replacement compares event/error/performance compatibility/parity/recovery/removal and uses dual adapter/flag only justified actual consumer need, not mandatory scaffolding or duplicated collection/effects. All eight failures and permission-bound contract/privacy/release/upgrade/regression/negative/warnings/output; no package/download/SDK/framework/config/test/runtime/adoption activation.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Supply Chain; SDK Consumer Boundary",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-25-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-121-crash-sdk-boundary-ecosystem-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design",
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Reactive And Queue Bridges"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Test Doubles",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0638-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-25-10.md",
+          "source_sha256": "3ebd20f9cd987dbc89b25be0ee73493920f40c85066af1ad7adb4da7de2b9374",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional adapter contract/privacy-release audit/upgrade-smoke/build/tests and automatic dual-adapter/flag plus fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional adapter contract/privacy-release audit/upgrade-smoke/build/tests and automatic dual-adapter/flag plus fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-25-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-121-crash-sdk-boundary-ecosystem-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full ecosystem common exact against fully read OP-25-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No SDK/framework/adoption/download/config/network/app/test/runtime/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0639",
