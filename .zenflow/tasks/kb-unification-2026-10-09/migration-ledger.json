@@ -169044,180 +169044,1231 @@
       "path": "source-skills/ioslib-client-code-protection/SKILL.md",
       "sha256": "6715a672377c103130bf583eae3e561d6091a36e63a80166e743adf5d4562703",
       "bytes": 1894,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1196-U01",
+          "source_path": "canonical/source-skills/ioslib-client-code-protection/SKILL.md",
+          "source_sha256": "6715a672377c103130bf583eae3e561d6091a36e63a80166e743adf5d4562703",
+          "source_heading": "iOS Client Code Protection",
+          "source_fragment": "# iOS Client Code Protection",
+          "meaning": "Current exact write/foreign-dirty/protected/config/dependency/nested/control-plane ownership before action and complete observed pre/post preservation, user task scope already authorized where explicit. Unexpected mutation stops affected action without retrospective widening/destructive hiding. Historical mandatory protection skill/begin/verify/allow-dirty/lease recipe not activated; current owned publication authority preserved. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current exact write/foreign-dirty/protected/config/dependency/nested/control-plane ownership before action and complete observed pre/post preservation, user task scope already authorized where explicit. Unexpected mutation stops affected action without retrospective widening/destructive hiding. Historical mandatory protection skill/begin/verify/allow-dirty/lease recipe not activated; current owned publication authority preserved. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1A. PR Risk Card And Scope; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "---\nname: ioslib-client-code-protection\ndescription: Use before and after any write to a client iOS repository to preserve user dirty work, Git control state, protected project/config files, nested repositories, and external-state isolation.\n---\n\n# iOS Client Code Protection\n\n## Mandatory use\nUse this skill for every task that may modify a client repository. Repository preservation outranks speed or convenience.\n\n## Before editing\n1. Read repository-local instructions and inspect `git status`.\n2. Determine the smallest exact write scope before edits.\n3. Read `references/INSTALLATION.md` for the runtime CLI.\n4. Run protection baseline with exact paths, e.g.:\n   `python3 \"<runtime>/bin/ios_ai.py\" protect begin --repo . --allow Sources/Foo.swift --allow Tests/FooTests.swift --task \"...\"`\n5. If any target path is already dirty, stop unless the user explicitly authorizes modifying that exact dirty path; then use `--allow-dirty`.\n6. Protected project/dependency/CI/signing/persistence-schema paths require explicit user authorization and exact `--allow-protected` scope.\n7. Nested repo/submodule changes require exact `--allow-nested` authorization.\n\n## During work\n- Never broaden scope merely because an unexpected change already happened.\n- Do not stage, commit, reset, clean, stash, push, fetch/pull, modify dependencies or run release/upload actions unless separately authorized.\n- Linked worktrees share a writer slot because their Git common-dir shares ordinary refs/config. Concurrent writers require independent repositories/clones with different Git common directories and disjoint ownership.\n\n## After work\nRun `protect verify --repo .` before final success claims. A failure is a stop condition; preserve evidence and report unexpected mutations rather than reverting them destructively.\n\nLoad the full policy from the deep library `50_CLIENT_CODE_PROTECTION/` when needed."
+          ]
+        },
+        {
+          "unit_id": "LIB-1196-U02",
+          "source_path": "canonical/source-skills/ioslib-client-code-protection/SKILL.md",
+          "source_sha256": "6715a672377c103130bf583eae3e561d6091a36e63a80166e743adf5d4562703",
+          "source_heading": "iOS Client Code Protection",
+          "source_fragment": "# iOS Client Code Protection",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "---\nname: ioslib-client-code-protection\ndescription: Use before and after any write to a client iOS repository to preserve user dirty work, Git control state, protected project/config files, nested repositories, and external-state isolation.\n---\n\n# iOS Client Code Protection\n\n## Mandatory use\nUse this skill for every task that may modify a client repository. Repository preservation outranks speed or convenience.\n\n## Before editing\n1. Read repository-local instructions and inspect `git status`.\n2. Determine the smallest exact write scope before edits.\n3. Read `references/INSTALLATION.md` for the runtime CLI.\n4. Run protection baseline with exact paths, e.g.:\n   `python3 \"<runtime>/bin/ios_ai.py\" protect begin --repo . --allow Sources/Foo.swift --allow Tests/FooTests.swift --task \"...\"`\n5. If any target path is already dirty, stop unless the user explicitly authorizes modifying that exact dirty path; then use `--allow-dirty`.\n6. Protected project/dependency/CI/signing/persistence-schema paths require explicit user authorization and exact `--allow-protected` scope.\n7. Nested repo/submodule changes require exact `--allow-nested` authorization.\n\n## During work\n- Never broaden scope merely because an unexpected change already happened.\n- Do not stage, commit, reset, clean, stash, push, fetch/pull, modify dependencies or run release/upload actions unless separately authorized.\n- Linked worktrees share a writer slot because their Git common-dir shares ordinary refs/config. Concurrent writers require independent repositories/clones with different Git common directories and disjoint ownership.\n\n## After work\nRun `protect verify --repo .` before final success claims. A failure is a stop condition; preserve evidence and report unexpected mutations rather than reverting them destructively.\n\nLoad the full policy from the deep library `50_CLIENT_CODE_PROTECTION/` when needed."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1197",
       "path": "source-skills/ioslib-client-code-protection/agents/openai.yaml",
       "sha256": "504b2d92d9bd049a90dded11dbc8eff8e82b25c1cdd31244c501a1b551d53978",
       "bytes": 121,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1197-U01",
+          "source_path": "canonical/source-skills/ioslib-client-code-protection/agents/openai.yaml",
+          "source_sha256": "504b2d92d9bd049a90dded11dbc8eff8e82b25c1cdd31244c501a1b551d53978",
+          "source_heading": "Historical skill metadata/runtime reference",
+          "source_fragment": "display_name: iOS Client Code Protection",
+          "meaning": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "display_name: iOS Client Code Protection\nshort_description: Protect client repositories before and after AI code changes"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1198",
       "path": "source-skills/ioslib-client-code-protection/references/domain-checklist.md",
       "sha256": "4cefbeeee7d0ad4f13367930d6deb53bd5bc2f128ee1ac5edf1d1662c439c404",
       "bytes": 311,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1198-U01",
+          "source_path": "canonical/source-skills/ioslib-client-code-protection/references/domain-checklist.md",
+          "source_sha256": "4cefbeeee7d0ad4f13367930d6deb53bd5bc2f128ee1ac5edf1d1662c439c404",
+          "source_heading": "Protection checklist",
+          "source_fragment": "# Protection checklist",
+          "meaning": "Current exact write/foreign-dirty/protected/config/dependency/nested/control-plane ownership before action and complete observed pre/post preservation, user task scope already authorized where explicit. Unexpected mutation stops affected action without retrospective widening/destructive hiding. Historical mandatory protection skill/begin/verify/allow-dirty/lease recipe not activated; current owned publication authority preserved. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current exact write/foreign-dirty/protected/config/dependency/nested/control-plane ownership before action and complete observed pre/post preservation, user task scope already authorized where explicit. Unexpected mutation stops affected action without retrospective widening/destructive hiding. Historical mandatory protection skill/begin/verify/allow-dirty/lease recipe not activated; current owned publication authority preserved. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1A. PR Risk Card And Scope; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Protection checklist\n- pre-existing dirty work fingerprinted and preserved\n- exact write scope declared before edits\n- protected paths separately authorized\n- Git HEAD/refs/index/config unchanged\n- nested repos/submodules unchanged\n- generated state outside client repo\n- final protection verification passes"
+          ]
+        },
+        {
+          "unit_id": "LIB-1198-U02",
+          "source_path": "canonical/source-skills/ioslib-client-code-protection/references/domain-checklist.md",
+          "source_sha256": "4cefbeeee7d0ad4f13367930d6deb53bd5bc2f128ee1ac5edf1d1662c439c404",
+          "source_heading": "Protection checklist",
+          "source_fragment": "# Protection checklist",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Protection checklist\n- pre-existing dirty work fingerprinted and preserved\n- exact write scope declared before edits\n- protected paths separately authorized\n- Git HEAD/refs/index/config unchanged\n- nested repos/submodules unchanged\n- generated state outside client repo\n- final protection verification passes"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1199",
       "path": "source-skills/ioslib-client-code-protection/references/global-runtime.md",
       "sha256": "30aa4f8955ca2fa9389b6d1619b09a55c1d17307d42ece45d7cca09c42ce4f4d",
       "bytes": 177,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1199-U01",
+          "source_path": "canonical/source-skills/ioslib-client-code-protection/references/global-runtime.md",
+          "source_sha256": "30aa4f8955ca2fa9389b6d1619b09a55c1d17307d42ece45d7cca09c42ce4f4d",
+          "source_heading": "Global runtime",
+          "source_fragment": "# Global runtime",
+          "meaning": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Global runtime\nThis skill is globally installed. Use the runtime and external-state paths from `INSTALLATION.md`. Do not create library infrastructure in client repositories."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1200",
       "path": "source-skills/ioslib-code-review/SKILL.md",
       "sha256": "f57a03bc743aebd3aeaf020f4bc237548ecf21e74ab95b63339b698ebe5bc7e3",
       "bytes": 3065,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1200-U01",
+          "source_path": "canonical/source-skills/ioslib-code-review/SKILL.md",
+          "source_sha256": "f57a03bc743aebd3aeaf020f4bc237548ecf21e74ab95b63339b698ebe5bc7e3",
+          "source_heading": "iOS Code Review",
+          "source_fragment": "# iOS Code Review",
+          "meaning": "Concrete reproducible or plausible invariant/trigger/user-impact failures in complete trusted diff plus callers/consumers, calibrated confidence/severity and minimal fix/permitted verification gap. No style-only inflation, test-writing or code modification inferred from readonly review. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Concrete reproducible or plausible invariant/trigger/user-impact failures in complete trusted diff plus callers/consumers, calibrated confidence/severity and minimal fix/permitted verification gap. No style-only inflation, test-writing or code modification inferred from readonly review. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Finding Applicability And Adjudication; Severity Policy; Required Audit/Review Output",
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy",
+                "Required Audit/Review Output"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Find reproducible or plausible failure modes; avoid style-noise.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        },
+        {
+          "unit_id": "LIB-1200-U02",
+          "source_path": "canonical/source-skills/ioslib-code-review/SKILL.md",
+          "source_sha256": "f57a03bc743aebd3aeaf020f4bc237548ecf21e74ab95b63339b698ebe5bc7e3",
+          "source_heading": "iOS Code Review",
+          "source_fragment": "# iOS Code Review",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Find reproducible or plausible failure modes; avoid style-noise.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1201",
       "path": "source-skills/ioslib-code-review/agents/openai.yaml",
       "sha256": "23dcef94984299f6872bdf36663b0afe062fe0a7546697bba7bd85b3b58e3cdf",
       "bytes": 244,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1201-U01",
+          "source_path": "canonical/source-skills/ioslib-code-review/agents/openai.yaml",
+          "source_sha256": "23dcef94984299f6872bdf36663b0afe062fe0a7546697bba7bd85b3b58e3cdf",
+          "source_heading": "Historical skill metadata/runtime reference",
+          "source_fragment": "interface:",
+          "meaning": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "interface:\n  display_name: \"iOS Code Review\"\n  short_description: \"Find reproducible or plausible failure modes; avoid style-noise\"\n  default_prompt: \"Use $ioslib-code-review to find reproducible or plausible failure modes; avoid style-noise.\""
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1202",
       "path": "source-skills/ioslib-code-review/references/domain-checklist.md",
       "sha256": "c24d31e2659832e2b78cafc041ac3eb3464a10278073fcf4c2f21eea08c17377",
       "bytes": 660,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1202-U01",
+          "source_path": "canonical/source-skills/ioslib-code-review/references/domain-checklist.md",
+          "source_sha256": "c24d31e2659832e2b78cafc041ac3eb3464a10278073fcf4c2f21eea08c17377",
+          "source_heading": "Domain Checklist — iOS Code Review",
+          "source_fragment": "# Domain Checklist — iOS Code Review",
+          "meaning": "Concrete reproducible or plausible invariant/trigger/user-impact failures in complete trusted diff plus callers/consumers, calibrated confidence/severity and minimal fix/permitted verification gap. No style-only inflation, test-writing or code modification inferred from readonly review. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Concrete reproducible or plausible invariant/trigger/user-impact failures in complete trusted diff plus callers/consumers, calibrated confidence/severity and minimal fix/permitted verification gap. No style-only inflation, test-writing or code modification inferred from readonly review. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Finding Applicability And Adjudication; Severity Policy; Required Audit/Review Output",
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy",
+                "Required Audit/Review Output"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Domain Checklist — iOS Code Review\n\n- diff plus surrounding callers\n- violated invariant\n- failure scenario\n- severity/user impact\n- minimal fix\n- regression test\n\n## Deep reference\nWhen installed, search only the relevant the global deep library root described in `INSTALLATION.md` + `/19_CODE_REVIEW_REFACTOR/` files and matching `31_DEEP_PLAYBOOKS/OP-IOS-*`; do not load the entire section unless necessary.\n\n## Stop / escalate\nStop destructive action and surface the unknown when the unresolved fact can cause data loss, auth/security failure, public API breakage, irreversible migration, signing/release mutation, or an unsafe concurrency workaround."
+          ]
+        },
+        {
+          "unit_id": "LIB-1202-U02",
+          "source_path": "canonical/source-skills/ioslib-code-review/references/domain-checklist.md",
+          "source_sha256": "c24d31e2659832e2b78cafc041ac3eb3464a10278073fcf4c2f21eea08c17377",
+          "source_heading": "Domain Checklist — iOS Code Review",
+          "source_fragment": "# Domain Checklist — iOS Code Review",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Domain Checklist — iOS Code Review\n\n- diff plus surrounding callers\n- violated invariant\n- failure scenario\n- severity/user impact\n- minimal fix\n- regression test\n\n## Deep reference\nWhen installed, search only the relevant the global deep library root described in `INSTALLATION.md` + `/19_CODE_REVIEW_REFACTOR/` files and matching `31_DEEP_PLAYBOOKS/OP-IOS-*`; do not load the entire section unless necessary.\n\n## Stop / escalate\nStop destructive action and surface the unknown when the unresolved fact can cause data loss, auth/security failure, public API breakage, irreversible migration, signing/release mutation, or an unsafe concurrency workaround."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1203",
       "path": "source-skills/ioslib-code-review/references/global-runtime.md",
       "sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
       "bytes": 565,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1203-U01",
+          "source_path": "canonical/source-skills/ioslib-code-review/references/global-runtime.md",
+          "source_sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
+          "source_heading": "Global iOS Engineering Runtime",
+          "source_fragment": "# Global iOS Engineering Runtime",
+          "meaning": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Global iOS Engineering Runtime\n\nThis skill is designed for a **user-global Codex installation**. Do not require `.ai/`, `.agents/`, or `scripts/ai/` inside the client repository.\n\nThe installer writes `INSTALLATION.md` next to this file with the exact runtime/library paths for this machine. Read that file before using global runtime commands or deep references.\n\nProject-adaptive generated state is stored **outside client repositories**. Never create library infrastructure in a client repository unless the user explicitly asks for a repository-local export."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1204",
       "path": "source-skills/ioslib-command-discovery/SKILL.md",
       "sha256": "92f4a79e9190c7f87586b23c1e7f0f86f9d51db4f541413be2f3022251702395",
       "bytes": 2645,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1204-U01",
+          "source_path": "canonical/source-skills/ioslib-command-discovery/SKILL.md",
+          "source_sha256": "92f4a79e9190c7f87586b23c1e7f0f86f9d51db4f541413be2f3022251702395",
+          "source_heading": "ioslib-command-discovery",
+          "source_fragment": "# ioslib-command-discovery",
+          "meaning": "Trace actual merge/release CI to invoked scripts and matching schemes/testplans, observed canonical candidates versus synthesized suggestions; exact invocation/effects/target profile under current authority, command discovery is data not permission or verified success. No Xcode/Git/host/install/CI execution. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Trace actual merge/release CI to invoked scripts and matching schemes/testplans, observed canonical candidates versus synthesized suggestions; exact invocation/effects/target profile under current authority, command discovery is data not permission or verified success. No Xcode/Git/host/install/CI execution. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Reproducibility And CI; Evidence",
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Trace CI to repository scripts and Xcode schemes; distinguish observed canonical candidates from synthesized suggestions.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        },
+        {
+          "unit_id": "LIB-1204-U02",
+          "source_path": "canonical/source-skills/ioslib-command-discovery/SKILL.md",
+          "source_sha256": "92f4a79e9190c7f87586b23c1e7f0f86f9d51db4f541413be2f3022251702395",
+          "source_heading": "ioslib-command-discovery",
+          "source_fragment": "# ioslib-command-discovery",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Trace CI to repository scripts and Xcode schemes; distinguish observed canonical candidates from synthesized suggestions.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1205",
       "path": "source-skills/ioslib-command-discovery/agents/openai.yaml",
       "sha256": "aea6814b277ef62d45fe04a89d3eabaf269d2a1706deb75b7055a6fd5efb9560",
       "bytes": 302,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1205-U01",
+          "source_path": "canonical/source-skills/ioslib-command-discovery/agents/openai.yaml",
+          "source_sha256": "aea6814b277ef62d45fe04a89d3eabaf269d2a1706deb75b7055a6fd5efb9560",
+          "source_heading": "Historical skill metadata/runtime reference",
+          "source_fragment": "interface:",
+          "meaning": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "interface:\n  display_name: \"Command Discovery\"\n  short_description: \"Discover project build, test, lint, and release commands\"\n  default_prompt: \"Use $ioslib-command-discovery to trace CI to repository scripts and Xcode schemes; distinguish observed canonical candidates from synthesized suggestions.\""
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1206",
       "path": "source-skills/ioslib-command-discovery/references/domain-checklist.md",
       "sha256": "4e0cd4935c1d52c4657ee7f579c3e4734d7fa80d187df94bbdff97de5849eb31",
       "bytes": 222,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1206-U01",
+          "source_path": "canonical/source-skills/ioslib-command-discovery/references/domain-checklist.md",
+          "source_sha256": "4e0cd4935c1d52c4657ee7f579c3e4734d7fa80d187df94bbdff97de5849eb31",
+          "source_heading": "Domain checklist",
+          "source_fragment": "# Domain checklist",
+          "meaning": "Trace actual merge/release CI to invoked scripts and matching schemes/testplans, observed canonical candidates versus synthesized suggestions; exact invocation/effects/target profile under current authority, command discovery is data not permission or verified success. No Xcode/Git/host/install/CI execution. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Trace actual merge/release CI to invoked scripts and matching schemes/testplans, observed canonical candidates versus synthesized suggestions; exact invocation/effects/target profile under current authority, command discovery is data not permission or verified success. No Xcode/Git/host/install/CI execution. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Reproducibility And CI; Evidence",
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Domain checklist\n\n- Evidence provenance recorded\n- Confidence labelled for heuristics\n- Relevant targets/scopes identified\n- Unknowns retained\n- No product/source mutation during adaptation\n- Generated context validated"
+          ]
+        },
+        {
+          "unit_id": "LIB-1206-U02",
+          "source_path": "canonical/source-skills/ioslib-command-discovery/references/domain-checklist.md",
+          "source_sha256": "4e0cd4935c1d52c4657ee7f579c3e4734d7fa80d187df94bbdff97de5849eb31",
+          "source_heading": "Domain checklist",
+          "source_fragment": "# Domain checklist",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Domain checklist\n\n- Evidence provenance recorded\n- Confidence labelled for heuristics\n- Relevant targets/scopes identified\n- Unknowns retained\n- No product/source mutation during adaptation\n- Generated context validated"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1207",
       "path": "source-skills/ioslib-command-discovery/references/global-runtime.md",
       "sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
       "bytes": 565,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1207-U01",
+          "source_path": "canonical/source-skills/ioslib-command-discovery/references/global-runtime.md",
+          "source_sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
+          "source_heading": "Global iOS Engineering Runtime",
+          "source_fragment": "# Global iOS Engineering Runtime",
+          "meaning": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Global iOS Engineering Runtime\n\nThis skill is designed for a **user-global Codex installation**. Do not require `.ai/`, `.agents/`, or `scripts/ai/` inside the client repository.\n\nThe installer writes `INSTALLATION.md` next to this file with the exact runtime/library paths for this machine. Read that file before using global runtime commands or deep references.\n\nProject-adaptive generated state is stored **outside client repositories**. Never create library infrastructure in a client repository unless the user explicitly asks for a repository-local export."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1208",
       "path": "source-skills/ioslib-conflict-resolution/SKILL.md",
       "sha256": "bb08efb26b1b2b6daa14d8af63147fd17cd0ae2296645253a8c045bf73f1e508",
       "bytes": 2445,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1208-U01",
+          "source_path": "canonical/source-skills/ioslib-conflict-resolution/SKILL.md",
+          "source_sha256": "bb08efb26b1b2b6daa14d8af63147fd17cd0ae2296645253a8c045bf73f1e508",
+          "source_heading": "ioslib-conflict-resolution",
+          "source_fragment": "# ioslib-conflict-resolution",
+          "meaning": "For currently authorized delegation only, actual bounded self-contained disjoint packet/dependencies/owners/budget and evidence integration, resolve contradictions by concrete invariants/revisions/minimum missing permitted evidence, no voting or model status. Partial/unavailable independence explicit, one accountable integrator; no subagents or sequential-role false independence activated. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "For currently authorized delegation only, actual bounded self-contained disjoint packet/dependencies/owners/budget and evidence integration, resolve contradictions by concrete invariants/revisions/minimum missing permitted evidence, no voting or model status. Partial/unavailable independence explicit, one accountable integrator; no subagents or sequential-role false independence activated. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Use when iOS specialists disagree; resolve with invariants and the smallest missing evidence or experiment rather than vote or authority.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        },
+        {
+          "unit_id": "LIB-1208-U02",
+          "source_path": "canonical/source-skills/ioslib-conflict-resolution/SKILL.md",
+          "source_sha256": "bb08efb26b1b2b6daa14d8af63147fd17cd0ae2296645253a8c045bf73f1e508",
+          "source_heading": "ioslib-conflict-resolution",
+          "source_fragment": "# ioslib-conflict-resolution",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Use when iOS specialists disagree; resolve with invariants and the smallest missing evidence or experiment rather than vote or authority.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1209",
       "path": "source-skills/ioslib-conflict-resolution/agents/openai.yaml",
       "sha256": "653f9440ed2e59b3da9c23e13f781ae5dcd8666402a2681d9437eea606e67365",
       "bytes": 229,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1209-U01",
+          "source_path": "canonical/source-skills/ioslib-conflict-resolution/agents/openai.yaml",
+          "source_sha256": "653f9440ed2e59b3da9c23e13f781ae5dcd8666402a2681d9437eea606e67365",
+          "source_heading": "Historical skill metadata/runtime reference",
+          "source_fragment": "interface:",
+          "meaning": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "interface:\n  display_name: \"Conflict Resolution\"\n  short_description: \"Conflict Resolution for iOS repositories\"\n  default_prompt: \"Use $ioslib-conflict-resolution to handle this task with bounded evidence-driven orchestration.\""
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1210",
       "path": "source-skills/ioslib-conflict-resolution/references/domain-checklist.md",
       "sha256": "3d7be3fc06096fa6af1c256f62b2836da91aec93ab187fac3c60a3aafa365a11",
       "bytes": 312,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1210-U01",
+          "source_path": "canonical/source-skills/ioslib-conflict-resolution/references/domain-checklist.md",
+          "source_sha256": "3d7be3fc06096fa6af1c256f62b2836da91aec93ab187fac3c60a3aafa365a11",
+          "source_heading": "Domain checklist",
+          "source_fragment": "# Domain checklist",
+          "meaning": "For currently authorized delegation only, actual bounded self-contained disjoint packet/dependencies/owners/budget and evidence integration, resolve contradictions by concrete invariants/revisions/minimum missing permitted evidence, no voting or model status. Partial/unavailable independence explicit, one accountable integrator; no subagents or sequential-role false independence activated. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "For currently authorized delegation only, actual bounded self-contained disjoint packet/dependencies/owners/budget and evidence integration, resolve contradictions by concrete invariants/revisions/minimum missing permitted evidence, no voting or model status. Partial/unavailable independence explicit, one accountable integrator; no subagents or sequential-role false independence activated. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review",
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Domain checklist\n\n- delegation admission justified\n- task packet self-contained\n- read/write scopes explicit\n- child work non-duplicative\n- evidence attached to material claims\n- conflicts surfaced and resolved\n- integration owner clear\n- verification actually observed\n- budgets and stop conditions respected"
+          ]
+        },
+        {
+          "unit_id": "LIB-1210-U02",
+          "source_path": "canonical/source-skills/ioslib-conflict-resolution/references/domain-checklist.md",
+          "source_sha256": "3d7be3fc06096fa6af1c256f62b2836da91aec93ab187fac3c60a3aafa365a11",
+          "source_heading": "Domain checklist",
+          "source_fragment": "# Domain checklist",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Domain checklist\n\n- delegation admission justified\n- task packet self-contained\n- read/write scopes explicit\n- child work non-duplicative\n- evidence attached to material claims\n- conflicts surfaced and resolved\n- integration owner clear\n- verification actually observed\n- budgets and stop conditions respected"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1211",
       "path": "source-skills/ioslib-conflict-resolution/references/global-runtime.md",
       "sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
       "bytes": 565,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1211-U01",
+          "source_path": "canonical/source-skills/ioslib-conflict-resolution/references/global-runtime.md",
+          "source_sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
+          "source_heading": "Global iOS Engineering Runtime",
+          "source_fragment": "# Global iOS Engineering Runtime",
+          "meaning": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Global iOS Engineering Runtime\n\nThis skill is designed for a **user-global Codex installation**. Do not require `.ai/`, `.agents/`, or `scripts/ai/` inside the client repository.\n\nThe installer writes `INSTALLATION.md` next to this file with the exact runtime/library paths for this machine. Read that file before using global runtime commands or deep references.\n\nProject-adaptive generated state is stored **outside client repositories**. Never create library infrastructure in a client repository unless the user explicitly asks for a repository-local export."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1212",
       "path": "source-skills/ioslib-context-drift/SKILL.md",
       "sha256": "e95b29ebe3a87325b377185bb2a16ce97725fb54a20c864c757c84d74d169fb1",
       "bytes": 2641,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1212-U01",
+          "source_path": "canonical/source-skills/ioslib-context-drift/SKILL.md",
+          "source_sha256": "e95b29ebe3a87325b377185bb2a16ce97725fb54a20c864c757c84d74d169fb1",
+          "source_heading": "ioslib-context-drift",
+          "source_fragment": "# ioslib-context-drift",
+          "meaning": "Actual changed target/dependency/CI/data/auth/release/module inputs invalidate dependent context/evidence and stale claims; retain human decisions and refresh only relevant currently authorized evidence. Generated fingerprints not current authority or automatic rerun/profile/context write command; observed/derived/heuristic/unknown separate. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual changed target/dependency/CI/data/auth/release/module inputs invalidate dependent context/evidence and stale claims; retain human decisions and refresh only relevant currently authorized evidence. Generated fingerprints not current authority or automatic rerun/profile/context write command; observed/derived/heuristic/unknown separate. Common scoped outcome/facts/invariants/consumer/alternatives/negative evidence/minimal diff/report contract under current authority.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Freshness Contract; Agent Loading Rule",
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Freshness Contract",
+                "Agent Loading Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "Compare model fingerprint and generated artifacts, identify what changed, refresh context and preserve human decision records.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        },
+        {
+          "unit_id": "LIB-1212-U02",
+          "source_path": "canonical/source-skills/ioslib-context-drift/SKILL.md",
+          "source_sha256": "e95b29ebe3a87325b377185bb2a16ce97725fb54a20c864c757c84d74d169fb1",
+          "source_heading": "ioslib-context-drift",
+          "source_fragment": "# ioslib-context-drift",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "Compare model fingerprint and generated artifacts, identify what changed, refresh context and preserve human decision records.",
+            "## Hardened client-repository contract",
+            "## Global installation contract"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1213",
       "path": "source-skills/ioslib-context-drift/agents/openai.yaml",
       "sha256": "2b023a38b28cfa9b193ac6ef7d2b2a3031cb264edc8b132c4edde50971152549",
       "bytes": 293,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1213-U01",
+          "source_path": "canonical/source-skills/ioslib-context-drift/agents/openai.yaml",
+          "source_sha256": "2b023a38b28cfa9b193ac6ef7d2b2a3031cb264edc8b132c4edde50971152549",
+          "source_heading": "Historical skill metadata/runtime reference",
+          "source_fragment": "interface:",
+          "meaning": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill interface display/description/default-prompt YAML preserved as metadata; matching goal reviewed separately, prompt reference not activation, authority or linked-body review.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "interface:\n  display_name: \"Context Drift\"\n  short_description: \"Detect and refresh stale generated project context\"\n  default_prompt: \"Use $ioslib-context-drift to compare model fingerprint and generated artifacts, identify what changed, refresh context and preserve human decision records.\""
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1214",
       "path": "source-skills/ioslib-context-drift/references/domain-checklist.md",
       "sha256": "4e0cd4935c1d52c4657ee7f579c3e4734d7fa80d187df94bbdff97de5849eb31",
       "bytes": 222,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1214-U01",
+          "source_path": "canonical/source-skills/ioslib-context-drift/references/domain-checklist.md",
+          "source_sha256": "4e0cd4935c1d52c4657ee7f579c3e4734d7fa80d187df94bbdff97de5849eb31",
+          "source_heading": "Domain checklist",
+          "source_fragment": "# Domain checklist",
+          "meaning": "Actual changed target/dependency/CI/data/auth/release/module inputs invalidate dependent context/evidence and stale claims; retain human decisions and refresh only relevant currently authorized evidence. Generated fingerprints not current authority or automatic rerun/profile/context write command; observed/derived/heuristic/unknown separate. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual changed target/dependency/CI/data/auth/release/module inputs invalidate dependent context/evidence and stale claims; retain human decisions and refresh only relevant currently authorized evidence. Generated fingerprints not current authority or automatic rerun/profile/context write command; observed/derived/heuristic/unknown separate. Unknown destructive/auth/data/ABI/signing or unsafe-concurrency contract stops dependent action; no diagnostic or source fix automatically authorized.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Freshness Contract; Agent Loading Rule",
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Freshness Contract",
+                "Agent Loading Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Domain checklist\n\n- Evidence provenance recorded\n- Confidence labelled for heuristics\n- Relevant targets/scopes identified\n- Unknowns retained\n- No product/source mutation during adaptation\n- Generated context validated"
+          ]
+        },
+        {
+          "unit_id": "LIB-1214-U02",
+          "source_path": "canonical/source-skills/ioslib-context-drift/references/domain-checklist.md",
+          "source_sha256": "4e0cd4935c1d52c4657ee7f579c3e4734d7fa80d187df94bbdff97de5849eb31",
+          "source_heading": "Domain checklist",
+          "source_fragment": "# Domain checklist",
+          "meaning": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical namespaced skill/global INSTALLATION/guard/protection/context commands, fixed R1-R2/form labels, extra Library skill/playbook layer and pointer infrastructure archived; reading source packets activates no skills, agents, host state or mode.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Domain checklist\n\n- Evidence provenance recorded\n- Confidence labelled for heuristics\n- Relevant targets/scopes identified\n- Unknowns retained\n- No product/source mutation during adaptation\n- Generated context validated"
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1215",
       "path": "source-skills/ioslib-context-drift/references/global-runtime.md",
       "sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
       "bytes": 565,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1215-U01",
+          "source_path": "canonical/source-skills/ioslib-context-drift/references/global-runtime.md",
+          "source_sha256": "45b6e6f343590799751e75f3f2b283bc702787cf24b394d2388f1d5ad1ec6df9",
+          "source_heading": "Global iOS Engineering Runtime",
+          "source_fragment": "# Global iOS Engineering Runtime",
+          "meaning": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical user-global installation/runtime path and generated-state reference preserved, no INSTALLATION discovery/global context invocation/profile/host adoption or client infrastructure. Current metadata privacy/permission constraints remain in existing owner.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twenty packet files reviewed:1196 protection and1208 conflict bodies plus1199 runtime fully read;1200 regular/1204-1212 mapping bodies match fully read1156/1160 after declared slots only; all unique fields/YAML/checklists read; other runtime full bytes match1159; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-179-preservation-review-conflict-drift-skill-packets.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Global iOS Engineering Runtime\n\nThis skill is designed for a **user-global Codex installation**. Do not require `.ai/`, `.agents/`, or `scripts/ai/` inside the client repository.\n\nThe installer writes `INSTALLATION.md` next to this file with the exact runtime/library paths for this machine. Read that file before using global runtime commands or deep references.\n\nProject-adaptive generated state is stored **outside client repositories**. Never create library infrastructure in a client repository unless the user explicitly asks for a repository-local export."
+          ]
+        }
+      ],
+      "disposition_reason": "All four packet files independently reviewed via fully read exact common-body representative, every unique goal/metadata/checklist read and runtime byte identity; useful current contracts covered, activation recipes archived, no pointer-based body coverage."
     },
     {
       "source_id": "LIB-1216",
