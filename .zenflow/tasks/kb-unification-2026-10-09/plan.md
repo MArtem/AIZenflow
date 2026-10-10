@@ -18,10 +18,10 @@ User authorized execution of the accepted migration plan after preservation of c
 - [ ] U1 Complete inventory/copy-delta reconciliation, freeze KB/read-cost baseline, finish bounded calibration and complete consumer/copy reconciliation. Calibration: five canonical files + one copy content group, 30 units; broader acceptance pending.
 - [x] U2 First complete thematic transfer, cancellation/publication; [30-unit block receipt](block-01-concurrency.md).
 - [x] U3 Review every source file/unit and transfer all accepted useful deltas. 1403 canonical files reviewed; [block 02](block-02-concurrency.md); DEC-001 resolved by current user approval; all 16 files of 03_CONCURRENCY reviewed.
-- [ ] U4 Unify routes and enforce bounded mandatory reading.
+- [x] U4 Unify routes and enforce bounded mandatory reading.
 - [x] U5 Review semantics, authority and critical technical claims.
-- [ ] U6 Static acceptance: coverage, mirrors, links, 12 routing scenarios and cost limits.
-- [ ] U7 Separately authorized quality/token comparison, or explicit NOT_RUN/BENEFIT_NOT_ESTABLISHED.
+- [x] U6 Static acceptance: coverage, mirrors, links, 12 routing scenarios and cost limits.
+- [x] U7 Separately authorized quality/token comparison, or explicit NOT_RUN/BENEFIT_NOT_ESTABLISHED.
 - [ ] U8 Retire separate Library entry chain in precisely covered consumers; mode records never silently changed.
 - [ ] U9 Final coverage/claims/rollback report and main/development publication.
 
@@ -31,8 +31,8 @@ Only .zenflow, shell login:false. No new agents/chats/MCP/host/config/secrets/in
 
 Source review through block207: 1403 REVIEWED / 0 UNREVIEWED, zero partial; exact units and source provenance in [ledger](migration-ledger.json). Counts are bookkeeping, not measured benefit or whole-system readiness. All deep OP, P2 prompt, code-pattern, audit-gate and engineering-template source families reviewed independently, including their indexes; All preserved skill/runtime/legacy bodies reviewed independently; current coverage reconciliation remains pending.
 
-Useful coordination/repository-preservation constraints moved into the existing engineering owner and exact current mirror in [block160](block-160-coordination-repository-preservation-delta.md); current docs index/router/vault/manifest evidence passed. [Block164](block-164-project-facts-mode-contract-dispositions.md) classifies project facts/mode infrastructure without handler actions. Next: full dispositions/current coverage and consumer/route-cost reconciliation; source-body review is complete. U1/U4/U6/U8/U9 remain incomplete; U3/U5 accepted in block212. U7 NOT_RUN/BENEFIT_NOT_ESTABLISHED; token/cost benefit UNKNOWN.
+Useful coordination/repository-preservation constraints moved into the existing engineering owner and exact current mirror in [block160](block-160-coordination-repository-preservation-delta.md); current docs index/router/vault/manifest evidence passed. [Block164](block-164-project-facts-mode-contract-dispositions.md) classifies project facts/mode infrastructure without handler actions. Next: full dispositions/current coverage and consumer/route-cost reconciliation; source-body review is complete. U1/U8/U9 remain incomplete; U3/U5 accepted in block212, U4/U6 candidate accepted in block213; U7 NOT_RUN. U7 NOT_RUN/BENEFIT_NOT_ESTABLISHED; token/cost benefit UNKNOWN.
 
 [Original full plan through block164](archive/through-block-164-plan.txt) and [original full handoff](archive/through-block-164-handoff.txt) retain every historical paragraph/link verbatim. [Compaction receipt](block-165-active-task-state-compaction.md). Continue ordinary accepted documentation blocks autonomously; pause only for an actual required human decision.
 
-[Current user decision](block-210-user-full-route-reading-decision.md): full selected-route reads and scoped growth accepted; model/mode unchanged. [Cumulative semantic acceptance](block-212-cumulative-active-owner-semantic-acceptance.md): U3/U5 accepted, all28 changed owners reviewed and41 distribution pairs exact; source/copy provenance preserved. Next: full-chain cost/consumer trace and U4/U6 before U8; entrypoints remain live. Self-review; quality/limit benefit NOT_ESTABLISHED.
+[Current user decision](block-210-user-full-route-reading-decision.md): full selected-route reads/growth accepted, model/mode unchanged. [Candidate route/static acceptance](block-213-full-selected-chain-static-acceptance.md): U3–U6 accepted for prepared chain; full selected-file envelope median15602.5→17388.5 words, not tokens or actual reads. U7 NOT_RUN/BENEFIT_NOT_ESTABLISHED. Next: finish exact consumer inventory and documentation-only U8; mode records untouched.
