@@ -174989,108 +174989,898 @@
       "path": "legacy-source/48_V5_TEMPLATES/ORCHESTRATION_DECISION.template.md",
       "sha256": "23c3ad6f03fa8314b2f8e24371df02443ac7154cac9e76a90d8954868e94817b",
       "bytes": 168,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1048-U01",
+          "source_path": "canonical/legacy-source/48_V5_TEMPLATES/ORCHESTRATION_DECISION.template.md",
+          "source_sha256": "23c3ad6f03fa8314b2f8e24371df02443ac7154cac9e76a90d8954868e94817b",
+          "source_heading": "Orchestration Decision Record",
+          "source_fragment": "# Orchestration Decision Record",
+          "meaning": "Actual need/alternative/budget/stop/current approval and accountable nodes before conditional delegation; blank admission score/role fields not justified value or authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual need/alternative/budget/stop/current approval and accountable nodes before conditional delegation; blank admission score/role fields not justified value or authority.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Orchestration Decision Record\n\n## Task\n\n## Risk\n\n## Delegation score\n\n## Why multi-agent / why not\n\n## Selected nodes\n\n## Budgets\n\n## Human gates\n\n## Stop conditions"
+          ]
+        },
+        {
+          "unit_id": "LIB-1048-U02",
+          "source_path": "canonical/legacy-source/48_V5_TEMPLATES/ORCHESTRATION_DECISION.template.md",
+          "source_sha256": "23c3ad6f03fa8314b2f8e24371df02443ac7154cac9e76a90d8954868e94817b",
+          "source_heading": "Orchestration Decision Record",
+          "source_fragment": "# Orchestration Decision Record",
+          "meaning": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Orchestration Decision Record\n\n## Task\n\n## Risk\n\n## Delegation score\n\n## Why multi-agent / why not\n\n## Selected nodes\n\n## Budgets\n\n## Human gates\n\n## Stop conditions"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1049",
       "path": "legacy-source/48_V5_TEMPLATES/ORCHESTRATION_REPORT.template.md",
       "sha256": "c06818b4e1df99e8488fd075b27cb995c77cc712bfddb4bf3ae5e4a7a1b0142c",
       "bytes": 204,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1049-U01",
+          "source_path": "canonical/legacy-source/48_V5_TEMPLATES/ORCHESTRATION_REPORT.template.md",
+          "source_sha256": "c06818b4e1df99e8488fd075b27cb995c77cc712bfddb4bf3ae5e4a7a1b0142c",
+          "source_heading": "Final Orchestration Report",
+          "source_fragment": "# Final Orchestration Report",
+          "meaning": "Exact actual outcome/facts/decision/changes/evidence/observed verification/unknown/conflict/residual/recovery synthesis, report form not success proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact actual outcome/facts/decision/changes/evidence/observed verification/unknown/conflict/residual/recovery synthesis, report form not success proof.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Final Orchestration Report\n\n## Outcome\n\n## Observed facts\n\n## Decisions\n\n## Changes\n\n## Evidence\n\n## Conflicts resolved\n\n## Verification observed\n\n## Residual risk\n\n## Rollback/containment\n\n## Unknowns"
+          ]
+        },
+        {
+          "unit_id": "LIB-1049-U02",
+          "source_path": "canonical/legacy-source/48_V5_TEMPLATES/ORCHESTRATION_REPORT.template.md",
+          "source_sha256": "c06818b4e1df99e8488fd075b27cb995c77cc712bfddb4bf3ae5e4a7a1b0142c",
+          "source_heading": "Final Orchestration Report",
+          "source_fragment": "# Final Orchestration Report",
+          "meaning": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Final Orchestration Report\n\n## Outcome\n\n## Observed facts\n\n## Decisions\n\n## Changes\n\n## Evidence\n\n## Conflicts resolved\n\n## Verification observed\n\n## Residual risk\n\n## Rollback/containment\n\n## Unknowns"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1050",
       "path": "legacy-source/48_V5_TEMPLATES/TASK_GRAPH.template.json",
       "sha256": "2ff580ef11b3dc793e097ff50983601b02deb6128146f8196e3a6549a3103ef1",
       "bytes": 440,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1050-U01",
+          "source_path": "canonical/legacy-source/48_V5_TEMPLATES/TASK_GRAPH.template.json",
+          "source_sha256": "2ff580ef11b3dc793e097ff50983601b02deb6128146f8196e3a6549a3103ef1",
+          "source_heading": "{",
+          "source_fragment": "{",
+          "meaning": "Actual ready dependencies/disjoint scopes/current budget/evidence/stop contract and compatible producer/consumer. Schema5.0/R2/E1/4-child8-totaldepth1 default data historical, not current admission or scope.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual ready dependencies/disjoint scopes/current budget/evidence/stop contract and compatible producer/consumer. Schema5.0/R2/E1/4-child8-totaldepth1 default data historical, not current admission or scope.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "{\n  \"schema\": \"5.0\",\n  \"task\": \"\",\n  \"risk\": \"R2\",\n  \"delegation\": {\n    \"admitted\": false,\n    \"reason\": \"\",\n    \"max_children_per_wave\": 4,\n    \"max_total_children\": 8,\n    \"max_depth\": 1\n  },\n  \"nodes\": [\n    {\n      \"node_id\": \"N1\",\n      \"role\": \"repository_scout\",\n      \"objective\": \"\",\n      \"dependencies\": [],\n      \"read_scope\": [],\n      \"write_scope\": [],\n      \"evidence_required\": \"E1\",\n      \"stop_condition\": \"\"\n    }\n  ]\n}"
+          ]
+        },
+        {
+          "unit_id": "LIB-1050-U02",
+          "source_path": "canonical/legacy-source/48_V5_TEMPLATES/TASK_GRAPH.template.json",
+          "source_sha256": "2ff580ef11b3dc793e097ff50983601b02deb6128146f8196e3a6549a3103ef1",
+          "source_heading": "{",
+          "source_fragment": "{",
+          "meaning": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "{\n  \"schema\": \"5.0\",\n  \"task\": \"\",\n  \"risk\": \"R2\",\n  \"delegation\": {\n    \"admitted\": false,\n    \"reason\": \"\",\n    \"max_children_per_wave\": 4,\n    \"max_total_children\": 8,\n    \"max_depth\": 1\n  },\n  \"nodes\": [\n    {\n      \"node_id\": \"N1\",\n      \"role\": \"repository_scout\",\n      \"objective\": \"\",\n      \"dependencies\": [],\n      \"read_scope\": [],\n      \"write_scope\": [],\n      \"evidence_required\": \"E1\",\n      \"stop_condition\": \"\"\n    }\n  ]\n}"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1051",
       "path": "legacy-source/48_V5_TEMPLATES/VERIFICATION_MATRIX.template.md",
       "sha256": "71abdedf4ea769794eebfdeb6b9e62b963b06308fdc30f1b92e15da6e0af6cb8",
       "bytes": 133,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1051-U01",
+          "source_path": "canonical/legacy-source/48_V5_TEMPLATES/VERIFICATION_MATRIX.template.md",
+          "source_sha256": "71abdedf4ea769794eebfdeb6b9e62b963b06308fdc30f1b92e15da6e0af6cb8",
+          "source_heading": "Verification Matrix",
+          "source_fragment": "# Verification Matrix",
+          "meaning": "Actual claim/invariant/current risk/smallest permitted check/owner/observed scope/result and evidence limits; blank method/result not run or PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual claim/invariant/current risk/smallest permitted check/owner/observed scope/result and evidence limits; blank method/result not run or PASS.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Verification Matrix\n\n## Claim / invariant\n\n## Risk\n\n## Check\n\n## Command / method\n\n## Owner\n\n## Observed result\n\n## Evidence level"
+          ]
+        },
+        {
+          "unit_id": "LIB-1051-U02",
+          "source_path": "canonical/legacy-source/48_V5_TEMPLATES/VERIFICATION_MATRIX.template.md",
+          "source_sha256": "71abdedf4ea769794eebfdeb6b9e62b963b06308fdc30f1b92e15da6e0af6cb8",
+          "source_heading": "Verification Matrix",
+          "source_fragment": "# Verification Matrix",
+          "meaning": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Verification Matrix\n\n## Claim / invariant\n\n## Risk\n\n## Check\n\n## Command / method\n\n## Owner\n\n## Observed result\n\n## Evidence level"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1052",
       "path": "legacy-source/48_V5_TEMPLATES/WRITE_OWNERSHIP.template.md",
       "sha256": "68fee2df4b81bf8b75ddeade6a35b139172f6c753e4a09404a4fa4722f6670f1",
       "bytes": 124,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1052-U01",
+          "source_path": "canonical/legacy-source/48_V5_TEMPLATES/WRITE_OWNERSHIP.template.md",
+          "source_sha256": "68fee2df4b81bf8b75ddeade6a35b139172f6c753e4a09404a4fa4722f6670f1",
+          "source_heading": "Write Ownership Map",
+          "source_fragment": "# Write Ownership Map",
+          "meaning": "Exact owned paths/collision/shared integrator resources and closed read-only dependencies before conditional authorized writers; blank wave/node map not active work allocation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact owned paths/collision/shared integrator resources and closed read-only dependencies before conditional authorized writers; blank wave/node map not active work allocation.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Write Ownership Map\n\n## Wave\n\n## Node\n\n## Owned paths\n\n## Read-only dependencies\n\n## Collision paths\n\n## Integrator owner"
+          ]
+        },
+        {
+          "unit_id": "LIB-1052-U02",
+          "source_path": "canonical/legacy-source/48_V5_TEMPLATES/WRITE_OWNERSHIP.template.md",
+          "source_sha256": "68fee2df4b81bf8b75ddeade6a35b139172f6c753e4a09404a4fa4722f6670f1",
+          "source_heading": "Write Ownership Map",
+          "source_fragment": "# Write Ownership Map",
+          "meaning": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Write Ownership Map\n\n## Wave\n\n## Node\n\n## Owned paths\n\n## Read-only dependencies\n\n## Collision paths\n\n## Integrator owner"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1053",
       "path": "legacy-source/49_V5_AUDIT_GATES/V5-AG-01.md",
       "sha256": "69e53396a970bad99655311898614714a6a8333eb0b6636161425e2e351628b2",
       "bytes": 260,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1053-U01",
+          "source_path": "canonical/legacy-source/49_V5_AUDIT_GATES/V5-AG-01.md",
+          "source_sha256": "69e53396a970bad99655311898614714a6a8333eb0b6636161425e2e351628b2",
+          "source_heading": "Delegation Admission Gate",
+          "source_fragment": "# Delegation Admission Gate",
+          "meaning": "Conditional current value/nonduplicate bounded work and sufficient simpler alternative before delegation, high-risk label not automatic fanout. Failed needed evidence stays unknown/blocked rather than success.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Conditional current value/nonduplicate bounded work and sufficient simpler alternative before delegation, high-risk label not automatic fanout. Failed needed evidence stays unknown/blocked rather than success.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Delegation Admission Gate\n\nPass only when: delegation has measurable value; nodes are non-duplicative; single-agent alternative considered.\n\nA failed gate blocks additional fan-out or final integration until resolved or explicitly accepted as residual risk."
+          ]
+        },
+        {
+          "unit_id": "LIB-1053-U02",
+          "source_path": "canonical/legacy-source/49_V5_AUDIT_GATES/V5-AG-01.md",
+          "source_sha256": "69e53396a970bad99655311898614714a6a8333eb0b6636161425e2e351628b2",
+          "source_heading": "Delegation Admission Gate",
+          "source_fragment": "# Delegation Admission Gate",
+          "meaning": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Delegation Admission Gate\n\nPass only when: delegation has measurable value; nodes are non-duplicative; single-agent alternative considered.\n\nA failed gate blocks additional fan-out or final integration until resolved or explicitly accepted as residual risk."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1054",
       "path": "legacy-source/49_V5_AUDIT_GATES/V5-AG-02.md",
       "sha256": "845d62bc84b4a4dff10fabe629bf126cd8989e89e373d6b0a37031c1a72f251f",
       "bytes": 231,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1054-U01",
+          "source_path": "canonical/legacy-source/49_V5_AUDIT_GATES/V5-AG-02.md",
+          "source_sha256": "845d62bc84b4a4dff10fabe629bf126cd8989e89e373d6b0a37031c1a72f251f",
+          "source_heading": "Write Scope Gate",
+          "source_fragment": "# Write Scope Gate",
+          "meaning": "Real disjoint writer ownership and serialized collision/shared control-plane resources, no parallel integration through unknown scope.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Real disjoint writer ownership and serialized collision/shared control-plane resources, no parallel integration through unknown scope.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Write Scope Gate\n\nPass only when: parallel writers have disjoint ownership and collision files are serialized.\n\nA failed gate blocks additional fan-out or final integration until resolved or explicitly accepted as residual risk."
+          ]
+        },
+        {
+          "unit_id": "LIB-1054-U02",
+          "source_path": "canonical/legacy-source/49_V5_AUDIT_GATES/V5-AG-02.md",
+          "source_sha256": "845d62bc84b4a4dff10fabe629bf126cd8989e89e373d6b0a37031c1a72f251f",
+          "source_heading": "Write Scope Gate",
+          "source_fragment": "# Write Scope Gate",
+          "meaning": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Write Scope Gate\n\nPass only when: parallel writers have disjoint ownership and collision files are serialized.\n\nA failed gate blocks additional fan-out or final integration until resolved or explicitly accepted as residual risk."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1055",
       "path": "legacy-source/49_V5_AUDIT_GATES/V5-AG-03.md",
       "sha256": "6ce82e94b4791e508b7df598ea70f49a07a38166fac915d63f1ffaf5163380b3",
       "bytes": 250,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1055-U01",
+          "source_path": "canonical/legacy-source/49_V5_AUDIT_GATES/V5-AG-03.md",
+          "source_sha256": "6ce82e94b4791e508b7df598ea70f49a07a38166fac915d63f1ffaf5163380b3",
+          "source_heading": "Evidence Integrity Gate",
+          "source_fragment": "# Evidence Integrity Gate",
+          "meaning": "Material claim actual source/revision/observed output provenance and evidence limits, agent opinion/report not proof or replacement for semantic full-diff review.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Material claim actual source/revision/observed output provenance and evidence limits, agent opinion/report not proof or replacement for semantic full-diff review.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Evidence Integrity Gate\n\nPass only when: material claims trace to source/build/test/runtime evidence; agent opinion is not proof.\n\nA failed gate blocks additional fan-out or final integration until resolved or explicitly accepted as residual risk."
+          ]
+        },
+        {
+          "unit_id": "LIB-1055-U02",
+          "source_path": "canonical/legacy-source/49_V5_AUDIT_GATES/V5-AG-03.md",
+          "source_sha256": "6ce82e94b4791e508b7df598ea70f49a07a38166fac915d63f1ffaf5163380b3",
+          "source_heading": "Evidence Integrity Gate",
+          "source_fragment": "# Evidence Integrity Gate",
+          "meaning": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Evidence Integrity Gate\n\nPass only when: material claims trace to source/build/test/runtime evidence; agent opinion is not proof.\n\nA failed gate blocks additional fan-out or final integration until resolved or explicitly accepted as residual risk."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1056",
       "path": "legacy-source/49_V5_AUDIT_GATES/V5-AG-04.md",
       "sha256": "7c3785c607baf31b3d50fa9189be528748d548a8892ed574d7ac618de46debef",
       "bytes": 249,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1056-U01",
+          "source_path": "canonical/legacy-source/49_V5_AUDIT_GATES/V5-AG-04.md",
+          "source_sha256": "7c3785c607baf31b3d50fa9189be528748d548a8892ed574d7ac618de46debef",
+          "source_heading": "Conflict Closure Gate",
+          "source_fragment": "# Conflict Closure Gate",
+          "meaning": "Contradictory claims resolved against deciding evidence or explicitly UNKNOWN, no majority/model-vote synthesis or summary hiding disagreement.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Contradictory claims resolved against deciding evidence or explicitly UNKNOWN, no majority/model-vote synthesis or summary hiding disagreement.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Conflict Closure Gate\n\nPass only when: contradictory claims are resolved or explicitly left unknown; no majority-vote synthesis.\n\nA failed gate blocks additional fan-out or final integration until resolved or explicitly accepted as residual risk."
+          ]
+        },
+        {
+          "unit_id": "LIB-1056-U02",
+          "source_path": "canonical/legacy-source/49_V5_AUDIT_GATES/V5-AG-04.md",
+          "source_sha256": "7c3785c607baf31b3d50fa9189be528748d548a8892ed574d7ac618de46debef",
+          "source_heading": "Conflict Closure Gate",
+          "source_fragment": "# Conflict Closure Gate",
+          "meaning": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Conflict Closure Gate\n\nPass only when: contradictory claims are resolved or explicitly left unknown; no majority-vote synthesis.\n\nA failed gate blocks additional fan-out or final integration until resolved or explicitly accepted as residual risk."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1057",
       "path": "legacy-source/49_V5_AUDIT_GATES/V5-AG-05.md",
       "sha256": "1b98f6e6143175d3bdb6c5cc1af2c65d0afcbb509364c700d4587a2a601e45b2",
       "bytes": 243,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1057-U01",
+          "source_path": "canonical/legacy-source/49_V5_AUDIT_GATES/V5-AG-05.md",
+          "source_sha256": "1b98f6e6143175d3bdb6c5cc1af2c65d0afcbb509364c700d4587a2a601e45b2",
+          "source_heading": "Integration Gate",
+          "source_fragment": "# Integration Gate",
+          "meaning": "Complete combined current consumer/target/config/state/domain diff preserving contract, individual patch/static PASS not integration success.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete combined current consumer/target/config/state/domain diff preserving contract, individual patch/static PASS not integration success.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Integration Gate\n\nPass only when: integrated diff preserves cross-domain invariants and shared target/build configuration.\n\nA failed gate blocks additional fan-out or final integration until resolved or explicitly accepted as residual risk."
+          ]
+        },
+        {
+          "unit_id": "LIB-1057-U02",
+          "source_path": "canonical/legacy-source/49_V5_AUDIT_GATES/V5-AG-05.md",
+          "source_sha256": "1b98f6e6143175d3bdb6c5cc1af2c65d0afcbb509364c700d4587a2a601e45b2",
+          "source_heading": "Integration Gate",
+          "source_fragment": "# Integration Gate",
+          "meaning": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Integration Gate\n\nPass only when: integrated diff preserves cross-domain invariants and shared target/build configuration.\n\nA failed gate blocks additional fan-out or final integration until resolved or explicitly accepted as residual risk."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1058",
       "path": "legacy-source/49_V5_AUDIT_GATES/V5-AG-06.md",
       "sha256": "e8dda5b0ed04684fe3960b9cd53df86b979a0bca1c5a83018aa09d7bc7473b41",
       "bytes": 249,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1058-U01",
+          "source_path": "canonical/legacy-source/49_V5_AUDIT_GATES/V5-AG-06.md",
+          "source_sha256": "e8dda5b0ed04684fe3960b9cd53df86b979a0bca1c5a83018aa09d7bc7473b41",
+          "source_heading": "Budget & Termination Gate",
+          "source_fragment": "# Budget & Termination Gate",
+          "meaning": "Current bounded context/fanout/depth/retry/budget with low marginal-value stop, numeric source envelope archived and no agent initialization.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Current bounded context/fanout/depth/retry/budget with low marginal-value stop, numeric source envelope archived and no agent initialization.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Budget & Termination Gate\n\nPass only when: fan-out/depth/context stay bounded and spawning stops when marginal value disappears.\n\nA failed gate blocks additional fan-out or final integration until resolved or explicitly accepted as residual risk."
+          ]
+        },
+        {
+          "unit_id": "LIB-1058-U02",
+          "source_path": "canonical/legacy-source/49_V5_AUDIT_GATES/V5-AG-06.md",
+          "source_sha256": "e8dda5b0ed04684fe3960b9cd53df86b979a0bca1c5a83018aa09d7bc7473b41",
+          "source_heading": "Budget & Termination Gate",
+          "source_fragment": "# Budget & Termination Gate",
+          "meaning": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Budget & Termination Gate\n\nPass only when: fan-out/depth/context stay bounded and spawning stops when marginal value disappears.\n\nA failed gate blocks additional fan-out or final integration until resolved or explicitly accepted as residual risk."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1059",
       "path": "legacy-source/README.md",
       "sha256": "3ce2901820fec0e7d8a7f1935e68109a0210ff262b40f08e5cf389343d77cdfd",
       "bytes": 679,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1059-U01",
+          "source_path": "canonical/legacy-source/README.md",
+          "source_sha256": "3ce2901820fec0e7d8a7f1935e68109a0210ff262b40f08e5cf389343d77cdfd",
+          "source_heading": "Unrouted legacy source material",
+          "source_fragment": "# Unrouted legacy source material",
+          "meaning": "Historical unrouted source remains non-authoritative archival recovery/provenance with each reviewed disposition, not client export/whole-folder bootstrap/action authority. User preservation scope prevails over old final-payload quarantine removal recipe.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Historical unrouted source remains non-authoritative archival recovery/provenance with each reviewed disposition, not client export/whole-folder bootstrap/action authority. User preservation scope prevails over old final-payload quarantine removal recipe.",
+          "destination_path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "destination_heading": "Active Authority And Historical Evidence; Canonical Roots; Hard Separation Rules",
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Active Authority And Historical Evidence",
+                "Canonical Roots",
+                "Hard Separation Rules"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Unrouted legacy source material\n\nThese are retained Markdown source documents from former repository workflows, agent roles,\nprompts and audit gates. They are **not active copy-only reference routes**. Some may contain\nrepository-specific instructions, old aliases or unconditional build/test wording even though\nfiles with direct deployment signatures were excluded from this candidate.\n\nDo not load this folder as a whole, copy it into a client project, or treat its text as permission\nto execute actions. Curate useful content into a specific reviewed route first; remove this\nquarantine from the final payload unless every retained item has an explicit purpose and review."
+          ]
+        },
+        {
+          "unit_id": "LIB-1059-U02",
+          "source_path": "canonical/legacy-source/README.md",
+          "source_sha256": "3ce2901820fec0e7d8a7f1935e68109a0210ff262b40f08e5cf389343d77cdfd",
+          "source_heading": "Unrouted legacy source material",
+          "source_fragment": "# Unrouted legacy source material",
+          "meaning": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank decision/report/taskgraph5.0/risk/evidence/budget forms and V5 named gate PASS/residual-risk boilerplate or final quarantine-removal recipe archived. Current useful constraints covered separately; unknown/omitted/failed findings not PASS and P0–P2 closure/current user exception required, archive preserved, no activation/deletion.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Twelve complete template/gate/legacy README bodies independently read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. Fixed schema/defaults/failed-gate residual wording and quarantine removal explicitly superseded by current authority; no gate or deletion activated.",
+          "evidence": "block-203-legacy-template-gate-archive-boundaries.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Unrouted legacy source material\n\nThese are retained Markdown source documents from former repository workflows, agent roles,\nprompts and audit gates. They are **not active copy-only reference routes**. Some may contain\nrepository-specific instructions, old aliases or unconditional build/test wording even though\nfiles with direct deployment signatures were excluded from this candidate.\n\nDo not load this folder as a whole, copy it into a client project, or treat its text as permission\nto execute actions. Curate useful content into a specific reviewed route first; remove this\nquarantine from the final payload unless every retained item has an explicit purpose and review."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-1060",
