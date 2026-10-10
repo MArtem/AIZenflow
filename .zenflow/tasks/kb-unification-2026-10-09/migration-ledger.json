@@ -110922,27 +110922,657 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-16-08.md",
       "sha256": "4efa74f6f475fe1408397977e9519ec6cba439fa949caa15fc4ab6ad45375917",
       "bytes": 7437,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0542-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-16-08.md",
+          "source_sha256": "4efa74f6f475fe1408397977e9519ec6cba439fa949caa15fc4ab6ad45375917",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual comparable symbols/resources/slices/linkage/dependencies shipping artifact; stripping/module changes preserve compatibility/resources/ownership, source diff size not shipping metric.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual comparable symbols/resources/slices/linkage/dependencies shipping artifact; stripping/module changes preserve compatibility/resources/ownership, source diff size not shipping metric.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Binary And Runtime Diagnosis; Build Performance; Modules And Linking",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-16-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-103-build-binary-config-cache-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Binary And Runtime Diagnosis",
+                "Build Performance",
+                "Modules And Linking"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0542-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-16-08.md",
+          "source_sha256": "4efa74f6f475fe1408397977e9519ec6cba439fa949caa15fc4ab6ad45375917",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full task/timer/notification/delegate/closure ownership and permitted deinit/Memory Graph trap; static symbol size not lifecycle evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full task/timer/notification/delegate/closure ownership and permitted deinit/Memory Graph trap; static symbol size not lifecycle evidence.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-16-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-103-build-binary-config-cache-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Ownership And Memory"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0542-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-16-08.md",
+          "source_sha256": "4efa74f6f475fe1408397977e9519ec6cba439fa949caa15fc4ab6ad45375917",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful build body: actual target/module timing and package pins/plugin/macros, generator/config truth, effective settings/local-CI parity, binary/resource owners and affected consumers/availability. Ownership-aligned module boundaries, reproducible tooling/deterministic dependencies, generator-source edits and no secret/hidden developer-machine changes. Reduce graph complexity before modules, cache only deterministic artifacts, bound plugins/macros, explicit environments. Review cycles/duplicates/unstable versions/scripts inputs/outputs/secret handling and permitted measured impact. Diagnose compiler/linker/codegen/test bottlenecks from permitted logs/timing/graph before restructuring. Authorized incremental package/module migration preserves API/behavior/CI parity and compatibility/rollback/cleanup; old build path not duplicate side-effecting shipment. All eight failure guards and honest permission-bound negative/warning/build-resolution/timing evidence and output; no install/download/host/build/test/runtime authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful build body: actual target/module timing and package pins/plugin/macros, generator/config truth, effective settings/local-CI parity, binary/resource owners and affected consumers/availability. Ownership-aligned module boundaries, reproducible tooling/deterministic dependencies, generator-source edits and no secret/hidden developer-machine changes. Reduce graph complexity before modules, cache only deterministic artifacts, bound plugins/macros, explicit environments. Review cycles/duplicates/unstable versions/scripts inputs/outputs/secret handling and permitted measured impact. Diagnose compiler/linker/codegen/test bottlenecks from permitted logs/timing/graph before restructuring. Authorized incremental package/module migration preserves API/behavior/CI parity and compatibility/rollback/cleanup; old build path not duplicate side-effecting shipment. All eight failure guards and honest permission-bound negative/warning/build-resolution/timing evidence and output; no install/download/host/build/test/runtime authority.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Targets And Build Phases; Modules And Linking; SwiftPM And Dependencies; Supply Chain; Reproducibility And CI; Build Performance; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-16-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-103-build-binary-config-cache-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Targets And Build Phases",
+                "Modules And Linking",
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "Reproducibility And CI",
+                "Build Performance",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0542-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-16-08.md",
+          "source_sha256": "4efa74f6f475fe1408397977e9519ec6cba439fa949caa15fc4ab6ad45375917",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/regression execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/regression execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-16-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-103-build-binary-config-cache-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full build common exact against fully read OP-16-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No dependency/install/build/test/host/config/mode/OP execution implied."
     },
     {
       "source_id": "LIB-0543",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-16-09.md",
       "sha256": "026e0b7833789e4783fbd982c0a6f6c2a41c8628f8232a9d751772e7659f8203",
       "bytes": 7563,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0543-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-16-09.md",
+          "source_sha256": "026e0b7833789e4783fbd982c0a6f6c2a41c8628f8232a9d751772e7659f8203",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Public versioned config versus approved secret channels, effective xcconfig/env/local-CI injection/redacted diagnostics; never source/bundle/client-secret exposure, no live secret/config access.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Public versioned config versus approved secret channels, effective xcconfig/env/local-CI injection/redacted diagnostics; never source/bundle/client-secret exposure, no live secret/config access.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Configuration; Targets And Build Phases; Reproducibility And CI",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-16-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-103-build-binary-config-cache-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Configuration",
+                "Targets And Build Phases",
+                "Reproducibility And CI"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Security Model",
+                "Authorization Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0543-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-16-09.md",
+          "source_sha256": "026e0b7833789e4783fbd982c0a6f6c2a41c8628f8232a9d751772e7659f8203",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-16-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-103-build-binary-config-cache-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0543-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-16-09.md",
+          "source_sha256": "026e0b7833789e4783fbd982c0a6f6c2a41c8628f8232a9d751772e7659f8203",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful build body: actual target/module timing and package pins/plugin/macros, generator/config truth, effective settings/local-CI parity, binary/resource owners and affected consumers/availability. Ownership-aligned module boundaries, reproducible tooling/deterministic dependencies, generator-source edits and no secret/hidden developer-machine changes. Reduce graph complexity before modules, cache only deterministic artifacts, bound plugins/macros, explicit environments. Review cycles/duplicates/unstable versions/scripts inputs/outputs/secret handling and permitted measured impact. Diagnose compiler/linker/codegen/test bottlenecks from permitted logs/timing/graph before restructuring. Authorized incremental package/module migration preserves API/behavior/CI parity and compatibility/rollback/cleanup; old build path not duplicate side-effecting shipment. All eight failure guards and honest permission-bound negative/warning/build-resolution/timing evidence and output; no install/download/host/build/test/runtime authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful build body: actual target/module timing and package pins/plugin/macros, generator/config truth, effective settings/local-CI parity, binary/resource owners and affected consumers/availability. Ownership-aligned module boundaries, reproducible tooling/deterministic dependencies, generator-source edits and no secret/hidden developer-machine changes. Reduce graph complexity before modules, cache only deterministic artifacts, bound plugins/macros, explicit environments. Review cycles/duplicates/unstable versions/scripts inputs/outputs/secret handling and permitted measured impact. Diagnose compiler/linker/codegen/test bottlenecks from permitted logs/timing/graph before restructuring. Authorized incremental package/module migration preserves API/behavior/CI parity and compatibility/rollback/cleanup; old build path not duplicate side-effecting shipment. All eight failure guards and honest permission-bound negative/warning/build-resolution/timing evidence and output; no install/download/host/build/test/runtime authority.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Targets And Build Phases; Modules And Linking; SwiftPM And Dependencies; Supply Chain; Reproducibility And CI; Build Performance; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-16-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-103-build-binary-config-cache-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Targets And Build Phases",
+                "Modules And Linking",
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "Reproducibility And CI",
+                "Build Performance",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0543-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-16-09.md",
+          "source_sha256": "026e0b7833789e4783fbd982c0a6f6c2a41c8628f8232a9d751772e7659f8203",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/regression execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/regression execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-16-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-103-build-binary-config-cache-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full build common exact against fully read OP-16-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No dependency/install/build/test/host/config/mode/OP execution implied."
     },
     {
       "source_id": "LIB-0544",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-16-10.md",
       "sha256": "90191e4c34cfc1143ebc0dc8cfe82b8be9b09887f31d450737bd66624a3d6414",
       "bytes": 7422,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0544-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-16-10.md",
+          "source_sha256": "90191e4c34cfc1143ebc0dc8cfe82b8be9b09887f31d450737bd66624a3d6414",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual deterministic graph/scripts/cache dimensions/clean-cache fallback/actionable failure developer workflow/local-CI parity; no hidden machine state, install or mutable downloads.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual deterministic graph/scripts/cache dimensions/clean-cache fallback/actionable failure developer workflow/local-CI parity; no hidden machine state, install or mutable downloads.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Targets And Build Phases; Reproducibility And CI; Build Performance",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-16-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-103-build-binary-config-cache-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases",
+                "Reproducibility And CI",
+                "Build Performance"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0544-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-16-10.md",
+          "source_sha256": "90191e4c34cfc1143ebc0dc8cfe82b8be9b09887f31d450737bd66624a3d6414",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full cache key/TTL-validator/invalidation/stale-offline/memory-disk-budget trap; rebuildability and affected consumers before reset, no cache mutation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full cache key/TTL-validator/invalidation/stale-offline/memory-disk-budget trap; rebuildability and affected consumers before reset, no cache mutation.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Preferences And Derived Caches",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-16-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-103-build-binary-config-cache-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Preferences And Derived Caches"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Caching"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0544-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-16-10.md",
+          "source_sha256": "90191e4c34cfc1143ebc0dc8cfe82b8be9b09887f31d450737bd66624a3d6414",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful build body: actual target/module timing and package pins/plugin/macros, generator/config truth, effective settings/local-CI parity, binary/resource owners and affected consumers/availability. Ownership-aligned module boundaries, reproducible tooling/deterministic dependencies, generator-source edits and no secret/hidden developer-machine changes. Reduce graph complexity before modules, cache only deterministic artifacts, bound plugins/macros, explicit environments. Review cycles/duplicates/unstable versions/scripts inputs/outputs/secret handling and permitted measured impact. Diagnose compiler/linker/codegen/test bottlenecks from permitted logs/timing/graph before restructuring. Authorized incremental package/module migration preserves API/behavior/CI parity and compatibility/rollback/cleanup; old build path not duplicate side-effecting shipment. All eight failure guards and honest permission-bound negative/warning/build-resolution/timing evidence and output; no install/download/host/build/test/runtime authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful build body: actual target/module timing and package pins/plugin/macros, generator/config truth, effective settings/local-CI parity, binary/resource owners and affected consumers/availability. Ownership-aligned module boundaries, reproducible tooling/deterministic dependencies, generator-source edits and no secret/hidden developer-machine changes. Reduce graph complexity before modules, cache only deterministic artifacts, bound plugins/macros, explicit environments. Review cycles/duplicates/unstable versions/scripts inputs/outputs/secret handling and permitted measured impact. Diagnose compiler/linker/codegen/test bottlenecks from permitted logs/timing/graph before restructuring. Authorized incremental package/module migration preserves API/behavior/CI parity and compatibility/rollback/cleanup; old build path not duplicate side-effecting shipment. All eight failure guards and honest permission-bound negative/warning/build-resolution/timing evidence and output; no install/download/host/build/test/runtime authority.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Targets And Build Phases; Modules And Linking; SwiftPM And Dependencies; Supply Chain; Reproducibility And CI; Build Performance; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-16-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-103-build-binary-config-cache-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Targets And Build Phases",
+                "Modules And Linking",
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "Reproducibility And CI",
+                "Build Performance",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0544-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-16-10.md",
+          "source_sha256": "90191e4c34cfc1143ebc0dc8cfe82b8be9b09887f31d450737bd66624a3d6414",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/regression execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/regression execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-16-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-103-build-binary-config-cache-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full build common exact against fully read OP-16-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No dependency/install/build/test/host/config/mode/OP execution implied."
     },
     {
       "source_id": "LIB-0545",
