@@ -103925,63 +103925,1667 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-14-01.md",
       "sha256": "66140d643d249fc3b3cd418c90983dfc499e812f579e084fd238c7a63293f84c",
       "bytes": 7709,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0511-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-01.md",
+          "source_sha256": "66140d643d249fc3b3cd418c90983dfc499e812f579e084fd238c7a63293f84c",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual discoverable domain action/entity stable IDs/parameter source/validate/authorization/idempotency/background owner/handoff and target membership, not duplicate business logic.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual discoverable domain action/entity stable IDs/parameter source/validate/authorization/idempotency/background owner/handoff and target membership, not duplicate business logic.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "App Intents, Shortcuts, Siri, And Spotlight; Target And Extension Boundary",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "Target And Extension Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Navigation And Presentation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0511-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-01.md",
+          "source_sha256": "66140d643d249fc3b3cd418c90983dfc499e812f579e084fd238c7a63293f84c",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "All three full traps: auth skew/refresh/logout/replay/Keychain/401403; actual reuse/cancel/prefetch/decode/diff/hitch; system timing/timeline/restoration/shared container/process death. No surface discovery proof from compilation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All three full traps: auth skew/refresh/logout/replay/Keychain/401403; actual reuse/cancel/prefetch/decode/diff/hitch; system timing/timeline/restoration/shared container/process death. No surface discovery proof from compilation.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle; Keychain And Data Protection; Authorization Rules",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection",
+                "Authorization Rules"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Identity And Collections",
+                "UIKit Lifecycle And Reuse Review",
+                "Layout And Rendering",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Background Execution",
+                "Widgets",
+                "App Groups",
+                "Target And Extension Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0511-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-01.md",
+          "source_sha256": "66140d643d249fc3b3cd418c90983dfc499e812f579e084fd238c7a63293f84c",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Capability Intake; Target And Extension Boundary; Background Execution; Widgets; App Intents, Shortcuts, Siri, And Spotlight; App Groups; Capability Evidence Classes",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Capability Intake",
+                "Target And Extension Boundary",
+                "Background Execution",
+                "Widgets",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "App Groups",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Simulator Versus Device"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Migration",
+                "Offline And Sync"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0511-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-01.md",
+          "source_sha256": "66140d643d249fc3b3cd418c90983dfc499e812f579e084fd238c7a63293f84c",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full platform common exact against fully read OP-14-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No capability/platform/runtime/mode adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0512",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-14-02.md",
       "sha256": "652746204804d355720b5833c54238b8a3ed6caaf0bbcc11945d3d31a40518b4",
       "bytes": 7404,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0512-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-02.md",
+          "source_sha256": "652746204804d355720b5833c54238b8a3ed6caaf0bbcc11945d3d31a40518b4",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual timeline/configuration/relevance/parameters/versioned shared freshness/placeholder-snapshot paths/refresh budget; relevance/reload hints not exact delivery.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual timeline/configuration/relevance/parameters/versioned shared freshness/placeholder-snapshot paths/refresh budget; relevance/reload hints not exact delivery.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Widgets; App Intents, Shortcuts, Siri, And Spotlight; Target And Extension Boundary; App Groups",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Widgets",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "Target And Extension Boundary",
+                "App Groups"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0512-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-02.md",
+          "source_sha256": "652746204804d355720b5833c54238b8a3ed6caaf0bbcc11945d3d31a40518b4",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full system-controlled timing/timeline/background restoration/shared access/process-death trap, no actual presentation/runtime claim.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full system-controlled timing/timeline/background restoration/shared access/process-death trap, no actual presentation/runtime claim.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Background Execution; Widgets; App Groups; Target And Extension Boundary",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Background Execution",
+                "Widgets",
+                "App Groups",
+                "Target And Extension Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0512-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-02.md",
+          "source_sha256": "652746204804d355720b5833c54238b8a3ed6caaf0bbcc11945d3d31a40518b4",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Capability Intake; Target And Extension Boundary; Background Execution; Widgets; App Intents, Shortcuts, Siri, And Spotlight; App Groups; Capability Evidence Classes",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Capability Intake",
+                "Target And Extension Boundary",
+                "Background Execution",
+                "Widgets",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "App Groups",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Simulator Versus Device"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Migration",
+                "Offline And Sync"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0512-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-02.md",
+          "source_sha256": "652746204804d355720b5833c54238b8a3ed6caaf0bbcc11945d3d31a40518b4",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full platform common exact against fully read OP-14-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No capability/platform/runtime/mode adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0513",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-14-03.md",
       "sha256": "6020e3b1e3623dc1f10bf22de1d333d3b811ddb086d9e4f2260d60dacc3ab87b",
       "bytes": 7523,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0513-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-03.md",
+          "source_sha256": "6020e3b1e3623dc1f10bf22de1d333d3b811ddb086d9e4f2260d60dacc3ab87b",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual Activity state/content/update/start/end/stale/relaunch/token/privacy/power contract; static timeline not lockscreen/DynamicIsland evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual Activity state/content/update/start/end/stale/relaunch/token/privacy/power contract; static timeline not lockscreen/DynamicIsland evidence.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Live Activities; Capability Evidence Classes",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Live Activities",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0513-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-03.md",
+          "source_sha256": "6020e3b1e3623dc1f10bf22de1d333d3b811ddb086d9e4f2260d60dacc3ab87b",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full traps: actual threat/negative/privacy; system timing/restoration/shared container/process death/conditional timeline, no physical check prerequisite.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full traps: actual threat/negative/privacy; system timing/restoration/shared container/process death/conditional timeline, no physical check prerequisite.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Background Execution",
+                "Widgets",
+                "App Groups",
+                "Target And Extension Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0513-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-03.md",
+          "source_sha256": "6020e3b1e3623dc1f10bf22de1d333d3b811ddb086d9e4f2260d60dacc3ab87b",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Capability Intake; Target And Extension Boundary; Background Execution; Widgets; App Intents, Shortcuts, Siri, And Spotlight; App Groups; Capability Evidence Classes",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Capability Intake",
+                "Target And Extension Boundary",
+                "Background Execution",
+                "Widgets",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "App Groups",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Simulator Versus Device"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Migration",
+                "Offline And Sync"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0513-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-03.md",
+          "source_sha256": "6020e3b1e3623dc1f10bf22de1d333d3b811ddb086d9e4f2260d60dacc3ab87b",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full platform common exact against fully read OP-14-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No capability/platform/runtime/mode adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0514",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-14-04.md",
       "sha256": "1f21b771a6162cf4ea1bf209793d85328cdaa936a159e943adf6eaca5ceeb098",
       "bytes": 7697,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0514-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-04.md",
+          "source_sha256": "1f21b771a6162cf4ea1bf209793d85328cdaa936a159e943adf6eaca5ceeb098",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual changing token/provider/category/action/foreground/privacy/deep-link contract, untrusted payload, opportunistic delivery not completion.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual changing token/provider/category/action/foreground/privacy/deep-link contract, untrusted payload, opportunistic delivery not completion.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Notifications; Associated Domains And Deep Links",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Notifications",
+                "Associated Domains And Deep Links"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Navigation And Presentation"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0514-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-04.md",
+          "source_sha256": "1f21b771a6162cf4ea1bf209793d85328cdaa936a159e943adf6eaca5ceeb098",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "All three traps: auth skew/refresh/logout/replay/Keychain/401403; cold/warm/auth/modal/restoration/external-input validation; threat/negative/privacy no convenient bypass.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All three traps: auth skew/refresh/logout/replay/Keychain/401403; cold/warm/auth/modal/restoration/external-input validation; threat/negative/privacy no convenient bypass.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle; Keychain And Data Protection; Authorization Rules",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection",
+                "Authorization Rules"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Navigation And Presentation"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0514-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-04.md",
+          "source_sha256": "1f21b771a6162cf4ea1bf209793d85328cdaa936a159e943adf6eaca5ceeb098",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Capability Intake; Target And Extension Boundary; Background Execution; Widgets; App Intents, Shortcuts, Siri, And Spotlight; App Groups; Capability Evidence Classes",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Capability Intake",
+                "Target And Extension Boundary",
+                "Background Execution",
+                "Widgets",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "App Groups",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Simulator Versus Device"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Migration",
+                "Offline And Sync"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0514-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-04.md",
+          "source_sha256": "1f21b771a6162cf4ea1bf209793d85328cdaa936a159e943adf6eaca5ceeb098",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full platform common exact against fully read OP-14-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No capability/platform/runtime/mode adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0515",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-14-05.md",
       "sha256": "28079c41b66acff839a6caa80f28d1c1dc89f1567d422a49597a30b570d75cae",
       "bytes": 7409,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0515-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-05.md",
+          "source_sha256": "28079c41b66acff839a6caa80f28d1c1dc89f1567d422a49597a30b570d75cae",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual BG work registration/expiration/cancel/idempotency/checkpoints/resume/time-resource bounds, system controls timing; scheduled not executed.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual BG work registration/expiration/cancel/idempotency/checkpoints/resume/time-resource bounds, system controls timing; scheduled not executed.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Background Execution; Target And Extension Boundary",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Background Execution",
+                "Target And Extension Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0515-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-05.md",
+          "source_sha256": "28079c41b66acff839a6caa80f28d1c1dc89f1567d422a49597a30b570d75cae",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full system timing/timeline only actual widget/restoration/shared access/process death; no scheduler/physical runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full system timing/timeline only actual widget/restoration/shared access/process death; no scheduler/physical runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Background Execution; Widgets; App Groups; Target And Extension Boundary",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Background Execution",
+                "Widgets",
+                "App Groups",
+                "Target And Extension Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0515-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-05.md",
+          "source_sha256": "28079c41b66acff839a6caa80f28d1c1dc89f1567d422a49597a30b570d75cae",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Capability Intake; Target And Extension Boundary; Background Execution; Widgets; App Intents, Shortcuts, Siri, And Spotlight; App Groups; Capability Evidence Classes",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Capability Intake",
+                "Target And Extension Boundary",
+                "Background Execution",
+                "Widgets",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "App Groups",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Simulator Versus Device"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Migration",
+                "Offline And Sync"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0515-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-05.md",
+          "source_sha256": "28079c41b66acff839a6caa80f28d1c1dc89f1567d422a49597a30b570d75cae",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full platform common exact against fully read OP-14-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No capability/platform/runtime/mode adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0516",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-14-06.md",
       "sha256": "97060aaa69596a01479c1749197c32e6c45d8dd3baf24df6970c35cc32a631a2",
       "bytes": 7758,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0516-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-06.md",
+          "source_sha256": "97060aaa69596a01479c1749197c32e6c45d8dd3baf24df6970c35cc32a631a2",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Minimum actual precise/approximate/when/always auth, geofence/current limits/stale location/background energy and private recovery contract; no numeric legacy estimate.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Minimum actual precise/approximate/when/always auth, geofence/current limits/stale location/background energy and private recovery contract; no numeric legacy estimate.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Permission Model; Location And Maps; Runtime Ownership; Performance And Privacy",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Location And Maps",
+                "Runtime Ownership",
+                "Performance And Privacy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0516-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-06.md",
+          "source_sha256": "97060aaa69596a01479c1749197c32e6c45d8dd3baf24df6970c35cc32a631a2",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "All four traps: actual auth lifecycle/401403; threat/negative/privacy; comparable baseline/instrument; system timing/restoration/shared container/process death, no physical observation/PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All four traps: actual auth lifecycle/401403; threat/negative/privacy; comparable baseline/instrument; system timing/restoration/shared container/process death, no physical observation/PASS.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle; Keychain And Data Protection; Authorization Rules",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection",
+                "Authorization Rules"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Background Execution",
+                "Widgets",
+                "App Groups",
+                "Target And Extension Boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0516-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-06.md",
+          "source_sha256": "97060aaa69596a01479c1749197c32e6c45d8dd3baf24df6970c35cc32a631a2",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Capability Intake; Target And Extension Boundary; Background Execution; Widgets; App Intents, Shortcuts, Siri, And Spotlight; App Groups; Capability Evidence Classes",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Capability Intake",
+                "Target And Extension Boundary",
+                "Background Execution",
+                "Widgets",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "App Groups",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Simulator Versus Device"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Migration",
+                "Offline And Sync"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0516-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-06.md",
+          "source_sha256": "97060aaa69596a01479c1749197c32e6c45d8dd3baf24df6970c35cc32a631a2",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full platform common exact against fully read OP-14-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No capability/platform/runtime/mode adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0517",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-14-07.md",
       "sha256": "717ef34c843d7050d7bd7a30473224f26e25a78500c1259e0376ebae70e04426",
       "bytes": 7700,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0517-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-07.md",
+          "source_sha256": "717ef34c843d7050d7bd7a30473224f26e25a78500c1259e0376ebae70e04426",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual map camera/annotation/cluster/search/routing/service throttle/terms/denied privacy/accessibility/performance; coordinate not permanent accuracy.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual map camera/annotation/cluster/search/routing/service throttle/terms/denied privacy/accessibility/performance; coordinate not permanent accuracy.",
+          "destination_path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "destination_heading": "Location And Maps; Permission Model; Performance And Privacy",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Location And Maps",
+                "Permission Model",
+                "Performance And Privacy"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0517-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-07.md",
+          "source_sha256": "717ef34c843d7050d7bd7a30473224f26e25a78500c1259e0376ebae70e04426",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "All four full traps: owner graph/permitted deinit/MemoryGraph; threat/negative/privacy; representative baseline/instrument; interruption/capability/pressure and nonblocking realtime-render/bounded buffers only actual consumer, excluded device checks omitted.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All four full traps: owner graph/permitted deinit/MemoryGraph; threat/negative/privacy; representative baseline/instrument; interruption/capability/pressure and nonblocking realtime-render/bounded buffers only actual consumer, excluded device checks omitted.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Performance Domains; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Ownership And Memory"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "UIKit Lifecycle And Reuse Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Runtime Ownership",
+                "Performance And Privacy",
+                "Simulator Versus Device"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0517-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-07.md",
+          "source_sha256": "717ef34c843d7050d7bd7a30473224f26e25a78500c1259e0376ebae70e04426",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful platform body: actual capability/availability/permission-revocation/lifecycle/system quota/sharing/account facts in approved scope; denial normal, owned idempotent resumable callbacks, nondeterministic scheduling, extension-independent process and matching declared use. User-value permission, explicit delivery/retry/restoration minimal persisted recovery; review exact-timing assumptions/declarations/extension budgets/cross-process safety. Permitted lifecycle/state diagnosis; excluded physical/device runs remain omitted not prerequisites. Authorized old-new API/data/shared-container compatibility/coexistence/parity/rollback/retirement preserves consumers. All eight failures and permission-bound denied/revoked/cold/background/diagnostic negative evidence/output; system/hardware unknown not compile-PASS. No target/entitlement/source/framework/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "destination_heading": "Capability Intake; Target And Extension Boundary; Background Execution; Widgets; App Intents, Shortcuts, Siri, And Spotlight; App Groups; Capability Evidence Classes",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Capability Intake",
+                "Target And Extension Boundary",
+                "Background Execution",
+                "Widgets",
+                "App Intents, Shortcuts, Siri, And Spotlight",
+                "App Groups",
+                "Capability Evidence Classes"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model",
+                "Runtime Ownership",
+                "Simulator Versus Device"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership",
+                "Migration",
+                "Offline And Sync"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0517-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-14-07.md",
+          "source_sha256": "717ef34c843d7050d7bd7a30473224f26e25a78500c1259e0376ebae70e04426",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-system-scheduler execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-14-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-98-platform-intents-widgets-push-background-location.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full platform common exact against fully read OP-14-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No capability/platform/runtime/mode adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0518",
