@@ -152733,45 +152733,352 @@
       "path": "33_CODE_PATTERNS/CP-11_STALE_RESULT_PROTECTION.md",
       "sha256": "b0dd5beafd106d737e67677bf808133a6ff36a63a9fc7e2e6cde362ecaaf16ec",
       "bytes": 773,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0787-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-11_STALE_RESULT_PROTECTION.md",
+          "source_sha256": "b0dd5beafd106d737e67677bf808133a6ff36a63a9fc7e2e6cde362ecaaf16ec",
+          "source_heading": "CP-11 — Protect UI from stale async results",
+          "source_fragment": "# CP-11 — Protect UI from stale async results",
+          "meaning": "Actual old-request success/error publication guard with explicit UI state; producer cancellation may be ignored and identity is additional mechanism when needed. Illustrative stale-result identity alone not complete current-invocation cancellation/owner lifetime proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual old-request success/error publication guard with explicit UI state; producer cancellation may be ignored and identity is additional mechanism when needed. Illustrative stale-result identity alone not complete current-invocation cancellation/owner lifetime proof.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "destination_heading": "Cancellation; Ordering And Stale Results; Task Ownership",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-148-order-network-route-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Cancellation",
+                "Ordering And Stale Results",
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+              "headings": [
+                "Stateful Screen State Contract"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0787-U02",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-11_STALE_RESULT_PROTECTION.md",
+          "source_sha256": "b0dd5beafd106d737e67677bf808133a6ff36a63a9fc7e2e6cde362ecaaf16ec",
+          "source_heading": "Illustrative Swift snippet",
+          "source_fragment": "```swift",
+          "meaning": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "type": "mechanism",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-148-order-network-route-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full independent ordering/network/retry/route/DI contract covered; illustrative implementation archived without unrun compilation or production claim. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0788",
       "path": "33_CODE_PATTERNS/CP-12_TYPED_ENDPOINT.md",
       "sha256": "e435d3625bf3c15c4505edff81d5604dec4710fc4a67262d4feee71298e9ab92",
       "bytes": 813,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0788-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-12_TYPED_ENDPOINT.md",
+          "source_sha256": "e435d3625bf3c15c4505edff81d5604dec4710fc4a67262d4feee71298e9ab92",
+          "source_heading": "CP-12 — Typed HTTP endpoint boundary",
+          "source_fragment": "# CP-12 — Typed HTTP endpoint boundary",
+          "meaning": "Typed request/response/status/decode boundary and endpoint-specific timeout/cache/retry/auth/metrics/error taxonomy; HTTP 2xx/decode not semantic business success, protocol generic option not required abstraction.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Typed request/response/status/decode boundary and endpoint-specific timeout/cache/retry/auth/metrics/error taxonomy; HTTP 2xx/decode not semantic business success, protocol generic option not required abstraction.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Boundary Model; Request Contract; Reliability",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-148-order-network-route-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries",
+                "Errors"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0788-U02",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-12_TYPED_ENDPOINT.md",
+          "source_sha256": "e435d3625bf3c15c4505edff81d5604dec4710fc4a67262d4feee71298e9ab92",
+          "source_heading": "Illustrative Swift snippet",
+          "source_fragment": "```swift",
+          "meaning": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "type": "mechanism",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-148-order-network-route-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full independent ordering/network/retry/route/DI contract covered; illustrative implementation archived without unrun compilation or production claim. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0789",
       "path": "33_CODE_PATTERNS/CP-13_IDEMPOTENT_RETRY.md",
       "sha256": "123b74cb32a839962abe3b9541798ef600282e28be294edde864c6a19d7ea872",
       "bytes": 379,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0789-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-13_IDEMPOTENT_RETRY.md",
+          "source_sha256": "123b74cb32a839962abe3b9541798ef600282e28be294edde864c6a19d7ea872",
+          "source_heading": "CP-13 — Retry is a semantic policy, not a loop",
+          "source_fragment": "# CP-13 — Retry is a semantic policy, not a loop",
+          "meaning": "Retry is operation semantic policy: classified transient and actual idempotency/server key contract, Retry-After, active cancellation, bounded budget/jitter; no global three-retry interceptor on arbitrary methods or client key assumed server safety.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Retry is operation semantic policy: classified transient and actual idempotency/server key contract, Retry-After, active cancellation, bounded budget/jitter; no global three-retry interceptor on arbitrary methods or client key assumed server safety.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-148-order-network-route-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Retry And Idempotency"
+              ]
+            }
+          ]
+        }
+      ],
+      "disposition_reason": "Full rules-only retry contract independently read and covered by current operation-specific replay/cancellation/budget rules; no illustrative code exists, no invented archived example or execution permission."
     },
     {
       "source_id": "LIB-0790",
       "path": "33_CODE_PATTERNS/CP-14_DEEPLINK_PARSER.md",
       "sha256": "8f54385fa0c747ad7cdd703b7c979e4211b39bc802a4a2f68687c897704bc725",
       "bytes": 580,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0790-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-14_DEEPLINK_PARSER.md",
+          "source_sha256": "8f54385fa0c747ad7cdd703b7c979e4211b39bc802a4a2f68687c897704bc725",
+          "source_heading": "CP-14 — Parse external URLs into a validated internal route",
+          "source_fragment": "# CP-14 — Parse external URLs into a validated internal route",
+          "meaning": "External URL scheme/host/path/entity shape parsed and validated into internal route, then actual current app/backend authorization; parser success not entity access authority or complete URL trust proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "External URL scheme/host/path/entity shape parsed and validated into internal route, then actual current app/backend authorization; parser success not entity access authority or complete URL trust proof.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Navigation And Presentation",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-148-order-network-route-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Navigation And Presentation"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+              "headings": [
+                "Associated Domains And Deep Links"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Authorization Rules"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0790-U02",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-14_DEEPLINK_PARSER.md",
+          "source_sha256": "8f54385fa0c747ad7cdd703b7c979e4211b39bc802a4a2f68687c897704bc725",
+          "source_heading": "Illustrative Swift snippet",
+          "source_fragment": "```swift",
+          "meaning": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "type": "mechanism",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-148-order-network-route-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full independent ordering/network/retry/route/DI contract covered; illustrative implementation archived without unrun compilation or production claim. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0791",
       "path": "33_CODE_PATTERNS/CP-15_INITIALIZER_DI.md",
       "sha256": "7a99c76225fae3efe633829765848102fee490924472368413bc619df0e90c7d",
       "bytes": 591,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0791-U01",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-15_INITIALIZER_DI.md",
+          "source_sha256": "7a99c76225fae3efe633829765848102fee490924472368413bc619df0e90c7d",
+          "source_heading": "CP-15 — Explicit initializer dependency injection",
+          "source_fragment": "# CP-15 — Explicit initializer dependency injection",
+          "meaning": "Actual scoped consumer dependencies explicit via minimal initializer; dependency bag must not hide requirements and no blanket generic container/protocol abstraction.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual scoped consumer dependencies explicit via minimal initializer; dependency bag must not hide requirements and no blanket generic container/protocol abstraction.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Detection And Review Gates",
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-148-order-network-route-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Detection And Review Gates"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Protocol Or Concrete Dependency"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0791-U02",
+          "source_path": "canonical/33_CODE_PATTERNS/CP-15_INITIALIZER_DI.md",
+          "source_sha256": "7a99c76225fae3efe633829765848102fee490924472368413bc619df0e90c7d",
+          "source_heading": "Illustrative Swift snippet",
+          "source_fragment": "```swift",
+          "meaning": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "type": "mechanism",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_NO_INCREMENTAL_VALUE",
+          "reason": "Entire illustrative Swift implementation retained in frozen archive, no incremental operating requirement beyond current mapped contract. Sample/placeholder code is not independently compiled or app-tested, not drop-in production proof, not authorization to add actors/tasks/state machines/tests or change credentials. Keep conceptual constraints and use actual approved project seams.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "All five complete source bodies/snippets/constraints independently read; current owner semantic coverage, source SHA/literals/unique headings/prior rows/copies/mirrors/final diff/exact-SHA gates. No compiling/test/runtime evidence claimed.",
+          "evidence": "block-148-order-network-route-pattern-contracts.md",
+          "affected_routes": [
+            "ios-concurrency-runtime",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": []
+        }
+      ],
+      "disposition_reason": "Full independent ordering/network/retry/route/DI contract covered; illustrative implementation archived without unrun compilation or production claim. No source/test/runtime/session transition authority."
     },
     {
       "source_id": "LIB-0792",
