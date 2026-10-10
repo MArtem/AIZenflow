@@ -140,10 +140,10 @@ canonical bootstrap/Level 0 load the `ios-project-work-system` route and current
 `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/MANIFEST.md`
 and `PROJECT_CONTEXT.md`. ProjectID: `7aab0419-fa15-469e-96e7-9b84e21b321a`.
 Revalidate identity, source fingerprints and current user scope before using memory.
-The required first layer remains complete. For this exact selector, also read
-`./TchopApp/AGENTS.md` and its reviewed project-local Library entrypoint after this chain.
-Its canary does not inherit the BattleshipGame handler/status or grants; observe Tchop
-mode through its own matching pinned handler. Missing/stale payload yields UNKNOWN.
+For this exact selector, also read `./TchopApp/AGENTS.md` as a project overlay after
+this complete KB chain. The former Library entrypoint/status/second pass is retired.
+Historical canary records do not select a read pass or restore grants; saved modes are
+unchanged and unobserved here. Missing/stale project identity or memory remains UNKNOWN.
 This entrypoint grants no runtime, tests, agents/MCP, library mode, Git or new task scope.
 Preserve paused app follow-ups and human decisions; no activation follows from memory.
 

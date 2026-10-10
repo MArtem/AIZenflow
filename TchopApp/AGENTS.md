@@ -1,30 +1,26 @@
-# Tchop — IOS Library canary overlay
+# Tchop — project overlay
 
-Applies only to exact `TchopApp.xcodeproj` in this active repository. Apply root AGENTS,
-canonical bootstrap, current user rules/task state and local KB first. The user selected
-bounded canary B in new-task-be0b and allows Library switching during the improvement
-plan; this file supplies no grant and must not replay history or activate another project.
+Applies only to exact `TchopApp.xcodeproj` in this active repository, including its
+TchopApp/TchopAppOcean consumers. Root: `/Users/Artem/.zenflow/worktrees/knowledge-base-next`.
+ProjectID: `7aab0419-fa15-469e-96e7-9b84e21b321a`.
+Apply root AGENTS, canonical bootstrap, current user rules/task state and selected KB
+routes first; load current canonical Tchop manifest/context through the existing
+`ios-project-work-system` route. Revalidate identity/freshness/current permissions.
+This overlay cannot weaken the complete KB chain or activate another project.
 
-Copy-only payload: `./IOSLibrary/`, exact canonical pin `3c42e490e82866eee0f303d6340452dbf9fff5eb`;
-34 regular non-executable files, aggregate `526c7b0238fd66572ef260813891562ccadcc7329a26fc25b096ac16574f641e` under the pinned manifest encoding.
-Experimental canary, not a release/installer/skill or global Codex configuration.
-Read `./IOSLibrary/STARTUP_RULE.md` once per chat after the local chain.
-Root: `/Users/Artem/.zenflow/worktrees/knowledge-base-next`; selector: `TchopApp.xcodeproj`.
-Both TchopApp/TchopAppOcean belong to this one selector/mode. Never inherit BG status.
-Before any handler use verify SHA-256 `6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d`;
-mismatch/root change yields UNKNOWN, full KB work and withheld second layer.
+## Retired Library entrypoint — 2026-10-11
 
-Read-only exact status command from repository root:
+Task `kb-unification-2026-10-09` retires this overlay's separate Library startup/status/
+second-pass instructions. `./IOSLibrary/` is retained as inactive historical reference;
+it is not normal task input, installed skill, release or global Codex configuration.
+Original exact payload/pin/handler metadata and overlay are preserved in the
+[frozen task snapshot](../.zenflow/tasks/kb-unification-2026-10-09/archive/library-snapshot/README.md).
+No automatic status command, ON/OFF choice or supporting Library pass is required.
+Saved mode not changed or inspected; historical ON/AUTO does not imply current observation.
+Any future handler lookup/transition/experiment needs concrete current human authority.
+Never borrow BattleshipGame mode/status/grants; do not repair/delete records or replay writes.
 
-```text
-python3 -B ./TchopApp/IOSLibrary/tools/reference_mode.py status --root /Users/Artem/.zenflow/worktrees/knowledge-base-next --project TchopApp.xcodeproj
-```
-
-Display observed ON/AUTO, ON/ADVISORY, OFF, UNSET/invalid or UNKNOWN. Valid ON adds
-only its scoped second-layer pass after KB; OFF/unknown keeps the complete first layer.
-Other project modes and grants are independent. Linked worktrees of this exact project
-share the existing common-dir identity; no old checkout/branch files are edited.
-Mode/profile changes require current human authority; absent/invalid records are never
-repaired/deleted, recover remains disabled. No startup replay of write commands.
-No source/test/runtime/build/agent/MCP/network/Git/host/signing/release permission
-comes from this overlay or ON. Current human grants remain authoritative.
+No app source/test/runtime/build/agent/MCP/network/Git/host/signing/release permission
+comes from this overlay, historical record or memory. Current human grants alone govern.
+Preserve paused app follow-ups, human decisions and foreign changes; missing/stale
+identity/context stays explicit UNKNOWN, never a fabricated project or successful check.

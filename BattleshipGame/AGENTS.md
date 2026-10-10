@@ -1,49 +1,32 @@
-# BattleshipGame — IOS Library pilot overlay
+# BattleshipGame — project overlay
 
-This file applies only to `BattleshipGame/`. Apply the repository-root `AGENTS.md`, canonical
-bootstrap, current user instructions, task state and relevant local knowledge **first**. This
-pilot overlay cannot weaken their permissions or activate IOS Library for another Xcode project.
+Applies only to `BattleshipGame/` and exact selector
+`BattleshipGame/BattleshipGame.xcodeproj` in
+`/Users/Artem/.zenflow/worktrees/knowledge-base-next`.
+Apply root AGENTS, canonical bootstrap, current user rules/task state and selected KB
+routes first. This overlay cannot weaken those permissions or activate another project.
 
-The copy-only payload is `./IOSLibrary/`, matched to canonical documentation revision
-`3c42e490e82866eee0f303d6340452dbf9fff5eb`. Its 34-file aggregate SHA-256 is
-`526c7b0238fd66572ef260813891562ccadcc7329a26fc25b096ac16574f641e` under
-[the pinned manifest's aggregate identity encoding](https://github.com/MArtem/AIZenflowDocumentation/blob/3c42e490e82866eee0f303d6340452dbf9fff5eb/reusable/ios-engineering-library/reference-copy-only/CONTENT_MANIFEST.md#aggregate-identity-encoding).
-The manifest is distribution metadata, not an extra payload file. This is an experimental pilot, not a release or
-permission to install skills, change Codex settings, run builds/tests/agents, or mutate Git.
+## Retired Library entrypoint — 2026-10-11
 
-After the local chain, read `./IOSLibrary/STARTUP_RULE.md` once per chat. For this worktree the
-exact project selector is `BattleshipGame/BattleshipGame.xcodeproj` and the repository root is
-`/Users/Artem/.zenflow/worktrees/knowledge-base-next`. Before running the copied mode script,
-compare its SHA-256 to
-`6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d` using a read-only
-hash check. If the hash differs, or this checkout moves, do not execute it; show `UNKNOWN` and
-continue the complete local workflow as OFF until the pilot is reviewed again.
-
-For a matching script, run this read-only status check from the repository root:
-
-```text
-python3 -B ./BattleshipGame/IOSLibrary/tools/reference_mode.py status --root /Users/Artem/.zenflow/worktrees/knowledge-base-next --project BattleshipGame/BattleshipGame.xcodeproj
-```
-
-Show `IOS Library: ON/AUTO`, `ON/ADVISORY`, `OFF`, `UNSET/invalid`, or `UNKNOWN` in meaningful
-status reports. Only a valid ON record enables the
-additive reference pass after the local pass at each applicable task stage. A failed status
-command is `UNKNOWN`, never ON. A new chat must not replay a previous write command; mode or
-profile changes require the user's explicit current request.
-
-This overlay authorizes only read-only mode lookup and already-authorized in-session review.
-No client build, test, Simulator, network, Git, dependency, signing, release, Codex-host, auth or
-Keychain action follows from IOS Library ON.
+Task `kb-unification-2026-10-09` retires this overlay's separate Library startup/status/
+second-pass instructions. `./IOSLibrary/` remains inactive historical reference.
+Original exact payload/pin/handler metadata and overlay are preserved in the
+[frozen task snapshot](../.zenflow/tasks/kb-unification-2026-10-09/archive/library-snapshot/README.md).
+No automatic status command, ON/OFF choice or supporting Library pass is required.
+Saved mode not changed or inspected; historical ON/AUTO is not a current observation.
+Any future lookup/transition/experiment needs exact current human authority. Never
+replay writes, repair/delete records or borrow Tchop mode/status/evidence/grants.
+No source/tests/runtime/build/Simulator/network/Git/dependency/signing/release/host/auth/
+Keychain/agent/MCP permissions follow from this overlay or historical Library mode.
 
 ## iOS project work-system entrypoint
 <!-- AIZENFLOW_IOS_PROJECT_WORK_SYSTEM_V1 -->
-For tasks concerning this exact project, after root bootstrap/Level 0 load the canonical
-`ios-project-work-system` route and the current app manifest/context under
+After root bootstrap/Level0 load the canonical `ios-project-work-system` route and
+current manifest/context under
 `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/BattleshipGame/`.
-ProjectID: `6a655f50-2a48-49df-9b5a-bdff693564de`; selector:
-`BattleshipGame/BattleshipGame.xcodeproj` in this active repository.
-Revalidate association, freshness and current permissions before using memory. Apply
-mandatory KB work first, then the existing approved library pass when current status is ON.
-This entrypoint changes no library mode/payload and grants no source, tests, runtime,
-agent/MCP, engine adoption or Git authority. A missing/stale identity/context is reported
-explicitly; do not copy another app, repair status or invent facts.
+ProjectID: `6a655f50-2a48-49df-9b5a-bdff693564de`.
+Revalidate association/freshness/current permissions before using memory; one selected
+KB chain owns preparation, implementation and final review. This entrypoint changes
+no payload/handler/state/profile and grants no new task, source/tests/runtime/agent/MCP/
+engine-adoption or Git authority. Missing/stale identity/context remains UNKNOWN;
+preserve existing human decisions and foreign changes, never copy another app's facts.
