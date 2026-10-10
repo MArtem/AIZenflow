@@ -163325,9 +163325,80 @@
       "path": "source-meta/PROMPT_CONVENTIONS.md",
       "sha256": "5555b6ca66f6043d8338b3cf0e750f386a25bd2d3c193873b3df5698c3e8d977",
       "bytes": 1932,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1075-U01",
+          "source_path": "canonical/source-meta/PROMPT_CONVENTIONS.md",
+          "source_sha256": "5555b6ca66f6043d8338b3cf0e750f386a25bd2d3c193873b3df5698c3e8d977",
+          "source_heading": "Как писать эффективные prompts для iOS coding agent",
+          "source_fragment": "# Как писать эффективные prompts для iOS coding agent",
+          "meaning": "Relevant inspected context, observable outcome, actual API/dependency/resource restrictions, existing ownership/invariants, minimal diff and thematic risks/evidence/report. Prompt example to add tests/run checks does not authorize them; standalone prompt shell/skill ID wrapper archived.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Relevant inspected context, observable outcome, actual API/dependency/resource restrictions, existing ownership/invariants, minimal diff and thematic risks/evidence/report. Prompt example to add tests/run checks does not authorize them; standalone prompt shell/skill ID wrapper archived.",
+          "destination_path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "destination_heading": "Checklist; Stop Rule",
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Как писать эффективные prompts для iOS coding agent\n\n1. **Дай контекст репозитория, а не энциклопедию.** Укажи deployment target, Swift mode, UI stack, архитектуру и testing conventions.\n2. **Сформулируй observable outcome.** Не \"улучши код\", а \"устрани race, сохрани API, добавь тест, не меняй UI\".\n3. **Назови ограничения.** Не добавлять dependencies, не менять public API, minimum iOS, performance budget.\n4. **Потребуй инспекцию существующего кода.** Агент должен найти аналоги и ownership перед созданием новых abstraction.\n5. **Попроси проверку, не уверенность.** \"Запусти build/tests\" лучше, чем \"убедись\".\n6. **Попроси минимальный diff.** Это резко снижает регрессионный риск.\n7. **Дай тематический quality gate.** Для networking — cancellation/retry/idempotency; для SwiftUI — state/identity; для persistence — migrations/integrity.\n8. **Зафиксируй формат результата.** Changed files, rationale, verification, risks.\n\n## Универсальная оболочка\n```text\nКонтекст: <project context>.\nЗадача: <observable outcome>.\nОграничения: <deployment/API/dependency/diff constraints>.\nПеред кодом: изучи существующую реализацию и назови инварианты.\nРеализация: следуй QUALITY_STANDARD.md и skill <ID>.\nПроверка: build + релевантные tests + тематические checks.\nОтвет: изменения по файлам, решения, проверки, риски/непроверенное.\n```"
+          ]
+        },
+        {
+          "unit_id": "LIB-1075-U02",
+          "source_path": "canonical/source-meta/PROMPT_CONVENTIONS.md",
+          "source_sha256": "5555b6ca66f6043d8338b3cf0e750f386a25bd2d3c193873b3df5698c3e8d977",
+          "source_heading": "Как писать эффективные prompts для iOS coding agent",
+          "source_fragment": "# Как писать эффективные prompts для iOS coding agent",
+          "meaning": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Как писать эффективные prompts для iOS coding agent\n\n1. **Дай контекст репозитория, а не энциклопедию.** Укажи deployment target, Swift mode, UI stack, архитектуру и testing conventions.\n2. **Сформулируй observable outcome.** Не \"улучши код\", а \"устрани race, сохрани API, добавь тест, не меняй UI\".\n3. **Назови ограничения.** Не добавлять dependencies, не менять public API, minimum iOS, performance budget.\n4. **Потребуй инспекцию существующего кода.** Агент должен найти аналоги и ownership перед созданием новых abstraction.\n5. **Попроси проверку, не уверенность.** \"Запусти build/tests\" лучше, чем \"убедись\".\n6. **Попроси минимальный diff.** Это резко снижает регрессионный риск.\n7. **Дай тематический quality gate.** Для networking — cancellation/retry/idempotency; для SwiftUI — state/identity; для persistence — migrations/integrity.\n8. **Зафиксируй формат результата.** Changed files, rationale, verification, risks.\n\n## Универсальная оболочка\n```text\nКонтекст: <project context>.\nЗадача: <observable outcome>.\nОграничения: <deployment/API/dependency/diff constraints>.\nПеред кодом: изучи существующую реализацию и назови инварианты.\nРеализация: следуй QUALITY_STANDARD.md и skill <ID>.\nПроверка: build + релевантные tests + тематические checks.\nОтвет: изменения по файлам, решения, проверки, риски/непроверенное.\n```"
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful task context, scoped inspection, review severity, security, selective loading, bounded architecture and version-evidence contracts covered. Historical prompt/router/template labels and execution demands archived; dated examples not adopted as current facts."
     },
     {
       "source_id": "LIB-1076",
@@ -163343,54 +163414,486 @@
       "path": "source-meta/REPOSITORY_INSPECTION_PROTOCOL.md",
       "sha256": "5b58b3db5bc99354f61014cd84bd1f50b09b014ee5c3f4630979d237bf4cf8b6",
       "bytes": 2814,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1077-U01",
+          "source_path": "canonical/source-meta/REPOSITORY_INSPECTION_PROTOCOL.md",
+          "source_sha256": "5b58b3db5bc99354f61014cd84bd1f50b09b014ee5c3f4630979d237bf4cf8b6",
+          "source_heading": "Repository Inspection Protocol",
+          "source_fragment": "# Repository Inspection Protocol",
+          "meaning": "Inspect task-relevant actual target/toolchain/CI and existing analogues without treating folders as architecture; trace mutable-state/effect/storage/output owners, actor/lifetime/cancellation/error/cache and affected direct/reverse/public/generated/serialization consumers. Existing test/operation maps are evidence inputs, no extra mandatory broad pass or execution grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Inspect task-relevant actual target/toolchain/CI and existing analogues without treating folders as architecture; trace mutable-state/effect/storage/output owners, actor/lifetime/cancellation/error/cache and affected direct/reverse/public/generated/serialization consumers. Existing test/operation maps are evidence inputs, no extra mandatory broad pass or execution grant.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 4. Final Adversarial Review",
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Reproducibility And CI"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Repository Inspection Protocol\n\nЦель — заставить coding agent понять реальный проект до генерации кода.\n\n## Шаг 1. Карта репозитория\nНайди:\n- `.xcworkspace`, `.xcodeproj`, `Package.swift`;\n- app/framework/extension/test targets;\n- schemes и CI entry points;\n- `project.yml`, `Tuist`, `Package.swift`, CocoaPods/Cartfile при наличии;\n- lint/format/build scripts;\n- `AGENTS.md`, contributing docs, architecture ADRs.\n\n## Шаг 2. Toolchain и platform contract\nОпредели:\n- Swift language version;\n- Xcode/SDK pinning;\n- iOS/iPadOS/watchOS/visionOS/macOS deployment targets;\n- strict concurrency settings/upcoming features;\n- warnings-as-errors, sanitizers, test plans.\n\n## Шаг 3. Найди «локальный пример»\nДля любой новой сущности сначала ищи 1–3 существующих аналога:\n- screen/view model/feature;\n- endpoint/auth flow;\n- persistence model/migration;\n- background task;\n- dependency injection;\n- test fixture.\n\nЛокальная consistency предпочтительнее абстрактного «best practice», пока она не нарушает correctness/security.\n\n## Шаг 4. Source-of-truth map\nДля затронутой feature нарисуй текстовую цепочку:\n`Input/Event → Owner of mutable state → Transformation/effect → Persistence/network → UI/output`.\n\nОтметь:\n- кто мутирует state;\n- actor/thread boundary;\n- lifetime;\n- cancellation owner;\n- error mapping;\n- caching/invalidation.\n\n## Шаг 5. Dependency map\nНайди прямые и обратные зависимости изменяемого типа/API. Для public/shared API обязательно ищи:\n- all call sites;\n- conformances;\n- mocks/fakes;\n- Objective-C exposure;\n- extensions/widgets/watch/App Clip;\n- serialization/storage coupling.\n\n## Шаг 6. Test map\nОпредели:\n- ближайшие unit/integration/UI tests;\n- test doubles;\n- fixtures;\n- clocks/random/UUID abstractions;\n- CI test plan;\n- flaky/quarantined tests.\n\n## Шаг 7. Operational map\nПроверь:\n- logs/signposts/metrics;\n- crash SDK;\n- analytics/feature flags;\n- rollout/kill switch;\n- migration telemetry.\n\n## Anti-patterns\n- начать писать новый `Service` до поиска существующего;\n- считать имя папки архитектурным контрактом;\n- рефакторить соседний код «заодно»;\n- копировать паттерн из другого проекта, игнорируя текущий deployment target;\n- ориентироваться только на один файл, не читая consumer/producer boundary."
+          ]
+        },
+        {
+          "unit_id": "LIB-1077-U02",
+          "source_path": "canonical/source-meta/REPOSITORY_INSPECTION_PROTOCOL.md",
+          "source_sha256": "5b58b3db5bc99354f61014cd84bd1f50b09b014ee5c3f4630979d237bf4cf8b6",
+          "source_heading": "Repository Inspection Protocol",
+          "source_fragment": "# Repository Inspection Protocol",
+          "meaning": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Repository Inspection Protocol\n\nЦель — заставить coding agent понять реальный проект до генерации кода.\n\n## Шаг 1. Карта репозитория\nНайди:\n- `.xcworkspace`, `.xcodeproj`, `Package.swift`;\n- app/framework/extension/test targets;\n- schemes и CI entry points;\n- `project.yml`, `Tuist`, `Package.swift`, CocoaPods/Cartfile при наличии;\n- lint/format/build scripts;\n- `AGENTS.md`, contributing docs, architecture ADRs.\n\n## Шаг 2. Toolchain и platform contract\nОпредели:\n- Swift language version;\n- Xcode/SDK pinning;\n- iOS/iPadOS/watchOS/visionOS/macOS deployment targets;\n- strict concurrency settings/upcoming features;\n- warnings-as-errors, sanitizers, test plans.\n\n## Шаг 3. Найди «локальный пример»\nДля любой новой сущности сначала ищи 1–3 существующих аналога:\n- screen/view model/feature;\n- endpoint/auth flow;\n- persistence model/migration;\n- background task;\n- dependency injection;\n- test fixture.\n\nЛокальная consistency предпочтительнее абстрактного «best practice», пока она не нарушает correctness/security.\n\n## Шаг 4. Source-of-truth map\nДля затронутой feature нарисуй текстовую цепочку:\n`Input/Event → Owner of mutable state → Transformation/effect → Persistence/network → UI/output`.\n\nОтметь:\n- кто мутирует state;\n- actor/thread boundary;\n- lifetime;\n- cancellation owner;\n- error mapping;\n- caching/invalidation.\n\n## Шаг 5. Dependency map\nНайди прямые и обратные зависимости изменяемого типа/API. Для public/shared API обязательно ищи:\n- all call sites;\n- conformances;\n- mocks/fakes;\n- Objective-C exposure;\n- extensions/widgets/watch/App Clip;\n- serialization/storage coupling.\n\n## Шаг 6. Test map\nОпредели:\n- ближайшие unit/integration/UI tests;\n- test doubles;\n- fixtures;\n- clocks/random/UUID abstractions;\n- CI test plan;\n- flaky/quarantined tests.\n\n## Шаг 7. Operational map\nПроверь:\n- logs/signposts/metrics;\n- crash SDK;\n- analytics/feature flags;\n- rollout/kill switch;\n- migration telemetry.\n\n## Anti-patterns\n- начать писать новый `Service` до поиска существующего;\n- считать имя папки архитектурным контрактом;\n- рефакторить соседний код «заодно»;\n- копировать паттерн из другого проекта, игнорируя текущий deployment target;\n- ориентироваться только на один файл, не читая consumer/producer boundary."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful task context, scoped inspection, review severity, security, selective loading, bounded architecture and version-evidence contracts covered. Historical prompt/router/template labels and execution demands archived; dated examples not adopted as current facts."
     },
     {
       "source_id": "LIB-1078",
       "path": "source-meta/REVIEW_SEVERITY_STANDARD.md",
       "sha256": "f4787ac4ee4e2e677ec71b0469a5cda7163b6f730cd584bcf7b6850865308e2b",
       "bytes": 970,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1078-U01",
+          "source_path": "canonical/source-meta/REVIEW_SEVERITY_STANDARD.md",
+          "source_sha256": "f4787ac4ee4e2e677ec71b0469a5cda7163b6f730cd584bcf7b6850865308e2b",
+          "source_heading": "Review Severity Standard",
+          "source_fragment": "# Review Severity Standard",
+          "meaning": "Severity from concrete impact, applicability and evidence confidence separately; exact location/invariant/trigger/failure/minimal fix and permitted verification gap. Meaningful correctness/data/security/privacy/availability/lifetime/performance defects, no inflated style-only findings; historical named severity taxonomy not replacement for current P-level gate or test-writing authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Severity from concrete impact, applicability and evidence confidence separately; exact location/invariant/trigger/failure/minimal fix and permitted verification gap. Meaningful correctness/data/security/privacy/availability/lifetime/performance defects, no inflated style-only findings; historical named severity taxonomy not replacement for current P-level gate or test-writing authority.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Finding Applicability And Adjudication; Severity Policy; Required Audit/Review Output",
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy",
+                "Required Audit/Review Output"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+              "headings": [
+                "Severity",
+                "Required Finding Format"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Review Severity Standard\n\n## Blocker\nLikely crash, data loss/corruption, auth/security bypass, privacy violation, broken migration, payment/release blocker, deterministic race or broken public contract.\n\n## High\nSubstantial correctness failure, stale state, retry duplication, leak with meaningful growth, severe accessibility regression, likely production hang/performance collapse.\n\n## Medium\nReal bug or maintenance risk with bounded blast radius; missing error/cancellation path; fragile identity/state ownership; insufficient tests for a changed contract.\n\n## Low\nActionable local improvement with measurable benefit. Do not report mere stylistic preference if formatter/linter owns it.\n\n## Finding format\nEach finding must contain:\n1. severity;\n2. exact location;\n3. violated invariant;\n4. concrete failure scenario;\n5. minimal fix;\n6. test that would catch it.\n\nDo not inflate severity. Do not produce generic praise or style lists when user asked for defects."
+          ]
+        },
+        {
+          "unit_id": "LIB-1078-U02",
+          "source_path": "canonical/source-meta/REVIEW_SEVERITY_STANDARD.md",
+          "source_sha256": "f4787ac4ee4e2e677ec71b0469a5cda7163b6f730cd584bcf7b6850865308e2b",
+          "source_heading": "Review Severity Standard",
+          "source_fragment": "# Review Severity Standard",
+          "meaning": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Review Severity Standard\n\n## Blocker\nLikely crash, data loss/corruption, auth/security bypass, privacy violation, broken migration, payment/release blocker, deterministic race or broken public contract.\n\n## High\nSubstantial correctness failure, stale state, retry duplication, leak with meaningful growth, severe accessibility regression, likely production hang/performance collapse.\n\n## Medium\nReal bug or maintenance risk with bounded blast radius; missing error/cancellation path; fragile identity/state ownership; insufficient tests for a changed contract.\n\n## Low\nActionable local improvement with measurable benefit. Do not report mere stylistic preference if formatter/linter owns it.\n\n## Finding format\nEach finding must contain:\n1. severity;\n2. exact location;\n3. violated invariant;\n4. concrete failure scenario;\n5. minimal fix;\n6. test that would catch it.\n\nDo not inflate severity. Do not produce generic praise or style lists when user asked for defects."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful task context, scoped inspection, review severity, security, selective loading, bounded architecture and version-evidence contracts covered. Historical prompt/router/template labels and execution demands archived; dated examples not adopted as current facts."
     },
     {
       "source_id": "LIB-1079",
       "path": "source-meta/SECURITY_PRIVACY_PROTOCOL.md",
       "sha256": "6cad0cd05f62c04f90f94c682fb8e1facb1231b091a36107e827953bb8f9bb51",
       "bytes": 754,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1079-U01",
+          "source_path": "canonical/source-meta/SECURITY_PRIVACY_PROTOCOL.md",
+          "source_sha256": "6cad0cd05f62c04f90f94c682fb8e1facb1231b091a36107e827953bb8f9bb51",
+          "source_heading": "Security & Privacy Protocol",
+          "source_fragment": "# Security & Privacy Protocol",
+          "meaning": "Actual sensitive assets/trust/attacker/authorization/storage/logging/transport/SDK/retention boundaries; no credential/plaintext/log exposure or ATS/trust bypass, authorized validated deep links and ordinary denial/revocation. Actual manifest/required-reason/dependency dataflow agreement under current release scope, no execution/config or blanket compliance claim.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual sensitive assets/trust/attacker/authorization/storage/logging/transport/SDK/retention boundaries; no credential/plaintext/log exposure or ATS/trust bypass, authorized validated deep links and ordinary denial/revocation. Actual manifest/required-reason/dependency dataflow agreement under current release scope, no execution/config or blanket compliance claim.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Security Model; Threat Model Intake; Authorization Rules; Evidence",
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Security Model",
+                "Threat Model Intake",
+                "Authorization Rules",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+              "headings": [
+                "Privacy Manifest And Required-Reason APIs",
+                "SDK And Supply-Chain Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "TLS And Trust",
+                "WebKit"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Security & Privacy Protocol\n\nFor every sensitive boundary identify:\n- assets/secrets/PII;\n- trust boundary;\n- attacker capability;\n- authorization vs authentication;\n- storage lifetime;\n- logging/analytics exposure;\n- transport requirements;\n- third-party SDK data flow;\n- deletion/retention requirements.\n\n## Hard rules\n- no credentials in source/UserDefaults/plain fixtures;\n- no sensitive data in logs/breadcrumbs;\n- do not disable ATS or trust evaluation to fix networking;\n- validate deep links/universal links before privileged actions;\n- permission denial/revocation is a normal state;\n- privacy manifest must match actual collected data and required-reason API use;\n- dependency upgrade review includes privacy manifest/signature requirements."
+          ]
+        },
+        {
+          "unit_id": "LIB-1079-U02",
+          "source_path": "canonical/source-meta/SECURITY_PRIVACY_PROTOCOL.md",
+          "source_sha256": "6cad0cd05f62c04f90f94c682fb8e1facb1231b091a36107e827953bb8f9bb51",
+          "source_heading": "Security & Privacy Protocol",
+          "source_fragment": "# Security & Privacy Protocol",
+          "meaning": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Security & Privacy Protocol\n\nFor every sensitive boundary identify:\n- assets/secrets/PII;\n- trust boundary;\n- attacker capability;\n- authorization vs authentication;\n- storage lifetime;\n- logging/analytics exposure;\n- transport requirements;\n- third-party SDK data flow;\n- deletion/retention requirements.\n\n## Hard rules\n- no credentials in source/UserDefaults/plain fixtures;\n- no sensitive data in logs/breadcrumbs;\n- do not disable ATS or trust evaluation to fix networking;\n- validate deep links/universal links before privileged actions;\n- permission denial/revocation is a normal state;\n- privacy manifest must match actual collected data and required-reason API use;\n- dependency upgrade review includes privacy manifest/signature requirements."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful task context, scoped inspection, review severity, security, selective loading, bounded architecture and version-evidence contracts covered. Historical prompt/router/template labels and execution demands archived; dated examples not adopted as current facts."
     },
     {
       "source_id": "LIB-1080",
       "path": "source-meta/SKILL_ROUTER.md",
       "sha256": "c8fa88762f799735d6f2662daa0d1f6e3a56df8bb54703f9153a8f48f9ff3ef4",
       "bytes": 2136,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1080-U01",
+          "source_path": "canonical/source-meta/SKILL_ROUTER.md",
+          "source_sha256": "c8fa88762f799735d6f2662daa0d1f6e3a56df8bb54703f9153a8f48f9ff3ef4",
+          "source_heading": "Skill Router — что подключать к задаче",
+          "source_fragment": "# Skill Router — что подключать к задаче",
+          "meaning": "Load only actual task-relevant domain risks and intersecting owners, preserve current authority and evidence; do not concatenate many conflicting recipes. Source skill pointers and fixed one-plus-one cardinality/master prompt/automatic test-rollout route not mandatory Library layer or referenced-body review.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Load only actual task-relevant domain risks and intersecting owners, preserve current authority and evidence; do not concatenate many conflicting recipes. Source skill pointers and fixed one-plus-one cardinality/master prompt/automatic test-rollout route not mandatory Library layer or referenced-body review.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule",
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+              "headings": [
+                "Checklist",
+                "Stop Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Skill Router — что подключать к задаче\n\nИспользуй `MASTER_SYSTEM_PROMPT` + project context + **один основной skill**. Добавляй второй только для реального пересечения рисков.\n\n## Маршрутизация\n- **Новая feature** → Discovery/Product → Architecture/State → конкретная технология → Testing.\n- **Crash** → Crash triage → тематический skill → regression test.\n- **Race / Swift 6 errors** → Strict Concurrency Migration → Actor Isolation/Sendable/Task Lifetime.\n- **Memory leak** → Leak Diagnosis → UIKit/SwiftUI/task ownership skill по месту.\n- **Медленный UI** → Instruments Plan → Scrolling/SwiftUI list/image pipeline → Performance Gate.\n- **API/network** → HTTP Client → Auth Refresh/Retry/Pagination/Cache по необходимости.\n- **Offline/data loss** → Offline-first/Data Migrations/Persistence Concurrency.\n- **Security** → Threat Model → конкретная граница (Auth/Keychain/WebView/Deep Link/Privacy Manifest).\n- **SwiftUI** → State Ownership/Observation/View Identity; Navigation/Async UI по задаче.\n- **UIKit** → Lifecycle/Containment/Layout/Concurrency/Memory.\n- **Release** → CI/CD + Release Gate + Security/Privacy + Data Migration Gate при изменении store.\n- **AI feature** → Foundation Models/Core AI → Evaluation → Privacy → Abuse/Tool Calling.\n- **Hardware/media** → соответствующий Media/System skill + lifecycle/permission/performance checks.\n- **Legacy migration** → Migration skill + compatibility tests + staged rollout/rollback.\n- **PR review** → General Code Review + один тематический review (Concurrency/Security/SwiftUI/Performance).\n\n## Не делай\nНе подключай 10–20 skills одновременно: модель начинает выполнять конфликтующие локальные инструкции и хуже замечает реальные инварианты проекта."
+          ]
+        },
+        {
+          "unit_id": "LIB-1080-U02",
+          "source_path": "canonical/source-meta/SKILL_ROUTER.md",
+          "source_sha256": "c8fa88762f799735d6f2662daa0d1f6e3a56df8bb54703f9153a8f48f9ff3ef4",
+          "source_heading": "Skill Router — что подключать к задаче",
+          "source_fragment": "# Skill Router — что подключать к задаче",
+          "meaning": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Skill Router — что подключать к задаче\n\nИспользуй `MASTER_SYSTEM_PROMPT` + project context + **один основной skill**. Добавляй второй только для реального пересечения рисков.\n\n## Маршрутизация\n- **Новая feature** → Discovery/Product → Architecture/State → конкретная технология → Testing.\n- **Crash** → Crash triage → тематический skill → regression test.\n- **Race / Swift 6 errors** → Strict Concurrency Migration → Actor Isolation/Sendable/Task Lifetime.\n- **Memory leak** → Leak Diagnosis → UIKit/SwiftUI/task ownership skill по месту.\n- **Медленный UI** → Instruments Plan → Scrolling/SwiftUI list/image pipeline → Performance Gate.\n- **API/network** → HTTP Client → Auth Refresh/Retry/Pagination/Cache по необходимости.\n- **Offline/data loss** → Offline-first/Data Migrations/Persistence Concurrency.\n- **Security** → Threat Model → конкретная граница (Auth/Keychain/WebView/Deep Link/Privacy Manifest).\n- **SwiftUI** → State Ownership/Observation/View Identity; Navigation/Async UI по задаче.\n- **UIKit** → Lifecycle/Containment/Layout/Concurrency/Memory.\n- **Release** → CI/CD + Release Gate + Security/Privacy + Data Migration Gate при изменении store.\n- **AI feature** → Foundation Models/Core AI → Evaluation → Privacy → Abuse/Tool Calling.\n- **Hardware/media** → соответствующий Media/System skill + lifecycle/permission/performance checks.\n- **Legacy migration** → Migration skill + compatibility tests + staged rollout/rollback.\n- **PR review** → General Code Review + один тематический review (Concurrency/Security/SwiftUI/Performance).\n\n## Не делай\nНе подключай 10–20 skills одновременно: модель начинает выполнять конфликтующие локальные инструкции и хуже замечает реальные инварианты проекта."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful task context, scoped inspection, review severity, security, selective loading, bounded architecture and version-evidence contracts covered. Historical prompt/router/template labels and execution demands archived; dated examples not adopted as current facts."
     },
     {
       "source_id": "LIB-1081",
       "path": "source-meta/STAFF_DECISION_FRAMEWORK.md",
       "sha256": "dff5774a312c9e7764892a3723d6ccaa8911511c2fb78218c5a088ca34b5bc3b",
       "bytes": 944,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1081-U01",
+          "source_path": "canonical/source-meta/STAFF_DECISION_FRAMEWORK.md",
+          "source_sha256": "dff5774a312c9e7764892a3723d6ccaa8911511c2fb78218c5a088ca34b5bc3b",
+          "source_heading": "Staff/Principal Decision Framework",
+          "source_fragment": "# Staff/Principal Decision Framework",
+          "meaning": "Choose actual bounded alternatives by correctness, complexity/amplification, testability, isolation/ownership, measurable performance, privacy/compatibility/operability/team fit. No arbitrary protocols/repository wrappers/global dependency hiding/reducer/actor/observable bus without invariant and consumer benefit; fixed scoring form not architecture mandate.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Choose actual bounded alternatives by correctness, complexity/amplification, testability, isolation/ownership, measurable performance, privacy/compatibility/operability/team fit. No arbitrary protocols/repository wrappers/global dependency hiding/reducer/actor/observable bus without invariant and consumer benefit; fixed scoring form not architecture mandate.",
+          "destination_path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "destination_heading": "Invariants Before Style; Architecture Selection Priorities; Stop List",
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Invariants Before Style",
+                "Architecture Selection Priorities",
+                "Stop List"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template",
+                "Bounded Investigation And Migration"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Staff/Principal Decision Framework\n\nFor non-trivial decisions score each candidate 1–5 on:\n- correctness robustness;\n- conceptual complexity;\n- change amplification;\n- testability;\n- concurrency clarity;\n- ownership/lifetime clarity;\n- performance predictability;\n- security/privacy;\n- migration/rollback;\n- team familiarity;\n- operability/debuggability.\n\nDo not choose the solution with the most abstraction. Choose the one with the best long-term risk-adjusted cost.\n\n## Architectural smell checks\n- abstraction has one implementation and no volatile boundary;\n- view model owns navigation + networking + storage + analytics + formatting;\n- repository merely renames service methods;\n- global DI container hides dependencies;\n- protocol exists only to mock everything;\n- reducer/effect architecture used for trivial state;\n- Observable singleton is used as app-wide mutable event bus;\n- actor is added without defining invariant it owns."
+          ]
+        },
+        {
+          "unit_id": "LIB-1081-U02",
+          "source_path": "canonical/source-meta/STAFF_DECISION_FRAMEWORK.md",
+          "source_sha256": "dff5774a312c9e7764892a3723d6ccaa8911511c2fb78218c5a088ca34b5bc3b",
+          "source_heading": "Staff/Principal Decision Framework",
+          "source_fragment": "# Staff/Principal Decision Framework",
+          "meaning": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Staff/Principal Decision Framework\n\nFor non-trivial decisions score each candidate 1–5 on:\n- correctness robustness;\n- conceptual complexity;\n- change amplification;\n- testability;\n- concurrency clarity;\n- ownership/lifetime clarity;\n- performance predictability;\n- security/privacy;\n- migration/rollback;\n- team familiarity;\n- operability/debuggability.\n\nDo not choose the solution with the most abstraction. Choose the one with the best long-term risk-adjusted cost.\n\n## Architectural smell checks\n- abstraction has one implementation and no volatile boundary;\n- view model owns navigation + networking + storage + analytics + formatting;\n- repository merely renames service methods;\n- global DI container hides dependencies;\n- protocol exists only to mock everything;\n- reducer/effect architecture used for trivial state;\n- Observable singleton is used as app-wide mutable event bus;\n- actor is added without defining invariant it owns."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful task context, scoped inspection, review severity, security, selective loading, bounded architecture and version-evidence contracts covered. Historical prompt/router/template labels and execution demands archived; dated examples not adopted as current facts."
     },
     {
       "source_id": "LIB-1082",
       "path": "source-meta/START_HERE.md",
       "sha256": "8b56a131116d488ea5d2be035cc3c9558005c0b8931c5d8032b25bc153fa029b",
       "bytes": 1910,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1082-U01",
+          "source_path": "canonical/source-meta/START_HERE.md",
+          "source_sha256": "8b56a131116d488ea5d2be035cc3c9558005c0b8931c5d8032b25bc153fa029b",
+          "source_heading": "START HERE — V2",
+          "source_fragment": "# START HERE — V2",
+          "meaning": "Task-relevant inspected ownership/lifetime/consumer/toolchain/negative evidence, observed versus reasoned versus unknown claims; no unsafe weakening to make green, current strict DEC-001 governs. Historical startup stack/extra Library playbooks/fixed labels and available-check execution imperative archived, no actual mode transition.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Task-relevant inspected ownership/lifetime/consumer/toolchain/negative evidence, observed versus reasoned versus unknown claims; no unsafe weakening to make green, current strict DEC-001 governs. Historical startup stack/extra Library playbooks/fixed labels and available-check execution imperative archived, no actual mode transition.",
+          "destination_path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+          "destination_heading": "Agent Loading Rule",
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# START HERE — V2\n\n## Default operating stack\nFor a real repository task provide the agent with:\n1. `MASTER_SYSTEM_PROMPT.md`\n2. `V2_EXECUTION_PROTOCOL.md`\n3. `PROJECT_CONTEXT_TEMPLATE.md` (filled or discoverable from repo)\n4. one primary `OP-IOS-*` Deep Playbook\n5. at most 1–2 supporting playbooks when risks genuinely intersect\n\nDo **not** concatenate dozens of skills. Deep Playbooks already import the common quality/evidence rules.\n\n## Choose a mode\n- **IMPLEMENTATION** — new/changed behavior.\n- **REVIEW** — PR/diff/architecture/security/performance audit.\n- **DIAGNOSTIC** — crash/race/hang/leak/flaky/perf/data/network investigation.\n- **MIGRATION** — Swift 6, UIKit→SwiftUI, Observation, persistence, dependencies, modularization, CI, etc.\n\n## Before code\nThe agent must perform repository inspection and record:\n- toolchain/deployment;\n- source of truth;\n- mutable-state/resource owner;\n- actor/task/lifecycle boundaries;\n- call sites/blast radius;\n- relevant tests and CI commands;\n- R0–R4 risk;\n- invariants and most dangerous negative path.\n\n## After code\nThe agent must execute available verification and report:\n- `Verified` — observed build/test/instrument evidence;\n- `Reasoned` — static/design conclusions not executed;\n- `Unknown` — not verified.\n\n## Fast routes\n- Common task → `32_AGENT_PROMPTS_V2/PROMPT_INDEX.md`.\n- Technology-specific deep reasoning → `31_DEEP_PLAYBOOKS/OP-IOS-*.md`.\n- Code idiom/reference → `33_CODE_PATTERNS/CODE_PATTERN_INDEX.md`.\n- Merge/release audit → `34_AUDIT_GATES/AUDIT_GATE_INDEX.md`.\n- Investigation/migration/report skeleton → `35_ENGINEERING_TEMPLATES_V2/TEMPLATE_INDEX.md`.\n\n## Hard stop\nNever weaken ATS/trust/auth/privacy, destroy a production store, remove migration compatibility, or introduce `@unchecked Sendable` merely to make a build green. Escalate risk, collect evidence, and design a safe boundary instead."
+          ]
+        },
+        {
+          "unit_id": "LIB-1082-U02",
+          "source_path": "canonical/source-meta/START_HERE.md",
+          "source_sha256": "8b56a131116d488ea5d2be035cc3c9558005c0b8931c5d8032b25bc153fa029b",
+          "source_heading": "START HERE — V2",
+          "source_fragment": "# START HERE — V2",
+          "meaning": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical standalone prompt/template/router labels and fixed procedural recipes archived; useful actual scoped contracts remain in existing KB owners. No automatic execution/test-writing, mandatory Library pass, profile creation, adoption or mode grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# START HERE — V2\n\n## Default operating stack\nFor a real repository task provide the agent with:\n1. `MASTER_SYSTEM_PROMPT.md`\n2. `V2_EXECUTION_PROTOCOL.md`\n3. `PROJECT_CONTEXT_TEMPLATE.md` (filled or discoverable from repo)\n4. one primary `OP-IOS-*` Deep Playbook\n5. at most 1–2 supporting playbooks when risks genuinely intersect\n\nDo **not** concatenate dozens of skills. Deep Playbooks already import the common quality/evidence rules.\n\n## Choose a mode\n- **IMPLEMENTATION** — new/changed behavior.\n- **REVIEW** — PR/diff/architecture/security/performance audit.\n- **DIAGNOSTIC** — crash/race/hang/leak/flaky/perf/data/network investigation.\n- **MIGRATION** — Swift 6, UIKit→SwiftUI, Observation, persistence, dependencies, modularization, CI, etc.\n\n## Before code\nThe agent must perform repository inspection and record:\n- toolchain/deployment;\n- source of truth;\n- mutable-state/resource owner;\n- actor/task/lifecycle boundaries;\n- call sites/blast radius;\n- relevant tests and CI commands;\n- R0–R4 risk;\n- invariants and most dangerous negative path.\n\n## After code\nThe agent must execute available verification and report:\n- `Verified` — observed build/test/instrument evidence;\n- `Reasoned` — static/design conclusions not executed;\n- `Unknown` — not verified.\n\n## Fast routes\n- Common task → `32_AGENT_PROMPTS_V2/PROMPT_INDEX.md`.\n- Technology-specific deep reasoning → `31_DEEP_PLAYBOOKS/OP-IOS-*.md`.\n- Code idiom/reference → `33_CODE_PATTERNS/CODE_PATTERN_INDEX.md`.\n- Merge/release audit → `34_AUDIT_GATES/AUDIT_GATE_INDEX.md`.\n- Investigation/migration/report skeleton → `35_ENGINEERING_TEMPLATES_V2/TEMPLATE_INDEX.md`.\n\n## Hard stop\nNever weaken ATS/trust/auth/privacy, destroy a production store, remove migration compatibility, or introduce `@unchecked Sendable` merely to make a build green. Escalate risk, collect evidence, and design a safe boundary instead."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful task context, scoped inspection, review severity, security, selective loading, bounded architecture and version-evidence contracts covered. Historical prompt/router/template labels and execution demands archived; dated examples not adopted as current facts."
     },
     {
       "source_id": "LIB-1083",
@@ -163415,9 +163918,80 @@
       "path": "source-meta/VERSION_AVAILABILITY_POLICY.md",
       "sha256": "62a845ab943e4fcd8dd02414a075d0c927700ae2a86d23d634df7ccc1257c949",
       "bytes": 1307,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1085-U01",
+          "source_path": "canonical/source-meta/VERSION_AVAILABILITY_POLICY.md",
+          "source_sha256": "62a845ab943e4fcd8dd02414a075d0c927700ae2a86d23d634df7ccc1257c949",
+          "source_heading": "Version & Availability Policy",
+          "source_fragment": "# Version & Availability Policy",
+          "meaning": "Actual deployment/compiler/language/SDK distinct, gated compatible API/fallback and explicit beta provenance; modernization needs concrete product benefit, model/OS-dependent claims need matching current profile evidence within permission. Historical dated September2026 Swift6.4/iOS27 API examples archived without current release/availability claims.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual deployment/compiler/language/SDK distinct, gated compatible API/fallback and explicit beta provenance; modernization needs concrete product benefit, model/OS-dependent claims need matching current profile evidence within permission. Historical dated September2026 Swift6.4/iOS27 API examples archived without current release/availability claims.",
+          "destination_path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+          "destination_heading": "Required project profile; Availability and migration contract; Evidence boundary",
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+              "headings": [
+                "Required project profile",
+                "Availability and migration contract",
+                "Evidence boundary"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Version And Availability Discipline",
+                "Freshness Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Version & Availability Policy\n\n## Baseline\nThe library is 2026-oriented but project-aware. Never require the newest OS merely because a newer API exists.\n\n## Rules\n1. Read deployment target before suggesting API.\n2. Prefer modern API when it reduces bugs/complexity **and** availability fits.\n3. For newer API, define availability gate or fallback if older OS support remains required.\n4. Beta SDK/API must be labeled beta and must not silently become production baseline.\n5. Distinguish Swift language version from compiler version and SDK version.\n6. Do not perform migration only to remove deprecation warnings unless business/maintenance value justifies it.\n7. For iOS 27-era APIs, provide an older-OS path when the product still supports earlier systems.\n\n## Current forward-looking examples (September 2026)\n- Swift 6 strict concurrency remains a core safety target.\n- Swift 6.4 is still upcoming in September 2026; development-snapshot features must not be treated as universally released production baseline.\n- iOS 27-era APIs such as new MetricKit `MetricManager`/async sequences require availability handling if earlier OS versions are supported.\n- Foundation Models behavior/model capabilities can change with OS updates; prompts and evaluations must be regression-tested per OS/model profile."
+          ]
+        },
+        {
+          "unit_id": "LIB-1085-U02",
+          "source_path": "canonical/source-meta/VERSION_AVAILABILITY_POLICY.md",
+          "source_sha256": "62a845ab943e4fcd8dd02414a075d0c927700ae2a86d23d634df7ccc1257c949",
+          "source_heading": "Version & Availability Policy",
+          "source_fragment": "# Version & Availability Policy",
+          "meaning": "Historical dated September2026 Swift6.4/iOS27 MetricManager advice archived without current release/availability claim; actual deployment, beta/freshness/profile contract covered separately.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical dated September2026 Swift6.4/iOS27 MetricManager advice archived without current release/availability claim; actual deployment, beta/freshness/profile contract covered separately.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Eight complete source-meta bodies independently read; current owner semantic coverage, SHA/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. Historical recipes/defaults not executed or accepted as permission or current availability proof.",
+          "evidence": "block-171-source-meta-routing-review-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Version & Availability Policy\n\n## Baseline\nThe library is 2026-oriented but project-aware. Never require the newest OS merely because a newer API exists.\n\n## Rules\n1. Read deployment target before suggesting API.\n2. Prefer modern API when it reduces bugs/complexity **and** availability fits.\n3. For newer API, define availability gate or fallback if older OS support remains required.\n4. Beta SDK/API must be labeled beta and must not silently become production baseline.\n5. Distinguish Swift language version from compiler version and SDK version.\n6. Do not perform migration only to remove deprecation warnings unless business/maintenance value justifies it.\n7. For iOS 27-era APIs, provide an older-OS path when the product still supports earlier systems.\n\n## Current forward-looking examples (September 2026)\n- Swift 6 strict concurrency remains a core safety target.\n- Swift 6.4 is still upcoming in September 2026; development-snapshot features must not be treated as universally released production baseline.\n- iOS 27-era APIs such as new MetricKit `MetricManager`/async sequences require availability handling if earlier OS versions are supported.\n- Foundation Models behavior/model capabilities can change with OS updates; prompts and evaluations must be regression-tested per OS/model profile."
+          ]
+        }
+      ],
+      "disposition_reason": "Full source-meta body independently reviewed; useful task context, scoped inspection, review severity, security, selective loading, bounded architecture and version-evidence contracts covered. Historical prompt/router/template labels and execution demands archived; dated examples not adopted as current facts."
     },
     {
       "source_id": "LIB-1086",
