@@ -108807,27 +108807,654 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-15-08.md",
       "sha256": "bea10db53d41808cf6f092cdd69814a338bad39da471834824ff310d80a75444",
       "bytes": 7819,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0532-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-15-08.md",
+          "source_sha256": "bea10db53d41808cf6f092cdd69814a338bad39da471834824ff310d80a75444",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual authorized retrieval/index freshness/version/source-chunk citation/support/permission/per-user/offline/migration/deletion/provenance contract; no unnecessary vector DB or fabricated link.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual authorized retrieval/index freshness/version/source-chunk citation/support/permission/per-user/offline/migration/deletion/provenance contract; no unnecessary vector DB or fabricated link.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "17. RAG; 18. LOCAL RAG; 48. CITATIONS; 56. OFFLINE; 65. CACHING",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-15-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-101-ai-retrieval-abuse-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "17. RAG",
+                "18. LOCAL RAG",
+                "48. CITATIONS",
+                "56. OFFLINE",
+                "65. CACHING"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Preferences And Derived Caches",
+                "Data Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0532-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-15-08.md",
+          "source_sha256": "bea10db53d41808cf6f092cdd69814a338bad39da471834824ff310d80a75444",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Threat/negative/privacy guard at actual ingest/retrieve/user-access/exfil boundary, no RAG/tool/scan execution.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Threat/negative/privacy guard at actual ingest/retrieve/user-access/exfil boundary, no RAG/tool/scan execution.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-15-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-101-ai-retrieval-abuse-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0532-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-15-08.md",
+          "source_sha256": "bea10db53d41808cf6f092cdd69814a338bad39da471834824ff310d80a75444",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful AI body: actual model/provider/profile availability and approved requirements, prompt/tool/context budgets, sensitive on-device/cloud routing, expected validated output/dataset, tool auth/idempotency facts; untrusted output, code-owned effects, version compatibility, minimized context and required honest fallback. Structured generation narrow typed schema, bounded selective context, deterministic business rules outside generation and permitted relevant eval before optimization. Review raw text/fragile parsing/privileged effects/duplicate tools/context leaks/injection/availability/model regressions; redacted permitted versioned traces isolate availability/context/tool/prompt/model/output hypotheses. Authorized prompt/model/profile migration uses versioned dataset/thresholds/compatibility/parity/rollback and provider abstraction only actual multi-provider need. All eight failures and permission-bound structured/authorization/idempotency/negative/diagnostic evidence/output; excluded hardware omitted, classes/APIs/examples no architecture/download/provider/eval/tool grants.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful AI body: actual model/provider/profile availability and approved requirements, prompt/tool/context budgets, sensitive on-device/cloud routing, expected validated output/dataset, tool auth/idempotency facts; untrusted output, code-owned effects, version compatibility, minimized context and required honest fallback. Structured generation narrow typed schema, bounded selective context, deterministic business rules outside generation and permitted relevant eval before optimization. Review raw text/fragile parsing/privileged effects/duplicate tools/context leaks/injection/availability/model regressions; redacted permitted versioned traces isolate availability/context/tool/prompt/model/output hypotheses. Authorized prompt/model/profile migration uses versioned dataset/thresholds/compatibility/parity/rollback and provider abstraction only actual multi-provider need. All eight failures and permission-bound structured/authorization/idempotency/negative/diagnostic evidence/output; excluded hardware omitted, classes/APIs/examples no architecture/download/provider/eval/tool grants.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "7. FOUNDATION MODELS; 35. TOOL CALLING; 37. STRUCTURED OUTPUT; 38. PROMPT ENGINEERING; 39. PROMPT VERSIONING; 40. PROMPT INJECTION; 41. PRIVACY; 44. SECURITY; 50. STREAMING UX; 55. FALLBACK; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 60. MEMORY; 63. CONTEXT MANAGEMENT; 67. OBSERVABILITY; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-15-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-101-ai-retrieval-abuse-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "7. FOUNDATION MODELS",
+                "35. TOOL CALLING",
+                "37. STRUCTURED OUTPUT",
+                "38. PROMPT ENGINEERING",
+                "39. PROMPT VERSIONING",
+                "40. PROMPT INJECTION",
+                "41. PRIVACY",
+                "44. SECURITY",
+                "50. STREAMING UX",
+                "55. FALLBACK",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "60. MEMORY",
+                "63. CONTEXT MANAGEMENT",
+                "67. OBSERVABILITY",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0532-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-15-08.md",
+          "source_sha256": "bea10db53d41808cf6f092cdd69814a338bad39da471834824ff310d80a75444",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-profile/eval execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-profile/eval execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-15-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-101-ai-retrieval-abuse-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full AI common exact against fully read OP-15-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No AI/provider/agent/tool/runtime adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0533",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-15-09.md",
       "sha256": "61ef075568537f9dcf6739172f82ff61f38ab9867442d66aee8758e341332019",
       "bytes": 7849,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0533-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-15-09.md",
+          "source_sha256": "61ef075568537f9dcf6739172f82ff61f38ab9867442d66aee8758e341332019",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual input/retrieval/tool output untrusted; code-enforced schema/path/URL/auth/entity/idempotency/rate/side-effect/confirmation boundary prevents exfil/misuse/unsafe actions.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual input/retrieval/tool output untrusted; code-enforced schema/path/URL/auth/entity/idempotency/rate/side-effect/confirmation boundary prevents exfil/misuse/unsafe actions.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "35. TOOL CALLING; 40. PROMPT INJECTION; 44. SECURITY; 45. AI SAFETY; 89. USER CONFIRMATION",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-15-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-101-ai-retrieval-abuse-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "40. PROMPT INJECTION",
+                "44. SECURITY",
+                "45. AI SAFETY",
+                "89. USER CONFIRMATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0533-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-15-09.md",
+          "source_sha256": "61ef075568537f9dcf6739172f82ff61f38ab9867442d66aee8758e341332019",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full untrusted output/code-owned auth/idempotency/permitted model-OS eval trap, typed schema/model ID not action permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full untrusted output/code-owned auth/idempotency/permitted model-OS eval trap, typed schema/model ID not action permission.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "35. TOOL CALLING; 44. SECURITY; 69. EVALUATION",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-15-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-101-ai-retrieval-abuse-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0533-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-15-09.md",
+          "source_sha256": "61ef075568537f9dcf6739172f82ff61f38ab9867442d66aee8758e341332019",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful AI body: actual model/provider/profile availability and approved requirements, prompt/tool/context budgets, sensitive on-device/cloud routing, expected validated output/dataset, tool auth/idempotency facts; untrusted output, code-owned effects, version compatibility, minimized context and required honest fallback. Structured generation narrow typed schema, bounded selective context, deterministic business rules outside generation and permitted relevant eval before optimization. Review raw text/fragile parsing/privileged effects/duplicate tools/context leaks/injection/availability/model regressions; redacted permitted versioned traces isolate availability/context/tool/prompt/model/output hypotheses. Authorized prompt/model/profile migration uses versioned dataset/thresholds/compatibility/parity/rollback and provider abstraction only actual multi-provider need. All eight failures and permission-bound structured/authorization/idempotency/negative/diagnostic evidence/output; excluded hardware omitted, classes/APIs/examples no architecture/download/provider/eval/tool grants.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful AI body: actual model/provider/profile availability and approved requirements, prompt/tool/context budgets, sensitive on-device/cloud routing, expected validated output/dataset, tool auth/idempotency facts; untrusted output, code-owned effects, version compatibility, minimized context and required honest fallback. Structured generation narrow typed schema, bounded selective context, deterministic business rules outside generation and permitted relevant eval before optimization. Review raw text/fragile parsing/privileged effects/duplicate tools/context leaks/injection/availability/model regressions; redacted permitted versioned traces isolate availability/context/tool/prompt/model/output hypotheses. Authorized prompt/model/profile migration uses versioned dataset/thresholds/compatibility/parity/rollback and provider abstraction only actual multi-provider need. All eight failures and permission-bound structured/authorization/idempotency/negative/diagnostic evidence/output; excluded hardware omitted, classes/APIs/examples no architecture/download/provider/eval/tool grants.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "7. FOUNDATION MODELS; 35. TOOL CALLING; 37. STRUCTURED OUTPUT; 38. PROMPT ENGINEERING; 39. PROMPT VERSIONING; 40. PROMPT INJECTION; 41. PRIVACY; 44. SECURITY; 50. STREAMING UX; 55. FALLBACK; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 60. MEMORY; 63. CONTEXT MANAGEMENT; 67. OBSERVABILITY; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-15-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-101-ai-retrieval-abuse-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "7. FOUNDATION MODELS",
+                "35. TOOL CALLING",
+                "37. STRUCTURED OUTPUT",
+                "38. PROMPT ENGINEERING",
+                "39. PROMPT VERSIONING",
+                "40. PROMPT INJECTION",
+                "41. PRIVACY",
+                "44. SECURITY",
+                "50. STREAMING UX",
+                "55. FALLBACK",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "60. MEMORY",
+                "63. CONTEXT MANAGEMENT",
+                "67. OBSERVABILITY",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0533-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-15-09.md",
+          "source_sha256": "61ef075568537f9dcf6739172f82ff61f38ab9867442d66aee8758e341332019",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-profile/eval execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-profile/eval execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-15-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-101-ai-retrieval-abuse-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full AI common exact against fully read OP-15-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No AI/provider/agent/tool/runtime adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0534",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-15-10.md",
       "sha256": "d18574fda5664362f0ab4bea2713ce8abb01697ce155a77cac1f1b11c677a96d",
       "bytes": 7917,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0534-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-15-10.md",
+          "source_sha256": "d18574fda5664362f0ab4bea2713ce8abb01697ce155a77cac1f1b11c677a96d",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual quality/eval/privacy/security/latency/fallback/accessibility/observability affected-feature gates with explicit missing evidence, static docs not evaluated AI readiness.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual quality/eval/privacy/security/latency/fallback/accessibility/observability affected-feature gates with explicit missing evidence, static docs not evaluated AI readiness.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "41. PRIVACY; 44. SECURITY; 49. UX; 50. STREAMING UX; 55. FALLBACK; 59. PERFORMANCE; 67. OBSERVABILITY; 69. EVALUATION; 70. EVAL DATASET; 79. ACCESSIBILITY",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-15-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-101-ai-retrieval-abuse-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "41. PRIVACY",
+                "44. SECURITY",
+                "49. UX",
+                "50. STREAMING UX",
+                "55. FALLBACK",
+                "59. PERFORMANCE",
+                "67. OBSERVABILITY",
+                "69. EVALUATION",
+                "70. EVAL DATASET",
+                "79. ACCESSIBILITY"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0534-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-15-10.md",
+          "source_sha256": "d18574fda5664362f0ab4bea2713ce8abb01697ce155a77cac1f1b11c677a96d",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full traps: threat/negative/privacy; untrusted model/code auth/idempotency/permitted eval across actual model-OS change, no blanket run.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full traps: threat/negative/privacy; untrusted model/code auth/idempotency/permitted eval across actual model-OS change, no blanket run.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-15-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-101-ai-retrieval-abuse-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0534-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-15-10.md",
+          "source_sha256": "d18574fda5664362f0ab4bea2713ce8abb01697ce155a77cac1f1b11c677a96d",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful AI body: actual model/provider/profile availability and approved requirements, prompt/tool/context budgets, sensitive on-device/cloud routing, expected validated output/dataset, tool auth/idempotency facts; untrusted output, code-owned effects, version compatibility, minimized context and required honest fallback. Structured generation narrow typed schema, bounded selective context, deterministic business rules outside generation and permitted relevant eval before optimization. Review raw text/fragile parsing/privileged effects/duplicate tools/context leaks/injection/availability/model regressions; redacted permitted versioned traces isolate availability/context/tool/prompt/model/output hypotheses. Authorized prompt/model/profile migration uses versioned dataset/thresholds/compatibility/parity/rollback and provider abstraction only actual multi-provider need. All eight failures and permission-bound structured/authorization/idempotency/negative/diagnostic evidence/output; excluded hardware omitted, classes/APIs/examples no architecture/download/provider/eval/tool grants.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "existing_coverage": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful AI body: actual model/provider/profile availability and approved requirements, prompt/tool/context budgets, sensitive on-device/cloud routing, expected validated output/dataset, tool auth/idempotency facts; untrusted output, code-owned effects, version compatibility, minimized context and required honest fallback. Structured generation narrow typed schema, bounded selective context, deterministic business rules outside generation and permitted relevant eval before optimization. Review raw text/fragile parsing/privileged effects/duplicate tools/context leaks/injection/availability/model regressions; redacted permitted versioned traces isolate availability/context/tool/prompt/model/output hypotheses. Authorized prompt/model/profile migration uses versioned dataset/thresholds/compatibility/parity/rollback and provider abstraction only actual multi-provider need. All eight failures and permission-bound structured/authorization/idempotency/negative/diagnostic evidence/output; excluded hardware omitted, classes/APIs/examples no architecture/download/provider/eval/tool grants.",
+          "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "destination_heading": "7. FOUNDATION MODELS; 35. TOOL CALLING; 37. STRUCTURED OUTPUT; 38. PROMPT ENGINEERING; 39. PROMPT VERSIONING; 40. PROMPT INJECTION; 41. PRIVACY; 44. SECURITY; 50. STREAMING UX; 55. FALLBACK; 58. DEVICE CAPABILITY; 59. PERFORMANCE; 60. MEMORY; 63. CONTEXT MANAGEMENT; 67. OBSERVABILITY; 69. EVALUATION; 70. EVAL DATASET",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-15-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-101-ai-retrieval-abuse-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "7. FOUNDATION MODELS",
+                "35. TOOL CALLING",
+                "37. STRUCTURED OUTPUT",
+                "38. PROMPT ENGINEERING",
+                "39. PROMPT VERSIONING",
+                "40. PROMPT INJECTION",
+                "41. PRIVACY",
+                "44. SECURITY",
+                "50. STREAMING UX",
+                "55. FALLBACK",
+                "58. DEVICE CAPABILITY",
+                "59. PERFORMANCE",
+                "60. MEMORY",
+                "63. CONTEXT MANAGEMENT",
+                "67. OBSERVABILITY",
+                "69. EVALUATION",
+                "70. EVAL DATASET"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0534-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-15-10.md",
+          "source_sha256": "d18574fda5664362f0ab4bea2713ce8abb01697ce155a77cac1f1b11c677a96d",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-profile/eval execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression/device-profile/eval execution archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-15-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-101-ai-retrieval-abuse-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full AI common exact against fully read OP-15-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No AI/provider/agent/tool/runtime adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0535",
