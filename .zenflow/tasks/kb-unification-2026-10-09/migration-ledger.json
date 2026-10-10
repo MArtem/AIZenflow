@@ -90266,27 +90266,737 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-08-08.md",
       "sha256": "30f18598b298f3858ca867f0fabc528af146a958bdff41a8d0f19c0ead991cd1",
       "bytes": 7882,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0452-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-08-08.md",
+          "source_sha256": "30f18598b298f3858ca867f0fabc528af146a958bdff41a8d0f19c0ead991cd1",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Reachability is a hint, not permission/guarantee; attempt actual operation and interpret response, explicit recovery and durable mutation where loss unacceptable, no guessed optimism.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Reachability is a hint, not permission/guarantee; attempt actual operation and interpret response, explicit recovery and durable mutation where loss unacceptable, no guessed optimism.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability; Request Contract",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-08-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-87-networking-connectivity-trust-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability",
+                "Request Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0452-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-08-08.md",
+          "source_sha256": "30f18598b298f3858ca867f0fabc528af146a958bdff41a8d0f19c0ead991cd1",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Derive actual owner/caller/task falsifying failure; generic style label not evidence.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-08-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-87-networking-connectivity-trust-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0452-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-08-08.md",
+          "source_sha256": "30f18598b298f3858ca867f0fabc528af146a958bdff41a8d0f19c0ead991cd1",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful networking body: actual endpoint/HTTP/session timeout/cache/connectivity, auth/refresh/replay, retry/idempotency, redacted metrics and background needs. Entire-stack cancel, no duplicate unsafe effects, single current refresh/logout wins, distinct transport/HTTP/decode and no sensitive log. Typed boundary/domain mapping with actual per-endpoint policy, jitter/budget/Retry-After. Review write retries/refresh storms/stale replay/cancel/status/content/URL/decode/redaction; permitted redacted metrics/request IDs and deterministic stubs separate DNS/connect/TLS/server/decode/auth. Authorized callback/Combine/client migration preserves endpoint/cancel and controlled auth/cache contract evidence without repeating side effects; parity/compatibility/coexistence/rollback/retirement. All eight failures and permission-bound success/error/cancel/retry/auth/representative-network/diagnostic negative evidence/output covered; no API/action grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful networking body: actual endpoint/HTTP/session timeout/cache/connectivity, auth/refresh/replay, retry/idempotency, redacted metrics and background needs. Entire-stack cancel, no duplicate unsafe effects, single current refresh/logout wins, distinct transport/HTTP/decode and no sensitive log. Typed boundary/domain mapping with actual per-endpoint policy, jitter/budget/Retry-After. Review write retries/refresh storms/stale replay/cancel/status/content/URL/decode/redaction; permitted redacted metrics/request IDs and deterministic stubs separate DNS/connect/TLS/server/decode/auth. Authorized callback/Combine/client migration preserves endpoint/cancel and controlled auth/cache contract evidence without repeating side effects; parity/compatibility/coexistence/rollback/retirement. All eight failures and permission-bound success/error/cancel/retry/auth/representative-network/diagnostic negative evidence/output covered; no API/action grant.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Boundary Model; Request Contract; Reliability; Uploads And Downloads; Realtime Protocols; Caching; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-08-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-87-networking-connectivity-trust-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Caching",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Required Checks",
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0452-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-08-08.md",
+          "source_sha256": "30f18598b298f3858ca867f0fabc528af146a958bdff41a8d0f19c0ead991cd1",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-08-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-87-networking-connectivity-trust-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full networking common exact against fully read OP-08-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No networking API/policy adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0453",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-08-09.md",
       "sha256": "7f5379f92eae018ca75bdf298917949c8bdd2e8b086c38567a71f40b7af1fab4",
       "bytes": 7662,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0453-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-08-09.md",
+          "source_sha256": "7f5379f92eae018ca75bdf298917949c8bdd2e8b086c38567a71f40b7af1fab4",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual URL-loading versus lower-level ATS/trust boundary, pinning threat/rotation/expiry/outage/containment and redaction; no trust bypass/config/credential mutation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual URL-loading versus lower-level ATS/trust boundary, pinning threat/rotation/expiry/outage/containment and redaction; no trust bypass/config/credential mutation.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "TLS And Trust; Request Contract",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-08-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-87-networking-connectivity-trust-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "TLS And Trust",
+                "Request Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0453-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-08-09.md",
+          "source_sha256": "7f5379f92eae018ca75bdf298917949c8bdd2e8b086c38567a71f40b7af1fab4",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Define actual threat boundary and permission-bound negative evidence; convenience cannot weaken privacy/trust/verification, omitted evidence remains unknown.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Define actual threat boundary and permission-bound negative evidence; convenience cannot weaken privacy/trust/verification, omitted evidence remains unknown.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Threat Model Intake; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-08-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-87-networking-connectivity-trust-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "TLS And Trust",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0453-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-08-09.md",
+          "source_sha256": "7f5379f92eae018ca75bdf298917949c8bdd2e8b086c38567a71f40b7af1fab4",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful networking body: actual endpoint/HTTP/session timeout/cache/connectivity, auth/refresh/replay, retry/idempotency, redacted metrics and background needs. Entire-stack cancel, no duplicate unsafe effects, single current refresh/logout wins, distinct transport/HTTP/decode and no sensitive log. Typed boundary/domain mapping with actual per-endpoint policy, jitter/budget/Retry-After. Review write retries/refresh storms/stale replay/cancel/status/content/URL/decode/redaction; permitted redacted metrics/request IDs and deterministic stubs separate DNS/connect/TLS/server/decode/auth. Authorized callback/Combine/client migration preserves endpoint/cancel and controlled auth/cache contract evidence without repeating side effects; parity/compatibility/coexistence/rollback/retirement. All eight failures and permission-bound success/error/cancel/retry/auth/representative-network/diagnostic negative evidence/output covered; no API/action grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful networking body: actual endpoint/HTTP/session timeout/cache/connectivity, auth/refresh/replay, retry/idempotency, redacted metrics and background needs. Entire-stack cancel, no duplicate unsafe effects, single current refresh/logout wins, distinct transport/HTTP/decode and no sensitive log. Typed boundary/domain mapping with actual per-endpoint policy, jitter/budget/Retry-After. Review write retries/refresh storms/stale replay/cancel/status/content/URL/decode/redaction; permitted redacted metrics/request IDs and deterministic stubs separate DNS/connect/TLS/server/decode/auth. Authorized callback/Combine/client migration preserves endpoint/cancel and controlled auth/cache contract evidence without repeating side effects; parity/compatibility/coexistence/rollback/retirement. All eight failures and permission-bound success/error/cancel/retry/auth/representative-network/diagnostic negative evidence/output covered; no API/action grant.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Boundary Model; Request Contract; Reliability; Uploads And Downloads; Realtime Protocols; Caching; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-08-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-87-networking-connectivity-trust-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Caching",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Required Checks",
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0453-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-08-09.md",
+          "source_sha256": "7f5379f92eae018ca75bdf298917949c8bdd2e8b086c38567a71f40b7af1fab4",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-08-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-87-networking-connectivity-trust-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full networking common exact against fully read OP-08-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No networking API/policy adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0454",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-08-10.md",
       "sha256": "2239340076808c45bdefa352056e3dd5a01513959539130490ead8d2ed62c3b7",
       "bytes": 7960,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0454-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-08-10.md",
+          "source_sha256": "2239340076808c45bdefa352056e3dd5a01513959539130490ead8d2ed62c3b7",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Review actual HTTP/cancel/auth races/replay/decode/observability/privacy at consuming endpoint; framework convenience not semantic success.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Review actual HTTP/cancel/auth races/replay/decode/observability/privacy at consuming endpoint; framework convenience not semantic success.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Boundary Model; Request Contract; Reliability; TLS And Trust; Caching; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-08-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-87-networking-connectivity-trust-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "TLS And Trust",
+                "Caching",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection",
+                "Authorization Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0454-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-08-10.md",
+          "source_sha256": "2239340076808c45bdefa352056e3dd5a01513959539130490ead8d2ed62c3b7",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "All three complete traps: expiry/skew/concurrent refresh/logout/replay/Keychain/401403; idempotency/budget/jitter/Retry-After/cancel/duplicates; threat/negative/privacy no convenient bypass.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All three complete traps: expiry/skew/concurrent refresh/logout/replay/Keychain/401403; idempotency/budget/jitter/Retry-After/cancel/duplicates; threat/negative/privacy no convenient bypass.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle; Keychain And Data Protection; Authorization Rules",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-08-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-87-networking-connectivity-trust-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection",
+                "Authorization Rules"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability",
+                "TLS And Trust",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0454-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-08-10.md",
+          "source_sha256": "2239340076808c45bdefa352056e3dd5a01513959539130490ead8d2ed62c3b7",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful networking body: actual endpoint/HTTP/session timeout/cache/connectivity, auth/refresh/replay, retry/idempotency, redacted metrics and background needs. Entire-stack cancel, no duplicate unsafe effects, single current refresh/logout wins, distinct transport/HTTP/decode and no sensitive log. Typed boundary/domain mapping with actual per-endpoint policy, jitter/budget/Retry-After. Review write retries/refresh storms/stale replay/cancel/status/content/URL/decode/redaction; permitted redacted metrics/request IDs and deterministic stubs separate DNS/connect/TLS/server/decode/auth. Authorized callback/Combine/client migration preserves endpoint/cancel and controlled auth/cache contract evidence without repeating side effects; parity/compatibility/coexistence/rollback/retirement. All eight failures and permission-bound success/error/cancel/retry/auth/representative-network/diagnostic negative evidence/output covered; no API/action grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful networking body: actual endpoint/HTTP/session timeout/cache/connectivity, auth/refresh/replay, retry/idempotency, redacted metrics and background needs. Entire-stack cancel, no duplicate unsafe effects, single current refresh/logout wins, distinct transport/HTTP/decode and no sensitive log. Typed boundary/domain mapping with actual per-endpoint policy, jitter/budget/Retry-After. Review write retries/refresh storms/stale replay/cancel/status/content/URL/decode/redaction; permitted redacted metrics/request IDs and deterministic stubs separate DNS/connect/TLS/server/decode/auth. Authorized callback/Combine/client migration preserves endpoint/cancel and controlled auth/cache contract evidence without repeating side effects; parity/compatibility/coexistence/rollback/retirement. All eight failures and permission-bound success/error/cancel/retry/auth/representative-network/diagnostic negative evidence/output covered; no API/action grant.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Boundary Model; Request Contract; Reliability; Uploads And Downloads; Realtime Protocols; Caching; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-08-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-87-networking-connectivity-trust-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Uploads And Downloads",
+                "Realtime Protocols",
+                "Caching",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Threat Model Intake",
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Task Ownership",
+                "Cancellation",
+                "Ordering And Stale Results"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Required Checks",
+                "DTO And Domain Boundaries",
+                "Errors",
+                "Retry And Idempotency",
+                "Pagination And Sync",
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0454-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-08-10.md",
+          "source_sha256": "2239340076808c45bdefa352056e3dd5a01513959539130490ead8d2ed62c3b7",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-08-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-87-networking-connectivity-trust-review.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full networking common exact against fully read OP-08-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No networking API/policy adoption/OP execution implied."
     },
     {
       "source_id": "LIB-0455",
