@@ -181822,135 +181822,1147 @@
       "path": "source-runtime/orchestration/reference/SECURITY_PRIVACY_BOUNDARIES.md",
       "sha256": "711a901c9952d8242cef2246cb3cb2fc8201727aaa3f3ef53fa7fd6d27af11ce",
       "bytes": 546,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1137-U01",
+          "source_path": "canonical/source-runtime/orchestration/reference/SECURITY_PRIVACY_BOUNDARIES.md",
+          "source_sha256": "711a901c9952d8242cef2246cb3cb2fc8201727aaa3f3ef53fa7fd6d27af11ce",
+          "source_heading": "Security & Privacy Boundaries",
+          "source_fragment": "# Security & Privacy Boundaries",
+          "meaning": "Least-privilege task/context scope with necessary currently authorized redacted evidence, no unrelated user data/secret/PII propagation, parent permissions apply; diagnostic/log/analytics/prompt data surfaces reviewed, no external delegation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Least-privilege task/context scope with necessary currently authorized redacted evidence, no unrelated user data/secret/PII propagation, parent permissions apply; diagnostic/log/analytics/prompt data surfaces reviewed, no external delegation.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0998 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Security & Privacy Boundaries\n\n- Give each agent the least context needed.\n- Do not propagate secrets, tokens, production data or PII into task packets unless essential and authorized; redact by default.\n- Security-sensitive agents should receive interfaces and evidence, not unrelated user data.\n- Tool/action permissions remain least privilege.\n- Child agents cannot bypass confirmation or repository rules inherited from the parent task.\n- Treat logs, crash payloads, analytics schemas and AI prompts as possible data-exfiltration surfaces."
+          ]
+        },
+        {
+          "unit_id": "LIB-1137-U02",
+          "source_path": "canonical/source-runtime/orchestration/reference/SECURITY_PRIVACY_BOUNDARIES.md",
+          "source_sha256": "711a901c9952d8242cef2246cb3cb2fc8201727aaa3f3ef53fa7fd6d27af11ce",
+          "source_heading": "Security & Privacy Boundaries",
+          "source_fragment": "# Security & Privacy Boundaries",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0998 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Security & Privacy Boundaries\n\n- Give each agent the least context needed.\n- Do not propagate secrets, tokens, production data or PII into task packets unless essential and authorized; redact by default.\n- Security-sensitive agents should receive interfaces and evidence, not unrelated user data.\n- Tool/action permissions remain least privilege.\n- Child agents cannot bypass confirmation or repository rules inherited from the parent task.\n- Treat logs, crash payloads, analytics schemas and AI prompts as possible data-exfiltration surfaces."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0998; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1138",
       "path": "source-runtime/orchestration/reference/SYNTHESIS_PROTOCOL.md",
       "sha256": "406722dcc822ba1970367f6720cb681cdc7ab888a26ecd61be7d2b41765ed92c",
       "bytes": 536,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1138-U01",
+          "source_path": "canonical/source-runtime/orchestration/reference/SYNTHESIS_PROTOCOL.md",
+          "source_sha256": "406722dcc822ba1970367f6720cb681cdc7ab888a26ecd61be7d2b41765ed92c",
+          "source_heading": "Synthesis Protocol",
+          "source_fragment": "# Synthesis Protocol",
+          "meaning": "Semantic deduplication retains contested/rejected/stale claims and reasons until resolved against actual invariant/evidence, accountable owner/verification per current action; no consensus language erases disagreement.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Semantic deduplication retains contested/rejected/stale claims and reasons until resolved against actual invariant/evidence, accountable owner/verification per current action; no consensus language erases disagreement.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0999 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Synthesis Protocol\n\nSynthesis preserves distinctions between findings.\n\n1. Normalize claims into the evidence ledger.\n2. Deduplicate only semantically identical claims.\n3. Keep conflicting claims side-by-side until resolved.\n4. Group by invariant/risk boundary, not by agent name.\n5. Prefer evidence-backed minimal decisions over consensus language.\n6. Mark rejected recommendations with the reason and evidence.\n7. Produce one integrated plan with explicit owner and verification for each action.\n\nNever summarize disagreement away."
+          ]
+        },
+        {
+          "unit_id": "LIB-1138-U02",
+          "source_path": "canonical/source-runtime/orchestration/reference/SYNTHESIS_PROTOCOL.md",
+          "source_sha256": "406722dcc822ba1970367f6720cb681cdc7ab888a26ecd61be7d2b41765ed92c",
+          "source_heading": "Synthesis Protocol",
+          "source_fragment": "# Synthesis Protocol",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0999 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Synthesis Protocol\n\nSynthesis preserves distinctions between findings.\n\n1. Normalize claims into the evidence ledger.\n2. Deduplicate only semantically identical claims.\n3. Keep conflicting claims side-by-side until resolved.\n4. Group by invariant/risk boundary, not by agent name.\n5. Prefer evidence-backed minimal decisions over consensus language.\n6. Mark rejected recommendations with the reason and evidence.\n7. Produce one integrated plan with explicit owner and verification for each action.\n\nNever summarize disagreement away."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0999; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1139",
       "path": "source-runtime/orchestration/reference/TASK_GRAPH_PROTOCOL.md",
       "sha256": "95fdbe9e82ed1205de4836a71f08f179d57906acee716bd2452e01058d10fe97",
       "bytes": 814,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1139-U01",
+          "source_path": "canonical/source-runtime/orchestration/reference/TASK_GRAPH_PROTOCOL.md",
+          "source_sha256": "95fdbe9e82ed1205de4836a71f08f179d57906acee716bd2452e01058d10fe97",
+          "source_heading": "Task Graph Protocol",
+          "source_fragment": "# Task Graph Protocol",
+          "meaning": "Small actual dependency graph needs ready input facts before dependent work, bounded output/stop/escalation, disjoint writes and shared project/package/schema/DI serialization under owner; missing/cyclic unresolved inputs cannot complete, no graph/runtime creation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Small actual dependency graph needs ready input facts before dependent work, bounded output/stop/escalation, disjoint writes and shared project/package/schema/DI serialization under owner; missing/cyclic unresolved inputs cannot complete, no graph/runtime creation.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1000 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Task Graph Protocol\n\nRepresent work as a DAG, not a flat agent list.\n\nEach node requires:\n- stable `node_id`\n- role and objective\n- dependencies\n- read scope\n- write scope (`[]` for read-only)\n- required facts/invariants\n- required evidence level\n- output contract\n- stop condition\n- escalation condition\n\n## Graph rules\n- No cycles.\n- A node may start only when dependencies that affect its correctness are closed.\n- Parallel writable nodes must have disjoint file/glob ownership.\n- Cross-cutting shared files (`project.pbxproj`, package manifests, generated schemas, central DI containers) are serialized under one owner.\n- Verification nodes do not silently mutate product code; findings return to the integrator unless explicitly authorized.\n- Prefer the smallest graph that covers material risk boundaries."
+          ]
+        },
+        {
+          "unit_id": "LIB-1139-U02",
+          "source_path": "canonical/source-runtime/orchestration/reference/TASK_GRAPH_PROTOCOL.md",
+          "source_sha256": "95fdbe9e82ed1205de4836a71f08f179d57906acee716bd2452e01058d10fe97",
+          "source_heading": "Task Graph Protocol",
+          "source_fragment": "# Task Graph Protocol",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1000 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Task Graph Protocol\n\nRepresent work as a DAG, not a flat agent list.\n\nEach node requires:\n- stable `node_id`\n- role and objective\n- dependencies\n- read scope\n- write scope (`[]` for read-only)\n- required facts/invariants\n- required evidence level\n- output contract\n- stop condition\n- escalation condition\n\n## Graph rules\n- No cycles.\n- A node may start only when dependencies that affect its correctness are closed.\n- Parallel writable nodes must have disjoint file/glob ownership.\n- Cross-cutting shared files (`project.pbxproj`, package manifests, generated schemas, central DI containers) are serialized under one owner.\n- Verification nodes do not silently mutate product code; findings return to the integrator unless explicitly authorized.\n- Prefer the smallest graph that covers material risk boundaries."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-1000; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1140",
       "path": "source-runtime/orchestration/reference/VERIFICATION_PROTOCOL.md",
       "sha256": "408050c41079407e59f82b19806bc5815542a277c565e3c345645559afdd81fb",
       "bytes": 545,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1140-U01",
+          "source_path": "canonical/source-runtime/orchestration/reference/VERIFICATION_PROTOCOL.md",
+          "source_sha256": "408050c41079407e59f82b19806bc5815542a277c565e3c345645559afdd81fb",
+          "source_heading": "Verification Fan-out Protocol",
+          "source_fragment": "# Verification Fan-out Protocol",
+          "meaning": "Highest-risk falsifiable claims and scoped currently permitted independent checks, observer provenance not green report, unavailable verification downgrade/no static-as-runtime PASS; no verification fanout activated.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Highest-risk falsifiable claims and scoped currently permitted independent checks, observer provenance not green report, unavailable verification downgrade/no static-as-runtime PASS; no verification fanout activated.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1001 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Verification Fan-out Protocol\n\nVerification must target the highest-risk falsifiable claims.\n\nUse parallel verification only when checks are independent: e.g. targeted tests, concurrency audit, migration compatibility review, security negative paths, performance measurement analysis.\n\nVerification agents are read-only by default and report failures to the integrator. A green child report is insufficient without command/output provenance. If verification cannot run, explicitly downgrade evidence instead of substituting static confidence."
+          ]
+        },
+        {
+          "unit_id": "LIB-1140-U02",
+          "source_path": "canonical/source-runtime/orchestration/reference/VERIFICATION_PROTOCOL.md",
+          "source_sha256": "408050c41079407e59f82b19806bc5815542a277c565e3c345645559afdd81fb",
+          "source_heading": "Verification Fan-out Protocol",
+          "source_fragment": "# Verification Fan-out Protocol",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1001 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Verification Fan-out Protocol\n\nVerification must target the highest-risk falsifiable claims.\n\nUse parallel verification only when checks are independent: e.g. targeted tests, concurrency audit, migration compatibility review, security negative paths, performance measurement analysis.\n\nVerification agents are read-only by default and report failures to the integrator. A green child report is insufficient without command/output provenance. If verification cannot run, explicitly downgrade evidence instead of substituting static confidence."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-1001; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1141",
       "path": "source-runtime/orchestration/reference/WRITE_SCOPE_POLICY.md",
       "sha256": "f8bf530351991ba9e19bb1e54e7373abe5ba4c9cf41172e969952af1242acc90",
       "bytes": 738,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1141-U01",
+          "source_path": "canonical/source-runtime/orchestration/reference/WRITE_SCOPE_POLICY.md",
+          "source_sha256": "f8bf530351991ba9e19bb1e54e7373abe5ba4c9cf41172e969952af1242acc90",
+          "source_heading": "Write Scope Policy",
+          "source_fragment": "# Write Scope Policy",
+          "meaning": "One actual writer per shared resource with real directory ownership/excluded generated/collision files, integration after child writes closed; out-of-scope need stops dependent edit, no silent crossing or scope expansion.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "One actual writer per shared resource with real directory ownership/excluded generated/collision files, integration after child writes closed; out-of-scope need stops dependent edit, no silent crossing or scope expansion.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; 4. Final Adversarial Review; Completion Contract",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1002 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Write Scope Policy\n\n## Default\nExplorers, auditors and reviewers are read-only. Parallel editing is allowed only after ownership partitioning.\n\n## Rules\n- One file has one writer per wave.\n- Directory ownership is acceptable only when boundaries are real and generated/shared files are excluded.\n- If two tasks need the same file, serialize them or assign the shared file to the integrator.\n- `project.pbxproj`, shared package manifests, central routing/DI registries, localization catalogs and generated outputs are high-collision resources.\n- A writer discovering required out-of-scope edits must stop and request scope expansion; it must not silently cross ownership.\n- Integration changes occur after child write scopes are closed."
+          ]
+        },
+        {
+          "unit_id": "LIB-1141-U02",
+          "source_path": "canonical/source-runtime/orchestration/reference/WRITE_SCOPE_POLICY.md",
+          "source_sha256": "f8bf530351991ba9e19bb1e54e7373abe5ba4c9cf41172e969952af1242acc90",
+          "source_heading": "Write Scope Policy",
+          "source_fragment": "# Write Scope Policy",
+          "meaning": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V5 orchestration packet/ledger/graph/result schemas, admission score, numeric child/depth/reviewer/wave/R envelopes and sequential/runtime compatibility recipes archived. Conditional useful current constraints covered separately; no model selector/config changes, agents/chats/arbiter/test/verification or external action activated.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-1002 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Write Scope Policy\n\n## Default\nExplorers, auditors and reviewers are read-only. Parallel editing is allowed only after ownership partitioning.\n\n## Rules\n- One file has one writer per wave.\n- Directory ownership is acceptable only when boundaries are real and generated/shared files are excluded.\n- If two tasks need the same file, serialize them or assign the shared file to the integrator.\n- `project.pbxproj`, shared package manifests, central routing/DI registries, localization catalogs and generated outputs are high-collision resources.\n- A writer discovering required out-of-scope edits must stop and request scope expansion; it must not silently cross ownership.\n- Integration changes occur after child write scopes are closed."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-1002; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1142",
       "path": "source-runtime/orchestration/schemas/agent_result.schema.json",
       "sha256": "cd20394146fbddfc816231977ad67f251bc7ce19641a4d81cce9e0cf2f656e19",
       "bytes": 786,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1142-U01",
+          "source_path": "canonical/source-runtime/orchestration/schemas/agent_result.schema.json",
+          "source_sha256": "cd20394146fbddfc816231977ad67f251bc7ce19641a4d81cce9e0cf2f656e19",
+          "source_heading": "{",
+          "source_fragment": "{",
+          "meaning": "Full unique agent-result JSON schema: actual producer/consumer/status/source evidence and partial/blocked/UNKNOWN truth must agree. Shape/type/0–1 confidence does not enforce concrete claims/provenance/file scope/current authority or observed verification; permissive arrays/properties not meaningful complete result proof. Historical2020-12 V5 fields no current schema adoption.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full unique agent-result JSON schema: actual producer/consumer/status/source evidence and partial/blocked/UNKNOWN truth must agree. Shape/type/0–1 confidence does not enforce concrete claims/provenance/file scope/current authority or observed verification; permissive arrays/properties not meaningful complete result proof. Historical2020-12 V5 fields no current schema adoption.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; Completion Contract",
+          "required_verification": "Unique JSON schema full body independently read; source SHA/literals/current semantic owner/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No installation, runtime, tests or mandatory layer activated.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"title\": \"V5 Agent Result\",\n  \"type\": \"object\",\n  \"required\": [\n    \"node_id\",\n    \"status\",\n    \"claims\",\n    \"files_inspected\",\n    \"files_changed\",\n    \"commands_run\",\n    \"unknowns\",\n    \"confidence\"\n  ],\n  \"properties\": {\n    \"node_id\": {\n      \"type\": \"string\"\n    },\n    \"status\": {\n      \"enum\": [\n        \"complete\",\n        \"partial\",\n        \"blocked\"\n      ]\n    },\n    \"claims\": {\n      \"type\": \"array\"\n    },\n    \"files_inspected\": {\n      \"type\": \"array\"\n    },\n    \"files_changed\": {\n      \"type\": \"array\"\n    },\n    \"commands_run\": {\n      \"type\": \"array\"\n    },\n    \"unknowns\": {\n      \"type\": \"array\"\n    },\n    \"confidence\": {\n      \"type\": \"number\",\n      \"minimum\": 0,\n      \"maximum\": 1\n    }\n  }\n}"
+          ]
+        },
+        {
+          "unit_id": "LIB-1142-U02",
+          "source_path": "canonical/source-runtime/orchestration/schemas/agent_result.schema.json",
+          "source_sha256": "cd20394146fbddfc816231977ad67f251bc7ce19641a4d81cce9e0cf2f656e19",
+          "source_heading": "{",
+          "source_fragment": "{",
+          "meaning": "Historical permissive V5 JSON schema packaging/2020-12/5.0/R0–R4/E0–E5/child-total-depth numeric fields retained as source. Syntactic shape is not semantic scope/authority/ownership/independence/verification enforcement; no schema validation deployment, model creation or action.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical permissive V5 JSON schema packaging/2020-12/5.0/R0–R4/E0–E5/child-total-depth numeric fields retained as source. Syntactic shape is not semantic scope/authority/ownership/independence/verification enforcement; no schema validation deployment, model creation or action.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Unique JSON schema full body independently read; source SHA/literals/current semantic owner/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No installation, runtime, tests or mandatory layer activated.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"title\": \"V5 Agent Result\",\n  \"type\": \"object\",\n  \"required\": [\n    \"node_id\",\n    \"status\",\n    \"claims\",\n    \"files_inspected\",\n    \"files_changed\",\n    \"commands_run\",\n    \"unknowns\",\n    \"confidence\"\n  ],\n  \"properties\": {\n    \"node_id\": {\n      \"type\": \"string\"\n    },\n    \"status\": {\n      \"enum\": [\n        \"complete\",\n        \"partial\",\n        \"blocked\"\n      ]\n    },\n    \"claims\": {\n      \"type\": \"array\"\n    },\n    \"files_inspected\": {\n      \"type\": \"array\"\n    },\n    \"files_changed\": {\n      \"type\": \"array\"\n    },\n    \"commands_run\": {\n      \"type\": \"array\"\n    },\n    \"unknowns\": {\n      \"type\": \"array\"\n    },\n    \"confidence\": {\n      \"type\": \"number\",\n      \"minimum\": 0,\n      \"maximum\": 1\n    }\n  }\n}"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete unique JSON schema independently fully read; producer/consumer/evidence/scope limits covered, historical schema metadata archived, no schema adoption or action."
     },
     {
       "source_id": "LIB-1143",
       "path": "source-runtime/orchestration/schemas/task_graph.schema.json",
       "sha256": "e90c76b6178a52b0cf9b55388e0f278cac1cdd4fb79e09b03da6c10a547dfb66",
       "bytes": 2206,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1143-U01",
+          "source_path": "canonical/source-runtime/orchestration/schemas/task_graph.schema.json",
+          "source_sha256": "e90c76b6178a52b0cf9b55388e0f278cac1cdd4fb79e09b03da6c10a547dfb66",
+          "source_heading": "{",
+          "source_fragment": "{",
+          "meaning": "Full unique task-graph JSON schema: actual bounded current input/dependency/scope/evidence/ownership/result agreement. Syntax/enum/numeric limits cannot enforce unique meaningful IDs, ready acyclic dependency graph, nonempty meaningful scope/claims, known references or disjoint writers and current authority. Historical5.0/R/E enum/envelope retained, no producer/schema/tool dispatch adoption.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full unique task-graph JSON schema: actual bounded current input/dependency/scope/evidence/ownership/result agreement. Syntax/enum/numeric limits cannot enforce unique meaningful IDs, ready acyclic dependency graph, nonempty meaningful scope/claims, known references or disjoint writers and current authority. Historical5.0/R/E enum/envelope retained, no producer/schema/tool dispatch adoption.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder; Completion Contract",
+          "required_verification": "Unique JSON schema full body independently read; source SHA/literals/current semantic owner/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No installation, runtime, tests or mandatory layer activated.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"title\": \"V5 Task Graph\",\n  \"type\": \"object\",\n  \"required\": [\n    \"schema\",\n    \"task\",\n    \"risk\",\n    \"delegation\",\n    \"nodes\"\n  ],\n  \"properties\": {\n    \"schema\": {\n      \"const\": \"5.0\"\n    },\n    \"task\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n    },\n    \"risk\": {\n      \"enum\": [\n        \"R0\",\n        \"R1\",\n        \"R2\",\n        \"R3\",\n        \"R4\"\n      ]\n    },\n    \"delegation\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"admitted\",\n        \"max_children_per_wave\",\n        \"max_total_children\",\n        \"max_depth\"\n      ],\n      \"properties\": {\n        \"admitted\": {\n          \"type\": \"boolean\"\n        },\n        \"max_children_per_wave\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 8\n        },\n        \"max_total_children\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 16\n        },\n        \"max_depth\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 2\n        }\n      }\n    },\n    \"nodes\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"node_id\",\n          \"role\",\n          \"objective\",\n          \"dependencies\",\n          \"read_scope\",\n          \"write_scope\",\n          \"evidence_required\"\n        ],\n        \"properties\": {\n          \"node_id\": {\n            \"type\": \"string\"\n          },\n          \"role\": {\n            \"type\": \"string\"\n          },\n          \"objective\": {\n            \"type\": \"string\"\n          },\n          \"dependencies\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          },\n          \"read_scope\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          },\n          \"write_scope\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          },\n          \"evidence_required\": {\n            \"enum\": [\n              \"E0\",\n              \"E1\",\n              \"E2\",\n              \"E3\",\n              \"E4\",\n              \"E5\"\n            ]\n          }\n        }\n      }\n    }\n  }\n}"
+          ]
+        },
+        {
+          "unit_id": "LIB-1143-U02",
+          "source_path": "canonical/source-runtime/orchestration/schemas/task_graph.schema.json",
+          "source_sha256": "e90c76b6178a52b0cf9b55388e0f278cac1cdd4fb79e09b03da6c10a547dfb66",
+          "source_heading": "{",
+          "source_fragment": "{",
+          "meaning": "Historical permissive V5 JSON schema packaging/2020-12/5.0/R0–R4/E0–E5/child-total-depth numeric fields retained as source. Syntactic shape is not semantic scope/authority/ownership/independence/verification enforcement; no schema validation deployment, model creation or action.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical permissive V5 JSON schema packaging/2020-12/5.0/R0–R4/E0–E5/child-total-depth numeric fields retained as source. Syntactic shape is not semantic scope/authority/ownership/independence/verification enforcement; no schema validation deployment, model creation or action.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Unique JSON schema full body independently read; source SHA/literals/current semantic owner/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No installation, runtime, tests or mandatory layer activated.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "{\n  \"$schema\": \"https://json-schema.org/draft/2020-12/schema\",\n  \"title\": \"V5 Task Graph\",\n  \"type\": \"object\",\n  \"required\": [\n    \"schema\",\n    \"task\",\n    \"risk\",\n    \"delegation\",\n    \"nodes\"\n  ],\n  \"properties\": {\n    \"schema\": {\n      \"const\": \"5.0\"\n    },\n    \"task\": {\n      \"type\": \"string\",\n      \"minLength\": 1\n    },\n    \"risk\": {\n      \"enum\": [\n        \"R0\",\n        \"R1\",\n        \"R2\",\n        \"R3\",\n        \"R4\"\n      ]\n    },\n    \"delegation\": {\n      \"type\": \"object\",\n      \"required\": [\n        \"admitted\",\n        \"max_children_per_wave\",\n        \"max_total_children\",\n        \"max_depth\"\n      ],\n      \"properties\": {\n        \"admitted\": {\n          \"type\": \"boolean\"\n        },\n        \"max_children_per_wave\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 8\n        },\n        \"max_total_children\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 16\n        },\n        \"max_depth\": {\n          \"type\": \"integer\",\n          \"minimum\": 1,\n          \"maximum\": 2\n        }\n      }\n    },\n    \"nodes\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"required\": [\n          \"node_id\",\n          \"role\",\n          \"objective\",\n          \"dependencies\",\n          \"read_scope\",\n          \"write_scope\",\n          \"evidence_required\"\n        ],\n        \"properties\": {\n          \"node_id\": {\n            \"type\": \"string\"\n          },\n          \"role\": {\n            \"type\": \"string\"\n          },\n          \"objective\": {\n            \"type\": \"string\"\n          },\n          \"dependencies\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          },\n          \"read_scope\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          },\n          \"write_scope\": {\n            \"type\": \"array\",\n            \"items\": {\n              \"type\": \"string\"\n            }\n          },\n          \"evidence_required\": {\n            \"enum\": [\n              \"E0\",\n              \"E1\",\n              \"E2\",\n              \"E3\",\n              \"E4\",\n              \"E5\"\n            ]\n          }\n        }\n      }\n    }\n  }\n}"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete unique JSON schema independently fully read; producer/consumer/evidence/scope limits covered, historical schema metadata archived, no schema adoption or action."
     },
     {
       "source_id": "LIB-1144",
       "path": "source-runtime/templates/project/ARCHITECTURE_MAP.md",
       "sha256": "d98b80ea87565ab6c90a3714721d4e4f09e1bbccbb0ed5dd5bd0aadf7c303691",
       "bytes": 380,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1144-U01",
+          "source_path": "canonical/source-runtime/templates/project/ARCHITECTURE_MAP.md",
+          "source_sha256": "d98b80ea87565ab6c90a3714721d4e4f09e1bbccbb0ed5dd5bd0aadf7c303691",
+          "source_heading": "Architecture Map",
+          "source_fragment": "# Architecture Map",
+          "meaning": "Actual module/target responsibility/public boundary/dependency direction and owned mutable UI/domain/data/async state; auth/launch/navigation/sync/persistence/background consumers before architectural claims. Blank map is not inspected architecture evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual module/target responsibility/public boundary/dependency direction and owned mutable UI/domain/data/async state; auth/launch/navigation/sync/persistence/background consumers before architectural claims. Blank map is not inspected architecture evidence.",
+          "destination_path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "destination_heading": "Required Checks",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0941 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Architecture Map\n\n## Modules / targets\n| Module | Responsibility | Public boundary | State owner | Dependencies |\n|---|---|---|---|---|\n\n## Primary flows\nDocument authentication, launch/bootstrap, navigation, data sync, persistence and critical background flows.\n\n## Boundary rules\n- dependency direction:\n- shared mutable state:\n- UI/domain/data boundaries:\n- async isolation:"
+          ]
+        },
+        {
+          "unit_id": "LIB-1144-U02",
+          "source_path": "canonical/source-runtime/templates/project/ARCHITECTURE_MAP.md",
+          "source_sha256": "d98b80ea87565ab6c90a3714721d4e4f09e1bbccbb0ed5dd5bd0aadf7c303691",
+          "source_heading": "Architecture Map",
+          "source_fragment": "# Architecture Map",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0941 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Architecture Map\n\n## Modules / targets\n| Module | Responsibility | Public boundary | State owner | Dependencies |\n|---|---|---|---|---|\n\n## Primary flows\nDocument authentication, launch/bootstrap, navigation, data sync, persistence and critical background flows.\n\n## Boundary rules\n- dependency direction:\n- shared mutable state:\n- UI/domain/data boundaries:\n- async isolation:"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0941; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1145",
       "path": "source-runtime/templates/project/DATA_CONTRACTS.md",
       "sha256": "af1fabb1b2c0d6806cad308607905f78c368b3c16fbfb41545b879d5e78edaf5",
       "bytes": 267,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1145-U01",
+          "source_path": "canonical/source-runtime/templates/project/DATA_CONTRACTS.md",
+          "source_sha256": "af1fabb1b2c0d6806cad308607905f78c368b3c16fbfb41545b879d5e78edaf5",
+          "source_heading": "Data Contracts",
+          "source_fragment": "# Data Contracts",
+          "meaning": "Authoritative versioned API/persisted schemas with nullability/enums/time units/timezone/pagination/idempotency/compatibility/migration ownership; reference exact source rather than duplicated volatile definition.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "existing_coverage": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Authoritative versioned API/persisted schemas with nullability/enums/time units/timezone/pagination/idempotency/compatibility/migration ownership; reference exact source rather than duplicated volatile definition.",
+          "destination_path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "destination_heading": "Required Checks; DTO And Domain Boundaries; Pagination And Sync",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0942 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Required Checks",
+                "DTO And Domain Boundaries",
+                "Pagination And Sync"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Data Contracts\n\nRecord API schemas, persisted schemas, versioning, optionality/enums, timestamps/time zones, pagination, idempotency, compatibility and migration ownership. Link to generated schemas/OpenAPI where available rather than copying volatile definitions."
+          ]
+        },
+        {
+          "unit_id": "LIB-1145-U02",
+          "source_path": "canonical/source-runtime/templates/project/DATA_CONTRACTS.md",
+          "source_sha256": "af1fabb1b2c0d6806cad308607905f78c368b3c16fbfb41545b879d5e78edaf5",
+          "source_heading": "Data Contracts",
+          "source_fragment": "# Data Contracts",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0942 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Data Contracts\n\nRecord API schemas, persisted schemas, versioning, optionality/enums, timestamps/time zones, pagination, idempotency, compatibility and migration ownership. Link to generated schemas/OpenAPI where available rather than copying volatile definitions."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0942; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1146",
       "path": "source-runtime/templates/project/DECISION_LOG.md",
       "sha256": "f96b64ed134e49ff2339a4c66128b4745b15fe168d01798a877b0f83295c4c5a",
       "bytes": 257,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1146-U01",
+          "source_path": "canonical/source-runtime/templates/project/DECISION_LOG.md",
+          "source_sha256": "f96b64ed134e49ff2339a4c66128b4745b15fe168d01798a877b0f83295c4c5a",
+          "source_heading": "Architecture / Engineering Decision Log",
+          "source_fragment": "# Architecture / Engineering Decision Log",
+          "meaning": "Short durable decision context/options/evidence/consequences/consumer compatibility/recovery and implementation provenance, correct app/task boundary; no generated decision from blank form.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Short durable decision context/options/evidence/consequences/consumer compatibility/recovery and implementation provenance, correct app/task boundary; no generated decision from blank form.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Required When; ADR Template; Bounded Investigation And Migration",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0943 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Required When",
+                "ADR Template",
+                "Bounded Investigation And Migration"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Architecture / Engineering Decision Log\n\nFor each durable decision record date, context, considered options, chosen option, consequences, compatibility/rollback and links to implementation/tests. Prefer short records with evidence over narrative history."
+          ]
+        },
+        {
+          "unit_id": "LIB-1146-U02",
+          "source_path": "canonical/source-runtime/templates/project/DECISION_LOG.md",
+          "source_sha256": "f96b64ed134e49ff2339a4c66128b4745b15fe168d01798a877b0f83295c4c5a",
+          "source_heading": "Architecture / Engineering Decision Log",
+          "source_fragment": "# Architecture / Engineering Decision Log",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0943 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Architecture / Engineering Decision Log\n\nFor each durable decision record date, context, considered options, chosen option, consequences, compatibility/rollback and links to implementation/tests. Prefer short records with evidence over narrative history."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0943; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1147",
       "path": "source-runtime/templates/project/DEPENDENCY_POLICY.md",
       "sha256": "c67ad9bdcfc788d9e56162d10ce5a901225120ae9a367e4cf2d6cc426375df4a",
       "bytes": 276,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1147-U01",
+          "source_path": "canonical/source-runtime/templates/project/DEPENDENCY_POLICY.md",
+          "source_sha256": "c67ad9bdcfc788d9e56162d10ce5a901225120ae9a367e4cf2d6cc426375df4a",
+          "source_heading": "Dependency Policy",
+          "source_fragment": "# Dependency Policy",
+          "meaning": "Actual allowed sources/pinning/update/binary/license/privacy/security owner and need/removal/exit contracts before dependency adoption; blank policy fields not approval.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual allowed sources/pinning/update/binary/license/privacy/security owner and need/removal/exit contracts before dependency adoption; blank policy fields not approval.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Supply Chain; SDK Consumer Boundary",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0944 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "SDK Consumer Boundary"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Dependency Policy\n\n- Approved package sources:\n- Lock/update policy:\n- Binary SDK policy:\n- License review owner:\n- Privacy/security review:\n- Version pinning policy:\n- Removal/exit expectations:\n\nEvery new dependency should have a concrete problem statement and exit plan."
+          ]
+        },
+        {
+          "unit_id": "LIB-1147-U02",
+          "source_path": "canonical/source-runtime/templates/project/DEPENDENCY_POLICY.md",
+          "source_sha256": "c67ad9bdcfc788d9e56162d10ce5a901225120ae9a367e4cf2d6cc426375df4a",
+          "source_heading": "Dependency Policy",
+          "source_fragment": "# Dependency Policy",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0944 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Dependency Policy\n\n- Approved package sources:\n- Lock/update policy:\n- Binary SDK policy:\n- License review owner:\n- Privacy/security review:\n- Version pinning policy:\n- Removal/exit expectations:\n\nEvery new dependency should have a concrete problem statement and exit plan."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0944; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1148",
       "path": "source-runtime/templates/project/KNOWN_RISKS.md",
       "sha256": "f01d6822200b1c1791df857ab21e163ab9bd4fb5476961005766c1506be1a176",
       "bytes": 246,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1148-U01",
+          "source_path": "canonical/source-runtime/templates/project/KNOWN_RISKS.md",
+          "source_sha256": "f01d6822200b1c1791df857ab21e163ab9bd4fb5476961005766c1506be1a176",
+          "source_heading": "Known Risks / Technical Debt",
+          "source_fragment": "# Known Risks / Technical Debt",
+          "meaning": "Decision-relevant risk with trigger/impact/mitigation/evidence/confidence/owner/exit criterion, not unprioritized TODO or heuristic defect proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Decision-relevant risk with trigger/impact/mitigation/evidence/confidence/owner/exit criterion, not unprioritized TODO or heuristic defect proof.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1A. PR Risk Card And Scope; Completion Contract",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0945 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1A. PR Risk Card And Scope",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Known Risks / Technical Debt\n\n| ID | Risk | Severity | Trigger | Mitigation | Evidence/owner | Exit criterion |\n|---|---|---|---|---|---|---|\n\nOnly durable, decision-relevant risks belong here. Do not turn this into an unprioritized TODO dump."
+          ]
+        },
+        {
+          "unit_id": "LIB-1148-U02",
+          "source_path": "canonical/source-runtime/templates/project/KNOWN_RISKS.md",
+          "source_sha256": "f01d6822200b1c1791df857ab21e163ab9bd4fb5476961005766c1506be1a176",
+          "source_heading": "Known Risks / Technical Debt",
+          "source_fragment": "# Known Risks / Technical Debt",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0945 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Known Risks / Technical Debt\n\n| ID | Risk | Severity | Trigger | Mitigation | Evidence/owner | Exit criterion |\n|---|---|---|---|---|---|---|\n\nOnly durable, decision-relevant risks belong here. Do not turn this into an unprioritized TODO dump."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0945; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1149",
       "path": "source-runtime/templates/project/OBSERVABILITY_MAP.md",
       "sha256": "08f32229d8e43f261bce2f93203dcd77bd3eb5b00f1f003e3ee5c9214a9b1f81",
       "bytes": 252,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1149-U01",
+          "source_path": "canonical/source-runtime/templates/project/OBSERVABILITY_MAP.md",
+          "source_sha256": "08f32229d8e43f261bce2f93203dcd77bd3eb5b00f1f003e3ee5c9214a9b1f81",
+          "source_heading": "Observability Map",
+          "source_fragment": "# Observability Map",
+          "meaning": "Specific critical-flow diagnostic logs/metrics/analytics/crash purpose, privacy/redaction/retention and bounded metadata; blank observability map not collected signal or SDK setup permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Specific critical-flow diagnostic logs/metrics/analytics/crash purpose, privacy/redaction/retention and bounded metadata; blank observability map not collected signal or SDK setup permission.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Observability; Metric Design",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0952 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Observability Map\n\n| Flow | Logs | Metrics/signposts | Analytics | Crash breadcrumbs | Privacy/redaction |\n|---|---|---|---|---|---|\n\nCapture enough evidence to diagnose critical production paths without storing secrets or unnecessary personal data."
+          ]
+        },
+        {
+          "unit_id": "LIB-1149-U02",
+          "source_path": "canonical/source-runtime/templates/project/OBSERVABILITY_MAP.md",
+          "source_sha256": "08f32229d8e43f261bce2f93203dcd77bd3eb5b00f1f003e3ee5c9214a9b1f81",
+          "source_heading": "Observability Map",
+          "source_fragment": "# Observability Map",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0952 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Observability Map\n\n| Flow | Logs | Metrics/signposts | Analytics | Crash breadcrumbs | Privacy/redaction |\n|---|---|---|---|---|---|\n\nCapture enough evidence to diagnose critical production paths without storing secrets or unnecessary personal data."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0952; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1150",
       "path": "source-runtime/templates/project/OWNERSHIP_MAP.md",
       "sha256": "c0262cedce685406161698ff7eec567857d1b8d3bcdc0ab3a67be626c15a0b2d",
       "bytes": 277,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1150-U01",
+          "source_path": "canonical/source-runtime/templates/project/OWNERSHIP_MAP.md",
+          "source_sha256": "c0262cedce685406161698ff7eec567857d1b8d3bcdc0ab3a67be626c15a0b2d",
+          "source_heading": "State / Resource Ownership Map",
+          "source_fragment": "# State / Resource Ownership Map",
+          "meaning": "Actual mutable/resource owner/isolation/lifetime/cancel/cleanup/current consumers across tasks/cache/session/context/observer/timer/stream/UI; blank ownership map not enforced state.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual mutable/resource owner/isolation/lifetime/cancel/cleanup/current consumers across tasks/cache/session/context/observer/timer/stream/UI; blank ownership map not enforced state.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0953 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# State / Resource Ownership Map\n\n| Resource or mutable state | Owner | Isolation | Lifetime | Cancellation/cleanup | Consumers |\n|---|---|---|---|---|---|\n\nTrack long-lived tasks, caches, session/token state, database contexts, observers, timers, streams and shared UI state."
+          ]
+        },
+        {
+          "unit_id": "LIB-1150-U02",
+          "source_path": "canonical/source-runtime/templates/project/OWNERSHIP_MAP.md",
+          "source_sha256": "c0262cedce685406161698ff7eec567857d1b8d3bcdc0ab3a67be626c15a0b2d",
+          "source_heading": "State / Resource Ownership Map",
+          "source_fragment": "# State / Resource Ownership Map",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0953 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# State / Resource Ownership Map\n\n| Resource or mutable state | Owner | Isolation | Lifetime | Cancellation/cleanup | Consumers |\n|---|---|---|---|---|---|\n\nTrack long-lived tasks, caches, session/token state, database contexts, observers, timers, streams and shared UI state."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0953; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1151",
       "path": "source-runtime/templates/project/PROJECT_CONTEXT.md",
       "sha256": "783c4611997a51c2fc29e64d22eb99495d28258ad7a6d6d71c400f147252c1bb",
       "bytes": 487,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-1151-U01",
+          "source_path": "canonical/source-runtime/templates/project/PROJECT_CONTEXT.md",
+          "source_sha256": "783c4611997a51c2fc29e64d22eb99495d28258ad7a6d6d71c400f147252c1bb",
+          "source_heading": "Project Context — Source of Truth",
+          "source_fragment": "# Project Context — Source of Truth",
+          "meaning": "Exact scoped repository/project/toolchain/language/SDK/deployment/scheme/topology/ownership/CI facts from evidence, UNKNOWN when unconfirmed, durable app/task boundary. Blank fields and deferred platforms not factual profile or scope expansion.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact scoped repository/project/toolchain/language/SDK/deployment/scheme/topology/ownership/CI facts from evidence, UNKNOWN when unconfirmed, durable app/task boundary. Blank fields and deferred platforms not factual profile or scope expansion.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Evidence",
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0954 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Hard Separation Rules"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Project Context — Source of Truth\n\n> Fill from repository evidence. Keep `UNKNOWN` when not confirmed.\n\n- Product/app:\n- Repository root:\n- Xcode version / SDK:\n- Swift language mode:\n- Minimum deployment targets:\n- Workspace/project:\n- Main schemes:\n- UI stack:\n- Architecture/state ownership:\n- Dependency manager(s):\n- Persistence:\n- Networking/auth:\n- Extensions/watch/widgets/app clips:\n- CI provider:\n- Release process:\n- High-risk boundaries:\n- Current migration initiatives:"
+          ]
+        },
+        {
+          "unit_id": "LIB-1151-U02",
+          "source_path": "canonical/source-runtime/templates/project/PROJECT_CONTEXT.md",
+          "source_sha256": "783c4611997a51c2fc29e64d22eb99495d28258ad7a6d6d71c400f147252c1bb",
+          "source_heading": "Project Context — Source of Truth",
+          "source_fragment": "# Project Context — Source of Truth",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Full source-runtime body exact byte equality to independently fully reviewed LIB-0954 at same frozen SHA; semantic current coverage/literals/unique headings/prior rows/copies/mirrors/full final diff/exact-SHA. No indexed-body inference or runtime activation.",
+          "evidence": "block-206-runtime-reference-schema-template-parity.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Project Context — Source of Truth\n\n> Fill from repository evidence. Keep `UNKNOWN` when not confirmed.\n\n- Product/app:\n- Repository root:\n- Xcode version / SDK:\n- Swift language mode:\n- Minimum deployment targets:\n- Workspace/project:\n- Main schemes:\n- UI stack:\n- Architecture/state ownership:\n- Dependency manager(s):\n- Persistence:\n- Networking/auth:\n- Extensions/watch/widgets/app clips:\n- CI provider:\n- Release process:\n- High-risk boundaries:\n- Current migration initiatives:"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete source-runtime body verified full-byte equality to independently reviewed LIB-0954; exact useful/archival dispositions retained, not inventory/pointer-based review."
     },
     {
       "source_id": "LIB-1152",
