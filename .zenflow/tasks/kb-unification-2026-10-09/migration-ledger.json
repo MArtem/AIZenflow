@@ -93347,63 +93347,1508 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-10-01.md",
       "sha256": "18ab71f43d0d75ee0ae5b42d665de2545c914391f73a0195fd95e743a7d48452",
       "bytes": 7840,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0465-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-01.md",
+          "source_sha256": "18ab71f43d0d75ee0ae5b42d665de2545c914391f73a0195fd95e743a7d48452",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Risk/claim/changed-behavior justified unit/component/integration/UI/snapshot/property/performance portfolio, not raw coverage quota or unconditional test plan.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Risk/claim/changed-behavior justified unit/component/integration/UI/snapshot/property/performance portfolio, not raw coverage quota or unconditional test plan.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Model; Test Portfolio; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Portfolio",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0465-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-01.md",
+          "source_sha256": "18ab71f43d0d75ee0ae5b42d665de2545c914391f73a0195fd95e743a7d48452",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full traps: controlled clock/random/network/storage/global state no fixed sleeps/order dependency; representative measured baseline/workload/instrument/before-after for improvement.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full traps: controlled clock/random/network/storage/global state no fixed sleeps/order dependency; representative measured baseline/workload/instrument/before-after for improvement.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0465-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-01.md",
+          "source_sha256": "18ab71f43d0d75ee0ae5b42d665de2545c914391f73a0195fd95e743a7d48452",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Model; Test Portfolio; Swift Testing And XCTest; Determinism; Test Doubles; Flaky Tests; Debugging Workflow; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Portfolio",
+                "Swift Testing And XCTest",
+                "Determinism",
+                "Test Doubles",
+                "Flaky Tests",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0465-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-01.md",
+          "source_sha256": "18ab71f43d0d75ee0ae5b42d665de2545c914391f73a0195fd95e743a7d48452",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full testing common exact against fully read OP-10-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No test framework/adoption/execution/OP execution implied."
     },
     {
       "source_id": "LIB-0466",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-10-02.md",
       "sha256": "d47c5cc3b7abd688ec1464ba82088c2aa38d821fbbeb7c0accb0a82bf7aea910",
       "bytes": 7610,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0466-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-02.md",
+          "source_sha256": "d47c5cc3b7abd688ec1464ba82088c2aa38d821fbbeb7c0accb0a82bf7aea910",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual supported @Test/expect/require semantics, meaningful parameters/traits/tags/async/parallel safety; failed expect records, failed require throws, no framework migration by novelty.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual supported @Test/expect/require semantics, meaningful parameters/traits/tags/async/parallel safety; failed expect records, failed require throws, no framework migration by novelty.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Swift Testing And XCTest; Determinism",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Swift Testing And XCTest",
+                "Determinism"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0466-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-02.md",
+          "source_sha256": "d47c5cc3b7abd688ec1464ba82088c2aa38d821fbbeb7c0accb0a82bf7aea910",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full controlled clock/random/network/storage/global-state trap; independent parallel fixtures and observable synchronization.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full controlled clock/random/network/storage/global-state trap; independent parallel fixtures and observable synchronization.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0466-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-02.md",
+          "source_sha256": "d47c5cc3b7abd688ec1464ba82088c2aa38d821fbbeb7c0accb0a82bf7aea910",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Model; Test Portfolio; Swift Testing And XCTest; Determinism; Test Doubles; Flaky Tests; Debugging Workflow; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Portfolio",
+                "Swift Testing And XCTest",
+                "Determinism",
+                "Test Doubles",
+                "Flaky Tests",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0466-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-02.md",
+          "source_sha256": "d47c5cc3b7abd688ec1464ba82088c2aa38d821fbbeb7c0accb0a82bf7aea910",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full testing common exact against fully read OP-10-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No test framework/adoption/execution/OP execution implied."
     },
     {
       "source_id": "LIB-0467",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-10-03.md",
       "sha256": "6a2bbfbd927f024de24bbc7cd202b2bfd05ccd48c83df50eaa5d0c4a11d8d433",
       "bytes": 7821,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0467-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-03.md",
+          "source_sha256": "6a2bbfbd927f024de24bbc7cd202b2bfd05ccd48c83df50eaa5d0c4a11d8d433",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Authorized staged XCTest stabilization/framework migration only actual value exceeds churn; preserve CI/traits/tags/unsupported features and avoid duplicate long-term behavior tests.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Authorized staged XCTest stabilization/framework migration only actual value exceeds churn; preserve CI/traits/tags/unsupported features and avoid duplicate long-term behavior tests.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Swift Testing And XCTest; Flaky Tests; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Swift Testing And XCTest",
+                "Flaky Tests",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0467-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-03.md",
+          "source_sha256": "6a2bbfbd927f024de24bbc7cd202b2bfd05ccd48c83df50eaa5d0c4a11d8d433",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full traps: controlled deterministic dependencies/fixtures; actual AI untrusted output/code auth/idempotency/permitted eval conditional, no AI or test-phase grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full traps: controlled deterministic dependencies/fixtures; actual AI untrusted output/code auth/idempotency/permitted eval conditional, no AI or test-phase grant.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "35. TOOL CALLING",
+                "44. SECURITY",
+                "69. EVALUATION"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0467-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-03.md",
+          "source_sha256": "6a2bbfbd927f024de24bbc7cd202b2bfd05ccd48c83df50eaa5d0c4a11d8d433",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Model; Test Portfolio; Swift Testing And XCTest; Determinism; Test Doubles; Flaky Tests; Debugging Workflow; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Portfolio",
+                "Swift Testing And XCTest",
+                "Determinism",
+                "Test Doubles",
+                "Flaky Tests",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0467-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-03.md",
+          "source_sha256": "6a2bbfbd927f024de24bbc7cd202b2bfd05ccd48c83df50eaa5d0c4a11d8d433",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full testing common exact against fully read OP-10-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No test framework/adoption/execution/OP execution implied."
     },
     {
       "source_id": "LIB-0468",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-10-04.md",
       "sha256": "c003fd9383cf2dbb13a15dea0253ae11228e433ac64784df8e0f72e20b350646",
       "bytes": 7878,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0468-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-04.md",
+          "source_sha256": "c003fd9383cf2dbb13a15dea0253ae11228e433ac64784df8e0f72e20b350646",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Critical actual user journeys/stable semantic identifiers/known launch fixtures and condition-based waits; identifiers do not prove accessibility, exclusions retained.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Critical actual user journeys/stable semantic identifiers/known launch fixtures and condition-based waits; identifiers do not prove accessibility, exclusions retained.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Test Portfolio; Determinism",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Test Portfolio",
+                "Determinism"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Evidence Matrix",
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0468-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-04.md",
+          "source_sha256": "c003fd9383cf2dbb13a15dea0253ae11228e433ac64784df8e0f72e20b350646",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "All three full traps: actual reuse/cancel/prefetch/decode/diff/hitch; controlled dependencies/isolated fixture; representative measured baseline/instrument/before-after.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "All three full traps: actual reuse/cancel/prefetch/decode/diff/hitch; controlled dependencies/isolated fixture; representative measured baseline/instrument/before-after.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Identity And Collections; UIKit Lifecycle And Reuse Review; Layout And Rendering; Evidence Matrix",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Identity And Collections",
+                "UIKit Lifecycle And Reuse Review",
+                "Layout And Rendering",
+                "Evidence Matrix"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0468-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-04.md",
+          "source_sha256": "c003fd9383cf2dbb13a15dea0253ae11228e433ac64784df8e0f72e20b350646",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Model; Test Portfolio; Swift Testing And XCTest; Determinism; Test Doubles; Flaky Tests; Debugging Workflow; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Portfolio",
+                "Swift Testing And XCTest",
+                "Determinism",
+                "Test Doubles",
+                "Flaky Tests",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0468-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-04.md",
+          "source_sha256": "c003fd9383cf2dbb13a15dea0253ae11228e433ac64784df8e0f72e20b350646",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full testing common exact against fully read OP-10-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No test framework/adoption/execution/OP execution implied."
     },
     {
       "source_id": "LIB-0469",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-10-05.md",
       "sha256": "16aebfb3feb64d0b1280af16fb36a1741be7ebf9b9b446b52d5c74173e433e72",
       "bytes": 7680,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0469-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-05.md",
+          "source_sha256": "16aebfb3feb64d0b1280af16fb36a1741be7ebf9b9b446b52d5c74173e433e72",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Control clock/cancel/task terminal events/actor boundaries and final state via explicit synchronization, no fixed sleeps or serial-executor masking production races.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Control clock/cancel/task terminal events/actor boundaries and final state via explicit synchronization, no fixed sleeps or serial-executor masking production races.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Swift Testing And XCTest",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Swift Testing And XCTest"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Testing And Evidence",
+                "Cancellation",
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0469-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-05.md",
+          "source_sha256": "16aebfb3feb64d0b1280af16fb36a1741be7ebf9b9b446b52d5c74173e433e72",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Full controlled clock/random/network/storage/global-state trap, no scheduling hope or order-dependent fixture.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Full controlled clock/random/network/storage/global-state trap, no scheduling hope or order-dependent fixture.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0469-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-05.md",
+          "source_sha256": "16aebfb3feb64d0b1280af16fb36a1741be7ebf9b9b446b52d5c74173e433e72",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Model; Test Portfolio; Swift Testing And XCTest; Determinism; Test Doubles; Flaky Tests; Debugging Workflow; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Portfolio",
+                "Swift Testing And XCTest",
+                "Determinism",
+                "Test Doubles",
+                "Flaky Tests",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0469-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-05.md",
+          "source_sha256": "16aebfb3feb64d0b1280af16fb36a1741be7ebf9b9b446b52d5c74173e433e72",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full testing common exact against fully read OP-10-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No test framework/adoption/execution/OP execution implied."
     },
     {
       "source_id": "LIB-0470",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-10-06.md",
       "sha256": "1b90548744f0638f4b3dad6c6db386502053024514585fa854848e5cea20f75f",
       "bytes": 7754,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0470-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-06.md",
+          "source_sha256": "1b90548744f0638f4b3dad6c6db386502053024514585fa854848e5cea20f75f",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual URLProtocol/stub/fake request/status/decode/error/retry/cancel contract fixtures preserve real boundary semantics, no live network unless explicit integration scope.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual URLProtocol/stub/fake request/status/decode/error/retry/cancel contract fixtures preserve real boundary semantics, no live network unless explicit integration scope.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Test Doubles; Test Portfolio; Determinism",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Test Doubles",
+                "Test Portfolio",
+                "Determinism"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model",
+                "Request Contract",
+                "Reliability",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0470-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-06.md",
+          "source_sha256": "1b90548744f0638f4b3dad6c6db386502053024514585fa854848e5cea20f75f",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both full traps: replay idempotency/budget/jitter/Retry-After/cancel/duplicates plus controlled clock/random/network/storage/global state.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both full traps: replay idempotency/budget/jitter/Retry-After/cancel/duplicates plus controlled clock/random/network/storage/global state.",
+          "destination_path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "destination_heading": "Reliability",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0470-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-06.md",
+          "source_sha256": "1b90548744f0638f4b3dad6c6db386502053024514585fa854848e5cea20f75f",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Model; Test Portfolio; Swift Testing And XCTest; Determinism; Test Doubles; Flaky Tests; Debugging Workflow; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Portfolio",
+                "Swift Testing And XCTest",
+                "Determinism",
+                "Test Doubles",
+                "Flaky Tests",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0470-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-06.md",
+          "source_sha256": "1b90548744f0638f4b3dad6c6db386502053024514585fa854848e5cea20f75f",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full testing common exact against fully read OP-10-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No test framework/adoption/execution/OP execution implied."
     },
     {
       "source_id": "LIB-0471",
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-10-07.md",
       "sha256": "7abf03928437205a971ab428350cf52fcac4e60f06ef2e5202fa4848369b8276",
       "bytes": 7774,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0471-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-07.md",
+          "source_sha256": "7abf03928437205a971ab428350cf52fcac4e60f06ef2e5202fa4848369b8276",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Isolated fixture stores with real migration/conflict/transaction/corruption contracts and cleanup; clean install/fake implementation mirror not preservation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Isolated fixture stores with real migration/conflict/transaction/corruption contracts and cleanup; clean install/fake implementation mirror not preservation.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data; Migration; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data",
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Test Doubles"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0471-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-07.md",
+          "source_sha256": "7abf03928437205a971ab428350cf52fcac4e60f06ef2e5202fa4848369b8276",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Both complete traps: supported schema/history/old store/context isolation/unique/delete/rollback/data loss and controlled deterministic dependencies/global state.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Both complete traps: supported schema/history/old store/context isolation/unique/delete/rollback/data loss and controlled deterministic dependencies/global state.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "SwiftData And Core Data; Migration; Evidence",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "SwiftData And Core Data",
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0471-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-07.md",
+          "source_sha256": "7abf03928437205a971ab428350cf52fcac4e60f06ef2e5202fa4848369b8276",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful testing body: actual framework/plan/parallel-shard/CI conventions, controlled clock/random/UUID/network/store, flaky/quarantine history and changed-behavior facts. Independent deterministic order, no real nondeterminism except scoped integration, diagnosable behavior assertions, no parallel global state and semantically faithful doubles. Actual project/toolchain chooses frameworks/parameters, controlled locale/TZ/clock, boundary/error/cancel not implementation trivia. Review sleeps/order/singletons/overmocking/missing negative-concurrency-migration and UI observable waits. Permission-bound captured seed/environment/repeat/shared-state/timing/service diagnosis and minimal ordering repro, no hidden substitutes; authorized incremental framework migration preserves CI/traits/tags/unsupported features and compatibility/rollback. All eight failure clauses and scoped targeted/relevant-suite/repetition/environment/diagnostic negative evidence/output, no test-writing/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Evidence Model; Test Portfolio; Swift Testing And XCTest; Determinism; Test Doubles; Flaky Tests; Debugging Workflow; Evidence Completion",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Evidence Model",
+                "Test Portfolio",
+                "Swift Testing And XCTest",
+                "Determinism",
+                "Test Doubles",
+                "Flaky Tests",
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Testing And Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Measure From User Impact",
+                "Optimization Workflow"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0471-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-10-07.md",
+          "source_sha256": "7abf03928437205a971ab428350cf52fcac4e60f06ef2e5202fa4848369b8276",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional build/test/characterization/regression actions archived. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-10-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-90-testing-strategy-framework-ui-async-boundaries.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full testing common exact against fully read OP-10-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No test framework/adoption/execution/OP execution implied."
     },
     {
       "source_id": "LIB-0472",
