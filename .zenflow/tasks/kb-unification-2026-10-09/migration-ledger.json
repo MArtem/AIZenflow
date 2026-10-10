@@ -135789,9 +135789,253 @@
       "path": "31_DEEP_PLAYBOOKS/OP-IOS-27-08.md",
       "sha256": "e953cab0c0909601a52bcb2b5c7021fab7c258ab80009fdd11dee80bd1557daf",
       "bytes": 7272,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0654-U01",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-27-08.md",
+          "source_sha256": "e953cab0c0909601a52bcb2b5c7021fab7c258ab80009fdd11dee80bd1557daf",
+          "source_heading": "Mission",
+          "source_fragment": "## Mission",
+          "meaning": "Actual code review/manual CI/deterministic gate signal/observability/incident feedback/dependency adoption/release exact candidate contracts connected under current authority; no CI/jobs/tests/SDK/rollout activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual code review/manual CI/deterministic gate signal/observability/incident feedback/dependency adoption/release exact candidate contracts connected under current authority; no CI/jobs/tests/SDK/rollout activation.",
+          "destination_path": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "destination_heading": "Review Rules; Output For Reviews",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-27-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-125-team-quality-review-chain.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+              "headings": [
+                "Review Rules",
+                "Output For Reviews"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Project-Specific Static Gate Evolution"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Runtime Readiness",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0654-U02",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-27-08.md",
+          "source_sha256": "e953cab0c0909601a52bcb2b5c7021fab7c258ab80009fdd11dee80bd1557daf",
+          "source_heading": "Topic-specific invariants / traps",
+          "source_fragment": "### Topic-specific invariants / traps",
+          "meaning": "Complete stable identity/reuse/cancel/prefetch/decode/diff/hitch evidence trap retained for affected UI consumers, no UI/performance/runtime grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete stable identity/reuse/cancel/prefetch/decode/diff/hitch evidence trap retained for affected UI consumers, no UI/performance/runtime grant.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "destination_heading": "Identity And Collections; UIKit Lifecycle And Reuse Review",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-27-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-125-team-quality-review-chain.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Identity And Collections",
+                "UIKit Lifecycle And Reuse Review"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ]
+        },
+        {
+          "unit_id": "LIB-0654-U03",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-27-08.md",
+          "source_sha256": "e953cab0c0909601a52bcb2b5c7021fab7c258ab80009fdd11dee80bd1557daf",
+          "source_heading": "Fact pass: что найти в репозитории",
+          "source_fragment": "## Fact pass: что найти в репозитории",
+          "meaning": "Complete useful team body: actual team ownership/review/release topology, coding/ADR/docs conventions, supplied or permitted incident/quality evidence, module-dependency owners/knowledge gaps/backup and affected consumers/availability. Process correctness/throughput not ceremony, explicit owner/escalation, discoverable revisitable scoped decisions, meaningful deterministic gate only practical under current manual authority, architecture context-first. High-value conventions correct reusable/project boundary, durable actual ADR tradeoffs and incident learning/review boundaries. Review unsupported benefit/unreliable gates/doc drift/unclear ownership; diagnose actual delivery/incident/review evidence versus tool/ownership/communication assumptions without new access. Any process/tool pilot/adoption/reversibility/parity/stop/compatibility/rollback/cleanup separate actual authorization, not evidence-free automation or multi-agent work. All eight failure guards and permission-bound adoption/lead-time/defect signal/docs-tool agreement/owner/negative/warning evidence/output; no staffing/process/automation/CI/jobs/agents/host/runtime/build/test transitions.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "existing_coverage": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Complete useful team body: actual team ownership/review/release topology, coding/ADR/docs conventions, supplied or permitted incident/quality evidence, module-dependency owners/knowledge gaps/backup and affected consumers/availability. Process correctness/throughput not ceremony, explicit owner/escalation, discoverable revisitable scoped decisions, meaningful deterministic gate only practical under current manual authority, architecture context-first. High-value conventions correct reusable/project boundary, durable actual ADR tradeoffs and incident learning/review boundaries. Review unsupported benefit/unreliable gates/doc drift/unclear ownership; diagnose actual delivery/incident/review evidence versus tool/ownership/communication assumptions without new access. Any process/tool pilot/adoption/reversibility/parity/stop/compatibility/rollback/cleanup separate actual authorization, not evidence-free automation or multi-agent work. All eight failure guards and permission-bound adoption/lead-time/defect signal/docs-tool agreement/owner/negative/warning evidence/output; no staffing/process/automation/CI/jobs/agents/host/runtime/build/test transitions.",
+          "destination_path": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+          "destination_heading": "Review Rules; Output For Reviews",
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-27-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-125-team-quality-review-chain.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+              "headings": [
+                "Review Rules",
+                "Output For Reviews"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+              "headings": [
+                "Required Rules",
+                "Review Checklist"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Template",
+                "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Project-Specific Static Gate Evolution"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "1A. PR Risk Card And Scope",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder",
+                "4. Final Adversarial Review",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Debugging Workflow",
+                "Evidence Completion"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+              "headings": [
+                "Required Report Shape"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+              "headings": [
+                "Authority, Verdict, And Readiness Contract",
+                "User Authority"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "## Invariants",
+            "## Mode A — IMPLEMENTATION",
+            "## Mode B — REVIEW",
+            "## Mode C — DIAGNOSTIC",
+            "## Mode D — MIGRATION",
+            "## Failure-mode checklist",
+            "## Verification ladder для этой темы",
+            "## Agent output contract",
+            "## Copy-paste execution prompt"
+          ]
+        },
+        {
+          "unit_id": "LIB-0654-U04",
+          "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-27-08.md",
+          "source_sha256": "e953cab0c0909601a52bcb2b5c7021fab7c258ab80009fdd11dee80bd1557daf",
+          "source_heading": "Обязательные протоколы",
+          "source_fragment": "## Обязательные протоколы",
+          "meaning": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional adoption/escalation exercises/build/tests and automatic process-pilot/gate automation plus fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Standalone V2/meta/Library/OP/source-role/mode/risk-label delivery plus fixed option/hypothesis quotas and unconditional adoption/escalation exercises/build/tests and automatic process-pilot/gate automation plus fixed option/hypothesis execution structure archived; actualVoiceOver/iPad/physical checks OMITTED_BY_USER, historical results preserved. Useful current permission-bound evidence retained U1–U3; no app/tool/test/architecture/mode/transition grant.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Exact full shared-body normalization against previously fully read OP-27-01; each full mission/traps independently read; SHA/literal/current headings/prior rows/task mirrors and complete final-diff/exact-SHA gates.",
+          "evidence": "block-125-team-quality-review-chain.md",
+          "affected_routes": [
+            "ios-evidence-gate",
+            "engineering-change-quality"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "## Copy-paste execution prompt"
+          ]
+        }
+      ],
+      "disposition_reason": "Full team common exact against fully read OP-27-01 after anchored identity/title/mission/trap substitution; each mission/trap independently mapped, common guards covered, source delivery/execution archived. No staffing/process/agent/chat/MCP/automation/CI/app/test/runtime/host/mode/OP action implied."
     },
     {
       "source_id": "LIB-0655",
