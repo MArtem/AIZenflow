@@ -168374,81 +168374,707 @@
       "path": "legacy-source/41_PROJECT_ADAPTIVE/DRIFT_REFRESH_POLICY.md",
       "sha256": "71bf158a5aee0441ac68755ffe3c8adf78b9847bdb1346579f8c71476ca2991f",
       "bytes": 2195,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0964-U01",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/DRIFT_REFRESH_POLICY.md",
+          "source_sha256": "71bf158a5aee0441ac68755ffe3c8adf78b9847bdb1346579f8c71476ca2991f",
+          "source_heading": "Adaptation Drift & Refresh Policy",
+          "source_fragment": "# Adaptation Drift & Refresh Policy",
+          "meaning": "Relevant source/config/instruction fingerprint drift invalidates generated claims; revalidate target/CI/dependency/toolchain/schema/auth/capability/module changes. Reproducible derived artifacts not human decisions, preserve durable authored decisions in correct boundary. No automatic refresh/state generator execution.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Relevant source/config/instruction fingerprint drift invalidates generated claims; revalidate target/CI/dependency/toolchain/schema/auth/capability/module changes. Reproducible derived artifacts not human decisions, preserve durable authored decisions in correct boundary. No automatic refresh/state generator execution.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 4. Final Adversarial Review; 5. Exact-SHA Review Receipt",
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "4. Final Adversarial Review",
+                "5. Exact-SHA Review Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Hard Separation Rules"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Adaptation Drift & Refresh Policy\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nThe model records a source fingerprint over relevant project/config/instruction files. A changed fingerprint means generated context may be stale.\n\nRefresh after:\n- project/target/scheme/test-plan changes;\n- Package.swift/Package.resolved or dependency graph changes;\n- CI/Fastlane/Make/release command changes;\n- deployment/Swift language mode changes;\n- persistence/auth/payments architecture changes;\n- new extensions/widgets/background capabilities;\n- major source-module moves.\n\nGenerated files must be reproducible from repository state. Human decisions belong in `.ai/project/DECISION_LOG.md`, not edited into generated output."
+          ]
+        },
+        {
+          "unit_id": "LIB-0964-U02",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/DRIFT_REFRESH_POLICY.md",
+          "source_sha256": "71bf158a5aee0441ac68755ffe3c8adf78b9847bdb1346579f8c71476ca2991f",
+          "source_heading": "Adaptation Drift & Refresh Policy",
+          "source_fragment": "# Adaptation Drift & Refresh Policy",
+          "meaning": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Adaptation Drift & Refresh Policy\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nThe model records a source fingerprint over relevant project/config/instruction files. A changed fingerprint means generated context may be stale.\n\nRefresh after:\n- project/target/scheme/test-plan changes;\n- Package.swift/Package.resolved or dependency graph changes;\n- CI/Fastlane/Make/release command changes;\n- deployment/Swift language mode changes;\n- persistence/auth/payments architecture changes;\n- new extensions/widgets/background capabilities;\n- major source-module moves.\n\nGenerated files must be reproducible from repository state. Human decisions belong in `.ai/project/DECISION_LOG.md`, not edited into generated output."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0965",
       "path": "legacy-source/41_PROJECT_ADAPTIVE/FACT_INFERENCE_POLICY.md",
       "sha256": "2d0eb8a284360e86f3b7133470bcf5be1cb7d9bea64b6d8ba01dea8df2eefcdf",
       "bytes": 1016,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0965-U01",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/FACT_INFERENCE_POLICY.md",
+          "source_sha256": "2d0eb8a284360e86f3b7133470bcf5be1cb7d9bea64b6d8ba01dea8df2eefcdf",
+          "source_heading": "Fact vs Inference Policy",
+          "source_fragment": "# Fact vs Inference Policy",
+          "meaning": "Exact observed source origin, derived dependency facts, heuristic confidence/applicability and UNKNOWN not guessed verdict. Filename/style frequency not architecture, command presence not CI gate, one configuration not global deployment, singleton not semantic owner, test-target presence not comprehensive coverage. Fixed numeric confidence bands historical, never formal guarantee.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact observed source origin, derived dependency facts, heuristic confidence/applicability and UNKNOWN not guessed verdict. Filename/style frequency not architecture, command presence not CI gate, one configuration not global deployment, singleton not semantic owner, test-target presence not comprehensive coverage. Fixed numeric confidence bands historical, never formal guarantee.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Finding Applicability And Adjudication; Severity Policy",
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+              "headings": [
+                "Architecture Detection And Review Gates"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Fact vs Inference Policy\n\n## Evidence classes\n`observed` must cite its origin: repository path, parsed Xcode object, command output, or VCS metadata. `derived` must identify the source facts. `heuristic` must carry a confidence in `[0,1]` and evidence leads. `unknown` is preferred to a confident-looking guess.\n\n## Forbidden upgrades\nNever promote these solely from filename/class-name frequency:\n- MVVM / Clean / TCA as the repository architecture.\n- a Makefile/Fastlane/xcodebuild invocation as the canonical CI gate.\n- a deployment target parsed from one configuration as universal across targets.\n- a singleton as the state owner.\n- a test target as comprehensive coverage.\n\n## Confidence language\n- 0.90–1.00: strong repository evidence, still not a formal guarantee.\n- 0.70–0.89: multiple consistent signals.\n- 0.40–0.69: useful lead requiring confirmation.\n- below 0.40: normally omit from generated recommendation and retain as a diagnostic lead.\n\nGenerated Markdown must visually label heuristics."
+          ]
+        },
+        {
+          "unit_id": "LIB-0965-U02",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/FACT_INFERENCE_POLICY.md",
+          "source_sha256": "2d0eb8a284360e86f3b7133470bcf5be1cb7d9bea64b6d8ba01dea8df2eefcdf",
+          "source_heading": "Fact vs Inference Policy",
+          "source_fragment": "# Fact vs Inference Policy",
+          "meaning": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Fact vs Inference Policy\n\n## Evidence classes\n`observed` must cite its origin: repository path, parsed Xcode object, command output, or VCS metadata. `derived` must identify the source facts. `heuristic` must carry a confidence in `[0,1]` and evidence leads. `unknown` is preferred to a confident-looking guess.\n\n## Forbidden upgrades\nNever promote these solely from filename/class-name frequency:\n- MVVM / Clean / TCA as the repository architecture.\n- a Makefile/Fastlane/xcodebuild invocation as the canonical CI gate.\n- a deployment target parsed from one configuration as universal across targets.\n- a singleton as the state owner.\n- a test target as comprehensive coverage.\n\n## Confidence language\n- 0.90–1.00: strong repository evidence, still not a formal guarantee.\n- 0.70–0.89: multiple consistent signals.\n- 0.40–0.69: useful lead requiring confirmation.\n- below 0.40: normally omit from generated recommendation and retain as a diagnostic lead.\n\nGenerated Markdown must visually label heuristics."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0966",
       "path": "legacy-source/41_PROJECT_ADAPTIVE/NESTED_AGENTS_GENERATION.md",
       "sha256": "4fee1c622e0c6446531fb99748f2b12cf9e7eeaf6916c08bd5eb3e5e87cbab9d",
       "bytes": 2288,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0966-U01",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/NESTED_AGENTS_GENERATION.md",
+          "source_sha256": "4fee1c622e0c6446531fb99748f2b12cf9e7eeaf6916c08bd5eb3e5e87cbab9d",
+          "source_heading": "Nested AGENTS Generation",
+          "source_fragment": "# Nested AGENTS Generation",
+          "meaning": "Narrow actual stable subtree ownership/nonduplication and higher-priority authority before proposed scoped rules, existing authored instructions preserved. Candidate staging not source placement/adoption, no per-folder generation or U8 activation.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Narrow actual stable subtree ownership/nonduplication and higher-priority authority before proposed scoped rules, existing authored instructions preserved. Candidate staging not source placement/adoption, no per-folder generation or U8 activation.",
+          "destination_path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "destination_heading": "Active Authority And Historical Evidence; Hard Separation Rules",
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Active Authority And Historical Evidence",
+                "Hard Separation Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Nested AGENTS Generation\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nCandidate local instructions are appropriate when a subtree has stable local facts, for example:\n- a framework/package with public API compatibility requirements;\n- persistence/migration code with destructive-change prohibitions;\n- UI layer with a specific state/navigation convention;\n- generated code folder that must not be edited;\n- release/build tooling with dedicated verification.\n\nV4 writes candidates under `.ai/adaptive/nested-agents/`; it does not place them into source directories automatically. This prevents accidental instruction conflicts and respects existing repository policy. More deeply nested `AGENTS.md` instructions take precedence for their directory scope, so proposals must remain narrow and non-duplicative."
+          ]
+        },
+        {
+          "unit_id": "LIB-0966-U02",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/NESTED_AGENTS_GENERATION.md",
+          "source_sha256": "4fee1c622e0c6446531fb99748f2b12cf9e7eeaf6916c08bd5eb3e5e87cbab9d",
+          "source_heading": "Nested AGENTS Generation",
+          "source_fragment": "# Nested AGENTS Generation",
+          "meaning": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Nested AGENTS Generation\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nCandidate local instructions are appropriate when a subtree has stable local facts, for example:\n- a framework/package with public API compatibility requirements;\n- persistence/migration code with destructive-change prohibitions;\n- UI layer with a specific state/navigation convention;\n- generated code folder that must not be edited;\n- release/build tooling with dedicated verification.\n\nV4 writes candidates under `.ai/adaptive/nested-agents/`; it does not place them into source directories automatically. This prevents accidental instruction conflicts and respects existing repository policy. More deeply nested `AGENTS.md` instructions take precedence for their directory scope, so proposals must remain narrow and non-duplicative."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0967",
       "path": "legacy-source/41_PROJECT_ADAPTIVE/PROJECT_MODEL_SCHEMA.md",
       "sha256": "e9e431947803b4c71eb204e82201224ff5e5d68061141397e71cf8fa7d3f6b27",
       "bytes": 1006,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0967-U01",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/PROJECT_MODEL_SCHEMA.md",
+          "source_sha256": "e9e431947803b4c71eb204e82201224ff5e5d68061141397e71cf8fa7d3f6b27",
+          "source_heading": "Project Model Schema",
+          "source_fragment": "# Project Model Schema",
+          "meaning": "Versioned actual producer/consumer schema and input compatibility with exact source/revision/fingerprint, provenance-derived target facts and explicit UNKNOWN. Extra/adaptive fields handled under real contract, major mismatch not accepted as success; historical V4 PROJECT_MODEL4.0 schema retained, no current model adoption.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Versioned actual producer/consumer schema and input compatibility with exact source/revision/fingerprint, provenance-derived target facts and explicit UNKNOWN. Extra/adaptive fields handled under real contract, major mismatch not accepted as success; historical V4 PROJECT_MODEL4.0 schema retained, no current model adoption.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 3. Verification Ladder",
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Required Checks",
+                "DTO And Domain Boundaries"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Project Model Schema\n\n`PROJECT_MODEL.json` is the durable interchange format for V4. Schema version: `4.0`.\n\nTop-level sections:\n- `meta`: schema version, generated time, repository root, source fingerprint.\n- `git`: branch and cleanliness metadata.\n- `inventory`: projects, workspaces, packages, schemes, test plans, CI/config files.\n- `xcode`: observed build settings and optional tool output.\n- `targets`: target-like records extracted from project files.\n- `source`: source counts, languages, directories and framework imports.\n- `signals`: technology and architecture signals with evidence/confidence.\n- `command_candidates`: build/test/lint/release commands with provenance.\n- `risks`: risk leads, severity, confidence and evidence.\n- `active_skills`: skill names and selection reasons.\n- `nested_agent_candidates`: proposed scopes and local concerns.\n- `unknowns`: facts that matter but were not established.\n\nConsumers must tolerate additive fields and reject incompatible major schema versions."
+          ]
+        },
+        {
+          "unit_id": "LIB-0967-U02",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/PROJECT_MODEL_SCHEMA.md",
+          "source_sha256": "e9e431947803b4c71eb204e82201224ff5e5d68061141397e71cf8fa7d3f6b27",
+          "source_heading": "Project Model Schema",
+          "source_fragment": "# Project Model Schema",
+          "meaning": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Project Model Schema\n\n`PROJECT_MODEL.json` is the durable interchange format for V4. Schema version: `4.0`.\n\nTop-level sections:\n- `meta`: schema version, generated time, repository root, source fingerprint.\n- `git`: branch and cleanliness metadata.\n- `inventory`: projects, workspaces, packages, schemes, test plans, CI/config files.\n- `xcode`: observed build settings and optional tool output.\n- `targets`: target-like records extracted from project files.\n- `source`: source counts, languages, directories and framework imports.\n- `signals`: technology and architecture signals with evidence/confidence.\n- `command_candidates`: build/test/lint/release commands with provenance.\n- `risks`: risk leads, severity, confidence and evidence.\n- `active_skills`: skill names and selection reasons.\n- `nested_agent_candidates`: proposed scopes and local concerns.\n- `unknowns`: facts that matter but were not established.\n\nConsumers must tolerate additive fields and reject incompatible major schema versions."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0968",
       "path": "legacy-source/41_PROJECT_ADAPTIVE/RISK_MODEL_V4.md",
       "sha256": "ab0feca1c337736f318f1f4347dff68e64613e861ae824617a6d023df9262e82",
       "bytes": 659,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0968-U01",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/RISK_MODEL_V4.md",
+          "source_sha256": "ab0feca1c337736f318f1f4347dff68e64613e861ae824617a6d023df9262e82",
+          "source_heading": "Adaptive Risk Model",
+          "source_fragment": "# Adaptive Risk Model",
+          "meaning": "Data/auth/payments/isolation/extensions/public API/privacy/release/cross-module risk leads reflect potential impact distinct from observed defect/confidence/applicability; evidence and relevant actual route. Unsafe Swift terms detection not exception or test evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Data/auth/payments/isolation/extensions/public API/privacy/release/cross-module risk leads reflect potential impact distinct from observed defect/confidence/applicability; evidence and relevant actual route. Unsafe Swift terms detection not exception or test evidence.",
+          "destination_path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "destination_heading": "Finding Applicability And Adjudication; Severity Policy",
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1A. PR Risk Card And Scope"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Adaptive Risk Model\n\nV4 produces **risk leads**, not defect findings.\n\nHigh-signal boundaries include:\n- persisted schema / migrations / destructive stores;\n- authentication/session/token refresh;\n- payments/StoreKit/entitlements;\n- strict concurrency escapes (`@unchecked Sendable`, `nonisolated(unsafe)`, detached tasks);\n- extensions/background execution;\n- public SDK/API surfaces;\n- secrets/privacy manifests/permissions;\n- CI/signing/release automation;\n- large cross-module ownership surfaces.\n\nEach lead contains severity, confidence, evidence and the matching audit skill. Severity is about potential blast radius; it does not assert a bug exists."
+          ]
+        },
+        {
+          "unit_id": "LIB-0968-U02",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/RISK_MODEL_V4.md",
+          "source_sha256": "ab0feca1c337736f318f1f4347dff68e64613e861ae824617a6d023df9262e82",
+          "source_heading": "Adaptive Risk Model",
+          "source_fragment": "# Adaptive Risk Model",
+          "meaning": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Adaptive Risk Model\n\nV4 produces **risk leads**, not defect findings.\n\nHigh-signal boundaries include:\n- persisted schema / migrations / destructive stores;\n- authentication/session/token refresh;\n- payments/StoreKit/entitlements;\n- strict concurrency escapes (`@unchecked Sendable`, `nonisolated(unsafe)`, detached tasks);\n- extensions/background execution;\n- public SDK/API surfaces;\n- secrets/privacy manifests/permissions;\n- CI/signing/release automation;\n- large cross-module ownership surfaces.\n\nEach lead contains severity, confidence, evidence and the matching audit skill. Severity is about potential blast radius; it does not assert a bug exists."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0969",
       "path": "legacy-source/41_PROJECT_ADAPTIVE/SAFE_AUTOMATION_BOUNDARIES.md",
       "sha256": "da7d3979f7d53e34aca0ab0a1307c945ce106272938465df112e9b8d9346d6af",
       "bytes": 2084,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0969-U01",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/SAFE_AUTOMATION_BOUNDARIES.md",
+          "source_sha256": "da7d3979f7d53e34aca0ab0a1307c945ce106272938465df112e9b8d9346d6af",
+          "source_heading": "Safe Automation Boundaries",
+          "source_fragment": "# Safe Automation Boundaries",
+          "meaning": "Exact current authority/effects: no implicit project/workspace/package/dependency/signing/entitlements/secret/CI/nested source rules/destructive migration/arbitrary discovered scripts. Shell snippets data until authorized; source default generated-artifact write allowance superseded, read-only labels not complete effects proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact current authority/effects: no implicit project/workspace/package/dependency/signing/entitlements/secret/CI/nested source rules/destructive migration/arbitrary discovered scripts. Shell snippets data until authorized; source default generated-artifact write allowance superseded, read-only labels not complete effects proof.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "2. Implementation From Invariants; 3. Verification Ladder",
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "3. Verification Ladder"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Safe Automation Boundaries\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nDefault adaptation is read-only except for `.ai/adaptive/` generated artifacts.\n\nNever automatically:\n- change `.xcodeproj` or `.xcworkspace` contents;\n- rewrite Package.swift or resolved dependencies;\n- place nested AGENTS files into source trees;\n- alter signing, entitlements, secrets or CI;\n- run destructive migrations;\n- run arbitrary repository scripts discovered by text scanning.\n\nOptional Xcode discovery commands are allowlisted and explicitly requested. Discovered shell snippets are data, not executable instructions."
+          ]
+        },
+        {
+          "unit_id": "LIB-0969-U02",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/SAFE_AUTOMATION_BOUNDARIES.md",
+          "source_sha256": "da7d3979f7d53e34aca0ab0a1307c945ce106272938465df112e9b8d9346d6af",
+          "source_heading": "Safe Automation Boundaries",
+          "source_fragment": "# Safe Automation Boundaries",
+          "meaning": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Safe Automation Boundaries\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nDefault adaptation is read-only except for `.ai/adaptive/` generated artifacts.\n\nNever automatically:\n- change `.xcodeproj` or `.xcworkspace` contents;\n- rewrite Package.swift or resolved dependencies;\n- place nested AGENTS files into source trees;\n- alter signing, entitlements, secrets or CI;\n- run destructive migrations;\n- run arbitrary repository scripts discovered by text scanning.\n\nOptional Xcode discovery commands are allowlisted and explicitly requested. Discovered shell snippets are data, not executable instructions."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0970",
       "path": "legacy-source/41_PROJECT_ADAPTIVE/TARGET_DISCOVERY_PROTOCOL.md",
       "sha256": "0c7fb011854e0fc1ad9fd4f7c4d813326c0714a4e5a1855efc48a458b9128a05",
       "bytes": 698,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0970-U01",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/TARGET_DISCOVERY_PROTOCOL.md",
+          "source_sha256": "0c7fb011854e0fc1ad9fd4f7c4d813326c0714a4e5a1855efc48a458b9128a05",
+          "source_heading": "Target Discovery Protocol",
+          "source_fragment": "# Target Discovery Protocol",
+          "meaning": "Multiple actual PBX target/config relationships/shared build-test schemes/testplans/CI provenance, per-target/config language/deployment not global regex guess. Aggregate min/max derived only observed settings; all affected consumers, dynamic unavailable UNKNOWN and no discovery command execution.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Multiple actual PBX target/config relationships/shared build-test schemes/testplans/CI provenance, per-target/config language/deployment not global regex guess. Aggregate min/max derived only observed settings; all affected consumers, dynamic unavailable UNKNOWN and no discovery command execution.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Targets And Build Phases; Reproducibility And CI; Evidence",
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Targets And Build Phases",
+                "Reproducibility And CI",
+                "Evidence"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Target Discovery Protocol\n\nUse multiple evidence layers rather than one regex result:\n1. PBXNativeTarget records for name/product type.\n2. XCBuildConfiguration / configuration-list relationships when parsable.\n3. Shared schemes and their build/test references.\n4. `.xctestplan` files.\n5. CI commands that name schemes/workspaces/projects.\n6. Optional `xcodebuild -list -json` output on macOS.\n\nDeployment and Swift settings are target/configuration-specific. A global minimum/maximum may be rendered only as a derived summary over observed settings. Extensions, widgets, watch targets, tests and tooling targets remain first-class because their availability requirements can differ from the app."
+          ]
+        },
+        {
+          "unit_id": "LIB-0970-U02",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/TARGET_DISCOVERY_PROTOCOL.md",
+          "source_sha256": "0c7fb011854e0fc1ad9fd4f7c4d813326c0714a4e5a1855efc48a458b9128a05",
+          "source_heading": "Target Discovery Protocol",
+          "source_fragment": "# Target Discovery Protocol",
+          "meaning": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Target Discovery Protocol\n\nUse multiple evidence layers rather than one regex result:\n1. PBXNativeTarget records for name/product type.\n2. XCBuildConfiguration / configuration-list relationships when parsable.\n3. Shared schemes and their build/test references.\n4. `.xctestplan` files.\n5. CI commands that name schemes/workspaces/projects.\n6. Optional `xcodebuild -list -json` output on macOS.\n\nDeployment and Swift settings are target/configuration-specific. A global minimum/maximum may be rendered only as a derived summary over observed settings. Extensions, widgets, watch targets, tests and tooling targets remain first-class because their availability requirements can differ from the app."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0971",
       "path": "legacy-source/41_PROJECT_ADAPTIVE/V4_PROJECT_ADAPTIVE_OVERVIEW.md",
       "sha256": "ea3d92bae129e2cc253d51b9114fb2e758199d1917f1a22bca341da10f00f578",
       "bytes": 3306,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0971-U01",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/V4_PROJECT_ADAPTIVE_OVERVIEW.md",
+          "source_sha256": "ea3d92bae129e2cc253d51b9114fb2e758199d1917f1a22bca341da10f00f578",
+          "source_heading": "V4 Project-Adaptive Edition",
+          "source_fragment": "# V4 Project-Adaptive Edition",
+          "meaning": "Evidence-labelled scoped actual project facts rather than infallible semantic compiler/architecture/command inference. Human-authored facts/decisions preserved, candidate scopes not placed, selective current route under user authority; old eight-step V4 generation/re-run machinery not permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Evidence-labelled scoped actual project facts rather than infallible semantic compiler/architecture/command inference. Human-authored facts/decisions preserved, candidate scopes not placed, selective current route under user authority; old eight-step V4 generation/re-run machinery not permission.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 2. Implementation From Invariants; 3. Verification Ladder",
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "2. Implementation From Invariants",
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Hard Separation Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+              "headings": [
+                "Agent Loading Rule"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V4 Project-Adaptive Edition\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nV4 turns the repository-native V3 layer into a project-specific engineering model. It does not guess a canonical architecture or build command. It inventories evidence, records confidence, generates machine-readable facts, renders human-readable project maps, selects relevant skills, and proposes local instruction scopes.\n\n## Outputs\nA V4 adaptation run can create under `.ai/adaptive/`:\n\n- `PROJECT_MODEL.json` — machine-readable repository model with evidence and confidence.\n- `ADAPTATION_REPORT.md` — observed/derived/heuristic/unknown summary.\n- `generated/PROJECT_CONTEXT.generated.md`\n- `generated/TARGET_MATRIX.generated.md`\n- `generated/ARCHITECTURE_MAP.generated.md`\n- `generated/REPO_COMMANDS.generated.md`\n- `generated/RISK_MAP.generated.md`\n- `generated/ACTIVE_SKILLS.generated.md`\n- `generated/DEPENDENCY_MAP.generated.md`\n- `nested-agents/manifest.json` and candidate scoped instruction files.\n\nNo product source is modified. Candidate nested `AGENTS.md` files are staged under `.ai/adaptive/nested-agents/` and require explicit human placement.\n\n## Adaptation loop\n1. Inventory repository facts.\n2. Build the project model.\n3. Separate observed evidence from derived and heuristic interpretation.\n4. Render project-specific documentation.\n5. Select active skills from detected technologies and risk boundaries.\n6. Propose scoped agent instructions.\n7. Validate model completeness and stale/drift conditions.\n8. Re-run after target, CI, dependency, persistence, auth, or architecture changes.\n\n## Non-goals\nV4 is not a semantic compiler for arbitrary Xcode projects and does not claim infallible architecture inference. Heuristics remain labelled. `xcodebuild` execution is opt-in because it may be slow and environment-dependent."
+          ]
+        },
+        {
+          "unit_id": "LIB-0971-U02",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/V4_PROJECT_ADAPTIVE_OVERVIEW.md",
+          "source_sha256": "ea3d92bae129e2cc253d51b9114fb2e758199d1917f1a22bca341da10f00f578",
+          "source_heading": "V4 Project-Adaptive Edition",
+          "source_fragment": "# V4 Project-Adaptive Edition",
+          "meaning": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V4 Project-Adaptive Edition\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nV4 turns the repository-native V3 layer into a project-specific engineering model. It does not guess a canonical architecture or build command. It inventories evidence, records confidence, generates machine-readable facts, renders human-readable project maps, selects relevant skills, and proposes local instruction scopes.\n\n## Outputs\nA V4 adaptation run can create under `.ai/adaptive/`:\n\n- `PROJECT_MODEL.json` — machine-readable repository model with evidence and confidence.\n- `ADAPTATION_REPORT.md` — observed/derived/heuristic/unknown summary.\n- `generated/PROJECT_CONTEXT.generated.md`\n- `generated/TARGET_MATRIX.generated.md`\n- `generated/ARCHITECTURE_MAP.generated.md`\n- `generated/REPO_COMMANDS.generated.md`\n- `generated/RISK_MAP.generated.md`\n- `generated/ACTIVE_SKILLS.generated.md`\n- `generated/DEPENDENCY_MAP.generated.md`\n- `nested-agents/manifest.json` and candidate scoped instruction files.\n\nNo product source is modified. Candidate nested `AGENTS.md` files are staged under `.ai/adaptive/nested-agents/` and require explicit human placement.\n\n## Adaptation loop\n1. Inventory repository facts.\n2. Build the project model.\n3. Separate observed evidence from derived and heuristic interpretation.\n4. Render project-specific documentation.\n5. Select active skills from detected technologies and risk boundaries.\n6. Propose scoped agent instructions.\n7. Validate model completeness and stale/drift conditions.\n8. Re-run after target, CI, dependency, persistence, auth, or architecture changes.\n\n## Non-goals\nV4 is not a semantic compiler for arbitrary Xcode projects and does not claim infallible architecture inference. Heuristics remain labelled. `xcodebuild` execution is opt-in because it may be slow and environment-dependent."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0972",
       "path": "legacy-source/41_PROJECT_ADAPTIVE/VALIDATION_EVIDENCE_V4.md",
       "sha256": "f4a3a4465ef816a6f3091d8d075deb93c5d394d9799e3354bc2949001144b3f3",
       "bytes": 2133,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0972-U01",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/VALIDATION_EVIDENCE_V4.md",
+          "source_sha256": "f4a3a4465ef816a6f3091d8d075deb93c5d394d9799e3354bc2949001144b3f3",
+          "source_heading": "V4 Validation Evidence",
+          "source_fragment": "# V4 Validation Evidence",
+          "meaning": "Actual schema/path/fingerprint/containment/redaction/reproducible-derived artifact validations have exact scope; parser/paths/current references alone not engineering semantic correctness or app readiness. Non-Xcode static result leaves dynamic facts UNKNOWN, no production/tool/test success inferred.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual schema/path/fingerprint/containment/redaction/reproducible-derived artifact validations have exact scope; parser/paths/current references alone not engineering semantic correctness or app readiness. Non-Xcode static result leaves dynamic facts UNKNOWN, no production/tool/test success inferred.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation; 3. Verification Ladder; Completion Contract",
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation",
+                "3. Verification Ladder",
+                "Completion Contract"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# V4 Validation Evidence\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nA successful adaptation means:\n- model parses and reports schema `4.0`;\n- all evidence file paths that should exist are resolvable;\n- active skills exist in `.agents/skills`;\n- candidate nested scopes do not escape repository root;\n- generated docs reference the current model fingerprint;\n- generated output contains no secret values from common secret/config files;\n- repeat generation without repository changes is stable apart from timestamp fields.\n\nOn Linux/CI without Xcode, static adaptation can still succeed. Xcode-derived facts remain unknown instead of being synthesized."
+          ]
+        },
+        {
+          "unit_id": "LIB-0972-U02",
+          "source_path": "canonical/legacy-source/41_PROJECT_ADAPTIVE/VALIDATION_EVIDENCE_V4.md",
+          "source_sha256": "f4a3a4465ef816a6f3091d8d075deb93c5d394d9799e3354bc2949001144b3f3",
+          "source_heading": "V4 Validation Evidence",
+          "source_fragment": "# V4 Validation Evidence",
+          "meaning": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical V4 model4.0 schema, fixed numeric confidence bands, generation/refresh/validation workflow and global shim/install-state aliases retained as provenance. Current useful boundary/evidence constraints covered separately; no automatic generated-artifact write, nested rule adoption, command or model/schema activation.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Nine remaining V4 adaptation bodies fully read; source SHA/literals/current unique headings/semantic coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No generated artifacts/models/scoped rules or read-only command activated.",
+          "evidence": "block-197-legacy-adaptation-drift-evidence.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# V4 Validation Evidence\n> **GLOBAL CODEX EDITION — PATH MAPPING**  \n> This document originated in the repository-local evolution of the library. In this global edition, any repository-local infrastructure path below is a **logical legacy alias**, not an instruction to create that path in a client repository. Map it as follows:\n> - `.ai/project` / `.ai/adaptive` → the external per-repository state returned by `python3 \"${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/bin/ios_ai.py\" path --repo .` (adaptive/generated data lives under that state directory).\n> - `.ai/ios-library` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/library`.\n> - `.ai/ios-core` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/core`.\n> - `.ai/orchestration` → `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/orchestration` plus the external per-repository orchestration state.\n> - `scripts/ai/...` → use the global `ios_ai.py` CLI above (or the exact command in an installed skill's `references/INSTALLATION.md`).\n> - repository `.agents/skills` / `.codex/skills` → the **user-global skill root chosen by `install_global.py`**.\n> - `REPOSITORY_KIT/repo-root` → historical packaging reference only; it is not installed into client repositories in this edition.\n> **Never create/copy library `.ai`, `.agents`, `.codex`, or `scripts/ai` infrastructure inside a client repository unless the user explicitly asks for a repository-local export. Repository-local `AGENTS.md` and repository facts remain more specific than this global guidance.**\n\n\nA successful adaptation means:\n- model parses and reports schema `4.0`;\n- all evidence file paths that should exist are resolvable;\n- active skills exist in `.agents/skills`;\n- candidate nested scopes do not escape repository root;\n- generated docs reference the current model fingerprint;\n- generated output contains no secret values from common secret/config files;\n- repeat generation without repository changes is stable apart from timestamp fields.\n\nOn Linux/CI without Xcode, static adaptation can still succeed. Xcode-derived facts remain unknown instead of being synthesized."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/automation/adaptation body independently fully read; actual useful constraints covered, historical forms/protocol/aliases archived, no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0973",
