@@ -166591,135 +166591,1161 @@
       "path": "legacy-source/39_PROJECT_CONTEXT/ARCHITECTURE_MAP.md",
       "sha256": "d98b80ea87565ab6c90a3714721d4e4f09e1bbccbb0ed5dd5bd0aadf7c303691",
       "bytes": 380,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0941-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/ARCHITECTURE_MAP.md",
+          "source_sha256": "d98b80ea87565ab6c90a3714721d4e4f09e1bbccbb0ed5dd5bd0aadf7c303691",
+          "source_heading": "Architecture Map",
+          "source_fragment": "# Architecture Map",
+          "meaning": "Actual module/target responsibility/public boundary/dependency direction and owned mutable UI/domain/data/async state; auth/launch/navigation/sync/persistence/background consumers before architectural claims. Blank map is not inspected architecture evidence.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual module/target responsibility/public boundary/dependency direction and owned mutable UI/domain/data/async state; auth/launch/navigation/sync/persistence/background consumers before architectural claims. Blank map is not inspected architecture evidence.",
+          "destination_path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "destination_heading": "Required Checks",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Architecture Map\n\n## Modules / targets\n| Module | Responsibility | Public boundary | State owner | Dependencies |\n|---|---|---|---|---|\n\n## Primary flows\nDocument authentication, launch/bootstrap, navigation, data sync, persistence and critical background flows.\n\n## Boundary rules\n- dependency direction:\n- shared mutable state:\n- UI/domain/data boundaries:\n- async isolation:"
+          ]
+        },
+        {
+          "unit_id": "LIB-0941-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/ARCHITECTURE_MAP.md",
+          "source_sha256": "d98b80ea87565ab6c90a3714721d4e4f09e1bbccbb0ed5dd5bd0aadf7c303691",
+          "source_heading": "Architecture Map",
+          "source_fragment": "# Architecture Map",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Architecture Map\n\n## Modules / targets\n| Module | Responsibility | Public boundary | State owner | Dependencies |\n|---|---|---|---|---|\n\n## Primary flows\nDocument authentication, launch/bootstrap, navigation, data sync, persistence and critical background flows.\n\n## Boundary rules\n- dependency direction:\n- shared mutable state:\n- UI/domain/data boundaries:\n- async isolation:"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0942",
       "path": "legacy-source/39_PROJECT_CONTEXT/DATA_CONTRACTS.md",
       "sha256": "af1fabb1b2c0d6806cad308607905f78c368b3c16fbfb41545b879d5e78edaf5",
       "bytes": 267,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0942-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/DATA_CONTRACTS.md",
+          "source_sha256": "af1fabb1b2c0d6806cad308607905f78c368b3c16fbfb41545b879d5e78edaf5",
+          "source_heading": "Data Contracts",
+          "source_fragment": "# Data Contracts",
+          "meaning": "Authoritative versioned API/persisted schemas with nullability/enums/time units/timezone/pagination/idempotency/compatibility/migration ownership; reference exact source rather than duplicated volatile definition.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "existing_coverage": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Authoritative versioned API/persisted schemas with nullability/enums/time units/timezone/pagination/idempotency/compatibility/migration ownership; reference exact source rather than duplicated volatile definition.",
+          "destination_path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "destination_heading": "Required Checks; DTO And Domain Boundaries; Pagination And Sync",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Required Checks",
+                "DTO And Domain Boundaries",
+                "Pagination And Sync"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Data Contracts\n\nRecord API schemas, persisted schemas, versioning, optionality/enums, timestamps/time zones, pagination, idempotency, compatibility and migration ownership. Link to generated schemas/OpenAPI where available rather than copying volatile definitions."
+          ]
+        },
+        {
+          "unit_id": "LIB-0942-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/DATA_CONTRACTS.md",
+          "source_sha256": "af1fabb1b2c0d6806cad308607905f78c368b3c16fbfb41545b879d5e78edaf5",
+          "source_heading": "Data Contracts",
+          "source_fragment": "# Data Contracts",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Data Contracts\n\nRecord API schemas, persisted schemas, versioning, optionality/enums, timestamps/time zones, pagination, idempotency, compatibility and migration ownership. Link to generated schemas/OpenAPI where available rather than copying volatile definitions."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0943",
       "path": "legacy-source/39_PROJECT_CONTEXT/DECISION_LOG.md",
       "sha256": "f96b64ed134e49ff2339a4c66128b4745b15fe168d01798a877b0f83295c4c5a",
       "bytes": 257,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0943-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/DECISION_LOG.md",
+          "source_sha256": "f96b64ed134e49ff2339a4c66128b4745b15fe168d01798a877b0f83295c4c5a",
+          "source_heading": "Architecture / Engineering Decision Log",
+          "source_fragment": "# Architecture / Engineering Decision Log",
+          "meaning": "Short durable decision context/options/evidence/consequences/consumer compatibility/recovery and implementation provenance, correct app/task boundary; no generated decision from blank form.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "existing_coverage": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Short durable decision context/options/evidence/consequences/consumer compatibility/recovery and implementation provenance, correct app/task boundary; no generated decision from blank form.",
+          "destination_path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+          "destination_heading": "ADR Required When; ADR Template; Bounded Investigation And Migration",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+              "headings": [
+                "ADR Required When",
+                "ADR Template",
+                "Bounded Investigation And Migration"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Architecture / Engineering Decision Log\n\nFor each durable decision record date, context, considered options, chosen option, consequences, compatibility/rollback and links to implementation/tests. Prefer short records with evidence over narrative history."
+          ]
+        },
+        {
+          "unit_id": "LIB-0943-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/DECISION_LOG.md",
+          "source_sha256": "f96b64ed134e49ff2339a4c66128b4745b15fe168d01798a877b0f83295c4c5a",
+          "source_heading": "Architecture / Engineering Decision Log",
+          "source_fragment": "# Architecture / Engineering Decision Log",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Architecture / Engineering Decision Log\n\nFor each durable decision record date, context, considered options, chosen option, consequences, compatibility/rollback and links to implementation/tests. Prefer short records with evidence over narrative history."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0944",
       "path": "legacy-source/39_PROJECT_CONTEXT/DEPENDENCY_POLICY.md",
       "sha256": "c67ad9bdcfc788d9e56162d10ce5a901225120ae9a367e4cf2d6cc426375df4a",
       "bytes": 276,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0944-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/DEPENDENCY_POLICY.md",
+          "source_sha256": "c67ad9bdcfc788d9e56162d10ce5a901225120ae9a367e4cf2d6cc426375df4a",
+          "source_heading": "Dependency Policy",
+          "source_fragment": "# Dependency Policy",
+          "meaning": "Actual allowed sources/pinning/update/binary/license/privacy/security owner and need/removal/exit contracts before dependency adoption; blank policy fields not approval.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual allowed sources/pinning/update/binary/license/privacy/security owner and need/removal/exit contracts before dependency adoption; blank policy fields not approval.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "SwiftPM And Dependencies; Supply Chain; SDK Consumer Boundary",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "SwiftPM And Dependencies",
+                "Supply Chain",
+                "SDK Consumer Boundary"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Dependency Policy\n\n- Approved package sources:\n- Lock/update policy:\n- Binary SDK policy:\n- License review owner:\n- Privacy/security review:\n- Version pinning policy:\n- Removal/exit expectations:\n\nEvery new dependency should have a concrete problem statement and exit plan."
+          ]
+        },
+        {
+          "unit_id": "LIB-0944-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/DEPENDENCY_POLICY.md",
+          "source_sha256": "c67ad9bdcfc788d9e56162d10ce5a901225120ae9a367e4cf2d6cc426375df4a",
+          "source_heading": "Dependency Policy",
+          "source_fragment": "# Dependency Policy",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Dependency Policy\n\n- Approved package sources:\n- Lock/update policy:\n- Binary SDK policy:\n- License review owner:\n- Privacy/security review:\n- Version pinning policy:\n- Removal/exit expectations:\n\nEvery new dependency should have a concrete problem statement and exit plan."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0945",
       "path": "legacy-source/39_PROJECT_CONTEXT/KNOWN_RISKS.md",
       "sha256": "f01d6822200b1c1791df857ab21e163ab9bd4fb5476961005766c1506be1a176",
       "bytes": 246,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0945-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/KNOWN_RISKS.md",
+          "source_sha256": "f01d6822200b1c1791df857ab21e163ab9bd4fb5476961005766c1506be1a176",
+          "source_heading": "Known Risks / Technical Debt",
+          "source_fragment": "# Known Risks / Technical Debt",
+          "meaning": "Decision-relevant risk with trigger/impact/mitigation/evidence/confidence/owner/exit criterion, not unprioritized TODO or heuristic defect proof.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Decision-relevant risk with trigger/impact/mitigation/evidence/confidence/owner/exit criterion, not unprioritized TODO or heuristic defect proof.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1A. PR Risk Card And Scope; Completion Contract",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1A. PR Risk Card And Scope",
+                "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Finding Applicability And Adjudication",
+                "Severity Policy"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Known Risks / Technical Debt\n\n| ID | Risk | Severity | Trigger | Mitigation | Evidence/owner | Exit criterion |\n|---|---|---|---|---|---|---|\n\nOnly durable, decision-relevant risks belong here. Do not turn this into an unprioritized TODO dump."
+          ]
+        },
+        {
+          "unit_id": "LIB-0945-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/KNOWN_RISKS.md",
+          "source_sha256": "f01d6822200b1c1791df857ab21e163ab9bd4fb5476961005766c1506be1a176",
+          "source_heading": "Known Risks / Technical Debt",
+          "source_fragment": "# Known Risks / Technical Debt",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Known Risks / Technical Debt\n\n| ID | Risk | Severity | Trigger | Mitigation | Evidence/owner | Exit criterion |\n|---|---|---|---|---|---|---|\n\nOnly durable, decision-relevant risks belong here. Do not turn this into an unprioritized TODO dump."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0946",
       "path": "legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/AUTH_AGENTS.md",
       "sha256": "1e851e6908de466f02d56af067a6633d5c5ec6c577762d70617c972ee6ae9fd8",
       "bytes": 234,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0946-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/AUTH_AGENTS.md",
+          "source_sha256": "1e851e6908de466f02d56af067a6633d5c5ec6c577762d70617c972ee6ae9fd8",
+          "source_heading": "Auth subtree rules",
+          "source_fragment": "# Auth subtree rules",
+          "meaning": "No secrets in logs/fixtures/analytics, one current session owner, safe refresh/logout stale-work exclusion and proven replay/idempotency; no auth subtree template placement.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "existing_coverage": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "No secrets in logs/fixtures/analytics, one current session owner, safe refresh/logout stale-work exclusion and proven replay/idempotency; no auth subtree template placement.",
+          "destination_path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "destination_heading": "Session Lifecycle; Keychain And Data Protection",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Session Lifecycle",
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Auth subtree rules\n- Secrets never enter logs, fixtures or analytics.\n- Session/token state has one explicit owner.\n- Refresh is concurrency-safe and logout invalidates in-flight work.\n- Replay only requests proven safe/idempotent."
+          ]
+        },
+        {
+          "unit_id": "LIB-0946-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/AUTH_AGENTS.md",
+          "source_sha256": "1e851e6908de466f02d56af067a6633d5c5ec6c577762d70617c972ee6ae9fd8",
+          "source_heading": "Auth subtree rules",
+          "source_fragment": "# Auth subtree rules",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Auth subtree rules\n- Secrets never enter logs, fixtures or analytics.\n- Session/token state has one explicit owner.\n- Refresh is concurrency-safe and logout invalidates in-flight work.\n- Replay only requests proven safe/idempotent."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0947",
       "path": "legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/GENERATED_AGENTS.md",
       "sha256": "85e2cb4078dc4343a6629749ad65a20780aa12d6770469deb05140404d904b94",
       "bytes": 175,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0947-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/GENERATED_AGENTS.md",
+          "source_sha256": "85e2cb4078dc4343a6629749ad65a20780aa12d6770469deb05140404d904b94",
+          "source_heading": "Generated subtree rules",
+          "source_fragment": "# Generated subtree rules",
+          "meaning": "Actual generator/source/output consumer agreement and complete generated diff, not arbitrary manual edits. Source automatic find-and-run generation prescription superseded by inspected effects/current command authority.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual generator/source/output consumer agreement and complete generated diff, not arbitrary manual edits. Source automatic find-and-run generation prescription superseded by inspected effects/current command authority.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Targets And Build Phases; Supply Chain",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases",
+                "Supply Chain"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants",
+                "4. Final Adversarial Review"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Generated subtree rules\n- Do not hand-edit generated files.\n- Find and run the repository generation command.\n- Review generator/source changes and generated diff together."
+          ]
+        },
+        {
+          "unit_id": "LIB-0947-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/GENERATED_AGENTS.md",
+          "source_sha256": "85e2cb4078dc4343a6629749ad65a20780aa12d6770469deb05140404d904b94",
+          "source_heading": "Generated subtree rules",
+          "source_fragment": "# Generated subtree rules",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Generated subtree rules\n- Do not hand-edit generated files.\n- Find and run the repository generation command.\n- Review generator/source changes and generated diff together."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0948",
       "path": "legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/PERSISTENCE_AGENTS.md",
       "sha256": "9a59459739c9592e783152735ba936e1f88433434ffa47bec7bf37837f75ce0e",
       "bytes": 300,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0948-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/PERSISTENCE_AGENTS.md",
+          "source_sha256": "9a59459739c9592e783152735ba936e1f88433434ffa47bec7bf37837f75ce0e",
+          "source_heading": "Persistence subtree rules",
+          "source_fragment": "# Persistence subtree rules",
+          "meaning": "Actual production store/old paths/field compatibility before schema change and representative preservation/failure/recovery evidence where permitted. Fixed R2 and unconditional test creation/run archived; no schema or test action.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual production store/old paths/field compatibility before schema change and representative preservation/failure/recovery evidence where permitted. Fixed R2 and unconditional test creation/run archived; no schema or test action.",
+          "destination_path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "destination_heading": "Migration; Evidence",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Migration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "3. Verification Ladder"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Persistence subtree rules\n- Schema/migration changes are R2+ by default.\n- Identify production store and migration path before model edits.\n- Never delete/rename persisted fields without compatibility analysis.\n- Tests must include representative old-store migration and failure/rollback behavior."
+          ]
+        },
+        {
+          "unit_id": "LIB-0948-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/PERSISTENCE_AGENTS.md",
+          "source_sha256": "9a59459739c9592e783152735ba936e1f88433434ffa47bec7bf37837f75ce0e",
+          "source_heading": "Persistence subtree rules",
+          "source_fragment": "# Persistence subtree rules",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Persistence subtree rules\n- Schema/migration changes are R2+ by default.\n- Identify production store and migration path before model edits.\n- Never delete/rename persisted fields without compatibility analysis.\n- Tests must include representative old-store migration and failure/rollback behavior."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0949",
       "path": "legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/RELEASE_AGENTS.md",
       "sha256": "411e5aba539b4a1f9781a85582e10d0aa3c593ed33c1fde7913f48b559b35092",
       "bytes": 240,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0949-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/RELEASE_AGENTS.md",
+          "source_sha256": "411e5aba539b4a1f9781a85582e10d0aa3c593ed33c1fde7913f48b559b35092",
+          "source_heading": "Release subtree rules",
+          "source_fragment": "# Release subtree rules",
+          "meaning": "Explicit current target/environment/authority for signing/submission/tag/production mutations, credential redaction and recovery limits. No implicit signing rotation/release/config or nested rule placement.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "existing_coverage": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Explicit current target/environment/authority for signing/submission/tag/production mutations, credential redaction and recovery limits. No implicit signing rotation/release/config or nested rule placement.",
+          "destination_path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "destination_heading": "Build And Signing; Rollout; Release Receipt",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+              "headings": [
+                "Build And Signing",
+                "Rollout",
+                "Release Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "2. Implementation From Invariants"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Release subtree rules\n- Never rotate signing, submit builds, tag releases or mutate production config implicitly.\n- Require explicit target/environment and preserve rollback/containment.\n- Redact credentials from command output and docs."
+          ]
+        },
+        {
+          "unit_id": "LIB-0949-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/RELEASE_AGENTS.md",
+          "source_sha256": "411e5aba539b4a1f9781a85582e10d0aa3c593ed33c1fde7913f48b559b35092",
+          "source_heading": "Release subtree rules",
+          "source_fragment": "# Release subtree rules",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Release subtree rules\n- Never rotate signing, submit builds, tag releases or mutate production config implicitly.\n- Require explicit target/environment and preserve rollback/containment.\n- Redact credentials from command output and docs."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0950",
       "path": "legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/SDK_AGENTS.md",
       "sha256": "929f929a7ce9686dccb72e8121afcb76e2a8d588f36e55fab4d5d85ae5faab44",
       "bytes": 236,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0950-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/SDK_AGENTS.md",
+          "source_sha256": "929f929a7ce9686dccb72e8121afcb76e2a8d588f36e55fab4d5d85ae5faab44",
+          "source_heading": "Public SDK subtree rules",
+          "source_fragment": "# Public SDK subtree rules",
+          "meaning": "Actual public API/source/binary/semantic consumers and generated interface/ObjC exposure when relevant, versioned change/deprecation migration communication; no SDK template placement.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual public API/source/binary/semantic consumers and generated interface/ObjC exposure when relevant, versioned change/deprecation migration communication; no SDK template placement.",
+          "destination_path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "destination_heading": "Public API Rules; Interoperability",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+              "headings": [
+                "Public API Rules",
+                "Interoperability"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Public SDK subtree rules\n- Treat public API/source compatibility as an invariant unless versioned breakage is explicit.\n- Review generated interfaces and Objective-C exposure when relevant.\n- Document migration path for deprecations."
+          ]
+        },
+        {
+          "unit_id": "LIB-0950-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/SDK_AGENTS.md",
+          "source_sha256": "929f929a7ce9686dccb72e8121afcb76e2a8d588f36e55fab4d5d85ae5faab44",
+          "source_heading": "Public SDK subtree rules",
+          "source_fragment": "# Public SDK subtree rules",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Public SDK subtree rules\n- Treat public API/source compatibility as an invariant unless versioned breakage is explicit.\n- Review generated interfaces and Objective-C exposure when relevant.\n- Document migration path for deprecations."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0951",
       "path": "legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/TESTS_AGENTS.md",
       "sha256": "bbdcdd24bbf1ac2ccc7193dfa1a3bd6a058c0126ac2dafd78cb2b074987bb7f6",
       "bytes": 250,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0951-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/TESTS_AGENTS.md",
+          "source_sha256": "bbdcdd24bbf1ac2ccc7193dfa1a3bd6a058c0126ac2dafd78cb2b074987bb7f6",
+          "source_heading": "Test subtree rules",
+          "source_fragment": "# Test subtree rules",
+          "meaning": "Observable behavior over coupling, explicit async synchronization rather than sleeps, isolated/reset owned shared state and flake hypothesis/owner/expiry/exit. No fixture/test modification or runtime grant from subtree form.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Observable behavior over coupling, explicit async synchronization rather than sleeps, isolated/reset owned shared state and flake hypothesis/owner/expiry/exit. No fixture/test modification or runtime grant from subtree form.",
+          "destination_path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "destination_heading": "Determinism; Test Doubles; Flaky Tests",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Determinism",
+                "Test Doubles",
+                "Flaky Tests"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Test subtree rules\n- Prefer behavioral contracts over implementation coupling.\n- No arbitrary sleeps for async synchronization.\n- Shared global state must be isolated/reset.\n- Flaky tests are defects; quarantine only with owner and exit criterion."
+          ]
+        },
+        {
+          "unit_id": "LIB-0951-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/TESTS_AGENTS.md",
+          "source_sha256": "bbdcdd24bbf1ac2ccc7193dfa1a3bd6a058c0126ac2dafd78cb2b074987bb7f6",
+          "source_heading": "Test subtree rules",
+          "source_fragment": "# Test subtree rules",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Test subtree rules\n- Prefer behavioral contracts over implementation coupling.\n- No arbitrary sleeps for async synchronization.\n- Shared global state must be isolated/reset.\n- Flaky tests are defects; quarantine only with owner and exit criterion."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0952",
       "path": "legacy-source/39_PROJECT_CONTEXT/OBSERVABILITY_MAP.md",
       "sha256": "08f32229d8e43f261bce2f93203dcd77bd3eb5b00f1f003e3ee5c9214a9b1f81",
       "bytes": 252,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0952-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/OBSERVABILITY_MAP.md",
+          "source_sha256": "08f32229d8e43f261bce2f93203dcd77bd3eb5b00f1f003e3ee5c9214a9b1f81",
+          "source_heading": "Observability Map",
+          "source_fragment": "# Observability Map",
+          "meaning": "Specific critical-flow diagnostic logs/metrics/analytics/crash purpose, privacy/redaction/retention and bounded metadata; blank observability map not collected signal or SDK setup permission.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "existing_coverage": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Specific critical-flow diagnostic logs/metrics/analytics/crash purpose, privacy/redaction/retention and bounded metadata; blank observability map not collected signal or SDK setup permission.",
+          "destination_path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "destination_heading": "Observability; Metric Design",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability",
+                "Metric Design"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Observability Map\n\n| Flow | Logs | Metrics/signposts | Analytics | Crash breadcrumbs | Privacy/redaction |\n|---|---|---|---|---|---|\n\nCapture enough evidence to diagnose critical production paths without storing secrets or unnecessary personal data."
+          ]
+        },
+        {
+          "unit_id": "LIB-0952-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/OBSERVABILITY_MAP.md",
+          "source_sha256": "08f32229d8e43f261bce2f93203dcd77bd3eb5b00f1f003e3ee5c9214a9b1f81",
+          "source_heading": "Observability Map",
+          "source_fragment": "# Observability Map",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Observability Map\n\n| Flow | Logs | Metrics/signposts | Analytics | Crash breadcrumbs | Privacy/redaction |\n|---|---|---|---|---|---|\n\nCapture enough evidence to diagnose critical production paths without storing secrets or unnecessary personal data."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0953",
       "path": "legacy-source/39_PROJECT_CONTEXT/OWNERSHIP_MAP.md",
       "sha256": "c0262cedce685406161698ff7eec567857d1b8d3bcdc0ab3a67be626c15a0b2d",
       "bytes": 277,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0953-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/OWNERSHIP_MAP.md",
+          "source_sha256": "c0262cedce685406161698ff7eec567857d1b8d3bcdc0ab3a67be626c15a0b2d",
+          "source_heading": "State / Resource Ownership Map",
+          "source_fragment": "# State / Resource Ownership Map",
+          "meaning": "Actual mutable/resource owner/isolation/lifetime/cancel/cleanup/current consumers across tasks/cache/session/context/observer/timer/stream/UI; blank ownership map not enforced state.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Actual mutable/resource owner/isolation/lifetime/cancel/cleanup/current consumers across tasks/cache/session/context/observer/timer/stream/UI; blank ownership map not enforced state.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1. Change Contract Before Implementation",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1. Change Contract Before Implementation"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design",
+                "Task Ownership"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+              "headings": [
+                "Data Ownership"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# State / Resource Ownership Map\n\n| Resource or mutable state | Owner | Isolation | Lifetime | Cancellation/cleanup | Consumers |\n|---|---|---|---|---|---|\n\nTrack long-lived tasks, caches, session/token state, database contexts, observers, timers, streams and shared UI state."
+          ]
+        },
+        {
+          "unit_id": "LIB-0953-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/OWNERSHIP_MAP.md",
+          "source_sha256": "c0262cedce685406161698ff7eec567857d1b8d3bcdc0ab3a67be626c15a0b2d",
+          "source_heading": "State / Resource Ownership Map",
+          "source_fragment": "# State / Resource Ownership Map",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# State / Resource Ownership Map\n\n| Resource or mutable state | Owner | Isolation | Lifetime | Cancellation/cleanup | Consumers |\n|---|---|---|---|---|---|\n\nTrack long-lived tasks, caches, session/token state, database contexts, observers, timers, streams and shared UI state."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0954",
       "path": "legacy-source/39_PROJECT_CONTEXT/PROJECT_CONTEXT.md",
       "sha256": "783c4611997a51c2fc29e64d22eb99495d28258ad7a6d6d71c400f147252c1bb",
       "bytes": 487,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0954-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/PROJECT_CONTEXT.md",
+          "source_sha256": "783c4611997a51c2fc29e64d22eb99495d28258ad7a6d6d71c400f147252c1bb",
+          "source_heading": "Project Context — Source of Truth",
+          "source_fragment": "# Project Context — Source of Truth",
+          "meaning": "Exact scoped repository/project/toolchain/language/SDK/deployment/scheme/topology/ownership/CI facts from evidence, UNKNOWN when unconfirmed, durable app/task boundary. Blank fields and deferred platforms not factual profile or scope expansion.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "existing_coverage": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Exact scoped repository/project/toolchain/language/SDK/deployment/scheme/topology/ownership/CI facts from evidence, UNKNOWN when unconfirmed, durable app/task boundary. Blank fields and deferred platforms not factual profile or scope expansion.",
+          "destination_path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "destination_heading": "Build Model; Configuration; Evidence",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Build Model",
+                "Configuration",
+                "Evidence"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Canonical Roots",
+                "Hard Separation Rules"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Project Context — Source of Truth\n\n> Fill from repository evidence. Keep `UNKNOWN` when not confirmed.\n\n- Product/app:\n- Repository root:\n- Xcode version / SDK:\n- Swift language mode:\n- Minimum deployment targets:\n- Workspace/project:\n- Main schemes:\n- UI stack:\n- Architecture/state ownership:\n- Dependency manager(s):\n- Persistence:\n- Networking/auth:\n- Extensions/watch/widgets/app clips:\n- CI provider:\n- Release process:\n- High-risk boundaries:\n- Current migration initiatives:"
+          ]
+        },
+        {
+          "unit_id": "LIB-0954-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/PROJECT_CONTEXT.md",
+          "source_sha256": "783c4611997a51c2fc29e64d22eb99495d28258ad7a6d6d71c400f147252c1bb",
+          "source_heading": "Project Context — Source of Truth",
+          "source_fragment": "# Project Context — Source of Truth",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Project Context — Source of Truth\n\n> Fill from repository evidence. Keep `UNKNOWN` when not confirmed.\n\n- Product/app:\n- Repository root:\n- Xcode version / SDK:\n- Swift language mode:\n- Minimum deployment targets:\n- Workspace/project:\n- Main schemes:\n- UI stack:\n- Architecture/state ownership:\n- Dependency manager(s):\n- Persistence:\n- Networking/auth:\n- Extensions/watch/widgets/app clips:\n- CI provider:\n- Release process:\n- High-risk boundaries:\n- Current migration initiatives:"
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0955",
       "path": "legacy-source/39_PROJECT_CONTEXT/QUALITY_GATES.md",
       "sha256": "21c784cfc4fba34d1635d464c8c0b2a0ad1af92fa1bd678174767c040f74492a",
       "bytes": 363,
-      "status": "UNREVIEWED",
-      "units": [],
-      "disposition_reason": null
+      "status": "REVIEWED",
+      "units": [
+        {
+          "unit_id": "LIB-0955-U01",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/QUALITY_GATES.md",
+          "source_sha256": "21c784cfc4fba34d1635d464c8c0b2a0ad1af92fa1bd678174767c040f74492a",
+          "source_heading": "Project Quality Gates",
+          "source_fragment": "# Project Quality Gates",
+          "meaning": "Risk-relevant actual approved target evidence/thresholds and authoritative project gate configuration; source required-before-merge form not runtime/tests/CI/format/a11y/performance grants, missing/excluded evidence not PASS.",
+          "type": "constraint",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "existing_coverage": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "unique_delta": "none",
+          "disposition": "ALREADY_COVERED",
+          "reason": "Risk-relevant actual approved target evidence/thresholds and authoritative project gate configuration; source required-before-merge form not runtime/tests/CI/format/a11y/performance grants, missing/excluded evidence not PASS.",
+          "destination_path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "destination_heading": "1A. PR Risk Card And Scope; 3. Verification Ladder",
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [
+            {
+              "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+              "headings": [
+                "1A. PR Risk Card And Scope",
+                "3. Verification Ladder"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+              "headings": [
+                "Execution Authority",
+                "Result Semantics"
+              ]
+            }
+          ],
+          "source_additional_fragments": [
+            "# Project Quality Gates\n\n## Required before merge\n- build gates:\n- unit/integration/UI tests:\n- lint/format:\n- strict concurrency policy:\n- security/privacy checks:\n- accessibility checks:\n- performance thresholds:\n\n## Risk-specific gates\nDefine extra evidence for auth, persistence migration, payment, public SDK/API, background work and release infrastructure."
+          ]
+        },
+        {
+          "unit_id": "LIB-0955-U02",
+          "source_path": "canonical/legacy-source/39_PROJECT_CONTEXT/QUALITY_GATES.md",
+          "source_sha256": "21c784cfc4fba34d1635d464c8c0b2a0ad1af92fa1bd678174767c040f74492a",
+          "source_heading": "Project Quality Gates",
+          "source_fragment": "# Project Quality Gates",
+          "meaning": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "type": "historical-provenance",
+          "conditions": "Actual approved product/consumer/platform/permission/ownership contract; docs migration only. No app source/tests/runtime/capture/export/profiling/agents/config/secrets/mode action. Missing/excluded evidence not PASS; iPad/physical/actualVoiceOver OMITTED_BY_USER, historical evidence preserved.",
+          "canonical_owner": null,
+          "existing_coverage": null,
+          "unique_delta": "none",
+          "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE",
+          "reason": "Historical blank project-context table/form or proposed nested subtree rule packaging retained; current useful contract covered separately. No filled project facts, nested AGENTS placement, generated context, test/command/runtime or gate activation inferred from template.",
+          "destination_path": null,
+          "destination_heading": null,
+          "required_verification": "Fifteen project-context/nested-rule template bodies fully read, source SHA/literals/current unique headings/semantic owner coverage/prior rows/copies/mirrors/full final diff/exact-SHA. No blank form treated as project facts or template placed/activated.",
+          "evidence": "block-195-legacy-project-template-contracts.md",
+          "affected_routes": [
+            "documentation-governance"
+          ],
+          "mirrors": [],
+          "coverage_locations": [],
+          "source_additional_fragments": [
+            "# Project Quality Gates\n\n## Required before merge\n- build gates:\n- unit/integration/UI tests:\n- lint/format:\n- strict concurrency policy:\n- security/privacy checks:\n- accessibility checks:\n- performance thresholds:\n\n## Risk-specific gates\nDefine extra evidence for auth, persistence migration, payment, public SDK/API, background work and release infrastructure."
+          ]
+        }
+      ],
+      "disposition_reason": "Complete project-context/nested-rule template body independently fully read; useful actual current constraints covered, historical blank/proposed form archived; no factual/project or linked-body review inferred."
     },
     {
       "source_id": "LIB-0956",
