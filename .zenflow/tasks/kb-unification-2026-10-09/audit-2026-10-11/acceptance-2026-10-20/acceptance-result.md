@@ -14,7 +14,7 @@ for this declared scope; historical receipts remain intact.
 | Delivery |46unique declared owner files match canonical distribution; repaired four inherited stale operating copies and primary→baseline→W chains. Explicit project router overlay preserved. |
 | Preservation |Exact ledger and frozen archive hashes unchanged;207adjudications and prior1403bodyaudit reused, not rerun. |
 | Archived utility |Reference catalog adjudicated and retained; no archived implementation adopted or executed. |
-| Publication |NOT_AUTHORIZED / NOT_PUBLISHED; no commit, push or new exact-commit/remote receipt. |
+| Publication |Primary publication PASS under subsequent user grant; exact reviewed commits and remote main/development verification in primary-publication-receipt.json. Final closure refs verified separately. |
 | U7 quality/economy experiment |Plan only; NOT_RUN, no demonstrated quality or savings claim. |
 
 ## Scope and limits
@@ -46,3 +46,7 @@ Context transfer: **перечитать весь актуальный набо�
 ## Subsequent publication grant - 2026-10-21
 
 The user explicitly authorized saving all current changes in both owned repositories and synchronizing main/development. The NOT_AUTHORIZED publication row above is historical, not the current grant. Exact commit/push/clean evidence will be reported after execution; unchanged documentation acceptance remains PASS. Future work is saved in ../../kb-quality-development-plan.md.
+
+## Publication checkpoint completed - 2026-10-21
+
+Both owned repositories passed exact-commit review, atomic origin main/development push and independent remote-SHA/clean-state checks. See primary-publication-receipt.json. The remaining text about a future grant describes the historical pre-grant checkpoint and does not supersede the current user authorization or this observed result. Closure bookkeeping does not change the accepted119reusable inputs.

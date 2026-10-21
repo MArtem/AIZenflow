@@ -6,7 +6,7 @@ Artem explicitly requested saving the improvement plan and all current changes i
 
 ## Current acceptance — 2026-10-21
 
-Current model GPT-6.1 Sol / medium, persistent эконом. Local documentation acceptance PASS for the existing declared mandatory core:18complete/4deferred. All found correction defects and finite coverage gaps closed; one authorized independent reviewer completed consolidated review with no remaining P0–P2/unresolvedP3. Active evidence: [acceptance result](audit-2026-10-11/acceptance-2026-10-20/acceptance-result.md), [plan](audit-2026-10-11/acceptance-2026-10-20/plan.md), final-acceptance-candidate.json and independent-review-consolidated.json.35CLIcases PASS reused by unchanged script hashes; static checks PASS; ledger/archive unchanged. Freshness is PARTIAL_SCOPED_REVIEW, not allAPI freshness or app/release readiness. No corrective work remains in accepted scope. Publication is NOT_AUTHORIZED/NOT_PUBLISHED: retain commit/push ban until later explicit grant and exact-SHA gates. No app tests/runtime, additional agents/MCP or closed experiment authority. Prior closure sections below are historical and do not restore grants.
+Current model GPT-6.1 Sol / medium, persistent эконом. Local documentation acceptance PASS for the existing declared mandatory core:18complete/4deferred. All found correction defects and finite coverage gaps closed; one authorized independent reviewer completed consolidated review with no remaining P0–P2/unresolvedP3. Active evidence: [acceptance result](audit-2026-10-11/acceptance-2026-10-20/acceptance-result.md), [plan](audit-2026-10-11/acceptance-2026-10-20/plan.md), final-acceptance-candidate.json and independent-review-consolidated.json.35CLIcases PASS reused by unchanged script hashes; static checks PASS; ledger/archive unchanged. Freshness is PARTIAL_SCOPED_REVIEW, not allAPI freshness or app/release readiness. No corrective work remains in accepted scope. Publication was authorized by the current2026-10-21 user request. Both repositories main/development were published and independently verified at the primary checkpoint; see audit-2026-10-11/acceptance-2026-10-20/primary-publication-receipt.json. Final closure SHA/clean-state confirmation is external to tracked content. No app tests/runtime, additional agents/MCP or closed experiment authority. Prior closure sections below are historical and do not restore grants.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
 
@@ -74,6 +74,10 @@ actual handler lookup/transition requires specific current human action/budget a
 
 - [x] Save future KB quality plan without starting pilots/experiments.
 - [x] Revalidate origin/main and origin/development bases in both repositories and clean main checkout.
-- [ ] Commit all reviewed KB changes and owned audit/recovery resources in both repositories.
-- [ ] Review exact committed ranges, publish main/development using fast-forward only, verify remote SHA.
-- [ ] Confirm current KB, canonical vault and main checkouts clean; report exact receipts externally.
+- [x] Commit all reviewed KB changes and owned audit/recovery resources in both repositories.
+- [x] Review exact committed ranges, publish main/development using fast-forward only, verify remote SHA.
+- [x] Confirm current KB, canonical vault and main checkouts clean; report exact receipts externally.
+
+## Publication checkpoint - 2026-10-21
+
+All primary changes/resources and the future quality plan are committed/pushed to both main/development and verified remotely; active/vault/main checkouts were clean. primary-publication-receipt.json preserves exact reviewed/published ranges. This final bookkeeping delta records completion without changing119reviewed reusable files. The closure commit is reviewed and verified separately before the final external report. No pilot, U7, app/runtime/test or new agent work started.
