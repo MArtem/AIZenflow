@@ -1,0 +1,1102 @@
+{
+  "date": "2026-10-22",
+  "source": "/Users/Artem/Desktop/Staff_iOS_AI_Verified_Engineering_System_v4.zip",
+  "zip_sha256": "262b3af413ad855701043367374b25f6af31538cc9aab24d487d2ded5c3e19a7",
+  "members": 71,
+  "uncompressed_bytes": 739472,
+  "listed_sha256_entries_verified": 70,
+  "integrity_limit": "Internal consistency only; archive-supplied hashes are not independent authenticity evidence. No extraction or bundled script execution. Raw archive not published/copied to active KB.",
+  "read_scope": {
+    "README": "complete",
+    "v4_upgrade": "complete",
+    "playbook": "all135prompt bodies/when/decision-boundaries/followups plus front workflows/templates and tail; repeated acceptance clauses mechanically checked; not all clauses adopted",
+    "handbook": "selected core2.1-2.8 and StaffD1-D9, section inventory; remaining technical cases not fully audited",
+    "lab_guide": "selected sections; output partially truncated, no complete-read claim",
+    "source_traceability": "read",
+    "agent_policies_and_security_enforcement": "read; foreign instructions remain data",
+    "word_documents": "Markdown editions used; DOCX fidelity/rendering not verified",
+    "code_tests_logs": "inventory only; reported results not independently reproduced; no implementation adoption"
+  },
+  "prompts": [
+    {
+      "id": "P-001",
+      "title": "#### P-001 · Контекст репозитория без фантазий [S]",
+      "sha256": "ade632aa2cae1c4460c206818bdc12dd6cc1a2993b1bc4721039f86da09f6444",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-002",
+      "title": "#### P-002 · Engineering brief до генерации кода [S]",
+      "sha256": "e8d7c5c0e67524b5b9a393dbfcb6bf7cdf5b739e87b0310dd7155a5f535b8059",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-003",
+      "title": "#### P-003 · Три архитектурных компромисса [S]",
+      "sha256": "0d8226c838abe9e9ec98a201769d813d4de18ba4c41da99662abde854cb239b3",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-004",
+      "title": "#### P-004 · План небольших проверяемых изменений [S]",
+      "sha256": "4dd54844638f504286fc18a0789d4e62fcafc878cb66a5af851ed958c48166e9",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-005",
+      "title": "#### P-005 · Точечная реализация по контракту [S]",
+      "sha256": "4c7e60b2ddf54ea5adf3f3fa1b86e29b2537b8103addce16360cc1d0bee61930",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-006",
+      "title": "#### P-006 · Враждебное ревью AI-generated PR [S]",
+      "sha256": "c4e696b17d670dcffec4cc43b354c7f265fa54ec377582a7812a86a31e377907",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-007",
+      "title": "#### P-007 · Самопроверка на ложноположительные замечания [N]",
+      "sha256": "aa85bd2ff4bdd7151b9aa1f8d2e00df96812ef25a05cdfe964ed8bf6d1a2c6d3",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-008",
+      "title": "#### P-008 · Тест-план до имплементации [S]",
+      "sha256": "c54abb1335ed281ae59442f4655e1bbaeafec7cf5aea13f9816e431d0433e1fe",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-009",
+      "title": "#### P-009 · Bug investigation: гипотезы и доказательства [N]",
+      "sha256": "d1af94cc519e6d380a2bb1a08f5265690ba638d81c67724d1c4ab20f7566058e",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-010",
+      "title": "#### P-010 · Финальная проверка доказательств [S]",
+      "sha256": "e271ebb3cf95653ea9cd3c46afa585927517e14a712cc3c27afa3595671ca7c2",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-011",
+      "title": "#### P-011 · Контролируемая делегация AI-агентам [N]",
+      "sha256": "6f8fd7a8283d988dd22c46c067d1c6fbf66f0d85d7646ab542a555890940aac8",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-012",
+      "title": "#### P-012 · Минимизация контекста для локальной модели [N]",
+      "sha256": "fd5994516fc6e3541dadcef89ea8bd5e62f29acc3cd50aa5b731c6392735b188",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-013",
+      "title": "#### P-013 · Архитектура feature и границы слоёв [S]",
+      "sha256": "379062388e05bc556591c0a968f52f2f3e36582dc990e95c2e0dcbab646e7468",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-014",
+      "title": "#### P-014 · SPM-модульность и граф зависимостей [S]",
+      "sha256": "e4e96f8e1f7c53a74c9282b2bcafa53b48092edbca930fa2d8b0a368c74aee3e",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-015",
+      "title": "#### P-015 · DI и composition root [S]",
+      "sha256": "82d9edc4f94b070374e97d3c91cf2596b704084d4fc57a540a6ef5aae483671b",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-016",
+      "title": "#### P-016 · State machine и невозможные состояния [S]",
+      "sha256": "ee03e04310303dbd7a9a556c4cb806b9a8a91285100e35718f9d3d064b01cad2",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-017",
+      "title": "#### P-017 · Анти-overengineering audit [S]",
+      "sha256": "45ae5d68857c84e5780016f4131ebe907b0e6f71e300de9ea042fadc4fcaf510",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-018",
+      "title": "#### P-018 · Эволюция legacy без big bang rewrite [S]",
+      "sha256": "9cbcd77854c7d26a46a431028477f363f578f61c9c2dc580190d27023ed8a8b7",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-019",
+      "title": "#### P-019 · API дизайна пакета и source compatibility [N]",
+      "sha256": "2f3efb6652aa2d1704382d2f64f8700e78e044ff6877e30071c1c35905f1c6c7",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-020",
+      "title": "#### P-020 · ADR по спорному техническому решению [N]",
+      "sha256": "abb7ed9da388f45c126a51262503de835dc1276972fed0ead6a6dfbb77fcbf2e",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-021",
+      "title": "#### P-021 · Контракт навигации и Deep Link [S]",
+      "sha256": "0dbbe52f882b397e49e8267babd8991843db4bcc820b3ec40285c48130b48eae",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-022",
+      "title": "#### P-022 · Консистентность и владение состоянием между фичами [N]",
+      "sha256": "324577845627f4ac3a7f52db3cccc6f691059170897353a2a7eae94f59f31161",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-023",
+      "title": "#### P-023 · Incremental removal of tech debt [N]",
+      "sha256": "e1a4a757a5a448538c4da75f70ea9015e0177102ec19a29884842192782bd29a",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-024",
+      "title": "#### P-024 · Swift 6 concurrency migration review [N]",
+      "sha256": "155ec3e6cd14a1acd2ddda384d6b9523264b9a6199d49297859417ed58c8bdd7",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": "P-024 unsafe annotation exception rejected by current policy"
+    },
+    {
+      "id": "P-025",
+      "title": "#### P-025 · Lifecycle задач: .task vs собственный Task [S]",
+      "sha256": "d2d96f7435660099495b731dfeb86e621ebe6175744dd6ab0a6f14175a6d908b",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-026",
+      "title": "#### P-026 · Stale response и ordering при поиске [S]",
+      "sha256": "8d876e21a1acdcbd1e536527d869ffd4012f2efae78d8901912f3343172fac0d",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-027",
+      "title": "#### P-027 · Actor reentrancy и инварианты [S]",
+      "sha256": "77f9155b86a0b20e7d75d97ab0a71c5ad8c13d52ddf8a6882e17c24dbed83482",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-028",
+      "title": "#### P-028 · @MainActor и тяжёлая работа [S]",
+      "sha256": "e11c6611e9a169a85480b91c75e77bbce9f840a03a0c58362464e56ffd0a7b7f",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-029",
+      "title": "#### P-029 · AsyncSequence, AsyncStream и termination [S]",
+      "sha256": "def036d9e081ea7d831c7ec2565d7039ad74ae8f41e2226cc575319bbddd938c",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-030",
+      "title": "#### P-030 · Callback -> async continuation [S]",
+      "sha256": "70c4f245444daba7089d8f14cc9928cccb0bc14cfc943fdc0e520bca97ff4f12",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-031",
+      "title": "#### P-031 · Combine и async/await coexistence [S]",
+      "sha256": "9406123c321814b49958754863ac4a0bb3a9d538809d0cf67a4ccc775cb3d9cf",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-032",
+      "title": "#### P-032 · Memory leak и retain path [S]",
+      "sha256": "9bf3c37e4b7cdb9d2a06d93be786731339e97ff4ae5784d5076221a5925a1e0f",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-033",
+      "title": "#### P-033 · Swift API семантика и value/reference trade-offs [N]",
+      "sha256": "b0f80da9336c041b881e04f36cc9a7b7105f37bc92fa19f96a4c5d2c1d8039ed",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-034",
+      "title": "#### P-034 · Объектное время жизни и Obj-C interoperability [N]",
+      "sha256": "99bb0be055ec690237e5a96e44ecffbd62d4c760e48ac9f752a97a520e3626ff",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-035",
+      "title": "#### P-035 · SwiftUI state ownership и Observation [S]",
+      "sha256": "e9667e45cbea87039dad7c5c1c94f972bd8081a7d7a04750336020dfc5a4abdb",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-036",
+      "title": "#### P-036 · Figma/скриншот -> адаптивный SwiftUI [S]",
+      "sha256": "b0e638f46ee1df0ace163072c2b142924f7bddce41fa769d46bc010094519128",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-037",
+      "title": "#### P-037 · Design system и семантические токены [S]",
+      "sha256": "9f1d9285e329ffdb18cc66fefc61495793749f0c42e00f3244d4b34af142cade",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-038",
+      "title": "#### P-038 · Accessibility audit для сложного экрана [N]",
+      "sha256": "3186cf727e7b2ad4063ee5a396ac74b6112175d7d84eb9fbc6c8294a0f81a90d",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-039",
+      "title": "#### P-039 · Миграция UIKit ↔ SwiftUI [S]",
+      "sha256": "8c635d191d63b85dab64426abb295f9325e6bafee6daac67e3ab7def9a74ea71",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-040",
+      "title": "#### P-040 · Deep link, state restoration и multi-scene UI [N]",
+      "sha256": "15f9f6b3caf69a9bf028750593f51001352002995b8511989afe71a27edabcf6",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-041",
+      "title": "#### P-041 · Сложный список и SwiftUI performance [S]",
+      "sha256": "60828951df1698684312958a55481a7aa64214fb23f445121a6e7bf3b940eca3",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-042",
+      "title": "#### P-042 · Локализация, plurals и RTL [N]",
+      "sha256": "15c1b470514bd8dcaab057bdfd01a115daafb77e60d2829347e70c608c486e41",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-043",
+      "title": "#### P-043 · Анимации, gestures и Reduced Motion [N]",
+      "sha256": "fec3a010f12ecb35d6c2222739147de333e6f1ed2b411e359361b167b3b839c4",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-044",
+      "title": "#### P-044 · Network layer contract и ошибки [S]",
+      "sha256": "24b6503498a27d37f5d27bd8ed4ae2b3e6268561b6d0e9438b60f5eae3996aa2",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-045",
+      "title": "#### P-045 · Token refresh single-flight [S]",
+      "sha256": "383982e3fcf6b33ec4bb973fa14988a82d74cc30e7ca61ae9a273bf0a33a106d",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-046",
+      "title": "#### P-046 · Offline-first и cache invalidation [S]",
+      "sha256": "1b1b2d67a80e24c1e2c4346491d8468b5073ae42b9fc4b4588b30dbdb694d623",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-047",
+      "title": "#### P-047 · Core Data / SwiftData persistence design [N]",
+      "sha256": "af2bd7696325a72c90aada3d13f00d013b68207ea581d35f5d6ed5a195a70801",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-048",
+      "title": "#### P-048 · Background work и energy budget [N]",
+      "sha256": "40f00321e3a0d92b4d91dcf4baf0b2135fe1938a918aca141616b6c2b9bf5936",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-049",
+      "title": "#### P-049 · Pagination, deduplication и race handling [N]",
+      "sha256": "33cc58214e9c1e8227b6df1929c18eff872ec1cadb6a09951c44d9564d380b37",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-050",
+      "title": "#### P-050 · Поиск: debounce, recent и server/local tradeoff [S]",
+      "sha256": "1087b564a4b3443296e5368cbce1b828d62014ae76c9570c869a3e627b84c4c3",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-051",
+      "title": "#### P-051 · Image loading и memory pressure [N]",
+      "sha256": "94c4173beb947c7c220474c737c164a065d52a1d54319875d3a7ee2dfb5b5ba9",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-052",
+      "title": "#### P-052 · WebSocket, streaming и reconnect [N]",
+      "sha256": "a0c273c1dd994dbabd4f539c5de289f52f9f4eaecdf93ce5f0bec2048c1592c3",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-053",
+      "title": "#### P-053 · Push notifications и notification routing [N]",
+      "sha256": "2f1f5139a7935853be33639250e4dc7f0b78d3cea8396a4272b33945ee70f511",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-054",
+      "title": "#### P-054 · Third-party SDK integration review [N]",
+      "sha256": "44f1e954ba31f452dbf193e9204ccbdbfa873e2c9f399fbd58067759c37bf895",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-055",
+      "title": "#### P-055 · Тестовая стратегия и пирамида [S]",
+      "sha256": "88c593ec18a4512d6ebee15bc0f1be3919852d7a5a9479f914c26b119f43433d",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-056",
+      "title": "#### P-056 · ViewModel tests с управляемыми async events [S]",
+      "sha256": "c7449c559d916ecb85008964f8dfc1a12f9a626ea29d1df4429465e7ea38b428",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-057",
+      "title": "#### P-057 · Contract tests для API/DTO [N]",
+      "sha256": "0d26653372d9216a2d2d58a4a9fd9c94564233e5ac2dfb8f79d04f80e4372cfc",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-058",
+      "title": "#### P-058 · Mutation testing смысла тестов [N]",
+      "sha256": "4152ec3412194c5fbea6a3ef75f96d3ac84e3600467c183d0d02440e36caa330",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-059",
+      "title": "#### P-059 · UI automation и launch arguments [S]",
+      "sha256": "66b9ddd20975be1568e598e3d01247a450bdf32e028b7430e6bbb53b0751489e",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-060",
+      "title": "#### P-060 · Snapshot tests и визуальная регрессия [S]",
+      "sha256": "d9dcc3c492159b2d336af516bdd1290a2448f5439dd31e9d6e058c65407b6176",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-061",
+      "title": "#### P-061 · Crash triage и аналитика отказов [S]",
+      "sha256": "7f5d87bd126d7c28ec75582102c1312b3e055f88a2efc0c9cbb4d1a31d0ed5c9",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-062",
+      "title": "#### P-062 · Instruments performance investigation [S]",
+      "sha256": "278f8c19f550daebb4f45f38f7cc779c13cdb3ffc584be189141ebfb8a95bf09",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-063",
+      "title": "#### P-063 · План тестирования крайних UI-состояний [S]",
+      "sha256": "923557a6d43e4b3c3279ab66f2d7bb1b8442c80eec608bf12e8af32ba69c2bec",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-064",
+      "title": "#### P-064 · Проверка сборки и Swift toolchain compatibility [N]",
+      "sha256": "90c7ecfc9a6df3da20071aa1d98162d8f9a12131c323d36883413a4db7608908",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-065",
+      "title": "#### P-065 · Threat model для iOS feature [N]",
+      "sha256": "06b2492ee429bf1fdcb50e398865110a69fcefc8b17f1d201282d9f4c420fb7c",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-066",
+      "title": "#### P-066 · Keychain и секреты [N]",
+      "sha256": "f4a9d932e7e89fc0cbab1657910809667dbace2d423f56c871f487313ef59660",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-067",
+      "title": "#### P-067 · Transport security и backend trust [N]",
+      "sha256": "a93b9e96dc7b773db0263828634564214f1250c322ff3f785c22a7d8948eff4f",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-068",
+      "title": "#### P-068 · Privacy manifest / data collection inventory [N]",
+      "sha256": "6d92bbf462260b23d7d1f83c74abec7747090c97c53e51177a4cf73f0f75e45e",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-069",
+      "title": "#### P-069 · Dependency/supply-chain audit [N]",
+      "sha256": "128103ca9b1339057c4f4f1e112e6923f205418185640a19548818dea0b0b2c8",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-070",
+      "title": "#### P-070 · Точная санитизация кода перед cloud AI [N]",
+      "sha256": "8c7b06e9a90f8ffd11b5928f575f7322cf9ba2579e23d356ba8639e0cba5a402",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-071",
+      "title": "#### P-071 · Prompt injection и недоверенный контент [N]",
+      "sha256": "87286fb2a36cd1df811ff6285b4dd08e2382210abbe6858d35e108c1c25c19ce",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-072",
+      "title": "#### P-072 · Review прав доступа, entitlements и permissions UX [N]",
+      "sha256": "04cc55d83c3c5a6d2eb1276156119672f5859e19dc2b00461cfb502225c810cb",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-073",
+      "title": "#### P-073 · CI quality gates для AI-generated code [S]",
+      "sha256": "8706f3d16cff8f5f324bc357eee54929579daeee6c098b8dc7d2873229af0e07",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-074",
+      "title": "#### P-074 · PR description с доказательствами [S]",
+      "sha256": "180988962c0e336ceb14d41fd7b94ab8224b5c80f24398b1852ee4f5ab462145",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-075",
+      "title": "#### P-075 · Feature flags и staged rollout [S]",
+      "sha256": "245c8c1b9b5e1cacce9a3a85273c82ce4721feeebf1c52eccefed0373910466f",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-076",
+      "title": "#### P-076 · Release readiness и App Store constraints [S]",
+      "sha256": "76d3b1d729b1b2e19d30c2f1acd64edf0021ac840059eb6010bcae113d30ccf3",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-077",
+      "title": "#### P-077 · Observability и SLO для мобильного приложения [S]",
+      "sha256": "2099f36861a89d37c9629521583d637dcbcf26b91abccbcacba1fff3185eb5e7",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-078",
+      "title": "#### P-078 · Incident response и blameless postmortem [N]",
+      "sha256": "1fc50712120a4a1f6505b50122c3e770256e979a2b86a82402c17b9f7f876b34",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-079",
+      "title": "#### P-079 · Rollback и обратимость миграции [S]",
+      "sha256": "026fac0174487f25b880e385a550a31bb2789971fd5c899513c83d269a49035b",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-080",
+      "title": "#### P-080 · SourceTree-first Git workflow [N]",
+      "sha256": "ad8a32cef79f99a0d845a53217d25c5c183edcc38b18855ae94e4203021fc8db",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-081",
+      "title": "#### P-081 · Dependency upgrade strategy [N]",
+      "sha256": "f8a2c59d32b217de438198733199db4af41aea6bfee7d32636dc112cbab2c215",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-082",
+      "title": "#### P-082 · Engineering release note для команды/QA [N]",
+      "sha256": "4069cb15ecc999c9b38e23b25cfa103f2758d9abd7a81cccc19055825b03ee64",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-083",
+      "title": "#### P-083 · AI feature design: local/cloud/hybrid [S]",
+      "sha256": "252bab5843245f761330918c0233b955d87cf2ab34bbba203cc79ac6163486b6",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-084",
+      "title": "#### P-084 · Prompt-as-code: версия, шаблон и тесты [S]",
+      "sha256": "4b8a7500365beb3f8b0ffe323d662eedb6077b4b3e58a43a803bfbaedd8f900f",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-085",
+      "title": "#### P-085 · Structured output и validation boundary [S]",
+      "sha256": "d6195e49d6a7ff59502aa0d99d51a707fed49245ee0700ca636938b2079b0e12",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-086",
+      "title": "#### P-086 · Foundation Models availability и evolution [N]",
+      "sha256": "573197936b398ae6314fbc6cf5a8c97c31f421c2fcc5e711547ebba3071af506",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-087",
+      "title": "#### P-087 · AI streaming, timeout и cancellation UX [N]",
+      "sha256": "b7e800c414586b5639ec6450fb554973b377faa5bae0ab9e68403c8e89e34464",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-088",
+      "title": "#### P-088 · Model evaluation: golden set и failure taxonomy [N]",
+      "sha256": "0d3806d7b43247b5c53d76d9c320073345513e604d4e47ca4a20578c52194c49",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-089",
+      "title": "#### P-089 · AI tools/actions и явное подтверждение [S]",
+      "sha256": "e47ea226d5a10378d070fa8cbc53a04f48c3ba2aa1a671e1bc4ed0550678b315",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-090",
+      "title": "#### P-090 · App Intents, Shortcuts, Spotlight [S]",
+      "sha256": "9d8540b04b525556c891adc7478609cfdffd77a6e9eda643538f6629ac66c339",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-091",
+      "title": "#### P-091 · Локальная модель: безопасный код-аудит [N]",
+      "sha256": "45c17bcb7f9ffc960d6676fe64cbf2a65d6bef95fec9ca4a16c10a9b41708f79",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-092",
+      "title": "#### P-092 · AI coding model: сравнение качества на реальных задачах [N]",
+      "sha256": "ecc0d7a786d4cba2da42e4b410c14b39f14c30c30e74679e8613f921caa15d7b",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-093",
+      "title": "#### P-093 · Product discovery и user journeys [S]",
+      "sha256": "df3f2250e8947c757231c4423a90486a3b19a47b9aa14022b6af3c0c91adfdb1",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-094",
+      "title": "#### P-094 · Cross-team design review [N]",
+      "sha256": "c7f71f81cfa92cf1485fe6d5fd4837e741824e7c114524fa3d69d0ed754184c8",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-095",
+      "title": "#### P-095 · Risk register и критический путь [N]",
+      "sha256": "88839d2299d0b8c8b6f8c16d4b1f9e92b715f95e21c8daecc7389f9553ca1490",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-096",
+      "title": "#### P-096 · Техническая стратегия на 6–12 месяцев [N]",
+      "sha256": "54f159162a814d8bd4e69f1b5aa0747bbe860bb463f408553907f92208acbcfb",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-097",
+      "title": "#### P-097 · Mentoring и knowledge transfer [N]",
+      "sha256": "78bfa25689ed2c125af9d037c2220adec3a7c2d28086e8948719f3e769d4d2ad",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-098",
+      "title": "#### P-098 · Staff decision memo: скорость против риска [S]",
+      "sha256": "d822973e6db20491f1cbadb74d31c8d43b749c3eae86cdb536b5bdcd6c67546c",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-099",
+      "title": "#### P-099 · Architecture review meeting facilitation [N]",
+      "sha256": "62513adca7dc942f7159c20e3923e23acb387fe405070d5555e586d1555671fa",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-100",
+      "title": "#### P-100 · Измерение эффективности AI-assisted разработки [N]",
+      "sha256": "63daa8fcdd7099b03372f43dd81110453104866cfad996777825163d65551d8e",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-101",
+      "title": "#### P-101 · Code ownership и Bus Factor [N]",
+      "sha256": "38646b8121f72854acc4c9c2f0ab0069bda688395481fc4cff065cd885c9c4ce",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-102",
+      "title": "#### P-102 · Passkeys, Sign in with Apple и OAuth PKCE [N]",
+      "sha256": "7f94be77b0300f31d77222f13ce249cf508f582c8dea755ea7a8a964d7256062",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-103",
+      "title": "#### P-103 · StoreKit 2: покупки и подписки [N]",
+      "sha256": "cbf6a12ac19d56bc36f13d9d4781b4816db934e24761a1af62bb45d2513241d5",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-104",
+      "title": "#### P-104 · Widgets и Live Activities [N]",
+      "sha256": "8cbdb81ceeff9a69a0a28cf953f70410bdca76adcc3a83ed479cc745d2b7b1ae",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-105",
+      "title": "#### P-105 · Core Location и MapKit [N]",
+      "sha256": "1142eefe7ba8e5c71fa31fdf44cf75f847cdb6d4bd229ee57b44ad41d0cf93f3",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-106",
+      "title": "#### P-106 · AVFoundation capture и Photos [N]",
+      "sha256": "4f665377e106f5f3dcc4b8315434874b5ed087ad88b5d130417b2285a4bea97e",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-107",
+      "title": "#### P-107 · Audio, видео и AVPlayer [N]",
+      "sha256": "7d522982c6f4ac0af89b697a69532ff04b7dd8da2f3b8d16593c5f807f8f630e",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-108",
+      "title": "#### P-108 · CoreBluetooth и внешние устройства [N]",
+      "sha256": "b9e9958563d14734d32a37935204d8a98e0d4a088a428a0d5d02f7929c6479e0",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-109",
+      "title": "#### P-109 · HealthKit: private health data [N]",
+      "sha256": "8a70172aa6090661fd79c5a8bfce21cd521abd89e3e3535389e19ad0a457e423",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-110",
+      "title": "#### P-110 · CloudKit и межустройственная синхронизация [N]",
+      "sha256": "463c5d2126b2331a275c9dfd2e45ef29eadec8117da93f4ff7bc36e459dac4d2",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-111",
+      "title": "#### P-111 · Files, Document Picker и FileProvider [N]",
+      "sha256": "488c0f01e3f9df02cf4a9137fb84d9768ea0161c60d69435ae0c38d70793ae85",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-112",
+      "title": "#### P-112 · Core ML / Vision on-device pipeline [N]",
+      "sha256": "2eac193bde7a033e1e011d6a37297a5105aa3088773efd1d9ae4e77d3bc5b732",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-113",
+      "title": "#### P-113 · Metal / GPU и rendering performance [N]",
+      "sha256": "09111e83065173ba61de09303ef5a498f63f0e1b6c2f385178624564546975fe",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-114",
+      "title": "#### P-114 · WKWebView boundary и web security [N]",
+      "sha256": "1627121958d32d6eff49ea534aa0f893f6c427e9f7f31376f5fbc7aa4414cfa8",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-115",
+      "title": "#### P-115 · iPad multitasking, Stage Manager и сцены [N]",
+      "sha256": "902358ffd70af9312fcb7f6469506607ef8f394e3042607deabe13e72db0ec7e",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-116",
+      "title": "#### P-116 · Universal Links, App Clips и scene entry [N]",
+      "sha256": "2d4e1eca60bbcd724d16878de5f45b561ab8fbcdffeefdc693c1e70b57fa6cd5",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-117",
+      "title": "#### P-117 · Core NFC и аппаратные capabilities [N]",
+      "sha256": "83233172d76f59be4a0690e7e2f8f10ed76c44578f6be8c853e173e29b1ef5f9",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-118",
+      "title": "#### P-118 · Privacy attribution и ATT [N]",
+      "sha256": "0d226116225e1a1eaa67b7773c96e10b522ae75c205b39be5c70ceae80080afa",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-119",
+      "title": "#### P-119 · App lifecycle: state preservation и termination [N]",
+      "sha256": "0e51d6c6be6b48bc07e1ebe9d04f1cc9053494540a4a966f82c700e9a110afc6",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-120",
+      "title": "#### P-120 · Platform capability matrix по устройствам [N]",
+      "sha256": "49e711b7ec5f6543c73eadf212cbb86b5ba06bc7f0b4852d4793859e69b3b292",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-121",
+      "title": "#### P-121 · watchOS companion / независимая доставка состояния [N]",
+      "sha256": "f62e9e2b0505a851c2a51d3d1277dd74d38d69c8ccbe58cffaac38f67d95851c",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-122",
+      "title": "#### P-122 · CarPlay: entitlement-first architecture [N]",
+      "sha256": "3d16e4a058413ac05cc358e48937d8e7f49e16dc520fa3327ef6d49a373f84e5",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-123",
+      "title": "#### P-123 · visionOS: пространственный UI и input boundaries [N]",
+      "sha256": "f0771627c1e4e72cc0a65e7c3ff99ae0bdd4bca67bee31785c249070141e7d4c",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-124",
+      "title": "#### P-124 · App Attest и антиабьюз-контроль [N]",
+      "sha256": "596f8dc0f90b08df61e4f4c8d2c4e56a372437cc88df37d2b404a7994772c1ef",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-125",
+      "title": "#### P-125 · App Groups / Keychain Sharing ownership [N]",
+      "sha256": "3b5e2c6bd4a4a663a9c665240992f6ef7a95f3537f36fcc65fd192079bd7b601",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-126",
+      "title": "#### P-126 · Deterministic concurrency harness [N]",
+      "sha256": "a9877123c5ba303444e7abfe5f11d18f8f642ac4214dddb04128073bc4903639",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-127",
+      "title": "#### P-127 · Mobile SLO и error-budget policy [N]",
+      "sha256": "3a5ece35d1424cf9c819ef6f8b57fc33b6de790bcb1a9682140e4f049f84a3f5",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-128",
+      "title": "#### P-128 · Experimentation и feature attribution [N]",
+      "sha256": "6bb423d06446c638ef7d240d3bbc3bf2527b56998e521c9208a3987c34a166aa",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-129",
+      "title": "#### P-129 · Public SDK / binary compatibility governance [N]",
+      "sha256": "5500f98703697868bf78bef93de43de4af0384328ba5f93808e584d4da5648d7",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-130",
+      "title": "#### P-130 · Remote Config и kill switch contract [N]",
+      "sha256": "b9f1c65fd8277905aa8859c734fad71be22f30775073c3a212e21ed5ae21eaee",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-131",
+      "title": "#### P-131 · On-device crypto API decision [N]",
+      "sha256": "e8852fe5b10892388f9e6ace3ed40a1bd53324a65930eb6cede516095e2dce73",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-132",
+      "title": "#### P-132 · Server-driven UI boundary [N]",
+      "sha256": "3453238aea52a1180980bb198deac1b30ab8e635b0e72f272963fc1875e04071",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-133",
+      "title": "#### P-133 · Cross-device identity и multi-scene races [N]",
+      "sha256": "573f900f79a3166167a4138255b883e4c676561a3b9fa1d60193c33dc94901f9",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-134",
+      "title": "#### P-134 · Accessibility automated + human audit [N]",
+      "sha256": "0f6554214777a31a4250f661e4970a20bed09c1f53d57516720441a175410d97",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    },
+    {
+      "id": "P-135",
+      "title": "#### P-135 · On-call runbook для мобильного релиза [N]",
+      "sha256": "1eaa434dcc7a630e9a7f61dbdc349cfcb2715d7187632901b69b55b231749626",
+      "read_status": "PROMPT_WHEN_BODY_BOUNDARY_FOLLOWUP_READ; repeated acceptance boilerplate normalized/verified",
+      "adoption": "REFERENCE_NOT_BLANKET_ADOPTED",
+      "notes": ""
+    }
+  ]
+}

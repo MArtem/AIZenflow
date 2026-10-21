@@ -1,0 +1,34 @@
+{
+  "level0": {
+    "documents": 3,
+    "words": 3327,
+    "bytes": 28057,
+    "max_words": 5000,
+    "budget_exceeded": false
+  },
+  "dynamic_task_documents": {
+    "documents": 2,
+    "words": 2174,
+    "bytes": 18363,
+    "max_words": 3500,
+    "budget_exceeded": false,
+    "files": [
+      {
+        "path": "./.zenflow/tasks/kb-unification-2026-10-09/handoff.md",
+        "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/handoff.md",
+        "exists": true,
+        "words": 1019,
+        "bytes": 8691
+      },
+      {
+        "path": "./.zenflow/tasks/kb-unification-2026-10-09/plan.md",
+        "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/plan.md",
+        "exists": true,
+        "words": 1155,
+        "bytes": 9672
+      }
+    ]
+  },
+  "failures": [],
+  "notes": []
+}

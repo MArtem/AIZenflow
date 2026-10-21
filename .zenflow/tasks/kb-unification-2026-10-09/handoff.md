@@ -1,5 +1,23 @@
 # Handoff — completed KB unification
 
+## Pre-pilot Git checkpoint — 2026-10-22
+
+Current user explicitly requests saving all current KB edits to Git and a clean state before pilot testing, then selecting available sandbox projects and proposing tasks only. This authorizes the bounded AIZenflow publication of the four reviewed mirrors and all prompt-intake evidence, with main/development and the current KB branch synchronized using fast-forward only. Canonical AIZenflowDocumentation publication remains standing-authorized. No app changes, pilot execution, builds/tests, new agents or unrelated repository/remote writes. Exact-SHA and remote/clean results are recorded externally after publication. Existing source/verification limitations remain.
+
+- [x] Inventory candidate and verify mirrors/evidence against published canonical KB.
+- [x] Prepare complete candidate review; use unchanged prior static PASS evidence for unchanged content.
+- [x] Preserve all prompt-intake resources and define exact-SHA publication gate.
+
+Next after verified clean publication: inspect current candidate project context read-only and propose bounded real-task pilots; implementation remains unstarted.
+
+## Current expanded prompt application — 2026-10-22
+
+User requested maximum useful application. [Expansion plan](prompt-intake-2026-10-22/expansion/plan.md) owns the bounded three-owner block. Preflight infers the working procedure, conditionally consulting the existing iOS prompt router; ten working procedures adapt W1–W9/T1–T12 decision aids; completion prompt validates findings and claims. All135IDs have explicit navigation/disposition in expansion/prompt-application-map.json, not blanket technical certification. No runtime/tests/agents/benchmark or new AIZenflow Git authority. Canonical publication remains standing-authorized. Prior source-reading limits remain unchanged.
+
+## Current prompt-informed improvement - 2026-10-22
+
+User supplied Staff_iOS_AI_Verified_Engineering_System_v4.zip to improve proactive clarification before iOS work. Read135prompt bodies and workflow/template core; explicit selected Handbook/Lab and unverified source-test limits in [assessment](prompt-intake-2026-10-22/assessment.md) and source-review.json. Updated only existing preflight/product requirement owners: reconstruct known context, distinguish reversible assumptions, material questions and separate proposals; preserve permissions and no needless reconfirmation. Static checks PASS, no model/app/runtime experiment. Raw archive not uploaded or executed. [Plan](prompt-intake-2026-10-22/plan.md) and evidence own this new bounded block. Prior published acceptance remains historical; this is not a new whole-KB audit. Canonical publication uses standing documentation-repository authority; no new AIZenflow commit/push authorization inferred. Future quality pilots remain unstarted.
+
 ## Publication authority - 2026-10-21
 
 Artem explicitly requested saving the improvement plan and all current changes in Git, synchronizing development/main and leaving no uncommitted resources. This supersedes the earlier commit/push prohibition for this bounded KB publication in MArtem/AIZenflow and MArtem/AIZenflowDocumentation only. Preserve all reviewed KB and audit/evidence resources. No force push, unrelated repository/remote, app/runtime/test, extra agent or closed-experiment authority. Future plan: [KB quality development](kb-quality-development-plan.md). Exact committed/pushed SHA and clean/synced result belong to the final external receipt, not a self-invalidating tracked hash.

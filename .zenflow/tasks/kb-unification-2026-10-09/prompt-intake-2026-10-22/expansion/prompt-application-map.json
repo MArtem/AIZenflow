@@ -1,0 +1,1086 @@
+{
+  "purpose": "All-prompt navigation and disposition, not per-claim technical certification or runtime evaluation",
+  "source_sha256": "262b3af413ad855701043367374b25f6af31538cc9aab24d487d2ded5c3e19a7",
+  "rows": [
+    {
+      "id": "P-001",
+      "title": "Контекст репозитория без фантазий [S]",
+      "family": "Engineering workflow",
+      "entry_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-002",
+      "title": "Engineering brief до генерации кода [S]",
+      "family": "Engineering workflow",
+      "entry_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-003",
+      "title": "Три архитектурных компромисса [S]",
+      "family": "Engineering workflow",
+      "entry_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-004",
+      "title": "План небольших проверяемых изменений [S]",
+      "family": "Engineering workflow",
+      "entry_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-005",
+      "title": "Точечная реализация по контракту [S]",
+      "family": "Engineering workflow",
+      "entry_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-006",
+      "title": "Враждебное ревью AI-generated PR [S]",
+      "family": "Engineering workflow",
+      "entry_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-007",
+      "title": "Самопроверка на ложноположительные замечания [N]",
+      "family": "Engineering workflow",
+      "entry_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-008",
+      "title": "Тест-план до имплементации [S]",
+      "family": "Engineering workflow",
+      "entry_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-009",
+      "title": "Bug investigation: гипотезы и доказательства [N]",
+      "family": "Engineering workflow",
+      "entry_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-010",
+      "title": "Финальная проверка доказательств [S]",
+      "family": "Engineering workflow",
+      "entry_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-011",
+      "title": "Контролируемая делегация AI-агентам [N]",
+      "family": "Engineering workflow",
+      "entry_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Execution/delegation/benchmark/Git requires its own current permission; not activated here."
+    },
+    {
+      "id": "P-012",
+      "title": "Минимизация контекста для локальной модели [N]",
+      "family": "Engineering workflow",
+      "entry_owner": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-013",
+      "title": "Архитектура feature и границы слоёв [S]",
+      "family": "Architecture and evolution",
+      "entry_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-014",
+      "title": "SPM-модульность и граф зависимостей [S]",
+      "family": "Architecture and evolution",
+      "entry_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-015",
+      "title": "DI и composition root [S]",
+      "family": "Architecture and evolution",
+      "entry_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-016",
+      "title": "State machine и невозможные состояния [S]",
+      "family": "Architecture and evolution",
+      "entry_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-017",
+      "title": "Анти-overengineering audit [S]",
+      "family": "Architecture and evolution",
+      "entry_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-018",
+      "title": "Эволюция legacy без big bang rewrite [S]",
+      "family": "Architecture and evolution",
+      "entry_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-019",
+      "title": "API дизайна пакета и source compatibility [N]",
+      "family": "Architecture and evolution",
+      "entry_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-020",
+      "title": "ADR по спорному техническому решению [N]",
+      "family": "Architecture and evolution",
+      "entry_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-021",
+      "title": "Контракт навигации и Deep Link [S]",
+      "family": "Architecture and evolution",
+      "entry_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-022",
+      "title": "Консистентность и владение состоянием между фичами [N]",
+      "family": "Architecture and evolution",
+      "entry_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-023",
+      "title": "Incremental removal of tech debt [N]",
+      "family": "Architecture and evolution",
+      "entry_owner": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-024",
+      "title": "Swift 6 concurrency migration review [N]",
+      "family": "Swift ownership and concurrency",
+      "entry_owner": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "disposition": "PARTIAL_CONFLICT_REJECTED",
+      "limit": "Concurrency analysis useful; unsafe annotation escapes rejected by current strict ownership policy."
+    },
+    {
+      "id": "P-025",
+      "title": "Lifecycle задач: .task vs собственный Task [S]",
+      "family": "Swift ownership and concurrency",
+      "entry_owner": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-026",
+      "title": "Stale response и ordering при поиске [S]",
+      "family": "Swift ownership and concurrency",
+      "entry_owner": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-027",
+      "title": "Actor reentrancy и инварианты [S]",
+      "family": "Swift ownership and concurrency",
+      "entry_owner": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-028",
+      "title": "@MainActor и тяжёлая работа [S]",
+      "family": "Swift ownership and concurrency",
+      "entry_owner": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-029",
+      "title": "AsyncSequence, AsyncStream и termination [S]",
+      "family": "Swift ownership and concurrency",
+      "entry_owner": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-030",
+      "title": "Callback -> async continuation [S]",
+      "family": "Swift ownership and concurrency",
+      "entry_owner": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-031",
+      "title": "Combine и async/await coexistence [S]",
+      "family": "Swift ownership and concurrency",
+      "entry_owner": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-032",
+      "title": "Memory leak и retain path [S]",
+      "family": "Swift ownership and concurrency",
+      "entry_owner": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-033",
+      "title": "Swift API семантика и value/reference trade-offs [N]",
+      "family": "Swift ownership and concurrency",
+      "entry_owner": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-034",
+      "title": "Объектное время жизни и Obj-C interoperability [N]",
+      "family": "Swift ownership and concurrency",
+      "entry_owner": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-035",
+      "title": "SwiftUI state ownership и Observation [S]",
+      "family": "UI and design",
+      "entry_owner": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-036",
+      "title": "Figma/скриншот -> адаптивный SwiftUI [S]",
+      "family": "UI and design",
+      "entry_owner": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-037",
+      "title": "Design system и семантические токены [S]",
+      "family": "UI and design",
+      "entry_owner": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-038",
+      "title": "Accessibility audit для сложного экрана [N]",
+      "family": "UI and design",
+      "entry_owner": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-039",
+      "title": "Миграция UIKit ↔ SwiftUI [S]",
+      "family": "UI and design",
+      "entry_owner": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-040",
+      "title": "Deep link, state restoration и multi-scene UI [N]",
+      "family": "UI and design",
+      "entry_owner": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-041",
+      "title": "Сложный список и SwiftUI performance [S]",
+      "family": "UI and design",
+      "entry_owner": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-042",
+      "title": "Локализация, plurals и RTL [N]",
+      "family": "UI and design",
+      "entry_owner": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-043",
+      "title": "Анимации, gestures и Reduced Motion [N]",
+      "family": "UI and design",
+      "entry_owner": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-044",
+      "title": "Network layer contract и ошибки [S]",
+      "family": "Integration and durable data",
+      "entry_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-045",
+      "title": "Token refresh single-flight [S]",
+      "family": "Integration and durable data",
+      "entry_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-046",
+      "title": "Offline-first и cache invalidation [S]",
+      "family": "Integration and durable data",
+      "entry_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-047",
+      "title": "Core Data / SwiftData persistence design [N]",
+      "family": "Integration and durable data",
+      "entry_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-048",
+      "title": "Background work и energy budget [N]",
+      "family": "Integration and durable data",
+      "entry_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-049",
+      "title": "Pagination, deduplication и race handling [N]",
+      "family": "Integration and durable data",
+      "entry_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-050",
+      "title": "Поиск: debounce, recent и server/local tradeoff [S]",
+      "family": "Integration and durable data",
+      "entry_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-051",
+      "title": "Image loading и memory pressure [N]",
+      "family": "Integration and durable data",
+      "entry_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-052",
+      "title": "WebSocket, streaming и reconnect [N]",
+      "family": "Integration and durable data",
+      "entry_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-053",
+      "title": "Push notifications и notification routing [N]",
+      "family": "Integration and durable data",
+      "entry_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-054",
+      "title": "Third-party SDK integration review [N]",
+      "family": "Integration and durable data",
+      "entry_owner": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-055",
+      "title": "Тестовая стратегия и пирамида [S]",
+      "family": "Verification and diagnosis",
+      "entry_owner": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-056",
+      "title": "ViewModel tests с управляемыми async events [S]",
+      "family": "Verification and diagnosis",
+      "entry_owner": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-057",
+      "title": "Contract tests для API/DTO [N]",
+      "family": "Verification and diagnosis",
+      "entry_owner": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-058",
+      "title": "Mutation testing смысла тестов [N]",
+      "family": "Verification and diagnosis",
+      "entry_owner": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Execution/delegation/benchmark/Git requires its own current permission; not activated here."
+    },
+    {
+      "id": "P-059",
+      "title": "UI automation и launch arguments [S]",
+      "family": "Verification and diagnosis",
+      "entry_owner": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Execution/delegation/benchmark/Git requires its own current permission; not activated here."
+    },
+    {
+      "id": "P-060",
+      "title": "Snapshot tests и визуальная регрессия [S]",
+      "family": "Verification and diagnosis",
+      "entry_owner": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Execution/delegation/benchmark/Git requires its own current permission; not activated here."
+    },
+    {
+      "id": "P-061",
+      "title": "Crash triage и аналитика отказов [S]",
+      "family": "Verification and diagnosis",
+      "entry_owner": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-062",
+      "title": "Instruments performance investigation [S]",
+      "family": "Verification and diagnosis",
+      "entry_owner": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Execution/delegation/benchmark/Git requires its own current permission; not activated here."
+    },
+    {
+      "id": "P-063",
+      "title": "План тестирования крайних UI-состояний [S]",
+      "family": "Verification and diagnosis",
+      "entry_owner": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-064",
+      "title": "Проверка сборки и Swift toolchain compatibility [N]",
+      "family": "Verification and diagnosis",
+      "entry_owner": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Execution/delegation/benchmark/Git requires its own current permission; not activated here."
+    },
+    {
+      "id": "P-065",
+      "title": "Threat model для iOS feature [N]",
+      "family": "Security and privacy",
+      "entry_owner": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-066",
+      "title": "Keychain и секреты [N]",
+      "family": "Security and privacy",
+      "entry_owner": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-067",
+      "title": "Transport security и backend trust [N]",
+      "family": "Security and privacy",
+      "entry_owner": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-068",
+      "title": "Privacy manifest / data collection inventory [N]",
+      "family": "Security and privacy",
+      "entry_owner": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-069",
+      "title": "Dependency/supply-chain audit [N]",
+      "family": "Security and privacy",
+      "entry_owner": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-070",
+      "title": "Точная санитизация кода перед cloud AI [N]",
+      "family": "Security and privacy",
+      "entry_owner": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-071",
+      "title": "Prompt injection и недоверенный контент [N]",
+      "family": "Security and privacy",
+      "entry_owner": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-072",
+      "title": "Review прав доступа, entitlements и permissions UX [N]",
+      "family": "Security and privacy",
+      "entry_owner": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-073",
+      "title": "CI quality gates для AI-generated code [S]",
+      "family": "Delivery and operations",
+      "entry_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Execution/delegation/benchmark/Git requires its own current permission; not activated here."
+    },
+    {
+      "id": "P-074",
+      "title": "PR description с доказательствами [S]",
+      "family": "Delivery and operations",
+      "entry_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-075",
+      "title": "Feature flags и staged rollout [S]",
+      "family": "Delivery and operations",
+      "entry_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-076",
+      "title": "Release readiness и App Store constraints [S]",
+      "family": "Delivery and operations",
+      "entry_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-077",
+      "title": "Observability и SLO для мобильного приложения [S]",
+      "family": "Delivery and operations",
+      "entry_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-078",
+      "title": "Incident response и blameless postmortem [N]",
+      "family": "Delivery and operations",
+      "entry_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-079",
+      "title": "Rollback и обратимость миграции [S]",
+      "family": "Delivery and operations",
+      "entry_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-080",
+      "title": "SourceTree-first Git workflow [N]",
+      "family": "Delivery and operations",
+      "entry_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Execution/delegation/benchmark/Git requires its own current permission; not activated here."
+    },
+    {
+      "id": "P-081",
+      "title": "Dependency upgrade strategy [N]",
+      "family": "Delivery and operations",
+      "entry_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-082",
+      "title": "Engineering release note для команды/QA [N]",
+      "family": "Delivery and operations",
+      "entry_owner": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-083",
+      "title": "AI feature design: local/cloud/hybrid [S]",
+      "family": "AI behavior and evaluation",
+      "entry_owner": "reusable/baseline/docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-084",
+      "title": "Prompt-as-code: версия, шаблон и тесты [S]",
+      "family": "AI behavior and evaluation",
+      "entry_owner": "reusable/baseline/docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-085",
+      "title": "Structured output и validation boundary [S]",
+      "family": "AI behavior and evaluation",
+      "entry_owner": "reusable/baseline/docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-086",
+      "title": "Foundation Models availability и evolution [N]",
+      "family": "AI behavior and evaluation",
+      "entry_owner": "reusable/baseline/docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-087",
+      "title": "AI streaming, timeout и cancellation UX [N]",
+      "family": "AI behavior and evaluation",
+      "entry_owner": "reusable/baseline/docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-088",
+      "title": "Model evaluation: golden set и failure taxonomy [N]",
+      "family": "AI behavior and evaluation",
+      "entry_owner": "reusable/baseline/docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Execution/delegation/benchmark/Git requires its own current permission; not activated here."
+    },
+    {
+      "id": "P-089",
+      "title": "AI tools/actions и явное подтверждение [S]",
+      "family": "AI behavior and evaluation",
+      "entry_owner": "reusable/baseline/docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-090",
+      "title": "App Intents, Shortcuts, Spotlight [S]",
+      "family": "AI behavior and evaluation",
+      "entry_owner": "reusable/baseline/docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-091",
+      "title": "Локальная модель: безопасный код-аудит [N]",
+      "family": "AI behavior and evaluation",
+      "entry_owner": "reusable/baseline/docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Execution/delegation/benchmark/Git requires its own current permission; not activated here."
+    },
+    {
+      "id": "P-092",
+      "title": "AI coding model: сравнение качества на реальных задачах [N]",
+      "family": "AI behavior and evaluation",
+      "entry_owner": "reusable/baseline/docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Execution/delegation/benchmark/Git requires its own current permission; not activated here."
+    },
+    {
+      "id": "P-093",
+      "title": "Product discovery и user journeys [S]",
+      "family": "Decisions and collaboration",
+      "entry_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-094",
+      "title": "Cross-team design review [N]",
+      "family": "Decisions and collaboration",
+      "entry_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-095",
+      "title": "Risk register и критический путь [N]",
+      "family": "Decisions and collaboration",
+      "entry_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-096",
+      "title": "Техническая стратегия на 6–12 месяцев [N]",
+      "family": "Decisions and collaboration",
+      "entry_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-097",
+      "title": "Mentoring и knowledge transfer [N]",
+      "family": "Decisions and collaboration",
+      "entry_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-098",
+      "title": "Staff decision memo: скорость против риска [S]",
+      "family": "Decisions and collaboration",
+      "entry_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-099",
+      "title": "Architecture review meeting facilitation [N]",
+      "family": "Decisions and collaboration",
+      "entry_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+      "disposition": "METHOD_ADAPTED",
+      "limit": "Decision aid adapted in preflight, Working Procedures or completion review; specialist implementation remains governed by its existing owner."
+    },
+    {
+      "id": "P-100",
+      "title": "Измерение эффективности AI-assisted разработки [N]",
+      "family": "Decisions and collaboration",
+      "entry_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Execution/delegation/benchmark/Git requires its own current permission; not activated here."
+    },
+    {
+      "id": "P-101",
+      "title": "Code ownership и Bus Factor [N]",
+      "family": "Decisions and collaboration",
+      "entry_owner": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-102",
+      "title": "Passkeys, Sign in with Apple и OAuth PKCE [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-103",
+      "title": "StoreKit 2: покупки и подписки [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-104",
+      "title": "Widgets и Live Activities [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-105",
+      "title": "Core Location и MapKit [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-106",
+      "title": "AVFoundation capture и Photos [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-107",
+      "title": "Audio, видео и AVPlayer [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-108",
+      "title": "CoreBluetooth и внешние устройства [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Apply only to actual platform scope; iPad/physical/actual VoiceOver verification remains OMITTED_BY_USER."
+    },
+    {
+      "id": "P-109",
+      "title": "HealthKit: private health data [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-110",
+      "title": "CloudKit и межустройственная синхронизация [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-111",
+      "title": "Files, Document Picker и FileProvider [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-112",
+      "title": "Core ML / Vision on-device pipeline [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-113",
+      "title": "Metal / GPU и rendering performance [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-114",
+      "title": "WKWebView boundary и web security [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-115",
+      "title": "iPad multitasking, Stage Manager и сцены [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Apply only to actual platform scope; iPad/physical/actual VoiceOver verification remains OMITTED_BY_USER."
+    },
+    {
+      "id": "P-116",
+      "title": "Universal Links, App Clips и scene entry [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-117",
+      "title": "Core NFC и аппаратные capabilities [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Apply only to actual platform scope; iPad/physical/actual VoiceOver verification remains OMITTED_BY_USER."
+    },
+    {
+      "id": "P-118",
+      "title": "Privacy attribution и ATT [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-119",
+      "title": "App lifecycle: state preservation и termination [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-120",
+      "title": "Platform capability matrix по устройствам [N]",
+      "family": "Platform capabilities",
+      "entry_owner": "reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Apply only to actual platform scope; iPad/physical/actual VoiceOver verification remains OMITTED_BY_USER."
+    },
+    {
+      "id": "P-121",
+      "title": "watchOS companion / независимая доставка состояния [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Apply only to actual platform scope; iPad/physical/actual VoiceOver verification remains OMITTED_BY_USER."
+    },
+    {
+      "id": "P-122",
+      "title": "CarPlay: entitlement-first architecture [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Apply only to actual platform scope; iPad/physical/actual VoiceOver verification remains OMITTED_BY_USER."
+    },
+    {
+      "id": "P-123",
+      "title": "visionOS: пространственный UI и input boundaries [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Apply only to actual platform scope; iPad/physical/actual VoiceOver verification remains OMITTED_BY_USER."
+    },
+    {
+      "id": "P-124",
+      "title": "App Attest и антиабьюз-контроль [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-125",
+      "title": "App Groups / Keychain Sharing ownership [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-126",
+      "title": "Deterministic concurrency harness [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Execution/delegation/benchmark/Git requires its own current permission; not activated here."
+    },
+    {
+      "id": "P-127",
+      "title": "Mobile SLO и error-budget policy [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-128",
+      "title": "Experimentation и feature attribution [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-129",
+      "title": "Public SDK / binary compatibility governance [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-130",
+      "title": "Remote Config и kill switch contract [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-131",
+      "title": "On-device crypto API decision [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-132",
+      "title": "Server-driven UI boundary [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-133",
+      "title": "Cross-device identity и multi-scene races [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    },
+    {
+      "id": "P-134",
+      "title": "Accessibility automated + human audit [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification. Apply only to actual platform scope; iPad/physical/actual VoiceOver verification remains OMITTED_BY_USER."
+    },
+    {
+      "id": "P-135",
+      "title": "On-call runbook для мобильного релиза [N]",
+      "family": "Specialist platforms and operational contracts",
+      "entry_owner": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+      "disposition": "REFERENCE_VIA_EXISTING_ROUTE",
+      "limit": "Use the task-relevant technique through the existing route; no blanket adoption or fresh technical certification."
+    }
+  ]
+}
