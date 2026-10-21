@@ -1,0 +1,31 @@
+# Final static audit review receipt
+
+2026-10-19. GPT-6.1 Sol / medium, operating mode: user-selected economy. Single-agent continuation, independent of migration's self-assessment, not an independent second reviewer or a second model pass. User-authorized scope: static audit and proposed plan only, task-local output. Active KB, original ledger/archive, app/runtime/tests, modes/host state and Git unchanged.
+
+## Result and exact coverage
+
+COMPLETE_STATIC_AUDIT_WITH_LIMITS. KB acceptance NOT_READY. All1403 frozen source identities READ and all4285 canonical units adjudicated:217 MIGRATED+2338 ALREADY_COVERED=2555 active dispositions;1461 ARCHIVE_ONLY_INFRASTRUCTURE+269 ARCHIVE_ONLY_NO_INCREMENTAL_VALUE=1730 archive dispositions.1288 distinct body hashes+115 actual ZIP-byte aliases with separately inspected maps. No unverified/unread source rows remain. All240 archived source-skill files and8 inactive tool sources completed; archived instructions are audit data only.
+
+37 project-copy units are separate:36 supported with limits, COPY-ROUTER-U10 scope unresolved. Combined historical4322-unit accounting is222/2362/1468/270 respectively; counts do not establish equivalence.207 canonical IDs retain qualified claims, one confirmed mapping defect A11 is separately recorded.207 IDs include repeated and mixed citation/subclaim concerns, not207 independent bugs. Known citation content, unresolved exact support, task-only ownership, archived utility and active contradictions remain distinct. No global absence inferred from an imprecise citation.
+
+A01-A12 OPEN:10 P2 and2 P3. Findings and exact primary locators remain in report.md; no correction was authorized/performed. Priority R1 authority/evidence/verdict/severity, R2 mandatory resolver, R3 delivery with R4 complete context accounting, R5 app boundary, R0 exact mapping queue, R6 freshness, R7 measured route design, R8 separately scoped outcome study. The full proposed plan records owners/files/dependencies/decisions/acceptance/permitted checks/rollback/qualitative cost and benefit. Every207 qualified ID is included by authoritative coverage queue reference; older partial enumerations do not omit later IDs.
+
+## Review performed
+
+Final narrative review reread the complete current report, remediation plan (truncated initial delivery repaired by exact ranges), domain review and scenario specification. Current execution plan reviewed including its dated continuation chain. All207 qualification entries delivered and checked, with exact-equal text grouping only. Source-specific thematic receipts retain original full-read adjudication; they were not all semantically rerun as a second pass. Structural review covered all92 existing audit Markdown artifacts and8 JSON artifacts before this receipt: valid source/unit references, parseability, dates and references/accounting. Changed report/plan/remediation/source-skill/tool receipts checked for whitespace; historical statements remain dated provenance, superseded by current assessment.
+
+Reverified every1403 known frozen body SHA against its ledger row and every115 exact alias by actual bytes; unique/disjoint coverage partition,4285 unique unit IDs, reviewed-unit identity, all named source receipts present, disposition counts and207 qualification IDs valid. All45 registry owner fingerprints unchanged. Frozen ZIP and ledger full SHA match accounting.json. Only the1403 explicitly selected source members were semantically read; no extra sealed member was opened for final checks.
+
+Reverified31 drift source/target pairs,28 primary/local skill equalities,12 full-file text recipes,16 consumer records and9 transitive additions.73 distinct cost/consumer inputs match recorded SHA/bytes/regex words. Recipe median17047.5 words;9 review scenarios add4922 words/38819 bytes each; corrected12-scenario lower-bound median21674.0 words. No full transitive closure or before/after token/quality conclusion. All arithmetic remains separately reproducible in cost-current.json and transitive-cost-gap.json.
+
+Final reconciliation repaired prior accidental substitutions in the prose checkpoint: invalid current date/ranges, archive SHA, historical combined ALREADY_COVERED count2386 to2362, localization17902 to17922 words and cancellation17902 to18272 words. The machine evidence was rechecked against actual bytes before correcting prose. Original frozen evidence and historical receipts were not changed. Failed long shell-script delivery was a parse-time encoding error before execution; subsequent smaller writes and final checks verified the actual final artifacts.
+
+## Exact identity and limits
+
+Worktree HEAD860ca8b7cc07e654d73339cdf6705319979df3df; only untracked audit directory. Canonical HEAD063ba79c44c7144e072da06d5f675e7471a59627; clean. No commit/push/network. Full tracked Git state unchanged; prior git diff --check evidence reused because tracked bytes unchanged, current changed untracked Markdown checked directly. No broad validator or historical tool was executed.
+
+Immutable model boundary709 completed pre-switch sources+694 later Sol-medium rows; all later rows carry date/route/transition receipt. Repeat suffix LIB-0589 inclusive, NOT_REQUESTED_OR_EXECUTED; model selector user-declared, not inspected. All current source hashes/qualified IDs saved so a later requested repeat pass can select the exact suffix.
+
+External technical freshness/API examples/compiler/runtime, live loader/portable fallback, quality uplift and actual input/cached/output/reasoning/subscription telemetry remain UNVERIFIED/UNKNOWN. Visible scenarios and negative controls are specifications, not executed tests or unseen holdout. U7 NOT_RUN; sealed holdout/oracle and closed experiment EXCLUDED. iPad/physical/actualVoiceOver verification OMITTED_BY_USER, never PASS. No test-writing/build/runtime/agent/host/mode/Git grants follow from audit completion. Residual unresolved source support is part of the delivered audit result, not silently waived acceptance.
+
+Context transfer: reread all current documentation and rules for this worktree and task context; the exact mandatory Russian rule is retained in plan.md. Continue only within current authorized scope. There is no remaining unread source to continue mechanically; next implementation or U7 phase requires its own user scope.

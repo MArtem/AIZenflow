@@ -1,0 +1,282 @@
+{
+  "date": "2026-10-21",
+  "status": "PASS",
+  "rows": [
+    {
+      "path": "docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "sha256": "5d76a19bf19745a47bffceb298820cec0f113974c53e61239f10f7404ed6ef15",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/PRODUCTION_QUALITY_GATES.md",
+      "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/IOS_PRODUCTION_FRAMEWORK.md",
+      "sha256": "9a94a32224f26ef5f0c1b4cdeb54e8e7b1664fe63358cf851435e5d0f7cb6d63",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+      "sha256": "07fa5b6a52feaf3583bf5bfbb18f5ad6d0ff62888f7864c12ef84f89e6b29278",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+      "sha256": "41c9a82a63a4e9873d0bbcb9b559c4e9aa1e1c26075f5e8114b53960a79eb20d",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+      "sha256": "1124314abc29c021b347f63078c7a35d4bdcdac1aadcc816dc408e38431e499a",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "sha256": "bec4fd4c40f869480419430db5f02e96cec50650ea014cc981e16394daaf2776",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+      "sha256": "bdf8cacbbe2098b394351cef25a4c1394e732f6a956d27596c13978dd67151f4",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "sha256": "459b4fc80d317e4e234459ada0f8f89209528f39ea6d4e7a2780554489c16501",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/IOS_ACCESSIBILITY_STANDARD.md",
+      "sha256": "5dfa511b37911d81675318946032a8e733f889dd2c997c5dba48b891ab30a22e",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+      "sha256": "2b18e5124f3ba8497331f1d9095a7570a4c00ce580bcd155f53f535b9dc762f2",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+      "sha256": "c1e9b0f6ffb7d81c4ca5e925899303be3af48b81bb140e70f779d6852799c1bb",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+      "sha256": "082e71875bb47adef52805e89924eb9f1bb6c6f9ca79c00db62e1e35e22fd56e",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "sha256": "e6ae403415042648c29c62ffc4c06ac2a6e3d656a8dfc77dcdb8d314f9ce7c1f",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/MODULAR_ARCHITECTURE_STANDARD.md",
+      "sha256": "61557d5a66c377ed3810baf15da43cc3b4854673e78cf04443821be224d10c68",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/IOS_MVVM_INTENT_API_STANDARD.md",
+      "sha256": "c51bfe928564c9454f3027eefb457b84bd1cc891131549a81ae9aed0ea713d36",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "sha256": "790abe077f9a19fdf7195a5718a6f149107377948f9f15069e3d874c8f21f88c",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+      "sha256": "d9b73b445a996ee1f63b476607eb560d5dd5ce03af4f72d246287bc5940add64",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+      "sha256": "cb15bc1511ce9ba536a84e7f788f5c3c05e479f21c50adca8813aa0fcdb47b0b",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "sha256": "7479ff04b898b0ddd1ee36075e802818f2e7bf5130c13069884ecf21e7018ccd",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+      "sha256": "0b90cfb31bd635f35c9b8ac7d1f0dea57a75c979d22b9bb3c5406b2816058d1e",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+      "sha256": "9d892f8f5e7c7e239da35dd11476d757513cdc70650d261cbdbb7a2a52a65d2e",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+      "sha256": "29fa0d60ecc1ead2c9037de816ae45294f88dceb2b346083a0aac3d5e5a69286",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/IOS_DATA_MIGRATION_STANDARD.md",
+      "sha256": "a6209270d5b765e1fb330deb136923578150e3f13f6e799d03292417e317431e",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/IOS_OFFLINE_SYNC_STANDARD.md",
+      "sha256": "da6c02bcc83617293581ce477ff00744d9558829d3333a212ab81ade38bf9f4d",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+      "sha256": "78f8ac22f81bc93c9cb48cf7e91d9eb6be02e3c0189a9e2e64521e772dd56bd1",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "sha256": "37829051538c2c498cbb1341a2b12a45dc8a6f1f5c193bdea3b78a0d73f31422",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/IOS_TESTING_STRATEGY.md",
+      "sha256": "1facd29f338ea801843931beef4a47079f9c58be734a3a99c78aa7451ee1bc26",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/QA_TEST_PLAN_STANDARD.md",
+      "sha256": "cfef50a1720f1b15e5135d6affa4e9fa038506f716cff41db01199b0999b95ff",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+      "sha256": "2dad465f00c1bfeb3d119431700bd5f482b1f1238103a12bc23e90d8dae37901",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/DEPENDENCY_POLICY.md",
+      "sha256": "a00a015c3a18e935dfe42a87fc6d1c845410ba7ed5107cf9de3e56445e6b78cd",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/CI_CD_QUALITY_GATES.md",
+      "sha256": "e343635b1b0b1b5da9c51c3b715391d3b5c581600f26aea2797ce1fd06316312",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+      "sha256": "50a306a64c53009d638d0077edf1fed49604a1a3f59f75772978c1fb5d8eeaad",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "sha256": "f351224f8b745bc9c086ae8c69ef88774be1a05c3328b16f5dfd28fbc5299e0a",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+      "sha256": "59b2e78407b828272a667a3a2cb20f13c230b30087aaf8222b6d9a76b2b4707a",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+      "sha256": "2afcb33a7c9e17c5e6ce099639fe033cbec2d48c24116c8e2ae5f2ddb8d8f319",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+      "sha256": "30fa56cc1369a3485a57ef06ca22e558f4129a9fed20adc4958a738a18757265",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+      "sha256": "03f7e1b45267dc9b1f42c3a8c16be9f1ef8b69db02dcfae4ea04d8e7117cd89b",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+      "sha256": "f234cfe9f82cf397a0d176510f93e3a27a8442d235c100b4378861bc5fcad813",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/IOS_PERFORMANCE_BUDGETS.md",
+      "sha256": "8d7688bbff9b124a2390f84685283a2840137b7059d25651dd53b49d4253bf84",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/IOS_OBSERVABILITY_STANDARD.md",
+      "sha256": "ba7e10833453b374d71f05960ca77eedf278eb472073e000437c9aab14a5abdd",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/INCIDENT_RESPONSE_STANDARD.md",
+      "sha256": "a054dc9796c7a4ba27cf2f1e44f46626809d6faf986cac2237d5d13c37909bb8",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "sha256": "5d7e46328c6b127f440556b5254f9c31cae3edb4e829b81287269bd4dbf21d91",
+      "baseline_parity": true,
+      "primary_parity": true
+    },
+    {
+      "path": "docs/IOS_RELEASE_CHECKLIST.md",
+      "sha256": "a537cd9bfb16cb8fda22a8f59f72199503eede0ddec39f8a5b41833393f796c5",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+      "sha256": "6b3f2204ccf4ce980e4fd360c97ea81fd80594f7bab5d25e9dc4fc1abd36c3cc",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    },
+    {
+      "path": "docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+      "sha256": "49941b39b24ac58c1fd2152281fa0e689aaa9064fcafcdc5dd7de40887dc97ac",
+      "baseline_parity": true,
+      "primary_parity": "BASELINE_IS_OWNER"
+    }
+  ]
+}

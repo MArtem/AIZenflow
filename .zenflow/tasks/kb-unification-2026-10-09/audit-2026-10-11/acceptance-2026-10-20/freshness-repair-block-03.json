@@ -1,0 +1,23 @@
+{
+  "contract": "Clarify iOS27 audio lifecycle versus older-OS path; deepen existing localization and module-boundary explanations with conceptual negative traces. No API adoption, runtime/test/package/toolchain or behavior changes in apps.",
+  "files": [
+    {
+      "path": "knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+      "before_sha256": "c163242ff329ab5d75c7dd41b711f5418c65ab46e4e862cb648d1bcf82ada3ad",
+      "after_sha256": "431c803943aa3c3ae5ad075bdc42ec8caba9f70c7871c8e066cd9b946da42c5a",
+      "parity": true
+    },
+    {
+      "path": "LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+      "before_sha256": "8da6dc3e9792e6fa0a7027721f3ef9f88a98bafdc6fe21fe82cbff5bf26f67da",
+      "after_sha256": "49941b39b24ac58c1fd2152281fa0e689aaa9064fcafcdc5dd7de40887dc97ac",
+      "parity": true
+    },
+    {
+      "path": "MODULAR_ARCHITECTURE_STANDARD.md",
+      "before_sha256": "88f91b99a95c259bc50c2a3385d4dd94b3fb86c92a8fc65259693e9c2d846b6c",
+      "after_sha256": "61557d5a66c377ed3810baf15da43cc3b4854673e78cf04443821be224d10c68",
+      "parity": true
+    }
+  ]
+}

@@ -47,6 +47,12 @@ supported toolchain; do not adopt advanced syntax merely because an archived sou
 - Preconditions are for programmer-contract violations, not external input or expected runtime failure.
 
 ## Public API Rules
+
+For staged deprecation, record permitted evidence of actual consumer adoption before advancing to
+removal. Static usage inventory and supplied compatibility evidence may establish part of that
+boundary; do not invent adoption telemetry or silently remove a still-used path. Define who verifies
+the removal criterion and preserve unresolved external-consumer uncertainty.
+
 - Optimize clarity at the call site and follow the official Swift API Design Guidelines.
 - Document side effects, isolation, cancellation, errors, complexity, availability, and ownership where they are not obvious.
 - Inventory SPI and other advanced exposure where it has real consumers; a cosmetic diff or
@@ -88,6 +94,20 @@ and lifetime at the consuming boundary; the annotation does not remove those con
 ## Performance Discipline
 Do not infer performance from syntax. Inspect allocation, copying, specialization, retain/release traffic, bridging, and algorithmic complexity with compiler diagnostics or profiling. Optimize only a measured path and retain a readable baseline or benchmark.
 
+## Worked Ownership And API Choice
+A screen owner retains a completion closure, and that closure retains the screen owner.
+Releasing the caller's last reference does not break the cycle. A weak reference fits only
+when absence is a valid completion outcome; a deliberately retained owner instead needs an
+explicit bounded operation lifetime and release path. Replacing every capture with `unowned`
+can turn a lifecycle bug into invalid access. Inspect the full retained graph, not one capture.
+
+At an API boundary, a generic input preserves relationships chosen by the caller; an opaque
+result preserves a concrete implementation chosen by the producer; existential storage allows
+heterogeneous values at an intentional cost/boundary. For example, returning one hidden concrete
+renderer is different from storing a collection of unrelated renderers. Compare the real call
+sites and exported compatibility before changing the type form. These are conceptual choices,
+not compiled examples or a measured specialization result.
+
 ## Evidence
 - Compile under the intended compiler and language mode.
 - Build all consuming targets for public/module changes.
@@ -98,6 +118,8 @@ Do not infer performance from syntax. Inspect allocation, copying, specializatio
 
 ## Primary Sources And Review Triggers
 - [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
+- [Swift book: opaque and boxed protocol types](https://github.com/swiftlang/swift-book/blob/main/TSPL.docc/LanguageGuide/OpaqueTypes.md)
+- [Swift book: generics](https://github.com/swiftlang/swift-book/blob/main/TSPL.docc/LanguageGuide/Generics.md)
 - [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/)
 - [Swift Evolution](https://www.swift.org/swift-evolution/)
 - [Migrating to Swift 6](https://www.swift.org/migration/)

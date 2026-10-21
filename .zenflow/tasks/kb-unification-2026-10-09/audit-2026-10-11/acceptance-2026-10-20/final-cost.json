@@ -1,0 +1,4566 @@
+{
+  "root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next",
+  "task_id": "kb-unification-2026-10-09",
+  "level0": {
+    "documents": 3,
+    "words": 3327,
+    "bytes": 28057,
+    "max_words": 5000,
+    "budget_exceeded": false
+  },
+  "dynamic_task_documents": {
+    "documents": 2,
+    "words": 1366,
+    "bytes": 11611,
+    "max_words": 3500,
+    "budget_exceeded": false,
+    "files": [
+      {
+        "path": "./.zenflow/tasks/kb-unification-2026-10-09/handoff.md",
+        "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/handoff.md",
+        "exists": true,
+        "words": 650,
+        "bytes": 5571
+      },
+      {
+        "path": "./.zenflow/tasks/kb-unification-2026-10-09/plan.md",
+        "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/plan.md",
+        "exists": true,
+        "words": 716,
+        "bytes": 6040
+      }
+    ]
+  },
+  "startup_total": {
+    "documents": 5,
+    "words": 4693,
+    "bytes": 39668
+  },
+  "instruction_envelope": {
+    "documents": 8,
+    "existing_documents": 8,
+    "words": 9064,
+    "bytes": 72785,
+    "duplicates": [
+      "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md"
+    ],
+    "files": [
+      {
+        "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/AGENTS.md",
+        "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/AGENTS.md",
+        "exists": true,
+        "words": 1961,
+        "bytes": 14919
+      },
+      {
+        "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+        "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+        "exists": true,
+        "words": 669,
+        "bytes": 5070
+      },
+      {
+        "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+        "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+        "exists": true,
+        "words": 1808,
+        "bytes": 13748
+      },
+      {
+        "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+        "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+        "exists": true,
+        "words": 1111,
+        "bytes": 11549
+      },
+      {
+        "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+        "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+        "exists": true,
+        "words": 982,
+        "bytes": 7507
+      },
+      {
+        "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+        "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+        "exists": true,
+        "words": 1167,
+        "bytes": 8381
+      },
+      {
+        "path": "./.zenflow/tasks/kb-unification-2026-10-09/handoff.md",
+        "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/handoff.md",
+        "exists": true,
+        "words": 650,
+        "bytes": 5571
+      },
+      {
+        "path": "./.zenflow/tasks/kb-unification-2026-10-09/plan.md",
+        "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/plan.md",
+        "exists": true,
+        "words": 716,
+        "bytes": 6040
+      }
+    ],
+    "authority": "canonical",
+    "authority_root": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline",
+    "fallback_marker_valid": null,
+    "missing": [],
+    "failures": [],
+    "incomplete": false,
+    "cost_basis": "unique_physical_files_static_startup_only",
+    "transitive_route_reads": "DECLARED_ROUTE_REQUIREMENTS_ONLY; CONDITIONAL_READS_NOT_INFERRED",
+    "actual_token_telemetry": "UNAVAILABLE"
+  },
+  "authority_route_inventory": {
+    "root": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline",
+    "basis": "canonical_declared_inventory",
+    "routes": {
+      "orientation-project": {
+        "required_words": 1403,
+        "words": 1403,
+        "required_files": [
+          {
+            "path": "./PROJECT_DOCUMENTATION.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/PROJECT_DOCUMENTATION.md",
+            "exists": true,
+            "words": 495,
+            "bytes": 4310
+          },
+          {
+            "path": "./PROJECT_HEALTH.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/PROJECT_HEALTH.md",
+            "exists": true,
+            "words": 399,
+            "bytes": 3105
+          },
+          {
+            "path": "./docs/AGENT_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+            "exists": true,
+            "words": 509,
+            "bytes": 4576
+          }
+        ],
+        "files": [
+          {
+            "path": "./PROJECT_DOCUMENTATION.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/PROJECT_DOCUMENTATION.md",
+            "exists": true,
+            "words": 495,
+            "bytes": 4310
+          },
+          {
+            "path": "./PROJECT_HEALTH.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/PROJECT_HEALTH.md",
+            "exists": true,
+            "words": 399,
+            "bytes": 3105
+          },
+          {
+            "path": "./docs/AGENT_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+            "exists": true,
+            "words": 509,
+            "bytes": 4576
+          }
+        ]
+      },
+      "governance-non-trivial": {
+        "required_words": 3293,
+        "words": 3293,
+        "required_files": [
+          {
+            "path": "./docs/AGENT_PREFLIGHT_CHECKLIST.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+            "exists": true,
+            "words": 145,
+            "bytes": 1155
+          },
+          {
+            "path": "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 3148,
+            "bytes": 22655
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/AGENT_PREFLIGHT_CHECKLIST.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+            "exists": true,
+            "words": 145,
+            "bytes": 1155
+          },
+          {
+            "path": "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 3148,
+            "bytes": 22655
+          }
+        ]
+      },
+      "governance-documentation": {
+        "required_words": 3018,
+        "words": 3018,
+        "required_files": [
+          {
+            "path": "./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+            "exists": true,
+            "words": 1372,
+            "bytes": 10395
+          },
+          {
+            "path": "./docs/DOCUMENT_BOUNDARY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+            "exists": true,
+            "words": 1082,
+            "bytes": 7825
+          },
+          {
+            "path": "./docs/SOURCE_OF_TRUTH_MAP.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/SOURCE_OF_TRUTH_MAP.md",
+            "exists": true,
+            "words": 268,
+            "bytes": 2461
+          },
+          {
+            "path": "./docs/DOCS_REPO_OPERATIONS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCS_REPO_OPERATIONS.md",
+            "exists": true,
+            "words": 296,
+            "bytes": 2507
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+            "exists": true,
+            "words": 1372,
+            "bytes": 10395
+          },
+          {
+            "path": "./docs/DOCUMENT_BOUNDARY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+            "exists": true,
+            "words": 1082,
+            "bytes": 7825
+          },
+          {
+            "path": "./docs/SOURCE_OF_TRUTH_MAP.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/SOURCE_OF_TRUTH_MAP.md",
+            "exists": true,
+            "words": 268,
+            "bytes": 2461
+          },
+          {
+            "path": "./docs/DOCS_REPO_OPERATIONS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCS_REPO_OPERATIONS.md",
+            "exists": true,
+            "words": 296,
+            "bytes": 2507
+          }
+        ]
+      },
+      "governance-documentation-library": {
+        "required_words": 1266,
+        "words": 1266,
+        "required_files": [
+          {
+            "path": "./docs/README.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+            "exists": true,
+            "words": 287,
+            "bytes": 3169
+          },
+          {
+            "path": "./docs/DOCUMENT_LIBRARY_GUIDE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCUMENT_LIBRARY_GUIDE.md",
+            "exists": true,
+            "words": 761,
+            "bytes": 6282
+          },
+          {
+            "path": "./docs/DOCUMENTATION_VAULT_SUMMARY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCUMENTATION_VAULT_SUMMARY.md",
+            "exists": true,
+            "words": 218,
+            "bytes": 2005
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/README.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+            "exists": true,
+            "words": 287,
+            "bytes": 3169
+          },
+          {
+            "path": "./docs/DOCUMENT_LIBRARY_GUIDE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCUMENT_LIBRARY_GUIDE.md",
+            "exists": true,
+            "words": 761,
+            "bytes": 6282
+          },
+          {
+            "path": "./docs/DOCUMENTATION_VAULT_SUMMARY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCUMENTATION_VAULT_SUMMARY.md",
+            "exists": true,
+            "words": 218,
+            "bytes": 2005
+          }
+        ]
+      },
+      "governance-task-state": {
+        "required_words": 282,
+        "words": 282,
+        "required_files": [
+          {
+            "path": "./docs/TASK_STATE_DOCUMENTATION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_STATE_DOCUMENTATION_STANDARD.md",
+            "exists": true,
+            "words": 282,
+            "bytes": 2168
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/TASK_STATE_DOCUMENTATION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_STATE_DOCUMENTATION_STANDARD.md",
+            "exists": true,
+            "words": 282,
+            "bytes": 2168
+          }
+        ]
+      },
+      "governance-context-transfer": {
+        "required_words": 709,
+        "words": 709,
+        "required_files": [
+          {
+            "path": "./docs/WORK_CONTINUITY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/WORK_CONTINUITY.md",
+            "exists": true,
+            "words": 239,
+            "bytes": 1868
+          },
+          {
+            "path": "./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md",
+            "exists": true,
+            "words": 470,
+            "bytes": 2974
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/WORK_CONTINUITY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/WORK_CONTINUITY.md",
+            "exists": true,
+            "words": 239,
+            "bytes": 1868
+          },
+          {
+            "path": "./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md",
+            "exists": true,
+            "words": 470,
+            "bytes": 2974
+          }
+        ]
+      },
+      "governance-completion": {
+        "required_words": 114,
+        "words": 114,
+        "required_files": [
+          {
+            "path": "./docs/COMPLETION_REPORT_CONTRACT.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+            "exists": true,
+            "words": 114,
+            "bytes": 916
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/COMPLETION_REPORT_CONTRACT.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+            "exists": true,
+            "words": 114,
+            "bytes": 916
+          }
+        ]
+      },
+      "governance-new-project": {
+        "required_words": 1965,
+        "words": 1965,
+        "required_files": [
+          {
+            "path": "./docs/NEW_PROJECT_START_CONTRACT.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/NEW_PROJECT_START_CONTRACT.md",
+            "exists": true,
+            "words": 1335,
+            "bytes": 10484
+          },
+          {
+            "path": "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+            "exists": true,
+            "words": 394,
+            "bytes": 3229
+          },
+          {
+            "path": "./docs/STATIC_GATE_ADOPTION.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_GATE_ADOPTION.md",
+            "exists": true,
+            "words": 236,
+            "bytes": 1892
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/NEW_PROJECT_START_CONTRACT.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/NEW_PROJECT_START_CONTRACT.md",
+            "exists": true,
+            "words": 1335,
+            "bytes": 10484
+          },
+          {
+            "path": "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+            "exists": true,
+            "words": 394,
+            "bytes": 3229
+          },
+          {
+            "path": "./docs/STATIC_GATE_ADOPTION.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_GATE_ADOPTION.md",
+            "exists": true,
+            "words": 236,
+            "bytes": 1892
+          }
+        ]
+      },
+      "governance-local-exception": {
+        "required_words": 112,
+        "words": 112,
+        "required_files": [
+          {
+            "path": "./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md",
+            "exists": true,
+            "words": 112,
+            "bytes": 821
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md",
+            "exists": true,
+            "words": 112,
+            "bytes": 821
+          }
+        ]
+      },
+      "ios-implementation-refactor": {
+        "required_words": 8494,
+        "words": 8494,
+        "required_files": [
+          {
+            "path": "./docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+            "exists": true,
+            "words": 109,
+            "bytes": 971
+          },
+          {
+            "path": "./docs/PRODUCTION_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+            "exists": true,
+            "words": 2054,
+            "bytes": 14974
+          },
+          {
+            "path": "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+            "exists": true,
+            "words": 1914,
+            "bytes": 14381
+          },
+          {
+            "path": "./docs/README.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+            "exists": true,
+            "words": 287,
+            "bytes": 3169
+          },
+          {
+            "path": "./docs/CURRENT_USER_OVERRIDES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+            "exists": true,
+            "words": 982,
+            "bytes": 7507
+          },
+          {
+            "path": "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 3148,
+            "bytes": 22655
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+            "exists": true,
+            "words": 109,
+            "bytes": 971
+          },
+          {
+            "path": "./docs/PRODUCTION_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+            "exists": true,
+            "words": 2054,
+            "bytes": 14974
+          },
+          {
+            "path": "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+            "exists": true,
+            "words": 1914,
+            "bytes": 14381
+          },
+          {
+            "path": "./docs/README.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+            "exists": true,
+            "words": 287,
+            "bytes": 3169
+          },
+          {
+            "path": "./docs/CURRENT_USER_OVERRIDES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+            "exists": true,
+            "words": 982,
+            "bytes": 7507
+          },
+          {
+            "path": "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 3148,
+            "bytes": 22655
+          }
+        ]
+      },
+      "ios-universal-quality": {
+        "required_words": 8433,
+        "words": 9270,
+        "required_files": [
+          {
+            "path": "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 1899,
+            "bytes": 15408
+          },
+          {
+            "path": "./docs/PRODUCTION_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+            "exists": true,
+            "words": 2054,
+            "bytes": 14974
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+            "exists": true,
+            "words": 373,
+            "bytes": 3018
+          },
+          {
+            "path": "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "exists": true,
+            "words": 195,
+            "bytes": 1596
+          },
+          {
+            "path": "./docs/QUALITY_RULE_CATALOG.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/QUALITY_RULE_CATALOG.md",
+            "exists": true,
+            "words": 1775,
+            "bytes": 15284
+          },
+          {
+            "path": "./docs/STATIC_QUALITY_GATE_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_QUALITY_GATE_POLICY.md",
+            "exists": true,
+            "words": 1050,
+            "bytes": 7971
+          },
+          {
+            "path": "./docs/CI_CD_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+            "exists": true,
+            "words": 1087,
+            "bytes": 8150
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 1899,
+            "bytes": 15408
+          },
+          {
+            "path": "./docs/PRODUCTION_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+            "exists": true,
+            "words": 2054,
+            "bytes": 14974
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+            "exists": true,
+            "words": 373,
+            "bytes": 3018
+          },
+          {
+            "path": "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "exists": true,
+            "words": 195,
+            "bytes": 1596
+          },
+          {
+            "path": "./docs/QUALITY_RULE_CATALOG.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/QUALITY_RULE_CATALOG.md",
+            "exists": true,
+            "words": 1775,
+            "bytes": 15284
+          },
+          {
+            "path": "./docs/STATIC_QUALITY_GATE_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_QUALITY_GATE_POLICY.md",
+            "exists": true,
+            "words": 1050,
+            "bytes": 7971
+          },
+          {
+            "path": "./docs/CI_CD_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+            "exists": true,
+            "words": 1087,
+            "bytes": 8150
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_FRAMEWORK.md",
+            "exists": true,
+            "words": 589,
+            "bytes": 6882
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+            "exists": true,
+            "words": 248,
+            "bytes": 2109
+          }
+        ]
+      },
+      "ios-review-audit": {
+        "required_words": 12617,
+        "words": 12617,
+        "required_files": [
+          {
+            "path": "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 1899,
+            "bytes": 15408
+          },
+          {
+            "path": "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+            "exists": true,
+            "words": 618,
+            "bytes": 4513
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+            "exists": true,
+            "words": 373,
+            "bytes": 3018
+          },
+          {
+            "path": "./docs/DEFINITION_OF_DONE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+            "exists": true,
+            "words": 207,
+            "bytes": 1593
+          },
+          {
+            "path": "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "exists": true,
+            "words": 195,
+            "bytes": 1596
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+            "exists": true,
+            "words": 203,
+            "bytes": 1552
+          },
+          {
+            "path": "./docs/README.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+            "exists": true,
+            "words": 287,
+            "bytes": 3169
+          },
+          {
+            "path": "./docs/CURRENT_USER_OVERRIDES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+            "exists": true,
+            "words": 982,
+            "bytes": 7507
+          },
+          {
+            "path": "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 3148,
+            "bytes": 22655
+          },
+          {
+            "path": "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+            "exists": true,
+            "words": 1914,
+            "bytes": 14381
+          },
+          {
+            "path": "./docs/PRODUCTION_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+            "exists": true,
+            "words": 2054,
+            "bytes": 14974
+          },
+          {
+            "path": "./docs/agent-prompts/production-review-completeness.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+            "exists": true,
+            "words": 228,
+            "bytes": 2142
+          },
+          {
+            "path": "./docs/AGENT_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+            "exists": true,
+            "words": 509,
+            "bytes": 4576
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 1899,
+            "bytes": 15408
+          },
+          {
+            "path": "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+            "exists": true,
+            "words": 618,
+            "bytes": 4513
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+            "exists": true,
+            "words": 373,
+            "bytes": 3018
+          },
+          {
+            "path": "./docs/DEFINITION_OF_DONE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+            "exists": true,
+            "words": 207,
+            "bytes": 1593
+          },
+          {
+            "path": "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "exists": true,
+            "words": 195,
+            "bytes": 1596
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+            "exists": true,
+            "words": 203,
+            "bytes": 1552
+          },
+          {
+            "path": "./docs/README.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+            "exists": true,
+            "words": 287,
+            "bytes": 3169
+          },
+          {
+            "path": "./docs/CURRENT_USER_OVERRIDES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+            "exists": true,
+            "words": 982,
+            "bytes": 7507
+          },
+          {
+            "path": "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 3148,
+            "bytes": 22655
+          },
+          {
+            "path": "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+            "exists": true,
+            "words": 1914,
+            "bytes": 14381
+          },
+          {
+            "path": "./docs/PRODUCTION_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+            "exists": true,
+            "words": 2054,
+            "bytes": 14974
+          },
+          {
+            "path": "./docs/agent-prompts/production-review-completeness.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+            "exists": true,
+            "words": 228,
+            "bytes": 2142
+          },
+          {
+            "path": "./docs/AGENT_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+            "exists": true,
+            "words": 509,
+            "bytes": 4576
+          }
+        ]
+      },
+      "ios-pr-review": {
+        "required_words": 13092,
+        "words": 13092,
+        "required_files": [
+          {
+            "path": "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 1899,
+            "bytes": 15408
+          },
+          {
+            "path": "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+            "exists": true,
+            "words": 475,
+            "bytes": 3869
+          },
+          {
+            "path": "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+            "exists": true,
+            "words": 618,
+            "bytes": 4513
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+            "exists": true,
+            "words": 373,
+            "bytes": 3018
+          },
+          {
+            "path": "./docs/DEFINITION_OF_DONE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+            "exists": true,
+            "words": 207,
+            "bytes": 1593
+          },
+          {
+            "path": "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "exists": true,
+            "words": 195,
+            "bytes": 1596
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+            "exists": true,
+            "words": 203,
+            "bytes": 1552
+          },
+          {
+            "path": "./docs/README.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+            "exists": true,
+            "words": 287,
+            "bytes": 3169
+          },
+          {
+            "path": "./docs/CURRENT_USER_OVERRIDES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+            "exists": true,
+            "words": 982,
+            "bytes": 7507
+          },
+          {
+            "path": "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 3148,
+            "bytes": 22655
+          },
+          {
+            "path": "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+            "exists": true,
+            "words": 1914,
+            "bytes": 14381
+          },
+          {
+            "path": "./docs/PRODUCTION_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+            "exists": true,
+            "words": 2054,
+            "bytes": 14974
+          },
+          {
+            "path": "./docs/agent-prompts/production-review-completeness.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+            "exists": true,
+            "words": 228,
+            "bytes": 2142
+          },
+          {
+            "path": "./docs/AGENT_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+            "exists": true,
+            "words": 509,
+            "bytes": 4576
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 1899,
+            "bytes": 15408
+          },
+          {
+            "path": "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+            "exists": true,
+            "words": 475,
+            "bytes": 3869
+          },
+          {
+            "path": "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+            "exists": true,
+            "words": 618,
+            "bytes": 4513
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+            "exists": true,
+            "words": 373,
+            "bytes": 3018
+          },
+          {
+            "path": "./docs/DEFINITION_OF_DONE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+            "exists": true,
+            "words": 207,
+            "bytes": 1593
+          },
+          {
+            "path": "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "exists": true,
+            "words": 195,
+            "bytes": 1596
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+            "exists": true,
+            "words": 203,
+            "bytes": 1552
+          },
+          {
+            "path": "./docs/README.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+            "exists": true,
+            "words": 287,
+            "bytes": 3169
+          },
+          {
+            "path": "./docs/CURRENT_USER_OVERRIDES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+            "exists": true,
+            "words": 982,
+            "bytes": 7507
+          },
+          {
+            "path": "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 3148,
+            "bytes": 22655
+          },
+          {
+            "path": "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+            "exists": true,
+            "words": 1914,
+            "bytes": 14381
+          },
+          {
+            "path": "./docs/PRODUCTION_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+            "exists": true,
+            "words": 2054,
+            "bytes": 14974
+          },
+          {
+            "path": "./docs/agent-prompts/production-review-completeness.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+            "exists": true,
+            "words": 228,
+            "bytes": 2142
+          },
+          {
+            "path": "./docs/AGENT_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+            "exists": true,
+            "words": 509,
+            "bytes": 4576
+          }
+        ]
+      },
+      "ios-architecture-navigation-state": {
+        "required_words": 2577,
+        "words": 2577,
+        "required_files": [
+          {
+            "path": "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+            "exists": true,
+            "words": 1319,
+            "bytes": 9658
+          },
+          {
+            "path": "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+            "exists": true,
+            "words": 361,
+            "bytes": 2696
+          },
+          {
+            "path": "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_MVVM_INTENT_API_STANDARD.md",
+            "exists": true,
+            "words": 473,
+            "bytes": 3644
+          },
+          {
+            "path": "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+            "exists": true,
+            "words": 272,
+            "bytes": 2138
+          },
+          {
+            "path": "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+            "exists": true,
+            "words": 152,
+            "bytes": 1242
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+            "exists": true,
+            "words": 1319,
+            "bytes": 9658
+          },
+          {
+            "path": "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+            "exists": true,
+            "words": 361,
+            "bytes": 2696
+          },
+          {
+            "path": "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_MVVM_INTENT_API_STANDARD.md",
+            "exists": true,
+            "words": 473,
+            "bytes": 3644
+          },
+          {
+            "path": "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+            "exists": true,
+            "words": 272,
+            "bytes": 2138
+          },
+          {
+            "path": "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+            "exists": true,
+            "words": 152,
+            "bytes": 1242
+          }
+        ]
+      },
+      "ios-concurrency-runtime": {
+        "required_words": 3098,
+        "words": 3098,
+        "required_files": [
+          {
+            "path": "./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+            "exists": true,
+            "words": 485,
+            "bytes": 3817
+          },
+          {
+            "path": "./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "exists": true,
+            "words": 1880,
+            "bytes": 14825
+          },
+          {
+            "path": "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "exists": true,
+            "words": 733,
+            "bytes": 5585
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+            "exists": true,
+            "words": 485,
+            "bytes": 3817
+          },
+          {
+            "path": "./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+            "exists": true,
+            "words": 1880,
+            "bytes": 14825
+          },
+          {
+            "path": "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "exists": true,
+            "words": 733,
+            "bytes": 5585
+          }
+        ]
+      },
+      "ios-swiftui-performance": {
+        "required_words": 2626,
+        "words": 2626,
+        "required_files": [
+          {
+            "path": "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+            "exists": true,
+            "words": 1002,
+            "bytes": 7146
+          },
+          {
+            "path": "./docs/IOS_PERFORMANCE_BUDGETS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PERFORMANCE_BUDGETS.md",
+            "exists": true,
+            "words": 649,
+            "bytes": 4776
+          },
+          {
+            "path": "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "exists": true,
+            "words": 975,
+            "bytes": 7755
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+            "exists": true,
+            "words": 1002,
+            "bytes": 7146
+          },
+          {
+            "path": "./docs/IOS_PERFORMANCE_BUDGETS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PERFORMANCE_BUDGETS.md",
+            "exists": true,
+            "words": 649,
+            "bytes": 4776
+          },
+          {
+            "path": "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "exists": true,
+            "words": 975,
+            "bytes": 7755
+          }
+        ]
+      },
+      "ios-memory-cache-media-files": {
+        "required_words": 2691,
+        "words": 2691,
+        "required_files": [
+          {
+            "path": "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+            "exists": true,
+            "words": 233,
+            "bytes": 1694
+          },
+          {
+            "path": "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+            "exists": true,
+            "words": 110,
+            "bytes": 877
+          },
+          {
+            "path": "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+            "exists": true,
+            "words": 2348,
+            "bytes": 18592
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+            "exists": true,
+            "words": 233,
+            "bytes": 1694
+          },
+          {
+            "path": "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+            "exists": true,
+            "words": 110,
+            "bytes": 877
+          },
+          {
+            "path": "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+            "exists": true,
+            "words": 2348,
+            "bytes": 18592
+          }
+        ]
+      },
+      "ios-persistence-migration-data-loss": {
+        "required_words": 1580,
+        "words": 1580,
+        "required_files": [
+          {
+            "path": "./docs/IOS_DATA_MIGRATION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+            "exists": true,
+            "words": 105,
+            "bytes": 797
+          },
+          {
+            "path": "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+            "exists": true,
+            "words": 87,
+            "bytes": 712
+          },
+          {
+            "path": "./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+            "exists": true,
+            "words": 1388,
+            "bytes": 11038
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_DATA_MIGRATION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+            "exists": true,
+            "words": 105,
+            "bytes": 797
+          },
+          {
+            "path": "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+            "exists": true,
+            "words": 87,
+            "bytes": 712
+          },
+          {
+            "path": "./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+            "exists": true,
+            "words": 1388,
+            "bytes": 11038
+          }
+        ]
+      },
+      "ios-network-api-offline-sync": {
+        "required_words": 2025,
+        "words": 2025,
+        "required_files": [
+          {
+            "path": "./docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+            "exists": true,
+            "words": 192,
+            "bytes": 1542
+          },
+          {
+            "path": "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+            "exists": true,
+            "words": 187,
+            "bytes": 1448
+          },
+          {
+            "path": "./docs/IOS_OFFLINE_SYNC_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+            "exists": true,
+            "words": 290,
+            "bytes": 2025
+          },
+          {
+            "path": "./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+            "exists": true,
+            "words": 1356,
+            "bytes": 10733
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+            "exists": true,
+            "words": 192,
+            "bytes": 1542
+          },
+          {
+            "path": "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+            "exists": true,
+            "words": 187,
+            "bytes": 1448
+          },
+          {
+            "path": "./docs/IOS_OFFLINE_SYNC_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md",
+            "exists": true,
+            "words": 290,
+            "bytes": 2025
+          },
+          {
+            "path": "./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+            "exists": true,
+            "words": 1356,
+            "bytes": 10733
+          }
+        ]
+      },
+      "ios-security-privacy-intake": {
+        "required_words": 3054,
+        "words": 6306,
+        "required_files": [
+          {
+            "path": "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+            "exists": true,
+            "words": 1215,
+            "bytes": 8834
+          },
+          {
+            "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+            "exists": true,
+            "words": 647,
+            "bytes": 4915
+          },
+          {
+            "path": "./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
+            "exists": true,
+            "words": 100,
+            "bytes": 768
+          },
+          {
+            "path": "./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md",
+            "exists": true,
+            "words": 117,
+            "bytes": 856
+          },
+          {
+            "path": "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "exists": true,
+            "words": 975,
+            "bytes": 7755
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+            "exists": true,
+            "words": 1215,
+            "bytes": 8834
+          },
+          {
+            "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+            "exists": true,
+            "words": 647,
+            "bytes": 4915
+          },
+          {
+            "path": "./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
+            "exists": true,
+            "words": 100,
+            "bytes": 768
+          },
+          {
+            "path": "./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md",
+            "exists": true,
+            "words": 117,
+            "bytes": 856
+          },
+          {
+            "path": "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "exists": true,
+            "words": 975,
+            "bytes": 7755
+          },
+          {
+            "path": "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+            "exists": true,
+            "words": 2035,
+            "bytes": 15765
+          },
+          {
+            "path": "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+            "exists": true,
+            "words": 1217,
+            "bytes": 9738
+          }
+        ]
+      },
+      "ios-accessibility-localization-qa": {
+        "required_words": 2474,
+        "words": 4592,
+        "required_files": [
+          {
+            "path": "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+            "exists": true,
+            "words": 364,
+            "bytes": 2917
+          },
+          {
+            "path": "./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+            "exists": true,
+            "words": 273,
+            "bytes": 2133
+          },
+          {
+            "path": "./docs/QA_TEST_PLAN_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+            "exists": true,
+            "words": 98,
+            "bytes": 859
+          },
+          {
+            "path": "./docs/IOS_TESTING_STRATEGY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+            "exists": true,
+            "words": 596,
+            "bytes": 4657
+          },
+          {
+            "path": "./docs/COMPATIBILITY_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPATIBILITY_MATRIX.md",
+            "exists": true,
+            "words": 168,
+            "bytes": 1450
+          },
+          {
+            "path": "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "exists": true,
+            "words": 975,
+            "bytes": 7755
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+            "exists": true,
+            "words": 364,
+            "bytes": 2917
+          },
+          {
+            "path": "./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+            "exists": true,
+            "words": 273,
+            "bytes": 2133
+          },
+          {
+            "path": "./docs/QA_TEST_PLAN_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+            "exists": true,
+            "words": 98,
+            "bytes": 859
+          },
+          {
+            "path": "./docs/IOS_TESTING_STRATEGY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+            "exists": true,
+            "words": 596,
+            "bytes": 4657
+          },
+          {
+            "path": "./docs/COMPATIBILITY_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPATIBILITY_MATRIX.md",
+            "exists": true,
+            "words": 168,
+            "bytes": 1450
+          },
+          {
+            "path": "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "exists": true,
+            "words": 975,
+            "bytes": 7755
+          },
+          {
+            "path": "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+            "exists": true,
+            "words": 2118,
+            "bytes": 16667
+          }
+        ]
+      },
+      "ios-release": {
+        "required_words": 2791,
+        "words": 2791,
+        "required_files": [
+          {
+            "path": "./docs/IOS_RELEASE_CHECKLIST.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+            "exists": true,
+            "words": 549,
+            "bytes": 4551
+          },
+          {
+            "path": "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+            "exists": true,
+            "words": 180,
+            "bytes": 1744
+          },
+          {
+            "path": "./docs/CI_CD_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+            "exists": true,
+            "words": 1087,
+            "bytes": 8150
+          },
+          {
+            "path": "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "exists": true,
+            "words": 975,
+            "bytes": 7755
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_RELEASE_CHECKLIST.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+            "exists": true,
+            "words": 549,
+            "bytes": 4551
+          },
+          {
+            "path": "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+            "exists": true,
+            "words": 180,
+            "bytes": 1744
+          },
+          {
+            "path": "./docs/CI_CD_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+            "exists": true,
+            "words": 1087,
+            "bytes": 8150
+          },
+          {
+            "path": "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "exists": true,
+            "words": 975,
+            "bytes": 7755
+          }
+        ]
+      },
+      "ios-observability-incidents-rollout": {
+        "required_words": 2273,
+        "words": 2273,
+        "required_files": [
+          {
+            "path": "./docs/IOS_OBSERVABILITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_OBSERVABILITY_STANDARD.md",
+            "exists": true,
+            "words": 155,
+            "bytes": 1203
+          },
+          {
+            "path": "./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md",
+            "exists": true,
+            "words": 109,
+            "bytes": 812
+          },
+          {
+            "path": "./docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+            "exists": true,
+            "words": 324,
+            "bytes": 2356
+          },
+          {
+            "path": "./docs/INCIDENT_RESPONSE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/INCIDENT_RESPONSE_STANDARD.md",
+            "exists": true,
+            "words": 92,
+            "bytes": 746
+          },
+          {
+            "path": "./docs/PRODUCT_HEALTH_SLO.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCT_HEALTH_SLO.md",
+            "exists": true,
+            "words": 79,
+            "bytes": 585
+          },
+          {
+            "path": "./docs/RISK_REGISTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/RISK_REGISTER.md",
+            "exists": true,
+            "words": 103,
+            "bytes": 687
+          },
+          {
+            "path": "./docs/TECH_DEBT_REGISTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TECH_DEBT_REGISTER.md",
+            "exists": true,
+            "words": 69,
+            "bytes": 511
+          },
+          {
+            "path": "./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+            "exists": true,
+            "words": 1342,
+            "bytes": 10582
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_OBSERVABILITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_OBSERVABILITY_STANDARD.md",
+            "exists": true,
+            "words": 155,
+            "bytes": 1203
+          },
+          {
+            "path": "./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md",
+            "exists": true,
+            "words": 109,
+            "bytes": 812
+          },
+          {
+            "path": "./docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+            "exists": true,
+            "words": 324,
+            "bytes": 2356
+          },
+          {
+            "path": "./docs/INCIDENT_RESPONSE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/INCIDENT_RESPONSE_STANDARD.md",
+            "exists": true,
+            "words": 92,
+            "bytes": 746
+          },
+          {
+            "path": "./docs/PRODUCT_HEALTH_SLO.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCT_HEALTH_SLO.md",
+            "exists": true,
+            "words": 79,
+            "bytes": 585
+          },
+          {
+            "path": "./docs/RISK_REGISTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/RISK_REGISTER.md",
+            "exists": true,
+            "words": 103,
+            "bytes": 687
+          },
+          {
+            "path": "./docs/TECH_DEBT_REGISTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TECH_DEBT_REGISTER.md",
+            "exists": true,
+            "words": 69,
+            "bytes": 511
+          },
+          {
+            "path": "./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+            "exists": true,
+            "words": 1342,
+            "bytes": 10582
+          }
+        ]
+      },
+      "ios-lifecycle-background": {
+        "required_words": 295,
+        "words": 295,
+        "required_files": [
+          {
+            "path": "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+            "exists": true,
+            "words": 115,
+            "bytes": 904
+          },
+          {
+            "path": "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+            "exists": true,
+            "words": 180,
+            "bytes": 1744
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+            "exists": true,
+            "words": 115,
+            "bytes": 904
+          },
+          {
+            "path": "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+            "exists": true,
+            "words": 180,
+            "bytes": 1744
+          }
+        ]
+      },
+      "ios-error-handling": {
+        "required_words": 116,
+        "words": 116,
+        "required_files": [
+          {
+            "path": "./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+            "exists": true,
+            "words": 116,
+            "bytes": 911
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+            "exists": true,
+            "words": 116,
+            "bytes": 911
+          }
+        ]
+      },
+      "ios-storekit-payments": {
+        "required_words": 238,
+        "words": 1455,
+        "required_files": [
+          {
+            "path": "./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+            "exists": true,
+            "words": 238,
+            "bytes": 1883
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+            "exists": true,
+            "words": 238,
+            "bytes": 1883
+          },
+          {
+            "path": "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+            "exists": true,
+            "words": 1217,
+            "bytes": 9738
+          }
+        ]
+      },
+      "ios-knowledge-governance": {
+        "required_words": 1010,
+        "words": 1010,
+        "required_files": [
+          {
+            "path": "./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+            "exists": true,
+            "words": 1010,
+            "bytes": 7519
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+            "exists": true,
+            "words": 1010,
+            "bytes": 7519
+          }
+        ]
+      },
+      "ios-swift-language-runtime": {
+        "required_words": 2326,
+        "words": 2326,
+        "required_files": [
+          {
+            "path": "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+            "exists": true,
+            "words": 1023,
+            "bytes": 7915
+          },
+          {
+            "path": "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+            "exists": true,
+            "words": 1303,
+            "bytes": 10034
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+            "exists": true,
+            "words": 1023,
+            "bytes": 7915
+          },
+          {
+            "path": "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+            "exists": true,
+            "words": 1303,
+            "bytes": 10034
+          }
+        ]
+      },
+      "ios-ui-adaptive": {
+        "required_words": 3484,
+        "words": 3484,
+        "required_files": [
+          {
+            "path": "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+            "exists": true,
+            "words": 1002,
+            "bytes": 7146
+          },
+          {
+            "path": "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+            "exists": true,
+            "words": 364,
+            "bytes": 2917
+          },
+          {
+            "path": "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+            "exists": true,
+            "words": 2118,
+            "bytes": 16667
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+            "exists": true,
+            "words": 1002,
+            "bytes": 7146
+          },
+          {
+            "path": "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+            "exists": true,
+            "words": 364,
+            "bytes": 2917
+          },
+          {
+            "path": "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+            "exists": true,
+            "words": 2118,
+            "bytes": 16667
+          }
+        ]
+      },
+      "ios-identity-authentication": {
+        "required_words": 2682,
+        "words": 2682,
+        "required_files": [
+          {
+            "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+            "exists": true,
+            "words": 647,
+            "bytes": 4915
+          },
+          {
+            "path": "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+            "exists": true,
+            "words": 2035,
+            "bytes": 15765
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+            "exists": true,
+            "words": 647,
+            "bytes": 4915
+          },
+          {
+            "path": "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+            "exists": true,
+            "words": 2035,
+            "bytes": 15765
+          }
+        ]
+      },
+      "ios-testing-debugging": {
+        "required_words": 1967,
+        "words": 1967,
+        "required_files": [
+          {
+            "path": "./docs/IOS_TESTING_STRATEGY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+            "exists": true,
+            "words": 596,
+            "bytes": 4657
+          },
+          {
+            "path": "./docs/QA_TEST_PLAN_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+            "exists": true,
+            "words": 98,
+            "bytes": 859
+          },
+          {
+            "path": "./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+            "exists": true,
+            "words": 1273,
+            "bytes": 9760
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_TESTING_STRATEGY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+            "exists": true,
+            "words": 596,
+            "bytes": 4657
+          },
+          {
+            "path": "./docs/QA_TEST_PLAN_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+            "exists": true,
+            "words": 98,
+            "bytes": 859
+          },
+          {
+            "path": "./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+            "exists": true,
+            "words": 1273,
+            "bytes": 9760
+          }
+        ]
+      },
+      "ios-build-binary-supply-chain": {
+        "required_words": 3354,
+        "words": 3354,
+        "required_files": [
+          {
+            "path": "./docs/DEPENDENCY_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEPENDENCY_POLICY.md",
+            "exists": true,
+            "words": 194,
+            "bytes": 1579
+          },
+          {
+            "path": "./docs/CI_CD_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+            "exists": true,
+            "words": 1087,
+            "bytes": 8150
+          },
+          {
+            "path": "./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+            "exists": true,
+            "words": 1340,
+            "bytes": 10808
+          },
+          {
+            "path": "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "exists": true,
+            "words": 733,
+            "bytes": 5585
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/DEPENDENCY_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEPENDENCY_POLICY.md",
+            "exists": true,
+            "words": 194,
+            "bytes": 1579
+          },
+          {
+            "path": "./docs/CI_CD_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+            "exists": true,
+            "words": 1087,
+            "bytes": 8150
+          },
+          {
+            "path": "./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+            "exists": true,
+            "words": 1340,
+            "bytes": 10808
+          },
+          {
+            "path": "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "exists": true,
+            "words": 733,
+            "bytes": 5585
+          }
+        ]
+      },
+      "ios-platform-capabilities-extended": {
+        "required_words": 1972,
+        "words": 1972,
+        "required_files": [
+          {
+            "path": "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+            "exists": true,
+            "words": 180,
+            "bytes": 1744
+          },
+          {
+            "path": "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+            "exists": true,
+            "words": 115,
+            "bytes": 904
+          },
+          {
+            "path": "./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+            "exists": true,
+            "words": 1677,
+            "bytes": 13583
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+            "exists": true,
+            "words": 180,
+            "bytes": 1744
+          },
+          {
+            "path": "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+            "exists": true,
+            "words": 115,
+            "bytes": 904
+          },
+          {
+            "path": "./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+            "exists": true,
+            "words": 1677,
+            "bytes": 13583
+          }
+        ]
+      },
+      "ios-media-sensors-device": {
+        "required_words": 2691,
+        "words": 2691,
+        "required_files": [
+          {
+            "path": "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+            "exists": true,
+            "words": 233,
+            "bytes": 1694
+          },
+          {
+            "path": "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+            "exists": true,
+            "words": 110,
+            "bytes": 877
+          },
+          {
+            "path": "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+            "exists": true,
+            "words": 2348,
+            "bytes": 18592
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+            "exists": true,
+            "words": 233,
+            "bytes": 1694
+          },
+          {
+            "path": "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+            "exists": true,
+            "words": 110,
+            "bytes": 877
+          },
+          {
+            "path": "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+            "exists": true,
+            "words": 2348,
+            "bytes": 18592
+          }
+        ]
+      },
+      "ios-app-store-compliance": {
+        "required_words": 2413,
+        "words": 2413,
+        "required_files": [
+          {
+            "path": "./docs/IOS_RELEASE_CHECKLIST.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+            "exists": true,
+            "words": 549,
+            "bytes": 4551
+          },
+          {
+            "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+            "exists": true,
+            "words": 647,
+            "bytes": 4915
+          },
+          {
+            "path": "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+            "exists": true,
+            "words": 1217,
+            "bytes": 9738
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_RELEASE_CHECKLIST.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+            "exists": true,
+            "words": 549,
+            "bytes": 4551
+          },
+          {
+            "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+            "exists": true,
+            "words": 647,
+            "bytes": 4915
+          },
+          {
+            "path": "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+            "exists": true,
+            "words": 1217,
+            "bytes": 9738
+          }
+        ]
+      },
+      "ios-figma-design": {
+        "required_words": 1306,
+        "words": 1306,
+        "required_files": [
+          {
+            "path": "./docs/agent-prompts/FIGMA_TASK_ROUTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/FIGMA_TASK_ROUTER.md",
+            "exists": true,
+            "words": 345,
+            "bytes": 2612
+          },
+          {
+            "path": "./docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+            "exists": true,
+            "words": 679,
+            "bytes": 4619
+          },
+          {
+            "path": "./docs/DESIGN_SYSTEM_GOVERNANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DESIGN_SYSTEM_GOVERNANCE.md",
+            "exists": true,
+            "words": 282,
+            "bytes": 2103
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/agent-prompts/FIGMA_TASK_ROUTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/FIGMA_TASK_ROUTER.md",
+            "exists": true,
+            "words": 345,
+            "bytes": 2612
+          },
+          {
+            "path": "./docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+            "exists": true,
+            "words": 679,
+            "bytes": 4619
+          },
+          {
+            "path": "./docs/DESIGN_SYSTEM_GOVERNANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DESIGN_SYSTEM_GOVERNANCE.md",
+            "exists": true,
+            "words": 282,
+            "bytes": 2103
+          }
+        ]
+      },
+      "ios-ai-app-intents": {
+        "required_words": 2294,
+        "words": 9385,
+        "required_files": [
+          {
+            "path": "./docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+            "exists": true,
+            "words": 1319,
+            "bytes": 10746
+          },
+          {
+            "path": "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "exists": true,
+            "words": 975,
+            "bytes": 7755
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+            "exists": true,
+            "words": 1319,
+            "bytes": 10746
+          },
+          {
+            "path": "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+            "exists": true,
+            "words": 975,
+            "bytes": 7755
+          },
+          {
+            "path": "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+            "exists": true,
+            "words": 7091,
+            "bytes": 81246
+          }
+        ]
+      },
+      "ios-code-documentation": {
+        "required_words": 1202,
+        "words": 1202,
+        "required_files": [
+          {
+            "path": "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+            "exists": true,
+            "words": 1023,
+            "bytes": 7915
+          },
+          {
+            "path": "./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+            "exists": true,
+            "words": 179,
+            "bytes": 1383
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+            "exists": true,
+            "words": 1023,
+            "bytes": 7915
+          },
+          {
+            "path": "./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+            "exists": true,
+            "words": 179,
+            "bytes": 1383
+          }
+        ]
+      },
+      "ios-reusable-packages": {
+        "required_words": 2565,
+        "words": 2565,
+        "required_files": [
+          {
+            "path": "./docs/PACKAGES_AND_MANAGERS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PACKAGES_AND_MANAGERS.md",
+            "exists": true,
+            "words": 1428,
+            "bytes": 11721
+          },
+          {
+            "path": "./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md",
+            "exists": true,
+            "words": 470,
+            "bytes": 3694
+          },
+          {
+            "path": "./docs/DEPENDENCY_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEPENDENCY_POLICY.md",
+            "exists": true,
+            "words": 194,
+            "bytes": 1579
+          },
+          {
+            "path": "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+            "exists": true,
+            "words": 473,
+            "bytes": 3560
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/PACKAGES_AND_MANAGERS.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PACKAGES_AND_MANAGERS.md",
+            "exists": true,
+            "words": 1428,
+            "bytes": 11721
+          },
+          {
+            "path": "./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md",
+            "exists": true,
+            "words": 470,
+            "bytes": 3694
+          },
+          {
+            "path": "./docs/DEPENDENCY_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEPENDENCY_POLICY.md",
+            "exists": true,
+            "words": 194,
+            "bytes": 1579
+          },
+          {
+            "path": "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+            "exists": true,
+            "words": 473,
+            "bytes": 3560
+          }
+        ]
+      },
+      "ios-new-app-bootstrap": {
+        "required_words": 6546,
+        "words": 6546,
+        "required_files": [
+          {
+            "path": "./docs/NEW_PROJECT_START_CONTRACT.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/NEW_PROJECT_START_CONTRACT.md",
+            "exists": true,
+            "words": 1335,
+            "bytes": 10484
+          },
+          {
+            "path": "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+            "exists": true,
+            "words": 394,
+            "bytes": 3229
+          },
+          {
+            "path": "./docs/STATIC_GATE_ADOPTION.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_GATE_ADOPTION.md",
+            "exists": true,
+            "words": 236,
+            "bytes": 1892
+          },
+          {
+            "path": "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+            "exists": true,
+            "words": 1215,
+            "bytes": 8834
+          },
+          {
+            "path": "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+            "exists": true,
+            "words": 1319,
+            "bytes": 9658
+          },
+          {
+            "path": "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+            "exists": true,
+            "words": 361,
+            "bytes": 2696
+          },
+          {
+            "path": "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_MVVM_INTENT_API_STANDARD.md",
+            "exists": true,
+            "words": 473,
+            "bytes": 3644
+          },
+          {
+            "path": "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+            "exists": true,
+            "words": 272,
+            "bytes": 2138
+          },
+          {
+            "path": "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+            "exists": true,
+            "words": 152,
+            "bytes": 1242
+          },
+          {
+            "path": "./docs/DEVELOPER_EXPERIENCE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEVELOPER_EXPERIENCE_STANDARD.md",
+            "exists": true,
+            "words": 56,
+            "bytes": 453
+          },
+          {
+            "path": "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "exists": true,
+            "words": 733,
+            "bytes": 5585
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/NEW_PROJECT_START_CONTRACT.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/NEW_PROJECT_START_CONTRACT.md",
+            "exists": true,
+            "words": 1335,
+            "bytes": 10484
+          },
+          {
+            "path": "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+            "exists": true,
+            "words": 394,
+            "bytes": 3229
+          },
+          {
+            "path": "./docs/STATIC_GATE_ADOPTION.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_GATE_ADOPTION.md",
+            "exists": true,
+            "words": 236,
+            "bytes": 1892
+          },
+          {
+            "path": "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+            "exists": true,
+            "words": 1215,
+            "bytes": 8834
+          },
+          {
+            "path": "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+            "exists": true,
+            "words": 1319,
+            "bytes": 9658
+          },
+          {
+            "path": "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+            "exists": true,
+            "words": 361,
+            "bytes": 2696
+          },
+          {
+            "path": "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_MVVM_INTENT_API_STANDARD.md",
+            "exists": true,
+            "words": 473,
+            "bytes": 3644
+          },
+          {
+            "path": "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+            "exists": true,
+            "words": 272,
+            "bytes": 2138
+          },
+          {
+            "path": "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+            "exists": true,
+            "words": 152,
+            "bytes": 1242
+          },
+          {
+            "path": "./docs/DEVELOPER_EXPERIENCE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEVELOPER_EXPERIENCE_STANDARD.md",
+            "exists": true,
+            "words": 56,
+            "bytes": 453
+          },
+          {
+            "path": "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "exists": true,
+            "words": 733,
+            "bytes": 5585
+          }
+        ]
+      },
+      "quality-control-governance": {
+        "required_words": 10847,
+        "words": 10847,
+        "required_files": [
+          {
+            "path": "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 1899,
+            "bytes": 15408
+          },
+          {
+            "path": "./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+            "exists": true,
+            "words": 2125,
+            "bytes": 16091
+          },
+          {
+            "path": "./docs/QUALITY_RULE_CATALOG.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/QUALITY_RULE_CATALOG.md",
+            "exists": true,
+            "words": 1775,
+            "bytes": 15284
+          },
+          {
+            "path": "./docs/STATIC_QUALITY_GATE_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_QUALITY_GATE_POLICY.md",
+            "exists": true,
+            "words": 1050,
+            "bytes": 7971
+          },
+          {
+            "path": "./docs/STATIC_GATE_ADOPTION.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_GATE_ADOPTION.md",
+            "exists": true,
+            "words": 236,
+            "bytes": 1892
+          },
+          {
+            "path": "./docs/CI_CD_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+            "exists": true,
+            "words": 1087,
+            "bytes": 8150
+          },
+          {
+            "path": "./docs/IOS_TESTING_STRATEGY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+            "exists": true,
+            "words": 596,
+            "bytes": 4657
+          },
+          {
+            "path": "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+            "exists": true,
+            "words": 475,
+            "bytes": 3869
+          },
+          {
+            "path": "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "exists": true,
+            "words": 195,
+            "bytes": 1596
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+            "exists": true,
+            "words": 203,
+            "bytes": 1552
+          },
+          {
+            "path": "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+            "exists": true,
+            "words": 473,
+            "bytes": 3560
+          },
+          {
+            "path": "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "exists": true,
+            "words": 733,
+            "bytes": 5585
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+            "exists": true,
+            "words": 1899,
+            "bytes": 15408
+          },
+          {
+            "path": "./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+            "exists": true,
+            "words": 2125,
+            "bytes": 16091
+          },
+          {
+            "path": "./docs/QUALITY_RULE_CATALOG.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/QUALITY_RULE_CATALOG.md",
+            "exists": true,
+            "words": 1775,
+            "bytes": 15284
+          },
+          {
+            "path": "./docs/STATIC_QUALITY_GATE_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_QUALITY_GATE_POLICY.md",
+            "exists": true,
+            "words": 1050,
+            "bytes": 7971
+          },
+          {
+            "path": "./docs/STATIC_GATE_ADOPTION.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_GATE_ADOPTION.md",
+            "exists": true,
+            "words": 236,
+            "bytes": 1892
+          },
+          {
+            "path": "./docs/CI_CD_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+            "exists": true,
+            "words": 1087,
+            "bytes": 8150
+          },
+          {
+            "path": "./docs/IOS_TESTING_STRATEGY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+            "exists": true,
+            "words": 596,
+            "bytes": 4657
+          },
+          {
+            "path": "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md",
+            "exists": true,
+            "words": 475,
+            "bytes": 3869
+          },
+          {
+            "path": "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+            "exists": true,
+            "words": 195,
+            "bytes": 1596
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+            "exists": true,
+            "words": 203,
+            "bytes": 1552
+          },
+          {
+            "path": "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+            "exists": true,
+            "words": 473,
+            "bytes": 3560
+          },
+          {
+            "path": "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+            "exists": true,
+            "words": 733,
+            "bytes": 5585
+          }
+        ]
+      },
+      "static-gates": {
+        "required_words": 2373,
+        "words": 2373,
+        "required_files": [
+          {
+            "path": "./docs/STATIC_QUALITY_GATE_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_QUALITY_GATE_POLICY.md",
+            "exists": true,
+            "words": 1050,
+            "bytes": 7971
+          },
+          {
+            "path": "./docs/STATIC_GATE_ADOPTION.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_GATE_ADOPTION.md",
+            "exists": true,
+            "words": 236,
+            "bytes": 1892
+          },
+          {
+            "path": "./docs/CI_CD_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+            "exists": true,
+            "words": 1087,
+            "bytes": 8150
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/STATIC_QUALITY_GATE_POLICY.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_QUALITY_GATE_POLICY.md",
+            "exists": true,
+            "words": 1050,
+            "bytes": 7971
+          },
+          {
+            "path": "./docs/STATIC_GATE_ADOPTION.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_GATE_ADOPTION.md",
+            "exists": true,
+            "words": 236,
+            "bytes": 1892
+          },
+          {
+            "path": "./docs/CI_CD_QUALITY_GATES.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CI_CD_QUALITY_GATES.md",
+            "exists": true,
+            "words": 1087,
+            "bytes": 8150
+          }
+        ]
+      },
+      "ios-deep-references": {
+        "required_words": 1406,
+        "words": 1406,
+        "required_files": [
+          {
+            "path": "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_FRAMEWORK.md",
+            "exists": true,
+            "words": 589,
+            "bytes": 6882
+          },
+          {
+            "path": "./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md",
+            "exists": true,
+            "words": 193,
+            "bytes": 1579
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+            "exists": true,
+            "words": 248,
+            "bytes": 2109
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_SCORECARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_SCORECARD.md",
+            "exists": true,
+            "words": 107,
+            "bytes": 894
+          },
+          {
+            "path": "./docs/IOS_AGENT_PROMPT_ROUTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_AGENT_PROMPT_ROUTER.md",
+            "exists": true,
+            "words": 269,
+            "bytes": 2796
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_FRAMEWORK.md",
+            "exists": true,
+            "words": 589,
+            "bytes": 6882
+          },
+          {
+            "path": "./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md",
+            "exists": true,
+            "words": 193,
+            "bytes": 1579
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+            "exists": true,
+            "words": 248,
+            "bytes": 2109
+          },
+          {
+            "path": "./docs/IOS_PRODUCTION_SCORECARD.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_SCORECARD.md",
+            "exists": true,
+            "words": 107,
+            "bytes": 894
+          },
+          {
+            "path": "./docs/IOS_AGENT_PROMPT_ROUTER.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_AGENT_PROMPT_ROUTER.md",
+            "exists": true,
+            "words": 269,
+            "bytes": 2796
+          }
+        ]
+      },
+      "ios-project-work-system": {
+        "required_words": 4341,
+        "words": 4341,
+        "required_files": [
+          {
+            "path": "./docs/IOS_PROJECT_WORK_SYSTEM.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+            "exists": true,
+            "words": 4341,
+            "bytes": 32184
+          }
+        ],
+        "files": [
+          {
+            "path": "./docs/IOS_PROJECT_WORK_SYSTEM.md",
+            "physical_path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+            "exists": true,
+            "words": 4341,
+            "bytes": 32184
+          }
+        ]
+      }
+    },
+    "missing": [],
+    "failures": [],
+    "unclassified": [],
+    "incomplete": false,
+    "limits": "Separate declared inventories, not effective task reads. Project overlays and conditional reads require task-specific selection; do not sum inventories."
+  },
+  "project_route_inventory_root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next",
+  "routes": {
+    "orientation-project": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 1509,
+      "bytes": 12772,
+      "required_documents": 3,
+      "required_words": 1509,
+      "required_bytes": 12772,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 8,
+      "with_level0_words": 6202,
+      "with_level0_bytes": 52440,
+      "with_level0_required_words": 6202,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 10573,
+      "with_instruction_envelope_bytes": 85557,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-non-trivial": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 2,
+      "words": 3293,
+      "bytes": 23810,
+      "required_documents": 2,
+      "required_words": 3293,
+      "required_bytes": 23810,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 7,
+      "with_level0_words": 7986,
+      "with_level0_bytes": 63478,
+      "with_level0_required_words": 7986,
+      "with_instruction_envelope_documents": 10,
+      "with_instruction_envelope_words": 12357,
+      "with_instruction_envelope_bytes": 96595,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-documentation": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 4,
+      "words": 3018,
+      "bytes": 23188,
+      "required_documents": 4,
+      "required_words": 3018,
+      "required_bytes": 23188,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 9,
+      "with_level0_words": 7711,
+      "with_level0_bytes": 62856,
+      "with_level0_required_words": 7711,
+      "with_instruction_envelope_documents": 12,
+      "with_instruction_envelope_words": 12082,
+      "with_instruction_envelope_bytes": 95973,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-documentation-library": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 2890,
+      "bytes": 33250,
+      "required_documents": 3,
+      "required_words": 2890,
+      "required_bytes": 33250,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 8,
+      "with_level0_words": 7583,
+      "with_level0_bytes": 72918,
+      "with_level0_required_words": 7583,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 11954,
+      "with_instruction_envelope_bytes": 106035,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-task-state": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 1,
+      "words": 282,
+      "bytes": 2168,
+      "required_documents": 1,
+      "required_words": 282,
+      "required_bytes": 2168,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 6,
+      "with_level0_words": 4975,
+      "with_level0_bytes": 41836,
+      "with_level0_required_words": 4975,
+      "with_instruction_envelope_documents": 9,
+      "with_instruction_envelope_words": 9346,
+      "with_instruction_envelope_bytes": 74953,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-context-transfer": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 2,
+      "words": 568,
+      "bytes": 4061,
+      "required_documents": 2,
+      "required_words": 568,
+      "required_bytes": 4061,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 7,
+      "with_level0_words": 5261,
+      "with_level0_bytes": 43729,
+      "with_level0_required_words": 5261,
+      "with_instruction_envelope_documents": 10,
+      "with_instruction_envelope_words": 9632,
+      "with_instruction_envelope_bytes": 76846,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-completion": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 1,
+      "words": 114,
+      "bytes": 916,
+      "required_documents": 1,
+      "required_words": 114,
+      "required_bytes": 916,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 6,
+      "with_level0_words": 4807,
+      "with_level0_bytes": 40584,
+      "with_level0_required_words": 4807,
+      "with_instruction_envelope_documents": 9,
+      "with_instruction_envelope_words": 9178,
+      "with_instruction_envelope_bytes": 73701,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-new-project": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 1817,
+      "bytes": 14450,
+      "required_documents": 3,
+      "required_words": 1817,
+      "required_bytes": 14450,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 8,
+      "with_level0_words": 6510,
+      "with_level0_bytes": 54118,
+      "with_level0_required_words": 6510,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 10881,
+      "with_instruction_envelope_bytes": 87235,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-local-exception": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 1,
+      "words": 112,
+      "bytes": 821,
+      "required_documents": 1,
+      "required_words": 112,
+      "required_bytes": 821,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 6,
+      "with_level0_words": 4805,
+      "with_level0_bytes": 40489,
+      "with_level0_required_words": 4805,
+      "with_instruction_envelope_documents": 9,
+      "with_instruction_envelope_words": 9176,
+      "with_instruction_envelope_bytes": 73606,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-implementation-refactor": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 6,
+      "words": 10143,
+      "bytes": 85629,
+      "required_documents": 6,
+      "required_words": 10143,
+      "required_bytes": 85629,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 10,
+      "with_level0_words": 13854,
+      "with_level0_bytes": 117790,
+      "with_level0_required_words": 13854,
+      "with_instruction_envelope_documents": 14,
+      "with_instruction_envelope_words": 19207,
+      "with_instruction_envelope_bytes": 158414,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-universal-quality": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 9,
+      "words": 9270,
+      "bytes": 75392,
+      "required_documents": 7,
+      "required_words": 8433,
+      "required_bytes": 66401,
+      "optional_candidate_documents": 2,
+      "optional_increment_words": 837,
+      "optional_increment_bytes": 8991,
+      "with_level0_documents": 14,
+      "with_level0_words": 13963,
+      "with_level0_bytes": 115060,
+      "with_level0_required_words": 13126,
+      "with_instruction_envelope_documents": 17,
+      "with_instruction_envelope_words": 18334,
+      "with_instruction_envelope_bytes": 148177,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-review-audit": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 13,
+      "words": 14266,
+      "bytes": 119056,
+      "required_documents": 13,
+      "required_words": 14266,
+      "required_bytes": 119056,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 17,
+      "with_level0_words": 17977,
+      "with_level0_bytes": 151217,
+      "with_level0_required_words": 17977,
+      "with_instruction_envelope_documents": 21,
+      "with_instruction_envelope_words": 23330,
+      "with_instruction_envelope_bytes": 191841,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-pr-review": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 14,
+      "words": 14741,
+      "bytes": 122925,
+      "required_documents": 14,
+      "required_words": 14741,
+      "required_bytes": 122925,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 18,
+      "with_level0_words": 18452,
+      "with_level0_bytes": 155086,
+      "with_level0_required_words": 18452,
+      "with_instruction_envelope_documents": 22,
+      "with_instruction_envelope_words": 23805,
+      "with_instruction_envelope_bytes": 195710,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-architecture-navigation-state": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 6,
+      "words": 2764,
+      "bytes": 20883,
+      "required_documents": 5,
+      "required_words": 2577,
+      "required_bytes": 19378,
+      "optional_candidate_documents": 1,
+      "optional_increment_words": 187,
+      "optional_increment_bytes": 1505,
+      "with_level0_documents": 11,
+      "with_level0_words": 7457,
+      "with_level0_bytes": 60551,
+      "with_level0_required_words": 7270,
+      "with_instruction_envelope_documents": 14,
+      "with_instruction_envelope_words": 11828,
+      "with_instruction_envelope_bytes": 93668,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-concurrency-runtime": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 3098,
+      "bytes": 24227,
+      "required_documents": 3,
+      "required_words": 3098,
+      "required_bytes": 24227,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 8,
+      "with_level0_words": 7791,
+      "with_level0_bytes": 63895,
+      "with_level0_required_words": 7791,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 12162,
+      "with_instruction_envelope_bytes": 97012,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-swiftui-performance": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 2626,
+      "bytes": 19677,
+      "required_documents": 3,
+      "required_words": 2626,
+      "required_bytes": 19677,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 8,
+      "with_level0_words": 7319,
+      "with_level0_bytes": 59345,
+      "with_level0_required_words": 7319,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 11690,
+      "with_instruction_envelope_bytes": 92462,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-memory-cache-media-files": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 2691,
+      "bytes": 21163,
+      "required_documents": 3,
+      "required_words": 2691,
+      "required_bytes": 21163,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 8,
+      "with_level0_words": 7384,
+      "with_level0_bytes": 60831,
+      "with_level0_required_words": 7384,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 11755,
+      "with_instruction_envelope_bytes": 93948,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-persistence-migration-data-loss": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 4,
+      "words": 2137,
+      "bytes": 16479,
+      "required_documents": 3,
+      "required_words": 1580,
+      "required_bytes": 12547,
+      "optional_candidate_documents": 1,
+      "optional_increment_words": 557,
+      "optional_increment_bytes": 3932,
+      "with_level0_documents": 9,
+      "with_level0_words": 6830,
+      "with_level0_bytes": 56147,
+      "with_level0_required_words": 6273,
+      "with_instruction_envelope_documents": 12,
+      "with_instruction_envelope_words": 11201,
+      "with_instruction_envelope_bytes": 89264,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-network-api-offline-sync": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 4,
+      "words": 2025,
+      "bytes": 15748,
+      "required_documents": 4,
+      "required_words": 2025,
+      "required_bytes": 15748,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 9,
+      "with_level0_words": 6718,
+      "with_level0_bytes": 55416,
+      "with_level0_required_words": 6718,
+      "with_instruction_envelope_documents": 12,
+      "with_instruction_envelope_words": 11089,
+      "with_instruction_envelope_bytes": 88533,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-security-privacy-intake": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 7,
+      "words": 6306,
+      "bytes": 48631,
+      "required_documents": 5,
+      "required_words": 3054,
+      "required_bytes": 23128,
+      "optional_candidate_documents": 2,
+      "optional_increment_words": 3252,
+      "optional_increment_bytes": 25503,
+      "with_level0_documents": 12,
+      "with_level0_words": 10999,
+      "with_level0_bytes": 88299,
+      "with_level0_required_words": 7747,
+      "with_instruction_envelope_documents": 15,
+      "with_instruction_envelope_words": 15370,
+      "with_instruction_envelope_bytes": 121416,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-accessibility-localization-qa": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 7,
+      "words": 4592,
+      "bytes": 36438,
+      "required_documents": 6,
+      "required_words": 2474,
+      "required_bytes": 19771,
+      "optional_candidate_documents": 1,
+      "optional_increment_words": 2118,
+      "optional_increment_bytes": 16667,
+      "with_level0_documents": 12,
+      "with_level0_words": 9285,
+      "with_level0_bytes": 76106,
+      "with_level0_required_words": 7167,
+      "with_instruction_envelope_documents": 15,
+      "with_instruction_envelope_words": 13656,
+      "with_instruction_envelope_bytes": 109223,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-release": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 4,
+      "words": 2791,
+      "bytes": 22200,
+      "required_documents": 4,
+      "required_words": 2791,
+      "required_bytes": 22200,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 9,
+      "with_level0_words": 7484,
+      "with_level0_bytes": 61868,
+      "with_level0_required_words": 7484,
+      "with_instruction_envelope_documents": 12,
+      "with_instruction_envelope_words": 11855,
+      "with_instruction_envelope_bytes": 94985,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-observability-incidents-rollout": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 8,
+      "words": 2273,
+      "bytes": 17482,
+      "required_documents": 8,
+      "required_words": 2273,
+      "required_bytes": 17482,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 13,
+      "with_level0_words": 6966,
+      "with_level0_bytes": 57150,
+      "with_level0_required_words": 6966,
+      "with_instruction_envelope_documents": 16,
+      "with_instruction_envelope_words": 11337,
+      "with_instruction_envelope_bytes": 90267,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-lifecycle-background": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 689,
+      "bytes": 5503,
+      "required_documents": 2,
+      "required_words": 295,
+      "required_bytes": 2648,
+      "optional_candidate_documents": 1,
+      "optional_increment_words": 394,
+      "optional_increment_bytes": 2855,
+      "with_level0_documents": 8,
+      "with_level0_words": 5382,
+      "with_level0_bytes": 45171,
+      "with_level0_required_words": 4988,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 9753,
+      "with_instruction_envelope_bytes": 78288,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-error-handling": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 1,
+      "words": 116,
+      "bytes": 911,
+      "required_documents": 1,
+      "required_words": 116,
+      "required_bytes": 911,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 6,
+      "with_level0_words": 4809,
+      "with_level0_bytes": 40579,
+      "with_level0_required_words": 4809,
+      "with_instruction_envelope_documents": 9,
+      "with_instruction_envelope_words": 9180,
+      "with_instruction_envelope_bytes": 73696,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-storekit-payments": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 2,
+      "words": 1455,
+      "bytes": 11621,
+      "required_documents": 1,
+      "required_words": 238,
+      "required_bytes": 1883,
+      "optional_candidate_documents": 1,
+      "optional_increment_words": 1217,
+      "optional_increment_bytes": 9738,
+      "with_level0_documents": 7,
+      "with_level0_words": 6148,
+      "with_level0_bytes": 51289,
+      "with_level0_required_words": 4931,
+      "with_instruction_envelope_documents": 10,
+      "with_instruction_envelope_words": 10519,
+      "with_instruction_envelope_bytes": 84406,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-knowledge-governance": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 1,
+      "words": 1010,
+      "bytes": 7519,
+      "required_documents": 1,
+      "required_words": 1010,
+      "required_bytes": 7519,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 6,
+      "with_level0_words": 5703,
+      "with_level0_bytes": 47187,
+      "with_level0_required_words": 5703,
+      "with_instruction_envelope_documents": 9,
+      "with_instruction_envelope_words": 10074,
+      "with_instruction_envelope_bytes": 80304,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-swift-language-runtime": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 2,
+      "words": 2326,
+      "bytes": 17949,
+      "required_documents": 2,
+      "required_words": 2326,
+      "required_bytes": 17949,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 7,
+      "with_level0_words": 7019,
+      "with_level0_bytes": 57617,
+      "with_level0_required_words": 7019,
+      "with_instruction_envelope_documents": 10,
+      "with_instruction_envelope_words": 11390,
+      "with_instruction_envelope_bytes": 90734,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-ui-adaptive": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 3484,
+      "bytes": 26730,
+      "required_documents": 3,
+      "required_words": 3484,
+      "required_bytes": 26730,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 8,
+      "with_level0_words": 8177,
+      "with_level0_bytes": 66398,
+      "with_level0_required_words": 8177,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 12548,
+      "with_instruction_envelope_bytes": 99515,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-identity-authentication": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 2,
+      "words": 2682,
+      "bytes": 20680,
+      "required_documents": 2,
+      "required_words": 2682,
+      "required_bytes": 20680,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 7,
+      "with_level0_words": 7375,
+      "with_level0_bytes": 60348,
+      "with_level0_required_words": 7375,
+      "with_instruction_envelope_documents": 10,
+      "with_instruction_envelope_words": 11746,
+      "with_instruction_envelope_bytes": 93465,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-testing-debugging": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 1967,
+      "bytes": 15276,
+      "required_documents": 3,
+      "required_words": 1967,
+      "required_bytes": 15276,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 8,
+      "with_level0_words": 6660,
+      "with_level0_bytes": 54944,
+      "with_level0_required_words": 6660,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 11031,
+      "with_instruction_envelope_bytes": 88061,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-build-binary-supply-chain": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 4,
+      "words": 3354,
+      "bytes": 26122,
+      "required_documents": 4,
+      "required_words": 3354,
+      "required_bytes": 26122,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 9,
+      "with_level0_words": 8047,
+      "with_level0_bytes": 65790,
+      "with_level0_required_words": 8047,
+      "with_instruction_envelope_documents": 12,
+      "with_instruction_envelope_words": 12418,
+      "with_instruction_envelope_bytes": 98907,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-platform-capabilities-extended": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 1972,
+      "bytes": 16231,
+      "required_documents": 3,
+      "required_words": 1972,
+      "required_bytes": 16231,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 8,
+      "with_level0_words": 6665,
+      "with_level0_bytes": 55899,
+      "with_level0_required_words": 6665,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 11036,
+      "with_instruction_envelope_bytes": 89016,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-media-sensors-device": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 2691,
+      "bytes": 21163,
+      "required_documents": 3,
+      "required_words": 2691,
+      "required_bytes": 21163,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 8,
+      "with_level0_words": 7384,
+      "with_level0_bytes": 60831,
+      "with_level0_required_words": 7384,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 11755,
+      "with_instruction_envelope_bytes": 93948,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-app-store-compliance": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 2413,
+      "bytes": 19204,
+      "required_documents": 3,
+      "required_words": 2413,
+      "required_bytes": 19204,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 8,
+      "with_level0_words": 7106,
+      "with_level0_bytes": 58872,
+      "with_level0_required_words": 7106,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 11477,
+      "with_instruction_envelope_bytes": 91989,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-figma-design": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 1140,
+      "bytes": 8179,
+      "required_documents": 3,
+      "required_words": 1140,
+      "required_bytes": 8179,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 8,
+      "with_level0_words": 5833,
+      "with_level0_bytes": 47847,
+      "with_level0_required_words": 5833,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 10204,
+      "with_instruction_envelope_bytes": 80964,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-ai-app-intents": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 9385,
+      "bytes": 99747,
+      "required_documents": 2,
+      "required_words": 2294,
+      "required_bytes": 18501,
+      "optional_candidate_documents": 1,
+      "optional_increment_words": 7091,
+      "optional_increment_bytes": 81246,
+      "with_level0_documents": 8,
+      "with_level0_words": 14078,
+      "with_level0_bytes": 139415,
+      "with_level0_required_words": 6987,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 18449,
+      "with_instruction_envelope_bytes": 172532,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-code-documentation": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 2,
+      "words": 1202,
+      "bytes": 9298,
+      "required_documents": 2,
+      "required_words": 1202,
+      "required_bytes": 9298,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 7,
+      "with_level0_words": 5895,
+      "with_level0_bytes": 48966,
+      "with_level0_required_words": 5895,
+      "with_instruction_envelope_documents": 10,
+      "with_instruction_envelope_words": 10266,
+      "with_instruction_envelope_bytes": 82083,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-reusable-packages": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 6,
+      "words": 3109,
+      "bytes": 24813,
+      "required_documents": 4,
+      "required_words": 2619,
+      "required_bytes": 21013,
+      "optional_candidate_documents": 2,
+      "optional_increment_words": 490,
+      "optional_increment_bytes": 3800,
+      "with_level0_documents": 11,
+      "with_level0_words": 7802,
+      "with_level0_bytes": 64481,
+      "with_level0_required_words": 7312,
+      "with_instruction_envelope_documents": 14,
+      "with_instruction_envelope_words": 12173,
+      "with_instruction_envelope_bytes": 97598,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-new-app-bootstrap": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 11,
+      "words": 6398,
+      "bytes": 48700,
+      "required_documents": 11,
+      "required_words": 6398,
+      "required_bytes": 48700,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 16,
+      "with_level0_words": 11091,
+      "with_level0_bytes": 88368,
+      "with_level0_required_words": 11091,
+      "with_instruction_envelope_documents": 19,
+      "with_instruction_envelope_words": 15462,
+      "with_instruction_envelope_bytes": 121485,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "quality-control-governance": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 12,
+      "words": 10699,
+      "bytes": 84460,
+      "required_documents": 12,
+      "required_words": 10699,
+      "required_bytes": 84460,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 17,
+      "with_level0_words": 15392,
+      "with_level0_bytes": 124128,
+      "with_level0_required_words": 15392,
+      "with_instruction_envelope_documents": 20,
+      "with_instruction_envelope_words": 19763,
+      "with_instruction_envelope_bytes": 157245,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "static-gates": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 3,
+      "words": 2225,
+      "bytes": 16858,
+      "required_documents": 3,
+      "required_words": 2225,
+      "required_bytes": 16858,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 8,
+      "with_level0_words": 6918,
+      "with_level0_bytes": 56526,
+      "with_level0_required_words": 6918,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 11289,
+      "with_instruction_envelope_bytes": 89643,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-deep-references": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 5,
+      "words": 1406,
+      "bytes": 14260,
+      "required_documents": 5,
+      "required_words": 1406,
+      "required_bytes": 14260,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 10,
+      "with_level0_words": 6099,
+      "with_level0_bytes": 53928,
+      "with_level0_required_words": 6099,
+      "with_instruction_envelope_documents": 13,
+      "with_instruction_envelope_words": 10470,
+      "with_instruction_envelope_bytes": 87045,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-project-work-system": {
+      "cost_basis": "upper_bound_including_optional_candidates",
+      "documents": 1,
+      "words": 4341,
+      "bytes": 32184,
+      "required_documents": 1,
+      "required_words": 4341,
+      "required_bytes": 32184,
+      "optional_candidate_documents": 0,
+      "optional_increment_words": 0,
+      "optional_increment_bytes": 0,
+      "with_level0_documents": 6,
+      "with_level0_words": 9034,
+      "with_level0_bytes": 71852,
+      "with_level0_required_words": 9034,
+      "with_instruction_envelope_documents": 9,
+      "with_instruction_envelope_words": 13405,
+      "with_instruction_envelope_bytes": 104969,
+      "max_words": null,
+      "budget_exceeded": false
+    }
+  },
+  "overlaps": [
+    {
+      "left": "ios-review-audit",
+      "right": "ios-pr-review",
+      "count": 13,
+      "documents": [
+        "./docs/AGENT_RULES.md",
+        "./docs/CURRENT_USER_OVERRIDES.md",
+        "./docs/DEFINITION_OF_DONE.md",
+        "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+        "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+        "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+        "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+        "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+        "./docs/PRODUCTION_QUALITY_GATES.md",
+        "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+        "./docs/README.md",
+        "./docs/agent-prompts/production-review-completeness.md"
+      ]
+    },
+    {
+      "left": "ios-architecture-navigation-state",
+      "right": "ios-new-app-bootstrap",
+      "count": 5,
+      "documents": [
+        "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+        "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+        "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+        "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+        "./docs/MODULAR_ARCHITECTURE_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-implementation-refactor",
+      "right": "ios-pr-review",
+      "count": 5,
+      "documents": [
+        "./docs/CURRENT_USER_OVERRIDES.md",
+        "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+        "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+        "./docs/PRODUCTION_QUALITY_GATES.md",
+        "./docs/README.md"
+      ]
+    },
+    {
+      "left": "ios-implementation-refactor",
+      "right": "ios-review-audit",
+      "count": 5,
+      "documents": [
+        "./docs/CURRENT_USER_OVERRIDES.md",
+        "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+        "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+        "./docs/PRODUCTION_QUALITY_GATES.md",
+        "./docs/README.md"
+      ]
+    },
+    {
+      "left": "ios-universal-quality",
+      "right": "quality-control-governance",
+      "count": 5,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md",
+        "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+        "./docs/QUALITY_RULE_CATALOG.md",
+        "./docs/STATIC_QUALITY_GATE_POLICY.md"
+      ]
+    },
+    {
+      "left": "ios-pr-review",
+      "right": "quality-control-governance",
+      "count": 4,
+      "documents": [
+        "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+        "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+        "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-universal-quality",
+      "right": "ios-pr-review",
+      "count": 4,
+      "documents": [
+        "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+        "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+        "./docs/PRODUCTION_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-universal-quality",
+      "right": "ios-review-audit",
+      "count": 4,
+      "documents": [
+        "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+        "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+        "./docs/PRODUCTION_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "governance-new-project",
+      "right": "ios-new-app-bootstrap",
+      "count": 3,
+      "documents": [
+        "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+        "./docs/NEW_PROJECT_START_CONTRACT.md",
+        "./docs/STATIC_GATE_ADOPTION.md"
+      ]
+    },
+    {
+      "left": "ios-memory-cache-media-files",
+      "right": "ios-media-sensors-device",
+      "count": 3,
+      "documents": [
+        "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+        "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+        "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md"
+      ]
+    },
+    {
+      "left": "ios-review-audit",
+      "right": "quality-control-governance",
+      "count": 3,
+      "documents": [
+        "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+        "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md"
+      ]
+    },
+    {
+      "left": "quality-control-governance",
+      "right": "static-gates",
+      "count": 3,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md",
+        "./docs/STATIC_GATE_ADOPTION.md",
+        "./docs/STATIC_QUALITY_GATE_POLICY.md"
+      ]
+    },
+    {
+      "left": "ios-accessibility-localization-qa",
+      "right": "ios-testing-debugging",
+      "count": 2,
+      "documents": [
+        "./docs/IOS_TESTING_STRATEGY.md",
+        "./docs/QA_TEST_PLAN_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-accessibility-localization-qa",
+      "right": "ios-ui-adaptive",
+      "count": 2,
+      "documents": [
+        "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+        "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md"
+      ]
+    },
+    {
+      "left": "ios-build-binary-supply-chain",
+      "right": "quality-control-governance",
+      "count": 2,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md",
+        "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-lifecycle-background",
+      "right": "ios-platform-capabilities-extended",
+      "count": 2,
+      "documents": [
+        "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+        "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-new-app-bootstrap",
+      "right": "quality-control-governance",
+      "count": 2,
+      "documents": [
+        "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+        "./docs/STATIC_GATE_ADOPTION.md"
+      ]
+    },
+    {
+      "left": "ios-security-privacy-intake",
+      "right": "ios-app-store-compliance",
+      "count": 2,
+      "documents": [
+        "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+        "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
+      ]
+    },
+    {
+      "left": "ios-security-privacy-intake",
+      "right": "ios-identity-authentication",
+      "count": 2,
+      "documents": [
+        "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+        "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md"
+      ]
+    },
+    {
+      "left": "ios-universal-quality",
+      "right": "ios-deep-references",
+      "count": 2,
+      "documents": [
+        "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+        "./docs/IOS_PRODUCTION_FRAMEWORK.md"
+      ]
+    },
+    {
+      "left": "ios-universal-quality",
+      "right": "static-gates",
+      "count": 2,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md",
+        "./docs/STATIC_QUALITY_GATE_POLICY.md"
+      ]
+    },
+    {
+      "left": "governance-documentation-library",
+      "right": "ios-implementation-refactor",
+      "count": 1,
+      "documents": [
+        "./docs/README.md"
+      ]
+    },
+    {
+      "left": "governance-documentation-library",
+      "right": "ios-pr-review",
+      "count": 1,
+      "documents": [
+        "./docs/README.md"
+      ]
+    },
+    {
+      "left": "governance-documentation-library",
+      "right": "ios-review-audit",
+      "count": 1,
+      "documents": [
+        "./docs/README.md"
+      ]
+    },
+    {
+      "left": "governance-new-project",
+      "right": "quality-control-governance",
+      "count": 1,
+      "documents": [
+        "./docs/STATIC_GATE_ADOPTION.md"
+      ]
+    },
+    {
+      "left": "governance-new-project",
+      "right": "static-gates",
+      "count": 1,
+      "documents": [
+        "./docs/STATIC_GATE_ADOPTION.md"
+      ]
+    },
+    {
+      "left": "governance-non-trivial",
+      "right": "ios-implementation-refactor",
+      "count": 1,
+      "documents": [
+        "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+      ]
+    },
+    {
+      "left": "governance-non-trivial",
+      "right": "ios-pr-review",
+      "count": 1,
+      "documents": [
+        "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+      ]
+    },
+    {
+      "left": "governance-non-trivial",
+      "right": "ios-review-audit",
+      "count": 1,
+      "documents": [
+        "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-accessibility-localization-qa",
+      "right": "ios-ai-app-intents",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+      ]
+    },
+    {
+      "left": "ios-accessibility-localization-qa",
+      "right": "ios-release",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+      ]
+    },
+    {
+      "left": "ios-accessibility-localization-qa",
+      "right": "quality-control-governance",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_TESTING_STRATEGY.md"
+      ]
+    },
+    {
+      "left": "ios-build-binary-supply-chain",
+      "right": "ios-new-app-bootstrap",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-build-binary-supply-chain",
+      "right": "ios-reusable-packages",
+      "count": 1,
+      "documents": [
+        "./docs/DEPENDENCY_POLICY.md"
+      ]
+    },
+    {
+      "left": "ios-build-binary-supply-chain",
+      "right": "static-gates",
+      "count": 1,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-concurrency-runtime",
+      "right": "ios-build-binary-supply-chain",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-concurrency-runtime",
+      "right": "ios-new-app-bootstrap",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-concurrency-runtime",
+      "right": "quality-control-governance",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-identity-authentication",
+      "right": "ios-app-store-compliance",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_SECURITY_PRIVACY_GATE.md"
+      ]
+    },
+    {
+      "left": "ios-implementation-refactor",
+      "right": "ios-universal-quality",
+      "count": 1,
+      "documents": [
+        "./docs/PRODUCTION_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-new-app-bootstrap",
+      "right": "static-gates",
+      "count": 1,
+      "documents": [
+        "./docs/STATIC_GATE_ADOPTION.md"
+      ]
+    },
+    {
+      "left": "ios-release",
+      "right": "ios-ai-app-intents",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+      ]
+    },
+    {
+      "left": "ios-release",
+      "right": "ios-app-store-compliance",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_RELEASE_CHECKLIST.md"
+      ]
+    },
+    {
+      "left": "ios-release",
+      "right": "ios-build-binary-supply-chain",
+      "count": 1,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-release",
+      "right": "ios-lifecycle-background",
+      "count": 1,
+      "documents": [
+        "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-release",
+      "right": "ios-platform-capabilities-extended",
+      "count": 1,
+      "documents": [
+        "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-release",
+      "right": "quality-control-governance",
+      "count": 1,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-release",
+      "right": "static-gates",
+      "count": 1,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-reusable-packages",
+      "right": "quality-control-governance",
+      "count": 1,
+      "documents": [
+        "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-security-privacy-intake",
+      "right": "ios-accessibility-localization-qa",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+      ]
+    },
+    {
+      "left": "ios-security-privacy-intake",
+      "right": "ios-ai-app-intents",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+      ]
+    },
+    {
+      "left": "ios-security-privacy-intake",
+      "right": "ios-new-app-bootstrap",
+      "count": 1,
+      "documents": [
+        "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-security-privacy-intake",
+      "right": "ios-release",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+      ]
+    },
+    {
+      "left": "ios-security-privacy-intake",
+      "right": "ios-storekit-payments",
+      "count": 1,
+      "documents": [
+        "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
+      ]
+    },
+    {
+      "left": "ios-storekit-payments",
+      "right": "ios-app-store-compliance",
+      "count": 1,
+      "documents": [
+        "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
+      ]
+    },
+    {
+      "left": "ios-swift-language-runtime",
+      "right": "ios-code-documentation",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-swiftui-performance",
+      "right": "ios-accessibility-localization-qa",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+      ]
+    },
+    {
+      "left": "ios-swiftui-performance",
+      "right": "ios-ai-app-intents",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+      ]
+    },
+    {
+      "left": "ios-swiftui-performance",
+      "right": "ios-release",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+      ]
+    },
+    {
+      "left": "ios-swiftui-performance",
+      "right": "ios-security-privacy-intake",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+      ]
+    },
+    {
+      "left": "ios-swiftui-performance",
+      "right": "ios-ui-adaptive",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_UI_STATE_RENDERING_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-testing-debugging",
+      "right": "quality-control-governance",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_TESTING_STRATEGY.md"
+      ]
+    },
+    {
+      "left": "ios-universal-quality",
+      "right": "ios-build-binary-supply-chain",
+      "count": 1,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-universal-quality",
+      "right": "ios-release",
+      "count": 1,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "orientation-project",
+      "right": "ios-pr-review",
+      "count": 1,
+      "documents": [
+        "./docs/AGENT_RULES.md"
+      ]
+    },
+    {
+      "left": "orientation-project",
+      "right": "ios-review-audit",
+      "count": 1,
+      "documents": [
+        "./docs/AGENT_RULES.md"
+      ]
+    }
+  ],
+  "heaviest_documents": [
+    {
+      "path": "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+      "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+      "exists": true,
+      "words": 7091,
+      "bytes": 81246
+    },
+    {
+      "path": "./docs/IOS_PROJECT_WORK_SYSTEM.md",
+      "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/IOS_PROJECT_WORK_SYSTEM.md",
+      "exists": true,
+      "words": 4341,
+      "bytes": 32184
+    },
+    {
+      "path": "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "exists": true,
+      "words": 3148,
+      "bytes": 22655
+    },
+    {
+      "path": "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+      "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+      "exists": true,
+      "words": 2348,
+      "bytes": 18592
+    },
+    {
+      "path": "./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+      "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+      "exists": true,
+      "words": 2125,
+      "bytes": 16091
+    },
+    {
+      "path": "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+      "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+      "exists": true,
+      "words": 2118,
+      "bytes": 16667
+    },
+    {
+      "path": "./docs/PRODUCTION_QUALITY_GATES.md",
+      "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/PRODUCTION_QUALITY_GATES.md",
+      "exists": true,
+      "words": 2054,
+      "bytes": 14974
+    },
+    {
+      "path": "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+      "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+      "exists": true,
+      "words": 2035,
+      "bytes": 15765
+    },
+    {
+      "path": "./docs/README.md",
+      "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/README.md",
+      "exists": true,
+      "words": 1936,
+      "bytes": 25141
+    },
+    {
+      "path": "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "physical_path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "exists": true,
+      "words": 1914,
+      "bytes": 14381
+    }
+  ],
+  "unreachable_registered_documents": [],
+  "missing": [],
+  "optional_missing": [],
+  "unclassified": [],
+  "failures": [],
+  "notes": []
+}

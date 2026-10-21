@@ -1,0 +1,1072 @@
+{
+  "root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next",
+  "task_id": "kb-unification-2026-10-09",
+  "selected_routes": [
+    "orientation-project",
+    "governance-non-trivial",
+    "governance-documentation",
+    "governance-documentation-library",
+    "governance-task-state",
+    "governance-context-transfer",
+    "governance-completion",
+    "governance-new-project",
+    "governance-local-exception",
+    "ios-implementation-refactor",
+    "ios-universal-quality",
+    "ios-review-audit",
+    "ios-pr-review",
+    "ios-architecture-navigation-state",
+    "ios-concurrency-runtime",
+    "ios-swiftui-performance",
+    "ios-memory-cache-media-files",
+    "ios-persistence-migration-data-loss",
+    "ios-network-api-offline-sync",
+    "ios-security-privacy-intake",
+    "ios-accessibility-localization-qa",
+    "ios-release",
+    "ios-observability-incidents-rollout",
+    "ios-lifecycle-background",
+    "ios-error-handling",
+    "ios-storekit-payments",
+    "ios-knowledge-governance",
+    "ios-swift-language-runtime",
+    "ios-ui-adaptive",
+    "ios-identity-authentication",
+    "ios-testing-debugging",
+    "ios-build-binary-supply-chain",
+    "ios-platform-capabilities-extended",
+    "ios-media-sensors-device",
+    "ios-app-store-compliance",
+    "ios-figma-design",
+    "ios-ai-app-intents",
+    "ios-code-documentation",
+    "ios-reusable-packages",
+    "ios-new-app-bootstrap",
+    "quality-control-governance",
+    "static-gates",
+    "ios-deep-references",
+    "ios-project-work-system"
+  ],
+  "level0_documents": [
+    "./docs/CURRENT_USER_OVERRIDES.md",
+    "./docs/MODEL_ROUTING_RULE.md",
+    "./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+    "./.zenflow/tasks/kb-unification-2026-10-09/handoff.md",
+    "./.zenflow/tasks/kb-unification-2026-10-09/plan.md"
+  ],
+  "route_documents": {
+    "orientation-project": [
+      "./PROJECT_DOCUMENTATION.md",
+      "./PROJECT_HEALTH.md",
+      "./docs/AGENT_RULES.md"
+    ],
+    "governance-non-trivial": [
+      "./docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+    ],
+    "governance-documentation": [
+      "./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+      "./docs/DOCUMENT_BOUNDARY_STANDARD.md",
+      "./docs/SOURCE_OF_TRUTH_MAP.md",
+      "./docs/DOCS_REPO_OPERATIONS.md"
+    ],
+    "governance-documentation-library": [
+      "./docs/README.md",
+      "./docs/DOCUMENT_LIBRARY_GUIDE.md",
+      "./docs/DOCUMENTATION_VAULT_SUMMARY.md"
+    ],
+    "governance-task-state": [
+      "./docs/TASK_STATE_DOCUMENTATION_STANDARD.md"
+    ],
+    "governance-context-transfer": [
+      "./docs/WORK_CONTINUITY.md",
+      "./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md"
+    ],
+    "governance-completion": [
+      "./docs/COMPLETION_REPORT_CONTRACT.md"
+    ],
+    "governance-new-project": [
+      "./docs/NEW_PROJECT_START_CONTRACT.md",
+      "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+      "./docs/STATIC_GATE_ADOPTION.md"
+    ],
+    "governance-local-exception": [
+      "./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md"
+    ],
+    "ios-implementation-refactor": [
+      "./docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+      "./docs/PRODUCTION_QUALITY_GATES.md",
+      "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "./docs/README.md",
+      "./docs/CURRENT_USER_OVERRIDES.md",
+      "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+    ],
+    "ios-universal-quality": [
+      "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "./docs/PRODUCTION_QUALITY_GATES.md",
+      "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "./docs/QUALITY_RULE_CATALOG.md",
+      "./docs/STATIC_QUALITY_GATE_POLICY.md",
+      "./docs/CI_CD_QUALITY_GATES.md",
+      "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+      "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md"
+    ],
+    "ios-review-audit": [
+      "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "./docs/DEFINITION_OF_DONE.md",
+      "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "./docs/README.md",
+      "./docs/CURRENT_USER_OVERRIDES.md",
+      "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "./docs/PRODUCTION_QUALITY_GATES.md",
+      "./docs/agent-prompts/production-review-completeness.md",
+      "./docs/AGENT_RULES.md"
+    ],
+    "ios-pr-review": [
+      "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+      "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "./docs/DEFINITION_OF_DONE.md",
+      "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "./docs/README.md",
+      "./docs/CURRENT_USER_OVERRIDES.md",
+      "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "./docs/PRODUCTION_QUALITY_GATES.md",
+      "./docs/agent-prompts/production-review-completeness.md",
+      "./docs/AGENT_RULES.md"
+    ],
+    "ios-architecture-navigation-state": [
+      "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+      "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+      "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+      "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+      "./docs/IOS_ARCHITECTURE_REFERENCE.md"
+    ],
+    "ios-concurrency-runtime": [
+      "./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+      "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md"
+    ],
+    "ios-swiftui-performance": [
+      "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "./docs/IOS_PERFORMANCE_BUDGETS.md",
+      "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+    ],
+    "ios-memory-cache-media-files": [
+      "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+      "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+      "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md"
+    ],
+    "ios-persistence-migration-data-loss": [
+      "./docs/IOS_DATA_MIGRATION_STANDARD.md",
+      "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+      "./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md"
+    ],
+    "ios-network-api-offline-sync": [
+      "./docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+      "./docs/IOS_OFFLINE_SYNC_STANDARD.md",
+      "./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md"
+    ],
+    "ios-security-privacy-intake": [
+      "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+      "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
+      "./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md",
+      "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+      "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+      "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
+    ],
+    "ios-accessibility-localization-qa": [
+      "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+      "./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+      "./docs/QA_TEST_PLAN_STANDARD.md",
+      "./docs/IOS_TESTING_STRATEGY.md",
+      "./docs/COMPATIBILITY_MATRIX.md",
+      "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+      "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md"
+    ],
+    "ios-release": [
+      "./docs/IOS_RELEASE_CHECKLIST.md",
+      "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "./docs/CI_CD_QUALITY_GATES.md",
+      "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+    ],
+    "ios-observability-incidents-rollout": [
+      "./docs/IOS_OBSERVABILITY_STANDARD.md",
+      "./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md",
+      "./docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+      "./docs/INCIDENT_RESPONSE_STANDARD.md",
+      "./docs/PRODUCT_HEALTH_SLO.md",
+      "./docs/RISK_REGISTER.md",
+      "./docs/TECH_DEBT_REGISTER.md",
+      "./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md"
+    ],
+    "ios-lifecycle-background": [
+      "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+      "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "./docs/SHARE_EXTENSION_VALIDATION.md"
+    ],
+    "ios-error-handling": [
+      "./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md"
+    ],
+    "ios-storekit-payments": [
+      "./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+      "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
+    ],
+    "ios-knowledge-governance": [
+      "./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md"
+    ],
+    "ios-swift-language-runtime": [
+      "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+      "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md"
+    ],
+    "ios-ui-adaptive": [
+      "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+      "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md"
+    ],
+    "ios-identity-authentication": [
+      "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md"
+    ],
+    "ios-testing-debugging": [
+      "./docs/IOS_TESTING_STRATEGY.md",
+      "./docs/QA_TEST_PLAN_STANDARD.md",
+      "./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md"
+    ],
+    "ios-build-binary-supply-chain": [
+      "./docs/DEPENDENCY_POLICY.md",
+      "./docs/CI_CD_QUALITY_GATES.md",
+      "./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+      "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md"
+    ],
+    "ios-platform-capabilities-extended": [
+      "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+      "./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md"
+    ],
+    "ios-media-sensors-device": [
+      "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+      "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+      "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md"
+    ],
+    "ios-app-store-compliance": [
+      "./docs/IOS_RELEASE_CHECKLIST.md",
+      "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
+    ],
+    "ios-figma-design": [
+      "./docs/agent-prompts/FIGMA_TASK_ROUTER.md",
+      "./docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+      "./docs/DESIGN_SYSTEM_GOVERNANCE.md"
+    ],
+    "ios-ai-app-intents": [
+      "./docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+      "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+      "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md"
+    ],
+    "ios-code-documentation": [
+      "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+      "./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md"
+    ],
+    "ios-reusable-packages": [
+      "./docs/PACKAGES_AND_MANAGERS.md",
+      "./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md",
+      "./docs/DEPENDENCY_POLICY.md",
+      "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+      "./docs/PACKAGE_USAGE_SOURCE_ONLY.md",
+      "./docs/PACKAGE_DOC_MIRROR_CONTRACT.md"
+    ],
+    "ios-new-app-bootstrap": [
+      "./docs/NEW_PROJECT_START_CONTRACT.md",
+      "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+      "./docs/STATIC_GATE_ADOPTION.md",
+      "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+      "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+      "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+      "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+      "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+      "./docs/DEVELOPER_EXPERIENCE_STANDARD.md",
+      "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md"
+    ],
+    "quality-control-governance": [
+      "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+      "./docs/QUALITY_RULE_CATALOG.md",
+      "./docs/STATIC_QUALITY_GATE_POLICY.md",
+      "./docs/STATIC_GATE_ADOPTION.md",
+      "./docs/CI_CD_QUALITY_GATES.md",
+      "./docs/IOS_TESTING_STRATEGY.md",
+      "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+      "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+      "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md"
+    ],
+    "static-gates": [
+      "./docs/STATIC_QUALITY_GATE_POLICY.md",
+      "./docs/STATIC_GATE_ADOPTION.md",
+      "./docs/CI_CD_QUALITY_GATES.md"
+    ],
+    "ios-deep-references": [
+      "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+      "./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md",
+      "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+      "./docs/IOS_PRODUCTION_SCORECARD.md",
+      "./docs/IOS_AGENT_PROMPT_ROUTER.md"
+    ],
+    "ios-project-work-system": [
+      "./docs/IOS_PROJECT_WORK_SYSTEM.md"
+    ]
+  },
+  "document_selection": "upper_bound_including_optional_candidates",
+  "required_route_documents": {
+    "orientation-project": [
+      "./PROJECT_DOCUMENTATION.md",
+      "./PROJECT_HEALTH.md",
+      "./docs/AGENT_RULES.md"
+    ],
+    "governance-non-trivial": [
+      "./docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+    ],
+    "governance-documentation": [
+      "./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+      "./docs/DOCUMENT_BOUNDARY_STANDARD.md",
+      "./docs/SOURCE_OF_TRUTH_MAP.md",
+      "./docs/DOCS_REPO_OPERATIONS.md"
+    ],
+    "governance-documentation-library": [
+      "./docs/README.md",
+      "./docs/DOCUMENT_LIBRARY_GUIDE.md",
+      "./docs/DOCUMENTATION_VAULT_SUMMARY.md"
+    ],
+    "governance-task-state": [
+      "./docs/TASK_STATE_DOCUMENTATION_STANDARD.md"
+    ],
+    "governance-context-transfer": [
+      "./docs/WORK_CONTINUITY.md",
+      "./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md"
+    ],
+    "governance-completion": [
+      "./docs/COMPLETION_REPORT_CONTRACT.md"
+    ],
+    "governance-new-project": [
+      "./docs/NEW_PROJECT_START_CONTRACT.md",
+      "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+      "./docs/STATIC_GATE_ADOPTION.md"
+    ],
+    "governance-local-exception": [
+      "./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md"
+    ],
+    "ios-implementation-refactor": [
+      "./docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+      "./docs/PRODUCTION_QUALITY_GATES.md",
+      "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "./docs/README.md",
+      "./docs/CURRENT_USER_OVERRIDES.md",
+      "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
+    ],
+    "ios-universal-quality": [
+      "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "./docs/PRODUCTION_QUALITY_GATES.md",
+      "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "./docs/QUALITY_RULE_CATALOG.md",
+      "./docs/STATIC_QUALITY_GATE_POLICY.md",
+      "./docs/CI_CD_QUALITY_GATES.md"
+    ],
+    "ios-review-audit": [
+      "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "./docs/DEFINITION_OF_DONE.md",
+      "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "./docs/README.md",
+      "./docs/CURRENT_USER_OVERRIDES.md",
+      "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "./docs/PRODUCTION_QUALITY_GATES.md",
+      "./docs/agent-prompts/production-review-completeness.md",
+      "./docs/AGENT_RULES.md"
+    ],
+    "ios-pr-review": [
+      "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+      "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "./docs/DEFINITION_OF_DONE.md",
+      "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "./docs/README.md",
+      "./docs/CURRENT_USER_OVERRIDES.md",
+      "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "./docs/PRODUCTION_QUALITY_GATES.md",
+      "./docs/agent-prompts/production-review-completeness.md",
+      "./docs/AGENT_RULES.md"
+    ],
+    "ios-architecture-navigation-state": [
+      "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+      "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+      "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+      "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md"
+    ],
+    "ios-concurrency-runtime": [
+      "./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+      "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md"
+    ],
+    "ios-swiftui-performance": [
+      "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "./docs/IOS_PERFORMANCE_BUDGETS.md",
+      "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+    ],
+    "ios-memory-cache-media-files": [
+      "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+      "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+      "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md"
+    ],
+    "ios-persistence-migration-data-loss": [
+      "./docs/IOS_DATA_MIGRATION_STANDARD.md",
+      "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+      "./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md"
+    ],
+    "ios-network-api-offline-sync": [
+      "./docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+      "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+      "./docs/IOS_OFFLINE_SYNC_STANDARD.md",
+      "./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md"
+    ],
+    "ios-security-privacy-intake": [
+      "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+      "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
+      "./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md",
+      "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+    ],
+    "ios-accessibility-localization-qa": [
+      "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+      "./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+      "./docs/QA_TEST_PLAN_STANDARD.md",
+      "./docs/IOS_TESTING_STRATEGY.md",
+      "./docs/COMPATIBILITY_MATRIX.md",
+      "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+    ],
+    "ios-release": [
+      "./docs/IOS_RELEASE_CHECKLIST.md",
+      "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "./docs/CI_CD_QUALITY_GATES.md",
+      "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+    ],
+    "ios-observability-incidents-rollout": [
+      "./docs/IOS_OBSERVABILITY_STANDARD.md",
+      "./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md",
+      "./docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+      "./docs/INCIDENT_RESPONSE_STANDARD.md",
+      "./docs/PRODUCT_HEALTH_SLO.md",
+      "./docs/RISK_REGISTER.md",
+      "./docs/TECH_DEBT_REGISTER.md",
+      "./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md"
+    ],
+    "ios-lifecycle-background": [
+      "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+      "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md"
+    ],
+    "ios-error-handling": [
+      "./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md"
+    ],
+    "ios-storekit-payments": [
+      "./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md"
+    ],
+    "ios-knowledge-governance": [
+      "./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md"
+    ],
+    "ios-swift-language-runtime": [
+      "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+      "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md"
+    ],
+    "ios-ui-adaptive": [
+      "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+      "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md"
+    ],
+    "ios-identity-authentication": [
+      "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md"
+    ],
+    "ios-testing-debugging": [
+      "./docs/IOS_TESTING_STRATEGY.md",
+      "./docs/QA_TEST_PLAN_STANDARD.md",
+      "./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md"
+    ],
+    "ios-build-binary-supply-chain": [
+      "./docs/DEPENDENCY_POLICY.md",
+      "./docs/CI_CD_QUALITY_GATES.md",
+      "./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+      "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md"
+    ],
+    "ios-platform-capabilities-extended": [
+      "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+      "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+      "./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md"
+    ],
+    "ios-media-sensors-device": [
+      "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+      "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+      "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md"
+    ],
+    "ios-app-store-compliance": [
+      "./docs/IOS_RELEASE_CHECKLIST.md",
+      "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
+    ],
+    "ios-figma-design": [
+      "./docs/agent-prompts/FIGMA_TASK_ROUTER.md",
+      "./docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+      "./docs/DESIGN_SYSTEM_GOVERNANCE.md"
+    ],
+    "ios-ai-app-intents": [
+      "./docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+      "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+    ],
+    "ios-code-documentation": [
+      "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+      "./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md"
+    ],
+    "ios-reusable-packages": [
+      "./docs/PACKAGES_AND_MANAGERS.md",
+      "./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md",
+      "./docs/DEPENDENCY_POLICY.md",
+      "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md"
+    ],
+    "ios-new-app-bootstrap": [
+      "./docs/NEW_PROJECT_START_CONTRACT.md",
+      "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+      "./docs/STATIC_GATE_ADOPTION.md",
+      "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+      "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+      "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+      "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+      "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+      "./docs/DEVELOPER_EXPERIENCE_STANDARD.md",
+      "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md"
+    ],
+    "quality-control-governance": [
+      "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+      "./docs/QUALITY_RULE_CATALOG.md",
+      "./docs/STATIC_QUALITY_GATE_POLICY.md",
+      "./docs/STATIC_GATE_ADOPTION.md",
+      "./docs/CI_CD_QUALITY_GATES.md",
+      "./docs/IOS_TESTING_STRATEGY.md",
+      "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+      "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+      "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md"
+    ],
+    "static-gates": [
+      "./docs/STATIC_QUALITY_GATE_POLICY.md",
+      "./docs/STATIC_GATE_ADOPTION.md",
+      "./docs/CI_CD_QUALITY_GATES.md"
+    ],
+    "ios-deep-references": [
+      "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+      "./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md",
+      "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+      "./docs/IOS_PRODUCTION_SCORECARD.md",
+      "./docs/IOS_AGENT_PROMPT_ROUTER.md"
+    ],
+    "ios-project-work-system": [
+      "./docs/IOS_PROJECT_WORK_SYSTEM.md"
+    ]
+  },
+  "optional_route_documents": {
+    "orientation-project": [],
+    "governance-non-trivial": [],
+    "governance-documentation": [],
+    "governance-documentation-library": [],
+    "governance-task-state": [],
+    "governance-context-transfer": [],
+    "governance-completion": [],
+    "governance-new-project": [],
+    "governance-local-exception": [],
+    "ios-implementation-refactor": [],
+    "ios-universal-quality": [
+      "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+      "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md"
+    ],
+    "ios-review-audit": [],
+    "ios-pr-review": [],
+    "ios-architecture-navigation-state": [
+      "./docs/IOS_ARCHITECTURE_REFERENCE.md"
+    ],
+    "ios-concurrency-runtime": [],
+    "ios-swiftui-performance": [],
+    "ios-memory-cache-media-files": [],
+    "ios-persistence-migration-data-loss": [
+      "./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md"
+    ],
+    "ios-network-api-offline-sync": [],
+    "ios-security-privacy-intake": [
+      "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+      "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
+    ],
+    "ios-accessibility-localization-qa": [
+      "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md"
+    ],
+    "ios-release": [],
+    "ios-observability-incidents-rollout": [],
+    "ios-lifecycle-background": [
+      "./docs/SHARE_EXTENSION_VALIDATION.md"
+    ],
+    "ios-error-handling": [],
+    "ios-storekit-payments": [
+      "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
+    ],
+    "ios-knowledge-governance": [],
+    "ios-swift-language-runtime": [],
+    "ios-ui-adaptive": [],
+    "ios-identity-authentication": [],
+    "ios-testing-debugging": [],
+    "ios-build-binary-supply-chain": [],
+    "ios-platform-capabilities-extended": [],
+    "ios-media-sensors-device": [],
+    "ios-app-store-compliance": [],
+    "ios-figma-design": [],
+    "ios-ai-app-intents": [
+      "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md"
+    ],
+    "ios-code-documentation": [],
+    "ios-reusable-packages": [
+      "./docs/PACKAGE_USAGE_SOURCE_ONLY.md",
+      "./docs/PACKAGE_DOC_MIRROR_CONTRACT.md"
+    ],
+    "ios-new-app-bootstrap": [],
+    "quality-control-governance": [],
+    "static-gates": [],
+    "ios-deep-references": [],
+    "ios-project-work-system": []
+  },
+  "documents": [
+    "./PROJECT_DOCUMENTATION.md",
+    "./PROJECT_HEALTH.md",
+    "./docs/AGENT_RULES.md",
+    "./docs/AGENT_PREFLIGHT_CHECKLIST.md",
+    "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+    "./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+    "./docs/DOCUMENT_BOUNDARY_STANDARD.md",
+    "./docs/SOURCE_OF_TRUTH_MAP.md",
+    "./docs/DOCS_REPO_OPERATIONS.md",
+    "./docs/README.md",
+    "./docs/DOCUMENT_LIBRARY_GUIDE.md",
+    "./docs/DOCUMENTATION_VAULT_SUMMARY.md",
+    "./docs/TASK_STATE_DOCUMENTATION_STANDARD.md",
+    "./docs/WORK_CONTINUITY.md",
+    "./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md",
+    "./docs/COMPLETION_REPORT_CONTRACT.md",
+    "./docs/NEW_PROJECT_START_CONTRACT.md",
+    "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+    "./docs/STATIC_GATE_ADOPTION.md",
+    "./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md",
+    "./docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+    "./docs/PRODUCTION_QUALITY_GATES.md",
+    "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+    "./docs/CURRENT_USER_OVERRIDES.md",
+    "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+    "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+    "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+    "./docs/QUALITY_RULE_CATALOG.md",
+    "./docs/STATIC_QUALITY_GATE_POLICY.md",
+    "./docs/CI_CD_QUALITY_GATES.md",
+    "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+    "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+    "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+    "./docs/DEFINITION_OF_DONE.md",
+    "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+    "./docs/agent-prompts/production-review-completeness.md",
+    "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+    "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+    "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+    "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+    "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+    "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+    "./docs/IOS_ARCHITECTURE_REFERENCE.md",
+    "./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+    "./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+    "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+    "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+    "./docs/IOS_PERFORMANCE_BUDGETS.md",
+    "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+    "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+    "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+    "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+    "./docs/IOS_DATA_MIGRATION_STANDARD.md",
+    "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+    "./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+    "./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md",
+    "./docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+    "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+    "./docs/IOS_OFFLINE_SYNC_STANDARD.md",
+    "./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+    "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+    "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+    "./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
+    "./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md",
+    "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+    "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+    "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+    "./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+    "./docs/QA_TEST_PLAN_STANDARD.md",
+    "./docs/IOS_TESTING_STRATEGY.md",
+    "./docs/COMPATIBILITY_MATRIX.md",
+    "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+    "./docs/IOS_RELEASE_CHECKLIST.md",
+    "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+    "./docs/IOS_OBSERVABILITY_STANDARD.md",
+    "./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md",
+    "./docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+    "./docs/INCIDENT_RESPONSE_STANDARD.md",
+    "./docs/PRODUCT_HEALTH_SLO.md",
+    "./docs/RISK_REGISTER.md",
+    "./docs/TECH_DEBT_REGISTER.md",
+    "./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+    "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+    "./docs/SHARE_EXTENSION_VALIDATION.md",
+    "./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+    "./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+    "./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+    "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+    "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+    "./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+    "./docs/DEPENDENCY_POLICY.md",
+    "./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+    "./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+    "./docs/agent-prompts/FIGMA_TASK_ROUTER.md",
+    "./docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+    "./docs/DESIGN_SYSTEM_GOVERNANCE.md",
+    "./docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+    "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+    "./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+    "./docs/PACKAGES_AND_MANAGERS.md",
+    "./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md",
+    "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+    "./docs/PACKAGE_USAGE_SOURCE_ONLY.md",
+    "./docs/PACKAGE_DOC_MIRROR_CONTRACT.md",
+    "./docs/DEVELOPER_EXPERIENCE_STANDARD.md",
+    "./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+    "./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md",
+    "./docs/IOS_PRODUCTION_SCORECARD.md",
+    "./docs/IOS_AGENT_PROMPT_ROUTER.md",
+    "./docs/IOS_PROJECT_WORK_SYSTEM.md"
+  ],
+  "required_documents": [
+    "./PROJECT_DOCUMENTATION.md",
+    "./PROJECT_HEALTH.md",
+    "./docs/AGENT_RULES.md",
+    "./docs/AGENT_PREFLIGHT_CHECKLIST.md",
+    "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+    "./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+    "./docs/DOCUMENT_BOUNDARY_STANDARD.md",
+    "./docs/SOURCE_OF_TRUTH_MAP.md",
+    "./docs/DOCS_REPO_OPERATIONS.md",
+    "./docs/README.md",
+    "./docs/DOCUMENT_LIBRARY_GUIDE.md",
+    "./docs/DOCUMENTATION_VAULT_SUMMARY.md",
+    "./docs/TASK_STATE_DOCUMENTATION_STANDARD.md",
+    "./docs/WORK_CONTINUITY.md",
+    "./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md",
+    "./docs/COMPLETION_REPORT_CONTRACT.md",
+    "./docs/NEW_PROJECT_START_CONTRACT.md",
+    "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+    "./docs/STATIC_GATE_ADOPTION.md",
+    "./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md",
+    "./docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+    "./docs/PRODUCTION_QUALITY_GATES.md",
+    "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+    "./docs/CURRENT_USER_OVERRIDES.md",
+    "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+    "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+    "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+    "./docs/QUALITY_RULE_CATALOG.md",
+    "./docs/STATIC_QUALITY_GATE_POLICY.md",
+    "./docs/CI_CD_QUALITY_GATES.md",
+    "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+    "./docs/DEFINITION_OF_DONE.md",
+    "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+    "./docs/agent-prompts/production-review-completeness.md",
+    "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+    "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+    "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+    "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+    "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+    "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+    "./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+    "./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+    "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+    "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+    "./docs/IOS_PERFORMANCE_BUDGETS.md",
+    "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+    "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+    "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+    "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+    "./docs/IOS_DATA_MIGRATION_STANDARD.md",
+    "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+    "./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+    "./docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+    "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+    "./docs/IOS_OFFLINE_SYNC_STANDARD.md",
+    "./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+    "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+    "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+    "./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
+    "./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md",
+    "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+    "./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+    "./docs/QA_TEST_PLAN_STANDARD.md",
+    "./docs/IOS_TESTING_STRATEGY.md",
+    "./docs/COMPATIBILITY_MATRIX.md",
+    "./docs/IOS_RELEASE_CHECKLIST.md",
+    "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+    "./docs/IOS_OBSERVABILITY_STANDARD.md",
+    "./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md",
+    "./docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+    "./docs/INCIDENT_RESPONSE_STANDARD.md",
+    "./docs/PRODUCT_HEALTH_SLO.md",
+    "./docs/RISK_REGISTER.md",
+    "./docs/TECH_DEBT_REGISTER.md",
+    "./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+    "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+    "./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+    "./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+    "./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+    "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+    "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+    "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+    "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+    "./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+    "./docs/DEPENDENCY_POLICY.md",
+    "./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+    "./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+    "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+    "./docs/agent-prompts/FIGMA_TASK_ROUTER.md",
+    "./docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+    "./docs/DESIGN_SYSTEM_GOVERNANCE.md",
+    "./docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+    "./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+    "./docs/PACKAGES_AND_MANAGERS.md",
+    "./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md",
+    "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+    "./docs/DEVELOPER_EXPERIENCE_STANDARD.md",
+    "./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+    "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+    "./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md",
+    "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+    "./docs/IOS_PRODUCTION_SCORECARD.md",
+    "./docs/IOS_AGENT_PROMPT_ROUTER.md",
+    "./docs/IOS_PROJECT_WORK_SYSTEM.md"
+  ],
+  "optional_candidates": [
+    "./docs/IOS_ARCHITECTURE_REFERENCE.md",
+    "./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md",
+    "./docs/SHARE_EXTENSION_VALIDATION.md",
+    "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+    "./docs/PACKAGE_USAGE_SOURCE_ONLY.md",
+    "./docs/PACKAGE_DOC_MIRROR_CONTRACT.md"
+  ],
+  "combined_documents": [
+    "./docs/CURRENT_USER_OVERRIDES.md",
+    "./docs/MODEL_ROUTING_RULE.md",
+    "./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+    "./.zenflow/tasks/kb-unification-2026-10-09/handoff.md",
+    "./.zenflow/tasks/kb-unification-2026-10-09/plan.md",
+    "./PROJECT_DOCUMENTATION.md",
+    "./PROJECT_HEALTH.md",
+    "./docs/AGENT_RULES.md",
+    "./docs/AGENT_PREFLIGHT_CHECKLIST.md",
+    "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+    "./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+    "./docs/DOCUMENT_BOUNDARY_STANDARD.md",
+    "./docs/SOURCE_OF_TRUTH_MAP.md",
+    "./docs/DOCS_REPO_OPERATIONS.md",
+    "./docs/README.md",
+    "./docs/DOCUMENT_LIBRARY_GUIDE.md",
+    "./docs/DOCUMENTATION_VAULT_SUMMARY.md",
+    "./docs/TASK_STATE_DOCUMENTATION_STANDARD.md",
+    "./docs/WORK_CONTINUITY.md",
+    "./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md",
+    "./docs/COMPLETION_REPORT_CONTRACT.md",
+    "./docs/NEW_PROJECT_START_CONTRACT.md",
+    "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+    "./docs/STATIC_GATE_ADOPTION.md",
+    "./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md",
+    "./docs/PRODUCT_REQUIREMENTS_STANDARD.md",
+    "./docs/PRODUCTION_QUALITY_GATES.md",
+    "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+    "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+    "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+    "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+    "./docs/QUALITY_RULE_CATALOG.md",
+    "./docs/STATIC_QUALITY_GATE_POLICY.md",
+    "./docs/CI_CD_QUALITY_GATES.md",
+    "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+    "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+    "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+    "./docs/DEFINITION_OF_DONE.md",
+    "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+    "./docs/agent-prompts/production-review-completeness.md",
+    "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+    "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+    "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+    "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+    "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+    "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+    "./docs/IOS_ARCHITECTURE_REFERENCE.md",
+    "./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+    "./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+    "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+    "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+    "./docs/IOS_PERFORMANCE_BUDGETS.md",
+    "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+    "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+    "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+    "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+    "./docs/IOS_DATA_MIGRATION_STANDARD.md",
+    "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+    "./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+    "./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md",
+    "./docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+    "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+    "./docs/IOS_OFFLINE_SYNC_STANDARD.md",
+    "./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+    "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+    "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+    "./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
+    "./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md",
+    "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+    "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+    "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+    "./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+    "./docs/QA_TEST_PLAN_STANDARD.md",
+    "./docs/IOS_TESTING_STRATEGY.md",
+    "./docs/COMPATIBILITY_MATRIX.md",
+    "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+    "./docs/IOS_RELEASE_CHECKLIST.md",
+    "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+    "./docs/IOS_OBSERVABILITY_STANDARD.md",
+    "./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md",
+    "./docs/FEATURE_FLAGS_AND_ROLLOUTS.md",
+    "./docs/INCIDENT_RESPONSE_STANDARD.md",
+    "./docs/PRODUCT_HEALTH_SLO.md",
+    "./docs/RISK_REGISTER.md",
+    "./docs/TECH_DEBT_REGISTER.md",
+    "./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+    "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+    "./docs/SHARE_EXTENSION_VALIDATION.md",
+    "./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+    "./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+    "./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+    "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+    "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+    "./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+    "./docs/DEPENDENCY_POLICY.md",
+    "./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+    "./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+    "./docs/agent-prompts/FIGMA_TASK_ROUTER.md",
+    "./docs/UI_PIXEL_PERFECT_WORKFLOW.md",
+    "./docs/DESIGN_SYSTEM_GOVERNANCE.md",
+    "./docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+    "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+    "./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md",
+    "./docs/PACKAGES_AND_MANAGERS.md",
+    "./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md",
+    "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+    "./docs/PACKAGE_USAGE_SOURCE_ONLY.md",
+    "./docs/PACKAGE_DOC_MIRROR_CONTRACT.md",
+    "./docs/DEVELOPER_EXPERIENCE_STANDARD.md",
+    "./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+    "./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md",
+    "./docs/IOS_PRODUCTION_SCORECARD.md",
+    "./docs/IOS_AGENT_PROMPT_ROUTER.md",
+    "./docs/IOS_PROJECT_WORK_SYSTEM.md"
+  ],
+  "trigger_patterns": [
+    "./PackagesInUse/**/README.md",
+    "./scripts/check_*.py",
+    "./scripts/run_static_quality_gates.sh",
+    "./docs/architecture-cases/**",
+    "./PackagesForReuse/**",
+    "./docs/templates/IOS_PROJECT_MEMORY.template.md"
+  ],
+  "duplicates_removed": [
+    "./docs/README.md",
+    "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+    "./docs/PRODUCTION_QUALITY_GATES.md",
+    "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+    "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+    "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+    "./docs/CURRENT_USER_OVERRIDES.md",
+    "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+    "./docs/AGENT_RULES.md",
+    "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+    "./docs/DEFINITION_OF_DONE.md",
+    "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+    "./docs/agent-prompts/production-review-completeness.md",
+    "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+    "./docs/CI_CD_QUALITY_GATES.md",
+    "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+    "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+    "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+    "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+    "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+    "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+    "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+    "./docs/IOS_TESTING_STRATEGY.md",
+    "./docs/QA_TEST_PLAN_STANDARD.md",
+    "./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+    "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+    "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+    "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+    "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+    "./docs/IOS_RELEASE_CHECKLIST.md",
+    "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+    "./docs/DEPENDENCY_POLICY.md",
+    "./docs/NEW_PROJECT_START_CONTRACT.md",
+    "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+    "./docs/STATIC_GATE_ADOPTION.md",
+    "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+    "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+    "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+    "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+    "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+    "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+    "./docs/QUALITY_RULE_CATALOG.md",
+    "./docs/STATIC_QUALITY_GATE_POLICY.md",
+    "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+    "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+    "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+    "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md"
+  ],
+  "missing": [],
+  "optional_missing": [],
+  "unclassified": [],
+  "unknown_routes": [],
+  "notes": [],
+  "failures": []
+}

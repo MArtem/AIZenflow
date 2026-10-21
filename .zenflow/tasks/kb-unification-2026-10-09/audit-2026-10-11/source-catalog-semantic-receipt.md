@@ -1,0 +1,11 @@
+# Historical source catalog semantic receipt
+
+2026-10-19; GPT-6.1 Sol / medium; эконом. LIB-1060 source-catalog.csv105905bytes fully delivered/read as contiguous exact raw line ranges1–150,151–350,351–550,551–750,751–950,951–1150,1151–1268. All four fields of all1267 records inspected; complete sole-unit map read. No source-body reconstruction from metadata and no linked-body READ inheritance.
+
+Catalog lists HARD-0001–1267 (different namespace from current LIB IDs), all type=document, historical meta/domain/playbook/prompt/pattern/gate/template/repository/role/adaptation/orchestration/client-protection/global-runtime/skill/root-doc paths. All IDs sequential, paths unique, titles nonempty, relative paths without traversal confirmed by csv parser. Historical288 deep playbooks/121 P2/25 audit-gates/7 Markdown V5 templates deliberately differ from current full family289/121/26/10: common/added files and JSON forms are not part of this historical document catalog. No inference that counts describe the current ledger1403 or current active KB.
+
+U01 ARCHIVE_ONLY_INFRASTRUCTURE supported as catalog/provenance only, no instructional content or active route. Catalog includes old GLOBAL_CODEX runtime/skill and client-protection names; names do not activate tools, prove installation, confer current authority or certify body semantics. No linked paths opened by validation.
+
+Static catalog assertions passed before a subsequent historical INDEX lookup failed (guessed canonical/legacy-source/INDEX.md is absent); the combined command exited1, not overall PASS. Exact ledger path found as LIB-1089 source-package-docs/INDEX.md. Its body not opened or credited here; exact section-count correspondence in the old unit meaning remains UNVERIFIED until separately inspected. No global catalog corruption claimed. No external freshness/runtime/test/agent/state changes. Actual next unread LIB-1086;1061–1085 were reviewed earlier. Subsequent1061–1062 corroborating reread adds zero coverage.
+
+Resolution2026-10-19: after separate complete LIB-1089 body/map read, all53 INDEX section declarations exactly matched grouped1267 catalog records (including root8), total1267 PASS.1060-U01 metadata-comparison gap resolved in coverage.json; earlier failed path lookup remains historical evidence. No linked-body coverage inferred.

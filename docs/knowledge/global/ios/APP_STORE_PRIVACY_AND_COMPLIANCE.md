@@ -62,6 +62,39 @@ Select current-entitlement and unfinished-transaction reconciliation for the act
 restore/subscription transitions consistent with the approved product/server contract. This review
 does not authorize purchases, StoreKit test sessions, account/network/configuration or release actions.
 
+## Transaction Delivery And Recovery Example
+StoreKit's transaction verification and the app's delivery commit are distinct. Handle
+unverified results explicitly; deliver a verified purchase through the entitlement owner,
+then finish its transaction after delivery. Do not finish first and use a UI flag as a
+substitute for durable delivery. Bound the transaction listener to its actual lifecycle.
+
+For example, termination after delivery but before `finish()` can expose an unfinished
+transaction again. Reconcile using stable transaction/product identity so repeat delivery
+cannot duplicate a consumable credit. Termination before delivery must leave a recoverable
+path. Product-specific current entitlements, unfinished transactions and server records have
+different roles; a current-entitlement scan alone is not a consumable-delivery ledger.
+A permitted StoreKit verification would interrupt both boundaries and check the resulting
+access/credit exactly once; no purchase or test session is executed by this documentation.
+
+Primary theory: [Transaction](https://developer.apple.com/documentation/storekit/transaction).
+
+## Subscription Access-State Example
+Do not treat every payment failure as immediate loss of access, or every billing-retry state
+as an entitlement. Apple's documented grace-period state remains entitled to service. Resolve
+the current verified transaction/subscription status, configured grace behavior and product
+policy through the entitlement owner; expired, revoked, refunded and family-shared changes
+have distinct causes and recovery paths.
+
+For example, renewal payment fails while a subscription is in grace. Preserve the access
+supported by that state and surface only the agreed recovery information. If grace ends or
+access is revoked, reconcile every consumer against the current verified status; a cached
+purchase-success flag cannot keep access forever. Conversely, one revoked transaction must
+not erase another still-valid entitlement. Handle duplicate or delayed notifications and
+account changes without inventing a new billing/UI policy. This trace has not been executed.
+Primary theory: [Subscription renewal states](https://developer.apple.com/documentation/storekit/product/subscriptioninfo/renewalstate),
+[inGracePeriod](https://developer.apple.com/documentation/storekit/product/subscriptioninfo/renewalstate/ingraceperiod),
+and [revoked](https://developer.apple.com/documentation/storekit/product/subscriptioninfo/renewalstate/revoked).
+
 ## Encryption And Export
 Inventory encryption use, including platform networking, custom cryptography, VPN/security features, and third-party SDKs. Answer export-compliance questions from the actual binary and distribution regions. Escalate legal ambiguity to the responsible owner; do not guess exemption status.
 

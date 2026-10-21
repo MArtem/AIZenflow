@@ -1,0 +1,597 @@
+{
+  "date": "2026-10-20",
+  "scope": "All18 active domains accounted; bounded first-party checks, explicit unresolved gaps. Not whole-domain freshness certification.",
+  "status": "PARTIAL_WITH_EXPLICIT_GAPS",
+  "sources": {
+    "releases": {
+      "url": "https://developer.apple.com/news/releases/?id=09142026a",
+      "title": "Apple Developer Releases",
+      "method": "primary page text",
+      "outcome": "BOUNDED_FACTS_VERIFIED",
+      "claims": [
+        "Xcode27 27A266a released2026-09-14; iOS27.0.1 24A446 released2026-09-28.",
+        "Xcode27.1 27A9275 listed2026-10-15;27.2RC listed2026-10-19 is prerelease."
+      ],
+      "limit": "Inherited2026-09-10 date cannot establish later release facts; no project toolchain adoption."
+    },
+    "swift-release": {
+      "url": "https://www.swift.org/blog/swift-6.4-released/",
+      "title": "Swift6.4 released",
+      "method": "primary page text",
+      "outcome": "BOUNDED_FACT_VERIFIED",
+      "claims": [
+        "Publication/release date2026-09-15."
+      ],
+      "limit": "Not compiler/language-mode/API verification for every owner."
+    },
+    "http": {
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "title": "RFC9110 HTTP Semantics",
+      "revision": "June2022, section9.2.2",
+      "method": "primary full page, targeted clause",
+      "outcome": "BOUNDED_CLAIM_SUPPORTED",
+      "claims": [
+        "Automatic retry of non-idempotent methods requires known idempotent semantics or detection that original request was not applied."
+      ],
+      "limit": "No endpoint-specific retry or realtime/background guarantee."
+    },
+    "state": {
+      "url": "https://developer.apple.com/documentation/swiftui/managing-user-interface-state?changes=__1",
+      "title": "Managing user interface state",
+      "method": "official indexed text fallback; direct State page JavaScript shell and Markdown link failed",
+      "outcome": "INDEXED_PRIMARY_SUPPORT_ONLY",
+      "claims": [
+        "Place shared state in the least common ancestor for a single source of truth."
+      ],
+      "limit": "Indexed copy not guaranteed live revision; no full-page or domain verification."
+    },
+    "migration": {
+      "url": "https://developer.apple.com/documentation/SwiftData/SchemaMigrationPlan",
+      "title": "SchemaMigrationPlan",
+      "method": "official indexed text fallback; direct body/Markdown unavailable",
+      "outcome": "INDEXED_PRIMARY_SUPPORT_ONLY",
+      "claims": [
+        "Plan declares migration stages."
+      ],
+      "limit": "No model history, migration correctness or full current API validation."
+    },
+    "commerce": {
+      "url": "https://developer.apple.com/documentation/storekit/transaction?changes=_9",
+      "title": "Transaction",
+      "method": "official indexed text fallback",
+      "outcome": "INDEXED_PRIMARY_SUPPORT_ONLY",
+      "claims": [
+        "Finish after purchased content/service delivery; unverified result is distinct from verified."
+      ],
+      "limit": "Full live body/Markdown unavailable; regional commerce rules not checked."
+    },
+    "ai": {
+      "url": "https://developer.apple.com/documentation/foundationmodels/systemlanguagemodel/availability-swift.property?language=_11",
+      "title": "SystemLanguageModel availability",
+      "method": "official indexed text fallback",
+      "outcome": "INDEXED_PRIMARY_SUPPORT_ONLY",
+      "claims": [
+        "Specific system model exposes availability status."
+      ],
+      "limit": "No universal deployment availability or whole AI master review."
+    },
+    "identity": {
+      "url": "https://developer.apple.com/documentation/authenticationservices/supporting-passkeys",
+      "title": "Supporting passkeys",
+      "method": "official indexed article text",
+      "outcome": "INDEXED_PRIMARY_SUPPORT_ONLY",
+      "claims": [
+        "Passkey registration/assertion requires associated webcredentials domain; authenticator retains private key, server gets public key."
+      ],
+      "limit": "No current app entitlement/backend/session acceptance."
+    },
+    "parallel": {
+      "url": "https://developer.apple.com/documentation/Testing/Parallelization?changes=_4&language=objc",
+      "title": "Running tests serially or in parallel",
+      "method": "official indexed article text",
+      "outcome": "INDEXED_PRIMARY_SUPPORT_ONLY",
+      "claims": [
+        "Swift Testing runs tests in parallel by default; serialized traits control relevant suites/functions."
+      ],
+      "limit": "No tests run; not XCTest blanket behavior or deployment verification."
+    },
+    "audio": {
+      "url": "https://developer.apple.com/documentation/avfaudio/handling-audio-interruptions?changes=latest_ma_5&language=objc",
+      "title": "Handling audio interruptions",
+      "method": "official indexed article text",
+      "outcome": "INDEXED_PRIMARY_SUPPORT_ONLY",
+      "claims": [
+        "Observe interruption notifications and update playback/UI state appropriately."
+      ],
+      "limit": "No actual hardware/audio session/runtime verification."
+    },
+    "privacy": {
+      "url": "https://developer.apple.com/documentation/bundleresources/adding-a-privacy-manifest-to-your-app-or-third-party-sdk",
+      "title": "Adding a privacy manifest",
+      "method": "direct primary page and advertised Markdown link attempted",
+      "outcome": "CONTENT_UNAVAILABLE",
+      "claims": [],
+      "limit": "Only JS shell obtained; Markdown InternalError. No semantic verification."
+    },
+    "performance": {
+      "url": "https://developer.apple.com/documentation/xcode/understanding-and-improving-swiftui-performance",
+      "title": "Understanding and improving SwiftUI performance",
+      "method": "direct primary page and advertised Markdown attempted",
+      "outcome": "CONTENT_UNAVAILABLE",
+      "claims": [],
+      "limit": "JS shell / Markdown InternalError; no measurement or current guidance certification."
+    },
+    "background": {
+      "url": "https://developer.apple.com/documentation/backgroundtasks",
+      "title": "Background Tasks",
+      "method": "direct primary page attempted",
+      "outcome": "CONTENT_UNAVAILABLE",
+      "claims": [],
+      "limit": "JS shell; search did not supply suitable current scheduling claim. No execution-duration promise."
+    },
+    "accessibility": {
+      "url": "https://developer.apple.com/documentation/accessibility",
+      "title": "Accessibility",
+      "method": "direct primary page attempted",
+      "outcome": "CONTENT_UNAVAILABLE",
+      "claims": [],
+      "limit": "JS shell; implementation obligations remain, iPad/physical/actual VoiceOver OMITTED_BY_USER."
+    },
+    "review": {
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "title": "App Review Guidelines",
+      "method": "primary page targeted completeness/reviewer-access clauses",
+      "outcome": "BOUNDED_CLAIMS_SUPPORTED",
+      "claims": [
+        "Submission completeness, accurate metadata and reviewer access remain required."
+      ],
+      "limit": "Not a full current regional/privacy/payment policy review."
+    }
+  },
+  "domains": [
+    {
+      "domain": "universal-ios-engineering-quality",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+          "sha256": "aa26bde4fcc3cf4cd0ce4db0c9d90a2c931c890c06428db3eb60af3549e43160"
+        },
+        {
+          "path": "./docs/PRODUCTION_QUALITY_GATES.md",
+          "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf"
+        },
+        {
+          "path": "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+          "sha256": "9a94a32224f26ef5f0c1b4cdeb54e8e7b1664fe63358cf851435e5d0f7cb6d63"
+        },
+        {
+          "path": "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+          "sha256": "07fa5b6a52feaf3583bf5bfbb18f5ad6d0ff62888f7864c12ef84f89e6b29278"
+        }
+      ],
+      "source_checks": [
+        "releases",
+        "review"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "swift-language-runtime-api-design",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+          "sha256": "41c9a82a63a4e9873d0bbcb9b559c4e9aa1e1c26075f5e8114b53960a79eb20d"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "sha256": "80b6faff074d93b0bee400f4f76fcf68e1ae0aed4404c82eb17b553f60db2dd2"
+        }
+      ],
+      "source_checks": [
+        "swift-release"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "swift-concurrency",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+          "sha256": "bec4fd4c40f869480419430db5f02e96cec50650ea014cc981e16394daaf2776"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "sha256": "08d9592783727214de4ab3ec09cb7ba6b670cba449414882976b1bf3b426280f"
+        }
+      ],
+      "source_checks": [
+        "swift-release"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "swiftui-uikit-adaptive-ui",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+          "sha256": "459b4fc80d317e4e234459ada0f8f89209528f39ea6d4e7a2780554489c16501"
+        },
+        {
+          "path": "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+          "sha256": "bfe2e15bfb35cc2eaa088243f18a4ecdd796455287a2f87ac7e68c18f248f543"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "sha256": "6d009277a219b1a426afb81adf4d0ee3748b2b2d4875176dfa35134ba7422d1c"
+        }
+      ],
+      "source_checks": [
+        "state"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "ai-ml-intelligence-and-app-intents",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "sha256": "c1e9b0f6ffb7d81c4ca5e925899303be3af48b81bb140e70f779d6852799c1bb"
+        }
+      ],
+      "source_checks": [
+        "ai"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "architecture-modularization-state",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "sha256": "e6ae403415042648c29c62ffc4c06ac2a6e3d656a8dfc77dcdb8d314f9ce7c1f"
+        },
+        {
+          "path": "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "sha256": "88f91b99a95c259bc50c2a3385d4dd94b3fb86c92a8fc65259693e9c2d846b6c"
+        },
+        {
+          "path": "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+          "sha256": "c51bfe928564c9454f3027eefb457b84bd1cc891131549a81ae9aed0ea713d36"
+        }
+      ],
+      "source_checks": [
+        "state"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "networking-api-web-realtime",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "sha256": "790abe077f9a19fdf7195a5718a6f149107377948f9f15069e3d874c8f21f88c"
+        },
+        {
+          "path": "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+          "sha256": "d9b73b445a996ee1f63b476607eb560d5dd5ce03af4f72d246287bc5940add64"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "sha256": "651445b2a213c4d38f1141c0912e8f3788f608c047efb3e209b5f1328286b5ce"
+        }
+      ],
+      "source_checks": [
+        "http"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "identity-authentication-authorization",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "sha256": "5cffb290f16b1a6392e20b41374a9ce12a69752c4a7f90e6b9687d2b41b9b5f2"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "sha256": "91ba254e0e0815fdd338d1c1c6fde4730410a972bf8df0efe410dcc34ed75e44"
+        }
+      ],
+      "source_checks": [
+        "identity"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "security-privacy-cryptography",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+          "sha256": "9d892f8f5e7c7e239da35dd11476d757513cdc70650d261cbdbb7a2a52a65d2e"
+        },
+        {
+          "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "sha256": "5cffb290f16b1a6392e20b41374a9ce12a69752c4a7f90e6b9687d2b41b9b5f2"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "sha256": "91ba254e0e0815fdd338d1c1c6fde4730410a972bf8df0efe410dcc34ed75e44"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "sha256": "af5c58363bf7d311a8a480c2e0f1c1c9dd4358a9565732fe26c1759f2464eace"
+        }
+      ],
+      "source_checks": [
+        "privacy",
+        "identity"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "persistence-migration-sync-cloudkit",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/IOS_DATA_MIGRATION_STANDARD.md",
+          "sha256": "a6209270d5b765e1fb330deb136923578150e3f13f6e799d03292417e317431e"
+        },
+        {
+          "path": "./docs/IOS_OFFLINE_SYNC_STANDARD.md",
+          "sha256": "39023795afcc5f8c91f516ecdbe20645987159cf8feb9ef70bd65b50dec6b886"
+        },
+        {
+          "path": "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+          "sha256": "78f8ac22f81bc93c9cb48cf7e91d9eb6be02e3c0189a9e2e64521e772dd56bd1"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "sha256": "a57e4cf8d0da86be2e0dabb687b95722cd624fc9521fa11c6bf83522a65e3899"
+        }
+      ],
+      "source_checks": [
+        "migration"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "testing-debugging-diagnostics",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/IOS_TESTING_STRATEGY.md",
+          "sha256": "1facd29f338ea801843931beef4a47079f9c58be734a3a99c78aa7451ee1bc26"
+        },
+        {
+          "path": "./docs/QA_TEST_PLAN_STANDARD.md",
+          "sha256": "cfef50a1720f1b15e5135d6affa4e9fa038506f716cff41db01199b0999b95ff"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "sha256": "c4b90e4e062d24870445cf81fa4c76ecf1d7048ecd45392d62afccf9da871913"
+        }
+      ],
+      "source_checks": [
+        "parallel"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "build-binary-dependencies-supply-chain",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/DEPENDENCY_POLICY.md",
+          "sha256": "a00a015c3a18e935dfe42a87fc6d1c845410ba7ed5107cf9de3e56445e6b78cd"
+        },
+        {
+          "path": "./docs/CI_CD_QUALITY_GATES.md",
+          "sha256": "14509085c7603a3e7aa1f1b55e49699399425eeca03c9f344daeb4d6c654f52c"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "sha256": "1130021800e73b90cabc0c8fa5e5da992dba04387519a41a8b7107e5d37f83de"
+        }
+      ],
+      "source_checks": [
+        "releases",
+        "swift-release"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "platform-capabilities-extensions",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+          "sha256": "f351224f8b745bc9c086ae8c69ef88774be1a05c3328b16f5dfd28fbc5299e0a"
+        },
+        {
+          "path": "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+          "sha256": "59b2e78407b828272a667a3a2cb20f13c230b30087aaf8222b6d9a76b2b4707a"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "sha256": "7c77a521159921efd750d1dbe19753b44624999eb9f84a9b9acda92de8b82445"
+        }
+      ],
+      "source_checks": [
+        "background"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "media-sensors-device-integrations",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+          "sha256": "30fa56cc1369a3485a57ef06ca22e558f4129a9fed20adc4958a738a18757265"
+        },
+        {
+          "path": "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+          "sha256": "03f7e1b45267dc9b1f42c3a8c16be9f1ef8b69db02dcfae4ea04d8e7117cd89b"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "sha256": "c163242ff329ab5d75c7dd41b711f5418c65ab46e4e862cb648d1bcf82ada3ad"
+        }
+      ],
+      "source_checks": [
+        "audio"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "performance-observability-operations",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/IOS_PERFORMANCE_BUDGETS.md",
+          "sha256": "4dddce4f4468d70fe315f2880d9566c29b047c0de41e963372156592d208227c"
+        },
+        {
+          "path": "./docs/IOS_OBSERVABILITY_STANDARD.md",
+          "sha256": "ba7e10833453b374d71f05960ca77eedf278eb472073e000437c9aab14a5abdd"
+        },
+        {
+          "path": "./docs/INCIDENT_RESPONSE_STANDARD.md",
+          "sha256": "a054dc9796c7a4ba27cf2f1e44f46626809d6faf986cac2237d5d13c37909bb8"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "sha256": "846479c12945db8795443af65a916fc29a67f98a5d565c290eca63e9cdaf655f"
+        }
+      ],
+      "source_checks": [
+        "performance"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "app-store-release-compliance",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/IOS_RELEASE_CHECKLIST.md",
+          "sha256": "a537cd9bfb16cb8fda22a8f59f72199503eede0ddec39f8a5b41833393f796c5"
+        },
+        {
+          "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "sha256": "5cffb290f16b1a6392e20b41374a9ce12a69752c4a7f90e6b9687d2b41b9b5f2"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "sha256": "af5c58363bf7d311a8a480c2e0f1c1c9dd4358a9565732fe26c1759f2464eace"
+        }
+      ],
+      "source_checks": [
+        "releases",
+        "review"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "storekit-and-commerce",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+          "sha256": "9def1a145bf6932f62b7d17902978d17c8e98ddc7655dccdaf8ba29a55b703e4"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "sha256": "af5c58363bf7d311a8a480c2e0f1c1c9dd4358a9565732fe26c1759f2464eace"
+        }
+      ],
+      "source_checks": [
+        "commerce"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    },
+    {
+      "domain": "accessibility-localization-inclusive-ux",
+      "maturity": "operational",
+      "owner_fingerprints": [
+        {
+          "path": "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+          "sha256": "bfe2e15bfb35cc2eaa088243f18a4ecdd796455287a2f87ac7e68c18f248f543"
+        },
+        {
+          "path": "./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "sha256": "8da6dc3e9792e6fa0a7027721f3ef9f88a98bafdc6fe21fe82cbff5bf26f67da"
+        }
+      ],
+      "source_checks": [
+        "accessibility"
+      ],
+      "freshness_status": "UNKNOWN",
+      "coverage_status": "NOT_COMPLETE",
+      "remaining_gap": "Bounded claims or failed source retrieval do not verify every API/version-sensitive rule or full domain coverage unit. No owner-approved gap acceptance supplied.",
+      "decision": "Retain operational maturity; no complete/freshness promotion."
+    }
+  ],
+  "publication_effect": "No source dates or toolchains silently adopted; inherited review date remains unverified.",
+  "excluded_verification": "iPad/physical/actual VoiceOver OMITTED_BY_USER"
+}

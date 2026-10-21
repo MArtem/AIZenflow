@@ -187,14 +187,23 @@ presentation or plausible domain convention does not establish a product defect 
 current behavior contract. Report the observed asymmetry and missing product decision.
 
 ## Severity Policy
-- **P0 Blocker**: crash, data loss/corruption, broken core flow, severe jank/main-thread stalls in primary UI, security/privacy leak.
-- **P1 Production Risk**: likely performance degradation, incorrect state ownership, broad invalidation, bad persistence/network/sync shape, memory growth, brittle migration.
-- **P2 Maintainability Risk**: duplicated concepts, naming confusion, unnecessary abstraction, unclear ownership, hard-to-test structure, hidden coupling.
-- **P3 Polish/Consistency**: wording, visual polish, documentation, naming consistency, or cleanup that does not threaten correctness/runtime quality.
 
-Use the shared Quality Control governance contract for confidence, applicability, evidence status,
-decision, and readiness level. A `READY_WITH_ACCEPTED_RISK` result is not normal `PASS`; unresolved
-P0–P2 findings require closure or an explicit higher-authority accepted-risk record.
+Do not turn purely subjective style preferences into findings unless the repository explicitly gates
+that convention or the user requested that cleanup. Report an objective P3 contract/consistency
+defect when evidenced, and distinguish an optional cleanup suggestion from a production defect. This
+eligibility rule does not change the canonical severity matrix or hide a demonstrated P0-P2 impact.
+
+Use `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md` / Severity as the single severity definition,
+and `./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md` for confidence, applicability,
+evidence status, decisions and readiness. Do not derive a blocking severity from a style label alone.
+
+For an eligible finding or requested cleanup under the rule above, an inconsistent internal name
+with no demonstrated correctness or consumer impact is P3 cleanup/consistency. A misleading name that causes a concrete wrong consumer or violates the
+current ownership/behavior contract is assessed by that demonstrated impact under the audit matrix;
+it is not automatically cosmetic. Report missing impact evidence separately from severity.
+
+A `READY_WITH_ACCEPTED_RISK` result is not normal `PASS`; unresolved P0–P2 findings require closure
+or an explicit higher-authority accepted-risk record. No severity rule grants execution permission.
 
 ## Required Audit/Review Output
 For each finding include:

@@ -80,6 +80,14 @@ Before completion:
 Level 0 is reserved for authority, routing, current task state, and rules required for every task. A useful document does not belong in Level 0 merely because it is important. Measure route cost before and after routing changes and prefer task-specific Level 1/2 routes.
 
 ## Change And Migration Rules
+
+When merging or condensing sources, semantic similarity is not evidence that all distinct
+conditions, exceptions, permission boundaries or practical constraints are redundant. Preserve each
+useful distinct clause in a named owner or record its explicit disposition and reason. A shared
+owner may cover multiple sources, but an omitted or unverified clause cannot be credited as reviewed
+active coverage. This is a preservation rule, not a mandatory second read pass or a reason to load
+every source during normal tasks.
+
 For a material update, identify affected consumers, links, templates, validators, examples, and active task state. Preserve compatibility or document the migration when identifiers, paths, schemas, precedence, or required behavior change.
 
 For a split or merge:

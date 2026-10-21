@@ -78,6 +78,13 @@ services. Report missing user-owned evidence as residual risk.
 
 ## 2. Implementation From Invariants
 
+A repository intake/review defines its actual read universe and input/time budget. A nested Git
+repository is a separate source boundary, excluded from the parent read/scan claim unless current
+scope explicitly includes it. Do not follow symlinks or expand into nested sources to fill a
+coverage count. Unreadable, excluded, over-budget or interrupted inputs remain explicit incomplete
+coverage, never inspected-by-assumption.
+
+
 - Enforce each relevant invariant at the narrowest authoritative boundary.
 - Make invalid or untrusted states fail closed; comments and caller discipline are not enforcement.
 - Keep one self-contained patch and avoid unrelated cleanup.
@@ -133,6 +140,16 @@ evidence is not proof of crash/power-loss atomicity. These requirements grant no
 publication, rollback or cleanup action and do not require a transaction for ordinary scoped edits.
 
 ## 3. Verification Ladder
+
+For currently authorized agent/tool work, inspect the actually exposed tool schema before choosing
+arguments or capabilities. Do not assume optional subagent controls, unsupported CLI fields or a
+model option exist because an old example used them. Missing capability remains unavailable; this
+grants no agent, host, model or tool activation. For migration safety, separate
+design/implementation from independent safety certification: the designer may self-review but must
+not also claim the independent certifier role. When independent review is unavailable or
+unauthorized, report the uncertified boundary instead of creating a new delegation requirement or
+claiming equivalent independence.
+
 
 Use the smallest sufficient ladder and stop when its evidence is current.
 

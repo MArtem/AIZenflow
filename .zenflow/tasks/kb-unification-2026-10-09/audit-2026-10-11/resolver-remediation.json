@@ -1,0 +1,110 @@
+{
+  "root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next",
+  "task_id": "kb-unification-2026-10-09",
+  "selected_routes": [
+    "ios-review-audit"
+  ],
+  "level0_documents": [
+    "./docs/CURRENT_USER_OVERRIDES.md",
+    "./docs/MODEL_ROUTING_RULE.md",
+    "./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+    "./.zenflow/tasks/kb-unification-2026-10-09/handoff.md",
+    "./.zenflow/tasks/kb-unification-2026-10-09/plan.md"
+  ],
+  "route_documents": {
+    "ios-review-audit": [
+      "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "./docs/DEFINITION_OF_DONE.md",
+      "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "./docs/README.md",
+      "./docs/CURRENT_USER_OVERRIDES.md",
+      "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "./docs/PRODUCTION_QUALITY_GATES.md",
+      "./docs/agent-prompts/production-review-completeness.md",
+      "./docs/AGENT_RULES.md"
+    ]
+  },
+  "document_selection": "upper_bound_including_optional_candidates",
+  "required_route_documents": {
+    "ios-review-audit": [
+      "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "./docs/DEFINITION_OF_DONE.md",
+      "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "./docs/README.md",
+      "./docs/CURRENT_USER_OVERRIDES.md",
+      "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "./docs/PRODUCTION_QUALITY_GATES.md",
+      "./docs/agent-prompts/production-review-completeness.md",
+      "./docs/AGENT_RULES.md"
+    ]
+  },
+  "optional_route_documents": {
+    "ios-review-audit": []
+  },
+  "documents": [
+    "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+    "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+    "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+    "./docs/DEFINITION_OF_DONE.md",
+    "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+    "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+    "./docs/README.md",
+    "./docs/CURRENT_USER_OVERRIDES.md",
+    "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+    "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+    "./docs/PRODUCTION_QUALITY_GATES.md",
+    "./docs/agent-prompts/production-review-completeness.md",
+    "./docs/AGENT_RULES.md"
+  ],
+  "required_documents": [
+    "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+    "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+    "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+    "./docs/DEFINITION_OF_DONE.md",
+    "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+    "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+    "./docs/README.md",
+    "./docs/CURRENT_USER_OVERRIDES.md",
+    "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+    "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+    "./docs/PRODUCTION_QUALITY_GATES.md",
+    "./docs/agent-prompts/production-review-completeness.md",
+    "./docs/AGENT_RULES.md"
+  ],
+  "optional_candidates": [],
+  "combined_documents": [
+    "./docs/CURRENT_USER_OVERRIDES.md",
+    "./docs/MODEL_ROUTING_RULE.md",
+    "./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+    "./.zenflow/tasks/kb-unification-2026-10-09/handoff.md",
+    "./.zenflow/tasks/kb-unification-2026-10-09/plan.md",
+    "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+    "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+    "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+    "./docs/DEFINITION_OF_DONE.md",
+    "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+    "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+    "./docs/README.md",
+    "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+    "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+    "./docs/PRODUCTION_QUALITY_GATES.md",
+    "./docs/agent-prompts/production-review-completeness.md",
+    "./docs/AGENT_RULES.md"
+  ],
+  "trigger_patterns": [],
+  "duplicates_removed": [],
+  "missing": [],
+  "optional_missing": [],
+  "unclassified": [],
+  "unknown_routes": [],
+  "notes": [],
+  "failures": []
+}

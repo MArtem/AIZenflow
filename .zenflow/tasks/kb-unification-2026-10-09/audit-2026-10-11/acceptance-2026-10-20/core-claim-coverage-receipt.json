@@ -1,0 +1,2817 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-21",
+  "status": "MANDATORY_CORE_COVERAGE_VERIFIED_PROMOTION_PENDING_FINAL_REVIEW",
+  "scope": "Existing declared mandatory documentation core of18domains. Complete means the policy coverage unit, not allAPI freshness/app readiness;4deferred platforms unchanged. Independent eligibility decision in independent-review-maturity-eligible.json; promotion candidate awaits consolidated final review.",
+  "source_evidence": {
+    "swiftdata": {
+      "id": "swiftdata",
+      "url": "https://developer.apple.com/tutorials/data/documentation/swiftdata/schemamigrationplan.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "97aeae437a728b0aeacb9b5d26b83dc5f51890d4da0330be15eeb63fb6767959",
+      "bytes": 14638,
+      "title": "SchemaMigrationPlan",
+      "platforms": [
+        {
+          "introducedAt": "17.0",
+          "name": "iOS"
+        },
+        {
+          "introducedAt": "17.0",
+          "name": "iPadOS"
+        },
+        {
+          "introducedAt": "17.0",
+          "name": "Mac Catalyst"
+        },
+        {
+          "introducedAt": "14.0",
+          "name": "macOS"
+        },
+        {
+          "introducedAt": "17.0",
+          "name": "tvOS"
+        },
+        {
+          "introducedAt": "1.0",
+          "name": "visionOS"
+        },
+        {
+          "introducedAt": "10.0",
+          "name": "watchOS"
+        },
+        {
+          "introducedAt": "5.9",
+          "name": "Swift"
+        }
+      ],
+      "etag": "\"392e-65d55e6280e30\"",
+      "last_modified": "Thu, 08 Oct 2026 15:29:35 GMT",
+      "section_anchors": [],
+      "receipt": "primary-fetch-batch-02.json"
+    },
+    "state": {
+      "id": "state",
+      "url": "https://developer.apple.com/tutorials/data/documentation/swiftui/state.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "11d4498717f5d5fbf08f51fff963504eb9809ed4ba3d3c8d56e4dd5c13349c35",
+      "bytes": 38501,
+      "title": "State",
+      "platforms": [
+        {
+          "introducedAt": "13.0",
+          "name": "iOS"
+        },
+        {
+          "introducedAt": "13.0",
+          "name": "iPadOS"
+        },
+        {
+          "introducedAt": "13.0",
+          "name": "Mac Catalyst"
+        },
+        {
+          "introducedAt": "10.15",
+          "name": "macOS"
+        },
+        {
+          "introducedAt": "13.0",
+          "name": "tvOS"
+        },
+        {
+          "introducedAt": "1.0",
+          "name": "visionOS"
+        },
+        {
+          "introducedAt": "6.0",
+          "name": "watchOS"
+        }
+      ],
+      "etag": "\"9665-65d55de1739fa\"",
+      "last_modified": "Thu, 08 Oct 2026 15:27:19 GMT",
+      "section_anchors": [
+        "Overview",
+        "Share state with subviews",
+        "Store observable objects",
+        "Share observable state objects with subviews"
+      ],
+      "receipt": "primary-fetch-batch-02.json"
+    },
+    "state-macro": {
+      "id": "state-macro",
+      "url": "https://developer.apple.com/tutorials/data/documentation/swiftui/state().json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "706711cde32cc72bcc1b1549c9890ca6034cc326bc2569d8246e4645ef5b6653",
+      "bytes": 25304,
+      "title": "State()",
+      "platforms": [
+        {
+          "introducedAt": "13.0",
+          "name": "iOS"
+        },
+        {
+          "introducedAt": "13.0",
+          "name": "iPadOS"
+        },
+        {
+          "introducedAt": "13.0",
+          "name": "Mac Catalyst"
+        },
+        {
+          "introducedAt": "10.15",
+          "name": "macOS"
+        },
+        {
+          "introducedAt": "13.0",
+          "name": "tvOS"
+        },
+        {
+          "introducedAt": "1.0",
+          "name": "visionOS"
+        },
+        {
+          "introducedAt": "6.0",
+          "name": "watchOS"
+        }
+      ],
+      "etag": "\"62d8-65d55df0978e7\"",
+      "last_modified": "Thu, 08 Oct 2026 15:27:35 GMT",
+      "section_anchors": [
+        "Overview",
+        "Share state with subviews",
+        "Store observable objects",
+        "Share observable state objects with subviews"
+      ],
+      "receipt": "primary-fetch-batch-02.json"
+    },
+    "cancellation": {
+      "id": "cancellation",
+      "url": "https://developer.apple.com/tutorials/data/documentation/swift/task/cancel().json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "decfc57a6ae8c2cd36cf66191b61003ae14f4c201ef2c14eac114a9cb5fdec52",
+      "bytes": 16307,
+      "title": "cancel()",
+      "platforms": [
+        {
+          "introducedAt": "13.0",
+          "name": "iOS"
+        },
+        {
+          "introducedAt": "13.0",
+          "name": "iPadOS"
+        },
+        {
+          "introducedAt": "13.0",
+          "name": "Mac Catalyst"
+        },
+        {
+          "introducedAt": "10.15",
+          "name": "macOS"
+        },
+        {
+          "introducedAt": "13.0",
+          "name": "tvOS"
+        },
+        {
+          "introducedAt": "1.0",
+          "name": "visionOS"
+        },
+        {
+          "introducedAt": "6.0",
+          "name": "watchOS"
+        }
+      ],
+      "etag": "\"3fb3-65d560fdd9b8f\"",
+      "last_modified": "Thu, 08 Oct 2026 15:41:15 GMT",
+      "section_anchors": [
+        "Discussion"
+      ],
+      "receipt": "primary-fetch-batch-02.json"
+    },
+    "parallel": {
+      "id": "parallel",
+      "url": "https://developer.apple.com/tutorials/data/documentation/testing/parallelization.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "9527cd0385c7caecdd3a1e98639c9328412cea4b5afc6ee55290318375a7b14a",
+      "bytes": 6600,
+      "title": "Running tests serially or in parallel",
+      "platforms": [],
+      "etag": "\"19c8-65d560adcfa0b\"",
+      "last_modified": "Thu, 08 Oct 2026 15:39:51 GMT",
+      "section_anchors": [
+        "Overview",
+        "Disabling parallelization"
+      ],
+      "receipt": "primary-fetch-batch-02.json"
+    },
+    "performance": {
+      "id": "performance",
+      "url": "https://developer.apple.com/tutorials/data/documentation/xcode/understanding-and-improving-swiftui-performance.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "be2ec55d9c59390cc636719c9a557dc7bb28255b9db57c6b177142cdc153fe74",
+      "bytes": 39403,
+      "title": "Understanding and improving SwiftUI performance",
+      "platforms": [],
+      "etag": "\"99eb-6590231ce451a\"",
+      "last_modified": "Fri, 14 Aug 2026 13:57:00 GMT",
+      "section_anchors": [
+        "Overview",
+        "Understand how your app uses SwiftUI",
+        "Improve long-running view body computations",
+        "Reduce the frequency of view updates",
+        "Remove unnecessary updates",
+        "Adopt efficient SwiftUI design patterns"
+      ],
+      "receipt": "primary-fetch-batch-02.json"
+    },
+    "swift-concurrency-language": {
+      "id": "swift-concurrency-language",
+      "url": "https://raw.githubusercontent.com/swiftlang/swift-book/main/TSPL.docc/LanguageGuide/Concurrency.md",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "a01fcb1120386332272c41321c3e2a05b8d34d781d4abb7083c398bc8ee8853a",
+      "bytes": 56558,
+      "etag": "\"d72f1cdb71a94138c93f719adedd7df94136dd69eb4155c56835fb56a0e21e86\"",
+      "last_modified": null,
+      "receipt": "primary-fetch-batch-03.json"
+    },
+    "swift-arc-language": {
+      "id": "swift-arc-language",
+      "url": "https://raw.githubusercontent.com/swiftlang/swift-book/main/TSPL.docc/LanguageGuide/AutomaticReferenceCounting.md",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "76f2feb11c6fd127c08355102a70201954307556aa4ff327bc6f50f4a5380a1e",
+      "bytes": 47321,
+      "etag": "\"6a04add77676c3d4e54d68e026dfa649d16b9ce4b751a3061a6432ca609844ac\"",
+      "last_modified": null,
+      "receipt": "primary-fetch-batch-03.json"
+    },
+    "swift-api-design": {
+      "id": "swift-api-design",
+      "url": "https://www.swift.org/documentation/api-design-guidelines/",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "f1c6517d1c74ae069acda06ea607d7061afdc63844307b7cd9fab409e898a204",
+      "bytes": 133433,
+      "etag": "\"20939-65e4a2f466f80\"",
+      "last_modified": "Tue, 20 Oct 2026 18:56:14 GMT",
+      "receipt": "primary-fetch-batch-03.json"
+    },
+    "privacy": {
+      "id": "privacy",
+      "url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/adding-a-privacy-manifest-to-your-app-or-third-party-sdk.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "6855eff96ded55d187d1aa1c02c7895e9961b5b80ab95245de8a5bd81ce785fd",
+      "bytes": 34460,
+      "etag": "\"869c-65d55a3ed9342\"",
+      "last_modified": "Thu, 08 Oct 2026 15:11:04 GMT",
+      "title": "Adding a privacy manifest to your app or third-party SDK",
+      "receipt": "primary-fetch-batch-03.json"
+    },
+    "background": {
+      "id": "background",
+      "url": "https://developer.apple.com/tutorials/data/documentation/backgroundtasks/choosing-background-strategies-for-your-app.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "870b454da9340d00d337598c014f6609a2140d27b636b1bd1a6473dc1745f942",
+      "bytes": 33265,
+      "etag": "\"81f1-65902970fdddd\"",
+      "last_modified": "Fri, 14 Aug 2026 14:25:19 GMT",
+      "title": "Choosing Background Strategies for Your App",
+      "receipt": "primary-fetch-batch-03.json"
+    },
+    "transaction": {
+      "id": "transaction",
+      "url": "https://developer.apple.com/tutorials/data/documentation/storekit/transaction.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "73b0210837b5f34bcdfe28ac637ed19ea8c2790a6e728f24497944e616813803",
+      "bytes": 81037,
+      "etag": "\"13c8d-65d55d1db8c7a\"",
+      "last_modified": "Thu, 08 Oct 2026 15:23:54 GMT",
+      "title": "Transaction",
+      "receipt": "primary-fetch-batch-03.json"
+    },
+    "coredata": {
+      "id": "coredata",
+      "url": "https://developer.apple.com/tutorials/data/documentation/coredata/using-core-data-in-the-background.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "6a77ce7b67e4c3a0359e8c656b8bb5aa7c04236fedbcf4c1f092d65c746157b2",
+      "bytes": 24697,
+      "title": "Using Core Data in the background",
+      "etag": "\"6079-65d560ae29e93\"",
+      "last_modified": "Thu, 08 Oct 2026 15:39:51 GMT",
+      "receipt": "primary-fetch-batch-04.json"
+    },
+    "keychain": {
+      "id": "keychain",
+      "url": "https://developer.apple.com/tutorials/data/documentation/security/restricting-keychain-item-accessibility.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "d52b2f78c35e2bec760f9b68a3d47aef62b0689750bb27906f0eb4501f72a575",
+      "bytes": 27058,
+      "title": "Restricting keychain item accessibility",
+      "etag": "\"69b2-65d55d3f60cb0\"",
+      "last_modified": "Thu, 08 Oct 2026 15:24:29 GMT",
+      "receipt": "primary-fetch-batch-04.json"
+    },
+    "localization": {
+      "id": "localization",
+      "url": "https://developer.apple.com/tutorials/data/documentation/xcode/localizing-and-varying-text-with-a-string-catalog.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "f73cfa8a2f7807136b7ff83fa77f792c79fde9c7e0a18a9ba39f2d1dd8529266",
+      "bytes": 27042,
+      "title": "Localizing and varying text with a string catalog",
+      "etag": "\"69a2-65d55ad88ce16\"",
+      "last_modified": "Thu, 08 Oct 2026 15:13:45 GMT",
+      "receipt": "primary-fetch-batch-04.json"
+    },
+    "accessibility": {
+      "id": "accessibility",
+      "url": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines/accessibility.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "be49ec0b34397f356a1e3fd8c7ad323713198515523947097913cb9c57da699b",
+      "bytes": 85010,
+      "title": "Accessibility",
+      "etag": "\"14c12-658580f15de17\"",
+      "last_modified": "Thu, 06 Aug 2026 02:58:13 GMT",
+      "receipt": "primary-fetch-batch-04.json"
+    },
+    "audio": {
+      "id": "audio",
+      "url": "https://developer.apple.com/tutorials/data/documentation/avfaudio/handling-audio-interruptions.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "9d3099f813ed59fb4e7844e281f1a24f9af344710f1a22d745cecd2c8254744d",
+      "bytes": 52900,
+      "title": "Handling audio interruptions",
+      "etag": "\"cea4-65d55dcea8047\"",
+      "last_modified": "Thu, 08 Oct 2026 15:27:00 GMT",
+      "receipt": "primary-fetch-batch-04.json"
+    },
+    "foundationmodels": {
+      "id": "foundationmodels",
+      "url": "https://developer.apple.com/tutorials/data/documentation/foundationmodels/generating-content-and-performing-tasks-with-foundation-models.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "32a3e1f3302694287dc354aab607d70bbb84ff71a44d9f7618174b97aa7a249b",
+      "bytes": 37102,
+      "title": "Generating content and performing tasks with Foundation Models",
+      "etag": "\"90ee-65d55c21f48a3\"",
+      "last_modified": "Thu, 08 Oct 2026 15:19:30 GMT",
+      "receipt": "primary-fetch-batch-04.json"
+    },
+    "xcode-packages": {
+      "id": "xcode-packages",
+      "url": "https://developer.apple.com/tutorials/data/documentation/xcode/adding-package-dependencies-to-your-app.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "887ffb6120c345b94a088bfe43249d0033a0344d24892246f6fba07fe202116f",
+      "bytes": 23904,
+      "title": "Adding package dependencies to your app",
+      "etag": "\"5d60-65d55ad8150ea\"",
+      "last_modified": "Thu, 08 Oct 2026 15:13:44 GMT",
+      "body_chars": 3865,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-05.json"
+    },
+    "binary-frameworks": {
+      "id": "binary-frameworks",
+      "url": "https://developer.apple.com/tutorials/data/documentation/xcode/distributing-binary-frameworks-as-swift-packages.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "d88d83ce16a8540d79089d17c869fcd4f5baa0e6927bef99180191bd6dc02931",
+      "bytes": 18005,
+      "title": "Distributing binary frameworks as Swift packages",
+      "etag": "\"4655-65d55ad8150ea\"",
+      "last_modified": "Thu, 08 Oct 2026 15:13:44 GMT",
+      "body_chars": 2810,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-05.json"
+    },
+    "cryptokit": {
+      "id": "cryptokit",
+      "url": "https://developer.apple.com/tutorials/data/documentation/cryptokit/performing-common-cryptographic-operations.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "57119609cc3c641d601672c0aa315533272e0b210fd4d5408296d47824c3fb91",
+      "bytes": 5135,
+      "title": "Performing Common Cryptographic Operations",
+      "etag": "\"140f-65d55f7edee3c\"",
+      "last_modified": "Thu, 08 Oct 2026 15:34:33 GMT",
+      "body_chars": 65,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-05.json"
+    },
+    "swiftdata-migration": {
+      "id": "swiftdata-migration",
+      "url": "https://developer.apple.com/tutorials/data/documentation/swiftdata/migrating-your-data-between-versions-of-your-app.json",
+      "status": "UNAVAILABLE",
+      "error": "HTTP Error 404: Not Found",
+      "receipt": "primary-fetch-batch-05.json"
+    },
+    "passkeys": {
+      "id": "passkeys",
+      "url": "https://developer.apple.com/tutorials/data/documentation/authenticationservices/supporting-passkeys.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "63036aea341d1eb1d2290d6e8b35719f2a4782ad1877fff3db17b64e02c8fff0",
+      "bytes": 40314,
+      "title": "Supporting passkeys",
+      "etag": "\"9d7a-65d560aec3823\"",
+      "last_modified": "Thu, 08 Oct 2026 15:39:52 GMT",
+      "body_chars": 5858,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-05.json"
+    },
+    "testing-expectations": {
+      "id": "testing-expectations",
+      "url": "https://developer.apple.com/tutorials/data/documentation/testing/expectations.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "0bbe221b534750aa95cb67397ede1723e824e91eb858d1610ca9c28629ef81bc",
+      "bytes": 36938,
+      "title": "Expectations and confirmations",
+      "etag": "\"904a-65d560ad9d5ea\"",
+      "last_modified": "Thu, 08 Oct 2026 15:39:50 GMT",
+      "body_chars": 1041,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-05.json"
+    },
+    "oauth-native": {
+      "id": "oauth-native",
+      "url": "https://www.rfc-editor.org/rfc/rfc8252.txt",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "4233c0650ec7e7918c20e0fde2dc565f85e2aa2d4c18123e3cd834295c2f68d0",
+      "bytes": 49680,
+      "etag": "W/\"f4d05354410a3123d6f94e095d291f7a\"",
+      "last_modified": null,
+      "receipt": "primary-fetch-batch-06.json"
+    },
+    "oauth-security": {
+      "id": "oauth-security",
+      "url": "https://www.rfc-editor.org/rfc/rfc9700.txt",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "9919d061d40a97886ca866b51c69389b6c81c65cd4b979056c14fdbebfcf622a",
+      "bytes": 124673,
+      "etag": "W/\"5544fad3c94ed2a58b988efb8fcf2d94\"",
+      "last_modified": null,
+      "receipt": "primary-fetch-batch-06.json"
+    },
+    "http-cache": {
+      "id": "http-cache",
+      "url": "https://www.rfc-editor.org/rfc/rfc9111.txt",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "aeb52adb3279d5f23dae34f68af11bd5cef0a0aff7ffcd014c9ca93c5302cf3e",
+      "bytes": 84477,
+      "etag": "W/\"f8907618635703edd228aee4aa834eee\"",
+      "last_modified": null,
+      "receipt": "primary-fetch-batch-06.json"
+    },
+    "cryptokit-gcm": {
+      "id": "cryptokit-gcm",
+      "url": "https://developer.apple.com/tutorials/data/documentation/cryptokit/aes/gcm.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "b27fc1d3a3b6f1ace81e4ec3eb30c451e0ebc9c8b9273708affef1a30d7df702",
+      "bytes": 18667,
+      "etag": "\"48eb-65d55f7fbe28e\"",
+      "last_modified": "Thu, 08 Oct 2026 15:34:34 GMT",
+      "receipt": "primary-fetch-batch-06.json"
+    },
+    "swift-package-model": {
+      "id": "swift-package-model",
+      "url": "https://www.swift.org/documentation/package-manager/",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "fde94ac49a9e08454a71c45b5456f3460542c7125454c84f5dbe18563c3ef4e6",
+      "bytes": 597,
+      "etag": "\"255-65e4a2f466f80\"",
+      "last_modified": "Tue, 20 Oct 2026 18:56:14 GMT",
+      "receipt": "primary-fetch-batch-06.json"
+    },
+    "swiftpm-theory": {
+      "id": "swiftpm-theory",
+      "url": "https://docs.swift.org/latest/data/documentation/packagemanagerdocs.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "2d0a85020ed0807c0cb8be0bd27070e26030d21245a4d22ab14472db21f32a3a",
+      "bytes": 19269,
+      "title": "Swift Package Manager",
+      "body_chars": 236,
+      "displayed_limit": 11000,
+      "receipt": "primary-fetch-batch-07.json"
+    },
+    "guided-generation": {
+      "id": "guided-generation",
+      "url": "https://developer.apple.com/tutorials/data/documentation/foundationmodels/generating-swift-data-structures-with-guided-generation.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "bb9bbb8d69d135ef401c49c55076b9f41cd51cbdb4249bbcf2e282f9a2bff650",
+      "bytes": 24616,
+      "title": "Generating Swift data structures with guided generation",
+      "body_chars": 3594,
+      "displayed_limit": 11000,
+      "receipt": "primary-fetch-batch-07.json"
+    },
+    "widgetkit-theory": {
+      "id": "widgetkit-theory",
+      "url": "https://developer.apple.com/tutorials/data/documentation/widgetkit/keeping-a-widget-up-to-date.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "893b735557f543b51bd07fa60a6a5247bc10beffdf7c9001b38f27e3d79fef31",
+      "bytes": 47187,
+      "title": "Keeping a widget up to date",
+      "body_chars": 11396,
+      "displayed_limit": 11000,
+      "receipt": "primary-fetch-batch-07.json"
+    },
+    "photo-permission": {
+      "id": "photo-permission",
+      "url": "https://developer.apple.com/tutorials/data/documentation/photokit/requesting-authorization-to-access-photos.json",
+      "status": "UNAVAILABLE",
+      "error": "HTTP Error 404: Not Found",
+      "receipt": "primary-fetch-batch-07.json"
+    },
+    "resolved-pin-schema": {
+      "id": "resolved-pin-schema",
+      "url": "https://raw.githubusercontent.com/swiftlang/swift-package-manager/main/Sources/PackageGraph/ResolvedPackagesStore.swift",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "bd021a7940ecf1a1805429c90b116782136c9b7aae93a658e99fcdb4bc75c38d",
+      "bytes": 23060,
+      "etag": "\"27981c9ad45e1a5e28ed6e51f3575e2678c193e59cc67d77f23acc9ecc0a281c\"",
+      "last_modified": null,
+      "receipt": "primary-fetch-batch-08.json"
+    },
+    "binary-target-api": {
+      "id": "binary-target-api",
+      "url": "https://docs.swift.org/latest/data/documentation/packagedescription/target/binarytarget(name:url:checksum:).json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "541404e40b3a6fe36bb29c761bb15aafceb3bf7415afc6e15a823f0d5eaf3232",
+      "bytes": 8769,
+      "etag": "\"2241-659e1d5c16940\"",
+      "last_modified": "Tue, 25 Aug 2026 16:45:49 GMT",
+      "receipt": "primary-fetch-batch-08.json"
+    },
+    "http-semantics": {
+      "id": "http-semantics",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.txt",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "21c1cdce6ab0e5509b04d84a28000836c7a087cf786efe6f04877ebfff47232a",
+      "bytes": 502941,
+      "etag": "W/\"7c9fc097e78bd883e559172c885e074c\"",
+      "last_modified": null,
+      "receipt": "primary-fetch-batch-08.json"
+    },
+    "app-review": {
+      "id": "app-review",
+      "url": "https://developer.apple.com/app-store/review/guidelines/",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "522bed2ce2c29e7bfbc60dd082b19a15b0e8cea199305f9530dfa5d3fa4820e7",
+      "bytes": 240818,
+      "etag": null,
+      "last_modified": null,
+      "receipt": "primary-fetch-batch-08.json"
+    },
+    "migration-stage": {
+      "id": "migration-stage",
+      "url": "https://developer.apple.com/tutorials/data/documentation/swiftdata/migrationstage.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "3f94a5dd34e04affc3509b3bf545a9b37702dcbcffa1fa1412f17f90dab46881",
+      "bytes": 9167,
+      "title": "MigrationStage",
+      "receipt": "primary-fetch-batch-09.json"
+    },
+    "schema-stages": {
+      "id": "schema-stages",
+      "url": "https://developer.apple.com/tutorials/data/documentation/swiftdata/schemamigrationplan/stages.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "2543152a3dccccb9bf94c12229943977a341dc6d91239c8cf15794a84fefa55b",
+      "bytes": 5625,
+      "title": "stages",
+      "receipt": "primary-fetch-batch-09.json"
+    },
+    "gcm-seal": {
+      "id": "gcm-seal",
+      "url": "https://developer.apple.com/tutorials/data/documentation/cryptokit/aes/gcm/seal(_:using:nonce:authenticating:).json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "58c09a1a5171f7dbc8363145539ea9ddbfd889571d1db1ba481715b0e9426007",
+      "bytes": 16431,
+      "title": "seal(_:using:nonce:authenticating:)",
+      "receipt": "primary-fetch-batch-09.json"
+    },
+    "swift-opaque-theory": {
+      "id": "swift-opaque-theory",
+      "url": "https://raw.githubusercontent.com/swiftlang/swift-book/main/TSPL.docc/LanguageGuide/OpaqueTypes.md",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "06bd2c926352154bd67004c489454a159e603a2319c4c3a34b800aa8c1e3c9ba",
+      "bytes": 29790,
+      "receipt": "primary-fetch-batch-10.json"
+    },
+    "swift-generics-theory": {
+      "id": "swift-generics-theory",
+      "url": "https://raw.githubusercontent.com/swiftlang/swift-book/main/TSPL.docc/LanguageGuide/Generics.md",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "870b428c7f7e4330e7fb5af8ec95421c9e42bb91b403dcdf484970493de8d534",
+      "bytes": 64117,
+      "receipt": "primary-fetch-batch-10.json"
+    },
+    "swiftpm-topic-index": {
+      "id": "swiftpm-topic-index",
+      "url": "https://docs.swift.org/latest/data/documentation/packagemanagerdocs.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "2d0a85020ed0807c0cb8be0bd27070e26030d21245a4d22ab14472db21f32a3a",
+      "bytes": 19269,
+      "receipt": "primary-fetch-batch-10.json"
+    },
+    "subscription-renewal-state": {
+      "id": "subscription-renewal-state",
+      "url": "https://developer.apple.com/tutorials/data/documentation/storekit/product/subscriptioninfo/renewalstate.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "70e17bdb14021b82d46afbd2696a5dad197745ad0538943d274f2fa11488f8ba",
+      "bytes": 24204,
+      "receipt": "primary-fetch-batch-10.json"
+    },
+    "checked-continuation": {
+      "id": "checked-continuation",
+      "url": "https://developer.apple.com/tutorials/data/documentation/swift/checkedcontinuation.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "1046aa975dddc274e57ac0b57e2939499c9f86ea80f182542118cc357a5f7ba4",
+      "bytes": 31563,
+      "title": "CheckedContinuation",
+      "primary_body_chars": 1248,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-11.json"
+    },
+    "async-stream": {
+      "id": "async-stream",
+      "url": "https://developer.apple.com/tutorials/data/documentation/swift/asyncstream.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "018090adc62b1512ebeb843fc6643a5a20dde47904ea9ae27e4e6c4a41925e58",
+      "bytes": 55893,
+      "title": "AsyncStream",
+      "primary_body_chars": 2375,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-11.json"
+    },
+    "uikit-containment": {
+      "id": "uikit-containment",
+      "url": "https://developer.apple.com/tutorials/data/documentation/uikit/creating-a-custom-container-view-controller.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "c67f0c0a251e410ea680f6d0f0b63c43133f1df13b6fbf52b462db5c8a92086f",
+      "bytes": 48519,
+      "title": "Creating a custom container view controller",
+      "primary_body_chars": 5743,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-11.json"
+    },
+    "uikit-bridge": {
+      "id": "uikit-bridge",
+      "url": "https://developer.apple.com/tutorials/data/documentation/swiftui/uiviewcontrollerrepresentable.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "965ad73f804376e4662937058f391ce849f0c061eca12d04fd162df2996c3608",
+      "bytes": 29704,
+      "title": "UIViewControllerRepresentable",
+      "primary_body_chars": 1593,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-11.json"
+    },
+    "adaptive-layout": {
+      "id": "adaptive-layout",
+      "url": "https://developer.apple.com/tutorials/data/design/human-interface-guidelines/layout.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "d41f32ddf76c597f0edd54eac361fa294a8736cfc4ccc627d1709fe092ed7267",
+      "bytes": 84939,
+      "title": "Layout",
+      "primary_body_chars": 15325,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-11.json"
+    },
+    "webkit-world": {
+      "id": "webkit-world",
+      "url": "https://developer.apple.com/tutorials/data/documentation/webkit/wkcontentworld.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "a53a3453f8e6adda5bfba9ebe24bf7f2efc1559ba72f1b585d63b39fc242d43e",
+      "bytes": 32774,
+      "title": "WKContentWorld",
+      "primary_body_chars": 1951,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-11.json"
+    },
+    "package-module-theory": {
+      "id": "package-module-theory",
+      "url": "https://docs.swift.org/latest/data/documentation/packagemanagerdocs/introducingpackages.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "a5c73824535a80cbfae1f0e7fc945d79bc26d175650763671e8ff64221d68c7e",
+      "bytes": 11929,
+      "title": "Introducing Packages",
+      "primary_body_chars": 4266,
+      "displayed_limit": 12000,
+      "receipt": "primary-fetch-batch-12.json"
+    },
+    "package-resources": {
+      "id": "package-resources",
+      "url": "https://docs.swift.org/latest/data/documentation/packagemanagerdocs/bundlingresources.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "1e621f468450f863b45da6739e551466c093cd708aa657d9e170bf75a77658a3",
+      "bytes": 14362,
+      "title": "Bundling resources with a Swift package",
+      "primary_body_chars": 2708,
+      "displayed_limit": 12000,
+      "receipt": "primary-fetch-batch-12.json"
+    },
+    "coreai-integration": {
+      "id": "coreai-integration",
+      "url": "https://developer.apple.com/tutorials/data/documentation/coreai/integrating-on-device-ai-models-in-your-app-with-core-ai.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "92180fdd32854c1decbdde3ff549d1621dbacc01f9189f5725ce5fbf87f65957",
+      "bytes": 47871,
+      "title": "Integrating on-device AI models in your app with Core AI",
+      "primary_body_chars": 8143,
+      "displayed_limit": 12000,
+      "receipt": "primary-fetch-batch-12.json"
+    },
+    "siwa-identity": {
+      "id": "siwa-identity",
+      "url": "https://developer.apple.com/tutorials/data/documentation/authenticationservices/implementing-user-authentication-with-sign-in-with-apple.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "0b0268ff6b736a0b501059974426f8756ad6f1cabb0f278a2f3a49319c1b5623",
+      "bytes": 40592,
+      "title": "Implementing User Authentication with Sign in with Apple",
+      "primary_body_chars": 5706,
+      "displayed_limit": 12000,
+      "receipt": "primary-fetch-batch-12.json"
+    },
+    "gcm-nonce": {
+      "id": "gcm-nonce",
+      "url": "https://developer.apple.com/tutorials/data/documentation/cryptokit/aes/gcm/nonce.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "0bc3553b392000755d2dc1f809e60852e0a6d6babd95d3cdcc128b8ad139b93b",
+      "bytes": 12304,
+      "title": "AES.GCM.Nonce",
+      "primary_body_chars": 185,
+      "displayed_limit": 12000,
+      "receipt": "primary-fetch-batch-12.json"
+    },
+    "cloudkit-token": {
+      "id": "cloudkit-token",
+      "url": "https://developer.apple.com/tutorials/data/documentation/cloudkit/ckerror/changetokenexpired.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "587764bd87a49e3c445863ce2976a471db8d6acb946f56ca7a1bc177775d4ade",
+      "bytes": 19384,
+      "title": "changeTokenExpired",
+      "primary_body_chars": 0,
+      "displayed_limit": 12000,
+      "receipt": "primary-fetch-batch-12.json"
+    },
+    "cloudkit-conflict": {
+      "id": "cloudkit-conflict",
+      "url": "https://developer.apple.com/tutorials/data/documentation/cloudkit/ckerror/serverrecordchanged.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "14a921510339430ce77794057a53c3eecf2ad9b086d74dc786cbf9d75fdcce22",
+      "bytes": 25026,
+      "title": "serverRecordChanged",
+      "primary_body_chars": 946,
+      "displayed_limit": 12000,
+      "receipt": "primary-fetch-batch-12.json"
+    },
+    "subscription-grace": {
+      "id": "subscription-grace",
+      "url": "https://developer.apple.com/tutorials/data/documentation/storekit/product/subscriptioninfo/renewalstate/ingraceperiod.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "c430e5dbaca0f961ee2175e0cd3c368b08cb195c162fdb27a9f0c421ffead5b7",
+      "bytes": 11847,
+      "title": "inGracePeriod",
+      "primary_body_chars": 70,
+      "displayed_limit": 12000,
+      "receipt": "primary-fetch-batch-13.json"
+    },
+    "subscription-retry": {
+      "id": "subscription-retry",
+      "url": "https://developer.apple.com/tutorials/data/documentation/storekit/product/subscriptioninfo/renewalstate/inbillingretryperiod.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "8b8a8414caf83b51bdde69faf0c1fe97c52ae1920544dab3f2b18138aa7d44b3",
+      "bytes": 11641,
+      "title": "inBillingRetryPeriod",
+      "primary_body_chars": 0,
+      "displayed_limit": 12000,
+      "receipt": "primary-fetch-batch-13.json"
+    },
+    "subscription-revoked": {
+      "id": "subscription-revoked",
+      "url": "https://developer.apple.com/tutorials/data/documentation/storekit/product/subscriptioninfo/renewalstate/revoked.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "f8a8a8c3f026589c160ef4d021c2c7954ac4cfc880bd8ad32c28c0475d0ccb76",
+      "bytes": 11605,
+      "title": "revoked",
+      "primary_body_chars": 0,
+      "displayed_limit": 12000,
+      "receipt": "primary-fetch-batch-13.json"
+    },
+    "script-build": {
+      "id": "script-build",
+      "url": "https://developer.apple.com/tutorials/data/documentation/xcode/running-custom-scripts-during-a-build.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "c7bcb33930bca64f8d2c7608717986e1153424ce0325ef22f955a3c6e30d673f",
+      "bytes": 21787,
+      "title": "Running custom scripts during a build",
+      "primary_body_chars": 5093,
+      "displayed_limit": 12000,
+      "receipt": "primary-fetch-batch-13.json"
+    },
+    "crash-symbols": {
+      "id": "crash-symbols",
+      "url": "https://developer.apple.com/tutorials/data/documentation/xcode/locating-a-missing-debug-symbol-file.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "e548b5b738908fa6991fad2857c734fd21e11e9187efa70f86c0c19334d1b15e",
+      "bytes": 17190,
+      "title": "Locating a missing debug symbol file",
+      "primary_body_chars": 3932,
+      "displayed_limit": 12000,
+      "receipt": "primary-fetch-batch-13.json"
+    },
+    "crash-hypotheses": {
+      "id": "crash-hypotheses",
+      "url": "https://developer.apple.com/tutorials/data/documentation/xcode/analyzing-a-crash-report.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "781a1ce4f2b7f58ddbc988a4ffa873ed012141441ff3ed91ecb21134d9249b42",
+      "bytes": 44795,
+      "title": "Analyzing a crash report",
+      "primary_body_chars": 11789,
+      "displayed_limit": 12000,
+      "receipt": "primary-fetch-batch-13.json"
+    },
+    "associated-domains": {
+      "id": "associated-domains",
+      "url": "https://developer.apple.com/tutorials/data/documentation/xcode/supporting-associated-domains.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "d75725f96f42592adbb28107e21e89f271f5d32011eec77b07fc95faa234d552",
+      "bytes": 19393,
+      "title": "Supporting associated domains",
+      "primary_body_chars": 4652,
+      "displayed_limit": 10000,
+      "receipt": "primary-fetch-batch-14.json"
+    },
+    "app-groups": {
+      "id": "app-groups",
+      "url": "https://developer.apple.com/tutorials/data/documentation/xcode/configuring-app-groups.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "0fb24727e41d9b3b1885098170c8c581da8ba2d0ee96a4d33ff40d1ac0001de4",
+      "bytes": 19595,
+      "title": "Configuring app groups",
+      "primary_body_chars": 2882,
+      "displayed_limit": 10000,
+      "receipt": "primary-fetch-batch-14.json"
+    },
+    "photos-privacy": {
+      "id": "photos-privacy",
+      "url": "https://developer.apple.com/tutorials/data/documentation/photokit/delivering-an-enhanced-privacy-experience-in-your-photos-app.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "84c5b07cbf3e7be89e135a759ef66b73a6572a0541ec12ced295e41ae456f4c0",
+      "bytes": 37131,
+      "title": "Delivering an Enhanced Privacy Experience in Your Photos App",
+      "primary_body_chars": 6650,
+      "displayed_limit": 10000,
+      "receipt": "primary-fetch-batch-14.json"
+    },
+    "photos-cloud-assets": {
+      "id": "photos-cloud-assets",
+      "url": "https://developer.apple.com/tutorials/data/documentation/photokit/phimagerequestoptions/isnetworkaccessallowed.json",
+      "status": "UNAVAILABLE",
+      "error": "HTTP Error 404: Not Found",
+      "receipt": "primary-fetch-batch-14.json"
+    },
+    "metrickit-theory": {
+      "id": "metrickit-theory",
+      "url": "https://developer.apple.com/tutorials/data/documentation/metrickit.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "98867a374e903e57d79d4b795a26ca83c36f0fa8cba4b2a9f077d7b1c99c5f00",
+      "bytes": 50519,
+      "title": "MetricKit",
+      "primary_body_chars": 930,
+      "displayed_limit": 10000,
+      "receipt": "primary-fetch-batch-14.json"
+    },
+    "log-privacy": {
+      "id": "log-privacy",
+      "url": "https://developer.apple.com/tutorials/data/documentation/os/generating-log-messages-from-your-code.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "8933a058698c29ae2666d7544dc30cef9f9f60a82b12dbb5b71e041be33bef87",
+      "bytes": 40539,
+      "title": "Generating Log Messages from Your Code",
+      "primary_body_chars": 8851,
+      "displayed_limit": 10000,
+      "receipt": "primary-fetch-batch-14.json"
+    },
+    "required-reasons": {
+      "id": "required-reasons",
+      "url": "https://developer.apple.com/tutorials/data/documentation/bundleresources/describing-use-of-required-reason-api.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "d49be095f6898f0b441e395c2b4ff9f8b4227afdfbe77046208868ae7108a1cd",
+      "bytes": 17105,
+      "title": "Describing use of required reason API",
+      "primary_body_chars": 2971,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-15.json"
+    },
+    "sdk-requirements": {
+      "id": "sdk-requirements",
+      "url": "https://developer.apple.com/support/third-party-SDK-requirements/",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "8cf170404d38f7581ff772b1955497a87ee66edfbee748ec1513aa128ec687dd",
+      "bytes": 108969,
+      "title": "Third-party SDK requirements",
+      "primary_body_chars": 4718,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-15.json"
+    },
+    "date-formatting": {
+      "id": "date-formatting",
+      "url": "https://developer.apple.com/tutorials/data/documentation/foundation/dateformatter.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "78ee515e606dde43ef636d8a6b0d8558ecb7346e1c61d17e62166b04b123dcaf",
+      "bytes": 105939,
+      "title": "DateFormatter",
+      "primary_body_chars": 2622,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-15.json"
+    },
+    "cloudkit-engine": {
+      "id": "cloudkit-engine",
+      "url": "https://developer.apple.com/tutorials/data/documentation/cloudkit/cksyncengine.json",
+      "status": "UNAVAILABLE",
+      "error": "HTTP Error 404: Not Found",
+      "receipt": "primary-fetch-batch-15.json"
+    },
+    "foundation-tool-calling": {
+      "id": "foundation-tool-calling",
+      "url": "https://developer.apple.com/tutorials/data/documentation/foundationmodels/expanding-generation-with-tool-calling.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "68a3d27c94f10958a8e028d7fae777f7c5856488758f79c5033371252c615ac9",
+      "bytes": 38295,
+      "title": "Expanding generation with tool calling",
+      "primary_body_chars": 5217,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-15.json"
+    },
+    "photos-network-assets": {
+      "id": "photos-network-assets",
+      "url": "https://developer.apple.com/tutorials/data/documentation/photos/phimagerequestoptions/isnetworkaccessallowed.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "f4ae422696ae927f45d57a8134ebfca65f16bf448202d01359b63306c51b085e",
+      "bytes": 13986,
+      "title": "isNetworkAccessAllowed",
+      "primary_body_chars": 482,
+      "displayed_limit": 11000,
+      "receipt": "primary-fetch-batch-16.json"
+    },
+    "webkit-reply": {
+      "id": "webkit-reply",
+      "url": "https://developer.apple.com/tutorials/data/documentation/webkit/wkscriptmessagehandlerwithreply.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "57ecb6f0d5a4e8a5bdd0377071699f7991d8383eb786c93d60d8c881b4cc8c44",
+      "bytes": 28913,
+      "title": "WKScriptMessageHandlerWithReply",
+      "primary_body_chars": 790,
+      "displayed_limit": 11000,
+      "receipt": "primary-fetch-batch-16.json"
+    },
+    "siwa-email": {
+      "id": "siwa-email",
+      "url": "https://developer.apple.com/tutorials/data/documentation/authenticationservices/asauthorizationappleidcredential/email.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "14e5d2b13a715c4333b487fd5cdd9751d58f5e016091077dce6e23341a945580",
+      "bytes": 12728,
+      "title": "email",
+      "primary_body_chars": 0,
+      "displayed_limit": 11000,
+      "receipt": "primary-fetch-batch-16.json"
+    },
+    "hang-diagnosis": {
+      "id": "hang-diagnosis",
+      "url": "https://developer.apple.com/tutorials/data/documentation/xcode/understanding-hangs-in-your-app.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "79b48472c5a090f73d2f6d5d924cc4cc3570645ae20a867c9422dfc5e75fa2f2",
+      "bytes": 35735,
+      "title": "Understanding hangs in your app",
+      "primary_body_chars": 12548,
+      "displayed_limit": 11000,
+      "receipt": "primary-fetch-batch-16.json"
+    },
+    "cloudkit-state": {
+      "id": "cloudkit-state",
+      "url": "https://developer.apple.com/tutorials/data/documentation/cloudkit/cksyncengine-5sie5/state-swift.class.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "8698ab4b578b5d98875527e454bed7c08f87365993520c7954e539305542a256",
+      "bytes": 25237,
+      "title": "CKSyncEngine.State",
+      "primary_body_chars": 1192,
+      "displayed_limit": 8000,
+      "receipt": "primary-fetch-batch-17.json"
+    },
+    "cloudkit-account": {
+      "id": "cloudkit-account",
+      "url": "https://developer.apple.com/tutorials/data/documentation/cloudkit/cksyncengine-5sie5/event/accountchange.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "8a39f7029257b4f433df0b556d2d07be8fe67f49ca74a853f82f55494d04ea68",
+      "bytes": 15797,
+      "title": "CKSyncEngine.Event.AccountChange",
+      "primary_body_chars": 818,
+      "displayed_limit": 8000,
+      "receipt": "primary-fetch-batch-17.json"
+    },
+    "cloudkit-state-persistence": {
+      "id": "cloudkit-state-persistence",
+      "url": "https://developer.apple.com/tutorials/data/documentation/cloudkit/cksyncengine-5sie5/event/stateupdate/stateserialization.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "78b48f4f7972a34be1812b2175ad8131f64646e6091566f592752f4d4167ad9d",
+      "bytes": 8464,
+      "title": "stateSerialization",
+      "primary_body_chars": 257,
+      "displayed_limit": 8000,
+      "receipt": "primary-fetch-batch-17.json"
+    },
+    "cloudkit-previous-token": {
+      "id": "cloudkit-previous-token",
+      "url": "https://developer.apple.com/tutorials/data/documentation/cloudkit/ckfetchrecordzonechangesoperation/zoneconfiguration/previousserverchangetoken.json",
+      "access_date": "2026-10-20",
+      "status": "FETCHED",
+      "sha256": "975abd645293550ed5e637f40db76c604cf63b861e2d03f811e923ecfa2edc74",
+      "bytes": 16652,
+      "title": "previousServerChangeToken",
+      "primary_body_chars": 360,
+      "displayed_limit": 8000,
+      "receipt": "primary-fetch-batch-17.json"
+    },
+    "location-authorization": {
+      "id": "location-authorization",
+      "url": "https://developer.apple.com/tutorials/data/documentation/corelocation/requesting-authorization-to-use-location-services.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "dc8f2679d1b7d453e69c08a01f7de2f20714a5733e01f2e7419cce69028e1113",
+      "bytes": 28460,
+      "title": "Requesting authorization to use location services",
+      "primary_body_chars": 6171,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-18.json"
+    },
+    "health-authorization": {
+      "id": "health-authorization",
+      "url": "https://developer.apple.com/tutorials/data/documentation/healthkit/authorizing-access-to-health-data.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "6b039b27e3b36422b6c713a80ed01ff20afcc786191d96dd399dc4e6afa6f01c",
+      "bytes": 44861,
+      "title": "Authorizing access to health data",
+      "primary_body_chars": 7383,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-18.json"
+    },
+    "motion-processed": {
+      "id": "motion-processed",
+      "url": "https://developer.apple.com/tutorials/data/documentation/coremotion/getting-processed-device-motion-data.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "dfd22f850017124cda0ea4852cab6d45193a1b45ccdc5adeba671563f4e6852c",
+      "bytes": 44651,
+      "title": "Getting processed device-motion data",
+      "primary_body_chars": 5397,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-18.json"
+    },
+    "nfc-session": {
+      "id": "nfc-session",
+      "url": "https://developer.apple.com/tutorials/data/documentation/corenfc/building-an-nfc-tag-reader-app.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "970657758d64b082af0a6d1f3f7b712cd882d84d2e35ac284257f334d43ac3d9",
+      "bytes": 39063,
+      "title": "Building an NFC Tag-Reader App",
+      "primary_body_chars": 4394,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-18.json"
+    },
+    "bluetooth-background": {
+      "id": "bluetooth-background",
+      "url": "https://developer.apple.com/tutorials/data/documentation/corebluetooth/core-bluetooth-background-processing-for-ios-apps.json",
+      "status": "UNAVAILABLE",
+      "error": "HTTP Error 404: Not Found",
+      "receipt": "primary-fetch-batch-18.json"
+    },
+    "haptic-interruption": {
+      "id": "haptic-interruption",
+      "url": "https://developer.apple.com/tutorials/data/documentation/corehaptics/preparing-your-app-to-play-haptics.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "8bdb3f8774f31b7d4859e2688236b11b8fb2a59aae077245f1c7eebd840e5566",
+      "bytes": 33890,
+      "title": "Preparing your app to play haptics",
+      "primary_body_chars": 3578,
+      "displayed_limit": 16000,
+      "receipt": "primary-fetch-batch-18.json"
+    },
+    "bluetooth-restoration": {
+      "id": "bluetooth-restoration",
+      "url": "https://developer.apple.com/tutorials/data/documentation/technotes/tn3115-bluetooth-state-restoration-app-relaunch-rules.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "8b8bc3f55e7f41032e3af14e54147666dfe835a218e960a9bb9ff77f129fc6ac",
+      "bytes": 9721,
+      "title": "TN3115: Bluetooth State Restoration app relaunch rules",
+      "primary_body_chars": 1884,
+      "displayed_limit": 18000,
+      "receipt": "primary-fetch-batch-19.json"
+    },
+    "contacts-access": {
+      "id": "contacts-access",
+      "url": "https://developer.apple.com/tutorials/data/documentation/contacts/accessing-the-contact-store.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "436722caddc37b3ef970b5878cfe68ebc2caa13ca863f8cc1e7057414984145f",
+      "bytes": 33974,
+      "title": "Accessing the contact store",
+      "primary_body_chars": 4597,
+      "displayed_limit": 18000,
+      "receipt": "primary-fetch-batch-19.json"
+    },
+    "event-store-access": {
+      "id": "event-store-access",
+      "url": "https://developer.apple.com/tutorials/data/documentation/eventkit/accessing-the-event-store.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "3e228abf1b688f0167b82a0c85129d9813293c1aed9d99bcb75437439098e624",
+      "bytes": 24157,
+      "title": "Accessing the event store",
+      "primary_body_chars": 3795,
+      "displayed_limit": 18000,
+      "receipt": "primary-fetch-batch-19.json"
+    },
+    "nearby-session": {
+      "id": "nearby-session",
+      "url": "https://developer.apple.com/tutorials/data/documentation/nearbyinteraction/nisession.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "f50e547e4e737eca1a9d1d067584ab9603e4ee7501aaa9e001668c165a290729",
+      "bytes": 38741,
+      "title": "NISession",
+      "primary_body_chars": 423,
+      "displayed_limit": 18000,
+      "receipt": "primary-fetch-batch-19.json"
+    },
+    "coreml-model": {
+      "id": "coreml-model",
+      "url": "https://developer.apple.com/tutorials/data/documentation/coreml.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "06b54c785334abe76d4909a8b37913f345322a3d122871c19dcd455118c31185",
+      "bytes": 61861,
+      "title": "Core ML",
+      "primary_body_chars": 1836,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-20.json"
+    },
+    "createml-evaluation": {
+      "id": "createml-evaluation",
+      "url": "https://developer.apple.com/tutorials/data/documentation/createml/creating-an-image-classifier-model.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "a5366c0e527b8dea0a66fc932cc20e0e5bd51df35df55d5e59659bf54ef30619",
+      "bytes": 36158,
+      "title": "Creating an Image Classifier Model",
+      "primary_body_chars": 7970,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-20.json"
+    },
+    "vision-ocr": {
+      "id": "vision-ocr",
+      "url": "https://developer.apple.com/tutorials/data/documentation/vision/recognizing-text-in-images.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "242188d6a641e60c2e377597ab378916371d00f4596ecfe0ee1a5a2913499727",
+      "bytes": 30811,
+      "title": "Recognizing Text in Images",
+      "primary_body_chars": 4480,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-20.json"
+    },
+    "speech-recognition": {
+      "id": "speech-recognition",
+      "url": "https://developer.apple.com/tutorials/data/documentation/speech/recognizing-speech-in-live-audio.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "1fa5759ed53b0084e4ba811b1450d2fb8a8985bdc38a89e686fe1b44fec20110",
+      "bytes": 45052,
+      "title": "Recognizing speech in live audio",
+      "primary_body_chars": 9663,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-20.json"
+    },
+    "translation-session": {
+      "id": "translation-session",
+      "url": "https://developer.apple.com/tutorials/data/documentation/translation/translationsession.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "254229dc21a6fda52d7d8dd91827b093cfb1f599df3a5e25e0e95e4b883082bf",
+      "bytes": 32897,
+      "title": "TranslationSession",
+      "primary_body_chars": 1400,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-20.json"
+    },
+    "embedding-retrieval": {
+      "id": "embedding-retrieval",
+      "url": "https://developer.apple.com/tutorials/data/documentation/naturallanguage/nlembedding.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "23e134a0e1e16bea1d2d153f6309544712e1d257d3eb99a48bae319edab4d187",
+      "bytes": 64173,
+      "title": "NLEmbedding",
+      "primary_body_chars": 1614,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-20.json"
+    },
+    "local-auth": {
+      "id": "local-auth",
+      "url": "https://developer.apple.com/tutorials/data/documentation/localauthentication/evaluating-policy-domain-state.json",
+      "status": "UNAVAILABLE",
+      "error": "HTTP Error 404: Not Found",
+      "receipt": "primary-fetch-batch-20.json"
+    },
+    "app-attest": {
+      "id": "app-attest",
+      "url": "https://developer.apple.com/tutorials/data/documentation/devicecheck/establishing-your-app-s-integrity.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "a03fbb55d9caf6386fceff229fd1083cd29bd6edbd290729342495ee96c93007",
+      "bytes": 36389,
+      "title": "Establishing your app’s integrity",
+      "primary_body_chars": 6127,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-20.json"
+    },
+    "app-attest-validation": {
+      "id": "app-attest-validation",
+      "url": "https://developer.apple.com/tutorials/data/documentation/devicecheck/validating-apps-that-connect-to-your-server.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "58ed8ea85e5a30cf329d3f88bbd36ad034efb8d06e34ab0c802f4d8f80c60330",
+      "bytes": 39710,
+      "title": "Validating apps that connect to your server",
+      "primary_body_chars": 9950,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-20.json"
+    },
+    "local-policy": {
+      "id": "local-policy",
+      "url": "https://developer.apple.com/tutorials/data/documentation/localauthentication/lacontext/evaluatepolicy(_:localizedreason:reply:).json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "b9f9e2d1de33330de006e8da7859e5b9b9d7ebebc1fa329deaf653cb78fefeec",
+      "bytes": 30719,
+      "title": "evaluatePolicy(_:localizedReason:reply:)",
+      "primary_body_chars": 2015,
+      "displayed_limit": 10000,
+      "receipt": "primary-fetch-batch-21.json"
+    },
+    "local-access-control": {
+      "id": "local-access-control",
+      "url": "https://developer.apple.com/tutorials/data/documentation/security/secaccesscontrolcreateflags/biometrycurrentset.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "2e381d14783923e139c9db1f4ee1e621cf121a2f183d01e7b9e4f38cb6b4439b",
+      "bytes": 7979,
+      "title": "biometryCurrentSet",
+      "primary_body_chars": 209,
+      "displayed_limit": 10000,
+      "receipt": "primary-fetch-batch-21.json"
+    },
+    "widget-timeline": {
+      "id": "widget-timeline",
+      "url": "https://developer.apple.com/tutorials/data/documentation/widgetkit/keeping-a-widget-up-to-date.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "893b735557f543b51bd07fa60a6a5247bc10beffdf7c9001b38f27e3d79fef31",
+      "bytes": 47187,
+      "title": "Keeping a widget up to date",
+      "primary_body_chars": 11348,
+      "displayed_limit": 10000,
+      "receipt": "primary-fetch-batch-21.json"
+    },
+    "live-activity": {
+      "id": "live-activity",
+      "url": "https://developer.apple.com/tutorials/data/documentation/activitykit/displaying-live-data-with-live-activities.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "d57040f27b20e7e6a25b9ab2cfe06daaa7a4c689a6a5e0155ee46d00621594ec",
+      "bytes": 138119,
+      "title": "Displaying live data with Live Activities",
+      "primary_body_chars": 28589,
+      "displayed_limit": 10000,
+      "receipt": "primary-fetch-batch-21.json"
+    },
+    "app-intent": {
+      "id": "app-intent",
+      "url": "https://developer.apple.com/tutorials/data/documentation/appintents/appintent.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "d0ca1dcdf766f947e1a84fbf065c4a4bb80df54f7af3516c69e52af996c9c86e",
+      "bytes": 94346,
+      "title": "AppIntent",
+      "primary_body_chars": 2574,
+      "displayed_limit": 10000,
+      "receipt": "primary-fetch-batch-21.json"
+    },
+    "file-provider": {
+      "id": "file-provider",
+      "url": "https://developer.apple.com/tutorials/data/documentation/fileprovider/nsfileproviderreplicatedextension.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "8b49b1c6a54e1db7855410e20cae2a8aa78adf3d4591cf8ff1ce6b1287bd585e",
+      "bytes": 51685,
+      "title": "NSFileProviderReplicatedExtension",
+      "primary_body_chars": 0,
+      "displayed_limit": 10000,
+      "receipt": "primary-fetch-batch-21.json"
+    },
+    "document-access": {
+      "id": "document-access",
+      "url": "https://developer.apple.com/tutorials/data/documentation/uikit/view_controllers/providing_access_to_directories.json",
+      "status": "UNAVAILABLE",
+      "error": "HTTP Error 404: Not Found",
+      "receipt": "primary-fetch-batch-21.json"
+    },
+    "provider-fetch": {
+      "id": "provider-fetch",
+      "url": "https://developer.apple.com/tutorials/data/documentation/fileprovider/nsfileproviderreplicatedextension/fetchcontents(for:version:request:completionhandler:).json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "e0d255170b9076a3bf246d618cd14c0cb23fb2ee8c4972fb9013b36f893dd158",
+      "bytes": 46963,
+      "title": "fetchContents(for:version:request:completionHandler:)",
+      "primary_body_chars": 2467,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-22.json"
+    },
+    "provider-modify": {
+      "id": "provider-modify",
+      "url": "https://developer.apple.com/tutorials/data/documentation/fileprovider/nsfileproviderreplicatedextension/modifyitem(_:baseversion:changedfields:contents:options:request:completionhandler:).json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "583ff7f342c8d6d8377f58bc1f49b0abaf49eb649d31941086c263741aa7d88b",
+      "bytes": 46478,
+      "title": "modifyItem(_:baseVersion:changedFields:contents:options:request:completionHandler:)",
+      "primary_body_chars": 1067,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-22.json"
+    },
+    "document-picker": {
+      "id": "document-picker",
+      "url": "https://developer.apple.com/tutorials/data/documentation/uikit/uidocumentpickerviewcontroller.json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "6d48a6a4ad23bb113afc67e60ba8f7028de977ae3531cb79c8989866d49c775d",
+      "bytes": 68995,
+      "title": "UIDocumentPickerViewController",
+      "primary_body_chars": 2099,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-22.json"
+    },
+    "security-scope": {
+      "id": "security-scope",
+      "url": "https://developer.apple.com/tutorials/data/documentation/foundation/nsurl/startaccessingsecurityscopedresource().json",
+      "access_date": "2026-10-21",
+      "status": "FETCHED",
+      "sha256": "f6a6949a4d726bde19ced6351d8c7d49e8fa46a194e9a58d4e2982d72ef6c00f",
+      "bytes": 30655,
+      "title": "startAccessingSecurityScopedResource()",
+      "primary_body_chars": 1322,
+      "displayed_limit": 14000,
+      "receipt": "primary-fetch-batch-22.json"
+    },
+    "websocket-recovery": {
+      "id": "websocket-recovery",
+      "url": "https://www.rfc-editor.org/rfc/rfc6455.html#section-7.2.3",
+      "access_date": "2026-10-21",
+      "status": "READ_SELECTED_PRIMARY_SECTION",
+      "read_scope": "§7.2.3 actual text via web lines2376–2399: randomized initial reconnect delay and increasing backoff; protocol does not define app event replay/acks.",
+      "sha256": null,
+      "limit": "No content hash claimed for native web result."
+    },
+    "sse-cursor": {
+      "id": "sse-cursor",
+      "url": "https://html.spec.whatwg.org/multipage/server-sent-events.html#the-last-event-id-header",
+      "access_date": "2026-10-21",
+      "status": "READ_SELECTED_PRIMARY_SECTION",
+      "read_scope": "§9.2.3–9.2.6 reconnect/Last-Event-ID/id/retry behavior; stream cursor is not durable application reconciliation. Source LivingStandard20October2026.",
+      "sha256": null,
+      "limit": "No wholeHTMLreview/contenthash; actual native client adoption separate."
+    }
+  },
+  "domains": [
+    {
+      "domain": "universal-ios-engineering-quality",
+      "declared_core_claims": [
+        "Product/authority, resource/failure contract precedes implementation",
+        "Static/source evidence supports only the checked claim; app execution needs separate authority",
+        "Current user verification exclusions apply without erasing platform design requirements"
+      ],
+      "source_ids": [
+        "accessibility",
+        "cancellation",
+        "privacy"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+          "sha256": "5d76a19bf19745a47bffceb298820cec0f113974c53e61239f10f7404ed6ef15"
+        },
+        {
+          "path": "./docs/PRODUCTION_QUALITY_GATES.md",
+          "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf"
+        },
+        {
+          "path": "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+          "sha256": "9a94a32224f26ef5f0c1b4cdeb54e8e7b1664fe63358cf851435e5d0f7cb6d63"
+        },
+        {
+          "path": "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+          "sha256": "07fa5b6a52feaf3583bf5bfbb18f5ad6d0ff62888f7864c12ef84f89e6b29278"
+        }
+      ],
+      "section_locators": [
+        "Universal change contract",
+        "Quality gates",
+        "Current Verification Authority"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "accessibility",
+          "cancellation",
+          "privacy"
+        ],
+        "deep_reference": [
+          "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+          "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md"
+        ],
+        "operating_rule": [
+          "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+          "./docs/PRODUCTION_QUALITY_GATES.md"
+        ],
+        "route": "ios-universal-quality",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-production-auditor/SKILL.md",
+          "./.codex/skills/ios-evidence-gate/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "accessibility",
+          "cancellation",
+          "privacy"
+        ],
+        "semantic_support": "Nine gates bind respectively architecture; language/concurrency; UI/accessibility/localization; persistence/media; networking/sync; identity/security/platform; build/supply-chain; testing/performance/operations; release/StoreKit. Specialist rows below provide theory/depth/route/aid/evidence. Verification exclusions override execution plans, not design requirements.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "swift-language-runtime-api-design",
+      "declared_core_claims": [
+        "ARC retains reference graphs, requiring bounded ownership instead of automatic weak/unowned substitution",
+        "API clarity is evaluated at actual callers; generic/opaque/existential choices have distinct ownership of concrete type",
+        "Compiler/language mode/SDK/deployment remain distinct"
+      ],
+      "source_ids": [
+        "swift-arc-language",
+        "swift-api-design"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+          "sha256": "41c9a82a63a4e9873d0bbcb9b559c4e9aa1e1c26075f5e8114b53960a79eb20d"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "sha256": "1124314abc29c021b347f63078c7a35d4bdcdac1aadcc816dc408e38431e499a"
+        }
+      ],
+      "section_locators": [
+        "Ownership And Memory",
+        "Type And API Decisions",
+        "Worked Ownership And API Choice"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "swift-arc-language",
+          "swift-api-design",
+          "swift-opaque-theory",
+          "swift-generics-theory"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md"
+        ],
+        "operating_rule": [
+          "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+          "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md"
+        ],
+        "route": "ios-swift-language-runtime",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-swift-runtime/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "swift-opaque-theory",
+          "swift-generics-theory"
+        ],
+        "semantic_support": "Generic parameters preserve caller-selected type relationships; opaque results hide one producer-chosen concrete type; boxed existential permits runtime heterogeneity with lost static relationships. Owner example chooses the boundary rather than blanket any/some replacement.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "swift-concurrency",
+      "declared_core_claims": [
+        "Cancellation is cooperative and does not undo committed effects",
+        "Structured task lifetime and current-invocation publication authority remain distinct",
+        "Actor context must be traced; async alone does not move heavy work off actor"
+      ],
+      "source_ids": [
+        "swift-concurrency-language",
+        "cancellation"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+          "sha256": "bec4fd4c40f869480419430db5f02e96cec50650ea014cc981e16394daaf2776"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "sha256": "bdf8cacbbe2098b394351cef25a4c1394e732f6a956d27596c13978dd67151f4"
+        }
+      ],
+      "section_locators": [
+        "Cancellation",
+        "Task Ownership",
+        "Invocation Publication Practical Slice",
+        "Continuations And Callbacks",
+        "Streams"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "swift-concurrency-language",
+          "cancellation",
+          "checked-continuation",
+          "async-stream"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
+        ],
+        "operating_rule": [
+          "./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md"
+        ],
+        "route": "ios-concurrency-runtime",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-concurrency-runtime/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "checked-continuation",
+          "async-stream"
+        ],
+        "semantic_support": "Checked continuations require exactly one resume; omitted resume leaks suspended resources. AsyncStream default buffer is unbounded; producer termination/cancellation and bounded overflow policy need explicit ownership. Cancellation is cooperative, not an automatic callback undo.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "swiftui-uikit-adaptive-ui",
+      "declared_core_claims": [
+        "Identity-owned storage differs from view-value recreation",
+        "Xcode26wrapper and27macro default initialization differ",
+        "Accessible/localized shared state remains one owned source, with narrow mutation authority"
+      ],
+      "source_ids": [
+        "state",
+        "state-macro",
+        "accessibility",
+        "localization"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+          "sha256": "459b4fc80d317e4e234459ada0f8f89209528f39ea6d4e7a2780554489c16501"
+        },
+        {
+          "path": "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+          "sha256": "5dfa511b37911d81675318946032a8e733f889dd2c997c5dba48b891ab30a22e"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "sha256": "2b18e5124f3ba8497331f1d9095a7570a4c00ce580bcd155f53f535b9dc762f2"
+        }
+      ],
+      "section_locators": [
+        "State Placement",
+        "Toolchain-Specific State Storage",
+        "Accessible And Localized Interaction Review",
+        "UIKit Interoperability",
+        "UIKit Lifecycle And Reuse Review",
+        "iPhone And iPad Core"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "state",
+          "state-macro",
+          "accessibility",
+          "localization",
+          "uikit-containment",
+          "uikit-bridge",
+          "adaptive-layout"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md"
+        ],
+        "operating_rule": [
+          "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+          "./docs/IOS_ACCESSIBILITY_STANDARD.md"
+        ],
+        "route": "ios-ui-adaptive",
+        "unrouted_deep_references": [],
+        "execution_aid": "Shared owner procedure/example; no separate skill required for this bounded documentation claim",
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "uikit-containment",
+          "uikit-bridge",
+          "adaptive-layout"
+        ],
+        "semantic_support": "Container parent/child lifecycle and appearance ownership differ from SwiftUI representable lifecycle. SwiftUI owns represented root layout; coordinator bridges callbacks. Scene/window state and adaptive layout remain owned at their actual scope.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "ai-ml-intelligence-and-app-intents",
+      "declared_core_claims": [
+        "Model availability is runtime/profile-dependent, with explicit unavailable behavior",
+        "One FoundationModels session cannot service overlapping requests; context/history bounded",
+        "Guided generation controls shape, not factual truth or authorization"
+      ],
+      "source_ids": [
+        "foundationmodels",
+        "guided-generation"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "sha256": "c1e9b0f6ffb7d81c4ca5e925899303be3af48b81bb140e70f779d6852799c1bb"
+        },
+        {
+          "path": "./docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+          "sha256": "082e71875bb47adef52805e89924eb9f1bb6c6f9ca79c00db62e1e35e22fd56e"
+        }
+      ],
+      "section_locators": [
+        "7. FOUNDATION MODELS",
+        "35. TOOL CALLING",
+        "69. EVALUATION",
+        "Primary Theory For Selected Routes",
+        "Specialist Theory And Failure Bindings"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "foundationmodels",
+          "guided-generation",
+          "coreai-integration",
+          "foundation-tool-calling"
+        ],
+        "deep_reference": [
+          "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md"
+        ],
+        "operating_rule": [
+          "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md"
+        ],
+        "route": "ios-ai-app-intents",
+        "unrouted_deep_references": [],
+        "execution_aid": "Shared owner procedure/example; no separate skill required for this bounded documentation claim",
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "coreai-integration",
+          "foundation-tool-calling",
+          "guided-generation"
+        ],
+        "semantic_support": "CoreAI artifact/runtime specialization and load/inference costs are explicit boundaries. Typed generated tool arguments are not authorization; concurrent tool invocations require independent side-effect policy. Required tool loops need an exit; local evaluation thresholds are operating policy, not Apple API guarantees.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "additional_declared_core_review": {
+        "source_ids": [
+          "coreml-model",
+          "createml-evaluation",
+          "vision-ocr",
+          "speech-recognition",
+          "translation-session",
+          "embedding-retrieval"
+        ],
+        "semantic_support": "CoreML format/runtime vs CreateML evaluation split; OCR path/revision/language/normalized-box boundaries; replaceable Speech results and version-specific sample; Translation installed-language failure; NLEmbedding proximity not correctness and shared instance concurrency unsafe. Existing master17–19 owns full ingestion/chunk/index/filter/citation/evaluation chain; permission/version failure trace in router. Speech focused replacement/cancellation paragraphs re-read after output truncation.",
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "evidence": "freshness-repair-block-12.json"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "architecture-modularization-state",
+      "declared_core_claims": [
+        "App owns product composition; shared module owns neutral mechanics",
+        "Extract only a real boundary; module existence alone does not prove build benefit",
+        "Local state/explicit intent remains valid alternative to imposed state architecture"
+      ],
+      "source_ids": [
+        "swift-api-design",
+        "swiftpm-theory",
+        "state"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "sha256": "e6ae403415042648c29c62ffc4c06ac2a6e3d656a8dfc77dcdb8d314f9ce7c1f"
+        },
+        {
+          "path": "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "sha256": "61557d5a66c377ed3810baf15da43cc3b4854673e78cf04443821be224d10c68"
+        },
+        {
+          "path": "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+          "sha256": "c51bfe928564c9454f3027eefb457b84bd1cc891131549a81ae9aed0ea713d36"
+        }
+      ],
+      "section_locators": [
+        "Boundary Model And Worked Choice",
+        "Architecture Selection Priorities"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "swift-api-design",
+          "swiftpm-theory",
+          "state",
+          "package-module-theory",
+          "package-resources"
+        ],
+        "deep_reference": [
+          "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "./docs/MODULAR_ARCHITECTURE_STANDARD.md"
+        ],
+        "operating_rule": [
+          "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "./docs/IOS_MVVM_INTENT_API_STANDARD.md"
+        ],
+        "route": "ios-architecture-navigation-state",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-architecture-router/SKILL.md",
+          "./.codex/skills/ios-modular-architecture/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "package-module-theory",
+          "package-resources"
+        ],
+        "semantic_support": "Target defines module/import/access and resource boundary; products export usable targets. Bundle.module is generated for actual SwiftPM resources, not an app-wide lookup rule or permission to migrate integration.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "networking-api-web-realtime",
+      "declared_core_claims": [
+        "A lost response does not prove the server mutation failed; retries need safe replay/reconciliation",
+        "HTTP cache semantics and stricter per-account app isolation both apply",
+        "Background scheduling/reconnect does not prove event completeness"
+      ],
+      "source_ids": [
+        "http-cache",
+        "background",
+        "http-semantics"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "sha256": "790abe077f9a19fdf7195a5718a6f149107377948f9f15069e3d874c8f21f88c"
+        },
+        {
+          "path": "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+          "sha256": "d9b73b445a996ee1f63b476607eb560d5dd5ce03af4f72d246287bc5940add64"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "sha256": "cb15bc1511ce9ba536a84e7f788f5c3c05e479f21c50adca8813aa0fcdb47b0b"
+        }
+      ],
+      "section_locators": [
+        "Reliability",
+        "Caching",
+        "Lost Acknowledgment And Cache Isolation Example",
+        "WebKit",
+        "Reconnect, Gap And Replay Trace"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "http-cache",
+          "background",
+          "http-semantics",
+          "webkit-world",
+          "webkit-reply"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md"
+        ],
+        "operating_rule": [
+          "./docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md"
+        ],
+        "route": "ios-network-api-offline-sync",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-network-resilience/SKILL.md",
+          "./.codex/skills/ios-api-contracts/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "webkit-world",
+          "webkit-reply",
+          "http-cache"
+        ],
+        "semantic_support": "Content worlds isolate JavaScript variables, not the shared DOM. Navigation changes execution context; message handler reply/lifetime and origin/frame/operation validation belong to the app bridge. Association or received script message alone is not authorization.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "additional_declared_core_review": {
+        "source_ids": [
+          "websocket-recovery",
+          "sse-cursor"
+        ],
+        "semantic_support": "Protocol backoff and stream cursor compared with application dedupe/gap/snapshot/cursor commit; replay example41→duplicate41→44 unexecuted and requires server-defined sequence model.",
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "evidence": "freshness-repair-block-11.json"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "identity-authentication-authorization",
+      "declared_core_claims": [
+        "Native public OAuth uses external agent+PKCE; refresh tokens need sender constraint or rotation",
+        "Late refresh for superseded account cannot restore credentials",
+        "Keychain access-control failure is not missing data; ThisDeviceOnly is not blanket no-backup"
+      ],
+      "source_ids": [
+        "oauth-native",
+        "oauth-security",
+        "passkeys",
+        "keychain"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "sha256": "7479ff04b898b0ddd1ee36075e802818f2e7bf5130c13069884ecf21e7018ccd"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "sha256": "0b90cfb31bd635f35c9b8ac7d1f0dea57a75c979d22b9bb3c5406b2816058d1e"
+        }
+      ],
+      "section_locators": [
+        "OAuth And OIDC",
+        "Native OAuth And Storage Failure Example",
+        "Session Lifecycle",
+        "Passkeys And Sign In With Apple",
+        "Local Presence And Lost-Key Failure Trace",
+        "Attestation Replay And Recovery Trace"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "oauth-native",
+          "oauth-security",
+          "passkeys",
+          "keychain",
+          "siwa-identity"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md"
+        ],
+        "operating_rule": [
+          "./docs/IOS_SECURITY_PRIVACY_GATE.md"
+        ],
+        "route": "ios-identity-authentication",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-identity-authentication/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "passkeys",
+          "siwa-identity"
+        ],
+        "semantic_support": "Server challenge/public credential binding and relying-party identity govern passkeys. SIWA stable user identifier and current credential state govern account access; revoked/not-found returns to authentication. Email availability is not inferred from an abstract-only source.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "additional_declared_core_review": {
+        "source_ids": [
+          "local-policy",
+          "local-access-control",
+          "app-attest",
+          "app-attest-validation"
+        ],
+        "semantic_support": "Policy evaluation not durable authorization; completion threading/deadlock restriction; biometric enrollment can invalidate access item. AppAttest server challenge/request/key/environment/replay validation and reinstall/migration/restore key loss distinguish unsupported vs transient vs recovery.",
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "evidence": "freshness-repair-block-11.json"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "security-privacy-cryptography",
+      "declared_core_claims": [
+        "Authentication/authorization/local presence are separate boundaries",
+        "Privacy manifests and actual SDK/app data behavior must agree",
+        "Authenticated cipher availability is not key-lifecycle or end-to-end-security proof"
+      ],
+      "source_ids": [
+        "privacy",
+        "keychain",
+        "cryptokit-gcm",
+        "app-review"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+          "sha256": "9d892f8f5e7c7e239da35dd11476d757513cdc70650d261cbdbb7a2a52a65d2e"
+        },
+        {
+          "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "sha256": "7479ff04b898b0ddd1ee36075e802818f2e7bf5130c13069884ecf21e7018ccd"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "sha256": "0b90cfb31bd635f35c9b8ac7d1f0dea57a75c979d22b9bb3c5406b2816058d1e"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "sha256": "29fa0d60ecc1ead2c9037de816ae45294f88dceb2b346083a0aac3d5e5a69286"
+        }
+      ],
+      "section_locators": [
+        "Threat Model Intake",
+        "Cryptography",
+        "Privacy Manifest And Required-Reason APIs",
+        "Key Rotation And Authentication Failure Example"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "privacy",
+          "keychain",
+          "cryptokit-gcm",
+          "app-review",
+          "gcm-seal",
+          "gcm-nonce"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
+        ],
+        "operating_rule": [
+          "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+          "./docs/IOS_SECURITY_PRIVACY_GATE.md"
+        ],
+        "route": "ios-security-privacy-intake",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-security-privacy/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "gcm-seal",
+          "gcm-nonce",
+          "keychain"
+        ],
+        "semantic_support": "AES-GCM authenticates ciphertext/AAD; reuse of nonce under one key violates the primitive. Authentication failure must not expose plaintext. Key rotation/version ownership and Keychain alternative are in the failure example; ThisDeviceOnly restricts cross-device migration, not every backup.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "persistence-migration-sync-cloudkit",
+      "declared_core_claims": [
+        "Managed objects stay on context queue; transfer identifiers and resolve on receiver",
+        "Migration stages describe schema evolution, not guaranteed data preservation",
+        "Durable pending intent survives lost acknowledgment/relaunch under backend contract"
+      ],
+      "source_ids": [
+        "coredata",
+        "swiftdata"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/IOS_DATA_MIGRATION_STANDARD.md",
+          "sha256": "a6209270d5b765e1fb330deb136923578150e3f13f6e799d03292417e317431e"
+        },
+        {
+          "path": "./docs/IOS_OFFLINE_SYNC_STANDARD.md",
+          "sha256": "da6c02bcc83617293581ce477ff00744d9558829d3333a212ab81ade38bf9f4d"
+        },
+        {
+          "path": "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+          "sha256": "78f8ac22f81bc93c9cb48cf7e91d9eb6be02e3c0189a9e2e64521e772dd56bd1"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "sha256": "37829051538c2c498cbb1341a2b12a45dc8a6f1f5c193bdea3b78a0d73f31422"
+        }
+      ],
+      "section_locators": [
+        "SwiftData And Core Data",
+        "Migration",
+        "Interrupted Mutation Example",
+        "CloudKit Recovery Example"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "coredata",
+          "swiftdata",
+          "cloudkit-conflict",
+          "cloudkit-state",
+          "cloudkit-account",
+          "cloudkit-state-persistence",
+          "cloudkit-previous-token"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md"
+        ],
+        "operating_rule": [
+          "./docs/IOS_DATA_MIGRATION_STANDARD.md",
+          "./docs/IOS_OFFLINE_SYNC_STANDARD.md",
+          "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md"
+        ],
+        "route": "ios-persistence-migration-data-loss",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-data-migration/SKILL.md",
+          "./.codex/skills/ios-offline-sync/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "cloudkit-conflict",
+          "cloudkit-state",
+          "cloudkit-account",
+          "cloudkit-state-persistence",
+          "cloudkit-previous-token"
+        ],
+        "semantic_support": "Server/client/ancestor conflict merge must preserve server change tag. Change tokens are scoped incremental cursors, not object versions. Persist engine serialized state across launches; account changes clear engine pending changes and require explicit reconciliation of app-owned work without cross-account replay.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "testing-debugging-diagnostics",
+      "declared_core_claims": [
+        "expect continues; failed require throws",
+        "serialized scope does not exclude unrelated suites or guarantee deterministic order",
+        "Isolated fixtures and event-controlled negative traces support only asserted contracts"
+      ],
+      "source_ids": [
+        "testing-expectations",
+        "parallel"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/IOS_TESTING_STRATEGY.md",
+          "sha256": "1facd29f338ea801843931beef4a47079f9c58be734a3a99c78aa7451ee1bc26"
+        },
+        {
+          "path": "./docs/QA_TEST_PLAN_STANDARD.md",
+          "sha256": "cfef50a1720f1b15e5135d6affa4e9fa038506f716cff41db01199b0999b95ff"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "sha256": "2dad465f00c1bfeb3d119431700bd5f482b1f1238103a12bc23e90d8dae37901"
+        }
+      ],
+      "section_locators": [
+        "Swift Testing And XCTest",
+        "Parallelization Boundary Example",
+        "Determinism",
+        "Crash And Hang Triage"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "testing-expectations",
+          "parallel",
+          "crash-symbols",
+          "crash-hypotheses",
+          "hang-diagnosis"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md"
+        ],
+        "operating_rule": [
+          "./docs/IOS_TESTING_STRATEGY.md",
+          "./docs/QA_TEST_PLAN_STANDARD.md"
+        ],
+        "route": "ios-testing-debugging",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-test-strategy/SKILL.md",
+          "./.codex/skills/ios-testing-debugging/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "crash-symbols",
+          "crash-hypotheses",
+          "hang-diagnosis"
+        ],
+        "semantic_support": "dSYM must match binary UUID; symbol names without build identity do not establish root cause. Crash and hang analysis compare plausible thread/actor/work hypotheses; sampled main-thread work and waiting are distinct. Hang source tail was not read; only inspected sections support this claim.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "build-binary-dependencies-supply-chain",
+      "declared_core_claims": [
+        "Resolution pins and remote-binary checksums have different producers",
+        "Checksum equality is not publisher trust; shipping platform/resource identity remains separate",
+        "Source-only policy is not overwritten by SwiftPM examples"
+      ],
+      "source_ids": [
+        "xcode-packages",
+        "binary-frameworks",
+        "resolved-pin-schema",
+        "binary-target-api"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/DEPENDENCY_POLICY.md",
+          "sha256": "a00a015c3a18e935dfe42a87fc6d1c845410ba7ed5107cf9de3e56445e6b78cd"
+        },
+        {
+          "path": "./docs/CI_CD_QUALITY_GATES.md",
+          "sha256": "e343635b1b0b1b5da9c51c3b715391d3b5c581600f26aea2797ce1fd06316312"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "sha256": "50a306a64c53009d638d0077edf1fed49604a1a3f59f75772978c1fb5d8eeaad"
+        }
+      ],
+      "section_locators": [
+        "Dependency Identity And Slice Example",
+        "Reproducibility And CI",
+        "Targets And Build Phases"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "xcode-packages",
+          "binary-frameworks",
+          "resolved-pin-schema",
+          "binary-target-api",
+          "script-build",
+          "package-resources",
+          "resolved-pin-schema"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md"
+        ],
+        "operating_rule": [
+          "./docs/DEPENDENCY_POLICY.md",
+          "./docs/CI_CD_QUALITY_GATES.md"
+        ],
+        "route": "ios-build-binary-supply-chain",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-build-system/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_BY_EXACT_SCHEMA_API; HIGH_LEVEL_SOURCE_CONFLICT_RESOLVED",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "script-build",
+          "package-resources",
+          "resolved-pin-schema",
+          "binary-target-api"
+        ],
+        "semantic_support": "Build scripts declare inputs/outputs and failure status so graph ordering is real. Source membership and generated/resource consumers need one producer. Package resolution pins source state; binary manifest checksum validates artifact bytes separately.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "platform-capabilities-extensions",
+      "declared_core_claims": [
+        "System schedules background work and limits execution; request is not completion",
+        "Widget extension is not continuously running; dynamic reload budgets are hints, not delivery time guarantees",
+        "Shared extension data requires versioned ownership and bounded work"
+      ],
+      "source_ids": [
+        "background",
+        "widgetkit-theory"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+          "sha256": "f351224f8b745bc9c086ae8c69ef88774be1a05c3328b16f5dfd28fbc5299e0a"
+        },
+        {
+          "path": "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+          "sha256": "59b2e78407b828272a667a3a2cb20f13c230b30087aaf8222b6d9a76b2b4707a"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "sha256": "2afcb33a7c9e17c5e6ce099639fe033cbec2d48c24116c8e2ae5f2ddb8d8f319"
+        }
+      ],
+      "section_locators": [
+        "Background Execution",
+        "Widgets",
+        "Target And Extension Boundary",
+        "Cross-Target Trust Example",
+        "System Surface Ownership And Recovery Example",
+        "Document Import Versus Provider Failure Example"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "background",
+          "widgetkit-theory",
+          "associated-domains",
+          "app-groups"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md"
+        ],
+        "operating_rule": [
+          "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+          "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md"
+        ],
+        "route": "ios-platform-capabilities-extended",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-platform-capabilities/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "associated-domains",
+          "app-groups"
+        ],
+        "semantic_support": "Domain association requires matching website file and entitlement but does not authorize an entity operation. App Groups grant a shared container/IPC boundary; target capabilities and older-consumer schema compatibility remain separate responsibilities.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "additional_declared_core_review": {
+        "source_ids": [
+          "widget-timeline",
+          "live-activity",
+          "app-intent",
+          "provider-fetch",
+          "provider-modify",
+          "document-picker",
+          "security-scope"
+        ],
+        "semantic_support": "Widget separate process/scheduled budget not deadline; Activity app/server updates not presentation network; Intent resolves params but owned domain authority required. Picker copy vs coordinated in-place; provider enumeration metadata not content, exact requested content version and cancellation/handoff/error semantics; avoid noSuchItem for auth/network failure.",
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "evidence": "freshness-repair-block-12.json"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "media-sensors-device-integrations",
+      "declared_core_claims": [
+        "Permission is not hardware/service availability",
+        "iOS27 audio lifecycle notifications differ from legacy interruption path",
+        "Resumption recommendation must not override current user intent"
+      ],
+      "source_ids": [
+        "audio"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+          "sha256": "30fa56cc1369a3485a57ef06ca22e558f4129a9fed20adc4958a738a18757265"
+        },
+        {
+          "path": "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+          "sha256": "03f7e1b45267dc9b1f42c3a8c16be9f1ef8b69db02dcfae4ea04d8e7117cd89b"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "sha256": "f234cfe9f82cf397a0d176510f93e3a27a8442d235c100b4378861bc5fcad813"
+        }
+      ],
+      "section_locators": [
+        "Permission Model",
+        "Audio Interruption Compatibility Example",
+        "Runtime Ownership",
+        "Photo Access And Asset Lifetime Example",
+        "Location Decision And Failure Trace",
+        "Radio Session Decision And Failure Trace",
+        "Sensitive Store Decision And Failure Trace",
+        "Motion And Haptic Recovery Trace"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "audio",
+          "photos-privacy",
+          "photos-network-assets"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md"
+        ],
+        "operating_rule": [
+          "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+          "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md"
+        ],
+        "route": "ios-media-sensors-device",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-memory-cache-media/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "photos-privacy",
+          "photos-network-assets",
+          "audio"
+        ],
+        "semantic_support": "Limited library access is selected-subset and can change; picker grant differs from broad PhotoKit permission. Cloud asset access needs network policy/progress and stale-result rejection. Provider scope must survive copying; source availability is not durable app ownership.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "additional_declared_core_review": {
+        "source_ids": [
+          "location-authorization",
+          "health-authorization",
+          "motion-processed",
+          "nfc-session",
+          "haptic-interruption",
+          "bluetooth-restoration",
+          "contacts-access",
+          "event-store-access",
+          "nearby-session"
+        ],
+        "semantic_support": "Authorization is not continuous delivery; HealthKit read denial/full access cannot be fully distinguished and history may be limited; Contacts selected subset changes; EventKit write-only cannot read back events and system editor can avoid full store access; NFC invalid sessions require recreation and discovery is not write success; Bluetooth relaunch is conditional on actual pending events/state; one Nearby session per object; processed motion separates gravity/reference frame and owns stop/timestamps; haptic reset requires rebuilding resources/players with failure fallback. Primary paragraphs read, no sample/code/hardware execution; TN table hyperlink/emphasis text not fully reconstructed so no detailed relaunch matrix claimed.",
+        "evidence": "freshness-repair-block-10.json",
+        "status": "CLOSED_INDEPENDENT_REVIEW"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "performance-observability-operations",
+      "declared_core_claims": [
+        "Long view work and excessive frequency of short updates are different hypotheses",
+        "A static pattern is not measured speedup; comparison needs same population/workload",
+        "Telemetry rename/duplicate emission cannot prove user improvement"
+      ],
+      "source_ids": [
+        "performance"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/IOS_PERFORMANCE_BUDGETS.md",
+          "sha256": "8d7688bbff9b124a2390f84685283a2840137b7059d25651dd53b49d4253bf84"
+        },
+        {
+          "path": "./docs/IOS_OBSERVABILITY_STANDARD.md",
+          "sha256": "ba7e10833453b374d71f05960ca77eedf278eb472073e000437c9aab14a5abdd"
+        },
+        {
+          "path": "./docs/INCIDENT_RESPONSE_STANDARD.md",
+          "sha256": "a054dc9796c7a4ba27cf2f1e44f46626809d6faf986cac2237d5d13c37909bb8"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "sha256": "5d7e46328c6b127f440556b5254f9c31cae3edb4e829b81287269bd4dbf21d91"
+        }
+      ],
+      "section_locators": [
+        "Measure From User Impact",
+        "Measured-Cause And Telemetry Example",
+        "Metric Design",
+        "Observability",
+        "Runtime Operations"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "performance",
+          "metrickit-theory",
+          "log-privacy"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md"
+        ],
+        "operating_rule": [
+          "./docs/IOS_PERFORMANCE_BUDGETS.md",
+          "./docs/IOS_OBSERVABILITY_STANDARD.md",
+          "./docs/INCIDENT_RESPONSE_STANDARD.md"
+        ],
+        "route": "ios-observability-incidents-rollout",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-performance-profiler/SKILL.md",
+          "./.codex/skills/ios-incident-ops/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "metrickit-theory",
+          "log-privacy",
+          "performance"
+        ],
+        "semantic_support": "Metric reports/diagnostics have delivery and identity scope, not immediate per-action proof. Dynamic string/object log privacy differs from numeric defaults; explicit redaction remains necessary. Existing rollout/kill-switch and recovery contracts bind observation to release identity; conceptual scenarios are not incident execution.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "app-store-release-compliance",
+      "declared_core_claims": [
+        "Privacy manifest validation and actual data disclosures must agree",
+        "Archive success does not prove distribution/service/metadata readiness",
+        "App Review requirements need current affected-section review before shipping"
+      ],
+      "source_ids": [
+        "privacy",
+        "app-review"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/IOS_RELEASE_CHECKLIST.md",
+          "sha256": "a537cd9bfb16cb8fda22a8f59f72199503eede0ddec39f8a5b41833393f796c5"
+        },
+        {
+          "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "sha256": "7479ff04b898b0ddd1ee36075e802818f2e7bf5130c13069884ecf21e7018ccd"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "sha256": "29fa0d60ecc1ead2c9037de816ae45294f88dceb2b346083a0aac3d5e5a69286"
+        }
+      ],
+      "section_locators": [
+        "Submission Contract",
+        "Privacy Manifest And Required-Reason APIs",
+        "Release Evidence",
+        "SDK And Supply-Chain Review"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "privacy",
+          "app-review",
+          "required-reasons",
+          "sdk-requirements"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
+        ],
+        "operating_rule": [
+          "./docs/IOS_RELEASE_CHECKLIST.md",
+          "./docs/IOS_SECURITY_PRIVACY_GATE.md"
+        ],
+        "route": "ios-app-store-compliance",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-release-engineering/SKILL.md",
+          "./.codex/skills/ios-app-store-compliance/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "required-reasons",
+          "sdk-requirements",
+          "privacy"
+        ],
+        "semantic_support": "App and each SDK declare applicable required-reason usage in their own privacy manifests; SDK cannot rely on app manifest. Listed SDK binary distribution signature requirements are conditional, not a blanket all-SDK rule. Review/privacy/distribution facts require current release-specific checking.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "storekit-and-commerce",
+      "declared_core_claims": [
+        "Separate transaction verification, owned delivery and finishing",
+        "Finish only after delivery; interrupted repeat delivery must not duplicate consumable credit",
+        "Current entitlements are not a consumable-delivery ledger"
+      ],
+      "source_ids": [
+        "transaction"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+          "sha256": "6b3f2204ccf4ce980e4fd360c97ea81fd80594f7bab5d25e9dc4fc1abd36c3cc"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "sha256": "29fa0d60ecc1ead2c9037de816ae45294f88dceb2b346083a0aac3d5e5a69286"
+        }
+      ],
+      "section_locators": [
+        "Transaction Delivery And Recovery Example",
+        "Delivery And Recovery Procedure",
+        "Subscription Access-State Example"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "transaction",
+          "subscription-grace",
+          "subscription-retry",
+          "subscription-revoked"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
+        ],
+        "operating_rule": [
+          "./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md"
+        ],
+        "route": "ios-storekit-payments",
+        "unrouted_deep_references": [],
+        "execution_aid": "Shared owner procedure/example; no separate skill required for this bounded documentation claim",
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "subscription-grace",
+          "subscription-retry",
+          "subscription-revoked",
+          "transaction"
+        ],
+        "semantic_support": "Grace permits continued access; billing-retry label alone does not prove entitlement. Verified transaction/current entitlement, expiration/revocation and family context govern access. Recovery example preserves another still-valid entitlement and finishes only after delivery.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    },
+    {
+      "domain": "accessibility-localization-inclusive-ux",
+      "declared_core_claims": [
+        "Meaning must remain available across sensory/interaction modes and adaptable text",
+        "Localized plural categories depend on locale, not an English suffix",
+        "Pending/unknown state must not be announced as a confirmed negative"
+      ],
+      "source_ids": [
+        "accessibility",
+        "localization"
+      ],
+      "owner_files": [
+        {
+          "path": "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+          "sha256": "5dfa511b37911d81675318946032a8e733f889dd2c997c5dba48b891ab30a22e"
+        },
+        {
+          "path": "./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "sha256": "49941b39b24ac58c1fd2152281fa0e689aaa9064fcafcdc5dd7de40887dc97ac"
+        },
+        {
+          "path": "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "sha256": "2b18e5124f3ba8497331f1d9095a7570a4c00ce580bcd155f53f535b9dc762f2"
+        }
+      ],
+      "section_locators": [
+        "Explanation And Failure Trace",
+        "Mental Model And Failure Example",
+        "Accessible And Localized Interaction Review"
+      ],
+      "six_link_receipt": {
+        "primary_theory": [
+          "accessibility",
+          "localization",
+          "date-formatting",
+          "package-resources"
+        ],
+        "deep_reference": [
+          "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md"
+        ],
+        "operating_rule": [
+          "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+          "./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md"
+        ],
+        "route": "ios-accessibility-localization-qa",
+        "unrouted_deep_references": [],
+        "execution_aid": [
+          "./.codex/skills/ios-accessibility/SKILL.md",
+          "./.codex/skills/ios-qa-localization/SKILL.md"
+        ],
+        "evidence": "Preserved semantic audit, current primary read scopes, owner/static semantic review and independent breadth/delta reviews; conceptual examples unexecuted. Final promotion diff review separate."
+      },
+      "claim_review_status": "SUPPORTED_IN_BOUNDED_SCOPE_WITH_NOTED_SOURCE_CONFLICT",
+      "domain_maturity": "complete",
+      "whole_domain_complete": true,
+      "remaining_boundary": "PARTIAL_SCOPED_REVIEW freshness; concrete adoption/API changes trigger current source review. No executed example, app/release readiness or empirical quality/savings claim.",
+      "gap_resolution": {
+        "status": "CLOSED_INDEPENDENT_REVIEW",
+        "source_ids": [
+          "date-formatting",
+          "package-resources",
+          "localization",
+          "accessibility"
+        ],
+        "semantic_support": "Localized display uses user locale/calendar/timezone as appropriate; fixed wire format uses explicit stable serialization rules. Catalog plural/format semantics and target/package bundle lookup are separate; SwiftPM resource lookup applies only to adopted package targets.",
+        "claim_scope": "Existing declared current core; no all-SDK completeness or app runtime certification"
+      },
+      "completion_scope": "Existing declared mandatory documentation core only; not exhaustive API inventory or application execution."
+    }
+  ],
+  "source_conflict": {
+    "id": "K3-P2-BINARY-CHECKSUM",
+    "observed": "Apple high-level Xcode dependency overview says Package.resolved contains binary checksums; current exact SwiftPM resolved-pin schema and binaryTarget API distinguish package pins from manifest archive checksum.",
+    "resolution": "Corrected Build owner to separate producers and inspect actual versioned schema/API. Current schema/API prevails for this contract; high-level overview is not enough.",
+    "primary_sources": [
+      "https://github.com/swiftlang/swift-package-manager/blob/main/Sources/PackageGraph/ResolvedPackagesStore.swift",
+      "https://docs.swift.org/latest/documentation/packagedescription/target/"
+    ],
+    "status": "FIXED_STATIC_REVIEW_CLOSED",
+    "snapshot_ids": [
+      "resolved-pin-schema",
+      "binary-target-api"
+    ]
+  },
+  "semantic_support": {
+    "state": "Direct wrapper and macro overviews read; initialization and toolchain distinctions verified.",
+    "parallel": "Direct discussion read; recursive suite and parameterized serialization, no unrelated exclusion or deterministic order promise.",
+    "transaction": "Direct overview+verification discussion read; delivery before finishing, verified/unverified distinction. Duplicate/relaunch behavior is explicit reasoned counterexample, not observed app proof.",
+    "audio": "Direct guide read; current iOS27 lifecycle notification model and legacy earlier-OS handling.",
+    "privacy": "Direct full guide read; valid manifest keys/values and resource location under app/framework/package ownership. No archive/re-sign commands executed.",
+    "coredata": "Direct guide read; context queue confinement, private background import, objectID transfer.",
+    "oauth": "Normative RFC8252 external user agent/PKCE and RFC9700§2.2.2 public refresh-token protection read.",
+    "accessibility": "Direct HIG body read for adaptable/multichannel semantics and reduced motion; localization article read for catalog/plural behavior. Excluded tests remain omitted.",
+    "cryptokit": "AES.GCM abstract/topics support cipher/verify primitive only; sample-project stub is not full cryptographic guidance. Key lifecycle remains explicit owner reasoning/required project verification.",
+    "swift-language": "Official Swift book ARC and cancellation excerpts, API Design Guidelines core rules read; moving main-branch text is hash-bound, not project compiler execution.",
+    "app-review": "Direct current sections2.1/4.8/5.1.1/5.1.2 read; completeness, equivalent-login conditions, minimization/consent/data-use apply. Physical-device language in shipping policy remains an unverified excluded observation, not PASS or a new task grant."
+  },
+  "limits": [
+    "Some direct JSON source bodies were displayed with explicit character limits; only relevant read sections support the listed claims. No full-source-body-read claim from FETCHED/hash alone.",
+    "SwiftData abstract/topics support plan purpose; failed guessed migration article URL remains UNAVAILABLE, not PASS.",
+    "No app build/tests/runtime, package/resource downloads, host/config/credentials, new agents or experiment execution."
+  ]
+}

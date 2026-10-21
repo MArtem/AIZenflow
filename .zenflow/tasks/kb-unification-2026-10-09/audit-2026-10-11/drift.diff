@@ -1,0 +1,602 @@
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-accessibility/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-accessibility/SKILL.md
+@@ -18,4 +18,6 @@
+ - Manual verification steps.
+ 
+ ## References
+-- `./docs/IOS_ACCESSIBILITY_STANDARD.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_ACCESSIBILITY_STANDARD.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-api-contracts/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-api-contracts/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: ios-api-contracts
+-description: Use this skill for iOS API contract work: DTO/domain/persistence mapping, schema/version compatibility, decode failures, API error taxonomy, and request/response contract review. Trigger when the task reviews or changes a backend contract or mapping; add network-resilience or offline-sync only for those separate risks.
++description: "Use this skill for iOS API contract work: DTO/domain/persistence mapping, schema/version compatibility, decode failures, API error taxonomy, and request/response contract review. Trigger when the task reviews or changes a backend contract or mapping; add network-resilience or offline-sync only for those separate risks."
+ ---
+ 
+ # iOS API Contracts
+@@ -18,4 +18,6 @@
+ - Verification plan.
+ 
+ ## References
+-- `./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:API_CONTRACT_AND_INTEGRATION_RULES.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-app-store-compliance/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-app-store-compliance/SKILL.md
+@@ -8,9 +8,11 @@
+ ## Required Context
+ Read:
+ 
+-- `./docs/IOS_RELEASE_CHECKLIST.md`
+-- `./docs/IOS_SECURITY_PRIVACY_GATE.md`
+-- `./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_RELEASE_CHECKLIST.md`
++- `DOC:IOS_SECURITY_PRIVACY_GATE.md`
++- `DOC:knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md`
+ - current official Apple requirements for affected sections
+ 
+ ## Workflow
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-architecture-router/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-architecture-router/SKILL.md
+@@ -8,20 +8,22 @@
+ ## Workflow
+ 1. Read active project rules before applying any architecture-specific guidance.
+ 2. Identify the architecture style already present in the code or requested by the user.
+-3. Apply `./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md` and only the matching review gate.
++3. Apply `DOC:IOS_ARCHITECTURE_STYLE_ROUTER.md` and only the matching review gate.
+ 4. Reject external rules that conflict with current project rules, especially speculative layers, decorative protocols/factories/adapters/use cases, and generic `send(_:)` as default MVVM API.
+ 5. If the requested change would alter long-lived architecture, require user approval and an ADR/rationale before implementation.
+ 
+ ## Output
+ - Detected architecture style and evidence.
+-- Applicable gate from `./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md`.
++- Applicable gate from `DOC:IOS_ARCHITECTURE_STYLE_ROUTER.md`.
+ - Conflicts with active project rules.
+ - Findings prioritized as must do now / should do next / later / do not do.
+ - Verification needs.
+ 
+ ## References
+-- `./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md`
+-- `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
+-- `./docs/IOS_MVVM_INTENT_API_STANDARD.md`
+-- `./docs/IOS_UI_STATE_RENDERING_STANDARD.md`
+-- `./docs/MODULAR_ARCHITECTURE_STANDARD.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_ARCHITECTURE_STYLE_ROUTER.md`
++- `DOC:ARCHITECTURE_DECISION_GOVERNANCE.md`
++- `DOC:IOS_MVVM_INTENT_API_STANDARD.md`
++- `DOC:IOS_UI_STATE_RENDERING_STANDARD.md`
++- `DOC:MODULAR_ARCHITECTURE_STANDARD.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-build-system/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-build-system/SKILL.md
+@@ -8,9 +8,11 @@
+ ## Required Context
+ Read:
+ 
+-- `./docs/DEPENDENCY_POLICY.md`
+-- `./docs/CI_CD_QUALITY_GATES.md`
+-- `./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:DEPENDENCY_POLICY.md`
++- `DOC:CI_CD_QUALITY_GATES.md`
++- `DOC:knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md`
+ - exact project/workspace target and effective build settings
+ 
+ ## Workflow
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-concurrency-runtime/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-concurrency-runtime/SKILL.md
+@@ -1,6 +1,10 @@
+ ---
+ name: ios-concurrency-runtime
+ description: Review or change iOS concurrency behavior involving async/await, Task lifetime, actor isolation, Sendable, cancellation, callback bridging, or Swift 6 diagnostics; not for an incidental mention of a task, async API, or main thread.
++metadata:
++  version: "1.0"
++  last_reviewed: "2026-09-08"
++  provenance: Local governed skill in AIZenflowDocumentation; upstream text is reference data, not local authority.
+ ---
+ 
+ # iOS Concurrency Runtime
+@@ -13,5 +17,7 @@
+ 5. Report findings with severity, evidence, target state, and verification.
+ 
+ ## References
+-- `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`
+-- `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_CONCURRENCY_RUNTIME_STANDARD.md`
++- `DOC:EVIDENCE_BASED_ENGINEERING_RULES.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-configuration-environments/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-configuration-environments/SKILL.md
+@@ -11,5 +11,7 @@
+ 3. Check affected flag defaults, diagnostics, analytics, and crash routing; report release verification requirements and unknowns.
+ 
+ ## References
+-- `./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`
+-- `./docs/FEATURE_FLAGS_AND_ROLLOUTS.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`
++- `DOC:FEATURE_FLAGS_AND_ROLLOUTS.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-data-migration/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-data-migration/SKILL.md
+@@ -19,4 +19,6 @@
+ - Verification plan.
+ 
+ ## References
+-- `./docs/IOS_DATA_MIGRATION_STANDARD.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_DATA_MIGRATION_STANDARD.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-error-handling/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-error-handling/SKILL.md
+@@ -13,5 +13,7 @@
+ 5. Require observability without sensitive-data leakage.
+ 
+ ## References
+-- `./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md`
+-- `./docs/IOS_OBSERVABILITY_STANDARD.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md`
++- `DOC:IOS_OBSERVABILITY_STANDARD.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-evidence-gate/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-evidence-gate/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: ios-evidence-gate
+-description: Use this skill whenever an iOS completion claim needs validation: done, fixed, optimized, safe, secure, production-ready, no risk, or clean review. Trigger whenever the user challenges confidence, asks for proof, or wants assurance that issues were not missed.
++description: "Use this skill whenever an iOS completion claim needs validation: done, fixed, optimized, safe, secure, production-ready, no risk, or clean review. Trigger whenever the user challenges confidence, asks for proof, or wants assurance that issues were not missed."
+ ---
+ 
+ # iOS Evidence Gate
+@@ -18,5 +18,7 @@
+ - Required verification.
+ 
+ ## References
+-- `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`
+-- `./docs/DEFINITION_OF_DONE.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:EVIDENCE_BASED_ENGINEERING_RULES.md`
++- `DOC:DEFINITION_OF_DONE.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-identity-authentication/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-identity-authentication/SKILL.md
+@@ -8,8 +8,10 @@
+ ## Required Context
+ Read:
+ 
+-- `./docs/IOS_SECURITY_PRIVACY_GATE.md`
+-- `./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_SECURITY_PRIVACY_GATE.md`
++- `DOC:knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md`
+ - API/backend contracts when remote identity or App Attest is involved
+ 
+ ## Workflow
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-incident-ops/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-incident-ops/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: ios-incident-ops
+-description: Use this skill for iOS production operations: incidents, crash spikes, bad releases, rollbacks, feature flags, staged rollouts, SLOs, product health, risk registers, and postmortems. Trigger whenever the user mentions incident, rollout, rollback, hotfix, kill switch, SLO, production health, or accepted risk.
++description: "Use this skill for iOS production operations: incidents, crash spikes, bad releases, rollbacks, feature flags, staged rollouts, SLOs, product health, risk registers, and postmortems. Trigger whenever the user mentions incident, rollout, rollback, hotfix, kill switch, SLO, production health, or accepted risk."
+ ---
+ 
+ # iOS Incident Ops
+@@ -20,8 +20,10 @@
+ - Follow-ups.
+ 
+ ## References
+-- `./docs/INCIDENT_RESPONSE_STANDARD.md`
+-- `./docs/FEATURE_FLAGS_AND_ROLLOUTS.md`
+-- `./docs/PRODUCT_HEALTH_SLO.md`
+-- `./docs/RISK_REGISTER.md`
+-- `./docs/TECH_DEBT_REGISTER.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:INCIDENT_RESPONSE_STANDARD.md`
++- `DOC:FEATURE_FLAGS_AND_ROLLOUTS.md`
++- `DOC:PRODUCT_HEALTH_SLO.md`
++- `DOC:RISK_REGISTER.md`
++- `DOC:TECH_DEBT_REGISTER.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-input-validation/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-input-validation/SKILL.md
+@@ -13,5 +13,7 @@
+ 5. Report manual/device validation needed for permissions/import flows.
+ 
+ ## References
+-- `./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md`
+-- `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md`
++- `DOC:IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-lifecycle-background/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-lifecycle-background/SKILL.md
+@@ -13,5 +13,7 @@
+ 5. Report verification needed for simulator/device/manual flows.
+ 
+ ## References
+-- `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`
+-- `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`
++- `DOC:APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-memory-cache-media/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-memory-cache-media/SKILL.md
+@@ -12,5 +12,7 @@
+ 4. Require profiler/manual evidence for smooth-scroll or memory claims; report it as unverified when not authorized.
+ 
+ ## References
+-- `./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`
+-- `./docs/IOS_PERFORMANCE_BUDGETS.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_MEMORY_CACHE_MEDIA_STANDARD.md`
++- `DOC:IOS_PERFORMANCE_BUDGETS.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-modular-architecture/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-modular-architecture/SKILL.md
+@@ -19,6 +19,8 @@
+ - Build/dev-experience impact.
+ 
+ ## References
+-- `./docs/MODULAR_ARCHITECTURE_STANDARD.md`
+-- `./docs/DEVELOPER_EXPERIENCE_STANDARD.md`
+-- `./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:MODULAR_ARCHITECTURE_STANDARD.md`
++- `DOC:DEVELOPER_EXPERIENCE_STANDARD.md`
++- `DOC:CODE_OWNERSHIP_AND_REVIEW_POLICY.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-network-resilience/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-network-resilience/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: ios-network-resilience
+-description: Use this skill for iOS transport reliability: timeout, retry/backoff, cancellation, auth refresh, pagination under unreliable networks, uploads/downloads, and partial transport failure. Trigger when the task contains one of these reliability risks; generic API schema work belongs to ios-api-contracts.
++description: "Use this skill for iOS transport reliability: timeout, retry/backoff, cancellation, auth refresh, pagination under unreliable networks, uploads/downloads, and partial transport failure. Trigger when the task contains one of these reliability risks; generic API schema work belongs to ios-api-contracts."
+ ---
+ 
+ # iOS Network Resilience
+@@ -13,5 +13,7 @@
+ 5. Report findings with remediation and verification.
+ 
+ ## References
+-- `./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`
+-- `./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_NETWORK_RESILIENCE_STANDARD.md`
++- `DOC:API_CONTRACT_AND_INTEGRATION_RULES.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-offline-sync/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-offline-sync/SKILL.md
+@@ -1,6 +1,6 @@
+ ---
+ name: ios-offline-sync
+-description: Use this skill for durable offline mutation and synchronization: outbox/replay, pending operations, conflicts, idempotency across relaunch, app-group/widget/extension data, and optimistic failure recovery. Trigger when durable local state or reconciliation is in scope; a generic offline error state does not activate this route alone.
++description: "Use this skill for durable offline mutation and synchronization: outbox/replay, pending operations, conflicts, idempotency across relaunch, app-group/widget/extension data, and optimistic failure recovery. Trigger when durable local state or reconciliation is in scope; a generic offline error state does not activate this route alone."
+ ---
+ 
+ # iOS Offline Sync
+@@ -13,5 +13,7 @@
+ 5. Report remaining risks when manual/relaunch verification is needed.
+ 
+ ## References
+-- `./docs/IOS_OFFLINE_SYNC_STANDARD.md`
+-- `./docs/IOS_DATA_MIGRATION_STANDARD.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_OFFLINE_SYNC_STANDARD.md`
++- `DOC:IOS_DATA_MIGRATION_STANDARD.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-performance-profiler/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-performance-profiler/SKILL.md
+@@ -29,5 +29,7 @@
+ - Next measurements.
+ 
+ ## References
+-- `./docs/IOS_PERFORMANCE_BUDGETS.md`
+-- `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_PERFORMANCE_BUDGETS.md`
++- `DOC:PRODUCTION_CODE_REVIEW_CHECKLIST.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-platform-capabilities/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-platform-capabilities/SKILL.md
+@@ -8,9 +8,11 @@
+ ## Required Context
+ Read:
+ 
+-- `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
+-- `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`
+-- `./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
++- `DOC:IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`
++- `DOC:knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md`
+ - framework-specific official documentation for the capability
+ 
+ ## Workflow
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-product-governance/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-product-governance/SKILL.md
+@@ -18,5 +18,7 @@
+ - Implementation blockers and risks.
+ 
+ ## References
+-- `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`
+-- `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:PRODUCT_REQUIREMENTS_STANDARD.md`
++- `DOC:ARCHITECTURE_DECISION_GOVERNANCE.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-production-auditor/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-production-auditor/SKILL.md
+@@ -19,6 +19,8 @@
+ - Remaining risks.
+ 
+ ## References
+-- `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`
+-- `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`
+-- `./docs/DEFINITION_OF_DONE.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_PRODUCTION_READINESS_STANDARD.md`
++- `DOC:PRODUCTION_REVIEW_COMPLETENESS_GATE.md`
++- `DOC:DEFINITION_OF_DONE.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-qa-localization/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-qa-localization/SKILL.md
+@@ -15,7 +15,9 @@
+ - Applicable verification plan and evidence gaps.
+ 
+ ## References
+-- `./docs/QA_TEST_PLAN_STANDARD.md`
+-- `./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`
+-- `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
+-- `./docs/COMPATIBILITY_MATRIX.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:QA_TEST_PLAN_STANDARD.md`
++- `DOC:LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`
++- `DOC:APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
++- `DOC:COMPATIBILITY_MATRIX.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-release-engineering/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-release-engineering/SKILL.md
+@@ -19,5 +19,7 @@
+ - Release recommendation.
+ 
+ ## References
+-- `./docs/IOS_RELEASE_CHECKLIST.md`
+-- `./docs/CI_CD_QUALITY_GATES.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_RELEASE_CHECKLIST.md`
++- `DOC:CI_CD_QUALITY_GATES.md`
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-security-privacy/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-security-privacy/SKILL.md
+@@ -15,5 +15,7 @@
+ - Severity, confidence, remediation, and permitted or user-owned verification.
+ 
+ ## References
+-- `./docs/IOS_SECURITY_PRIVACY_GATE.md`
+-- `./docs/agent-prompts/ios-security-privacy-review.md` for an audit request only.
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_SECURITY_PRIVACY_GATE.md`
++- `DOC:agent-prompts/ios-security-privacy-review.md` for an audit request only.
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-swift-runtime/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-swift-runtime/SKILL.md
+@@ -1,6 +1,10 @@
+ ---
+ name: ios-swift-runtime
+ description: Use for Swift language, compiler, ARC, ownership, generics, protocols, existentials, macros, unsafe memory, interoperability, public API, ABI, module stability, or binary compatibility work. Trigger when the task depends on Swift semantics rather than only app architecture.
++metadata:
++  version: "1.0"
++  last_reviewed: "2026-09-08"
++  provenance: Local governed skill in AIZenflowDocumentation; upstream text is reference data, not local authority.
+ ---
+ 
+ # iOS Swift Runtime
+@@ -8,8 +12,10 @@
+ ## Required Context
+ Read:
+ 
+-- `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`
+-- `./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`
++- `DOC:knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md`
+ - the affected module's build settings and public interfaces
+ 
+ ## Workflow
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-test-strategy/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-test-strategy/SKILL.md
+@@ -18,5 +18,7 @@
+ - Remaining risks.
+ 
+ ## References
+-- `./docs/IOS_TESTING_STRATEGY.md`
+-- `./TESTING_INSTRUCTIONS.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_TESTING_STRATEGY.md`
++- Project-root `TESTING_INSTRUCTIONS.md`, when present; resolve from the active project root, not this skill directory.
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-testing-debugging/SKILL.md
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-testing-debugging/SKILL.md
+@@ -8,8 +8,10 @@
+ ## Required Context
+ Read:
+ 
+-- `./docs/IOS_TESTING_STRATEGY.md`
+-- `./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md`
++Resolve `DOC:` identifiers through the active task router in canonical
++`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
++- `DOC:IOS_TESTING_STRATEGY.md`
++- `DOC:knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md`
+ - the current task's test/build/device permissions
+ 
+ ## Workflow
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/REUSABLE_BASELINE_POLICY.json
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/REUSABLE_BASELINE_POLICY.json
+@@ -48,9 +48,7 @@
+         "UI_PIXEL_PERFECT_WORKFLOW.md",
+         "agent-prompts/README.md"
+       ],
+-      "canonical_only_patterns": [
+-        "templates/IOS_PROJECT_MEMORY.template.md"
+-      ],
++      "canonical_only_patterns": [],
+       "local_only_patterns": [
+         "IOS_ARCHITECTURE_REFERENCE.md",
+         "LOCAL_FEED_PERSISTENCE_CONTRACT.md",
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/root-scripts/report_documentation_context_cost.py
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/scripts/report_documentation_context_cost.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""Report documentation route size, overlap, budgets, and reachability."""
++"""Report required route cost and the upper bound including optional candidates."""
+ 
+ from __future__ import annotations
+ 
+@@ -132,17 +132,28 @@
+     route_sets: dict[str, set[str]] = {}
+     for name in route_names:
+         paths = resolved["route_documents"].get(name, [])
++        required_paths = resolved["required_route_documents"].get(name, [])
+         route_sets[name] = set(paths)
++        required = summarize(root, required_paths)
+         own = summarize(root, paths)
+         with_level0 = summarize(root, resolved["level0_documents"] + paths)
++        with_level0_required = summarize(root, resolved["level0_documents"] + required_paths)
+         configured_budget = route_registry["routes"][name].get("max_words")
+         route_summaries[name] = {
++            "cost_basis": "upper_bound_including_optional_candidates",
+             "documents": own["documents"],
+             "words": own["words"],
+             "bytes": own["bytes"],
++            "required_documents": required["documents"],
++            "required_words": required["words"],
++            "required_bytes": required["bytes"],
++            "optional_candidate_documents": own["documents"] - required["documents"],
++            "optional_increment_words": own["words"] - required["words"],
++            "optional_increment_bytes": own["bytes"] - required["bytes"],
+             "with_level0_documents": with_level0["documents"],
+             "with_level0_words": with_level0["words"],
+             "with_level0_bytes": with_level0["bytes"],
++            "with_level0_required_words": with_level0_required["words"],
+             "with_instruction_envelope_documents": envelope["documents"] + own["documents"],
+             "with_instruction_envelope_words": envelope["words"] + own["words"],
+             "with_instruction_envelope_bytes": envelope["bytes"] + own["bytes"],
+@@ -245,13 +256,16 @@
+         "Instruction envelope: "
+         f"{envelope['documents']} docs; {envelope['words']} words; {envelope['bytes']} bytes"
+     )
+-    print("Routes (route-only -> with Level 0 -> with instruction envelope):")
++    print("Routes (required -> upper bound with optional candidates; not observed reads):")
+     for name, values in report["routes"].items():
+         budget = ""
+         if values["max_words"] is not None:
+             budget = f"; budget {values['max_words']}"
+         print(
+-            f"- {name}: {values['documents']} docs, {values['words']} words, {values['bytes']} bytes"
++            f"- {name}: required {values['required_documents']} docs, "
++            f"{values['required_words']} words; upper bound {values['documents']} docs, "
++            f"{values['words']} words ({values['optional_increment_words']} optional words), "
++            f"{values['bytes']} bytes"
+             f" -> {values['with_level0_documents']} docs, {values['with_level0_words']} words"
+             f" -> {values['with_instruction_envelope_documents']} docs, "
+             f"{values['with_instruction_envelope_words']} words"
+--- /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/root-scripts/resolve_docs_route.py
++++ /Users/Artem/.zenflow/worktrees/knowledge-base-next/scripts/resolve_docs_route.py
+@@ -1,5 +1,5 @@
+ #!/usr/bin/env python3
+-"""Resolve one or more documentation routes into an ordered, deduplicated file list."""
++"""Resolve required route files and optional candidates without claiming they were read."""
+ 
+ from __future__ import annotations
+ 
+@@ -214,9 +214,12 @@
+     level0_documents, level0_duplicates = ordered_unique(level0_values)
+ 
+     route_values: list[str] = []
++    required_values: list[str] = []
+     optional_values: list[str] = []
+     trigger_values: list[str] = []
+     route_documents: dict[str, list[str]] = {}
++    required_route_documents: dict[str, list[str]] = {}
++    optional_route_documents: dict[str, list[str]] = {}
+     for name in route_names:
+         route = routes.get(name)
+         if not isinstance(route, dict):
+@@ -224,17 +227,22 @@
+         documents = [value for value in route.get("documents", []) if isinstance(value, str)]
+         optional = [value for value in route.get("optional_documents", []) if isinstance(value, str)]
+         route_documents[name] = documents + optional
++        required_route_documents[name] = documents
++        optional_route_documents[name] = [value for value in optional if value not in documents]
+         route_values.extend(documents)
+         route_values.extend(optional)
++        required_values.extend(documents)
+         optional_values.extend(optional)
+         trigger_values.extend(
+             value for value in route.get("trigger_patterns", []) if isinstance(value, str)
+         )
+ 
+     documents, duplicates_removed = ordered_unique(route_values)
++    required_documents, _ = ordered_unique(required_values)
+     optional_documents, _ = ordered_unique(optional_values)
+     trigger_patterns, _ = ordered_unique(trigger_values)
+-    optional_set = set(optional_documents)
++    required_set = set(required_documents)
++    optional_candidates = [path for path in optional_documents if path not in required_set]
+ 
+     missing: list[str] = []
+     optional_missing: list[str] = []
+@@ -246,7 +254,7 @@
+             failures.append(str(error))
+             continue
+         if not candidate.is_file():
+-            if path in optional_set:
++            if path not in required_set:
+                 optional_missing.append(path)
+             else:
+                 missing.append(path)
+@@ -263,7 +271,12 @@
+         "selected_routes": route_names,
+         "level0_documents": level0_documents,
+         "route_documents": route_documents,
++        "document_selection": "upper_bound_including_optional_candidates",
++        "required_route_documents": required_route_documents,
++        "optional_route_documents": optional_route_documents,
+         "documents": documents,
++        "required_documents": required_documents,
++        "optional_candidates": optional_candidates,
+         "combined_documents": combined_documents,
+         "trigger_patterns": trigger_patterns,
+         "duplicates_removed": ordered_unique(level0_duplicates + duplicates_removed)[0],
+@@ -280,8 +293,11 @@
+     print("Level 0:")
+     for path in result["level0_documents"]:
+         print(f"- {path}")
+-    print("Resolved route documents:")
+-    for path in result["documents"]:
++    print("Required route documents:")
++    for path in result["required_documents"]:
++        print(f"- {path}")
++    print("Optional candidates (read only when the subtask needs them):")
++    for path in result["optional_candidates"]:
+         print(f"- {path}")
+     if result["trigger_patterns"]:
+         print("Triggered references (resolve only when relevant):")

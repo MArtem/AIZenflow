@@ -8,9 +8,9 @@ description: Use this skill for iOS performance investigations, scroll jank, lau
 ## Workflow
 1. Define the scenario and expected user interaction.
 2. Check source for known hot-path violations before profiling.
-3. Select verification: static review, simulator profiling, real-device profiling, or manual QA.
-4. Prefer real device for SwiftUI/performance truth; simulator is useful but limited.
-5. Compare before/after using the same scenario and device.
+3. Select only currently authorized static review, iPhone Simulator profiling, or manual QA. Profiling requires explicit execution permission.
+4. Apply `CURRENT_USER_OVERRIDES.md`: omit iPad, physical-device and actual VoiceOver checks from plans and acceptance; retain historical results as history and mark excluded coverage `OMITTED_BY_USER`, never PASS. Do not infer hardware performance from Simulator evidence.
+5. Compare permitted before/after evidence using the same scenario and environment; missing measurements remain unverified.
 6. Report failed captures honestly; do not infer metrics from invalid traces.
 
 ## Review Areas

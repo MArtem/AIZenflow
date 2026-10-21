@@ -68,6 +68,25 @@ idempotency. Review declaration, resolver, domain operation, handoff and target 
 Spotlight review includes indexing batches/cost, deletion and reindex recovery against actual
 stable entities and authorized destinations; an index entry is not current content authority.
 
+### System Surface Ownership And Recovery Example
+A widget timeline is a prediction/rendering contract, not a continuously running process or
+an exact reload deadline. A Live Activity instead has app/server-owned start/update/end state;
+its presentation sandbox does not fetch network/location data itself. An App Intent resolves
+parameters before calling perform(), but app authorization and domain mutation still belong
+to the operation owner. A normal in-app screen may be the simpler alternative when an action
+needs prolonged interaction, unsupported capabilities or sensitive confirmation.
+
+For example, a widget shows account A while a system action arrives after logout. Resolve the
+stable entity under the current account at consumption and reject stale authority. Repeated
+invocations must reconcile to the same owned mutation rather than create duplicate purchases
+or uploads. Refresh a timeline when its data changes, but retain honest stale/placeholder state
+if the system delays it. End/reconcile a Live Activity when the underlying operation ends;
+do not treat its continuing presentation as an active job or delivery acknowledgment.
+Primary theory: [Widget timelines and budgets](https://developer.apple.com/documentation/widgetkit/keeping-a-widget-up-to-date),
+[Live Activity ownership](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities),
+and [App Intent action/parameter contract](https://developer.apple.com/documentation/appintents/appintent).
+This trace does not execute a system surface or request excluded observations.
+
 ## Continuity And Focused Integrations
 For an approved App Clip consumer, establish invocation/URL handling, current size/functionality
 limits, ephemeral permission and auth/data boundaries with its corresponding full app, analytics/
@@ -92,11 +111,47 @@ Treat universal links as a server-and-app contract. Verify association file cont
 ## App Groups
 App Groups expand the trust and corruption surface across targets. Inventory members, data formats, file protection, migration, coordination, cleanup, and account separation. Keychain access groups and App Groups are different mechanisms.
 
+## Cross-Target Trust Example
+A valid associated-domain relationship establishes app/site association, not authorization to
+open every entity encoded in a URL. Parse and validate the destination, defer through the
+owned login/loading flow when required, then revalidate access at consumption. A replayed
+link must not duplicate an already committed action.
+
+For example, an older widget reads a shared record after the app updates its schema. App
+Group membership permits container access but does not provide format compatibility or
+transaction coordination. Define supported schema versions, account separation and concurrent
+reader/writer behavior at that shared boundary; do not solve it by importing the whole app.
+Entitlement inspection and this failure trace are documentation evidence, not provisioning,
+server configuration, app-group access or observed extension handoff.
+Primary theory: [Associated domains](https://developer.apple.com/documentation/xcode/supporting-associated-domains)
+and [App Groups](https://developer.apple.com/documentation/xcode/configuring-app-groups).
+
 ## Share, Action, Document, And File Provider Extensions
 - Validate incoming items and security-scoped resources.
 - Copy or coordinate files before source access expires.
 - Bound memory and asynchronous work, complete/cancel the extension request exactly once.
 - Document providers and File Provider domains require conflict, version, offline, and coordination semantics beyond ordinary import.
+
+### Document Import Versus Provider Failure Example
+Choose an app-owned copy for an import, or coordinated in-place editing when preserving an
+external document is the feature. A provider URL is not durable authority: balance successful
+security-scope access with release after all asynchronous work, and coordinate external reads
+and writes. A bookmark is resolved/revalidated access, not a forever-valid raw URL.
+A File Provider domain is a synchronization producer, beyond consuming a document picker.
+
+For example, a provider enumerates an item's metadata while its content remains unavailable.
+Enumeration is not a completed download. A fetch for a particular version must return that
+version or an error, with matching contentVersion; cancellation must terminate owned work.
+After content handoff the system controls the local copy. During modification, apply only the
+acknowledged changed fields/version and preserve unapplied work under the domain conflict
+policy. Do not translate an authentication/network failure into noSuchItem: that error has
+removal semantics. An import-only feature should not adopt a provider extension just to copy
+one file. These are unexecuted producer/consumer and failure traces.
+Primary theory: [Document picker open/export/copy](https://developer.apple.com/documentation/uikit/uidocumentpickerviewcontroller),
+[Security-scope lifetime](https://developer.apple.com/documentation/foundation/nsurl/startaccessingsecurityscopedresource()),
+[Provider fetch version/cancellation/handoff](https://developer.apple.com/documentation/fileprovider/nsfileproviderreplicatedextension/fetchcontents(for:version:request:completionhandler:)),
+and [Provider changed-field upload](https://developer.apple.com/documentation/fileprovider/nsfileproviderreplicatedextension/modifyitem(_:baseversion:changedfields:contents:options:request:completionhandler:)).
+No extension was activated or external file accessed.
 
 ## StoreKit And Commerce
 Use the dedicated StoreKit standard. Capability review must also include product configuration, signed transactions, entitlement restoration, pending/revoked/refunded states, family/group behavior where applicable, server dependency, and App Review rules.

@@ -32890,7 +32890,7 @@
           "disposition": "ALREADY_COVERED",
           "reason": "Deterministic/specialized framework first for actual user need.",
           "destination_path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
-          "destination_heading": "1. системные и developer-инструкции активной среды;; 3. `AGENTS.md`, current user overrides и task-local правила в пределах делегированной authority;",
+          "destination_heading": "1. ОСНОВНАЯ ЦЕЛЬ",
           "required_verification": "Complete normalized template/focus/gates, SHA/literal fragments/current headings, scoped primary evidence, prior objects and exact mirrors.",
           "evidence": "block-36-ai-curated-completion.md",
           "affected_routes": [
@@ -32907,9 +32907,7 @@
             {
               "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
               "headings": [
-                "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ",
-                "1. системные и developer-инструкции активной среды;",
-                "3. `AGENTS.md`, current user overrides и task-local правила в пределах делегированной authority;"
+                "1. ОСНОВНАЯ ЦЕЛЬ"
               ]
             }
           ]
@@ -42336,6 +42334,12 @@
               "path": "reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
               "headings": [
                 "Verification And Quality"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+              "headings": [
+                "Severity Classification"
               ]
             }
           ]
@@ -61587,6 +61591,19 @@
                 "3. Verification Ladder",
                 "4. Final Adversarial Review"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Request Contract",
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "Observability"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -65988,6 +66005,12 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+              "headings": [
+                "DTO And Domain Boundaries"
               ]
             }
           ],
@@ -82961,7 +82984,8 @@
             {
               "path": "reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
               "headings": [
-                "Render Hot Path"
+                "Render Hot Path",
+                "UI Structure"
               ]
             },
             {
@@ -82969,6 +82993,12 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
               ]
             }
           ]
@@ -83893,6 +83923,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
             }
           ]
         },
@@ -84117,6 +84153,12 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
               ]
             }
           ]
@@ -86070,6 +86112,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
             }
           ]
         },
@@ -86118,6 +86166,12 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
               ]
             }
           ]
@@ -86296,6 +86350,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
             }
           ]
         },
@@ -86344,6 +86404,12 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
               ]
             }
           ]
@@ -89853,6 +89919,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
             }
           ]
         },
@@ -91577,7 +91649,8 @@
                 "Migration",
                 "CloudKit",
                 "Offline And Sync",
-                "Evidence"
+                "Evidence",
+                "Preferences And Derived Caches"
               ]
             },
             {
@@ -91814,7 +91887,8 @@
                 "Migration",
                 "CloudKit",
                 "Offline And Sync",
-                "Evidence"
+                "Evidence",
+                "Preferences And Derived Caches"
               ]
             },
             {
@@ -92045,7 +92119,8 @@
                 "Migration",
                 "CloudKit",
                 "Offline And Sync",
-                "Evidence"
+                "Evidence",
+                "Preferences And Derived Caches"
               ]
             },
             {
@@ -92281,7 +92356,8 @@
                 "Migration",
                 "CloudKit",
                 "Offline And Sync",
-                "Evidence"
+                "Evidence",
+                "Preferences And Derived Caches"
               ]
             },
             {
@@ -92745,7 +92821,8 @@
                 "Migration",
                 "CloudKit",
                 "Offline And Sync",
-                "Evidence"
+                "Evidence",
+                "Preferences And Derived Caches"
               ]
             },
             {
@@ -92979,7 +93056,8 @@
                 "Migration",
                 "CloudKit",
                 "Offline And Sync",
-                "Evidence"
+                "Evidence",
+                "Preferences And Derived Caches"
               ]
             },
             {
@@ -93208,7 +93286,8 @@
                 "Migration",
                 "CloudKit",
                 "Offline And Sync",
-                "Evidence"
+                "Evidence",
+                "Preferences And Derived Caches"
               ]
             },
             {
@@ -93437,7 +93516,8 @@
                 "Migration",
                 "CloudKit",
                 "Offline And Sync",
-                "Evidence"
+                "Evidence",
+                "Preferences And Derived Caches"
               ]
             },
             {
@@ -93689,7 +93769,8 @@
                 "Migration",
                 "CloudKit",
                 "Offline And Sync",
-                "Evidence"
+                "Evidence",
+                "Preferences And Derived Caches"
               ]
             },
             {
@@ -94526,6 +94607,12 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
               ]
             }
           ]
@@ -97357,6 +97444,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
             }
           ]
         },
@@ -99238,6 +99331,12 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
               ]
             }
           ]
@@ -102894,6 +102993,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
             }
           ]
         },
@@ -104478,6 +104583,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
             }
           ]
         },
@@ -104881,6 +104992,13 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Performance Domains",
+                "Metric Design"
               ]
             }
           ]
@@ -106864,6 +106982,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
             }
           ]
         },
@@ -108399,7 +108523,8 @@
                 "37. STRUCTURED OUTPUT",
                 "40. PROMPT INJECTION",
                 "55. FALLBACK",
-                "45. AI SAFETY"
+                "45. AI SAFETY",
+                "47. HALLUCINATIONS"
               ]
             },
             {
@@ -109941,7 +110066,8 @@
               "headings": [
                 "SwiftPM And Dependencies",
                 "Targets And Build Phases",
-                "Modules And Linking"
+                "Modules And Linking",
+                "Build Model"
               ]
             },
             {
@@ -109949,6 +110075,12 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+              "headings": [
+                "Test Portfolio"
               ]
             }
           ]
@@ -111187,7 +111319,8 @@
               "headings": [
                 "SwiftPM And Dependencies",
                 "Supply Chain",
-                "SDK Consumer Boundary"
+                "SDK Consumer Boundary",
+                "Configuration"
               ]
             },
             {
@@ -113901,6 +114034,24 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+              "headings": [
+                "Required Checks"
+              ]
             }
           ]
         },
@@ -114423,6 +114574,12 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
               ]
             }
           ]
@@ -116523,6 +116680,18 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+              "headings": [
+                "Required Checks"
               ]
             }
           ]
@@ -118785,6 +118954,13 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations",
+                "Metric Design"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -119011,6 +119187,13 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations",
+                "Metric Design"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -119107,6 +119290,18 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Concurrency And Main Thread"
+              ]
             }
           ]
         },
@@ -119154,6 +119349,18 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Concurrency And Main Thread"
               ]
             }
           ]
@@ -119230,6 +119437,13 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations",
+                "Metric Design"
               ]
             }
           ],
@@ -119445,6 +119659,13 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations",
+                "Metric Design"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -119526,7 +119747,8 @@
               "headings": [
                 "Reliability",
                 "Request Contract",
-                "Evidence"
+                "Evidence",
+                "Caching"
               ]
             },
             {
@@ -119669,6 +119891,13 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations",
+                "Metric Design"
               ]
             }
           ],
@@ -119887,6 +120116,13 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations",
+                "Metric Design"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -120097,6 +120333,13 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations",
+                "Metric Design"
               ]
             }
           ],
@@ -120316,6 +120559,13 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations",
+                "Metric Design"
               ]
             }
           ],
@@ -123286,6 +123536,18 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+              "headings": [
+                "Isolation Design"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Concurrency And Main Thread"
               ]
             }
           ]
@@ -128008,6 +128270,12 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
               ]
             }
           ]
@@ -134800,6 +135068,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -135026,6 +135300,12 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
               ]
             }
           ],
@@ -135262,6 +135542,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -135496,6 +135782,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -135721,6 +136013,12 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
               ]
             }
           ],
@@ -135955,6 +136253,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -136188,6 +136492,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -136349,6 +136659,12 @@
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
+              ]
             }
           ]
         },
@@ -136440,6 +136756,12 @@
               "headings": [
                 "Authority, Verdict, And Readiness Contract",
                 "User Authority"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Runtime Operations"
               ]
             }
           ],
@@ -136655,7 +136977,8 @@
               "headings": [
                 "State Placement",
                 "Navigation And Presentation",
-                "Accessible And Localized Interaction Review"
+                "Accessible And Localized Interaction Review",
+                "Invalidation And Preview Evidence"
               ]
             },
             {
@@ -141122,7 +141445,8 @@
               "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
               "headings": [
                 "Layout And Rendering",
-                "Accessible And Localized Interaction Review"
+                "Accessible And Localized Interaction Review",
+                "UIKit Lifecycle And Reuse Review"
               ]
             }
           ]
@@ -141255,6 +141579,12 @@
               "path": "reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
               "headings": [
                 "Bounded Investigation And Migration"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+              "headings": [
+                "Required Rules"
               ]
             }
           ]
@@ -142441,7 +142771,8 @@
               "headings": [
                 "Caching",
                 "TLS And Trust",
-                "Request Contract"
+                "Request Contract",
+                "Evidence"
               ]
             },
             {
@@ -147201,7 +147532,9 @@
                 "42. PII REDACTION",
                 "44. SECURITY",
                 "45. AI SAFETY",
-                "70. EVAL DATASET"
+                "70. EVAL DATASET",
+                "40. PROMPT INJECTION",
+                "43. DATA RETENTION"
               ]
             }
           ]
@@ -149761,7 +150094,9 @@
                 "30. VISION И OCR",
                 "58. DEVICE CAPABILITY",
                 "59. PERFORMANCE",
-                "69. EVALUATION"
+                "69. EVALUATION",
+                "39. PROMPT VERSIONING",
+                "55. FALLBACK"
               ]
             },
             {
@@ -158771,6 +159106,12 @@
             {
               "path": "tasks/kb-unification-2026-10-09/migration-plan.md",
               "headings": []
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+              "headings": [
+                "Change And Migration Rules"
+              ]
             }
           ]
         }
@@ -158814,6 +159155,13 @@
                 "2. Implementation From Invariants",
                 "3. Verification Ladder",
                 "4. Final Adversarial Review"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+              "headings": [
+                "3. Project memory and freshness",
+                "6. Run one bounded stage through the selected KB chain"
               ]
             }
           ]
@@ -158889,6 +159237,13 @@
               "headings": [
                 "Required Report Shape",
                 "Stop Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+              "headings": [
+                "3. Project memory and freshness",
+                "6. Run one bounded stage through the selected KB chain"
               ]
             }
           ]
@@ -161008,6 +161363,13 @@
                 "Canonical Roots",
                 "Hard Separation Rules"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+              "headings": [
+                "3. Project memory and freshness",
+                "6. Run one bounded stage through the selected KB chain"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -161238,6 +161600,12 @@
                 "2. Implementation From Invariants",
                 "4. Final Adversarial Review",
                 "5. Exact-SHA Review Receipt"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+              "headings": [
+                "Severity Policy"
               ]
             }
           ],
@@ -161803,7 +162171,10 @@
                 "Isolation Design",
                 "Task Ownership",
                 "Cancellation",
-                "Swift 6.x Discipline"
+                "Swift 6.x Discipline",
+                "Core Model",
+                "Streams",
+                "Continuations And Callbacks"
               ]
             },
             {
@@ -161885,7 +162256,10 @@
               "headings": [
                 "State Placement",
                 "Ownership And Identity Review",
-                "Navigation And Presentation"
+                "Navigation And Presentation",
+                "Invalidation And Preview Evidence",
+                "Accessible And Localized Interaction Review",
+                "UIKit Interoperability"
               ]
             },
             {
@@ -162131,7 +162505,9 @@
               "headings": [
                 "Measure From User Impact",
                 "Performance Domains",
-                "Optimization Workflow"
+                "Optimization Workflow",
+                "Observability",
+                "Evidence"
               ]
             },
             {
@@ -162214,7 +162590,9 @@
                 "Security Model",
                 "Keychain And Data Protection",
                 "Session Lifecycle",
-                "Authorization Rules"
+                "Authorization Rules",
+                "Cryptography",
+                "App Attest And DeviceCheck"
               ]
             },
             {
@@ -162230,6 +162608,24 @@
                 "2. Implementation From Invariants",
                 "3. Verification Ladder",
                 "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "TLS And Trust"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+              "headings": [
+                "Permission Model"
               ]
             }
           ],
@@ -162303,7 +162699,9 @@
                 "Data Ownership",
                 "SwiftData And Core Data",
                 "Migration",
-                "Evidence"
+                "Evidence",
+                "Choose By Contract",
+                "Files"
               ]
             },
             {
@@ -162985,7 +163383,8 @@
                 "41. PRIVACY",
                 "55. FALLBACK",
                 "58. DEVICE CAPABILITY",
-                "69. EVALUATION"
+                "69. EVALUATION",
+                "9. CORE AI"
               ]
             },
             {
@@ -164263,6 +164662,12 @@
                 "3. Verification Ladder",
                 "Completion Contract"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Boundary Model"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -164938,6 +165343,12 @@
                 "2. Implementation From Invariants",
                 "3. Verification Ladder",
                 "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
               ]
             }
           ],
@@ -165962,6 +166373,19 @@
                 "3. Verification Ladder",
                 "Completion Contract"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Supply Chain",
+                "SDK Consumer Boundary"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -166706,6 +167130,20 @@
               "headings": [
                 "Migration"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/SOURCE_OF_TRUTH_MAP.md",
+              "headings": [
+                "Canonical Locations",
+                "Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+              "headings": [
+                "Core Rule",
+                "Change And Migration Rules"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -166930,6 +167368,13 @@
               "headings": [
                 "Finding Applicability And Adjudication",
                 "Severity Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/RISK_REGISTER.md",
+              "headings": [
+                "Entry Template",
+                "Rule"
               ]
             }
           ],
@@ -168186,7 +168631,8 @@
               "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
               "headings": [
                 "Canonical Roots",
-                "Hard Separation Rules"
+                "Hard Separation Rules",
+                "Active Authority And Historical Evidence"
               ]
             }
           ],
@@ -168412,6 +168858,13 @@
               "headings": [
                 "Canonical Roots",
                 "Hard Separation Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+              "headings": [
+                "3. Project memory and freshness",
+                "6. Run one bounded stage through the selected KB chain"
               ]
             }
           ],
@@ -169533,6 +169986,13 @@
                 "3. Verification Ladder",
                 "Completion Contract"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+              "headings": [
+                "3. Project memory and freshness",
+                "6. Run one bounded stage through the selected KB chain"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -169614,6 +170074,13 @@
                 "2. Implementation From Invariants",
                 "3. Verification Ladder",
                 "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+              "headings": [
+                "3. Project memory and freshness",
+                "6. Run one bounded stage through the selected KB chain"
               ]
             }
           ],
@@ -171125,6 +171592,19 @@
                 "3. Verification Ladder",
                 "4. Final Adversarial Review",
                 "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "41. PRIVACY",
+                "43. DATA RETENTION"
               ]
             }
           ],
@@ -173572,7 +174052,8 @@
           ],
           "source_additional_fragments": [
             "# Migration safety team\n\n## Copy-paste prompt\n\nSeparate schema compatibility, migration implementation, rollback/recovery and data-integrity verification. No agent may both design the migration and certify its safety.\n\nUse V5 evidence and write-scope contracts. Never claim a child result was independently verified unless it actually came from an independent execution context."
-          ]
+          ],
+          "coverage_qualification": "Historical categorical designer/certifier separation is preserved as a prohibition on self-certifying independent safety evidence. Current authority does not require an unavailable or unauthorized second agent; missing independent evidence remains explicit."
         },
         {
           "unit_id": "LIB-1029-U02",
@@ -176081,6 +176562,12 @@
               "headings": [
                 "Error And Result Design"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+              "headings": [
+                "Targets And Build Phases"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -176343,7 +176830,8 @@
           "coverage_locations": [],
           "source_additional_fragments": [
             "# Current official reference baseline\n\nChecked: **2026-09-11** against the cited primary-source pages where web access was available. These are primary-source references used to calibrate the review-ready library. A checked URL is evidence that the page was available and relevant on the checked date; it is **not** proof that every library rule is correct. Project SDK/toolchain/runtime behavior still wins.\n\n| Provider | Title | Primary URL | Applies to | Availability / version caveat |\n|---|---|---|---|---|\n| Apple | Adopting strict concurrency in Swift 6 apps | https://developer.apple.com/documentation/swift/adoptingswift6 | `03_CONCURRENCY/*`, `33_CODE_PATTERNS/CP-03_TASK_LIFETIME.md`, `ioslib-swift-concurrency` | Swift language-mode/toolchain dependent; inspect the project’s actual settings. |\n| Swift.org | Concurrency (The Swift Programming Language) | https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/ | `03_CONCURRENCY/*`, structured/unstructured task semantics | Language semantics are toolchain-version sensitive; validate behavior against the project Swift version and deployment constraints. |\n| Swift.org | Automatic Reference Counting | https://docs.swift.org/swift-book/documentation/the-swift-programming-language/automaticreferencecounting/ | ownership/lifetime, memory, CP-03 | Language semantics; examples still need project-specific isolation and lifetime analysis. |\n| Apple | Swift Task.cancel() | https://developer.apple.com/documentation/swift/task/cancel%28%29 | cancellation semantics, `IOS-03-07`, CP-03 | Cancellation is cooperative; dependencies still need explicit cancellation behavior. |\n| Apple | Swift Task.checkCancellation() | https://developer.apple.com/documentation/swift/task/checkcancellation%28%29 | cancellation checkpoints, `IOS-03-07`, CP-03 | Throws `CancellationError`; placement remains operation-specific. |\n| Apple | Supporting VoiceOver in your app | https://developer.apple.com/documentation/uikit/supporting-voiceover-in-your-app | `IOS-13-01`, accessibility verification | Actual VoiceOver traversal remains required evidence for interaction quality. |\n| Apple | Swift Testing | https://developer.apple.com/documentation/testing/ | `10_TESTING/*`, `ioslib-testing` | Feature availability depends on bundled Swift/Xcode toolchain. |\n| Apple | SchemaMigrationPlan | https://developer.apple.com/documentation/SwiftData/SchemaMigrationPlan | `09_PERSISTENCE_DATA/IOS-09-05_MIGRATIONS.md`, migration workflows | SwiftData/platform availability applies; existing stores and release history are authoritative migration inputs. |\n| Apple | Handling an authentication challenge | https://developer.apple.com/documentation/foundation/handling-an-authentication-challenge | networking authentication/TLS review | Delegate/auth behavior depends on protection space, challenge type, URLSession configuration, and OS. |\n| Apple | Authentication Services | https://developer.apple.com/documentation/authenticationservices | app authentication guidance | Capability/API availability varies by platform and deployment target. |\n| Apple | Keychain services | https://developer.apple.com/documentation/security/keychain-services | security/privacy, credential storage | Access-control semantics and entitlements must match the app target and platform. |\n| Apple | Adding a privacy manifest to your app or third-party SDK | https://developer.apple.com/documentation/bundleresources/adding-a-privacy-manifest-to-your-app-or-third-party-sdk | privacy manifests, dependency review | App Store policy evolves; re-check before submission. |\n| Apple | Describing use of required reason API | https://developer.apple.com/documentation/BundleResources/describing-use-of-required-reason-api | required-reason API review | Approved reasons/policy may change; current App Store requirements win. |\n| Apple | State | https://developer.apple.com/documentation/swiftui/state | `05_SWIFTUI/*`, state ownership | SwiftUI APIs and macro behavior are Xcode/SDK-version sensitive. |\n| Apple | Understanding and improving SwiftUI performance | https://developer.apple.com/documentation/Xcode/understanding-and-improving-swiftui-performance | SwiftUI identity/update/performance | Requires measurement in the actual app/device scenario. |\n| Apple | Gathering information about memory use | https://developer.apple.com/documentation/xcode/gathering-information-about-memory-use | memory/ownership/performance | Simulator memory behavior is not equivalent to device memory pressure. |\n| Apple | Performance and metrics | https://developer.apple.com/documentation/xcode/performance-and-metrics | performance workflows | Tooling/metrics availability varies by Xcode/platform. |\n| Apple | Writing and running performance tests | https://developer.apple.com/documentation/xcode/writing-and-running-performance-tests | performance regression tests | Baselines are environment-sensitive and need controlled comparison. |\n| Apple | Customizing the build schemes for a project | https://developer.apple.com/documentation/xcode/customizing-the-build-schemes-for-a-project | build-surface scanner / command safety | Schemes can run pre/post actions; static absence of one pattern is not proof of read-only execution. |\n| Apple | Build system | https://developer.apple.com/documentation/xcode/build-system | build/test safety | The concrete build graph is project/toolchain dependent. |\n| Apple | PackageDescription plugin target | https://developer.apple.com/documentation/packagedescription/target/plugin%28name%3Acapability%3Adependencies%3Apath%3Aexclude%3Asources%3Apackageaccess%3A%29 | SwiftPM executable-surface review | Plugin capabilities and package-tool behavior are SwiftPM-version dependent. |\n| Python | pathlib | https://docs.python.org/3/library/pathlib.html | protection/runtime path handling | `Path.exists()` normally follows symlinks; use lstat/no-follow semantics where containment matters. Python-version APIs vary. |\n| Python | os.walk | https://docs.python.org/3/library/os.html#os.walk | V51-08/V52-01 traversal completeness across protection, adapter, installer and validators | By default `scandir()` errors are ignored unless `onerror` is supplied; safety-critical walks therefore provide an error callback and reject/mark incomplete unexpected traversal failures. |\n| Python | shutil.which | https://docs.python.org/3/library/shutil.html#shutil.which | V51-04 executable identity/PATH handling | PATH lookup is environment-dependent; a basename alone is not executable identity, so positive advisory classification remains conservative. |\n| Python | subprocess.Popen | https://docs.python.org/3/library/subprocess.html#subprocess.Popen | V51-07/A52-01 bounded subprocess lifecycle | POSIX session/process-group behavior and cleanup are platform-specific; direct-child exit is not treated as proof that inherited pipes or descendants are gone. |\n| Python | selectors | https://docs.python.org/3/library/selectors.html | A52-01 readiness-driven bounded pipe reads | The runtime reads stdout/stderr only after selector readiness and uses nonblocking descriptors; no synthetic read event is inferred from child exit. |\n| Python | os.set_blocking / os.killpg | https://docs.python.org/3/library/os.html#os.set_blocking | A52-01 nonblocking pipe and POSIX process-group cleanup | Platform availability applies; writer/runtime acceptance on macOS remains a separate step. |\n| Git | git-worktree — REFS | https://git-scm.com/docs/git-worktree#_refs | A52-03 linked-worktree writer topology | Ordinary `refs/*` are shared across linked worktrees while HEAD and selected pseudo-refs are per-worktree; linked writers therefore share one library writer slot keyed by Git common-dir. |\n| OpenAI | Unrolling the Codex agent loop | https://openai.com/index/unrolling-the-codex-agent-loop/ | Codex instruction/context model | Product internals evolve; current Codex configuration and explicit higher-priority instructions win. |\n| OpenAI | Running Codex safely at OpenAI | https://openai.com/index/running-codex-safely/ | separation of advisory policy from execution/sandbox controls | Describes OpenAI workflows, not a security guarantee for this package or the user’s local environment. |\n| Apple | URLSession | https://developer.apple.com/documentation/foundation/urlsession | networking, cancellation/lifetime/retry boundary | Endpoint retry/idempotency semantics are not supplied by URLSession itself; application/server contract remains authoritative. |\n\n## Rule-to-source policy\n\n- A library rule that depends on an Apple/Swift API should point to a relevant primary source when practical.\n- Primary documentation provides API/semantic grounding, not permission to execute commands against a client repository.\n- Beta/upcoming APIs must be marked availability-sensitive; never silently promote them to production baseline.\n- Repository deployment target, Swift language mode, Xcode version, package versions, persisted data history, and actual runtime behavior override generic examples."
-          ]
+          ],
+          "disposition_qualification": "Archive-only is not active reviewed coverage or proof of redundancy. The complete original body, including Python subprocess/readiness/PATH/traversal advice, remains preserved for reference. Current utility/adoption and API freshness are UNVERIFIED; no command or host procedure is adopted."
         }
       ],
       "disposition_reason": "Full source-meta body independently reviewed; actual scoped quality, authority, primary-source/profile evidence and compatibility contracts covered. Historical dated catalogs and mandatory Library/protocol/default/execution instructions archived; strict DEC-001 and excluded verification prevail."
@@ -179150,7 +179638,8 @@
               "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
               "headings": [
                 "2. Implementation From Invariants",
-                "4. Final Adversarial Review"
+                "4. Final Adversarial Review",
+                "1. Change Contract Before Implementation"
               ]
             }
           ],
@@ -179600,6 +180089,13 @@
                 "Canonical Roots",
                 "Hard Separation Rules"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+              "headings": [
+                "3. Project memory and freshness",
+                "6. Run one bounded stage through the selected KB chain"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -179838,6 +180334,41 @@
               "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
               "headings": [
                 "Agent Loading Rule"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+              "headings": [
+                "Request Contract",
+                "Reliability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+              "headings": [
+                "Keychain And Data Protection"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+              "headings": [
+                "Privacy Manifests And Permissions"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "State Placement",
+                "Identity And Collections",
+                "UIKit Lifecycle And Reuse Review",
+                "Layout And Rendering",
+                "Accessible And Localized Interaction Review"
               ]
             }
           ],
@@ -180514,7 +181045,8 @@
               "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
               "headings": [
                 "Canonical Roots",
-                "Hard Separation Rules"
+                "Hard Separation Rules",
+                "Active Authority And Historical Evidence"
               ]
             }
           ],
@@ -180668,6 +181200,13 @@
               "headings": [
                 "Canonical Roots",
                 "Hard Separation Rules"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+              "headings": [
+                "3. Project memory and freshness",
+                "6. Run one bounded stage through the selected KB chain"
               ]
             }
           ],
@@ -181856,6 +182395,19 @@
                 "4. Final Adversarial Review",
                 "Completion Contract"
               ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+              "headings": [
+                "Observability"
+              ]
+            },
+            {
+              "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+              "headings": [
+                "41. PRIVACY",
+                "43. DATA RETENTION"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -182467,6 +183019,20 @@
               "headings": [
                 "Migration"
               ]
+            },
+            {
+              "path": "reusable/baseline/docs/SOURCE_OF_TRUTH_MAP.md",
+              "headings": [
+                "Canonical Locations",
+                "Rule"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+              "headings": [
+                "Core Rule",
+                "Change And Migration Rules"
+              ]
             }
           ],
           "source_additional_fragments": [
@@ -182691,6 +183257,13 @@
               "headings": [
                 "Finding Applicability And Adjudication",
                 "Severity Policy"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/RISK_REGISTER.md",
+              "headings": [
+                "Entry Template",
+                "Rule"
               ]
             }
           ],
@@ -183328,6 +183901,12 @@
                 "2. Implementation From Invariants",
                 "3. Verification Ladder",
                 "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+              "headings": [
+                "Accessible And Localized Interaction Review"
               ]
             }
           ],
@@ -186826,6 +187405,13 @@
                 "2. Implementation From Invariants",
                 "3. Verification Ladder",
                 "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+              "headings": [
+                "3. Project memory and freshness",
+                "6. Run one bounded stage through the selected KB chain"
               ]
             }
           ],
@@ -191332,6 +191918,12 @@
                 "2. Implementation From Invariants",
                 "3. Verification Ladder",
                 "Completion Contract"
+              ]
+            },
+            {
+              "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+              "headings": [
+                "Active Authority And Historical Evidence"
               ]
             }
           ],

@@ -195,6 +195,13 @@ current permissions; unperformed checks remain UNVERIFIED. This slice does not e
 or token benefit.
 
 ## Swift 6.x Discipline
+
+Review the actual captures of escaping/concurrent closures and the Sendable constraints of generic
+values crossing isolation boundaries. Trace the retained owner and transfer semantics, rather than
+assuming a generic parameter or capture list proves safe transfer. Use real isolation or immutable
+Sendable values; no unchecked annotation, warning suppression or fake MainActor workaround is
+permitted.
+
 - Record compiler version, language mode, strict-concurrency settings, default actor isolation, and enabled upcoming features separately.
 - Resolve warnings by expressing actual ownership; do not use or retain `@unchecked Sendable`,
   `nonisolated(unsafe)`, `@preconcurrency`, warning suppressions, or broad/fake `@MainActor`
@@ -213,6 +220,8 @@ evidence choices, not authority to write tests or run builds/runtime. Missing ev
 - Profile actor contention, main-actor occupancy, task growth, and cancellation latency when performance matters.
 
 ## Primary Sources
+- [CheckedContinuation: exact-once completion](https://developer.apple.com/documentation/swift/checkedcontinuation)
+- [AsyncStream: buffering and termination](https://developer.apple.com/documentation/swift/asyncstream)
 - [Task cancellation](https://docs.swift.org/latest/documentation/swift/task/cancel%28%29/)
 - [Concurrency language model](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/)
 - [Migrating to Swift 6](https://www.swift.org/migration/)

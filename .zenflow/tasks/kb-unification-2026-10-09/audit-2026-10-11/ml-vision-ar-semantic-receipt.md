@@ -1,0 +1,16 @@
+# ML, Vision and AR source family — 2026-10-15
+
+LIB-0314–0323: ten complete source bodies and all 30 maps read; ten active and twenty archive dispositions adjudicated separately. Reused previously fully read AI master, Media and UI owners; rechecked AI sections 10, 30, 39, 41, 58, 59, 69, 70 and UI platform-profile paragraph. Media full body reread in this continuation. No model assets, datasets, sealed holdout/oracle, experiment, app source or runtime accessed.
+
+- 0314-U01: AI section 30 explicitly retains orientation, ROI, pixel/color/language preprocessing, supported request/model revision, confidence/tolerance and batching/scheduling. Media runtime/resource clauses add cancellation and privacy constraints.
+- 0315-U01: section 30 preserves recognition level and page/pagination policy, languages, confidence and memory bounds. One page/fixture or confidence value is not generalized OCR accuracy.
+- 0316-U01: section 10 retains model I/O, preprocessing/normalization, compute units, compilation/configuration, batching/async scheduling and stage measurements; section 39 adds version compatibility/provenance with actual pre/postprocessing. No model/device performance claim follows from these instructions.
+- 0317-U01: section 39 explicitly retains authenticity/integrity and signature validation where the distribution trust contract requires it, staged rollout/fallback, compatible versions, rollback and storage bounds. This does not authorize download or model changes.
+- 0318-U01: Media Performance And Privacy retains supported AR configuration, tracking/world mapping, interruption/relocalization/recovery and permissions; availability is not guaranteed recovery.
+- 0319-U01: same paragraph preserves entity/component and async asset lifetime, collision/physics steps and GPU/memory/thermal bounds.
+- 0320-U01: UI iPhone And iPad Core paragraph explicitly preserves supported-platform resizing/input/windowing/depth/space and shared-code semantics. Actual product profile controls applicability; no new visionOS/iPad support or excluded verification follows.
+- 0321-U01: sections 30, 69 and 70 retain golden/regression coverage, preprocessing-versus-model errors, tolerances and model/device variance, reproducibility limits, privacy and evaluation metrics. Such instructions do not authorize tests or access to closed datasets.
+- 0322-U01: section 41 data lifecycle includes capture/preprocess/storage/execution/transmission/logging/retention/deletion and minimization; section 30 prefers extracted local text over unnecessary original cloud images. On-device processing alone is not proof of privacy.
+- 0323-U01: combined AI capability/evaluation and Media lifecycle/resource/fallback clauses retain the review scope without claiming any evaluated quality.
+
+Every U02 archives the unconditional tests/fixtures/measurements/build execution wrapper while preserving conditional useful evidence. Every U03 archives former mode and Library second-pass binding; linked playbooks remain separately unreviewed. No new confirmed finding from these ten rows. Previously recorded LIB-0183 stateful-inference qualification remains unresolved and is not erased by these related mappings. API freshness, empirical accuracy and chronology remain UNVERIFIED.

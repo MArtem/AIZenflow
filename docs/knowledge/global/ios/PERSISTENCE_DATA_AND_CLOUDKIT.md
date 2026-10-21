@@ -22,6 +22,12 @@ disk bounds and stale-while-revalidate consumer behavior against their actual so
 A cache reset is safe only when rebuildability and affected consumers are established.
 
 ## Data Ownership
+
+When persistent schema shapes would couple actual domain consumers to storage changes, keep an
+explicit model/DTO-to-domain mapping at that real boundary. Preserve nullability, identifiers,
+migration and failure semantics through the mapping. Reuse an existing seam; this is not a
+requirement for a new layer, protocol or one-wrapper-per-model design.
+
 Define canonical data, derived data, caches, temporary files, user-exported data, shared-container data, and remotely authoritative data. Each class needs retention, deletion, backup, protection, migration, and corruption behavior.
 
 Bound file/memory/disk/background work and make partial writes, corruption or unavailable storage
@@ -79,6 +85,23 @@ change tokens and pending operations under an explicit recovery policy. Prevent 
 or replay from a previous account crossing into the new account. Preserve user data and unresolved
 operations according to the approved contract; account notification alone is not deletion authority.
 
+## CloudKit Recovery Example
+Keep database/zone change tokens and account identity scoped to their actual owner. A record
+conflict needs the server, client and ancestor versions under the entity's merge policy;
+merging into a stale change-tag version can repeat the conflict. Token expiry needs an owned
+reconciliation path rather than retrying the same unusable cursor forever.
+
+Where CKSyncEngine is actually adopted, persist its latest serialized state alongside app
+data and restore that state on initialization. Its account-change handling resets internal
+state, including pending database/zone changes. The engine's queue is therefore not proof
+that user work survives account switching: preserve/reconcile owned local work under the
+product's account-isolation and deletion policy. Do not replay account A's writes into B or
+silently delete local data because an account event arrived. No sync-engine adoption or data
+mutation is authorized by this example.
+Primary theory: [CKSyncEngine state](https://developer.apple.com/documentation/cloudkit/cksyncengine-5sie5/state-swift.class),
+[account changes](https://developer.apple.com/documentation/cloudkit/cksyncengine-5sie5/event/accountchange),
+and [record conflicts](https://developer.apple.com/documentation/cloudkit/ckerror/serverrecordchanged).
+
 ## Offline And Sync
 Represent pending operations durably with stable identifiers, ordering/dependency, attempts, idempotency key, payload version, and terminal/retryable failure. Reconcile remote and local changes through explicit conflict policy. UI must distinguish queued, syncing, synced, conflicted, and failed states when users need that truth.
 
@@ -92,6 +115,20 @@ conflict contract; an optimistic UI change is not server acknowledgment.
 - Validate import before mutating canonical state and stage files transactionally.
 - Account deletion and delete-all must cover databases, files, shared containers, caches, credentials, pending work, and remote data as promised.
 - Interrupted deletion needs startup recovery or an honest partial-failure state.
+
+## Interrupted Mutation Example
+Suppose a durable delete is queued offline and the app terminates before the server replies.
+Removing the sole local record without durable pending intent loses the ability to reconcile.
+Retain the product's tombstone/outbox identity until acknowledgment or an explicit terminal
+resolution. A replay after relaunch must follow the server's duplicate/conflict contract,
+not assume that an identical local payload guarantees one remote effect.
+
+For a background Core Data import, keep managed objects on their context queue and resolve
+identifiers on the destination owner. A source context's successful save is not proof that a
+second context/UI has merged the change. Select old-store/relaunch and merge observations for
+actual adoption; a clean-install fixture or this trace alone does not establish data durability.
+Primary theory: [Using Core Data in the background](https://developer.apple.com/documentation/coredata/using-core-data-in-the-background)
+and the adopted backend's versioned mutation contract.
 
 ## Evidence
 - Fresh install, upgrade from every supported schema, relaunch, low disk, corruption, cancellation, and interrupted write/migration.

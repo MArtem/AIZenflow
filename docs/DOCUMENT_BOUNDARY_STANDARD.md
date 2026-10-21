@@ -57,6 +57,13 @@ Reusable material belongs only when it is app-neutral and useful across projects
    If a single task creates or changes multiple Xcode projects/apps, each app keeps its own `apps/<AppName>/` documentation boundary. Shared task coordination may live in `tasks/<TaskId>/`, but app decisions, histories, ADRs, local rules, product plans, runtime assumptions, bundle identifiers, and exceptions must remain under the corresponding app root.
 
 ## Active Authority And Historical Evidence
+
+When writing or narrowing AGENTS instructions, keep the entry a concise routing map. Put stable,
+genuinely subtree-specific differences in a nested instruction; do not create one generic copy per
+folder, repeat the global baseline, or embed tutorials and volatile task history. Preserve existing
+human-authored instructions until an authorized edit and record the narrower scope explicitly; the
+parent remains the common authority.
+
 Active documentation is authority only in its declared reusable, app, or task boundary. Active app docs contain the app's product decisions, exceptions, plans, contracts, and evidence; they link to reusable rules instead of copying them. Active reusable docs contain only app-neutral rules and examples.
 
 Historical snapshots may preserve mixed material only under a clearly named `legacy-reference/`, `history/`, or `archive/` area. Its top-level `README.md` must state that it is non-authoritative, excluded from normal routing and bootstrap, and retained solely for recovery or provenance. Do not leave a snapshot in a directory that appears to be active app documentation.

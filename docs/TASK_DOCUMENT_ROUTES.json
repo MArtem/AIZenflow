@@ -72,7 +72,10 @@
       "documents": [
         "./docs/PRODUCT_REQUIREMENTS_STANDARD.md",
         "./docs/PRODUCTION_QUALITY_GATES.md",
-        "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md"
+        "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+        "./docs/README.md",
+        "./docs/CURRENT_USER_OVERRIDES.md",
+        "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
       ]
     },
     "ios-universal-quality": {
@@ -84,6 +87,10 @@
         "./docs/QUALITY_RULE_CATALOG.md",
         "./docs/STATIC_QUALITY_GATE_POLICY.md",
         "./docs/CI_CD_QUALITY_GATES.md"
+      ],
+      "optional_documents": [
+        "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+        "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md"
       ]
     },
     "ios-review-audit": {
@@ -93,7 +100,14 @@
         "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
         "./docs/DEFINITION_OF_DONE.md",
         "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
-        "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md"
+        "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+        "./docs/README.md",
+        "./docs/CURRENT_USER_OVERRIDES.md",
+        "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+        "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+        "./docs/PRODUCTION_QUALITY_GATES.md",
+        "./docs/agent-prompts/production-review-completeness.md",
+        "./docs/AGENT_RULES.md"
       ]
     },
     "ios-pr-review": {
@@ -104,7 +118,14 @@
         "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
         "./docs/DEFINITION_OF_DONE.md",
         "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
-        "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md"
+        "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+        "./docs/README.md",
+        "./docs/CURRENT_USER_OVERRIDES.md",
+        "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+        "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+        "./docs/PRODUCTION_QUALITY_GATES.md",
+        "./docs/agent-prompts/production-review-completeness.md",
+        "./docs/AGENT_RULES.md"
       ]
     },
     "ios-architecture-navigation-state": {
@@ -160,6 +181,10 @@
         "./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
         "./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md",
         "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+      ],
+      "optional_documents": [
+        "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+        "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
       ]
     },
     "ios-accessibility-localization-qa": {
@@ -170,6 +195,9 @@
         "./docs/IOS_TESTING_STRATEGY.md",
         "./docs/COMPATIBILITY_MATRIX.md",
         "./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md"
+      ],
+      "optional_documents": [
+        "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md"
       ]
     },
     "ios-release": {
@@ -207,6 +235,9 @@
     "ios-storekit-payments": {
       "documents": [
         "./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md"
+      ],
+      "optional_documents": [
+        "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
       ]
     },
     "ios-knowledge-governance": {
@@ -283,6 +314,9 @@
       ],
       "trigger_patterns": [
         "./PackagesInUse/**/README.md"
+      ],
+      "optional_documents": [
+        "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md"
       ]
     },
     "ios-code-documentation": {

@@ -15,6 +15,13 @@ Deep references skipped/applied: <reason>
 
 When a task crosses concerns, combine routes. If a route reveals ambiguity or elevated risk, open the next deeper reference for that concern.
 
+A selected gate or prompt keeps its explicit required-input chain. For implementation/refactor and
+review/PR routes, the machine membership includes the checklist, prompt and index inputs that are
+mandatory for that route; they are not universal Level 0 additions. An ordinary hyperlink does not
+make every linked file mandatory. Count full selected files and applicable required dependencies
+once per physical path, and report conditional or unverified reads separately; declared route cost
+is not an observed complete task-read trace.
+
 ## Level 0 — Always-read operating baseline
 
 Read once after a new chat/context reset or an explicit rules refresh:

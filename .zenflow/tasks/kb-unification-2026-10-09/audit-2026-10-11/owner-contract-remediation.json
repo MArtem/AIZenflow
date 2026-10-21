@@ -1,0 +1,522 @@
+{
+  "date": "2026-10-20",
+  "scope": "Previously audited useful source constraints restored in existing owners; no new APIs, layers or execution permission",
+  "units": {
+    "LIB-0183-U01": {
+      "owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+      "heading": "9. CORE AI",
+      "owner_sha256": "c1e9b0f6ffb7d81c4ca5e925899303be3af48b81bb140e70f779d6852799c1bb",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0526-U01": {
+      "owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+      "heading": "9. CORE AI",
+      "owner_sha256": "c1e9b0f6ffb7d81c4ca5e925899303be3af48b81bb140e70f779d6852799c1bb",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0735-U01": {
+      "owner": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+      "heading": "69. EVALUATION",
+      "owner_sha256": "c1e9b0f6ffb7d81c4ca5e925899303be3af48b81bb140e70f779d6852799c1bb",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0355-U01": {
+      "owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+      "heading": "Text, Input, And Focus",
+      "owner_sha256": "6d009277a219b1a426afb81adf4d0ee3748b2b2d4875176dfa35134ba7422d1c",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0644-U01": {
+      "owner": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+      "heading": "Text, Input, And Focus",
+      "owner_sha256": "6d009277a219b1a426afb81adf4d0ee3748b2b2d4875176dfa35134ba7422d1c",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0700-U01": {
+      "owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+      "heading": "Evidence",
+      "owner_sha256": "c2b35ac53cfd7814a8b5cec308bba1a08395d648b765953fe74597b259810ffe",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0615-U01": {
+      "owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+      "heading": "WebKit",
+      "owner_sha256": "c2b35ac53cfd7814a8b5cec308bba1a08395d648b765953fe74597b259810ffe",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0555-U03": {
+      "owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "heading": "Metric Design",
+      "owner_sha256": "846479c12945db8795443af65a916fc29a67f98a5d565c290eca63e9cdaf655f",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0556-U03": {
+      "owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "heading": "Metric Design",
+      "owner_sha256": "846479c12945db8795443af65a916fc29a67f98a5d565c290eca63e9cdaf655f",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0557-U03": {
+      "owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "heading": "Metric Design",
+      "owner_sha256": "846479c12945db8795443af65a916fc29a67f98a5d565c290eca63e9cdaf655f",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0558-U03": {
+      "owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "heading": "Metric Design",
+      "owner_sha256": "846479c12945db8795443af65a916fc29a67f98a5d565c290eca63e9cdaf655f",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0559-U03": {
+      "owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "heading": "Metric Design",
+      "owner_sha256": "846479c12945db8795443af65a916fc29a67f98a5d565c290eca63e9cdaf655f",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0560-U03": {
+      "owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "heading": "Metric Design",
+      "owner_sha256": "846479c12945db8795443af65a916fc29a67f98a5d565c290eca63e9cdaf655f",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0561-U03": {
+      "owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "heading": "Metric Design",
+      "owner_sha256": "846479c12945db8795443af65a916fc29a67f98a5d565c290eca63e9cdaf655f",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0562-U03": {
+      "owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "heading": "Metric Design",
+      "owner_sha256": "846479c12945db8795443af65a916fc29a67f98a5d565c290eca63e9cdaf655f",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0563-U03": {
+      "owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "heading": "Metric Design",
+      "owner_sha256": "846479c12945db8795443af65a916fc29a67f98a5d565c290eca63e9cdaf655f",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0564-U03": {
+      "owner": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "heading": "Metric Design",
+      "owner_sha256": "846479c12945db8795443af65a916fc29a67f98a5d565c290eca63e9cdaf655f",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0455-U03": {
+      "owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "heading": "Data Ownership",
+      "owner_sha256": "a57e4cf8d0da86be2e0dabb687b95722cd624fc9521fa11c6bf83522a65e3899",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0456-U03": {
+      "owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "heading": "Data Ownership",
+      "owner_sha256": "a57e4cf8d0da86be2e0dabb687b95722cd624fc9521fa11c6bf83522a65e3899",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0457-U03": {
+      "owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "heading": "Data Ownership",
+      "owner_sha256": "a57e4cf8d0da86be2e0dabb687b95722cd624fc9521fa11c6bf83522a65e3899",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0458-U03": {
+      "owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "heading": "Data Ownership",
+      "owner_sha256": "a57e4cf8d0da86be2e0dabb687b95722cd624fc9521fa11c6bf83522a65e3899",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0460-U03": {
+      "owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "heading": "Data Ownership",
+      "owner_sha256": "a57e4cf8d0da86be2e0dabb687b95722cd624fc9521fa11c6bf83522a65e3899",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0461-U03": {
+      "owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "heading": "Data Ownership",
+      "owner_sha256": "a57e4cf8d0da86be2e0dabb687b95722cd624fc9521fa11c6bf83522a65e3899",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0462-U03": {
+      "owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "heading": "Data Ownership",
+      "owner_sha256": "a57e4cf8d0da86be2e0dabb687b95722cd624fc9521fa11c6bf83522a65e3899",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0463-U03": {
+      "owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "heading": "Data Ownership",
+      "owner_sha256": "a57e4cf8d0da86be2e0dabb687b95722cd624fc9521fa11c6bf83522a65e3899",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0464-U03": {
+      "owner": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "heading": "Data Ownership",
+      "owner_sha256": "a57e4cf8d0da86be2e0dabb687b95722cd624fc9521fa11c6bf83522a65e3899",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    "LIB-0855-U12": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+          "headings": [
+            "Change And Migration Rules"
+          ],
+          "owner_sha256": "ffaea14dba3fba58b44a7e3e555f6abd6ac4b65a640004d9a240425c5f8db035"
+        }
+      ]
+    },
+    "LIB-0863-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "headings": [
+            "1. Change Contract Before Implementation",
+            "2. Implementation From Invariants"
+          ],
+          "owner_sha256": "b9b249543a59ff9b948d4e1c92361038f1a50ea3de0ffb84319eda34b000adeb"
+        }
+      ]
+    },
+    "LIB-1102-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "headings": [
+            "1. Change Contract Before Implementation",
+            "2. Implementation From Invariants"
+          ],
+          "owner_sha256": "b9b249543a59ff9b948d4e1c92361038f1a50ea3de0ffb84319eda34b000adeb"
+        }
+      ]
+    },
+    "LIB-1078-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "headings": [
+            "Severity Policy"
+          ],
+          "owner_sha256": "a05ec9695b3bc9edc72c4ca28b48de7e496c9cb7178a411c408f72b9b8fe5989"
+        }
+      ]
+    },
+    "LIB-0877-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "headings": [
+            "Severity Policy"
+          ],
+          "owner_sha256": "a05ec9695b3bc9edc72c4ca28b48de7e496c9cb7178a411c408f72b9b8fe5989"
+        }
+      ]
+    },
+    "LIB-0496-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "headings": [
+            "Privacy Manifests And Permissions"
+          ],
+          "owner_sha256": "7479ff04b898b0ddd1ee36075e802818f2e7bf5130c13069884ecf21e7018ccd"
+        }
+      ]
+    },
+    "LIB-0553-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+          "headings": [
+            "Runtime Readiness"
+          ],
+          "owner_sha256": "a537cd9bfb16cb8fda22a8f59f72199503eede0ddec39f8a5b41833393f796c5"
+        },
+        {
+          "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "headings": [
+            "Required Checks"
+          ],
+          "owner_sha256": "8da6dc3e9792e6fa0a7027721f3ef9f88a98bafdc6fe21fe82cbff5bf26f67da"
+        }
+      ]
+    },
+    "LIB-0587-U02": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "headings": [
+            "Swift 6.x Discipline"
+          ],
+          "owner_sha256": "08d9592783727214de4ab3ec09cb7ba6b670cba449414882976b1bf3b426280f"
+        }
+      ]
+    },
+    "LIB-0665-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "headings": [
+            "Swift 6.x Discipline"
+          ],
+          "owner_sha256": "08d9592783727214de4ab3ec09cb7ba6b670cba449414882976b1bf3b426280f"
+        }
+      ]
+    },
+    "LIB-0595-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "headings": [
+            "Audio, Video, And Speech"
+          ],
+          "owner_sha256": "c163242ff329ab5d75c7dd41b711f5418c65ab46e4e862cb648d1bcf82ada3ad"
+        }
+      ]
+    },
+    "LIB-0597-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "headings": [
+            "Performance And Privacy"
+          ],
+          "owner_sha256": "c163242ff329ab5d75c7dd41b711f5418c65ab46e4e862cb648d1bcf82ada3ad"
+        }
+      ]
+    },
+    "LIB-0599-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "headings": [
+            "Performance And Privacy"
+          ],
+          "owner_sha256": "c163242ff329ab5d75c7dd41b711f5418c65ab46e4e862cb648d1bcf82ada3ad"
+        }
+      ]
+    },
+    "LIB-0620-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "headings": [
+            "Bluetooth, NFC, And Nearby"
+          ],
+          "owner_sha256": "c163242ff329ab5d75c7dd41b711f5418c65ab46e4e862cb648d1bcf82ada3ad"
+        }
+      ]
+    },
+    "LIB-0760-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "headings": [
+            "Bluetooth, NFC, And Nearby"
+          ],
+          "owner_sha256": "c163242ff329ab5d75c7dd41b711f5418c65ab46e4e862cb648d1bcf82ada3ad"
+        }
+      ]
+    },
+    "LIB-0720-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "headings": [
+            "Keychain And Data Protection"
+          ],
+          "owner_sha256": "91ba254e0e0815fdd338d1c1c6fde4730410a972bf8df0efe410dcc34ed75e44"
+        }
+      ]
+    },
+    "LIB-0871-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "headings": [
+            "Active Authority And Historical Evidence"
+          ],
+          "owner_sha256": "b7faf9e7eb27f88bd71e803ee28855056ae189f92252ff0e442a23f3056f5286"
+        }
+      ]
+    },
+    "LIB-0961-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "headings": [
+            "Active Authority And Historical Evidence"
+          ],
+          "owner_sha256": "b7faf9e7eb27f88bd71e803ee28855056ae189f92252ff0e442a23f3056f5286"
+        }
+      ]
+    },
+    "LIB-0966-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "headings": [
+            "Active Authority And Historical Evidence"
+          ],
+          "owner_sha256": "b7faf9e7eb27f88bd71e803ee28855056ae189f92252ff0e442a23f3056f5286"
+        }
+      ]
+    },
+    "LIB-0985-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "headings": [
+            "Active Authority And Historical Evidence"
+          ],
+          "owner_sha256": "b7faf9e7eb27f88bd71e803ee28855056ae189f92252ff0e442a23f3056f5286"
+        }
+      ]
+    },
+    "LIB-1119-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "headings": [
+            "Active Authority And Historical Evidence"
+          ],
+          "owner_sha256": "b7faf9e7eb27f88bd71e803ee28855056ae189f92252ff0e442a23f3056f5286"
+        }
+      ]
+    },
+    "LIB-1284-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+          "headings": [
+            "Active Authority And Historical Evidence"
+          ],
+          "owner_sha256": "b7faf9e7eb27f88bd71e803ee28855056ae189f92252ff0e442a23f3056f5286"
+        }
+      ]
+    },
+    "LIB-0996-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "headings": [
+            "3. Verification Ladder"
+          ],
+          "owner_sha256": "b9b249543a59ff9b948d4e1c92361038f1a50ea3de0ffb84319eda34b000adeb"
+        }
+      ]
+    },
+    "LIB-1135-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "headings": [
+            "3. Verification Ladder"
+          ],
+          "owner_sha256": "b9b249543a59ff9b948d4e1c92361038f1a50ea3de0ffb84319eda34b000adeb"
+        }
+      ]
+    },
+    "LIB-1125-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "headings": [
+            "3. Verification Ladder"
+          ],
+          "owner_sha256": "b9b249543a59ff9b948d4e1c92361038f1a50ea3de0ffb84319eda34b000adeb"
+        }
+      ]
+    },
+    "LIB-1029-U01": {
+      "status": "PRESERVED_WITH_CURRENT_AUTHORITY_QUALIFICATION",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "headings": [
+            "3. Verification Ladder"
+          ],
+          "owner_sha256": "b9b249543a59ff9b948d4e1c92361038f1a50ea3de0ffb84319eda34b000adeb"
+        }
+      ],
+      "limits": "Independent safety certification cannot be supplied by its designer; no unavailable/unauthorized second-agent execution gate is created."
+    },
+    "LIB-0913-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "headings": [
+            "Boundary Model"
+          ],
+          "owner_sha256": "c2b35ac53cfd7814a8b5cec308bba1a08395d648b765953fe74597b259810ffe"
+        }
+      ]
+    },
+    "LIB-0940-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "headings": [
+            "Public API Rules"
+          ],
+          "owner_sha256": "80b6faff074d93b0bee400f4f76fcf68e1ae0aed4404c82eb17b553f60db2dd2"
+        }
+      ]
+    },
+    "LIB-0945-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/RISK_REGISTER.md",
+          "headings": [
+            "Entry Template",
+            "Rule"
+          ],
+          "owner_sha256": "d0c2e6fe3903e5ee26833bb4815e76e812a2e5933034e3e15c9f70d2becef1bd"
+        }
+      ]
+    },
+    "LIB-1148-U01": {
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "locations": [
+        {
+          "path": "reusable/baseline/docs/RISK_REGISTER.md",
+          "headings": [
+            "Entry Template",
+            "Rule"
+          ],
+          "owner_sha256": "d0c2e6fe3903e5ee26833bb4815e76e812a2e5933034e3e15c9f70d2becef1bd"
+        }
+      ]
+    }
+  }
+}

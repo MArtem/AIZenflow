@@ -69,9 +69,9 @@ def validate_route_overlay(base: dict[str, Any], overlay: dict[str, Any]) -> lis
 
 def load_route_registry(root: Path) -> tuple[dict[str, Any], list[str]]:
     root = root.resolve()
-    registry = load_json(root / ROUTES_REL)
+    registry = load_json(relative_path(root, "./" + ROUTES_REL.as_posix()))
     failures = validate_route_registry(registry)
-    overlay_path = root / LOCAL_ROUTES_REL
+    overlay_path = relative_path(root, "./" + LOCAL_ROUTES_REL.as_posix())
     if not overlay_path.is_file():
         return registry, failures
     try:
@@ -91,9 +91,16 @@ def load_route_registry(root: Path) -> tuple[dict[str, Any], list[str]]:
 
 
 def relative_path(root: Path, value: str) -> Path:
-    if not isinstance(value, str) or not value.startswith("./"):
-        raise ValueError(f"documentation path must start with ./: {value!r}")
-    return root / value[2:]
+    if (not isinstance(value, str) or not value.startswith("./")
+            or not value[2:] or Path(value[2:]).is_absolute()
+            or ".." in Path(value[2:]).parts):
+        raise ValueError(f"documentation path must stay inside its root: {value!r}")
+    candidate = root / value[2:]
+    try:
+        candidate.resolve().relative_to(root.resolve())
+    except (ValueError, OSError, RuntimeError) as error:
+        raise ValueError(f"documentation path escapes its root: {value!r}") from error
+    return candidate
 
 
 def ordered_unique(values: list[str]) -> tuple[list[str], list[str]]:
@@ -196,7 +203,7 @@ def resolve_routes(
 ) -> dict[str, Any]:
     root = root.resolve()
     routes_registry, route_failures = load_route_registry(root)
-    levels_registry = load_json(root / LEVELS_REL)
+    levels_registry = load_json(relative_path(root, "./" + LEVELS_REL.as_posix()))
     failures = list(route_failures)
     routes = routes_registry.get("routes", {})
     unknown_routes = [name for name in route_names if name not in routes]
@@ -241,7 +248,11 @@ def resolve_routes(
     required_documents, _ = ordered_unique(required_values)
     optional_documents, _ = ordered_unique(optional_values)
     trigger_patterns, _ = ordered_unique(trigger_values)
-    required_set = set(required_documents)
+    # Static Level 0 is mandatory even when another route also lists it as optional.
+    # Dynamic handoff/plan documents remain conditional on their presence.
+    required_set = set(required_documents) | set(
+        routes_registry.get("level0", {}).get("documents", [])
+    )
     optional_candidates = [path for path in optional_documents if path not in required_set]
 
     missing: list[str] = []

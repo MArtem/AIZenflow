@@ -1,0 +1,12 @@
+# Discovery/product semantic comparison — 2026-10-14
+
+LIB-0009–LIB-0014 fully read; 18 units adjudicated: six active, twelve archive. Product Requirements, Architecture Decision Governance, Feature Flags and Risk Register current owners read completely for comparison; API/Engineering/Toolchain/Completion previously fully read.
+
+- 0009-U01: Product Required Artifact explicitly retains journeys, success/acceptance/non-goals, failure/recovery/loading/empty/offline/denial/partial states, analytics, inclusive interaction and release/open questions. Engineering contract adds technical envelopes and actual owners; no product guessing.
+- 0010-U01: Architecture ADR/Bounded Investigation preserves viable alternatives and real uncertainty, stop condition/evidence budget, compatibility, costs and benefit. U02 expressly archives both minimum-two and 2–4 quotas; no fake options are required.
+- 0011-U01: API DTO/Errors/Retry/Pagination retains schema/optional/unknown-enum/version/timestamp/timezone compatibility and endpoint semantics. This does not demonstrate actual server agreement or compiled examples.
+- 0012-U01: Flags Required Checks/Release Evidence retain typed keys, safe defaults, TTL/expiry, stale/malformed/config failure, assignment changes, analytics integrity, owner/expiry/removal, stages and stop authority. Forbidden rules explicitly reject a kill-switch claim for irreversible data loss. No flag infrastructure or production mutation is authorized.
+- 0013-U01: Risk Register Entry records owner/mitigation/verification/acceptance scope; Rule permits accepted risks only. Unaccepted findings belong to Engineering review/task evidence until actual acceptance, not automatically to an accepted-risk record. The combination preserves discovery and disposition without silently accepting risks.
+- 0014-U01: ADR Template retains context/options/decision/consequences/migration/rollback/revisit/owner and explicit status/acceptance provenance; a proposed ADR cannot grant implementation.
+
+Common full-source context/toolchain, ownership, minimal diff, anti-suppression/no-unrelated-work and honest evidence/output are retained through Engineering/Toolchain/Completion. Each U02 retires numeric alternatives rituals; each U03 retires V2 mode/Library/playbook bindings. Linked playbook bodies remain independently unread. No useful semantic loss identified within these six complete bodies. Current technical freshness, implementation correctness and outcome savings are not established.

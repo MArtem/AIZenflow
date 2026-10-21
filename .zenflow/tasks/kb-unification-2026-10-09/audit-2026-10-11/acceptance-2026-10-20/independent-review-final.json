@@ -1,0 +1,23 @@
+{
+  "status": "PASS_SCOPED_INDEPENDENT_FINAL_DIFF",
+  "reviewer": "/root/kb_acceptance_review",
+  "model": "GPT-6.1 Sol medium",
+  "scope": "Complete final proposed diff:66 canonical +29 worktree tracked changes and supporting qualification receipts; initial full review plus complete final-diff rereview",
+  "findings": {
+    "initial_P2": 3,
+    "closed_P2": 3,
+    "open_P0_P2": 0,
+    "new_actionable_P3": 0
+  },
+  "worktree_diff_sha256": "18e1a6e64573ad1fb210e604bc232171a6e88caf87882e72fa4eb74abeaa57ea",
+  "vault_diff_sha256": "59505642c5a2dfa3d7b7e9ad5304e4b66cf32e703e24bcb1edd756f21430fa0e",
+  "worktree_head": "860ca8b7cc07e654d73339cdf6705319979df3df",
+  "vault_head": "063ba79c44c7144e072da06d5f675e7471a59627",
+  "preservation": "All source/unit IDs, metadata, historical statuses/counts retained;97 ledger units limited to scoped citation/qualification fields;207qualification IDs match original queue. Nine intermediate chains and3CLIs match.",
+  "limits": [
+    "Read-only static proposed-diff review; reviewer did not run35behavioral cases.",
+    "No independent full reread1403bodies, freshness/runtime/whole-KB certification, committed-SHA review or race-resistant filesystem guarantee.",
+    "Current sources/owners frozen during review; later task-only recovery pointer changes recorded separately."
+  ],
+  "hashes_revalidated_by_integrator": true
+}

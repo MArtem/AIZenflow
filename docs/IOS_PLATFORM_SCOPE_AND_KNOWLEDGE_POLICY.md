@@ -20,6 +20,13 @@ The reusable core must support production engineering for:
 
 An iPhone-only implementation must not be treated as complete when the product supports iPad. Compact and regular size classes are evidence inputs, not substitutes for testing representative iPhone and iPad configurations.
 
+### Verification Scope
+Mandatory knowledge and implementation coverage is distinct from currently permitted
+verification. Apply `CURRENT_USER_OVERRIDES.md` to every selected plan and completion gate.
+Current user exclusions remove all iPad and physical-device checks, including actual
+VoiceOver; keep those observations OMITTED_BY_USER. They neither remove relevant design
+requirements nor count as successful platform verification.
+
 ## Deferred Apple Platforms
 watchOS, visionOS, tvOS, and macOS-specific implementation guidance is not part of the mandatory reusable core at this time.
 

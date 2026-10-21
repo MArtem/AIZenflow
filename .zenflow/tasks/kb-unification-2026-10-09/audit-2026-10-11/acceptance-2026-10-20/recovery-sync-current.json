@@ -1,0 +1,457 @@
+{
+  "date": "2026-10-21",
+  "status": "PASS",
+  "scope": "Owned current task pointers and acceptance top-level files only; immutable source archive/closed experiment untouched; no Git publication.",
+  "files": [
+    {
+      "path": "handoff.md",
+      "previous_canonical_sha256": "12a5bd8f121814a693d90865b30b3176c738176f325dc8f0b7918d553f3ff2b5",
+      "sha256": "57203dc47c36d4b9cc799aeff9a2f187eba52dd9ce2defba93bf3d01600ce4f5",
+      "parity": true
+    },
+    {
+      "path": "plan.md",
+      "previous_canonical_sha256": "9c12c32c570fe4dea3cbc853399cd42ecee06a4a1efec6423b8a0d6f5abbe293",
+      "sha256": "80bc1e63bb3323ca0536181fa1d29c0f27cc15eef0720dc5bc5dfcebdde18314",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/plan.md",
+      "previous_canonical_sha256": "126caaea5b088703a8b450fcf6e76abf7ddd5e3275cbf559be9a10f130386052",
+      "sha256": "4345c98b541e57ba91b5acd5c3a2c6dbcd23b592a61eb0396b633902c1f4c0f5",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/remediation-progress.md",
+      "previous_canonical_sha256": "0da6d97bbe595c2b22607c5d933b0ba042272db1dda70f049df008ace1e09d37",
+      "sha256": "81dfa2db5633569cb242468b218b716b997fda664880fb04d3d36ebcaa7af783",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-17.json",
+      "previous_canonical_sha256": "16d713b9385f82ae7d46a210655d0c519b345a483935035da2563d8a69af00c7",
+      "sha256": "16d713b9385f82ae7d46a210655d0c519b345a483935035da2563d8a69af00c7",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/maturity-gap-worklist.json",
+      "previous_canonical_sha256": "ce9b39fb800fe7674103aa304a859e826f018f29b6c5d4a0b7c8116554055496",
+      "sha256": "94fd881bc70293729bb89e705f938f2d742302d76f9108170501d7a2a1015b39",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/recovery-delta.json",
+      "previous_canonical_sha256": "2600c418e0f9ba1f6334a2eb6dfcd4f915dbf09645ce077d5433952c72fa5ad6",
+      "sha256": "2600c418e0f9ba1f6334a2eb6dfcd4f915dbf09645ce077d5433952c72fa5ad6",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/freshness-repair-block-07.json",
+      "previous_canonical_sha256": "8b26d4693f1d54524ecead230c8e40b378f62bb2671772e551a2c57778a0811e",
+      "sha256": "8b26d4693f1d54524ecead230c8e40b378f62bb2671772e551a2c57778a0811e",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-21.json",
+      "previous_canonical_sha256": null,
+      "sha256": "8b290511a3a8fa3f8fa8c52dae3901d24db191c03e765c903e4c53c0800a68bb",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/final-diff-check.json",
+      "previous_canonical_sha256": null,
+      "sha256": "7b3f6fb0e8f3b2f686c93faf4dd4ea9cc8d29c4b4c5f54e8b85381d94d207c25",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/final-owner-parity.json",
+      "previous_canonical_sha256": "57484985893c701b8eb75e139762baea81d0d3e3c2616b3efe5be6082fb6877b",
+      "sha256": "c577beab7ebe888c2069d4f5af7cd835802376e2e2ffeefa4ae400401be60d0f",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/freshness-repair-block-11.json",
+      "previous_canonical_sha256": null,
+      "sha256": "9c751ba7a06c8f3a31286e3854dd1d5e058655f7a206a84a07d3c2cdeaa6e81b",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/u7-conditional-plan.md",
+      "previous_canonical_sha256": "c30c3e7fe2d4d5f0f7602b4ab52310b9a76671a6401364cad465a37cb819c5aa",
+      "sha256": "c30c3e7fe2d4d5f0f7602b4ab52310b9a76671a6401364cad465a37cb819c5aa",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/freshness-repair-block-10.json",
+      "previous_canonical_sha256": null,
+      "sha256": "3652203c54161f80ebcde9ab2e452e0c5d4aadd2034fd2e25b0f2a7ad39e8923",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/freshness-repair-block-06.json",
+      "previous_canonical_sha256": "92ed8551a7f194979f22c41f8084c8e0679497bf6a0cc20f3861342b2926dbb4",
+      "sha256": "92ed8551a7f194979f22c41f8084c8e0679497bf6a0cc20f3861342b2926dbb4",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-20.json",
+      "previous_canonical_sha256": null,
+      "sha256": "ed6fc6677bca90adf4187c9b35a475a9fc9d5d9759c6e79399f7ef0209881824",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/final-cost.json",
+      "previous_canonical_sha256": null,
+      "sha256": "8b8567634ffe19f720f1ba314b1618d415d6de3167684fbe3dd5431432a77d63",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/context-report-after-K3.json",
+      "previous_canonical_sha256": "e40d96b65cb0b72017eb95ad18f18d33cb258e8a4c4e282539ddc242d9983379",
+      "sha256": "e40d96b65cb0b72017eb95ad18f18d33cb258e8a4c4e282539ddc242d9983379",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/independent-review-final.json",
+      "previous_canonical_sha256": "0d220caee6b932ca30f8eb2105cab1d542cb62691d53b5f0c0aa76badab93dbd",
+      "sha256": "0d220caee6b932ca30f8eb2105cab1d542cb62691d53b5f0c0aa76badab93dbd",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/final-bookkeeping-delta.json",
+      "previous_canonical_sha256": null,
+      "sha256": "679ffaaa8725815548d34e34a11c4c9f9695f2fdb5dda0616b38862d83b6d6f4",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-16.json",
+      "previous_canonical_sha256": "74d1be1f608b3631d49bced3e20c4b9d4be0b585fd495dced18db94436594b4e",
+      "sha256": "74d1be1f608b3631d49bced3e20c4b9d4be0b585fd495dced18db94436594b4e",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/independent-review-consolidated.json",
+      "previous_canonical_sha256": null,
+      "sha256": "a88d0e9ecd0269dc56083932801a64a1792ca043258e8a20d0445439723edecc",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/k3-static-checks.json",
+      "previous_canonical_sha256": "2d16700bfe973d5a0276a71e5b73515e6020ac10f1ae74618ed8d637be254a15",
+      "sha256": "2d16700bfe973d5a0276a71e5b73515e6020ac10f1ae74618ed8d637be254a15",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/domain-freshness-receipts.json",
+      "previous_canonical_sha256": "46a1003e198e2160423e443a567040d1be81d35b9514d96bb2ba42e0f09bc20f",
+      "sha256": "46a1003e198e2160423e443a567040d1be81d35b9514d96bb2ba42e0f09bc20f",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/freshness-repair-block-01.json",
+      "previous_canonical_sha256": "053e7b3549ce5a03c726d06c8ba7a60fa992c3ff5184a30a71eaf4626942a5ea",
+      "sha256": "053e7b3549ce5a03c726d06c8ba7a60fa992c3ff5184a30a71eaf4626942a5ea",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/test_kb_acceptance.py",
+      "previous_canonical_sha256": "d7fedbb86a31bcb175c69f27ac7ac2516d3b1763180b6f80c411728ebc909ea2",
+      "sha256": "d7fedbb86a31bcb175c69f27ac7ac2516d3b1763180b6f80c411728ebc909ea2",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/core-claim-coverage-receipt.json",
+      "previous_canonical_sha256": "cb98dd5f4036c4a2161becaea29b7b76b30bbf9136844522798733c46f269a41",
+      "sha256": "b5e03241125785379ac43e795aedcc0defa9e33ab46f1092884f1d00f9f7797e",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/final-static-checks.json",
+      "previous_canonical_sha256": null,
+      "sha256": "25768d19bece81fe49e277e6e9c00c368ed75c3483a8d3c12ca9ee9d661a4560",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/independent-review-breadth.json",
+      "previous_canonical_sha256": null,
+      "sha256": "3eb87bc08009754cc1fa430b43781bae2bce9ff3d506f60d91739610aced6f0e",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-11.json",
+      "previous_canonical_sha256": "e7f477ee5849817a5398de52fdd4e844d6c8673c8be66ee277b769681cb3df6c",
+      "sha256": "e7f477ee5849817a5398de52fdd4e844d6c8673c8be66ee277b769681cb3df6c",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/inherited-owner-mirror-repair.json",
+      "previous_canonical_sha256": "e9b13d7b1029d5efe0ff35671db77760e0aa7fe891403e4ba4bce1045d768da7",
+      "sha256": "e9b13d7b1029d5efe0ff35671db77760e0aa7fe891403e4ba4bce1045d768da7",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-07.json",
+      "previous_canonical_sha256": "02e489e2c6821a11e3b0514c3a3372a11912306da50ec92bd438b825fac636f2",
+      "sha256": "02e489e2c6821a11e3b0514c3a3372a11912306da50ec92bd438b825fac636f2",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/maturity-promotion-repair.json",
+      "previous_canonical_sha256": null,
+      "sha256": "c87e684f9d675246621d373f2ee4807674db943a42f2b8a6faf7c0358077d31f",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/recovery-sync.json",
+      "previous_canonical_sha256": "7ef9073f4f4d467598ae65992206f8f3b3510338b00786f242286d04f45d4b47",
+      "sha256": "7ef9073f4f4d467598ae65992206f8f3b3510338b00786f242286d04f45d4b47",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/publication-proposal.md",
+      "previous_canonical_sha256": "ed520154033b1c6b71095df53798f001233a72f6a2f9639db812e8e01220ce00",
+      "sha256": "109c687d93d70673f44b1ff53bb66e29630e156cd45216c1ed7ea74c19bae247",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-06.json",
+      "previous_canonical_sha256": "66bbe682b8864b0584ccaff807b01644633f28cc3e697583fe35b47a276a83d1",
+      "sha256": "66bbe682b8864b0584ccaff807b01644633f28cc3e697583fe35b47a276a83d1",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-10.json",
+      "previous_canonical_sha256": "5d3006ba7bf50954bab9caa1f53623a8b91ca512155e8bee008984833e310513",
+      "sha256": "5d3006ba7bf50954bab9caa1f53623a8b91ca512155e8bee008984833e310513",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/behavioral-results.json",
+      "previous_canonical_sha256": "6439617395c085080c6f65ebf8e25e5d87fa3d076ff7eb542dbd99982891237e",
+      "sha256": "6439617395c085080c6f65ebf8e25e5d87fa3d076ff7eb542dbd99982891237e",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/context-report-current.json",
+      "previous_canonical_sha256": "37f952f2c838e7646aa6f9493d82e22868de1b7c1343e9ac5752cc6a5de68413",
+      "sha256": "37f952f2c838e7646aa6f9493d82e22868de1b7c1343e9ac5752cc6a5de68413",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/acceptance-result.md",
+      "previous_canonical_sha256": "649deb6f3a9796f18263bf9f61128be9a1f20e7e1aba81ad24743f719ed976de",
+      "sha256": "270faf913dd42a844de1db4be733a92c6d4eee7ca6cf97c453c2f123b5f8e0df",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/final-preservation-check.json",
+      "previous_canonical_sha256": "a71518fe4acedd8149556bb60ac19b8b8f0874b031e7c1033d893af28c7ec5b2",
+      "sha256": "a71518fe4acedd8149556bb60ac19b8b8f0874b031e7c1033d893af28c7ec5b2",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/final-acceptance-candidate.json",
+      "previous_canonical_sha256": null,
+      "sha256": "5a40093fb756e7adaea2bfa6c4464a740c38b033648c939d97fd67f88d8a01f6",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/intermediate-mirror-repair.json",
+      "previous_canonical_sha256": "7aad23e4a34935757f2e83ea51f9c67925b966d1b816188163c8c2e1c91b3a35",
+      "sha256": "7aad23e4a34935757f2e83ea51f9c67925b966d1b816188163c8c2e1c91b3a35",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/freshness-repair-block-03.json",
+      "previous_canonical_sha256": "1b309253b234209dbe41494910e5eb280231c19e9a9fef92cbdfd5934508256a",
+      "sha256": "1b309253b234209dbe41494910e5eb280231c19e9a9fef92cbdfd5934508256a",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-09.json",
+      "previous_canonical_sha256": "9e622ad5df65c8b6549447da7e8fde06d272f7f11cb42ab54b65c1624a261287",
+      "sha256": "9e622ad5df65c8b6549447da7e8fde06d272f7f11cb42ab54b65c1624a261287",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/declared-core-section-inventory.json",
+      "previous_canonical_sha256": "18df6380919d9ab0e47bd319bc2a3ce45fc38c4a72ef216992eba00b7eef1aad",
+      "sha256": "7e2d927d775f880e5cde7d362e4d13a04059ea2a49ccdd10372db2abe1f9f41e",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-05.json",
+      "previous_canonical_sha256": "3ff71ffb166f46cfbbf6ca5c728205be207e2260cc0ce93c92e09cee6a31c048",
+      "sha256": "3ff71ffb166f46cfbbf6ca5c728205be207e2260cc0ce93c92e09cee6a31c048",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-13.json",
+      "previous_canonical_sha256": "8d226350a81769a9ccbfa4bf4d18555fcd5942f1df40110c882eccf70e775151",
+      "sha256": "8d226350a81769a9ccbfa4bf4d18555fcd5942f1df40110c882eccf70e775151",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-12.json",
+      "previous_canonical_sha256": "4740447eae18380f57e03b325137d9c92aa987786f40a078087efb26938f57a8",
+      "sha256": "4740447eae18380f57e03b325137d9c92aa987786f40a078087efb26938f57a8",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/archived-reference-adjudication.json",
+      "previous_canonical_sha256": "571a758c7a08c3f042c6f7c9fd7005b019e0bc6d42369e03daec6b35089f5b6c",
+      "sha256": "571a758c7a08c3f042c6f7c9fd7005b019e0bc6d42369e03daec6b35089f5b6c",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-04.json",
+      "previous_canonical_sha256": "3842168a4e2db71021abeed66e08f2fa94146fd4afe87a171180a8660591e742",
+      "sha256": "3842168a4e2db71021abeed66e08f2fa94146fd4afe87a171180a8660591e742",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/independent-review-maturity-eligible.json",
+      "previous_canonical_sha256": null,
+      "sha256": "06cf004e5db5ac7eb5bba875764828088df3e095e2b54ff29a3e15668b8a1fdf",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/final-routes.json",
+      "previous_canonical_sha256": null,
+      "sha256": "aa4e6bcc5f06d06b1535ca22aab4a5623f92885170a826b41b6d6a4172039f06",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/candidate-manifest.json",
+      "previous_canonical_sha256": "73aec41d3a872c9e1fbd838f64998d5694d6eb1ce9c242f7755a5e35c7b72551",
+      "sha256": "73aec41d3a872c9e1fbd838f64998d5694d6eb1ce9c242f7755a5e35c7b72551",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-08.json",
+      "previous_canonical_sha256": "1b6096eb99daa52b3955e3e41a7468fba22cadee0c1295e3b6e6741fc545e074",
+      "sha256": "1b6096eb99daa52b3955e3e41a7468fba22cadee0c1295e3b6e6741fc545e074",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/independent-review-initial.json",
+      "previous_canonical_sha256": "0ae5e36902f7b4bef66f1c8f3f309208b7a8bb6bc0811f37b44986970203b98d",
+      "sha256": "0ae5e36902f7b4bef66f1c8f3f309208b7a8bb6bc0811f37b44986970203b98d",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/freshness-repair-block-02.json",
+      "previous_canonical_sha256": "b20a4e15107c7de136d6b8c4bb330e0d90b3071ff78df2f099ecdda9d79fa8f4",
+      "sha256": "b20a4e15107c7de136d6b8c4bb330e0d90b3071ff78df2f099ecdda9d79fa8f4",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/plan.md",
+      "previous_canonical_sha256": "bd09571763e0a201c3c5e228d65f3ac9283877baca6a5a4621910ff8fa2c6c39",
+      "sha256": "41bf86e72db4ff2465857a23164def147bf1c4cc1086a22c8b860cf06fab00db",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/freshness-repair-block-09.json",
+      "previous_canonical_sha256": "cfdb4f8564701e7f814a221bbb47f7df86840e809a146f232513a197b51b1a62",
+      "sha256": "cfdb4f8564701e7f814a221bbb47f7df86840e809a146f232513a197b51b1a62",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-03.json",
+      "previous_canonical_sha256": "325436b5d190af5ee034d9e43ac0e8159328088267b78063c7a4ce5992906583",
+      "sha256": "325436b5d190af5ee034d9e43ac0e8159328088267b78063c7a4ce5992906583",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/behavioral-results-pre-K5.json",
+      "previous_canonical_sha256": "4bff7586503d990b72b3a0bb0dd3ab437ffcbc6c50fd8d2c3f647928e3bdb5fb",
+      "sha256": "4bff7586503d990b72b3a0bb0dd3ab437ffcbc6c50fd8d2c3f647928e3bdb5fb",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-15.json",
+      "previous_canonical_sha256": "4d1ef4628deb34771b8f571de47b4fa8a955e4018e66e1d617804267b4383edc",
+      "sha256": "4d1ef4628deb34771b8f571de47b4fa8a955e4018e66e1d617804267b4383edc",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/freshness-repair-block-05.json",
+      "previous_canonical_sha256": "0b84fb376a4da452c1295d3bc3c8fbd9d55184c0dc14ba5bbc004ca38b43e496",
+      "sha256": "0b84fb376a4da452c1295d3bc3c8fbd9d55184c0dc14ba5bbc004ca38b43e496",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/freshness-metadata-repair.json",
+      "previous_canonical_sha256": "6ba336c618a627d5c046ee7e70e138212e8a48391fb03888dca9f6c7a9347f94",
+      "sha256": "6ba336c618a627d5c046ee7e70e138212e8a48391fb03888dca9f6c7a9347f94",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/reviewed-candidate-manifest.json",
+      "previous_canonical_sha256": "d3bbd818e6b5341c56cf1fcd4bf869d3d01f43aa77ee3de01895372c0a5cccc2",
+      "sha256": "d3bbd818e6b5341c56cf1fcd4bf869d3d01f43aa77ee3de01895372c0a5cccc2",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-19.json",
+      "previous_canonical_sha256": null,
+      "sha256": "fb9f9088367c9e64edf0eabac87279b36ff4bda8d6e01f4a7736b6af9b33e384",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-18.json",
+      "previous_canonical_sha256": null,
+      "sha256": "6b4565d95c1e57fa657dc8c7049fd6649cb13b2f2fa7b398fcc1fd84977a9e90",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/routes-after-K3.json",
+      "previous_canonical_sha256": "aa4e6bcc5f06d06b1535ca22aab4a5623f92885170a826b41b6d6a4172039f06",
+      "sha256": "aa4e6bcc5f06d06b1535ca22aab4a5623f92885170a826b41b6d6a4172039f06",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-22.json",
+      "previous_canonical_sha256": null,
+      "sha256": "a79f1a55b539428dfa43ff4fc79742f562bee0ddc2e60b0be07ba649edfa1281",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/freshness-repair-block-04.json",
+      "previous_canonical_sha256": "e62f268637ca50594e2cecd424468e8c5e875358336ccc5569f4e022b95293d1",
+      "sha256": "e62f268637ca50594e2cecd424468e8c5e875358336ccc5569f4e022b95293d1",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/freshness-repair-block-12.json",
+      "previous_canonical_sha256": null,
+      "sha256": "5424b48b398327890b5a6f978ffb010b3a76080c051749c863c42454ed15b1e5",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-14.json",
+      "previous_canonical_sha256": "c493aadbac4f4560cf5566940acf1eb577ee90f52ff3c350e9bee70b30318bd4",
+      "sha256": "c493aadbac4f4560cf5566940acf1eb577ee90f52ff3c350e9bee70b30318bd4",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/primary-fetch-batch-02.json",
+      "previous_canonical_sha256": "29039d510af1240103684e87d6ad3372174c09a5c4167d4e56afe6fb5a6e66ec",
+      "sha256": "29039d510af1240103684e87d6ad3372174c09a5c4167d4e56afe6fb5a6e66ec",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/mixed-qualification-repair.json",
+      "previous_canonical_sha256": "f3f82d73f41b0eec9910af1e284839e66a8b80dcd468d92a4ff105b5ea674739",
+      "sha256": "f3f82d73f41b0eec9910af1e284839e66a8b80dcd468d92a4ff105b5ea674739",
+      "parity": true
+    },
+    {
+      "path": "audit-2026-10-11/acceptance-2026-10-20/freshness-repair-block-08.json",
+      "previous_canonical_sha256": "7a9de59165d6227cde77e307c53195e5d3f6111826145e312c1283248d0d59e7",
+      "sha256": "7a9de59165d6227cde77e307c53195e5d3f6111826145e312c1283248d0d59e7",
+      "parity": true
+    }
+  ]
+}

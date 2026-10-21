@@ -1,0 +1,14 @@
+# Navigation/deeplink semantic receipt — 2026-10-13
+
+Six full sources LIB-0086–LIB-0091 read, including all prompts, common gates and bindings. All 18 units inspected: six active, twelve archive dispositions. Current owners were previously read completely; Navigation And Presentation, Associated Domains And Deep Links, Observability/Metric Design and complete Input Validation/Lifecycle standards rechecked for this comparison.
+
+- 0086-U01: UI Navigation And Presentation lines 53–56 retains typed destinations/actions, identifiers rather than view/storage/secrets, and parsing/presentation separation. “Where appropriate to the existing flow” preserves useful type safety without authorizing a new UI action-enum dispatcher or routing rewrite.
+- 0087-U01: same owner explicitly retains malformed/unknown/versioned input, feature availability, authorization and state prerequisites, revalidated on consumption after deferral. Input Validation adds source distrust and scheme allowlist.
+- 0088-U01: UI lines 58–63 retain a single actual navigation owner, duplicate delivery, app/extension/widget handoff, cold/warm launch, auth/loading deferral, modal competition and restoration. Lifecycle review retains pending links across session transitions.
+- 0089-U01: Capabilities lines 89–90 retain server association content/hosting/cache, entitlement, parse/auth/fallback; globally claimable custom schemes carry no secrets. Performance Observability/Metric Design retains bounded private analytics and non-authoritative telemetry. The source itself supplied no worked association-file example; no example-equivalence claim follows.
+- 0090-U01: UI lines 51, 60–62 retain serializable state, removed content, versioned restoration, compatibility window and retirement evidence.
+- 0091-U01: UI lines 60–61 plus Lifecycle Required Rules retain scene-specific route/document/session ownership and no cross-window leakage. This is a static implementation requirement; excluded iPad/physical checks are not revived.
+
+Each U02 archives a numeric alternatives quota; each U03 archives mode/Library/deep-playbook bindings. Common Engineering/Testing/Toolchain/Completion controls retain material alternatives, actual boundaries, minimal diff, permitted verification and honest unverified claims. Linked deep bodies remain unread. No missing useful condition identified in these six bodies; runtime delivery, association hosting/cache behavior and current platform details remain UNVERIFIED.
+
+Useful cross-domain negative control for a future authorized evaluation: defer a validated account-scoped link during login, switch account before consumption, then redeliver it. Expected behavior must revalidate current authorization and destination, avoid duplicate navigation/effect and preserve scene ownership. A parser-only success is insufficient. This specification is not an executed test or U7 access.

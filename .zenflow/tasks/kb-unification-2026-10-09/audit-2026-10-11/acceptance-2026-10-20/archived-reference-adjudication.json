@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-20",
+  "status": "ADJUDICATED_REFERENCE_RETAINED",
+  "unit": "LIB-1066-U02",
+  "source_path": "canonical/source-meta/CURRENT_OFFICIAL_REFERENCES.md",
+  "source_sha256": "470cc37a4d266dc32add2917217071ed3c961baaf6d1a712417e4ad672e493bd",
+  "read_scope": "Complete frozen body reread, all table rows and rule-to-source policy. This is a dated reference catalog, NOT a Python implementation. No archived code or procedure executed.",
+  "disposition": "ARCHIVE_ONLY_INFRASTRUCTURE remains appropriate for dated catalog/provenance. Retain useful Python and Git references; do not claim redundancy or count them as active iOS coverage.",
+  "owner_comparison": {
+    "owner": "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+    "sha256": "b9b249543a59ff9b948d4e1c92361038f1a50ea3de0ffb84319eda34b000adeb",
+    "preserved": "Input/resource envelopes, incomplete traversal, process lifetime, actual command authority and shared Git state are active abstract contracts. Detailed Python API recipes remain discoverable historical references, without importing historical host procedures."
+  },
+  "bounded_primary_checks": [
+    {
+      "url": "https://docs.python.org/3/library/pathlib.html",
+      "claim": "Filesystem predicates normally follow links; versioned no-follow options differ.",
+      "outcome": "SUPPORTED_BY_CURRENT_PRIMARY_TEXT"
+    },
+    {
+      "url": "https://docs.python.org/3/library/os.html#os.walk",
+      "claim": "Default traversal ignores scandir errors unless onerror handles them; following links may recurse.",
+      "outcome": "SUPPORTED_BY_CURRENT_PRIMARY_TEXT"
+    },
+    {
+      "url": "https://docs.python.org/3/library/shutil.html#shutil.which",
+      "claim": "Executable search depends on supplied path or ambient PATH/default.",
+      "outcome": "SUPPORTED_BY_CURRENT_PRIMARY_TEXT"
+    },
+    {
+      "url": "https://docs.python.org/3/library/subprocess.html",
+      "claim": "POSIX session/process-group behavior and subprocess timeout/pipe lifecycle require explicit handling.",
+      "outcome": "SUPPORTED_BOUNDED; not a proof of descendant cleanup"
+    },
+    {
+      "url": "https://docs.python.org/3/library/selectors.html",
+      "claim": "Selector readiness and supported object types are platform-dependent.",
+      "outcome": "SUPPORTED_BY_CURRENT_PRIMARY_TEXT"
+    },
+    {
+      "url": "https://git-scm.com/docs/git-worktree#_refs",
+      "claim": "Ordinary refs/config shared across worktrees, with documented per-worktree exceptions.",
+      "outcome": "SUPPORTED_BY_CURRENT_PRIMARY_TEXT"
+    }
+  ],
+  "limits": [
+    "Python current web docs identify3.15; not evidence about the host Python version or project deployment.",
+    "No implementation/adoption, runtime safety or platform acceptance is established.",
+    "Other historical catalog URLs are not certified by these six checks.",
+    "Actual VoiceOver remains OMITTED_BY_USER."
+  ],
+  "new_active_rule": "none; no useful constraints deleted, no claim all detailed advice is unnecessary"
+}

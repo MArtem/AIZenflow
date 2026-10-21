@@ -1,0 +1,490 @@
+{
+  "W": {
+    "head": "860ca8b7cc07e654d73339cdf6705319979df3df",
+    "scope": "Current changed reusable implementation/docs; task recovery excluded and fingerprinted separately.",
+    "files": [
+      {
+        "path": ".codex/skills/ios-identity-authentication/SKILL.md",
+        "sha256": "12dafced558fe5f871ff6159cbb4e0c268cc7d0a78c9f1c31362d6e9af851f1c"
+      },
+      {
+        "path": ".codex/skills/ios-performance-profiler/SKILL.md",
+        "sha256": "e3e488ecf20a332c1f767aca29487f9f96e65435b409478f5671eb27c66e07ab"
+      },
+      {
+        "path": ".codex/skills/ios-swift-runtime/SKILL.md",
+        "sha256": "2b5de36b1dfe3e6aeeb5707c89089e33dd7c26e7a481048cdd18a14274434603"
+      },
+      {
+        "path": "docs/CI_CD_QUALITY_GATES.md",
+        "sha256": "e343635b1b0b1b5da9c51c3b715391d3b5c581600f26aea2797ce1fd06316312"
+      },
+      {
+        "path": "docs/DOCUMENT_BOUNDARY_STANDARD.md",
+        "sha256": "b7faf9e7eb27f88bd71e803ee28855056ae189f92252ff0e442a23f3056f5286"
+      },
+      {
+        "path": "docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+        "sha256": "ffaea14dba3fba58b44a7e3e555f6abd6ac4b65a640004d9a240425c5f8db035"
+      },
+      {
+        "path": "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+        "sha256": "b9b249543a59ff9b948d4e1c92361038f1a50ea3de0ffb84319eda34b000adeb"
+      },
+      {
+        "path": "docs/IOS_ACCESSIBILITY_STANDARD.md",
+        "sha256": "5dfa511b37911d81675318946032a8e733f889dd2c997c5dba48b891ab30a22e"
+      },
+      {
+        "path": "docs/IOS_KNOWLEDGE_COVERAGE_REGISTRY.json",
+        "sha256": "019b5cd4c20cab199d4be503890e1c8c2c36fe88d6fc3307667a8b59d353d9be"
+      },
+      {
+        "path": "docs/IOS_OFFLINE_SYNC_STANDARD.md",
+        "sha256": "da6c02bcc83617293581ce477ff00744d9558829d3333a212ab81ade38bf9f4d"
+      },
+      {
+        "path": "docs/IOS_PERFORMANCE_BUDGETS.md",
+        "sha256": "8d7688bbff9b124a2390f84685283a2840137b7059d25651dd53b49d4253bf84"
+      },
+      {
+        "path": "docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+        "sha256": "492f90ccb06c7821f4b383900d5de81dcc37cb90eb9ce03fa1518536a638ad02"
+      },
+      {
+        "path": "docs/IOS_RELEASE_CHECKLIST.md",
+        "sha256": "a537cd9bfb16cb8fda22a8f59f72199503eede0ddec39f8a5b41833393f796c5"
+      },
+      {
+        "path": "docs/IOS_SECURITY_PRIVACY_GATE.md",
+        "sha256": "7479ff04b898b0ddd1ee36075e802818f2e7bf5130c13069884ecf21e7018ccd"
+      },
+      {
+        "path": "docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+        "sha256": "6b3f2204ccf4ce980e4fd360c97ea81fd80594f7bab5d25e9dc4fc1abd36c3cc"
+      },
+      {
+        "path": "docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+        "sha256": "5d76a19bf19745a47bffceb298820cec0f113974c53e61239f10f7404ed6ef15"
+      },
+      {
+        "path": "docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+        "sha256": "49941b39b24ac58c1fd2152281fa0e689aaa9064fcafcdc5dd7de40887dc97ac"
+      },
+      {
+        "path": "docs/MODULAR_ARCHITECTURE_STANDARD.md",
+        "sha256": "61557d5a66c377ed3810baf15da43cc3b4854673e78cf04443821be224d10c68"
+      },
+      {
+        "path": "docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+        "sha256": "a05ec9695b3bc9edc72c4ca28b48de7e496c9cb7178a411c408f72b9b8fe5989"
+      },
+      {
+        "path": "docs/REUSABLE_BASELINE_POLICY.json",
+        "sha256": "9b1ef0b93f05c0fb0463a083a63a0caa6767f7a23f66c7293d20b8c8a328433a"
+      },
+      {
+        "path": "docs/RISK_REGISTER.md",
+        "sha256": "d0c2e6fe3903e5ee26833bb4815e76e812a2e5933034e3e15c9f70d2becef1bd"
+      },
+      {
+        "path": "docs/TASK_DOCUMENT_ROUTES.json",
+        "sha256": "56cf66ff9cbadd03bd2b241dedf3938514f5178bbc4944637673c94340b24575"
+      },
+      {
+        "path": "docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+        "sha256": "ae11fe25ab4526b61931ca61f08dba809ecc86022317aa3545aea75407c9d2c6"
+      },
+      {
+        "path": "docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+        "sha256": "c1e9b0f6ffb7d81c4ca5e925899303be3af48b81bb140e70f779d6852799c1bb"
+      },
+      {
+        "path": "docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+        "sha256": "082e71875bb47adef52805e89924eb9f1bb6c6f9ca79c00db62e1e35e22fd56e"
+      },
+      {
+        "path": "docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+        "sha256": "2afcb33a7c9e17c5e6ce099639fe033cbec2d48c24116c8e2ae5f2ddb8d8f319"
+      },
+      {
+        "path": "docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+        "sha256": "29fa0d60ecc1ead2c9037de816ae45294f88dceb2b346083a0aac3d5e5a69286"
+      },
+      {
+        "path": "docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+        "sha256": "0b90cfb31bd635f35c9b8ac7d1f0dea57a75c979d22b9bb3c5406b2816058d1e"
+      },
+      {
+        "path": "docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+        "sha256": "f234cfe9f82cf397a0d176510f93e3a27a8442d235c100b4378861bc5fcad813"
+      },
+      {
+        "path": "docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+        "sha256": "cb15bc1511ce9ba536a84e7f788f5c3c05e479f21c50adca8813aa0fcdb47b0b"
+      },
+      {
+        "path": "docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+        "sha256": "5d7e46328c6b127f440556b5254f9c31cae3edb4e829b81287269bd4dbf21d91"
+      },
+      {
+        "path": "docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+        "sha256": "37829051538c2c498cbb1341a2b12a45dc8a6f1f5c193bdea3b78a0d73f31422"
+      },
+      {
+        "path": "docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+        "sha256": "2b18e5124f3ba8497331f1d9095a7570a4c00ce580bcd155f53f535b9dc762f2"
+      },
+      {
+        "path": "docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+        "sha256": "bdf8cacbbe2098b394351cef25a4c1394e732f6a956d27596c13978dd67151f4"
+      },
+      {
+        "path": "docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+        "sha256": "1124314abc29c021b347f63078c7a35d4bdcdac1aadcc816dc408e38431e499a"
+      },
+      {
+        "path": "docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+        "sha256": "2dad465f00c1bfeb3d119431700bd5f482b1f1238103a12bc23e90d8dae37901"
+      },
+      {
+        "path": "docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+        "sha256": "50a306a64c53009d638d0077edf1fed49604a1a3f59f75772978c1fb5d8eeaad"
+      },
+      {
+        "path": "scripts/check_documentation_boundaries.py",
+        "sha256": "6a0ccab6ae38180df37c2da0ad43a13612392c43420da64dbe9957f26a49b538"
+      },
+      {
+        "path": "scripts/report_documentation_context_cost.py",
+        "sha256": "af3771dd552941868fc10c339678474deac34ccb2dce14f84f6c49d39ba23a1a"
+      },
+      {
+        "path": "scripts/resolve_docs_route.py",
+        "sha256": "e80b01401c3c4e70cbde59442ad160738743793064dc0cf85f8692d364d51f12"
+      }
+    ]
+  },
+  "V": {
+    "head": "063ba79c44c7144e072da06d5f675e7471a59627",
+    "scope": "Current changed reusable implementation/docs; task recovery excluded and fingerprinted separately.",
+    "files": [
+      {
+        "path": "reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+        "sha256": "c1e9b0f6ffb7d81c4ca5e925899303be3af48b81bb140e70f779d6852799c1bb"
+      },
+      {
+        "path": "reusable/agent-prompts/AI_iOS_TASK_ROUTER.md",
+        "sha256": "082e71875bb47adef52805e89924eb9f1bb6c6f9ca79c00db62e1e35e22fd56e"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-accessibility/SKILL.md",
+        "sha256": "5a5eebf0575c67b48e04d2ae864a771b1b9fa6796c05a4378f5d87461259234b"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-api-contracts/SKILL.md",
+        "sha256": "f61606c7579eb7143b0e0921b81968122cab3ed5d97d6f65cd286c4b9eef4cf8"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-app-store-compliance/SKILL.md",
+        "sha256": "bc1fda25da247b60a8173d520ecc388079be42ce3f64f785b2126054f9b8cb7e"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-architecture-router/SKILL.md",
+        "sha256": "2732c2d17edb651da69c03f4713b2190e4cf8172e3987df89189ec90eb7eccdc"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-build-system/SKILL.md",
+        "sha256": "bc01bfb24f850dc8b2b8502380de681141593ff70e67dfa44b4ac29b0866c5ea"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-concurrency-runtime/SKILL.md",
+        "sha256": "f668de4286f63a536ae57a80b68384c7035e2f364323d7ed9fca080a595f5b8c"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-configuration-environments/SKILL.md",
+        "sha256": "18feb295baa9d538112842d9738eb445bc306df4ff2e5db7b69da4f7cd610f3b"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-data-migration/SKILL.md",
+        "sha256": "602fe8c0e9080d1a446ecb3aa971b96d6ffef720aec1f0084473179afd3079d6"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-error-handling/SKILL.md",
+        "sha256": "c1c17deaf82c641ca3420e33d7260f9673cd4a4ac02fb9b1709e3fa489aad03c"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-evidence-gate/SKILL.md",
+        "sha256": "1b5fdb58cea7f4cc2d0d6a5e7e31112d386c81076c81b1fddac34365addcee98"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-identity-authentication/SKILL.md",
+        "sha256": "12dafced558fe5f871ff6159cbb4e0c268cc7d0a78c9f1c31362d6e9af851f1c"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-incident-ops/SKILL.md",
+        "sha256": "2dd2039a4da76d5f423c4b47c611801b9e8360140a8b0ab52021e031932239e4"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-input-validation/SKILL.md",
+        "sha256": "0b31e1f8a48242832b72cef0ee230c6738a97e5767c649dd17f993fd1ccd6ca7"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-lifecycle-background/SKILL.md",
+        "sha256": "0efcf7bdbb14417a447f2acdeaca128cfe43504be770f84d98f4fd70132f53ec"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-memory-cache-media/SKILL.md",
+        "sha256": "11deeaab82c12429a8533c889d13c76f103a80cd6e621fc4020d07beff1ee6b1"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-modular-architecture/SKILL.md",
+        "sha256": "3e7b5ee6d769ad0ea7e307c8d291c491bdb8dd61d494443504c0e76f9522e1e8"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-network-resilience/SKILL.md",
+        "sha256": "8ba6fa1c00c2dc76f76cf99bc47e08824d1ccd3d7ccf92e3c73170e9fb5bf058"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-offline-sync/SKILL.md",
+        "sha256": "636f7d9c1176c378008c38b9f841124a401189a992115c914b4380622d85f012"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-performance-profiler/SKILL.md",
+        "sha256": "e3e488ecf20a332c1f767aca29487f9f96e65435b409478f5671eb27c66e07ab"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-platform-capabilities/SKILL.md",
+        "sha256": "7d0f0d7e93960223e55e81ca17155102620e0a9acebcfad8c02db652f1d9a4c5"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-product-governance/SKILL.md",
+        "sha256": "595b4da0845837dc8f06690771a019289c5de6f52c73ee9015873912d68274ca"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-production-auditor/SKILL.md",
+        "sha256": "90aada6fbe3960f8c8911d0d3e7bed72942d88a1cae799b1cf35675fc9bc1805"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-qa-localization/SKILL.md",
+        "sha256": "6d582004f5a54b583afec7c856b15fdd1ca21364d1762ab555f54941dcdc2842"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-release-engineering/SKILL.md",
+        "sha256": "fd139203bfab0a5ffa1ab27be1ef1625fcfac242ea812e6771be2759ecab1a99"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-security-privacy/SKILL.md",
+        "sha256": "c12f6d0008fcb8f62cf8a4580c1eadc985db44702977564c9e7e216b57875cb5"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-swift-runtime/SKILL.md",
+        "sha256": "2b5de36b1dfe3e6aeeb5707c89089e33dd7c26e7a481048cdd18a14274434603"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-test-strategy/SKILL.md",
+        "sha256": "91bb1c22a8533ed83a6fb7b4f0b305a778ee8508494f4c49699d3a924c8bc7cb"
+      },
+      {
+        "path": "reusable/baseline/.codex/skills/ios-testing-debugging/SKILL.md",
+        "sha256": "38f8a5ec956bb0be5c208ea415ff0aacce3bc1224439736749b5230a86cef14b"
+      },
+      {
+        "path": "reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+        "sha256": "b7faf9e7eb27f88bd71e803ee28855056ae189f92252ff0e442a23f3056f5286"
+      },
+      {
+        "path": "reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+        "sha256": "ffaea14dba3fba58b44a7e3e555f6abd6ac4b65a640004d9a240425c5f8db035"
+      },
+      {
+        "path": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+        "sha256": "b9b249543a59ff9b948d4e1c92361038f1a50ea3de0ffb84319eda34b000adeb"
+      },
+      {
+        "path": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+        "sha256": "5dfa511b37911d81675318946032a8e733f889dd2c997c5dba48b891ab30a22e"
+      },
+      {
+        "path": "reusable/baseline/docs/IOS_KNOWLEDGE_COVERAGE_REGISTRY.json",
+        "sha256": "019b5cd4c20cab199d4be503890e1c8c2c36fe88d6fc3307667a8b59d353d9be"
+      },
+      {
+        "path": "reusable/baseline/docs/IOS_PERFORMANCE_BUDGETS.md",
+        "sha256": "8d7688bbff9b124a2390f84685283a2840137b7059d25651dd53b49d4253bf84"
+      },
+      {
+        "path": "reusable/baseline/docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+        "sha256": "492f90ccb06c7821f4b383900d5de81dcc37cb90eb9ce03fa1518536a638ad02"
+      },
+      {
+        "path": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+        "sha256": "a537cd9bfb16cb8fda22a8f59f72199503eede0ddec39f8a5b41833393f796c5"
+      },
+      {
+        "path": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+        "sha256": "7479ff04b898b0ddd1ee36075e802818f2e7bf5130c13069884ecf21e7018ccd"
+      },
+      {
+        "path": "reusable/baseline/docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+        "sha256": "6b3f2204ccf4ce980e4fd360c97ea81fd80594f7bab5d25e9dc4fc1abd36c3cc"
+      },
+      {
+        "path": "reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+        "sha256": "5d76a19bf19745a47bffceb298820cec0f113974c53e61239f10f7404ed6ef15"
+      },
+      {
+        "path": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+        "sha256": "49941b39b24ac58c1fd2152281fa0e689aaa9064fcafcdc5dd7de40887dc97ac"
+      },
+      {
+        "path": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+        "sha256": "61557d5a66c377ed3810baf15da43cc3b4854673e78cf04443821be224d10c68"
+      },
+      {
+        "path": "reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+        "sha256": "a05ec9695b3bc9edc72c4ca28b48de7e496c9cb7178a411c408f72b9b8fe5989"
+      },
+      {
+        "path": "reusable/baseline/docs/RISK_REGISTER.md",
+        "sha256": "d0c2e6fe3903e5ee26833bb4815e76e812a2e5933034e3e15c9f70d2becef1bd"
+      },
+      {
+        "path": "reusable/baseline/docs/TASK_DOCUMENT_ROUTES.json",
+        "sha256": "56cf66ff9cbadd03bd2b241dedf3938514f5178bbc4944637673c94340b24575"
+      },
+      {
+        "path": "reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+        "sha256": "5d2bf915b12c54631e5073901365a477cc319fa3726e9906642fa9adfba0e19b"
+      },
+      {
+        "path": "reusable/baseline/docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+        "sha256": "c1e9b0f6ffb7d81c4ca5e925899303be3af48b81bb140e70f779d6852799c1bb"
+      },
+      {
+        "path": "reusable/baseline/docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+        "sha256": "082e71875bb47adef52805e89924eb9f1bb6c6f9ca79c00db62e1e35e22fd56e"
+      },
+      {
+        "path": "reusable/baseline/docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+        "sha256": "2afcb33a7c9e17c5e6ce099639fe033cbec2d48c24116c8e2ae5f2ddb8d8f319"
+      },
+      {
+        "path": "reusable/baseline/docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+        "sha256": "29fa0d60ecc1ead2c9037de816ae45294f88dceb2b346083a0aac3d5e5a69286"
+      },
+      {
+        "path": "reusable/baseline/docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+        "sha256": "0b90cfb31bd635f35c9b8ac7d1f0dea57a75c979d22b9bb3c5406b2816058d1e"
+      },
+      {
+        "path": "reusable/baseline/docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+        "sha256": "f234cfe9f82cf397a0d176510f93e3a27a8442d235c100b4378861bc5fcad813"
+      },
+      {
+        "path": "reusable/baseline/docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+        "sha256": "cb15bc1511ce9ba536a84e7f788f5c3c05e479f21c50adca8813aa0fcdb47b0b"
+      },
+      {
+        "path": "reusable/baseline/docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+        "sha256": "5d7e46328c6b127f440556b5254f9c31cae3edb4e829b81287269bd4dbf21d91"
+      },
+      {
+        "path": "reusable/baseline/docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+        "sha256": "37829051538c2c498cbb1341a2b12a45dc8a6f1f5c193bdea3b78a0d73f31422"
+      },
+      {
+        "path": "reusable/baseline/docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+        "sha256": "2b18e5124f3ba8497331f1d9095a7570a4c00ce580bcd155f53f535b9dc762f2"
+      },
+      {
+        "path": "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+        "sha256": "bdf8cacbbe2098b394351cef25a4c1394e732f6a956d27596c13978dd67151f4"
+      },
+      {
+        "path": "reusable/baseline/docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+        "sha256": "1124314abc29c021b347f63078c7a35d4bdcdac1aadcc816dc408e38431e499a"
+      },
+      {
+        "path": "reusable/baseline/docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+        "sha256": "2dad465f00c1bfeb3d119431700bd5f482b1f1238103a12bc23e90d8dae37901"
+      },
+      {
+        "path": "reusable/baseline/docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+        "sha256": "50a306a64c53009d638d0077edf1fed49604a1a3f59f75772978c1fb5d8eeaad"
+      },
+      {
+        "path": "reusable/baseline/root-scripts/check_documentation_boundaries.py",
+        "sha256": "6a0ccab6ae38180df37c2da0ad43a13612392c43420da64dbe9957f26a49b538"
+      },
+      {
+        "path": "reusable/baseline/root-scripts/report_documentation_context_cost.py",
+        "sha256": "af3771dd552941868fc10c339678474deac34ccb2dce14f84f6c49d39ba23a1a"
+      },
+      {
+        "path": "reusable/baseline/root-scripts/resolve_docs_route.py",
+        "sha256": "e80b01401c3c4e70cbde59442ad160738743793064dc0cf85f8692d364d51f12"
+      },
+      {
+        "path": "reusable/knowledge-global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+        "sha256": "2afcb33a7c9e17c5e6ce099639fe033cbec2d48c24116c8e2ae5f2ddb8d8f319"
+      },
+      {
+        "path": "reusable/knowledge-global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+        "sha256": "29fa0d60ecc1ead2c9037de816ae45294f88dceb2b346083a0aac3d5e5a69286"
+      },
+      {
+        "path": "reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+        "sha256": "0b90cfb31bd635f35c9b8ac7d1f0dea57a75c979d22b9bb3c5406b2816058d1e"
+      },
+      {
+        "path": "reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+        "sha256": "f234cfe9f82cf397a0d176510f93e3a27a8442d235c100b4378861bc5fcad813"
+      },
+      {
+        "path": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+        "sha256": "cb15bc1511ce9ba536a84e7f788f5c3c05e479f21c50adca8813aa0fcdb47b0b"
+      },
+      {
+        "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+        "sha256": "5d7e46328c6b127f440556b5254f9c31cae3edb4e829b81287269bd4dbf21d91"
+      },
+      {
+        "path": "reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+        "sha256": "37829051538c2c498cbb1341a2b12a45dc8a6f1f5c193bdea3b78a0d73f31422"
+      },
+      {
+        "path": "reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+        "sha256": "2b18e5124f3ba8497331f1d9095a7570a4c00ce580bcd155f53f535b9dc762f2"
+      },
+      {
+        "path": "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+        "sha256": "bdf8cacbbe2098b394351cef25a4c1394e732f6a956d27596c13978dd67151f4"
+      },
+      {
+        "path": "reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+        "sha256": "1124314abc29c021b347f63078c7a35d4bdcdac1aadcc816dc408e38431e499a"
+      },
+      {
+        "path": "reusable/knowledge-global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+        "sha256": "2dad465f00c1bfeb3d119431700bd5f482b1f1238103a12bc23e90d8dae37901"
+      },
+      {
+        "path": "reusable/knowledge-global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+        "sha256": "50a306a64c53009d638d0077edf1fed49604a1a3f59f75772978c1fb5d8eeaad"
+      },
+      {
+        "path": "reusable/local-ios-skills/ios-identity-authentication/SKILL.md",
+        "sha256": "12dafced558fe5f871ff6159cbb4e0c268cc7d0a78c9f1c31362d6e9af851f1c"
+      },
+      {
+        "path": "reusable/local-ios-skills/ios-performance-profiler/SKILL.md",
+        "sha256": "e3e488ecf20a332c1f767aca29487f9f96e65435b409478f5671eb27c66e07ab"
+      },
+      {
+        "path": "reusable/local-ios-skills/ios-swift-runtime/SKILL.md",
+        "sha256": "2b5de36b1dfe3e6aeeb5707c89089e33dd7c26e7a481048cdd18a14274434603"
+      }
+    ]
+  }
+}

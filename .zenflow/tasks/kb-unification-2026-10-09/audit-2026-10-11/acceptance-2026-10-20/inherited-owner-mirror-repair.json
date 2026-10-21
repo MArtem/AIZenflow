@@ -1,0 +1,29 @@
+{
+  "contract": "Restore four inherited stale local operating-rule copies to current canonical baseline. Existing diff inspected: no app-specific exception or unique local behavior to retain; local tracking-domain audit already present in canonical. Do not change canonical rules or grant execution. Two bounded two-document synchronization blocks.",
+  "files": [
+    {
+      "path": "docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "before_sha256": "5cffb290f16b1a6392e20b41374a9ce12a69752c4a7f90e6b9687d2b41b9b5f2",
+      "after_sha256": "7479ff04b898b0ddd1ee36075e802818f2e7bf5130c13069884ecf21e7018ccd",
+      "baseline_parity": true
+    },
+    {
+      "path": "docs/IOS_OFFLINE_SYNC_STANDARD.md",
+      "before_sha256": "39023795afcc5f8c91f516ecdbe20645987159cf8feb9ef70bd65b50dec6b886",
+      "after_sha256": "da6c02bcc83617293581ce477ff00744d9558829d3333a212ab81ade38bf9f4d",
+      "baseline_parity": true
+    },
+    {
+      "path": "docs/CI_CD_QUALITY_GATES.md",
+      "before_sha256": "14509085c7603a3e7aa1f1b55e49699399425eeca03c9f344daeb4d6c654f52c",
+      "after_sha256": "e343635b1b0b1b5da9c51c3b715391d3b5c581600f26aea2797ce1fd06316312",
+      "baseline_parity": true
+    },
+    {
+      "path": "docs/IOS_PERFORMANCE_BUDGETS.md",
+      "before_sha256": "4dddce4f4468d70fe315f2880d9566c29b047c0de41e963372156592d208227c",
+      "after_sha256": "8d7688bbff9b124a2390f84685283a2840137b7059d25651dd53b49d4253bf84",
+      "baseline_parity": true
+    }
+  ]
+}

@@ -45,7 +45,7 @@ freshness/invalidation, cancellation and both memory/disk limits against the act
 3. Identify the dominant measured cost.
 4. Change one ownership/algorithm/data-flow cause.
 5. Re-run under comparable conditions.
-6. Check correctness, memory, energy, accessibility, and older-device regressions.
+6. Check correctness, memory, energy and accessibility within current verification permissions; excluded device checks remain omitted.
 
 Record cold/warm path, cache warmup, thermal/battery and network conditions. Compare the same
 scenario/configuration, including tail latency, responsiveness, energy and CPU/memory trade-offs.
@@ -70,6 +70,12 @@ alone does not prove consent-gated collection; inspect the actual data flow and 
 Correlation must answer the operational question without becoming covert tracking.
 
 ## Metric Design
+
+For an authorized metric rename/schema transition, record the old-to-new metric mapping,
+compatibility window and affected dashboards, alerts and consumers. Keep populations/units
+comparable and prevent dual-emitted events from being counted twice; name the criterion for retiring
+the old metric. A rename alone does not establish improvement.
+
 - Define event/metric owner, purpose, schema, units, dimensions, sampling, retention, and deletion.
 - Keep cardinality bounded.
 - Version semantic changes rather than silently reusing an event name.
@@ -105,11 +111,27 @@ an owner, due/revisit criterion and recurrence verification; blame or an unowned
 resolve missing evidence or the recovery decision. Containment is a proposal until authorized;
 code rollback cannot reverse irreversible data or server-side effects.
 
+## Measured-Cause And Telemetry Example
+A list appears to hitch after a refresh. One hypothesis is expensive body work; another is a
+high frequency of individually short updates. Apple SwiftUI Instruments separates those cases.
+Under permitted profiling, identify the causal path before selecting off-render computation,
+narrower observation or a bounded cache. Starting a Task alone does not prove heavy work left
+the main actor. Recompare the same workload and preserve data freshness/cancellation behavior.
+
+For a rollout metric rename, duplicate emission can double a success count without improving
+any user journey. Keep one semantic population, map old/new dashboard consumers and separate
+missing/duplicate/cancelled observations. A static schema review supports consistency, while
+an improvement claim needs comparable observations. These are diagnostic/evidence examples,
+not a recorded trace, production metric or authorized rollout.
+Primary theory: [Understanding and improving SwiftUI performance](https://developer.apple.com/documentation/xcode/understanding-and-improving-swiftui-performance).
+
 ## Evidence
+Apply `CURRENT_USER_OVERRIDES.md` before selecting or proposing evidence. Omit iPad, physical-device and actual VoiceOver checks from plans and acceptance; preserve historical observations and mark excluded coverage `OMITTED_BY_USER`, never PASS. Execute profiling or other runtime checks only with current explicit permission. Simulator results do not establish hardware or real-user performance; report that limitation without restoring excluded prerequisites.
+
 - Before/after traces and budget comparison.
-- Representative low/mid device and realistic data where possible.
+- Representative permitted environment and realistic data; record the actual environment and coverage limits.
 - Memory warning, background/foreground, long session, repeated navigation, and network degradation.
-- Release-build/device evidence for production claims.
+- Evidence appropriate to the exact production claim within current permissions; missing or excluded evidence leaves that claim unverified.
 - Log/privacy review, schema validation, offline/duplicate telemetry behavior, and crash symbolication.
 - Rollout and rollback exercise for high-risk features.
 

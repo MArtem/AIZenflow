@@ -8,7 +8,6 @@ import sys
 from pathlib import Path
 
 
-EXPECTED_APP_ROOTS = ["Tchop", "MVVMExample", "BattleshipGame", "AIFieldbook"]
 APP_TOKENS = ["Tchop", "TchopApp", "AIFieldbook", "MVVMExample", "BattleshipGame"]
 REUSABLE_FORBIDDEN_TERMS = ["new-task-be0b"]
 ALLOWED_REUSABLE_TOKEN_PATHS = {
@@ -76,13 +75,6 @@ def main() -> int:
             if not (vault / rel).is_dir():
                 failures.append(f"missing vault root: {rel}")
 
-        for app in EXPECTED_APP_ROOTS:
-            app_root = vault / "apps" / app
-            if not app_root.is_dir():
-                failures.append(f"missing app documentation root: apps/{app}")
-            elif not (app_root / "MANIFEST.md").is_file():
-                failures.append(f"missing app manifest: apps/{app}/MANIFEST.md")
-
         if (vault / "apps" / "TchopApp").exists():
             failures.append("legacy apps/TchopApp exists as a top-level app root")
 
@@ -120,15 +112,32 @@ def main() -> int:
                         failures.append(f"{path.relative_to(vault)}: non-neutral term `{term}`")
 
         apps = vault / "apps"
-        if apps.is_dir():
-            for app in EXPECTED_APP_ROOTS:
-                app_root = apps / app
+        if apps.is_symlink():
+            failures.append("apps: linked documentation root is not allowed")
+        elif apps.is_dir():
+            # Inspect every active app, including names introduced after this checker.
+            # Reject directory links instead of traversing an unowned external tree.
+            for app_root in sorted(apps.iterdir()):
+                if app_root.name.startswith("."):
+                    continue
+                if app_root.is_symlink():
+                    failures.append(f"{app_root.relative_to(vault)}: linked app root is not allowed")
+                    continue
                 if not app_root.is_dir():
                     continue
+                app = app_root.name
+                manifest = app_root / "MANIFEST.md"
+                if manifest.is_symlink() or not manifest.is_file():
+                    failures.append(f"missing or linked app manifest: apps/{app}/MANIFEST.md")
                 legacy_root = app_root / "legacy-reference"
                 if legacy_root.is_dir() and not (legacy_root / "README.md").is_file():
                     failures.append(f"apps/{app}/legacy-reference: missing non-authoritative README.md")
-                for path in app_root.rglob("*.md"):
+                for path in app_root.rglob("*"):
+                    if path.is_symlink():
+                        failures.append(f"{path.relative_to(vault)}: linked app content is not allowed")
+                        continue
+                    if not path.is_file() or path.suffix != ".md":
+                        continue
                     if path.name == "MANIFEST.md" or is_historical_app_path(path, app_root):
                         continue
                     if path.name in GENERIC_APP_FILENAMES:

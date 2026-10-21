@@ -1,5 +1,19 @@
 # Handoff — completed KB unification
 
+## Publication authority - 2026-10-21
+
+Artem explicitly requested saving the improvement plan and all current changes in Git, synchronizing development/main and leaving no uncommitted resources. This supersedes the earlier commit/push prohibition for this bounded KB publication in MArtem/AIZenflow and MArtem/AIZenflowDocumentation only. Preserve all reviewed KB and audit/evidence resources. No force push, unrelated repository/remote, app/runtime/test, extra agent or closed-experiment authority. Future plan: [KB quality development](kb-quality-development-plan.md). Exact committed/pushed SHA and clean/synced result belong to the final external receipt, not a self-invalidating tracked hash.
+
+## Current acceptance — 2026-10-21
+
+Current model GPT-6.1 Sol / medium, persistent эконом. Local documentation acceptance PASS for the existing declared mandatory core:18complete/4deferred. All found correction defects and finite coverage gaps closed; one authorized independent reviewer completed consolidated review with no remaining P0–P2/unresolvedP3. Active evidence: [acceptance result](audit-2026-10-11/acceptance-2026-10-20/acceptance-result.md), [plan](audit-2026-10-11/acceptance-2026-10-20/plan.md), final-acceptance-candidate.json and independent-review-consolidated.json.35CLIcases PASS reused by unchanged script hashes; static checks PASS; ledger/archive unchanged. Freshness is PARTIAL_SCOPED_REVIEW, not allAPI freshness or app/release readiness. No corrective work remains in accepted scope. Publication is NOT_AUTHORIZED/NOT_PUBLISHED: retain commit/push ban until later explicit grant and exact-SHA gates. No app tests/runtime, additional agents/MCP or closed experiment authority. Prior closure sections below are historical and do not restore grants.
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
+
+## Current post-migration correction — 2026-10-20
+
+The original migration closure below is historical. The user subsequently authorized a critical audit and fixing all found errors. Current route: GPT-6.1 Sol / medium, эконом. Current executable plan: [audit remediation plan](audit-2026-10-11/plan.md); current results/limits: [remediation progress](audit-2026-10-11/remediation-progress.md). Original audit evidence is preserved separately from current correction receipts. No commit/push, agents, app/runtime/tests or closed experiment authority is restored. Re-read the current KB chain and task context before continuing.
+
 Task `kb-unification-2026-10-09`; root `/Users/Artem/.zenflow/worktrees/knowledge-base-next`,
 branch `codex/knowledge-base-next`; canonical recovery
 `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/kb-unification-2026-10-09/`.

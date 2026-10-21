@@ -5,21 +5,27 @@
   "deferred_platforms": ["watchOS", "visionOS", "tvOS", "macOS"],
   "maturity_values": ["missing", "outline", "operational", "complete", "deferred"],
   "verification": {
-    "last_primary_source_review": "2026-09-10",
+    "freshness_status": "PARTIAL_SCOPED_REVIEW",
+    "review_date_status": "VERIFIED_SCOPED_PRIMARY_REVIEW",
+    "review_evidence_limit": "Primary-source claim review on2026-10-20–21 plus preserved semantic audit and independent breadth review satisfy the existing declared mandatory documentation core. Freshness remains scoped, not an exhaustive audit of every API. FETCHED, a URL/date or an abstract alone is not semantic proof. The inherited2026-09-10date remains an unverified historical claim. Project toolchain/adoption and runtime/release evidence remain separate.",
+    "last_primary_source_review": "2026-10-21",
     "toolchain_reference": "Xcode 27 (27A266a), Swift 6.4, iOS/iPadOS 27.0.1 (24A446)",
-    "primary_sources": [
-      "https://developer.apple.com/news/releases/?id=09142026a",
-      "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes?changes=latest_minor",
-      "https://www.swift.org/blog/swift-6.4-released/",
-      "https://developer.apple.com/documentation/ios-ipados-release-notes"
-    ],
-    "stable_baseline_rule": "Beta/RC-specific guidance remains labelled; this release reference does not replace a project's actual toolchain without an explicit adoption decision."
+    "primary_sources": ["https://developer.apple.com/news/releases/?id=09142026a", "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes?changes=latest_minor", "https://www.swift.org/blog/swift-6.4-released/", "https://developer.apple.com/documentation/ios-ipados-release-notes"],
+    "stable_baseline_rule": "Beta/RC-specific guidance remains labelled; this release reference does not replace a project's actual toolchain without an explicit adoption decision.",
+    "historical_review_date_claim": "2026-09-10",
+    "historical_review_date_status": "UNVERIFIED_HISTORICAL_CLAIM",
+    "review_scope": "Existing declared mandatory documentation core across18domains; source review scoped to named claims and conditional contracts, not exhaustive API freshness or app/runtime validation.",
+    "toolchain_reference_status": "REFERENCE_PROFILE; NOT_LATEST_OR_PROJECT_ADOPTION",
+    "coverage_evidence_record": "AIZenflowDocumentation/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20: core-claim-coverage-receipt.json and independent-review-maturity-eligible.json; evidence location only, no automatic task-state loading or permission grant"
   },
   "domains": [
     {
       "id": "universal-ios-engineering-quality",
       "tier": "core",
       "maturity": "complete",
+      "previous_maturity_claim": "complete",
+      "coverage_evidence_status": "VERIFIED_DECLARED_MANDATORY_CORE",
+      "coverage_evidence_limit": "Current declared mandatory-core coverage unit is supported by owner/source/route/aid/evidence receipts and independent review; not all-API freshness, executed examples or app readiness.",
       "route": "ios-universal-quality",
       "operating_documents": ["./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md", "./docs/PRODUCTION_QUALITY_GATES.md"],
       "deep_references": ["./docs/IOS_PRODUCTION_FRAMEWORK.md", "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md"],
@@ -29,9 +35,9 @@
     {
       "id": "swift-language-runtime-api-design",
       "tier": "core",
-      "maturity": "operational",
+      "maturity": "complete",
       "route": "ios-swift-language-runtime",
-      "operating_documents": ["./docs/IOS_CODE_DOCUMENTATION_STANDARD.md"],
+      "operating_documents": ["./docs/IOS_CODE_DOCUMENTATION_STANDARD.md", "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md"],
       "deep_references": ["./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md"],
       "skills": ["./.codex/skills/ios-swift-runtime/SKILL.md"],
       "review_triggers": ["Swift release", "language-mode change", "public API or binary boundary change"]
@@ -39,7 +45,7 @@
     {
       "id": "swift-concurrency",
       "tier": "core",
-      "maturity": "operational",
+      "maturity": "complete",
       "route": "ios-concurrency-runtime",
       "operating_documents": ["./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md"],
       "deep_references": ["./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"],
@@ -49,7 +55,7 @@
     {
       "id": "swiftui-uikit-adaptive-ui",
       "tier": "core",
-      "maturity": "operational",
+      "maturity": "complete",
       "route": "ios-ui-adaptive",
       "operating_documents": ["./docs/IOS_UI_STATE_RENDERING_STANDARD.md", "./docs/IOS_ACCESSIBILITY_STANDARD.md"],
       "deep_references": ["./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md"],
@@ -59,7 +65,7 @@
     {
       "id": "ai-ml-intelligence-and-app-intents",
       "tier": "core",
-      "maturity": "operational",
+      "maturity": "complete",
       "route": "ios-ai-app-intents",
       "operating_documents": ["./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md"],
       "deep_references": ["./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md"],
@@ -70,16 +76,19 @@
       "id": "architecture-modularization-state",
       "tier": "core",
       "maturity": "complete",
+      "previous_maturity_claim": "complete",
+      "coverage_evidence_status": "VERIFIED_DECLARED_MANDATORY_CORE",
+      "coverage_evidence_limit": "Current declared mandatory-core coverage unit is supported by owner/source/route/aid/evidence receipts and independent review; not all-API freshness, executed examples or app readiness.",
       "route": "ios-architecture-navigation-state",
       "operating_documents": ["./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md", "./docs/MODULAR_ARCHITECTURE_STANDARD.md", "./docs/IOS_MVVM_INTENT_API_STANDARD.md"],
-      "deep_references": [],
+      "deep_references": ["./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md", "./docs/MODULAR_ARCHITECTURE_STANDARD.md"],
       "skills": ["./.codex/skills/ios-architecture-router/SKILL.md", "./.codex/skills/ios-modular-architecture/SKILL.md"],
       "review_triggers": ["new architecture pattern", "module boundary change", "app-wide ownership change"]
     },
     {
       "id": "networking-api-web-realtime",
       "tier": "core",
-      "maturity": "operational",
+      "maturity": "complete",
       "route": "ios-network-api-offline-sync",
       "operating_documents": ["./docs/API_CONTRACT_AND_INTEGRATION_RULES.md", "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md"],
       "deep_references": ["./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md"],
@@ -89,7 +98,7 @@
     {
       "id": "identity-authentication-authorization",
       "tier": "core",
-      "maturity": "operational",
+      "maturity": "complete",
       "route": "ios-identity-authentication",
       "operating_documents": ["./docs/IOS_SECURITY_PRIVACY_GATE.md"],
       "deep_references": ["./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md"],
@@ -100,6 +109,9 @@
       "id": "security-privacy-cryptography",
       "tier": "core",
       "maturity": "complete",
+      "previous_maturity_claim": "complete",
+      "coverage_evidence_status": "VERIFIED_DECLARED_MANDATORY_CORE",
+      "coverage_evidence_limit": "Current declared mandatory-core coverage unit is supported by owner/source/route/aid/evidence receipts and independent review; not all-API freshness, executed examples or app readiness.",
       "route": "ios-security-privacy-intake",
       "operating_documents": ["./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md", "./docs/IOS_SECURITY_PRIVACY_GATE.md"],
       "deep_references": ["./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md", "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"],
@@ -109,7 +121,7 @@
     {
       "id": "persistence-migration-sync-cloudkit",
       "tier": "core",
-      "maturity": "operational",
+      "maturity": "complete",
       "route": "ios-persistence-migration-data-loss",
       "operating_documents": ["./docs/IOS_DATA_MIGRATION_STANDARD.md", "./docs/IOS_OFFLINE_SYNC_STANDARD.md", "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md"],
       "deep_references": ["./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md"],
@@ -119,7 +131,7 @@
     {
       "id": "testing-debugging-diagnostics",
       "tier": "core",
-      "maturity": "operational",
+      "maturity": "complete",
       "route": "ios-testing-debugging",
       "operating_documents": ["./docs/IOS_TESTING_STRATEGY.md", "./docs/QA_TEST_PLAN_STANDARD.md"],
       "deep_references": ["./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md"],
@@ -129,7 +141,7 @@
     {
       "id": "build-binary-dependencies-supply-chain",
       "tier": "core",
-      "maturity": "operational",
+      "maturity": "complete",
       "route": "ios-build-binary-supply-chain",
       "operating_documents": ["./docs/DEPENDENCY_POLICY.md", "./docs/CI_CD_QUALITY_GATES.md"],
       "deep_references": ["./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md"],
@@ -139,7 +151,7 @@
     {
       "id": "platform-capabilities-extensions",
       "tier": "core",
-      "maturity": "operational",
+      "maturity": "complete",
       "route": "ios-platform-capabilities-extended",
       "operating_documents": ["./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md", "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md"],
       "deep_references": ["./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md"],
@@ -149,7 +161,7 @@
     {
       "id": "media-sensors-device-integrations",
       "tier": "core",
-      "maturity": "operational",
+      "maturity": "complete",
       "route": "ios-media-sensors-device",
       "operating_documents": ["./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md", "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md"],
       "deep_references": ["./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md"],
@@ -160,6 +172,9 @@
       "id": "performance-observability-operations",
       "tier": "core",
       "maturity": "complete",
+      "previous_maturity_claim": "complete",
+      "coverage_evidence_status": "VERIFIED_DECLARED_MANDATORY_CORE",
+      "coverage_evidence_limit": "Current declared mandatory-core coverage unit is supported by owner/source/route/aid/evidence receipts and independent review; not all-API freshness, executed examples or app readiness.",
       "route": "ios-observability-incidents-rollout",
       "operating_documents": ["./docs/IOS_PERFORMANCE_BUDGETS.md", "./docs/IOS_OBSERVABILITY_STANDARD.md", "./docs/INCIDENT_RESPONSE_STANDARD.md"],
       "deep_references": ["./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md"],
@@ -169,7 +184,7 @@
     {
       "id": "app-store-release-compliance",
       "tier": "core",
-      "maturity": "operational",
+      "maturity": "complete",
       "route": "ios-app-store-compliance",
       "operating_documents": ["./docs/IOS_RELEASE_CHECKLIST.md", "./docs/IOS_SECURITY_PRIVACY_GATE.md"],
       "deep_references": ["./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"],
@@ -179,7 +194,7 @@
     {
       "id": "storekit-and-commerce",
       "tier": "core",
-      "maturity": "operational",
+      "maturity": "complete",
       "route": "ios-storekit-payments",
       "operating_documents": ["./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md"],
       "deep_references": ["./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"],
@@ -190,9 +205,12 @@
       "id": "accessibility-localization-inclusive-ux",
       "tier": "core",
       "maturity": "complete",
+      "previous_maturity_claim": "complete",
+      "coverage_evidence_status": "VERIFIED_DECLARED_MANDATORY_CORE",
+      "coverage_evidence_limit": "Current declared mandatory-core coverage unit is supported by owner/source/route/aid/evidence receipts and independent review; not all-API freshness, executed examples or app readiness.",
       "route": "ios-accessibility-localization-qa",
       "operating_documents": ["./docs/IOS_ACCESSIBILITY_STANDARD.md", "./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md"],
-      "deep_references": [],
+      "deep_references": ["./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md"],
       "skills": ["./.codex/skills/ios-accessibility/SKILL.md", "./.codex/skills/ios-qa-localization/SKILL.md"],
       "review_triggers": ["new interaction", "new locale", "assistive-technology defect", "platform accessibility change"]
     },

@@ -61,6 +61,68 @@ Combine only the ranges required by the actual task. For example, a bounded loca
 normally needs sections 1–4, 30, 41, 49, 51, 53, 58–61, 69–72, 79, and 81–90—not the complete
 cloud, RAG, agent, and provider material.
 
+## Primary Theory For Selected Routes
+Follow only sources relevant to the chosen section range; this list does not activate every
+framework or authorize SDK/model downloads, installation or execution.
+
+- `AI.LOCAL`: [Foundation Models availability/session contract](https://developer.apple.com/documentation/foundationmodels/generating-content-and-performing-tasks-with-foundation-models),
+  [Core AI model integration/lifetime](https://developer.apple.com/documentation/coreai/integrating-on-device-ai-models-in-your-app-with-core-ai),
+  and [Core ML](https://developer.apple.com/documentation/coreml). Model artifact compatibility,
+  device specialization, loading cost and actual state ownership remain separate decisions.
+- `AI.AGENTS` / `AI.TRUST`: [Foundation Models tool calling](https://developer.apple.com/documentation/foundationmodels/expanding-generation-with-tool-calling)
+  and [guided generation](https://developer.apple.com/documentation/foundationmodels/generating-swift-data-structures-with-guided-generation).
+  Tool execution can be concurrent; authorization, idempotency and sensitive side effects stay
+  in owned deterministic code. A model-controlled required-tool loop needs a bounded exit.
+- `AI.EVALUATION`: the Core AI integration guide links Apple's evaluation workflow; master
+  sections69–74 own comparable datasets, quality/latency thresholds and honest evidence.
+  Choosing a framework or reading the source is not a measured quality result or execution grant.
+
+Check current source and actual project/toolchain availability before using a concrete API.
+Cloud providers and third-party runtimes still require their own current adopted-provider
+sources; these Apple sources do not verify an unrelated provider's schema, policy or pricing.
+
+## Specialist Theory And Failure Bindings
+For `AI.LOCAL` / master10 and `AI.APPLE_CAPABILITIES` / master33, read
+[Core ML model/runtime boundary](https://developer.apple.com/documentation/coreml)
+and [Create ML training/validation/testing](https://developer.apple.com/documentation/createml/creating-an-image-classifier-model).
+Model format compatibility and a successful prediction are separate from evaluation on unseen
+representative data. A training score cannot establish deployment accuracy; compare held-out
+results, preprocessing and label/version contracts before replacing an existing model. Do not
+turn tutorial dataset sizes or example scores into universal thresholds.
+
+For master30, [Vision OCR paths and language/revision contract](https://developer.apple.com/documentation/vision/recognizing-text-in-images)
+explain the fast/accurate choice, recognized observations/confidence and normalized rectangles.
+For example, correct OCR text with an incorrectly transformed box is a geometry defect, not
+proof that the recognition model failed. Keep source orientation, selected request revision,
+conversion and page identity in the evidence trace; compare alternatives on actual content.
+
+For master27–28, [Speech pipeline](https://developer.apple.com/documentation/speech/recognizing-speech-in-live-audio)
+and [Translation session](https://developer.apple.com/documentation/translation/translationsession)
+separate audio capture/conversion, evolving recognition results and language assets/session
+lifetime. The current Speech sample uses version-specific APIs; its physical-device execution
+instructions do not override user verification exclusions. A partial transcript can be replaced,
+and a UI-independent translation session can fail when required languages are not installed.
+For example, reject a late result after input/session replacement; retain editable text or an
+approved unavailable state rather than silently downloading assets or changing cloud policy.
+
+For `AI.RETRIEVAL` / master17–19, [NLEmbedding theory and concurrency contract](https://developer.apple.com/documentation/naturallanguage/nlembedding)
+explains vector proximity/neighbor lookup; similarity is not correctness or document authority.
+Serialize access to a shared NLEmbedding instance or use separately owned instances, because
+apparently read-only concurrent lookups are not safe. This ownership requirement refines the
+master's general actor/task rule for this concrete type.
+
+For example, an embedding/model revision changes while an old user index remains active. Keep
+model/dimension/version and permission scope consistent; rebuild/reconcile before publishing
+mixed-index results, then map citations to the current source offsets. A high similarity score
+cannot repair a stale citation or grant access to a deleted/private chunk. For a small corpus,
+owned keyword/structured search can be a simpler alternative. These are local retrieval-quality
+and isolation contracts; the embedding API does not certify a complete RAG pipeline.
+
+These source-to-master bindings and unexecuted counterexamples support documentation review.
+They do not assert model accuracy, execute inference/training/recognition, install language assets,
+open a dataset or change the closed experiment. Concrete adoption still checks actual API
+availability and an appropriate separately authorized evaluation.
+
 ## Specialist Route Ownership
 
 Choose one primary owner before adding a narrow supplement:

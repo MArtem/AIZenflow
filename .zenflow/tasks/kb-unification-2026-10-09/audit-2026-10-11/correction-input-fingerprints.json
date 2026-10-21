@@ -1,0 +1,883 @@
+{
+  "date": "2026-10-20",
+  "review_kind": "PROPOSED_DIRTY_WORKING_TREE_STATIC_CORRECTION",
+  "heads_unchanged": {
+    "W": "860ca8b7cc07e654d73339cdf6705319979df3df",
+    "V": "063ba79c44c7144e072da06d5f675e7471a59627"
+  },
+  "staged_changes": "NONE",
+  "publication": "NOT_PERFORMED",
+  "owner_consumer_relations": [
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+      "canonical_sha256": "c1e9b0f6ffb7d81c4ca5e925899303be3af48b81bb140e70f779d6852799c1bb",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+      "consumer_sha256": "c1e9b0f6ffb7d81c4ca5e925899303be3af48b81bb140e70f779d6852799c1bb",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-accessibility/SKILL.md",
+      "canonical_sha256": "5a5eebf0575c67b48e04d2ae864a771b1b9fa6796c05a4378f5d87461259234b",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-accessibility/SKILL.md",
+      "consumer_sha256": "5a5eebf0575c67b48e04d2ae864a771b1b9fa6796c05a4378f5d87461259234b",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-api-contracts/SKILL.md",
+      "canonical_sha256": "f61606c7579eb7143b0e0921b81968122cab3ed5d97d6f65cd286c4b9eef4cf8",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-api-contracts/SKILL.md",
+      "consumer_sha256": "f61606c7579eb7143b0e0921b81968122cab3ed5d97d6f65cd286c4b9eef4cf8",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-app-store-compliance/SKILL.md",
+      "canonical_sha256": "bc1fda25da247b60a8173d520ecc388079be42ce3f64f785b2126054f9b8cb7e",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-app-store-compliance/SKILL.md",
+      "consumer_sha256": "bc1fda25da247b60a8173d520ecc388079be42ce3f64f785b2126054f9b8cb7e",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-architecture-router/SKILL.md",
+      "canonical_sha256": "2732c2d17edb651da69c03f4713b2190e4cf8172e3987df89189ec90eb7eccdc",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-architecture-router/SKILL.md",
+      "consumer_sha256": "2732c2d17edb651da69c03f4713b2190e4cf8172e3987df89189ec90eb7eccdc",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-build-system/SKILL.md",
+      "canonical_sha256": "bc01bfb24f850dc8b2b8502380de681141593ff70e67dfa44b4ac29b0866c5ea",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-build-system/SKILL.md",
+      "consumer_sha256": "bc01bfb24f850dc8b2b8502380de681141593ff70e67dfa44b4ac29b0866c5ea",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-concurrency-runtime/SKILL.md",
+      "canonical_sha256": "f668de4286f63a536ae57a80b68384c7035e2f364323d7ed9fca080a595f5b8c",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-concurrency-runtime/SKILL.md",
+      "consumer_sha256": "f668de4286f63a536ae57a80b68384c7035e2f364323d7ed9fca080a595f5b8c",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-configuration-environments/SKILL.md",
+      "canonical_sha256": "18feb295baa9d538112842d9738eb445bc306df4ff2e5db7b69da4f7cd610f3b",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-configuration-environments/SKILL.md",
+      "consumer_sha256": "18feb295baa9d538112842d9738eb445bc306df4ff2e5db7b69da4f7cd610f3b",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-data-migration/SKILL.md",
+      "canonical_sha256": "602fe8c0e9080d1a446ecb3aa971b96d6ffef720aec1f0084473179afd3079d6",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-data-migration/SKILL.md",
+      "consumer_sha256": "602fe8c0e9080d1a446ecb3aa971b96d6ffef720aec1f0084473179afd3079d6",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-error-handling/SKILL.md",
+      "canonical_sha256": "c1c17deaf82c641ca3420e33d7260f9673cd4a4ac02fb9b1709e3fa489aad03c",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-error-handling/SKILL.md",
+      "consumer_sha256": "c1c17deaf82c641ca3420e33d7260f9673cd4a4ac02fb9b1709e3fa489aad03c",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-evidence-gate/SKILL.md",
+      "canonical_sha256": "1b5fdb58cea7f4cc2d0d6a5e7e31112d386c81076c81b1fddac34365addcee98",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-evidence-gate/SKILL.md",
+      "consumer_sha256": "1b5fdb58cea7f4cc2d0d6a5e7e31112d386c81076c81b1fddac34365addcee98",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-identity-authentication/SKILL.md",
+      "canonical_sha256": "12dafced558fe5f871ff6159cbb4e0c268cc7d0a78c9f1c31362d6e9af851f1c",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-identity-authentication/SKILL.md",
+      "consumer_sha256": "12dafced558fe5f871ff6159cbb4e0c268cc7d0a78c9f1c31362d6e9af851f1c",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-incident-ops/SKILL.md",
+      "canonical_sha256": "2dd2039a4da76d5f423c4b47c611801b9e8360140a8b0ab52021e031932239e4",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-incident-ops/SKILL.md",
+      "consumer_sha256": "2dd2039a4da76d5f423c4b47c611801b9e8360140a8b0ab52021e031932239e4",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-input-validation/SKILL.md",
+      "canonical_sha256": "0b31e1f8a48242832b72cef0ee230c6738a97e5767c649dd17f993fd1ccd6ca7",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-input-validation/SKILL.md",
+      "consumer_sha256": "0b31e1f8a48242832b72cef0ee230c6738a97e5767c649dd17f993fd1ccd6ca7",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-lifecycle-background/SKILL.md",
+      "canonical_sha256": "0efcf7bdbb14417a447f2acdeaca128cfe43504be770f84d98f4fd70132f53ec",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-lifecycle-background/SKILL.md",
+      "consumer_sha256": "0efcf7bdbb14417a447f2acdeaca128cfe43504be770f84d98f4fd70132f53ec",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-memory-cache-media/SKILL.md",
+      "canonical_sha256": "11deeaab82c12429a8533c889d13c76f103a80cd6e621fc4020d07beff1ee6b1",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-memory-cache-media/SKILL.md",
+      "consumer_sha256": "11deeaab82c12429a8533c889d13c76f103a80cd6e621fc4020d07beff1ee6b1",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-modular-architecture/SKILL.md",
+      "canonical_sha256": "3e7b5ee6d769ad0ea7e307c8d291c491bdb8dd61d494443504c0e76f9522e1e8",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-modular-architecture/SKILL.md",
+      "consumer_sha256": "3e7b5ee6d769ad0ea7e307c8d291c491bdb8dd61d494443504c0e76f9522e1e8",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-network-resilience/SKILL.md",
+      "canonical_sha256": "8ba6fa1c00c2dc76f76cf99bc47e08824d1ccd3d7ccf92e3c73170e9fb5bf058",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-network-resilience/SKILL.md",
+      "consumer_sha256": "8ba6fa1c00c2dc76f76cf99bc47e08824d1ccd3d7ccf92e3c73170e9fb5bf058",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-offline-sync/SKILL.md",
+      "canonical_sha256": "636f7d9c1176c378008c38b9f841124a401189a992115c914b4380622d85f012",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-offline-sync/SKILL.md",
+      "consumer_sha256": "636f7d9c1176c378008c38b9f841124a401189a992115c914b4380622d85f012",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-performance-profiler/SKILL.md",
+      "canonical_sha256": "e3e488ecf20a332c1f767aca29487f9f96e65435b409478f5671eb27c66e07ab",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-performance-profiler/SKILL.md",
+      "consumer_sha256": "e3e488ecf20a332c1f767aca29487f9f96e65435b409478f5671eb27c66e07ab",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-platform-capabilities/SKILL.md",
+      "canonical_sha256": "7d0f0d7e93960223e55e81ca17155102620e0a9acebcfad8c02db652f1d9a4c5",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-platform-capabilities/SKILL.md",
+      "consumer_sha256": "7d0f0d7e93960223e55e81ca17155102620e0a9acebcfad8c02db652f1d9a4c5",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-product-governance/SKILL.md",
+      "canonical_sha256": "595b4da0845837dc8f06690771a019289c5de6f52c73ee9015873912d68274ca",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-product-governance/SKILL.md",
+      "consumer_sha256": "595b4da0845837dc8f06690771a019289c5de6f52c73ee9015873912d68274ca",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-production-auditor/SKILL.md",
+      "canonical_sha256": "90aada6fbe3960f8c8911d0d3e7bed72942d88a1cae799b1cf35675fc9bc1805",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-production-auditor/SKILL.md",
+      "consumer_sha256": "90aada6fbe3960f8c8911d0d3e7bed72942d88a1cae799b1cf35675fc9bc1805",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-qa-localization/SKILL.md",
+      "canonical_sha256": "6d582004f5a54b583afec7c856b15fdd1ca21364d1762ab555f54941dcdc2842",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-qa-localization/SKILL.md",
+      "consumer_sha256": "6d582004f5a54b583afec7c856b15fdd1ca21364d1762ab555f54941dcdc2842",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-release-engineering/SKILL.md",
+      "canonical_sha256": "fd139203bfab0a5ffa1ab27be1ef1625fcfac242ea812e6771be2759ecab1a99",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-release-engineering/SKILL.md",
+      "consumer_sha256": "fd139203bfab0a5ffa1ab27be1ef1625fcfac242ea812e6771be2759ecab1a99",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-security-privacy/SKILL.md",
+      "canonical_sha256": "c12f6d0008fcb8f62cf8a4580c1eadc985db44702977564c9e7e216b57875cb5",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-security-privacy/SKILL.md",
+      "consumer_sha256": "c12f6d0008fcb8f62cf8a4580c1eadc985db44702977564c9e7e216b57875cb5",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-swift-runtime/SKILL.md",
+      "canonical_sha256": "2b5de36b1dfe3e6aeeb5707c89089e33dd7c26e7a481048cdd18a14274434603",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-swift-runtime/SKILL.md",
+      "consumer_sha256": "2b5de36b1dfe3e6aeeb5707c89089e33dd7c26e7a481048cdd18a14274434603",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-test-strategy/SKILL.md",
+      "canonical_sha256": "91bb1c22a8533ed83a6fb7b4f0b305a778ee8508494f4c49699d3a924c8bc7cb",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-test-strategy/SKILL.md",
+      "consumer_sha256": "91bb1c22a8533ed83a6fb7b4f0b305a778ee8508494f4c49699d3a924c8bc7cb",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/.codex/skills/ios-testing-debugging/SKILL.md",
+      "canonical_sha256": "38f8a5ec956bb0be5c208ea415ff0aacce3bc1224439736749b5230a86cef14b",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-testing-debugging/SKILL.md",
+      "consumer_sha256": "38f8a5ec956bb0be5c208ea415ff0aacce3bc1224439736749b5230a86cef14b",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+      "canonical_sha256": "b7faf9e7eb27f88bd71e803ee28855056ae189f92252ff0e442a23f3056f5286",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+      "consumer_sha256": "b7faf9e7eb27f88bd71e803ee28855056ae189f92252ff0e442a23f3056f5286",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+      "canonical_sha256": "ffaea14dba3fba58b44a7e3e555f6abd6ac4b65a640004d9a240425c5f8db035",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+      "consumer_sha256": "ffaea14dba3fba58b44a7e3e555f6abd6ac4b65a640004d9a240425c5f8db035",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "canonical_sha256": "b9b249543a59ff9b948d4e1c92361038f1a50ea3de0ffb84319eda34b000adeb",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "consumer_sha256": "b9b249543a59ff9b948d4e1c92361038f1a50ea3de0ffb84319eda34b000adeb",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_KNOWLEDGE_COVERAGE_REGISTRY.json",
+      "canonical_sha256": "8ba7d13b98f7972b5826d89f4f6703aeb2f56da59ea90a25b9a8e08b17d3cf6e",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/IOS_KNOWLEDGE_COVERAGE_REGISTRY.json",
+      "consumer_sha256": "8ba7d13b98f7972b5826d89f4f6703aeb2f56da59ea90a25b9a8e08b17d3cf6e",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PERFORMANCE_BUDGETS.md",
+      "canonical_sha256": "8d7688bbff9b124a2390f84685283a2840137b7059d25651dd53b49d4253bf84",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/IOS_PERFORMANCE_BUDGETS.md",
+      "consumer_sha256": "4dddce4f4468d70fe315f2880d9566c29b047c0de41e963372156592d208227c",
+      "relation": "DECLARED_LOCAL_OVERLAY_UNCHANGED"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+      "canonical_sha256": "a537cd9bfb16cb8fda22a8f59f72199503eede0ddec39f8a5b41833393f796c5",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/IOS_RELEASE_CHECKLIST.md",
+      "consumer_sha256": "a537cd9bfb16cb8fda22a8f59f72199503eede0ddec39f8a5b41833393f796c5",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "canonical_sha256": "7479ff04b898b0ddd1ee36075e802818f2e7bf5130c13069884ecf21e7018ccd",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/IOS_SECURITY_PRIVACY_GATE.md",
+      "consumer_sha256": "5cffb290f16b1a6392e20b41374a9ce12a69752c4a7f90e6b9687d2b41b9b5f2",
+      "relation": "DECLARED_OVERLAY_DELTA_PRESERVED"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "canonical_sha256": "a05ec9695b3bc9edc72c4ca28b48de7e496c9cb7178a411c408f72b9b8fe5989",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "consumer_sha256": "a05ec9695b3bc9edc72c4ca28b48de7e496c9cb7178a411c408f72b9b8fe5989",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/RISK_REGISTER.md",
+      "canonical_sha256": "d0c2e6fe3903e5ee26833bb4815e76e812a2e5933034e3e15c9f70d2becef1bd",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/RISK_REGISTER.md",
+      "consumer_sha256": "d0c2e6fe3903e5ee26833bb4815e76e812a2e5933034e3e15c9f70d2becef1bd",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_DOCUMENT_ROUTES.json",
+      "canonical_sha256": "7ed5d71ebe688836b7998acbbb70908a7e85818a7a178e5ac0c543fd6c8ac261",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/TASK_DOCUMENT_ROUTES.json",
+      "consumer_sha256": "7ed5d71ebe688836b7998acbbb70908a7e85818a7a178e5ac0c543fd6c8ac261",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "canonical_sha256": "5d2bf915b12c54631e5073901365a477cc319fa3726e9906642fa9adfba0e19b",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "consumer_sha256": "ae11fe25ab4526b61931ca61f08dba809ecc86022317aa3545aea75407c9d2c6",
+      "relation": "DECLARED_OVERLAY_DELTA_PRESERVED"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/root-scripts/check_documentation_boundaries.py",
+      "canonical_sha256": "6a0ccab6ae38180df37c2da0ad43a13612392c43420da64dbe9957f26a49b538",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/scripts/check_documentation_boundaries.py",
+      "consumer_sha256": "6a0ccab6ae38180df37c2da0ad43a13612392c43420da64dbe9957f26a49b538",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/root-scripts/report_documentation_context_cost.py",
+      "canonical_sha256": "d077edf8f4c0fa33689f88d0daa483f8137f87ca297160315f18d70325e14311",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/scripts/report_documentation_context_cost.py",
+      "consumer_sha256": "d077edf8f4c0fa33689f88d0daa483f8137f87ca297160315f18d70325e14311",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/root-scripts/resolve_docs_route.py",
+      "canonical_sha256": "0ded32d9e52192f5818f312840f9609246bdaa9e603b1d10fd5b5bd94b00905d",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/scripts/resolve_docs_route.py",
+      "consumer_sha256": "0ded32d9e52192f5818f312840f9609246bdaa9e603b1d10fd5b5bd94b00905d",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/knowledge-global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+      "canonical_sha256": "91ba254e0e0815fdd338d1c1c6fde4730410a972bf8df0efe410dcc34ed75e44",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+      "consumer_sha256": "91ba254e0e0815fdd338d1c1c6fde4730410a972bf8df0efe410dcc34ed75e44",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/knowledge-global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+      "canonical_sha256": "c163242ff329ab5d75c7dd41b711f5418c65ab46e4e862cb648d1bcf82ada3ad",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+      "consumer_sha256": "c163242ff329ab5d75c7dd41b711f5418c65ab46e4e862cb648d1bcf82ada3ad",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+      "canonical_sha256": "c2b35ac53cfd7814a8b5cec308bba1a08395d648b765953fe74597b259810ffe",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+      "consumer_sha256": "c2b35ac53cfd7814a8b5cec308bba1a08395d648b765953fe74597b259810ffe",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "canonical_sha256": "846479c12945db8795443af65a916fc29a67f98a5d565c290eca63e9cdaf655f",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "consumer_sha256": "846479c12945db8795443af65a916fc29a67f98a5d565c290eca63e9cdaf655f",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/knowledge-global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "canonical_sha256": "a57e4cf8d0da86be2e0dabb687b95722cd624fc9521fa11c6bf83522a65e3899",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "consumer_sha256": "a57e4cf8d0da86be2e0dabb687b95722cd624fc9521fa11c6bf83522a65e3899",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/knowledge-global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+      "canonical_sha256": "6d009277a219b1a426afb81adf4d0ee3748b2b2d4875176dfa35134ba7422d1c",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+      "consumer_sha256": "6d009277a219b1a426afb81adf4d0ee3748b2b2d4875176dfa35134ba7422d1c",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+      "canonical_sha256": "08d9592783727214de4ab3ec09cb7ba6b670cba449414882976b1bf3b426280f",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+      "consumer_sha256": "08d9592783727214de4ab3ec09cb7ba6b670cba449414882976b1bf3b426280f",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/knowledge-global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+      "canonical_sha256": "80b6faff074d93b0bee400f4f76fcf68e1ae0aed4404c82eb17b553f60db2dd2",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+      "consumer_sha256": "80b6faff074d93b0bee400f4f76fcf68e1ae0aed4404c82eb17b553f60db2dd2",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/local-ios-skills/ios-identity-authentication/SKILL.md",
+      "canonical_sha256": "12dafced558fe5f871ff6159cbb4e0c268cc7d0a78c9f1c31362d6e9af851f1c",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-identity-authentication/SKILL.md",
+      "consumer_sha256": "12dafced558fe5f871ff6159cbb4e0c268cc7d0a78c9f1c31362d6e9af851f1c",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/local-ios-skills/ios-performance-profiler/SKILL.md",
+      "canonical_sha256": "e3e488ecf20a332c1f767aca29487f9f96e65435b409478f5671eb27c66e07ab",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-performance-profiler/SKILL.md",
+      "consumer_sha256": "e3e488ecf20a332c1f767aca29487f9f96e65435b409478f5671eb27c66e07ab",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/local-ios-skills/ios-swift-runtime/SKILL.md",
+      "canonical_sha256": "2b5de36b1dfe3e6aeeb5707c89089e33dd7c26e7a481048cdd18a14274434603",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-swift-runtime/SKILL.md",
+      "consumer_sha256": "2b5de36b1dfe3e6aeeb5707c89089e33dd7c26e7a481048cdd18a14274434603",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/kb-unification-2026-10-09/handoff.md",
+      "canonical_sha256": "205e0639406ed495bcbe0f32e43fb86f5f15cd8f2d5937c467e486737f8d13c9",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/handoff.md",
+      "consumer_sha256": "205e0639406ed495bcbe0f32e43fb86f5f15cd8f2d5937c467e486737f8d13c9",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/kb-unification-2026-10-09/migration-ledger.json",
+      "canonical_sha256": "cf06b13e688c2df627e614e6c4b5ea7755a664212e413f8859046b2f75ad33b5",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/migration-ledger.json",
+      "consumer_sha256": "cf06b13e688c2df627e614e6c4b5ea7755a664212e413f8859046b2f75ad33b5",
+      "relation": "EXACT"
+    },
+    {
+      "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/kb-unification-2026-10-09/plan.md",
+      "canonical_sha256": "d4b04fb9d77f74e1c000727e0fca1d9642da9f906fb90a12b6bc4bfd134f7350",
+      "consumer": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/plan.md",
+      "consumer_sha256": "d4b04fb9d77f74e1c000727e0fca1d9642da9f906fb90a12b6bc4bfd134f7350",
+      "relation": "EXACT"
+    }
+  ],
+  "preserved_overlays": {
+    "docs/IOS_PERFORMANCE_BUDGETS.md": "DECLARED_LOCAL_OVERLAY_UNCHANGED",
+    "docs/IOS_SECURITY_PRIVACY_GATE.md": "DECLARED_OVERLAY_DELTA_PRESERVED",
+    "docs/TASK_TYPE_DOCUMENTATION_ROUTER.md": "DECLARED_OVERLAY_DELTA_PRESERVED"
+  },
+  "audit_artifacts": [
+    {
+      "path": "accessibility-deep-semantic-receipt.md",
+      "sha256": "b694f8550c721687c7841ad5b34fd4895b06d7bc6ffb7917e5b47eaee5daeca9"
+    },
+    {
+      "path": "accounting.json",
+      "sha256": "cd438cbfcfa23c36b480d0f3f9a49bef3239d51f6ed5637edaeda810d7a35fd1"
+    },
+    {
+      "path": "agent-workflow-deep-semantic-receipt.md",
+      "sha256": "f04101151cb16883a316dcc0059c69cd754fe1cff92823a81d10ec63535b9807"
+    },
+    {
+      "path": "agent-workflow-semantic-receipt.md",
+      "sha256": "45beeae69c2590c95c368eb0a9d139248503ea8743bdecb91d930cae294c75b0"
+    },
+    {
+      "path": "ai-deep-semantic-receipt.md",
+      "sha256": "a2a7dbca8c16051429ccba9e6dfe253b152c286cca97b2335dfdb3a74c329887"
+    },
+    {
+      "path": "ai-feature-semantic-receipt.md",
+      "sha256": "d26521269d78d07f909c3a2b20a2474d59e27981696a3516bd0cdc850d9bc08a"
+    },
+    {
+      "path": "ai-remediation-resolution.json",
+      "sha256": "529be7e06d38635b029fa8f84655dfe55e08643f2edc6a0ab528058dc5567512"
+    },
+    {
+      "path": "ai-remediation-source-check.json",
+      "sha256": "d38a5a0b9bdef8b254e48c1b4ea81b34f421b11c97d6b350bf38e5fc59862e6e"
+    },
+    {
+      "path": "architecture-deep-semantic-receipt.md",
+      "sha256": "0e173c4202de1760f7213e78bd95c2b4e4e7f1012d1c90af7ba712225f449dd4"
+    },
+    {
+      "path": "architecture-semantic-receipt.md",
+      "sha256": "94c9d80b8c488cb33f6a24098b7aca79169298a59a48a05a1a7166eac8895dfd"
+    },
+    {
+      "path": "archive/audit-plan-before-remediation-close-2026-10-20.md",
+      "sha256": "1e8e314d8a9254f1e90742ad671a981b472142f9fdd131cf237fcf8eaa208065"
+    },
+    {
+      "path": "archive/remediation-progress-before-close-2026-10-20.md",
+      "sha256": "982f92a21e6147b6bbae2ed71612fdc3f0e6ecf6c2dc7dd0265543c3edb2d4b6"
+    },
+    {
+      "path": "artifact-accounting-check.json",
+      "sha256": "079aa7718695c22c14f6dfbb916a668c637e4926a900f5d2a2de21c5f8f5ba6e"
+    },
+    {
+      "path": "build-deep-semantic-receipt.md",
+      "sha256": "bbc95a81f4c2bd93020fd337ca14535e4d1c60c219b92493eb6cb267328b05c0"
+    },
+    {
+      "path": "build-tooling-semantic-receipt.md",
+      "sha256": "8cd298ad7d019e44963131fda5bdf02c89848e38e9a77eb414e0e5bc0a200d6e"
+    },
+    {
+      "path": "checklist-semantic-receipt.md",
+      "sha256": "518c2221d174a09da0e5e9805f1681ecc80bf4876b7fd227756f2a2495f4b02b"
+    },
+    {
+      "path": "ci-release-deep-semantic-receipt.md",
+      "sha256": "0ef05e5f157d6b02e66939f9e76bd7a4ad95428c66e5795b3b45a8ea185b2eb3"
+    },
+    {
+      "path": "code-pattern-semantic-receipt.md",
+      "sha256": "7d0462af851d0d2b3de4ca03bd3a36047d89244c52a302efc2c1ccd2a09cb22d"
+    },
+    {
+      "path": "compatibility-semantic-receipt.md",
+      "sha256": "e504e0bfe65ff656914ad4cc2de66637e5a6ea363b18129aa796d8c784a8b63b"
+    },
+    {
+      "path": "concurrency-deep-semantic-receipt.md",
+      "sha256": "ee1f18e63e6a9e041a06bcd6e49389d1b52352a09e25a7c4ed7a7497edb91e9a"
+    },
+    {
+      "path": "concurrency-semantic-receipt.md",
+      "sha256": "887e75512da5b5ad0f5daf4365307de05f2df37f98d45e1ea440a6cddc663416"
+    },
+    {
+      "path": "context-report-remediation.json",
+      "sha256": "0f6e187065b33cbb7ef62c6c9c08c6b1e12aedc316ddeb556eea2efcf5baf544"
+    },
+    {
+      "path": "cost-current.json",
+      "sha256": "63f0eb51e04119ed3971f9c4307bea7ddd960e2ab54b7ca85aba9665761600f9"
+    },
+    {
+      "path": "cost-remediation-2026-10-20.json",
+      "sha256": "78a160ead5b33297c9043a3a95c3596051992112a409691df11c0278b824d465"
+    },
+    {
+      "path": "coverage.json",
+      "sha256": "504c5b79fddd4aac9fbf9886c6afa8bacd4c0df81811c5ceac1dc8e35dd9d0ba"
+    },
+    {
+      "path": "curated-routes-semantic-receipt.md",
+      "sha256": "1db6bb64098706c107f10428603abeb6f619847f3ef21386c7427e21e8d07a52"
+    },
+    {
+      "path": "current-qualification-dispositions.json",
+      "sha256": "e4ec681c9c2866bc36a788368d7d6369ccb801c32c35a4181614564cc9cde9a8"
+    },
+    {
+      "path": "deep-playbook-semantic-receipt.md",
+      "sha256": "98d3cbe5443ad94867a0f833b227faa0335ee40706768c756b8b1eac3bbf9fd5"
+    },
+    {
+      "path": "design-system-deep-semantic-receipt.md",
+      "sha256": "aab7b821739a1184b93d5e601094eb9f2a64cb296691922d7659ca550396677c"
+    },
+    {
+      "path": "design-system-semantic-receipt.md",
+      "sha256": "6203dffc488bea12cb1b88ea1c01c858fc4ce7e6f4c5229781f7ee093162ac90"
+    },
+    {
+      "path": "discovery-deep-semantic-receipt.md",
+      "sha256": "9a80c5349496c0649517ac8a2e00639b645bb754905601f76de1832126d181f5"
+    },
+    {
+      "path": "discovery-product-semantic-receipt.md",
+      "sha256": "e7f7a2ef69a1c73c23bcf40ccc079ce7c11db01ebe2865d2015de6ad6f69d11b"
+    },
+    {
+      "path": "domain-review.md",
+      "sha256": "5b18c9eb7822f70f57ea8262f184632bcc50ff2c7df042003ac16c6908ae77df"
+    },
+    {
+      "path": "drift-dispositions.json",
+      "sha256": "92f29f463c67c3e0205b4be0c1e57fcfb39431d614e2b09e2ee1e738e784471d"
+    },
+    {
+      "path": "drift.diff",
+      "sha256": "fcf3ff7c21bd9cb406224a1a330283901964b87dd15dae13be652c9a1bf16688"
+    },
+    {
+      "path": "drift.json",
+      "sha256": "db8846f69337a87604fe30e5a4ee0af6c18d9470d2cfa57961a78383b961603e"
+    },
+    {
+      "path": "ecosystem-interop-deep-semantic-receipt.md",
+      "sha256": "543d433f4f4f55c9940abc82b6bae645fd4e3d3bcdce9175e599f427c24115f2"
+    },
+    {
+      "path": "ecosystem-interop-semantic-receipt.md",
+      "sha256": "c227f091cb6657f269673a32ffe533d3287464c33fe22fdbb7984c9ab3e7389a"
+    },
+    {
+      "path": "final-correction-receipt.md",
+      "sha256": "2ec1413f0d94ff5deaf335ac0a76a235257e7deccbcdb252af14efd8ae29ebcb"
+    },
+    {
+      "path": "final-review-receipt.md",
+      "sha256": "bf1b3877b66e4bf6ff1c28526d1b577a30897ae289d2e5758da6cd2ace258773"
+    },
+    {
+      "path": "gate-semantic-receipt.md",
+      "sha256": "1dfca8a5ac1377c6077389f8bfcc97957a0b24e30332dbe9a3e9c0cefff6137f"
+    },
+    {
+      "path": "global-route-mapping-semantic-receipt.md",
+      "sha256": "4abc4837ed6a0995ebde9a694a8538e10a4dbc7013b69355186d06ea0921d0c9"
+    },
+    {
+      "path": "inactive-tools-semantic-receipt.md",
+      "sha256": "a5cf167cb2bd1b6b2a26916ef9c64ecc1956be36c17dba669de13d09b7a22088"
+    },
+    {
+      "path": "inclusive-ui-semantic-receipt.md",
+      "sha256": "fdba284c78bc4fc7269ab388904a4e0130822a9e6ccad10921cc0f505f877ef8"
+    },
+    {
+      "path": "ledger-remediation-contract-check.json",
+      "sha256": "d36dc86b75de3fbda77f10866f15793359791923619a34ffdb7d255883ae986a"
+    },
+    {
+      "path": "media-deep-semantic-receipt.md",
+      "sha256": "e59f51627cca3036503d6bf66304a1483e76ca3e30597bcc33fef5727df3c47a"
+    },
+    {
+      "path": "media-graphics-semantic-receipt.md",
+      "sha256": "ae5d4622023966c944655959884659dc141def5d540df358943c075c26af8e39"
+    },
+    {
+      "path": "migration-deep-semantic-receipt.md",
+      "sha256": "21ad4d533bd1bc3c70b7bdfad0f264f64d87ed7901d15a0848d6fb72758d197d"
+    },
+    {
+      "path": "migration-legacy-semantic-receipt.md",
+      "sha256": "e3736558b76d1134cfb0da31b33f8c9cae3680e73272062e9745a76267cc1b55"
+    },
+    {
+      "path": "ml-spatial-deep-semantic-receipt.md",
+      "sha256": "64f3a84104b37498cf7ecec4310a570f02a8c5908a543e26c9904c796637fbd7"
+    },
+    {
+      "path": "ml-vision-ar-semantic-receipt.md",
+      "sha256": "00d232dcb299737f19fff6b012c33a80921758f4c83059c2633ec8e2ebb5dbca"
+    },
+    {
+      "path": "model-transition-2026-10-19.json",
+      "sha256": "07b0d35df75bc253861d8a174c6a500ad27d4fa6bd5a09c081a4f6c038ba7cc4"
+    },
+    {
+      "path": "navigation-deep-semantic-receipt.md",
+      "sha256": "a86184b7b551f7680b325aa320d2f8b0cd0037e304c8a438f5d921dd85510069"
+    },
+    {
+      "path": "navigation-semantic-receipt.md",
+      "sha256": "28f1fb92f8aa8a1b7f256d7ddafd9ce01fee3afc7daace3593f689d0709bbc4e"
+    },
+    {
+      "path": "network-semantic-receipt.md",
+      "sha256": "ccbd492486c0ae44cfed47367fa838a7150640ca4ca44b3a9c060d00c50f0082"
+    },
+    {
+      "path": "networking-deep-semantic-receipt.md",
+      "sha256": "1dde9bae57a445b18a60f8794f4489d80475cd2bb577023846c53abe6d05deb8"
+    },
+    {
+      "path": "observability-deep-semantic-receipt.md",
+      "sha256": "0d14ace3e58264b1cbcfcfa6c4be90a175b7a406359adef0c8cc7e3e93a56b31"
+    },
+    {
+      "path": "observability-semantic-receipt.md",
+      "sha256": "3bdf7cee00eeb48d2e20e4e8fe1af536a4c509f9a981eda8e5272eb0ac3946a2"
+    },
+    {
+      "path": "orchestration-protocol-semantic-receipt.md",
+      "sha256": "d101ad3e54f751f63c39c4aa62f375c58fb30aed5e6765f9fc9f5bd3dd5b1b98"
+    },
+    {
+      "path": "owner-contract-remediation.json",
+      "sha256": "02f7c809eac4bed77a0a9a84f25b258f990cd96eddd6fbee03bae86d5b9d054e"
+    },
+    {
+      "path": "p2-prompts-semantic-receipt.md",
+      "sha256": "95a3e2bdc2923081e92b5229cdd5d796e54e83cbd72a962f6f48c527a2ad17ba"
+    },
+    {
+      "path": "package-overview-semantic-receipt.md",
+      "sha256": "aa46f077e2064c4dbe9af75a5b29856198b0f10f7f7a33e4248a30c0d956a1ab"
+    },
+    {
+      "path": "package-review-history-semantic-receipt.md",
+      "sha256": "aade0e9b1b1faf0758501027565be4cc287fd0033b02ee0965a8579ca3414b9a"
+    },
+    {
+      "path": "performance-deep-semantic-receipt.md",
+      "sha256": "40a5002cfe1dbc00517b9d2653c3928a237d51dab6a0646c5d911f360c9f8039"
+    },
+    {
+      "path": "performance-semantic-receipt.md",
+      "sha256": "b1ff429de981609f12e48985bc00b0d58c8bfb553d00b30ee666371f15457b7d"
+    },
+    {
+      "path": "persistence-deep-semantic-receipt.md",
+      "sha256": "a385fa9d9fc42f31ead55a6604150128796c3776357c3350f24cbdd8402e5e4d"
+    },
+    {
+      "path": "persistence-semantic-receipt.md",
+      "sha256": "891ec7e8aedb1c643c46452f385c8d830bf68a67d236b5e639423a55560028f8"
+    },
+    {
+      "path": "plan.md",
+      "sha256": "d7a86a4c63f3d1815023a4c8a4ee24af12486774be7ac10d934df017184bd753"
+    },
+    {
+      "path": "platform-deep-semantic-receipt.md",
+      "sha256": "06a149e1fdb9a29710c7416392125277c3076ca980e21d749da274e666840b93"
+    },
+    {
+      "path": "platform-services-semantic-receipt.md",
+      "sha256": "d8be80462db7de26856ed7a677786919dd39f1ee2622df93303e28991dd24a1a"
+    },
+    {
+      "path": "project-adaptation-semantic-receipt.md",
+      "sha256": "1fa5e23922bc86f7690cd978162adbe6d5f9045668114133ca13254f7cd7f54e"
+    },
+    {
+      "path": "project-context-template-semantic-receipt.md",
+      "sha256": "099ba9d4cfd172d0d3d44c37b1d89f490fcd87eb075c484f5ad87ebda15750c1"
+    },
+    {
+      "path": "project-copy-semantic-receipt.md",
+      "sha256": "68409e8e7e68a02c8d50cf2f4d8bd12ea1919c100aaa0bcdf35e2a7074c5850d"
+    },
+    {
+      "path": "prompt-pack-semantic-receipt.md",
+      "sha256": "86b6b4a7ace858e6daaa4207d97d68ebfb6db6c13b403585a7fb208a58ef4346"
+    },
+    {
+      "path": "protection-semantic-receipt.md",
+      "sha256": "d427ded02baa04a4a0b980e98b8cb773234b3d21214f36b665545ec0c4b08c2e"
+    },
+    {
+      "path": "release-ci-semantic-receipt.md",
+      "sha256": "ad7e5f9a2f02958f8bb557034095a27a52f042dfa4c603f954be61e6109bd843"
+    },
+    {
+      "path": "remediation-parity.json",
+      "sha256": "a23f57abeb6bd6b9913a3d177409b7c156f44283e23b4407c2a027e37ba13bb5"
+    },
+    {
+      "path": "remediation-plan.md",
+      "sha256": "14d49ab4486aad8984c6d3b0bdb182615a01ec9600aee032e65d5ec71f6f5a79"
+    },
+    {
+      "path": "remediation-progress.md",
+      "sha256": "0da6d97bbe595c2b22607c5d933b0ba042272db1dda70f049df008ace1e09d37"
+    },
+    {
+      "path": "report.md",
+      "sha256": "2e01e90e3308695d2b1a4b012aa675c9f57ba8c890929887b4aa92b84b10be3a"
+    },
+    {
+      "path": "repository-native-semantic-receipt.md",
+      "sha256": "3b2c5f552e4e1a4e707edfc2a99b177c1689b1d4b227022e9051b0ba37ed62c2"
+    },
+    {
+      "path": "resolver-remediation.json",
+      "sha256": "71eab6dd7f30950af38ec079781fad79613bdf47a06662f3219b57b698b33575"
+    },
+    {
+      "path": "review-refactor-deep-semantic-receipt.md",
+      "sha256": "3e97de15e157c7f33008eb9576198696658e8d5dca782c1184fa398b6c7452b2"
+    },
+    {
+      "path": "review-refactoring-semantic-receipt.md",
+      "sha256": "a4a168ccffe3e2b3e7966d36638827e4c063f30bb89410294df8f3c1e1bd7529"
+    },
+    {
+      "path": "root-governance-semantic-receipt.md",
+      "sha256": "1bdc037ace72572195a2650605671a42612837f6f9c3bcdd1ad4dd1e5b94b9e9"
+    },
+    {
+      "path": "runtime-core-semantic-receipt.md",
+      "sha256": "a4444cda189cdf1f9962b2683dd724d2b32c1b1dd24bb4799bb8f4c4ecdc1f15"
+    },
+    {
+      "path": "runtime-orchestration-semantic-receipt.md",
+      "sha256": "338123a0b744d0e8dc6c5e535839cc35d2787dab418b4bbf77ee6a83e200561d"
+    },
+    {
+      "path": "runtime-schema-template-semantic-receipt.md",
+      "sha256": "2d49cae52ba787d3b20cde2e843efe959998e665f1df600155c060780c3a1c0c"
+    },
+    {
+      "path": "scenario-quality-review.md",
+      "sha256": "5f9336c3bdb1163aea50cf5bab3c2408e7abdd09356169f472d5be6d2f68f5bd"
+    },
+    {
+      "path": "security-deep-semantic-receipt.md",
+      "sha256": "cc1b697f48994c5575c38cc39a0a83c371c2fbea651a03e0723166451424613f"
+    },
+    {
+      "path": "security-semantic-receipt.md",
+      "sha256": "36415ffdd474235557f7a8935ce09717a07fa5bb21c90dddfee1cd5ab270ff18"
+    },
+    {
+      "path": "source-catalog-semantic-receipt.md",
+      "sha256": "a3f171338a4f1a51616365d83f434d83aa26bb1dc1841b50c64477625436d3e5"
+    },
+    {
+      "path": "source-global-semantic-receipt.md",
+      "sha256": "18dfdc109d10ccd7bc6d70ec7e7e83438fa407a44d695e61813f66e140c35677"
+    },
+    {
+      "path": "source-meta-semantic-receipt.md",
+      "sha256": "748fb9f4a3314617eaa2d9faf28396186021ad9063a6b6ee67c5dd1a77e6f70f"
+    },
+    {
+      "path": "source-skill-packets-semantic-receipt.md",
+      "sha256": "5a9e67ba9a9d6e511b01ba7a8e34abef039a0fe71f3727c661f356ee1926a1e4"
+    },
+    {
+      "path": "swift-api-deep-semantic-receipt.md",
+      "sha256": "174ced5a7c01d188e36a32e9f2beb5a298a7d1d63e5361b9544a6e202b1adfa4"
+    },
+    {
+      "path": "swift-runtime-semantic-receipt.md",
+      "sha256": "e518af9475adf6c3e968a6674f54529746ae0ab4aa968983ac994979b02c514a"
+    },
+    {
+      "path": "swiftui-deep-semantic-receipt.md",
+      "sha256": "14093c2307cfde0c8be7279792854caf0d7aed3dc64f466207a491cd8d7cda87"
+    },
+    {
+      "path": "swiftui-semantic-receipt.md",
+      "sha256": "5c0539e28af5380c1dcfcd4cd85dc237ea11c6382837e8e9e04202f1b54a8416"
+    },
+    {
+      "path": "system-integration-deep-semantic-receipt.md",
+      "sha256": "8b220641903b18f1ebb0e014f9548e8ec312aa37a048b14b731631240f3dfb0a"
+    },
+    {
+      "path": "system-integration-semantic-receipt.md",
+      "sha256": "68f6d1b67b895e09595e0ddec925010183db9b39698502e296a76e8bd009b627"
+    },
+    {
+      "path": "team-engineering-deep-semantic-receipt.md",
+      "sha256": "576a43fb4ad208528ce0de92a3a3907846ae68633e5c895df9dd1ed0773363f1"
+    },
+    {
+      "path": "team-engineering-semantic-receipt.md",
+      "sha256": "64f5ae2897691ff6b1f6898c5fde5bd17dca3e664350d07699e3a5ae4f29f6c3"
+    },
+    {
+      "path": "template-semantic-receipt.md",
+      "sha256": "555102fb1c3f73e7d954954b254695947ddbc733e9cc90fe6ac2c9b4f8eef92b"
+    },
+    {
+      "path": "testing-deep-semantic-receipt.md",
+      "sha256": "4956fe903861a8a19ab81ffad6e08707380e450a06cf914929b98ec726821881"
+    },
+    {
+      "path": "testing-semantic-receipt.md",
+      "sha256": "03c939f75a72c621541de8d0fbdd71adb68271440fc14440254814562473ac20"
+    },
+    {
+      "path": "transitive-cost-gap.json",
+      "sha256": "926a652de7e982d5ec1a7d0036c716d8ad5c44172c2c1926156fd91c6a42649c"
+    },
+    {
+      "path": "uikit-deep-semantic-receipt.md",
+      "sha256": "44d13258057ddb24987b8a7395e1e33c049b352beb7230f64e916b4852efdfcc"
+    },
+    {
+      "path": "uikit-semantic-receipt.md",
+      "sha256": "edc05c9221429295f5dc68d931dfb6eeaa2d662b63e18e9646026e4c3a010ace"
+    },
+    {
+      "path": "unit-citation-remediation.json",
+      "sha256": "34436647b5a3347be5e26526deadf6f9bb1b053afeb98585e02bc57d8bbb4ea7"
+    },
+    {
+      "path": "v3-role-semantic-receipt.md",
+      "sha256": "c2e354ad2d3d04fb5b03c99dc99c622cfffe47037dd001f64a45b34d09261db4"
+    },
+    {
+      "path": "v3-workflow-semantic-receipt.md",
+      "sha256": "2d6fe96f1ec29342d4c99f2edea483bb9323fc4b5f970bb29e4a5a9820c7b268"
+    },
+    {
+      "path": "v4-role-workflow-semantic-receipt.md",
+      "sha256": "429bc45b127afee4e9fac6439378de33d2473f5f3a9a650c26024bba05211db1"
+    },
+    {
+      "path": "v5-prompts-semantic-receipt.md",
+      "sha256": "6ef2eed5e890394a10ca47fe375b320f56078002b86102687e116d4beb6070f9"
+    },
+    {
+      "path": "v5-role-workflow-semantic-receipt.md",
+      "sha256": "be5d743b6d4facaefd4d1561966c6f856d19582f3fa1d0b7026096e8495b58c2"
+    },
+    {
+      "path": "v5-template-gate-semantic-receipt.md",
+      "sha256": "5a22198aa31755caf56805ed8e3e495b7a04fe56c7b8016a39f85c57b5fe92b8"
+    }
+  ],
+  "limits": "Hashes support identity/parity, not independent semantic/runtime/freshness proof. This manifest excludes its own bytes."
+}

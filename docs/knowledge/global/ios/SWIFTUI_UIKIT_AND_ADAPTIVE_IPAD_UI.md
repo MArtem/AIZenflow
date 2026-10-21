@@ -16,6 +16,24 @@ SwiftUI view values describe desired output. They are recreated frequently; iden
 - Environment values are for truly ambient dependencies; avoid hidden feature inputs.
 - Bindings expose mutation authority. Pass the narrowest binding or explicit intent needed.
 
+## Toolchain-Specific State Storage
+Apple documents different implementations behind `@State`: Xcode 26 and earlier use the
+property wrapper; Xcode 27 and later use the State macro. The older wrapper evaluates its
+default when a view value is instantiated; the macro initializes storage on its first
+instantiation. Inspect the actual toolchain and generated behavior before carrying an
+initialization-cost assumption between them. Neither form grants arbitrary actor access to
+an observable object stored inside it. Keep side effects under an explicit lifecycle owner.
+
+For example, a parent redraw with the same row identity must preserve the row's editable
+state; replacing that identity intentionally creates new storage. Repeated network requests
+from an initializer are a lifetime error to trace, not a reason to force redraws. Under the
+permitted verification scope, compare identity-preserving updates and replacement separately;
+this conceptual trace is not an executed UI test.
+
+Primary theory: [State wrapper](https://developer.apple.com/documentation/swiftui/state) and
+[State macro](https://developer.apple.com/documentation/swiftui/state()). Check compiler and
+SDK adoption separately from the deployment floor.
+
 ## Invalidation And Preview Evidence
 Trace Observation dependencies and invalidation for a concrete state transition: the intended
 consumer must update without relying on accidental redraws or repeated work. Check duplicated
@@ -87,6 +105,14 @@ modernize apps or reopen excluded iPad/physical verification.
 - Respect UIKit containment and appearance transitions.
 - When embedding SwiftUI in UIKit, define hosting-controller lifetime and environment updates explicitly.
 
+For a `UIViewControllerRepresentable`, SwiftUI owns the represented root view's layout.
+Do not directly fight that owner by setting its frame, bounds, center or transform. Use the
+representable lifecycle and a coordinator when UIKit delegate/target-action changes must
+cross back to SwiftUI; the system does not relay those changes automatically. Removing the
+root view alone is not completion of custom view-controller containment or observer teardown.
+Primary theory: [UIViewControllerRepresentable](https://developer.apple.com/documentation/swiftui/uiviewcontrollerrepresentable)
+and [adaptive layout](https://developer.apple.com/design/human-interface-guidelines/layout).
+
 ## UIKit Lifecycle And Reuse Review
 Separate one-time setup, binding/loading, repeated appearance and teardown. Review balanced child
 add/remove and appearance forwarding, safe areas and ownership; view hierarchy alone is not the
@@ -102,6 +128,13 @@ supported-project options, not required replacements. Approved UIKit/SwiftUI mig
 hosting/shared-model seams and rollback before widening adoption.
 
 ## Text, Input, And Focus
+
+Distinguish validation of one field from aggregate form and submit validity under the actual product
+contract. For asynchronous validation, define debounce/cancellation, input identity and stale-
+success/stale-failure rejection; an older completion must not replace the latest field or form
+result. Keep error placement, focus, announcements and localized feedback consistent with the known
+user input. This does not authorize tests or prescribe new product validation rules.
+
 - Use semantic text content types, submit behavior, validation timing, and secure-entry rules.
 - Preserve marked text and composition for international keyboards.
 - Avoid formatting that moves the cursor unexpectedly or rejects intermediate valid input.

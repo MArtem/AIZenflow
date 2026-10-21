@@ -1,0 +1,292 @@
+{
+  "status": "PASS",
+  "scope": "Task-local KB CLI acceptance only",
+  "source_hashes": {
+    "resolve_docs_route.py": "e80b01401c3c4e70cbde59442ad160738743793064dc0cf85f8692d364d51f12",
+    "report_documentation_context_cost.py": "af3771dd552941868fc10c339678474deac34ccb2dce14f84f6c49d39ba23a1a",
+    "check_documentation_boundaries.py": "6a0ccab6ae38180df37c2da0ad43a13612392c43420da64dbe9957f26a49b538"
+  },
+  "fixture_dependency": "Reporter CANONICAL_REUSABLE injected as path only; production logic/return values unchanged; no actual host fallback transition",
+  "cases": [
+    {
+      "case": "resolver_positive",
+      "expected": "exit0; no required missing",
+      "exit_code": 0,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/positive/work\",\n  \"task_id\": \"fixture-task\",\n  \"selected_routes\": [\n    \"selected\"\n  ],\n  \"level0_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.zenflow/tasks/fixture-task/plan.md\"\n  ],\n  \"route_documents\": {\n    \"selected\": [\n      \"./docs/required.md\",\n      \"./docs/optional.md\"\n    ]\n  },\n  \"document_selection\": \"upper_bound_including_optional_candidates\",\n  \"required_route_documents\": {\n    \"selected\": [\n      \"./docs/required.md\"\n    ]\n  },\n  \"optional_route_documents\": {\n    \"selected\": [\n      \"./docs/optional.md\"\n    ]\n  },\n  \"documents\": [\n    \"./docs/required.md\",\n    \"./docs/optional.md\"\n  ],\n  \"required_documents\": [\n    \"./docs/required.md\"\n  ],\n  \"optional_candidates\": [\n    \"./docs/optional.md\"\n  ],\n  \"combined_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.zenflow/tasks/fixture-task/plan.md\",\n    \"./docs",
+      "stderr": ""
+    },
+    {
+      "case": "reporter_positive",
+      "expected": "exit0; canonical complete",
+      "exit_code": 0,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/positive/work\",\n  \"task_id\": \"fixture-task\",\n  \"level0\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false\n  },\n  \"dynamic_task_documents\": {\n    \"documents\": 0,\n    \"words\": 0,\n    \"bytes\": 0,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false,\n    \"files\": []\n  },\n  \"startup_total\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34\n  },\n  \"instruction_envelope\": {\n    \"documents\": 5,\n    \"existing_documents\": 5,\n    \"words\": 13,\n    \"bytes\": 121,\n    \"duplicates\": [\n      \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/positive/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\"\n    ],\n    \"files\": [\n      {\n        \"path\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/positive/work/AGENT",
+      "stderr": ""
+    },
+    {
+      "case": "missing_static_level0",
+      "expected": "nonzero; base is mandatory missing",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/missing_static/work\",\n  \"task_id\": \"fixture-task\",\n  \"selected_routes\": [\n    \"selected\"\n  ],\n  \"level0_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.zenflow/tasks/fixture-task/plan.md\"\n  ],\n  \"route_documents\": {\n    \"selected\": [\n      \"./docs/required.md\",\n      \"./docs/optional.md\"\n    ]\n  },\n  \"document_selection\": \"upper_bound_including_optional_candidates\",\n  \"required_route_documents\": {\n    \"selected\": [\n      \"./docs/required.md\"\n    ]\n  },\n  \"optional_route_documents\": {\n    \"selected\": [\n      \"./docs/optional.md\"\n    ]\n  },\n  \"documents\": [\n    \"./docs/required.md\",\n    \"./docs/optional.md\"\n  ],\n  \"required_documents\": [\n    \"./docs/required.md\"\n  ],\n  \"optional_candidates\": [\n    \"./docs/optional.md\"\n  ],\n  \"combined_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.zenflow/tasks/fixture-task/plan.md\",\n    \"",
+      "stderr": ""
+    },
+    {
+      "case": "required_optional_collision",
+      "expected": "nonzero; required wins over optional",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/required_optional_collision/work\",\n  \"task_id\": \"fixture-task\",\n  \"selected_routes\": [\n    \"selected\"\n  ],\n  \"level0_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.zenflow/tasks/fixture-task/plan.md\"\n  ],\n  \"route_documents\": {\n    \"selected\": [\n      \"./docs/required.md\",\n      \"./docs/optional.md\",\n      \"./docs/required.md\"\n    ]\n  },\n  \"document_selection\": \"upper_bound_including_optional_candidates\",\n  \"required_route_documents\": {\n    \"selected\": [\n      \"./docs/required.md\"\n    ]\n  },\n  \"optional_route_documents\": {\n    \"selected\": [\n      \"./docs/optional.md\"\n    ]\n  },\n  \"documents\": [\n    \"./docs/required.md\",\n    \"./docs/optional.md\"\n  ],\n  \"required_documents\": [\n    \"./docs/required.md\"\n  ],\n  \"optional_candidates\": [\n    \"./docs/optional.md\"\n  ],\n  \"combined_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.z",
+      "stderr": ""
+    },
+    {
+      "case": "level0_optional_collision",
+      "expected": "nonzero; required wins over optional",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/level0_optional_collision/work\",\n  \"task_id\": \"fixture-task\",\n  \"selected_routes\": [\n    \"selected\"\n  ],\n  \"level0_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.zenflow/tasks/fixture-task/plan.md\"\n  ],\n  \"route_documents\": {\n    \"selected\": [\n      \"./docs/required.md\",\n      \"./docs/optional.md\",\n      \"./docs/base.md\"\n    ]\n  },\n  \"document_selection\": \"upper_bound_including_optional_candidates\",\n  \"required_route_documents\": {\n    \"selected\": [\n      \"./docs/required.md\"\n    ]\n  },\n  \"optional_route_documents\": {\n    \"selected\": [\n      \"./docs/optional.md\",\n      \"./docs/base.md\"\n    ]\n  },\n  \"documents\": [\n    \"./docs/required.md\",\n    \"./docs/optional.md\",\n    \"./docs/base.md\"\n  ],\n  \"required_documents\": [\n    \"./docs/required.md\"\n  ],\n  \"optional_candidates\": [\n    \"./docs/optional.md\"\n  ],\n  \"combined_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/t",
+      "stderr": ""
+    },
+    {
+      "case": "absent_optional",
+      "expected": "exit0; optional missing only",
+      "exit_code": 0,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/missing_optional/work\",\n  \"task_id\": \"fixture-task\",\n  \"selected_routes\": [\n    \"selected\"\n  ],\n  \"level0_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.zenflow/tasks/fixture-task/plan.md\"\n  ],\n  \"route_documents\": {\n    \"selected\": [\n      \"./docs/required.md\",\n      \"./docs/optional.md\"\n    ]\n  },\n  \"document_selection\": \"upper_bound_including_optional_candidates\",\n  \"required_route_documents\": {\n    \"selected\": [\n      \"./docs/required.md\"\n    ]\n  },\n  \"optional_route_documents\": {\n    \"selected\": [\n      \"./docs/optional.md\"\n    ]\n  },\n  \"documents\": [\n    \"./docs/required.md\",\n    \"./docs/optional.md\"\n  ],\n  \"required_documents\": [\n    \"./docs/required.md\"\n  ],\n  \"optional_candidates\": [\n    \"./docs/optional.md\"\n  ],\n  \"combined_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.zenflow/tasks/fixture-task/plan.md\",\n   ",
+      "stderr": ""
+    },
+    {
+      "case": "absent_conditional_task_state",
+      "expected": "exit0; missing conditional handoff/plan do not block",
+      "exit_code": 0,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/conditional_task/work\",\n  \"task_id\": \"fixture-task\",\n  \"level0\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false\n  },\n  \"dynamic_task_documents\": {\n    \"documents\": 0,\n    \"words\": 0,\n    \"bytes\": 0,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false,\n    \"files\": []\n  },\n  \"startup_total\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34\n  },\n  \"instruction_envelope\": {\n    \"documents\": 5,\n    \"existing_documents\": 5,\n    \"words\": 13,\n    \"bytes\": 121,\n    \"duplicates\": [\n      \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/conditional_task/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\"\n    ],\n    \"files\": [\n      {\n        \"path\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/con",
+      "stderr": ""
+    },
+    {
+      "case": "one_present_conditional_task_document",
+      "expected": "exit0; plan counted, absent handoff does not block",
+      "exit_code": 0,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/conditional_task/work\",\n  \"task_id\": \"fixture-task\",\n  \"level0\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false\n  },\n  \"dynamic_task_documents\": {\n    \"documents\": 1,\n    \"words\": 3,\n    \"bytes\": 19,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false,\n    \"files\": [\n      {\n        \"path\": \"./.zenflow/tasks/fixture-task/plan.md\",\n        \"physical_path\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/conditional_task/work/.zenflow/tasks/fixture-task/plan.md\",\n        \"exists\": true,\n        \"words\": 3,\n        \"bytes\": 19\n      }\n    ]\n  },\n  \"startup_total\": {\n    \"documents\": 3,\n    \"words\": 7,\n    \"bytes\": 53\n  },\n  \"instruction_envelope\": {\n    \"documents\": 6,\n    \"existing_documents\": 6,\n    \"words\": 16,\n    \"bytes\": 140,\n    \"duplicates\": [\n      \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks",
+      "stderr": ""
+    },
+    {
+      "case": "malformed_registry_json",
+      "expected": "nonzero; invalid JSON",
+      "exit_code": 2,
+      "status": "PASS",
+      "observed": "",
+      "stderr": "cannot read /Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/malformed/work/docs/TASK_DOCUMENT_ROUTES.json: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)\n"
+    },
+    {
+      "case": "unsupported_registry_schema",
+      "expected": "nonzero; schema rejected",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "Failure: TASK_DOCUMENT_ROUTES.json schema_version must be 1\n",
+      "stderr": ""
+    },
+    {
+      "case": "valid_fallback",
+      "expected": "exit0 only for valid portable marker; canonical unavailable explicit",
+      "exit_code": 0,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/valid_fallback/work\",\n  \"task_id\": \"fixture-task\",\n  \"level0\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false\n  },\n  \"dynamic_task_documents\": {\n    \"documents\": 0,\n    \"words\": 0,\n    \"bytes\": 0,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false,\n    \"files\": []\n  },\n  \"startup_total\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34\n  },\n  \"instruction_envelope\": {\n    \"documents\": 4,\n    \"existing_documents\": 4,\n    \"words\": 8,\n    \"bytes\": 106,\n    \"duplicates\": [\n      \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/valid_fallback/work/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\"\n    ],\n    \"files\": [\n      {\n        \"path\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/valid_fallback/work/A",
+      "stderr": ""
+    },
+    {
+      "case": "invalid_fallback",
+      "expected": "exit0 only for valid portable marker; canonical unavailable explicit",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/invalid_fallback/work\",\n  \"task_id\": \"fixture-task\",\n  \"level0\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false\n  },\n  \"dynamic_task_documents\": {\n    \"documents\": 0,\n    \"words\": 0,\n    \"bytes\": 0,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false,\n    \"files\": []\n  },\n  \"startup_total\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34\n  },\n  \"instruction_envelope\": {\n    \"documents\": 4,\n    \"existing_documents\": 4,\n    \"words\": 9,\n    \"bytes\": 79,\n    \"duplicates\": [\n      \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/invalid_fallback/work/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\"\n    ],\n    \"files\": [\n      {\n        \"path\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/invalid_fallback/w",
+      "stderr": ""
+    },
+    {
+      "case": "missing_fallback",
+      "expected": "exit0 only for valid portable marker; canonical unavailable explicit",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/missing_fallback/work\",\n  \"task_id\": \"fixture-task\",\n  \"level0\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false\n  },\n  \"dynamic_task_documents\": {\n    \"documents\": 0,\n    \"words\": 0,\n    \"bytes\": 0,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false,\n    \"files\": []\n  },\n  \"startup_total\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34\n  },\n  \"instruction_envelope\": {\n    \"documents\": 4,\n    \"existing_documents\": 3,\n    \"words\": 7,\n    \"bytes\": 63,\n    \"duplicates\": [\n      \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/missing_fallback/work/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\"\n    ],\n    \"files\": [\n      {\n        \"path\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/missing_fallback/w",
+      "stderr": ""
+    },
+    {
+      "case": "canonical_level0_not_masked_by_local_copy",
+      "expected": "nonzero even though local baseline exists",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/missing_canonical_level0/work\",\n  \"task_id\": \"fixture-task\",\n  \"level0\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false\n  },\n  \"dynamic_task_documents\": {\n    \"documents\": 0,\n    \"words\": 0,\n    \"bytes\": 0,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false,\n    \"files\": []\n  },\n  \"startup_total\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34\n  },\n  \"instruction_envelope\": {\n    \"documents\": 5,\n    \"existing_documents\": 4,\n    \"words\": 11,\n    \"bytes\": 103,\n    \"duplicates\": [\n      \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/missing_canonical_level0/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\"\n    ],\n    \"files\": [\n      {\n        \"path\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-accepta",
+      "stderr": ""
+    },
+    {
+      "case": "invalid_canonical_registry",
+      "expected": "nonzero for invalid startup authority",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/bad_canonical_registry/work\",\n  \"task_id\": \"fixture-task\",\n  \"level0\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false\n  },\n  \"dynamic_task_documents\": {\n    \"documents\": 0,\n    \"words\": 0,\n    \"bytes\": 0,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false,\n    \"files\": []\n  },\n  \"startup_total\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34\n  },\n  \"instruction_envelope\": {\n    \"documents\": 5,\n    \"existing_documents\": 5,\n    \"words\": 13,\n    \"bytes\": 121,\n    \"duplicates\": [\n      \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/bad_canonical_registry/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\"\n    ],\n    \"files\": [\n      {\n        \"path\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-",
+      "stderr": ""
+    },
+    {
+      "case": "authoritative_route_missing_not_masked",
+      "expected": "nonzero for missing canonical selected-route file",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/canonical_route_missing/work\",\n  \"task_id\": \"fixture-task\",\n  \"level0\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false\n  },\n  \"dynamic_task_documents\": {\n    \"documents\": 0,\n    \"words\": 0,\n    \"bytes\": 0,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false,\n    \"files\": []\n  },\n  \"startup_total\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34\n  },\n  \"instruction_envelope\": {\n    \"documents\": 5,\n    \"existing_documents\": 5,\n    \"words\": 13,\n    \"bytes\": 121,\n    \"duplicates\": [\n      \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/canonical_route_missing/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\"\n    ],\n    \"files\": [\n      {\n        \"path\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptanc",
+      "stderr": ""
+    },
+    {
+      "case": "route_cost_uses_authoritative_body",
+      "expected": "required words match7-word canonical body, not1-word local copy",
+      "exit_code": 0,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/canonical_route_cost/work\",\n  \"task_id\": \"fixture-task\",\n  \"level0\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false\n  },\n  \"dynamic_task_documents\": {\n    \"documents\": 0,\n    \"words\": 0,\n    \"bytes\": 0,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false,\n    \"files\": []\n  },\n  \"startup_total\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34\n  },\n  \"instruction_envelope\": {\n    \"documents\": 5,\n    \"existing_documents\": 5,\n    \"words\": 13,\n    \"bytes\": 121,\n    \"duplicates\": [\n      \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/canonical_route_cost/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\"\n    ],\n    \"files\": [\n      {\n        \"path\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbx",
+      "stderr": ""
+    },
+    {
+      "case": "same_physical_startup_path_counted_once",
+      "expected": "startup physical paths unique",
+      "exit_code": 0,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/canonical_route_cost/reusable/baseline\",\n  \"task_id\": \"fixture-task\",\n  \"level0\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false\n  },\n  \"dynamic_task_documents\": {\n    \"documents\": 0,\n    \"words\": 0,\n    \"bytes\": 0,\n    \"max_words\": 10000,\n    \"budget_exceeded\": false,\n    \"files\": []\n  },\n  \"startup_total\": {\n    \"documents\": 2,\n    \"words\": 4,\n    \"bytes\": 34\n  },\n  \"instruction_envelope\": {\n    \"documents\": 4,\n    \"existing_documents\": 4,\n    \"words\": 10,\n    \"bytes\": 92,\n    \"duplicates\": [\n      \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/canonical_route_cost/reusable/baseline/AGENTS.md\",\n      \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/canonical_route_cost/reusable/baseline/docs/TASK_TY",
+      "stderr": ""
+    },
+    {
+      "case": "route_parent_escape_rejected",
+      "expected": "nonzero for source path escaping selected root",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/escape/work\",\n  \"task_id\": \"fixture-task\",\n  \"selected_routes\": [\n    \"selected\"\n  ],\n  \"level0_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.zenflow/tasks/fixture-task/plan.md\"\n  ],\n  \"route_documents\": {\n    \"selected\": [\n      \"./../outside.md\",\n      \"./docs/optional.md\"\n    ]\n  },\n  \"document_selection\": \"upper_bound_including_optional_candidates\",\n  \"required_route_documents\": {\n    \"selected\": [\n      \"./../outside.md\"\n    ]\n  },\n  \"optional_route_documents\": {\n    \"selected\": [\n      \"./docs/optional.md\"\n    ]\n  },\n  \"documents\": [\n    \"./../outside.md\",\n    \"./docs/optional.md\"\n  ],\n  \"required_documents\": [\n    \"./../outside.md\"\n  ],\n  \"optional_candidates\": [\n    \"./docs/optional.md\"\n  ],\n  \"combined_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.zenflow/tasks/fixture-task/plan.md\",\n    \"./../outside.md\",\n  ",
+      "stderr": ""
+    },
+    {
+      "case": "reject_document_symlink_base",
+      "expected": "nonzero; resolved document containment enforced",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/symlink_document_base/work\",\n  \"task_id\": \"fixture-task\",\n  \"selected_routes\": [\n    \"selected\"\n  ],\n  \"level0_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.zenflow/tasks/fixture-task/plan.md\"\n  ],\n  \"route_documents\": {\n    \"selected\": [\n      \"./docs/escaped.md\",\n      \"./docs/optional.md\"\n    ]\n  },\n  \"document_selection\": \"upper_bound_including_optional_candidates\",\n  \"required_route_documents\": {\n    \"selected\": [\n      \"./docs/escaped.md\"\n    ]\n  },\n  \"optional_route_documents\": {\n    \"selected\": [\n      \"./docs/optional.md\"\n    ]\n  },\n  \"documents\": [\n    \"./docs/escaped.md\",\n    \"./docs/optional.md\"\n  ],\n  \"required_documents\": [\n    \"./docs/escaped.md\"\n  ],\n  \"optional_candidates\": [\n    \"./docs/optional.md\"\n  ],\n  \"combined_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.zenflow/tasks/fixture-task/plan.md\",\n  ",
+      "stderr": ""
+    },
+    {
+      "case": "reporter_reject_document_symlink_base",
+      "expected": "nonzero; rejection before candidate content read",
+      "exit_code": 2,
+      "status": "PASS",
+      "observed": "",
+      "stderr": "documentation path escapes its root: './docs/escaped.md'\n"
+    },
+    {
+      "case": "reject_document_symlink_overlay",
+      "expected": "nonzero; resolved document containment enforced",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "{\n  \"root\": \"/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/symlink_document_overlay/work\",\n  \"task_id\": \"fixture-task\",\n  \"selected_routes\": [\n    \"selected\"\n  ],\n  \"level0_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \"./docs/base.md\",\n    \"./.zenflow/tasks/fixture-task/handoff.md\",\n    \"./.zenflow/tasks/fixture-task/plan.md\"\n  ],\n  \"route_documents\": {\n    \"selected\": [\n      \"./docs/required.md\",\n      \"./docs/optional.md\",\n      \"./docs/escaped.md\"\n    ]\n  },\n  \"document_selection\": \"upper_bound_including_optional_candidates\",\n  \"required_route_documents\": {\n    \"selected\": [\n      \"./docs/required.md\"\n    ]\n  },\n  \"optional_route_documents\": {\n    \"selected\": [\n      \"./docs/optional.md\",\n      \"./docs/escaped.md\"\n    ]\n  },\n  \"documents\": [\n    \"./docs/required.md\",\n    \"./docs/optional.md\",\n    \"./docs/escaped.md\"\n  ],\n  \"required_documents\": [\n    \"./docs/required.md\"\n  ],\n  \"optional_candidates\": [\n    \"./docs/optional.md\",\n    \"./docs/escaped.md\"\n  ],\n  \"combined_documents\": [\n    \"./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md\",\n    \".",
+      "stderr": ""
+    },
+    {
+      "case": "reporter_reject_document_symlink_overlay",
+      "expected": "nonzero; rejection before candidate content read",
+      "exit_code": 2,
+      "status": "PASS",
+      "observed": "",
+      "stderr": "documentation path escapes its root: './docs/escaped.md'\n"
+    },
+    {
+      "case": "reporter_reject_input_link_docs/TASK_DOCUMENT_ROUTES.json",
+      "expected": "nonzero; reject escaped input before parsing/counting",
+      "exit_code": 2,
+      "status": "PASS",
+      "observed": "",
+      "stderr": "documentation path escapes its root: './docs/TASK_DOCUMENT_ROUTES.json'\n"
+    },
+    {
+      "case": "reporter_reject_input_link_docs/DOCUMENT_ROUTING_REGISTRY.json",
+      "expected": "nonzero; reject escaped input before parsing/counting",
+      "exit_code": 2,
+      "status": "PASS",
+      "observed": "",
+      "stderr": "documentation path escapes its root: './docs/DOCUMENT_ROUTING_REGISTRY.json'\n"
+    },
+    {
+      "case": "reporter_reject_input_link_AGENTS.md",
+      "expected": "nonzero; reject escaped input before parsing/counting",
+      "exit_code": 2,
+      "status": "PASS",
+      "observed": "",
+      "stderr": "documentation path escapes its root: './AGENTS.md'\n"
+    },
+    {
+      "case": "reporter_reject_input_link_docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "expected": "nonzero; reject escaped input before parsing/counting",
+      "exit_code": 2,
+      "status": "PASS",
+      "observed": "",
+      "stderr": "documentation path escapes its root: './docs/TASK_TYPE_DOCUMENTATION_ROUTER.md'\n"
+    },
+    {
+      "case": "dynamic_new_app_positive",
+      "expected": "exit0 for non-hardcoded app with manifest",
+      "exit_code": 0,
+      "status": "PASS",
+      "observed": "Documentation boundary OK: /Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/app_positive\n",
+      "stderr": ""
+    },
+    {
+      "case": "dynamic_new_app_missing_manifest",
+      "expected": "nonzero naming FutureApp",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "Documentation boundary FAILED:\n- missing or linked app manifest: apps/FutureApp/MANIFEST.md\n",
+      "stderr": ""
+    },
+    {
+      "case": "dynamic_new_app_copied_baseline",
+      "expected": "nonzero for active generic baseline copy",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "Documentation boundary FAILED:\n- apps/FutureApp/AGENTS.md: reusable baseline file in active app area\n",
+      "stderr": ""
+    },
+    {
+      "case": "historical_baseline_not_active",
+      "expected": "exit0 for archive-only baseline",
+      "exit_code": 0,
+      "status": "PASS",
+      "observed": "Documentation boundary OK: /Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/acceptance-2026-10-20/fixtures/owned-kb-acceptance-jcbxc197/archive_positive\n",
+      "stderr": ""
+    },
+    {
+      "case": "reject_linked_app_root",
+      "expected": "nonzero; symlink is explicit failure",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "Documentation boundary FAILED:\n- apps: linked documentation root is not allowed\n",
+      "stderr": ""
+    },
+    {
+      "case": "reject_linked_app_app",
+      "expected": "nonzero; symlink is explicit failure",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "Documentation boundary FAILED:\n- apps/FutureApp: linked app root is not allowed\n",
+      "stderr": ""
+    },
+    {
+      "case": "reject_linked_app_manifest",
+      "expected": "nonzero; symlink is explicit failure",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "Documentation boundary FAILED:\n- missing or linked app manifest: apps/FutureApp/MANIFEST.md\n- apps/FutureApp/MANIFEST.md: linked app content is not allowed\n",
+      "stderr": ""
+    },
+    {
+      "case": "reject_linked_app_nested",
+      "expected": "nonzero; symlink is explicit failure",
+      "exit_code": 1,
+      "status": "PASS",
+      "observed": "Documentation boundary FAILED:\n- apps/FutureApp/nested: linked app content is not allowed\n",
+      "stderr": ""
+    }
+  ]
+}

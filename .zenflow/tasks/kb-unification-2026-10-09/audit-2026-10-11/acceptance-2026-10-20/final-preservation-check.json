@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "evidence": {
+    "ledger": {
+      "path": ".zenflow/tasks/kb-unification-2026-10-09/migration-ledger.json",
+      "sha256": "cf06b13e688c2df627e614e6c4b5ea7755a664212e413f8859046b2f75ad33b5",
+      "unchanged": true
+    },
+    "frozen_archive": {
+      "path": ".zenflow/tasks/kb-unification-2026-10-09/archive/library-snapshot/library-frozen.zip",
+      "sha256": "9c3e80135ef713a205f6e0481b9c6eecae8836b51df16d9e2ce459d0dfeee76f",
+      "unchanged": true
+    }
+  },
+  "scope": "Exact current ledger/archive unchanged from prior audited correction; source-unit semantic audit reused, not repeated."
+}

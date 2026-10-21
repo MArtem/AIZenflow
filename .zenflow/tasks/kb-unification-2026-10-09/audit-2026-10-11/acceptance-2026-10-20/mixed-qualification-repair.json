@@ -1,0 +1,22 @@
+{
+  "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+  "unit": "LIB-0531-U02",
+  "source_path": "canonical/31_DEEP_PLAYBOOKS/OP-IOS-15-07.md",
+  "source_sha256": "42debbd9bc15b5c3365062475cd094a3015a80b3a545d5e364ea96422d000d13",
+  "source_read": "Full frozen source body reread 2026-10-20; traps explicitly require background transitions",
+  "subclaims": [
+    {
+      "claim": "AI model/OS evaluation trigger",
+      "receipt": "../ai-remediation-resolution.json",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR"
+    },
+    {
+      "claim": "Realtime background transitions",
+      "owner": "reusable/knowledge-global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+      "heading": "Realtime Protocols",
+      "status": "SUPPORTED_AFTER_SOURCE_BACKED_OWNER_REPAIR",
+      "owner_sha256": "651445b2a213c4d38f1141c0912e8f3788f608c047efb3e209b5f1328286b5ce"
+    }
+  ],
+  "limits": "Static preservation only; no promise that ordinary realtime connections continue running in background; no runtime or freshness certification"
+}

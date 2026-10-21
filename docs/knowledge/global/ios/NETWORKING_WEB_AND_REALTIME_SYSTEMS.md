@@ -4,6 +4,13 @@
 Use for URLSession, API clients, authentication transport, uploads/downloads, background transfer, WebSockets, server-sent events, gRPC, WebKit, reachability, caching, or network diagnostics.
 
 ## Boundary Model
+
+For an authorized client/server contract migration, define deployment sequencing, the compatibility
+window for old/new clients and servers, coexistence, rollback limits and cleanup criteria. A new
+schema that decodes locally does not prove every deployed counterpart can interoperate. Keep the
+staged rollout decision with the actual backend/app owners; this reference grants no deployment or
+network action.
+
 Separate transport, wire DTO, domain mapping, persistence, and UI state. HTTP success does not imply semantic success. A response becomes trusted domain data only after status, headers, size, content type, decoding, and business validation.
 
 ## Request Contract
@@ -42,12 +49,38 @@ relaunch, temporary-file handoff and duplicate/absent delivery. Review discretio
 policy and honest delayed/expired telemetry; scheduling alone does not prove transfer completion.
 
 ## Realtime Protocols
-- Define connection state, authentication refresh, heartbeat, reconnect/backoff, message ordering, duplication, gaps, replay, and resume tokens.
+- Define connection state, authentication refresh, heartbeat, reconnect/backoff, message ordering, duplication, gaps, replay, and resume tokens. Include foreground/background transitions in the connection state contract under the actual platform execution limits.
 - Bound inbound buffering and message size.
 - Reconnect must not duplicate subscriptions or replay non-idempotent commands.
 - Use application-level sequence/version checks when delivery order matters.
 
+### Reconnect, Gap And Replay Trace
+Choose WebSocket for an actual bidirectional session; a one-way server event stream or bounded
+refresh may be sufficient for a read-only consumer. RFC6455 describes transport framing and
+backoff after abnormal closure; it does not supply the app's durable event log or exactly-once
+mutation contract. For SSE, Last-Event-ID reports the stream cursor on reconnection; that
+header alone cannot ensure that a server still retains every missing event. Keep browser
+EventSource behavior distinct from a native parser/client implementation.
+
+For example, the client applied event41, disconnects before42, then reconnects and receives41
+again followed by44. Deduplicate by the owned event identity, detect a gap only under the
+server's defined sequence model, and obtain replay or a versioned snapshot before publishing
+complete state. Persist an applied cursor consistently with the local effects; advancing it
+first can permanently skip work after a crash. Account changes invalidate the old subscription
+and its cursor. Backoff/jitter bounds reconnect load; cancellation stops the old session.
+A successful socket handshake is not successful reconciliation or acknowledgment of a command.
+Primary theory: [RFC6455 §7.2.3](https://www.rfc-editor.org/rfc/rfc6455.html#section-7.2.3)
+and [SSE processing and Last-Event-ID](https://html.spec.whatwg.org/multipage/server-sent-events.html#the-last-event-id-header).
+This counterexample is unexecuted; replay retention, identity and snapshot policy are application
+contracts, not extra guarantees inferred from either protocol.
+
 ## WebKit
+
+For an asynchronous JavaScript bridge, define request identity, completion/error/cancellation and
+ordering at the native/web boundary. Bound pending work and reject stale replies after navigation,
+session replacement or cancellation; do not leave a caller waiting indefinitely or report a
+cancelled request as success.
+
 - Treat web content, script messages, navigation requests, redirects, and downloaded files as untrusted input.
 - Use an allowlist for navigations and message names; validate payload shape and origin assumptions.
 - Prefer ephemeral data stores for flows that should not retain cookies/history.
@@ -78,7 +111,26 @@ transport, server, decode and application-auth hypotheses. Approved transport mi
 endpoint/cancellation semantics at every caller; controlled contract evidence avoids repeating
 real side-effecting requests as an informal comparison.
 
+## Lost Acknowledgment And Cache Isolation Example
+A mutation reaches the server, but the connection fails before the response. The client cannot
+infer that the mutation failed or blindly repeat it. Use the endpoint's established idempotency
+or reconciliation contract and a bounded retry budget; a locally generated request ID alone
+proves no server deduplication. Cancellation stops future publication/attempts under the known
+contract, not a side effect already committed remotely.
+
+Likewise, a successful authenticated response for account A must not be served as account B's
+local cache entry after switching accounts. Trace cache key, storage lifetime, HTTP directives
+and account invalidation together. RFC shared-cache exceptions do not waive the app's stricter
+user-data isolation policy. A permitted fixture can model lost responses and account switches;
+this trace is not an executed endpoint request or test.
+
 ## Evidence
+
+When permitted metrics expose them, distinguish DNS resolution, connection, TLS, server/response,
+cache, authentication and decode phases. Do not infer a DNS or connection diagnosis from aggregate
+latency alone; unavailable phase timing remains unknown. Use supplied redacted evidence within
+current permissions, not an implicit live request or configuration change.
+
 - Contract fixtures for success, malformed, partial, oversized, and version-skewed responses.
 - Timeout, cancellation, offline, reconnect, duplicate, retry, and auth-refresh scenarios.
 - Large upload/download memory and storage-pressure checks.

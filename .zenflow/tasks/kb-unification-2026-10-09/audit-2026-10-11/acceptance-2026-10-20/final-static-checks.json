@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-21",
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "index",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "Docs index OK: 209 indexed paths checked\n"
+    },
+    {
+      "check": "knowledge",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "iOS knowledge system OK: 18 active domains, 18 complete, 4 deferred\n"
+    },
+    {
+      "check": "framework",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "iOS production framework OK: 54 required files present\n"
+    },
+    {
+      "check": "cost",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "check": "routes",
+      "exit_code": 0,
+      "stderr": ""
+    }
+  ],
+  "behavioral": {
+    "cases": 35,
+    "status": "PASS_REUSED",
+    "reason": "Production script hashes exactly unchanged from executed35-case acceptance; registry-only changes checked against actual canonical/project inventories.",
+    "script_hashes": {
+      "resolve_docs_route.py": "e80b01401c3c4e70cbde59442ad160738743793064dc0cf85f8692d364d51f12",
+      "report_documentation_context_cost.py": "af3771dd552941868fc10c339678474deac34ccb2dce14f84f6c49d39ba23a1a",
+      "check_documentation_boundaries.py": "6a0ccab6ae38180df37c2da0ad43a13612392c43420da64dbe9957f26a49b538"
+    }
+  },
+  "limits": "Static documentation/CLI evidence only; no app builds/runtime."
+}

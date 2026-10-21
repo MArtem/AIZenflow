@@ -1,0 +1,20 @@
+# Observability/debugging comparison — 2026-10-14
+
+Ten complete bodies LIB-0215–LIB-0224 and all 31 mapped units read. Ten active dispositions and 21 archive dispositions reviewed. No runtime, log capture, account, configuration, test or containment operation performed.
+
+- 0215-U01: Operations `Observability` and `Metric Design` retain subsystem/category/levels, stable versioned schema, bounded privacy metadata and purposeful correlation rather than tracking.
+- 0216-U01: same owner retains signposts, crash/hang/MetricKit privacy and retention, sampling, aggregation/window/denominator and missing-event assumptions. This supports the source's short topic contract; it does not prove complete MetricKit implementation guidance or current SDK availability.
+- 0217-U01: Testing `Crash And Hang Triage` requires exact binary/dSYM/build UUID, affected versions, frame/task/isolation owner, regression range and controlled reproduction. `Debugging Workflow` requires a discriminating hypothesis and observed regression detector or provisional diagnosis.
+- 0218-U01: Testing diagnosis plus Operations responsiveness/signposts retain multiple stacks, deadlock/starvation/synchronous I/O/layout/main work hypotheses. Frozen UI or one frame cannot prove root cause. Signpost-specific support is in Operations; the ledger's Testing-only focus headings are less precise than this combined mapping.
+- 0219-U01: Testing `Determinism`/`Debugging Workflow` explicitly preserve environment/input/timeline, seed/clock/network/scheduler controls and reduction to first incorrect state.
+- 0220-U01: Testing tool limitations and Concurrency isolation/ordering/Swift discipline retain compiler diagnostics, controlled ordering and isolation design. No suppression or unchecked escape is authorized. Existing A01 remains independently relevant.
+- 0221-U01: Networking `Request Contract`, `Reliability`, `Caching` explicitly retain redacted IDs/status/timing, auth replay/retry interaction, HTTP validators/session caching, and separation of transport/server/decode/auth hypotheses. No real side-effecting replay for comparison.
+- 0222-U01: Persistence `Data Ownership` and `Migration` explicitly retain evidence-preserving scoped containment recommendation, supported schemas, interrupted recovery, only-copy protection and owner authority. U04 archives the unconditional live write-stop imperative, not the need to protect corrupt data. Containment remains a proposal until authorized.
+- 0223-U01: Operations `Metric Design`/`Runtime Operations` retains distinct success/failure/cancellation/latency populations, denominators, missingness, PII minimization, user-journey SLOs and actionable owner-bound alerts.
+- 0224-U01: Testing diagnosis/evidence plus Operations observability support sufficient state/timeline/IDs/metrics for a discriminating investigation; no claim all defects can be diagnosed remotely. Generic cited Testing headings alone are less explicit about instrumented transition coverage, so cite Operations when refining provenance.
+
+Common method: actual context/toolchain/owner, invariants and failure paths, justified alternatives, minimal diff, proportional permitted verification, truthful limits and review of relevant concurrency/memory/privacy/performance effects. Each U02 retires the fixed alternatives quota; each U03 retires V2 delivery bindings. Linked deep playbooks remain independent unread sources. Archived material is not active reviewed coverage.
+
+No new confirmed content-loss finding in this bounded group; 0218/0224 need more precise multi-owner provenance if mappings are revised. Migration chronology remains unverified from current-text comparison. Actual diagnostic efficacy, current APIs and production observability remain UNVERIFIED.
+
+Negative control specification only: an apparent latency improvement caused solely by omitted cancelled/failed requests or a changed aggregation window must not be accepted as a speedup. A corrupt-store incident must not silently convert advice into an unauthorized live write freeze or destructive reset. No experiment/test was run.

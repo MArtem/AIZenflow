@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-21",
+  "authority": "Explicit current user request: preserve all changes/resources in Git main/development, clean working trees",
+  "repositories": [
+    "MArtem/AIZenflow",
+    "MArtem/AIZenflowDocumentation"
+  ],
+  "contract": [
+    "Preserve119reviewed reusable fingerprints unchanged",
+    "Preserve owned audit resources and existing reviewed ledger/archive",
+    "Save future plan without running pilot/U7",
+    "Fast-forward main/development only; no force push or upstream remotes",
+    "Review staged diff then exact committed range; record receipt outside tracked commit",
+    "Verify remote refs and clean current/vault/main checkouts"
+  ],
+  "limits": "No app source/runtime/test phase, new reviewers/agents, credentials or closed experiment access"
+}

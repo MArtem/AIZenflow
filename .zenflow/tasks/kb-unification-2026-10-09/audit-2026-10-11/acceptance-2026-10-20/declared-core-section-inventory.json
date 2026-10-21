@@ -1,0 +1,952 @@
+{
+  "scope": "Current declared core locators only; headings/counts do not prove semantic depth.",
+  "domains": [
+    {
+      "domain": "universal-ios-engineering-quality",
+      "route": "ios-universal-quality",
+      "files": [
+        {
+          "path": "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+          "sha256": "5d76a19bf19745a47bffceb298820cec0f113974c53e61239f10f7404ed6ef15",
+          "headings": [
+            "Status and authority",
+            "Current Verification Authority",
+            "Universal change contract",
+            "Quality gates",
+            "1. Product and architecture",
+            "2. Swift language and concurrency",
+            "3. UI, rendering, accessibility, and localization",
+            "4. Data, persistence, media, and caches",
+            "5. Network, API, and synchronization",
+            "6. Security, privacy, and platform capabilities",
+            "7. Build graph, dependencies, and supply chain",
+            "8. Testing, diagnostics, performance, and operations",
+            "9. Release and evidence",
+            "Minimum machine enforcement",
+            "Severity and exception policy",
+            "Authoritative references",
+            "Routed implementation documents"
+          ]
+        },
+        {
+          "path": "./docs/PRODUCTION_QUALITY_GATES.md",
+          "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf",
+          "headings": [
+            "Purpose",
+            "Core Rule",
+            "Universal Definition Of Done",
+            "Stop-The-Line Rules",
+            "Architecture And Ownership Gate",
+            "SwiftUI Rendering Gate",
+            "Scroll/List/Grid Performance Gate",
+            "State And Observation Gate",
+            "Concurrency And Threading Gate",
+            "Persistence And Database Gate",
+            "Network And Sync Gate",
+            "Models And Data Mapping Gate",
+            "Memory, Media, And Cache Gate",
+            "Visual Rendering And UI Polish Gate",
+            "Error Handling And Resilience Gate",
+            "Security, Privacy, And Logging Gate",
+            "Testing And Verification Gate",
+            "Review Gate",
+            "Severity Classification"
+          ]
+        },
+        {
+          "path": "./docs/IOS_PRODUCTION_FRAMEWORK.md",
+          "sha256": "9a94a32224f26ef5f0c1b4cdeb54e8e7b1664fe63358cf851435e5d0f7cb6d63",
+          "headings": [
+            "Purpose",
+            "Non-Negotiable Principle",
+            "Framework Operating Documents",
+            "Framework Layers",
+            "Mandatory Workflow For Any Non-Trivial Feature",
+            "Coverage Matrix",
+            "Completion Rule"
+          ]
+        },
+        {
+          "path": "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+          "sha256": "07fa5b6a52feaf3583bf5bfbb18f5ad6d0ff62888f7864c12ef84f89e6b29278",
+          "headings": [
+            "Purpose",
+            "Severity",
+            "Required Finding Format",
+            "Audit Domains"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "swift-language-runtime-api-design",
+      "route": "ios-swift-language-runtime",
+      "files": [
+        {
+          "path": "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+          "sha256": "41c9a82a63a4e9873d0bbcb9b559c4e9aa1e1c26075f5e8114b53960a79eb20d",
+          "headings": [
+            "Purpose",
+            "Core Principle",
+            "Default Project Documentation Scope",
+            "What To Document",
+            "Required Comment Dimensions",
+            "Purpose",
+            "Responsibilities",
+            "Ownership / Created By",
+            "External Usage / Call Context",
+            "Behavior",
+            "Side Effects",
+            "Concurrency",
+            "Errors / Failure Behavior",
+            "Invariants",
+            "Rationale",
+            "Temporary Workaround / Expiry",
+            "Templates",
+            "Type / ViewModel / Service",
+            "Method With External Usage",
+            "Computed Property In UI Hot Path",
+            "Review Checklist",
+            "Stop Rules"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+          "sha256": "1124314abc29c021b347f63078c7a35d4bdcdac1aadcc816dc408e38431e499a",
+          "headings": [
+            "Load When",
+            "Mental Model",
+            "Type And API Decisions",
+            "Concrete Type, `some`, `any`, Or Generic",
+            "Protocol Or Concrete Dependency",
+            "`struct`, `class`, `actor`, Or `enum`",
+            "Ownership And Memory",
+            "Error And Result Design",
+            "Public API Rules",
+            "Macros And Generated Code",
+            "Property Wrappers",
+            "Interoperability",
+            "Performance Discipline",
+            "Worked Ownership And API Choice",
+            "Evidence",
+            "Primary Sources And Review Triggers"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "swift-concurrency",
+      "route": "ios-concurrency-runtime",
+      "files": [
+        {
+          "path": "./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+          "sha256": "bec4fd4c40f869480419430db5f02e96cec50650ea014cc981e16394daaf2776",
+          "headings": [
+            "Purpose",
+            "Addressed Deep Reading",
+            "Conditional Practical Mechanism",
+            "Required Rules",
+            "Review Checklist",
+            "Stop Rules"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "sha256": "bdf8cacbbe2098b394351cef25a4c1394e732f6a956d27596c13978dd67151f4",
+          "headings": [
+            "Load When",
+            "Core Model",
+            "Isolation Design",
+            "Task Ownership",
+            "Cancellation",
+            "Continuations And Callbacks",
+            "Streams",
+            "Reactive And Queue Bridges",
+            "Ordering And Stale Results",
+            "Invocation Publication Practical Slice",
+            "Contract And Mechanism",
+            "Illustrative Owner Example",
+            "Falsification Traces And Evidence Limits",
+            "Swift 6.x Discipline",
+            "Testing And Evidence",
+            "Primary Sources"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "swiftui-uikit-adaptive-ui",
+      "route": "ios-ui-adaptive",
+      "files": [
+        {
+          "path": "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+          "sha256": "459b4fc80d317e4e234459ada0f8f89209528f39ea6d4e7a2780554489c16501",
+          "headings": [
+            "Purpose",
+            "Required Rules",
+            "Stateful Screen State Contract",
+            "ViewModel API Rule",
+            "View Model Ownership Decision Rule",
+            "Default Shape",
+            "A Dedicated Model/ViewModel Is Justified When",
+            "A Dedicated Model/ViewModel Is Not Justified When",
+            "Target State",
+            "Review Checklist",
+            "Stop Rules"
+          ]
+        },
+        {
+          "path": "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+          "sha256": "5dfa511b37911d81675318946032a8e733f889dd2c997c5dba48b891ab30a22e",
+          "headings": [
+            "Purpose",
+            "Required Checks",
+            "Blocking Issues",
+            "Explanation And Failure Trace"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "sha256": "2b18e5124f3ba8497331f1d9095a7570a4c00ce580bcd155f53f535b9dc762f2",
+          "headings": [
+            "Load When",
+            "UI Runtime Model",
+            "State Placement",
+            "Toolchain-Specific State Storage",
+            "Invalidation And Preview Evidence",
+            "Identity And Collections",
+            "Ownership And Identity Review",
+            "Navigation And Presentation",
+            "iPhone And iPad Core",
+            "UIKit Interoperability",
+            "UIKit Lifecycle And Reuse Review",
+            "Text, Input, And Focus",
+            "Layout And Rendering",
+            "Design-System Consumers",
+            "Accessible And Localized Interaction Review",
+            "Evidence Matrix",
+            "Primary Sources"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "ai-ml-intelligence-and-app-intents",
+      "route": "ios-ai-app-intents",
+      "files": [
+        {
+          "path": "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md",
+          "sha256": "c1e9b0f6ffb7d81c4ca5e925899303be3af48b81bb140e70f779d6852799c1bb",
+          "headings": [
+            "0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ"
+          ]
+        },
+        {
+          "path": "./docs/agent-prompts/AI_iOS_TASK_ROUTER.md",
+          "sha256": "082e71875bb47adef52805e89924eb9f1bb6c6f9ca79c00db62e1e35e22fd56e",
+          "headings": [
+            "Purpose",
+            "Loading Contract",
+            "Core Rules For Every AI Task",
+            "Section Routes",
+            "Primary Theory For Selected Routes",
+            "Specialist Theory And Failure Bindings",
+            "Specialist Route Ownership",
+            "Canonical Files"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "architecture-modularization-state",
+      "route": "ios-architecture-navigation-state",
+      "files": [
+        {
+          "path": "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+          "sha256": "e6ae403415042648c29c62ffc4c06ac2a6e3d656a8dfc77dcdb8d314f9ce7c1f",
+          "headings": [
+            "Purpose",
+            "How To Use",
+            "Invariants Before Style",
+            "Architecture Detection And Review Gates",
+            "Architecture-Specific Interaction Rule",
+            "Architecture Selection Priorities",
+            "Stop List",
+            "Review Output Contract"
+          ]
+        },
+        {
+          "path": "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
+          "sha256": "61557d5a66c377ed3810baf15da43cc3b4854673e78cf04443821be224d10c68",
+          "headings": [
+            "Purpose",
+            "Required Checks",
+            "Forbidden By Default",
+            "Reusable Infrastructure Naming",
+            "Boundary Model And Worked Choice"
+          ]
+        },
+        {
+          "path": "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+          "sha256": "c51bfe928564c9454f3027eefb457b84bd1cc891131549a81ae9aed0ea713d36",
+          "headings": [
+            "Purpose",
+            "Default Rule",
+            "Why",
+            "Allowed Exception",
+            "View Contract",
+            "Naming Rules",
+            "Review Checklist",
+            "Stop Rules"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "networking-api-web-realtime",
+      "route": "ios-network-api-offline-sync",
+      "files": [
+        {
+          "path": "./docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
+          "sha256": "790abe077f9a19fdf7195a5718a6f149107377948f9f15069e3d874c8f21f88c",
+          "headings": [
+            "Purpose",
+            "Required Checks",
+            "DTO And Domain Boundaries",
+            "Errors",
+            "Retry And Idempotency",
+            "Pagination And Sync",
+            "Offline",
+            "Observability"
+          ]
+        },
+        {
+          "path": "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+          "sha256": "d9b73b445a996ee1f63b476607eb560d5dd5ce03af4f72d246287bc5940add64",
+          "headings": [
+            "Purpose",
+            "Required Rules",
+            "Review Checklist",
+            "Required Verification"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+          "sha256": "cb15bc1511ce9ba536a84e7f788f5c3c05e479f21c50adca8813aa0fcdb47b0b",
+          "headings": [
+            "Load When",
+            "Boundary Model",
+            "Request Contract",
+            "Reliability",
+            "Uploads And Downloads",
+            "Realtime Protocols",
+            "Reconnect, Gap And Replay Trace",
+            "WebKit",
+            "TLS And Trust",
+            "Caching",
+            "Lost Acknowledgment And Cache Isolation Example",
+            "Evidence",
+            "Primary Sources"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "identity-authentication-authorization",
+      "route": "ios-identity-authentication",
+      "files": [
+        {
+          "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "sha256": "7479ff04b898b0ddd1ee36075e802818f2e7bf5130c13069884ecf21e7018ccd",
+          "headings": [
+            "Purpose",
+            "Required Checks",
+            "Secrets And Tokens",
+            "Files And App Groups",
+            "Privacy Manifests And Permissions",
+            "Logging And Analytics",
+            "External Input",
+            "Transport And Device Integrity",
+            "Data Lifecycle",
+            "Blocking Findings"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "sha256": "0b90cfb31bd635f35c9b8ac7d1f0dea57a75c979d22b9bb3c5406b2816058d1e",
+          "headings": [
+            "Load When",
+            "Security Model",
+            "Threat Model Intake",
+            "OAuth And OIDC",
+            "Passkeys And Sign In With Apple",
+            "Session Lifecycle",
+            "Native OAuth And Storage Failure Example",
+            "LocalAuthentication",
+            "Local Presence And Lost-Key Failure Trace",
+            "Keychain And Data Protection",
+            "Cryptography",
+            "Key Rotation And Authentication Failure Example",
+            "App Attest And DeviceCheck",
+            "Attestation Replay And Recovery Trace",
+            "Authorization Rules",
+            "Evidence",
+            "Primary Sources"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "security-privacy-cryptography",
+      "route": "ios-security-privacy-intake",
+      "files": [
+        {
+          "path": "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+          "sha256": "9d892f8f5e7c7e239da35dd11476d757513cdc70650d261cbdbb7a2a52a65d2e",
+          "headings": [
+            "Purpose",
+            "Core Rules",
+            "Sensitive Material Inventory",
+            "Storage Policy",
+            "Git Ignore Baseline",
+            "AI-Readable Workspace Policy",
+            "Xcode And iOS Rules",
+            "Security Intake / Remediation Workflow",
+            "Completion Criteria"
+          ]
+        },
+        {
+          "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "sha256": "7479ff04b898b0ddd1ee36075e802818f2e7bf5130c13069884ecf21e7018ccd",
+          "headings": [
+            "Purpose",
+            "Required Checks",
+            "Secrets And Tokens",
+            "Files And App Groups",
+            "Privacy Manifests And Permissions",
+            "Logging And Analytics",
+            "External Input",
+            "Transport And Device Integrity",
+            "Data Lifecycle",
+            "Blocking Findings"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+          "sha256": "0b90cfb31bd635f35c9b8ac7d1f0dea57a75c979d22b9bb3c5406b2816058d1e",
+          "headings": [
+            "Load When",
+            "Security Model",
+            "Threat Model Intake",
+            "OAuth And OIDC",
+            "Passkeys And Sign In With Apple",
+            "Session Lifecycle",
+            "Native OAuth And Storage Failure Example",
+            "LocalAuthentication",
+            "Local Presence And Lost-Key Failure Trace",
+            "Keychain And Data Protection",
+            "Cryptography",
+            "Key Rotation And Authentication Failure Example",
+            "App Attest And DeviceCheck",
+            "Attestation Replay And Recovery Trace",
+            "Authorization Rules",
+            "Evidence",
+            "Primary Sources"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "sha256": "29fa0d60ecc1ead2c9037de816ae45294f88dceb2b346083a0aac3d5e5a69286",
+          "headings": [
+            "Load When",
+            "Living Requirements",
+            "Submission Contract",
+            "Release Candidate Trace",
+            "Privacy Manifest And Required-Reason APIs",
+            "Privacy Labels And Data Lifecycle",
+            "Tracking And Attribution",
+            "Accounts And User Content",
+            "StoreKit",
+            "Transaction Delivery And Recovery Example",
+            "Subscription Access-State Example",
+            "Encryption And Export",
+            "Kids, Health, Finance, Location, And Regulated Data",
+            "SDK And Supply-Chain Review",
+            "Release Evidence",
+            "Primary Sources And Mandatory Review Triggers"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "persistence-migration-sync-cloudkit",
+      "route": "ios-persistence-migration-data-loss",
+      "files": [
+        {
+          "path": "./docs/IOS_DATA_MIGRATION_STANDARD.md",
+          "sha256": "a6209270d5b765e1fb330deb136923578150e3f13f6e799d03292417e317431e",
+          "headings": [
+            "Purpose",
+            "Required Checks",
+            "Pre-Production Exception"
+          ]
+        },
+        {
+          "path": "./docs/IOS_OFFLINE_SYNC_STANDARD.md",
+          "sha256": "da6c02bcc83617293581ce477ff00744d9558829d3333a212ab81ade38bf9f4d",
+          "headings": [
+            "Purpose",
+            "Required Rules",
+            "Review Checklist"
+          ]
+        },
+        {
+          "path": "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+          "sha256": "78f8ac22f81bc93c9cb48cf7e91d9eb6be02e3c0189a9e2e64521e772dd56bd1",
+          "headings": [
+            "Purpose",
+            "Required Checks",
+            "Blocking Risks"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+          "sha256": "37829051538c2c498cbb1341a2b12a45dc8a6f1f5c193bdea3b78a0d73f31422",
+          "headings": [
+            "Load When",
+            "Choose By Contract",
+            "Preferences And Derived Caches",
+            "Data Ownership",
+            "SwiftData And Core Data",
+            "Files",
+            "Migration",
+            "CloudKit",
+            "CloudKit Recovery Example",
+            "Offline And Sync",
+            "Import, Export, And Deletion",
+            "Interrupted Mutation Example",
+            "Evidence",
+            "Primary Sources"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "testing-debugging-diagnostics",
+      "route": "ios-testing-debugging",
+      "files": [
+        {
+          "path": "./docs/IOS_TESTING_STRATEGY.md",
+          "sha256": "1facd29f338ea801843931beef4a47079f9c58be734a3a99c78aa7451ee1bc26",
+          "headings": [
+            "Purpose",
+            "Permission Boundary",
+            "Test Decision Matrix",
+            "Unit Tests",
+            "Integration Tests",
+            "UI Tests",
+            "Manual iPhone Simulator QA",
+            "Instruments / Performance Verification",
+            "Relaunch / Migration Verification",
+            "Network/Offline Verification",
+            "Required Production Test Report"
+          ]
+        },
+        {
+          "path": "./docs/QA_TEST_PLAN_STANDARD.md",
+          "sha256": "cfef50a1720f1b15e5135d6affa4e9fa038506f716cff41db01199b0999b95ff",
+          "headings": [
+            "Purpose",
+            "Test Plan Sections",
+            "Smoke Matrix Template"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+          "sha256": "2dad465f00c1bfeb3d119431700bd5f482b1f1238103a12bc23e90d8dae37901",
+          "headings": [
+            "Load When",
+            "Evidence Model",
+            "Test Portfolio",
+            "Swift Testing And XCTest",
+            "Parallelization Boundary Example",
+            "Determinism",
+            "Test Doubles",
+            "Flaky Tests",
+            "Debugging Workflow",
+            "Tools",
+            "Crash And Hang Triage",
+            "Evidence Completion",
+            "Primary Sources"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "build-binary-dependencies-supply-chain",
+      "route": "ios-build-binary-supply-chain",
+      "files": [
+        {
+          "path": "./docs/DEPENDENCY_POLICY.md",
+          "sha256": "a00a015c3a18e935dfe42a87fc6d1c845410ba7ed5107cf9de3e56445e6b78cd",
+          "headings": [
+            "Purpose",
+            "Approval Criteria",
+            "Forbidden By Default",
+            "Removal Policy",
+            "Update Policy"
+          ]
+        },
+        {
+          "path": "./docs/CI_CD_QUALITY_GATES.md",
+          "sha256": "e343635b1b0b1b5da9c51c3b715391d3b5c581600f26aea2797ce1fd06316312",
+          "headings": [
+            "Purpose",
+            "Execution Authority",
+            "Manual Workflow Modes",
+            "Required Execution Order",
+            "Project-Specific Static Gate Evolution",
+            "Cost Boundary",
+            "Deterministic Check Catalog",
+            "PR Gate Output",
+            "Reproducibility Rules",
+            "Result Semantics"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+          "sha256": "50a306a64c53009d638d0077edf1fed49604a1a3f59f75772978c1fb5d8eeaad",
+          "headings": [
+            "Load When",
+            "Build Model",
+            "Configuration",
+            "Targets And Build Phases",
+            "Modules And Linking",
+            "SwiftPM And Dependencies",
+            "Supply Chain",
+            "SDK Consumer Boundary",
+            "Binary And Runtime Diagnosis",
+            "Reproducibility And CI",
+            "Build Performance",
+            "Dependency Identity And Slice Example",
+            "Evidence",
+            "Primary Sources"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "platform-capabilities-extensions",
+      "route": "ios-platform-capabilities-extended",
+      "files": [
+        {
+          "path": "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+          "sha256": "f351224f8b745bc9c086ae8c69ef88774be1a05c3328b16f5dfd28fbc5299e0a",
+          "headings": [
+            "Purpose",
+            "Capability Checks",
+            "Push Notifications",
+            "Background Modes",
+            "Universal Links / Deep Links",
+            "Widgets / App Extensions",
+            "In-App Purchase / Subscriptions",
+            "Sign in with Apple",
+            "Photos / Files / Camera / Microphone",
+            "App Intents / Siri / Shortcuts",
+            "Live Activities / Spotlight / Associated Domains / App Groups",
+            "Evidence Classification"
+          ]
+        },
+        {
+          "path": "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+          "sha256": "59b2e78407b828272a667a3a2cb20f13c230b30087aaf8222b6d9a76b2b4707a",
+          "headings": [
+            "Purpose",
+            "Required Rules",
+            "Review Checklist"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md",
+          "sha256": "2afcb33a7c9e17c5e6ce099639fe033cbec2d48c24116c8e2ae5f2ddb8d8f319",
+          "headings": [
+            "Load When",
+            "Capability Intake",
+            "Target And Extension Boundary",
+            "Notifications",
+            "Background Execution",
+            "Widgets",
+            "Live Activities",
+            "App Intents, Shortcuts, Siri, And Spotlight",
+            "System Surface Ownership And Recovery Example",
+            "Continuity And Focused Integrations",
+            "Associated Domains And Deep Links",
+            "App Groups",
+            "Cross-Target Trust Example",
+            "Share, Action, Document, And File Provider Extensions",
+            "Document Import Versus Provider Failure Example",
+            "StoreKit And Commerce",
+            "Capability Evidence Classes",
+            "Primary Sources"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "media-sensors-device-integrations",
+      "route": "ios-media-sensors-device",
+      "files": [
+        {
+          "path": "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+          "sha256": "30fa56cc1369a3485a57ef06ca22e558f4129a9fed20adc4958a738a18757265",
+          "headings": [
+            "Purpose",
+            "Required Rules",
+            "Review Checklist",
+            "Required Verification"
+          ]
+        },
+        {
+          "path": "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+          "sha256": "03f7e1b45267dc9b1f42c3a8c16be9f1ef8b69db02dcfae4ea04d8e7117cd89b",
+          "headings": [
+            "Purpose",
+            "Required Rules",
+            "Review Checklist"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md",
+          "sha256": "f234cfe9f82cf397a0d176510f93e3a27a8442d235c100b4378861bc5fcad813",
+          "headings": [
+            "Load When",
+            "Permission Model",
+            "Runtime Ownership",
+            "Camera And Photos",
+            "Photo Access And Asset Lifetime Example",
+            "Audio, Video, And Speech",
+            "Audio Interruption Compatibility Example",
+            "Location And Maps",
+            "Location Decision And Failure Trace",
+            "Bluetooth, NFC, And Nearby",
+            "Radio Session Decision And Failure Trace",
+            "Health, Contacts, Calendars, And Sensitive Stores",
+            "Sensitive Store Decision And Failure Trace",
+            "Motion And Haptics",
+            "Motion And Haptic Recovery Trace",
+            "Simulator Versus Device",
+            "Performance And Privacy",
+            "Evidence",
+            "Primary Sources"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "performance-observability-operations",
+      "route": "ios-observability-incidents-rollout",
+      "files": [
+        {
+          "path": "./docs/IOS_PERFORMANCE_BUDGETS.md",
+          "sha256": "8d7688bbff9b124a2390f84685283a2840137b7059d25651dd53b49d4253bf84",
+          "headings": [
+            "Purpose",
+            "Default Budgets",
+            "Launch",
+            "Scrolling",
+            "Main Thread",
+            "Memory",
+            "Rendering",
+            "Measurement Rule",
+            "Required Performance Report"
+          ]
+        },
+        {
+          "path": "./docs/IOS_OBSERVABILITY_STANDARD.md",
+          "sha256": "ba7e10833453b374d71f05960ca77eedf278eb472073e000437c9aab14a5abdd",
+          "headings": [
+            "Purpose",
+            "Required Signals",
+            "Crash And Non-Fatal Reporting",
+            "Performance Metrics",
+            "Analytics",
+            "Logging",
+            "Required Review Output"
+          ]
+        },
+        {
+          "path": "./docs/INCIDENT_RESPONSE_STANDARD.md",
+          "sha256": "a054dc9796c7a4ba27cf2f1e44f46626809d6faf986cac2237d5d13c37909bb8",
+          "headings": [
+            "Purpose",
+            "Severity Levels",
+            "Incident Workflow",
+            "Postmortem Template"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+          "sha256": "5d7e46328c6b127f440556b5254f9c31cae3edb4e829b81287269bd4dbf21d91",
+          "headings": [
+            "Load When",
+            "Measure From User Impact",
+            "Performance Domains",
+            "Optimization Workflow",
+            "Observability",
+            "Metric Design",
+            "Runtime Operations",
+            "Measured-Cause And Telemetry Example",
+            "Evidence",
+            "Primary Sources"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "app-store-release-compliance",
+      "route": "ios-app-store-compliance",
+      "files": [
+        {
+          "path": "./docs/IOS_RELEASE_CHECKLIST.md",
+          "sha256": "a537cd9bfb16cb8fda22a8f59f72199503eede0ddec39f8a5b41833393f796c5",
+          "headings": [
+            "Purpose",
+            "Checklist",
+            "Build And Signing",
+            "App Store / TestFlight",
+            "Runtime Readiness",
+            "Diagnostics",
+            "Rollout",
+            "Manual Quality Modes",
+            "Release Receipt"
+          ]
+        },
+        {
+          "path": "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+          "sha256": "7479ff04b898b0ddd1ee36075e802818f2e7bf5130c13069884ecf21e7018ccd",
+          "headings": [
+            "Purpose",
+            "Required Checks",
+            "Secrets And Tokens",
+            "Files And App Groups",
+            "Privacy Manifests And Permissions",
+            "Logging And Analytics",
+            "External Input",
+            "Transport And Device Integrity",
+            "Data Lifecycle",
+            "Blocking Findings"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "sha256": "29fa0d60ecc1ead2c9037de816ae45294f88dceb2b346083a0aac3d5e5a69286",
+          "headings": [
+            "Load When",
+            "Living Requirements",
+            "Submission Contract",
+            "Release Candidate Trace",
+            "Privacy Manifest And Required-Reason APIs",
+            "Privacy Labels And Data Lifecycle",
+            "Tracking And Attribution",
+            "Accounts And User Content",
+            "StoreKit",
+            "Transaction Delivery And Recovery Example",
+            "Subscription Access-State Example",
+            "Encryption And Export",
+            "Kids, Health, Finance, Location, And Regulated Data",
+            "SDK And Supply-Chain Review",
+            "Release Evidence",
+            "Primary Sources And Mandatory Review Triggers"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "storekit-and-commerce",
+      "route": "ios-storekit-payments",
+      "files": [
+        {
+          "path": "./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md",
+          "sha256": "6b3f2204ccf4ce980e4fd360c97ea81fd80594f7bab5d25e9dc4fc1abd36c3cc",
+          "headings": [
+            "Purpose",
+            "Required Rules",
+            "Review Checklist",
+            "Delivery And Recovery Procedure"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+          "sha256": "29fa0d60ecc1ead2c9037de816ae45294f88dceb2b346083a0aac3d5e5a69286",
+          "headings": [
+            "Load When",
+            "Living Requirements",
+            "Submission Contract",
+            "Release Candidate Trace",
+            "Privacy Manifest And Required-Reason APIs",
+            "Privacy Labels And Data Lifecycle",
+            "Tracking And Attribution",
+            "Accounts And User Content",
+            "StoreKit",
+            "Transaction Delivery And Recovery Example",
+            "Subscription Access-State Example",
+            "Encryption And Export",
+            "Kids, Health, Finance, Location, And Regulated Data",
+            "SDK And Supply-Chain Review",
+            "Release Evidence",
+            "Primary Sources And Mandatory Review Triggers"
+          ]
+        }
+      ]
+    },
+    {
+      "domain": "accessibility-localization-inclusive-ux",
+      "route": "ios-accessibility-localization-qa",
+      "files": [
+        {
+          "path": "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+          "sha256": "5dfa511b37911d81675318946032a8e733f889dd2c997c5dba48b891ab30a22e",
+          "headings": [
+            "Purpose",
+            "Required Checks",
+            "Blocking Issues",
+            "Explanation And Failure Trace"
+          ]
+        },
+        {
+          "path": "./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+          "sha256": "49941b39b24ac58c1fd2152281fa0e689aaa9064fcafcdc5dd7de40887dc97ac",
+          "headings": [
+            "Purpose",
+            "Required Checks",
+            "Forbidden By Default",
+            "Mental Model And Failure Example"
+          ]
+        },
+        {
+          "path": "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+          "sha256": "2b18e5124f3ba8497331f1d9095a7570a4c00ce580bcd155f53f535b9dc762f2",
+          "headings": [
+            "Load When",
+            "UI Runtime Model",
+            "State Placement",
+            "Toolchain-Specific State Storage",
+            "Invalidation And Preview Evidence",
+            "Identity And Collections",
+            "Ownership And Identity Review",
+            "Navigation And Presentation",
+            "iPhone And iPad Core",
+            "UIKit Interoperability",
+            "UIKit Lifecycle And Reuse Review",
+            "Text, Input, And Focus",
+            "Layout And Rendering",
+            "Design-System Consumers",
+            "Accessible And Localized Interaction Review",
+            "Evidence Matrix",
+            "Primary Sources"
+          ]
+        }
+      ]
+    }
+  ]
+}

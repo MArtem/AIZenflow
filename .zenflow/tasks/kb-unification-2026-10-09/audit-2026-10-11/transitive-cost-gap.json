@@ -1,0 +1,361 @@
+{
+  "status": "bounded lower bound, not exhaustive closure",
+  "evidence_chain": [
+    "PRODUCTION_REVIEW_COMPLETENESS_GATE.md#trigger-rule",
+    "PRODUCTION_CODE_REVIEW_CHECKLIST.md#usage-rule"
+  ],
+  "token_telemetry": "UNKNOWN",
+  "results": [
+    {
+      "scenario": "cancellation/replacement",
+      "recipe_words": 18272,
+      "additional_mandatory_files": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "words": 1844,
+          "bytes": 13958,
+          "sha256": "7dffafb717c84c5823b54f913ffe91ff3e6953b4072138c5508b4759454674fe"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+          "words": 2054,
+          "bytes": 14974,
+          "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+          "words": 287,
+          "bytes": 3169,
+          "sha256": "670910c4afc7f12a4cdec2033ec3d1dee2eed88a6aa356a4803709b09afbb800"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+          "words": 228,
+          "bytes": 2142,
+          "sha256": "2189b7d9195fca3d3e9a4d10d96b67bde92c21877ebf52bfec853b2195a77495"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+          "words": 509,
+          "bytes": 4576,
+          "sha256": "c99a0b46a94d625a7abe65f7c762cf8026dcb3983bbd70fe1d167b4e5ae3f750"
+        }
+      ],
+      "additional_words": 4922,
+      "additional_bytes": 38819,
+      "lower_bound_words": 23194
+    },
+    {
+      "scenario": "Swift ownership",
+      "recipe_words": 17343,
+      "additional_mandatory_files": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "words": 1844,
+          "bytes": 13958,
+          "sha256": "7dffafb717c84c5823b54f913ffe91ff3e6953b4072138c5508b4759454674fe"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+          "words": 2054,
+          "bytes": 14974,
+          "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+          "words": 287,
+          "bytes": 3169,
+          "sha256": "670910c4afc7f12a4cdec2033ec3d1dee2eed88a6aa356a4803709b09afbb800"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+          "words": 228,
+          "bytes": 2142,
+          "sha256": "2189b7d9195fca3d3e9a4d10d96b67bde92c21877ebf52bfec853b2195a77495"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+          "words": 509,
+          "bytes": 4576,
+          "sha256": "c99a0b46a94d625a7abe65f7c762cf8026dcb3983bbd70fe1d167b4e5ae3f750"
+        }
+      ],
+      "additional_words": 4922,
+      "additional_bytes": 38819,
+      "lower_bound_words": 22265
+    },
+    {
+      "scenario": "API contract",
+      "recipe_words": 16752,
+      "additional_mandatory_files": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "words": 1844,
+          "bytes": 13958,
+          "sha256": "7dffafb717c84c5823b54f913ffe91ff3e6953b4072138c5508b4759454674fe"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+          "words": 2054,
+          "bytes": 14974,
+          "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+          "words": 287,
+          "bytes": 3169,
+          "sha256": "670910c4afc7f12a4cdec2033ec3d1dee2eed88a6aa356a4803709b09afbb800"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+          "words": 228,
+          "bytes": 2142,
+          "sha256": "2189b7d9195fca3d3e9a4d10d96b67bde92c21877ebf52bfec853b2195a77495"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+          "words": 509,
+          "bytes": 4576,
+          "sha256": "c99a0b46a94d625a7abe65f7c762cf8026dcb3983bbd70fe1d167b4e5ae3f750"
+        }
+      ],
+      "additional_words": 4922,
+      "additional_bytes": 38819,
+      "lower_bound_words": 21674
+    },
+    {
+      "scenario": "persistence rollback",
+      "recipe_words": 16456,
+      "additional_mandatory_files": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "words": 1844,
+          "bytes": 13958,
+          "sha256": "7dffafb717c84c5823b54f913ffe91ff3e6953b4072138c5508b4759454674fe"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+          "words": 2054,
+          "bytes": 14974,
+          "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+          "words": 287,
+          "bytes": 3169,
+          "sha256": "670910c4afc7f12a4cdec2033ec3d1dee2eed88a6aa356a4803709b09afbb800"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+          "words": 228,
+          "bytes": 2142,
+          "sha256": "2189b7d9195fca3d3e9a4d10d96b67bde92c21877ebf52bfec853b2195a77495"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+          "words": 509,
+          "bytes": 4576,
+          "sha256": "c99a0b46a94d625a7abe65f7c762cf8026dcb3983bbd70fe1d167b4e5ae3f750"
+        }
+      ],
+      "additional_words": 4922,
+      "additional_bytes": 38819,
+      "lower_bound_words": 21378
+    },
+    {
+      "scenario": "UI state",
+      "recipe_words": 18214,
+      "additional_mandatory_files": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "words": 1844,
+          "bytes": 13958,
+          "sha256": "7dffafb717c84c5823b54f913ffe91ff3e6953b4072138c5508b4759454674fe"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+          "words": 2054,
+          "bytes": 14974,
+          "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+          "words": 287,
+          "bytes": 3169,
+          "sha256": "670910c4afc7f12a4cdec2033ec3d1dee2eed88a6aa356a4803709b09afbb800"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+          "words": 228,
+          "bytes": 2142,
+          "sha256": "2189b7d9195fca3d3e9a4d10d96b67bde92c21877ebf52bfec853b2195a77495"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+          "words": 509,
+          "bytes": 4576,
+          "sha256": "c99a0b46a94d625a7abe65f7c762cf8026dcb3983bbd70fe1d167b4e5ae3f750"
+        }
+      ],
+      "additional_words": 4922,
+      "additional_bytes": 38819,
+      "lower_bound_words": 23136
+    },
+    {
+      "scenario": "network retries",
+      "recipe_words": 16752,
+      "additional_mandatory_files": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "words": 1844,
+          "bytes": 13958,
+          "sha256": "7dffafb717c84c5823b54f913ffe91ff3e6953b4072138c5508b4759454674fe"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+          "words": 2054,
+          "bytes": 14974,
+          "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+          "words": 287,
+          "bytes": 3169,
+          "sha256": "670910c4afc7f12a4cdec2033ec3d1dee2eed88a6aa356a4803709b09afbb800"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+          "words": 228,
+          "bytes": 2142,
+          "sha256": "2189b7d9195fca3d3e9a4d10d96b67bde92c21877ebf52bfec853b2195a77495"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+          "words": 509,
+          "bytes": 4576,
+          "sha256": "c99a0b46a94d625a7abe65f7c762cf8026dcb3983bbd70fe1d167b4e5ae3f750"
+        }
+      ],
+      "additional_words": 4922,
+      "additional_bytes": 38819,
+      "lower_bound_words": 21674
+    },
+    {
+      "scenario": "cache/media lifetime",
+      "recipe_words": 16722,
+      "additional_mandatory_files": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "words": 1844,
+          "bytes": 13958,
+          "sha256": "7dffafb717c84c5823b54f913ffe91ff3e6953b4072138c5508b4759454674fe"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+          "words": 2054,
+          "bytes": 14974,
+          "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+          "words": 287,
+          "bytes": 3169,
+          "sha256": "670910c4afc7f12a4cdec2033ec3d1dee2eed88a6aa356a4803709b09afbb800"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+          "words": 228,
+          "bytes": 2142,
+          "sha256": "2189b7d9195fca3d3e9a4d10d96b67bde92c21877ebf52bfec853b2195a77495"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+          "words": 509,
+          "bytes": 4576,
+          "sha256": "c99a0b46a94d625a7abe65f7c762cf8026dcb3983bbd70fe1d167b4e5ae3f750"
+        }
+      ],
+      "additional_words": 4922,
+      "additional_bytes": 38819,
+      "lower_bound_words": 21644
+    },
+    {
+      "scenario": "source-to-sink security",
+      "recipe_words": 18245,
+      "additional_mandatory_files": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "words": 1844,
+          "bytes": 13958,
+          "sha256": "7dffafb717c84c5823b54f913ffe91ff3e6953b4072138c5508b4759454674fe"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+          "words": 2054,
+          "bytes": 14974,
+          "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+          "words": 287,
+          "bytes": 3169,
+          "sha256": "670910c4afc7f12a4cdec2033ec3d1dee2eed88a6aa356a4803709b09afbb800"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+          "words": 228,
+          "bytes": 2142,
+          "sha256": "2189b7d9195fca3d3e9a4d10d96b67bde92c21877ebf52bfec853b2195a77495"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+          "words": 509,
+          "bytes": 4576,
+          "sha256": "c99a0b46a94d625a7abe65f7c762cf8026dcb3983bbd70fe1d167b4e5ae3f750"
+        }
+      ],
+      "additional_words": 4922,
+      "additional_bytes": 38819,
+      "lower_bound_words": 23167
+    },
+    {
+      "scenario": "build graph",
+      "recipe_words": 18399,
+      "additional_mandatory_files": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "words": 1844,
+          "bytes": 13958,
+          "sha256": "7dffafb717c84c5823b54f913ffe91ff3e6953b4072138c5508b4759454674fe"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+          "words": 2054,
+          "bytes": 14974,
+          "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+          "words": 287,
+          "bytes": 3169,
+          "sha256": "670910c4afc7f12a4cdec2033ec3d1dee2eed88a6aa356a4803709b09afbb800"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+          "words": 228,
+          "bytes": 2142,
+          "sha256": "2189b7d9195fca3d3e9a4d10d96b67bde92c21877ebf52bfec853b2195a77495"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+          "words": 509,
+          "bytes": 4576,
+          "sha256": "c99a0b46a94d625a7abe65f7c762cf8026dcb3983bbd70fe1d167b4e5ae3f750"
+        }
+      ],
+      "additional_words": 4922,
+      "additional_bytes": 38819,
+      "lower_bound_words": 23321
+    }
+  ]
+}

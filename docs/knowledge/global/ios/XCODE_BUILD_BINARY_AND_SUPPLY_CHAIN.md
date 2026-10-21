@@ -103,6 +103,25 @@ permit two side-effecting workflows, duplicate shipment, cherry-picking or crede
 ## Build Performance
 Measure clean and incremental builds separately. Inspect type-check hotspots, dependency fan-out, generated code, macros, script phases, module invalidation, and linker time. Modularization that adds boundaries can improve parallelism or worsen overhead; decide from dependency graph and measurements.
 
+## Dependency Identity And Slice Example
+Where SwiftPM is actually adopted, `Package.resolved` records resolved package versions/revisions;
+retain the repository's resolution policy. A remote binary target declares its archive checksum
+in the package manifest through `binaryTarget(name:url:checksum:)`. Check the producer and
+schema rather than assuming the checksum is a resolution-pin field. A remote binary checksum verifies
+that downloaded bytes match the expected artifact, not that the publisher or code is trustworthy.
+Review provenance, license, executable plugins/macros, supported platform slices and resource
+ownership separately. This reference does not authorize fetching or adopting a package.
+
+For example, a framework importing successfully for an iPhone Simulator says nothing about
+whether the approved distributed artifact contains the required shipping slices and resources.
+Inspect the actual consumer/artifact identity before proposing permitted build/archive evidence.
+A source-only app integration does not acquire SwiftPM requirements merely from this example;
+keep its existing package ownership and adoption mode.
+Primary theory: [Adding package dependencies](https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app)
+and [Distributing binary frameworks](https://developer.apple.com/documentation/xcode/distributing-binary-frameworks-as-swift-packages).
+For the exact producer/field contract, use [SwiftPM Target](https://docs.swift.org/latest/documentation/packagedescription/target/)
+and the versioned `ResolvedPackagesStore` schema; a higher-level overview does not replace that schema.
+
 ## Evidence
 - Clean and incremental build for intended targets/configurations/destinations.
 - Archive/export when distribution is claimed.

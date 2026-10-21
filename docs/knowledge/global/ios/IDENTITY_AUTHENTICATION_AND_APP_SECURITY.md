@@ -60,14 +60,55 @@ Distinguish backend-defined authentication recovery from access refusal: HTTP 40
 credentials; HTTP 403 is refusal to fulfill the request and may be unrelated to credentials.
 Do not turn every 403 into token refresh or replay; preserve the actual API error contract.
 
+## Native OAuth And Storage Failure Example
+For public native OAuth clients, use an external user-agent and PKCE. RFC 9700 requires
+public-client refresh tokens to be sender-constrained or use rotation; review that backend
+contract instead of assuming a long-lived bearer refresh token is protected by local storage.
+A client review grants no server/credential migration. Unsupported server guarantees remain
+an explicit security gap with the responsible owner.
+
+For example, refresh starts for account A, then the person logs into B. A late success for A
+must not restore its credentials, queued requests or UI. A Keychain read failing because of
+accessibility is not an absent item and must not trigger plaintext fallback. `ThisDeviceOnly`
+prevents migration to another device; it is not a blanket statement that no same-device backup
+restore is possible. Select the actual accessibility/access-control contract and current
+permitted evidence, without opening the live store.
+Primary theory: [RFC 8252](https://www.rfc-editor.org/rfc/rfc8252.html),
+[RFC 9700 section 2.2.2](https://www.rfc-editor.org/rfc/rfc9700.html#section-2.2.2), and
+[Restricting keychain item accessibility](https://developer.apple.com/documentation/security/restricting-keychain-item-accessibility).
+
 ## LocalAuthentication
 Use LocalAuthentication to gate access or confirm user presence, not as the sole source of remote account identity. Choose whether passcode fallback is allowed. Handle unavailable, not enrolled, lockout, user cancel, system cancel, app cancel, and changed biometric enrollment.
 
 Protecting a Keychain item with access control is stronger than evaluating biometrics and then reading an unprotected secret. Localized reason strings must explain the action without revealing sensitive data on the lock screen.
 
+### Local Presence And Lost-Key Failure Trace
+A successful policy evaluation applies to that request, not every later action. Cancellation,
+lockout or enrollment changes may invalidate the next attempt. The completion callback has
+an unspecified private threading context; transfer state to its actual owner and do not call
+canEvaluatePolicy from inside that callback. Choose passcode fallback deliberately rather
+than silently weakening a biometric-only policy.
+
+For example, a protected Keychain item using biometryCurrentSet becomes unavailable after
+biometric enrollment changes. Treat that as access/key recovery under the account policy,
+not proof of account deletion and not a reason to save the secret unprotected. A standalone
+presence prompt is an alternative only when the protected operation does not require an
+access-controlled secret. A local success still cannot authorize a remote entity operation.
+Primary theory: [Policy evaluation](https://developer.apple.com/documentation/localauthentication/lacontext/evaluatepolicy(_:localizedreason:reply:))
+and [Current biometric-set access control](https://developer.apple.com/documentation/security/secaccesscontrolcreateflags/biometrycurrentset).
+No biometric prompt or Keychain operation was performed.
+
 ## Keychain And Data Protection
+
+Define the credential item identity, including the applicable account/service and access-group
+contract, and the intended add/update/delete behavior for that exact item. Distinguish missing,
+duplicate, unavailable and failed storage outcomes as the actual operation requires. A Keychain
+failure must not silently fall back to plaintext preferences or files; preserve the
+credential/access policy and report failure without exposing the secret.
+
 - Choose accessibility class from the required background/locked-device behavior.
-- Use `ThisDeviceOnly` where migration/backup would violate the security model.
+- Use `ThisDeviceOnly` when migration to another device would violate the security model.
+  Specify backup retention and same-device restoration separately; this class alone is not a no-backup policy.
 - Scope access groups narrowly and review every target that receives them.
 - Store only necessary secrets and identifiers; large application data belongs in protected files or databases.
 - Define reinstall, restore, device migration, account change, and key-unavailable behavior.
@@ -88,6 +129,21 @@ credential is absent. A review finding grants no credential/access-policy/authen
 Encryption at rest does not establish an end-to-end security contract; trace the actual endpoints,
 trust boundaries and key ownership before making that claim.
 
+## Key Rotation And Authentication Failure Example
+Use a fresh nonce for each encryption operation as required by the authenticated cipher;
+changing a filename or retrying a write does not make reuse safe. Bind the key/version and
+associated-data contract to the stored ciphertext. On authentication/decryption failure,
+preserve recoverable data and report the failure; do not silently accept unauthenticated
+plaintext or overwrite the only old ciphertext with an empty replacement.
+
+For example, rotating a key while old records still reference its predecessor can make valid
+user data unreadable. Define coexistence, migration progress, interruption recovery, backup
+and retirement criteria before deleting the old key. If the real need is storing a credential,
+Keychain may satisfy it without a custom encrypted database. This is a design alternative and
+failure trace, not key access, cryptographic execution or proof of an app's security.
+Primary theory: [AES.GCM.Nonce](https://developer.apple.com/documentation/cryptokit/aes/gcm/nonce)
+and [authenticated sealing](https://developer.apple.com/documentation/cryptokit/aes/gcm/seal(_:using:nonce:authenticating:)).
+
 ## App Attest And DeviceCheck
 These are server-assisted risk signals, not local-only security features and not absolute jailbreak detection. App Attest requires server challenges and server-side attestation/assertion validation. Design unsupported-device fallback, retry, key loss, reinstall, environment separation, and gradual rollout.
 
@@ -96,6 +152,22 @@ and actual failure/fallback/anti-abuse limits. A validated app-integrity signal 
 authorization; unavailable attestation must not silently become equivalent successful evidence.
 
 Do not add App Attest to a backend-less app and claim security benefit; document it as unavailable until the server boundary exists.
+
+### Attestation Replay And Recovery Trace
+App Attest needs server-owned one-time challenges and validation bound to the actual request,
+app/environment, key and assertion history. Neither a valid app instance nor a local Boolean
+establishes account permission. Keys survive normal updates but not reinstall, migration or
+backup restoration; keep recovery distinct from a new account.
+
+For example, reinstall removes the attestation key while a server still knows its old public
+key. Reestablish the app/device binding through the approved recovery policy; do not accept an
+old signed request as a fresh challenge response. An unsupported-device fallback is an explicit
+server risk policy, not fabricated successful attestation. A transient service failure and a
+lost/invalid key require different retry/re-enrollment decisions. Apps without the necessary
+server boundary retain ordinary authentication/authorization and make no attestation claim.
+Primary theory: [App integrity and key lifecycle](https://developer.apple.com/documentation/devicecheck/establishing-your-app-s-integrity)
+and [Server validation and replay protection](https://developer.apple.com/documentation/devicecheck/validating-apps-that-connect-to-your-server).
+This is a conceptual recovery trace; no key generation, challenge or server call was executed.
 
 ## Authorization Rules
 - Deny by default at authoritative boundaries.

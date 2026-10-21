@@ -1,0 +1,24 @@
+{
+  "contract": "Clarify verified toolchain/parallelization/transaction-lifetime semantics in existing owners; preserve user authority, existing flow and explicit unexecuted evidence. No app/source/test/API-adoption changes.",
+  "files": [
+    {
+      "file": "SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+      "before_sha256": "6d009277a219b1a426afb81adf4d0ee3748b2b2d4875176dfa35134ba7422d1c",
+      "after_sha256": "b8c18a54beb3948638e604d6e9b6309ae2bfb60d688b75a79ab86283fa4d4499",
+      "triple_parity": true
+    },
+    {
+      "file": "TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+      "before_sha256": "c4b90e4e062d24870445cf81fa4c76ecf1d7048ecd45392d62afccf9da871913",
+      "after_sha256": "2dad465f00c1bfeb3d119431700bd5f482b1f1238103a12bc23e90d8dae37901",
+      "triple_parity": true,
+      "review_refinement": "Use serializes, explicitly no deterministic invocation order guarantee."
+    },
+    {
+      "file": "APP_STORE_PRIVACY_AND_COMPLIANCE.md",
+      "before_sha256": "af5c58363bf7d311a8a480c2e0f1c1c9dd4358a9565732fe26c1759f2464eace",
+      "after_sha256": "412179d20bacfc1411a642084ea4185929894097218aabf50044897ac3614254",
+      "triple_parity": true
+    }
+  ]
+}

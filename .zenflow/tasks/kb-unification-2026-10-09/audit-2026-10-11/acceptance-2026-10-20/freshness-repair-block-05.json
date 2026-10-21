@@ -1,0 +1,25 @@
+{
+  "contract": "Restore current native OAuth refresh-token protection requirement and exact storage-backup boundary; add lost-ack/cache-isolation and dependency-identity failure examples. No backend/auth/config/adoption or app changes.",
+  "files": [
+    {
+      "path": "IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md",
+      "before_sha256": "91ba254e0e0815fdd338d1c1c6fde4730410a972bf8df0efe410dcc34ed75e44",
+      "after_sha256": "22a94bc8440491ec8de6306a342f2d4908d14ecf88be9eb70b23b09ab6343290",
+      "triple_parity": true,
+      "review_refinement": "P2 storage-policy ambiguity closed in both explanation and mirrored original bullet: ThisDeviceOnly prevents cross-device migration, not all backup retention/same-device restore."
+    },
+    {
+      "path": "NETWORKING_WEB_AND_REALTIME_SYSTEMS.md",
+      "before_sha256": "651445b2a213c4d38f1141c0912e8f3788f608c047efb3e209b5f1328286b5ce",
+      "after_sha256": "f893b151ce926188eef800ca07980d0a4734472748ef8a11b71134194b89d860",
+      "triple_parity": true
+    },
+    {
+      "path": "XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md",
+      "before_sha256": "1130021800e73b90cabc0c8fa5e5da992dba04387519a41a8b7107e5d37f83de",
+      "after_sha256": "50a306a64c53009d638d0077edf1fed49604a1a3f59f75772978c1fb5d8eeaad",
+      "triple_parity": true,
+      "review_refinement": "P2 corrected: Package.resolved pin schema separated from remote binary checksum in Package.swift. Higher-level Apple overview conflicted with precise SwiftPM schema/API; no checksum verification inferred from resolution pins."
+    }
+  ]
+}

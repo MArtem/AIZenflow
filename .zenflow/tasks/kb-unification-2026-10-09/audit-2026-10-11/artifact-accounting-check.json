@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-19",
+  "status": "PASS_STATIC_ACCOUNTING_NOT_KB_ACCEPTANCE",
+  "current_totals": {
+    "source_bodies_read": 1403,
+    "source_bodies_unread": 0,
+    "distinct_current_units_reviewed": 4285,
+    "active_unit_dispositions_reviewed": 2555,
+    "archive_dispositions_reviewed": 1730,
+    "unique_read_body_hashes": 1288,
+    "exact_alias_read_reuses": 115
+  },
+  "checks": [
+    "complete1403-source partition, no unread rows",
+    "all1403 frozen body SHA values reverified",
+    "4285 unique valid unit IDs and reviewed mapping identity",
+    "source receipt existence",
+    "disposition recount; canonical versus37 copy separate",
+    "207 qualification IDs and confirmed mapping IDs valid",
+    "45 registry owner fingerprints unchanged",
+    "all8 audit JSON parse",
+    "92 prior Markdown source/unit references and dates valid",
+    "changed Markdown whitespace",
+    "115 actual exact-byte aliases reverified",
+    "709 immutable pre-switch plus694 Sol-medium provenance",
+    "archive and original ledger SHA unchanged",
+    "31 drift pairs and28 primary/local equality",
+    "73 cost/consumer input SHA/byte/regex-word counts",
+    "12 recipe and9 transitive addition arithmetic",
+    "both repository HEAD/status unchanged"
+  ],
+  "issues": [],
+  "repository_states": {
+    "worktree": {
+      "head": "860ca8b7cc07e654d73339cdf6705319979df3df",
+      "status": "?? .zenflow/tasks/kb-unification-2026-10-09/audit-2026-10-11/"
+    },
+    "canonical": {
+      "head": "063ba79c44c7144e072da06d5f675e7471a59627",
+      "status": ""
+    }
+  },
+  "limits": [
+    "Static accounting is not semantic acceptance; A01-A12 and207 qualified IDs remain open",
+    "Final narratives and207 qualification entries reread; no second full semantic pass of unchanged source receipts",
+    "No runtime/tests/U7/sealed/freshness/token telemetry",
+    "Active KB and original evidence unchanged",
+    "Prior tracked git diff --check reused; changed untracked Markdown checked directly"
+  ],
+  "final_review_receipt": "final-review-receipt.md"
+}

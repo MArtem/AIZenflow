@@ -26,6 +26,13 @@ and the affected specialist document after a major Xcode/Swift/iOS release, a be
 App Review/privacy/signing change, a compiler diagnostic or deprecation, a security advisory, a
 production incident, or an official source move.
 
+## Current Verification Authority
+Apply `CURRENT_USER_OVERRIDES.md` before turning the evidence choices below into a task plan
+or exit gate. Current exclusions remove iPad verification and all physical-device checks,
+including actual VoiceOver. Preserve implementation requirements and historical observations;
+excluded observations are OMITTED_BY_USER, never PASS. Neither this standard nor a knowledge
+coverage receipt grants app tests, builds, runtime, release or machine actions.
+
 ## Universal change contract
 
 Before implementation, every non-trivial change records:

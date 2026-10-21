@@ -20,7 +20,7 @@ Resolve `DOC:` identifiers through the active task router in canonical
 3. Threat-model callback, token, replay, phishing, account recovery, logout, and lost-device paths.
 4. Define credential storage, refresh concurrency, revocation, account switching, deletion, and offline behavior.
 5. Compare provider/system flows and explain security, UX, backend, recovery, and platform tradeoffs.
-6. Select simulator, physical-device, server, entitlement, and security evidence explicitly.
+6. Select only currently authorized static, iPhone Simulator, server, entitlement, and security evidence. Apply `CURRENT_USER_OVERRIDES.md`: omit iPad, physical-device and actual VoiceOver checks from plans and acceptance; preserve historical results and report excluded coverage as `OMITTED_BY_USER`, never PASS. Missing hardware-backed evidence remains a stated limitation, not a new verification request.
 
 ## Guardrails
 - A client secret cannot remain secret in an app binary.

@@ -1,0 +1,222 @@
+[
+  {
+    "id": "swiftdata",
+    "url": "https://developer.apple.com/tutorials/data/documentation/swiftdata/schemamigrationplan.json",
+    "access_date": "2026-10-20",
+    "status": "FETCHED",
+    "sha256": "97aeae437a728b0aeacb9b5d26b83dc5f51890d4da0330be15eeb63fb6767959",
+    "bytes": 14638,
+    "title": "SchemaMigrationPlan",
+    "platforms": [
+      {
+        "introducedAt": "17.0",
+        "name": "iOS"
+      },
+      {
+        "introducedAt": "17.0",
+        "name": "iPadOS"
+      },
+      {
+        "introducedAt": "17.0",
+        "name": "Mac Catalyst"
+      },
+      {
+        "introducedAt": "14.0",
+        "name": "macOS"
+      },
+      {
+        "introducedAt": "17.0",
+        "name": "tvOS"
+      },
+      {
+        "introducedAt": "1.0",
+        "name": "visionOS"
+      },
+      {
+        "introducedAt": "10.0",
+        "name": "watchOS"
+      },
+      {
+        "introducedAt": "5.9",
+        "name": "Swift"
+      }
+    ],
+    "etag": "\"392e-65d55e6280e30\"",
+    "last_modified": "Thu, 08 Oct 2026 15:29:35 GMT",
+    "section_anchors": []
+  },
+  {
+    "id": "state",
+    "url": "https://developer.apple.com/tutorials/data/documentation/swiftui/state.json",
+    "access_date": "2026-10-20",
+    "status": "FETCHED",
+    "sha256": "11d4498717f5d5fbf08f51fff963504eb9809ed4ba3d3c8d56e4dd5c13349c35",
+    "bytes": 38501,
+    "title": "State",
+    "platforms": [
+      {
+        "introducedAt": "13.0",
+        "name": "iOS"
+      },
+      {
+        "introducedAt": "13.0",
+        "name": "iPadOS"
+      },
+      {
+        "introducedAt": "13.0",
+        "name": "Mac Catalyst"
+      },
+      {
+        "introducedAt": "10.15",
+        "name": "macOS"
+      },
+      {
+        "introducedAt": "13.0",
+        "name": "tvOS"
+      },
+      {
+        "introducedAt": "1.0",
+        "name": "visionOS"
+      },
+      {
+        "introducedAt": "6.0",
+        "name": "watchOS"
+      }
+    ],
+    "etag": "\"9665-65d55de1739fa\"",
+    "last_modified": "Thu, 08 Oct 2026 15:27:19 GMT",
+    "section_anchors": [
+      "Overview",
+      "Share state with subviews",
+      "Store observable objects",
+      "Share observable state objects with subviews"
+    ]
+  },
+  {
+    "id": "state-macro",
+    "url": "https://developer.apple.com/tutorials/data/documentation/swiftui/state().json",
+    "access_date": "2026-10-20",
+    "status": "FETCHED",
+    "sha256": "706711cde32cc72bcc1b1549c9890ca6034cc326bc2569d8246e4645ef5b6653",
+    "bytes": 25304,
+    "title": "State()",
+    "platforms": [
+      {
+        "introducedAt": "13.0",
+        "name": "iOS"
+      },
+      {
+        "introducedAt": "13.0",
+        "name": "iPadOS"
+      },
+      {
+        "introducedAt": "13.0",
+        "name": "Mac Catalyst"
+      },
+      {
+        "introducedAt": "10.15",
+        "name": "macOS"
+      },
+      {
+        "introducedAt": "13.0",
+        "name": "tvOS"
+      },
+      {
+        "introducedAt": "1.0",
+        "name": "visionOS"
+      },
+      {
+        "introducedAt": "6.0",
+        "name": "watchOS"
+      }
+    ],
+    "etag": "\"62d8-65d55df0978e7\"",
+    "last_modified": "Thu, 08 Oct 2026 15:27:35 GMT",
+    "section_anchors": [
+      "Overview",
+      "Share state with subviews",
+      "Store observable objects",
+      "Share observable state objects with subviews"
+    ]
+  },
+  {
+    "id": "cancellation",
+    "url": "https://developer.apple.com/tutorials/data/documentation/swift/task/cancel().json",
+    "access_date": "2026-10-20",
+    "status": "FETCHED",
+    "sha256": "decfc57a6ae8c2cd36cf66191b61003ae14f4c201ef2c14eac114a9cb5fdec52",
+    "bytes": 16307,
+    "title": "cancel()",
+    "platforms": [
+      {
+        "introducedAt": "13.0",
+        "name": "iOS"
+      },
+      {
+        "introducedAt": "13.0",
+        "name": "iPadOS"
+      },
+      {
+        "introducedAt": "13.0",
+        "name": "Mac Catalyst"
+      },
+      {
+        "introducedAt": "10.15",
+        "name": "macOS"
+      },
+      {
+        "introducedAt": "13.0",
+        "name": "tvOS"
+      },
+      {
+        "introducedAt": "1.0",
+        "name": "visionOS"
+      },
+      {
+        "introducedAt": "6.0",
+        "name": "watchOS"
+      }
+    ],
+    "etag": "\"3fb3-65d560fdd9b8f\"",
+    "last_modified": "Thu, 08 Oct 2026 15:41:15 GMT",
+    "section_anchors": [
+      "Discussion"
+    ]
+  },
+  {
+    "id": "parallel",
+    "url": "https://developer.apple.com/tutorials/data/documentation/testing/parallelization.json",
+    "access_date": "2026-10-20",
+    "status": "FETCHED",
+    "sha256": "9527cd0385c7caecdd3a1e98639c9328412cea4b5afc6ee55290318375a7b14a",
+    "bytes": 6600,
+    "title": "Running tests serially or in parallel",
+    "platforms": [],
+    "etag": "\"19c8-65d560adcfa0b\"",
+    "last_modified": "Thu, 08 Oct 2026 15:39:51 GMT",
+    "section_anchors": [
+      "Overview",
+      "Disabling parallelization"
+    ]
+  },
+  {
+    "id": "performance",
+    "url": "https://developer.apple.com/tutorials/data/documentation/xcode/understanding-and-improving-swiftui-performance.json",
+    "access_date": "2026-10-20",
+    "status": "FETCHED",
+    "sha256": "be2ec55d9c59390cc636719c9a557dc7bb28255b9db57c6b177142cdc153fe74",
+    "bytes": 39403,
+    "title": "Understanding and improving SwiftUI performance",
+    "platforms": [],
+    "etag": "\"99eb-6590231ce451a\"",
+    "last_modified": "Fri, 14 Aug 2026 13:57:00 GMT",
+    "section_anchors": [
+      "Overview",
+      "Understand how your app uses SwiftUI",
+      "Improve long-running view body computations",
+      "Reduce the frequency of view updates",
+      "Remove unnecessary updates",
+      "Adopt efficient SwiftUI design patterns"
+    ]
+  }
+]

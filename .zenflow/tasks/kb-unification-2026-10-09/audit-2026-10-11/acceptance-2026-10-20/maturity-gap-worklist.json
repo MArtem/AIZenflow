@@ -1,0 +1,244 @@
+{
+  "scope": "Finite18-row gap table from same authorized read-only reviewer; current documented mandatory core, not allSDKs. No app runtime prerequisite.",
+  "reviewed_W_diff_sha256": "90aa4fbf1510e536eff7e964b4614781ad21befab442712a1950b5cf89e281aa",
+  "reviewed_V_diff_sha256": "2797b2c0e6fc3b08026bc9910ba7f314daf891819c6354b021ba07822714ae2c",
+  "patch_findings": "07–09 and four inherited mirrors independently accepted; no remaining P0–P3 in reviewed corrections. Whole-core breadth has separate finite gaps.",
+  "items": [
+    {
+      "domain": "universal-ios-engineering-quality",
+      "links": "E",
+      "gap": "Map nine quality gates to existing specialist chains",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "universal-ios-engineering-quality",
+        "semantic_support": "Nine gates bind respectively architecture; language/concurrency; UI/accessibility/localization; persistence/media; networking/sync; identity/security/platform; build/supply-chain; testing/performance/operations; release/StoreKit. Specialist rows below provide theory/depth/route/aid/evidence. Verification exclusions override execution plans, not design requirements."
+      }
+    },
+    {
+      "domain": "swift-language-runtime-api-design",
+      "links": "T",
+      "gap": "Generic/opaque/existential semantic theory",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "swift-language-runtime-api-design",
+        "semantic_support": "Generic parameters preserve caller-selected type relationships; opaque results hide one producer-chosen concrete type; boxed existential permits runtime heterogeneity with lost static relationships. Owner example chooses the boundary rather than blanket any/some replacement."
+      }
+    },
+    {
+      "domain": "swift-concurrency",
+      "links": "T/E",
+      "gap": "Continuation exact-once and stream cancellation/termination/backpressure",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "swift-concurrency",
+        "semantic_support": "Checked continuations require exactly one resume; omitted resume leaks suspended resources. AsyncStream default buffer is unbounded; producer termination/cancellation and bounded overflow policy need explicit ownership. Cancellation is cooperative, not an automatic callback undo."
+      }
+    },
+    {
+      "domain": "swiftui-uikit-adaptive-ui",
+      "links": "T/E",
+      "gap": "UIKit containment/appearance/representable and adaptive/window ownership",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "swiftui-uikit-adaptive-ui",
+        "semantic_support": "Container parent/child lifecycle and appearance ownership differ from SwiftUI representable lifecycle. SwiftUI owns represented root layout; coordinator bridges callbacks. Scene/window state and adaptive layout remain owned at their actual scope."
+      }
+    },
+    {
+      "domain": "ai-ml-intelligence-and-app-intents",
+      "links": "T/E",
+      "gap": "CoreAI runtime/lifetime and tool trust/evaluation",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "ai-ml-intelligence-and-app-intents",
+        "semantic_support": "CoreAI artifact/runtime specialization and load/inference costs are explicit boundaries. Typed generated tool arguments are not authorization; concurrent tool invocations require independent side-effect policy. Required tool loops need an exit; local evaluation thresholds are operating policy, not Apple API guarantees."
+      }
+    },
+    {
+      "domain": "architecture-modularization-state",
+      "links": "T",
+      "gap": "Module/import/access/resource boundary theory",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "architecture-modularization-state",
+        "semantic_support": "Target defines module/import/access and resource boundary; products export usable targets. Bundle.module is generated for actual SwiftPM resources, not an app-wide lookup rule or permission to migrate integration."
+      }
+    },
+    {
+      "domain": "networking-api-web-realtime",
+      "links": "T/E",
+      "gap": "WebKit origin/content-world/navigation/async-bridge trust",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "networking-api-web-realtime",
+        "semantic_support": "Content worlds isolate JavaScript variables, not the shared DOM. Navigation changes execution context; message handler reply/lifetime and origin/frame/operation validation belong to the app bridge. Association or received script message alone is not authorization."
+      }
+    },
+    {
+      "domain": "identity-authentication-authorization",
+      "links": "T/E",
+      "gap": "Passkeys and SignInWithApple challenge/account/revocation",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "identity-authentication-authorization",
+        "semantic_support": "Server challenge/public credential binding and relying-party identity govern passkeys. SIWA stable user identifier and current credential state govern account access; revoked/not-found returns to authentication. Email availability is not inferred from an abstract-only source."
+      }
+    },
+    {
+      "domain": "security-privacy-cryptography",
+      "links": "T/D",
+      "gap": "Cryptography key/nonce lifecycle, failure and alternative",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "security-privacy-cryptography",
+        "semantic_support": "AES-GCM authenticates ciphertext/AAD; reuse of nonce under one key violates the primitive. Authentication failure must not expose plaintext. Key rotation/version ownership and Keychain alternative are in the failure example; ThisDeviceOnly restricts cross-device migration, not every backup."
+      }
+    },
+    {
+      "domain": "persistence-migration-sync-cloudkit",
+      "links": "T/E",
+      "gap": "CloudKit account/change-token/conflict recovery",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "persistence-migration-sync-cloudkit",
+        "semantic_support": "Server/client/ancestor conflict merge must preserve server change tag. Change tokens are scoped incremental cursors, not object versions. Persist engine serialized state across launches; account changes clear engine pending changes and require explicit reconciliation of app-owned work without cross-account replay."
+      }
+    },
+    {
+      "domain": "testing-debugging-diagnostics",
+      "links": "T/E",
+      "gap": "MatchingUUID/dSYM crash identity and competing hang hypotheses",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "testing-debugging-diagnostics",
+        "semantic_support": "dSYM must match binary UUID; symbol names without build identity do not establish root cause. Crash and hang analysis compare plausible thread/actor/work hypotheses; sampled main-thread work and waiting are distinct. Hang source tail was not read; only inspected sections support this claim."
+      }
+    },
+    {
+      "domain": "build-binary-dependencies-supply-chain",
+      "links": "T/E",
+      "gap": "Build graph/generated-resource/source-membership producers",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "build-binary-dependencies-supply-chain",
+        "semantic_support": "Build scripts declare inputs/outputs and failure status so graph ordering is real. Source membership and generated/resource consumers need one producer. Package resolution pins source state; binary manifest checksum validates artifact bytes separately."
+      }
+    },
+    {
+      "domain": "platform-capabilities-extensions",
+      "links": "T/E",
+      "gap": "AssociatedDomains and AppGroups cross-target ownership",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "platform-capabilities-extensions",
+        "semantic_support": "Domain association requires matching website file and entitlement but does not authorize an entity operation. App Groups grant a shared container/IPC boundary; target capabilities and older-consumer schema compatibility remain separate responsibilities."
+      }
+    },
+    {
+      "domain": "media-sensors-device-integrations",
+      "links": "T/E",
+      "gap": "PhotoKit limited/changing permission and provider/cloud asset lifetime",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "media-sensors-device-integrations",
+        "semantic_support": "Limited library access is selected-subset and can change; picker grant differs from broad PhotoKit permission. Cloud asset access needs network policy/progress and stale-result rejection. Provider scope must survive copying; source availability is not durable app ownership."
+      }
+    },
+    {
+      "domain": "performance-observability-operations",
+      "links": "T/E",
+      "gap": "MetricKit/log/buildidentity/privacy and rollout recovery",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "performance-observability-operations",
+        "semantic_support": "Metric reports/diagnostics have delivery and identity scope, not immediate per-action proof. Dynamic string/object log privacy differs from numeric defaults; explicit redaction remains necessary. Existing rollout/kill-switch and recovery contracts bind observation to release identity; conceptual scenarios are not incident execution."
+      }
+    },
+    {
+      "domain": "app-store-release-compliance",
+      "links": "T/E",
+      "gap": "ReasonAPI/SDK signature/privacy/distribution constraints",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "app-store-release-compliance",
+        "semantic_support": "App and each SDK declare applicable required-reason usage in their own privacy manifests; SDK cannot rely on app manifest. Listed SDK binary distribution signature requirements are conditional, not a blanket all-SDK rule. Review/privacy/distribution facts require current release-specific checking."
+      }
+    },
+    {
+      "domain": "storekit-and-commerce",
+      "links": "T/D",
+      "gap": "Grace/billingretry/refund/revocation/family access states",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "storekit-and-commerce",
+        "semantic_support": "Grace permits continued access; billing-retry label alone does not prove entitlement. Verified transaction/current entitlement, expiration/revocation and family context govern access. Recovery example preserves another still-valid entitlement and finishes only after delivery."
+      }
+    },
+    {
+      "domain": "accessibility-localization-inclusive-ux",
+      "links": "T/E",
+      "gap": "Locale/Calendar/TimeZone display-vs-wire and package/target bundle lookup",
+      "status": "CLOSED_SCOPED_INDEPENDENT_REVIEW",
+      "resolution": {
+        "receipt": "core-claim-coverage-receipt.json",
+        "domain": "accessibility-localization-inclusive-ux",
+        "semantic_support": "Localized display uses user locale/calendar/timezone as appropriate; fixed wire format uses explicit stable serialization rules. Catalog plural/format semantics and target/package bundle lookup are separate; SwiftPM resource lookup applies only to adopted package targets."
+      }
+    }
+  ],
+  "whole_core_remaining": [
+    {
+      "domain": "ai-ml-intelligence-and-app-intents",
+      "gap": "CoreML/CreateML, Vision/OCR, Speech/Translation and retrieval primary semantic binding",
+      "status": "CLOSED_INDEPENDENT_REVIEW"
+    },
+    {
+      "domain": "networking-api-web-realtime",
+      "gap": "Realtime protocol theory and reconnect/gap/replay example",
+      "status": "CLOSED_INDEPENDENT_REVIEW"
+    },
+    {
+      "domain": "identity-authentication-authorization",
+      "gap": "LocalAuthentication/access-control and AppAttest fallback/replay/key-loss",
+      "status": "CLOSED_INDEPENDENT_REVIEW"
+    },
+    {
+      "domain": "platform-capabilities-extensions",
+      "gap": "Widget/Activity/Intent and document/FileProvider theory+failure alternatives",
+      "status": "CLOSED_INDEPENDENT_REVIEW"
+    },
+    {
+      "domain": "media-sensors-device-integrations",
+      "gap": "Location/radios/sensitive stores/motion-haptics; repairblock10 now pending review",
+      "status": "CLOSED_INDEPENDENT_REVIEW"
+    },
+    {
+      "domain": "security-privacy-cryptography",
+      "gap": "Dependent on Identity local-presence/app-integrity chain",
+      "status": "CLOSED_INDEPENDENT_REVIEW"
+    },
+    {
+      "domain": "universal-ios-engineering-quality",
+      "gap": "Dependent on remaining specialist chains",
+      "status": "CLOSED_INDEPENDENT_REVIEW"
+    }
+  ],
+  "whole_core_decision": "18eligible mandatory documentation core;4deferred; promotion pending consolidated final review"
+}

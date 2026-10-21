@@ -29,7 +29,7 @@ Resolve `DOC:` identifiers through the active task router in canonical
 ## Guardrails
 - Do not infer allocation or dispatch from syntax alone.
 - Do not add protocols or type erasure without a real boundary.
-- Treat unsafe and unchecked annotations as audited promises.
+- Follow the strict canonical ownership rule: do not use `@unchecked Sendable`, `nonisolated(unsafe)`, `@preconcurrency`, warning suppressions, or blanket/fake `@MainActor`. Existing occurrences block migration until replaced with real isolation or immutable `Sendable` values.
 - Do not expose implementation types or compiler-specific attributes casually.
 - Distinguish source, semantic, module, and ABI compatibility.
 

@@ -39,6 +39,21 @@ benefit. Preserve required CI reporting, traits/tags and unsupported framework-s
 Verify the owning target, test plan, destination, configuration and affected consumers; a passing
 unit target does not prove app/extension build or resource loading.
 
+## Parallelization Boundary Example
+Swift Testing normally runs tests concurrently. A suite's `.serialized` trait serializes that
+suite's descendants; it does not serialize unrelated suites or promise a deterministic
+invocation order. On a parameterized test it serializes that test's cases, while on a
+non-parameterized test it has no effect. Use the actual
+framework/toolchain behavior rather than inferring process-wide exclusion from an annotation.
+
+For example, two suites writing the same fixture database can still race when only one suite
+is serialized. Give each test an owned store/root, or establish the genuinely shared resource's
+approved synchronization contract. A useful permitted regression runs the competing owners
+and verifies isolated data, rather than asserting that a trait is present. This is a design
+example, not permission to add tests or an executed concurrency result.
+
+Primary theory: [Running tests serially or in parallel](https://developer.apple.com/documentation/testing/parallelization).
+
 ## Determinism
 Inject clocks, dates, UUID/random sources, locale/calendar/time zone, file roots, network transport, and schedulers where their variability affects behavior. Use temporary directories inside the approved sandbox. Reset global/process state and avoid test ordering dependencies.
 

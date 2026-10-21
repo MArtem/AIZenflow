@@ -34,6 +34,13 @@ minimum runtime deployment target of any app or extension.
 - Account deletion, privacy policy, permission prompts, privacy labels, and actual data lifecycle agree where applicable.
 
 ### Runtime Readiness
+
+Include the applicable accessibility and localization contracts in the release review: user-facing
+resources, supported-locale formatting, readable layout and semantic interaction. Apply
+IOS_ACCESSIBILITY_STANDARD.md and LOCALIZATION_INTERNATIONALIZATION_STANDARD.md within current
+verification permissions; iPad, physical-device and actual VoiceOver checks remain OMITTED_BY_USER,
+not new release prerequisites or PASS.
+
 - P0–P2 findings closed; P3 findings fixed or explicitly recorded.
 - Internal Exhaustive review and exact-SHA receipt complete for the release PR range.
 - Critical flows smoke-tested.
@@ -70,5 +77,8 @@ only where applicable. The user may choose not to run it; the result is then
 Record candidate SHA, profile/engine/toolchain identity, permissions, manual workflow result,
 archive/signing/artifact identity where applicable, compliance review date, internal pre-PR receipt,
 runtime/manual evidence, flag/rollout applicability, unresolved risk, owner decision, and final
-verdict: `READY`, `READY_WITH_ACCEPTED_RISK`, `NEEDS_OWNER_DECISION`, `NOT_READY`, `BLOCKED`, or
-`BYPASSED`.
+decision: `PASS`, `NOT_READY`, `READY_WITH_ACCEPTED_RISK`, `BLOCKED`, or `NOT_APPLICABLE`,
+with readiness level explicitly stated. Apply the Authority, Verdict, And Readiness Contract in
+`./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`; legacy transport labels must be explicitly
+mapped before publication. Missing or excluded evidence is never normal PASS; accepted risk requires
+the approved scoped exception and does not silently clear a P0–P2 block.

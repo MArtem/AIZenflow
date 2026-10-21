@@ -1,0 +1,16 @@
+# Migration/legacy semantic receipt — 2026-10-13
+
+All eight LIB-0236–LIB-0243 source bodies read completely; all 24 units inspected: eight active, sixteen archive. Owners had been read in full; targeted current clauses were checked again. DEPENDENCY_POLICY.md was also read completely in this block.
+
+| Source U01 | Semantic comparison |
+| --- | --- |
+| 0236 Swift 6 | Concurrency Swift 6.x Discipline explicitly separates compiler/language/isolation flags, prohibits escapes, classifies ownership issues and permits incremental module migration. Xcode Configuration preserves effective settings and consumer scope. A01 conflicting skill remains open. |
+| 0237 UIKit→SwiftUI | UI Invalidation and UIKit Lifecycle explicitly preserve identity/lifetime/binding ownership, containment and hosting/shared-model seams, with rollback before widening. Engineering and Testing supply parity and permission boundaries. |
+| 0238 Observation | UI State Placement/Ownership/Invalidation retain one owner and actual dependency/update semantics; Performance Optimization requires comparable evidence. New syntax alone is not demonstrated benefit. |
+| 0239 Core Data→SwiftData | Persistence Choose By Contract/Migration/Evidence and Product Requirements retain actual benefit, feasibility, old-store compatibility, feature parity and data preservation before adoption. |
+| 0240 async networking | Networking Request Contract/Reliability/Caching and Identity Session Lifecycle retain cancellation/retry/auth semantics; Engineering retains bounded staging and compatibility. Concurrency bridge owner supplies scheduler/subscription parity for this cross-domain scenario. |
+| 0241 dependency removal | Dependency Removal Policy explicitly covers public/transitive usage and consumers. Xcode SDK Consumer Boundary/SwiftPM retains replacement cost, lifecycle and transitive products/scripts; Swift Public API and Engineering require staged compatibility/removal criteria. No permission to download or remove anything follows. |
+| 0242 minimum OS | Xcode Configuration lines 27–31 explicitly retains shims, app/extension/package consumers, supplied/permitted usage evidence, user-impact decision, release communication and recovery limits. Compatibility matrix retains supported scope; excluded physical/iPad checks remain omitted, not PASS. |
+| 0243 legacy stabilization | Engineering contract/invariants/verification and Performance Observability/Runtime Operations preserve evidence-led containment and explicit side-effect ownership before widening a refactor. Concurrency evidence covers races/cancellation with permission. Literal tests-first wording cannot grant test creation or runtime. |
+
+U02 in each file archives the fixed two-option ritual. U03 archives V2 role/mode/Library bindings. Their linked deep playbooks remain separate unread bodies; this receipt does not infer their contents. General inputs, gates, anti-patterns and prompts preserve minimal changes, actual toolchain/API/dependency constraints, no suppression, no speculative abstraction and honest gaps through Engineering/Toolchain/Testing/current overrides. No lost useful condition found within these eight bodies. This does not establish technical freshness or code outcome equivalence.
