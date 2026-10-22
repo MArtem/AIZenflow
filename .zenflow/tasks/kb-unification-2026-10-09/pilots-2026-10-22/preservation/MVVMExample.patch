@@ -1,0 +1,115 @@
+diff --git a/MVVMExampleTests/Infrastructure/InfrastructureSupportTests.swift b/MVVMExampleTests/Infrastructure/InfrastructureSupportTests.swift
+index b3ee40cb1899d1a91b5b7272a73116e51ad44405..6637461a3c5fd0dce9b26af8d66a328745c08bbf 100644
+--- a/MVVMExampleTests/Infrastructure/InfrastructureSupportTests.swift
++++ b/MVVMExampleTests/Infrastructure/InfrastructureSupportTests.swift
+@@ -1,6 +1,7 @@
+ import Foundation
+ import Testing
+ import UIKit
++import os
+ @testable import MVVMExample
+ 
+ @Suite("Infrastructure support tests")
+@@ -99,13 +100,14 @@ struct InfrastructureSupportTests {
+     }
+ 
+     @Test("Image memory cache stores downsampled images by key")
+-    func imageMemoryCacheStoresImagesByKey() throws {
++    func imageMemoryCacheStoresImagesByKey() async throws {
+         let cache = ImageMemoryCache(countLimit: 1, totalCostLimit: 512 * 1024)
+         let image = try #require(Self.makeImage())
+ 
+-        cache.insert(image, forKey: "avatar")
++        await cache.insert(image, forKey: "avatar")
+ 
+-        #expect(cache.image(forKey: "avatar") === image)
++        let cachedImage = await cache.image(forKey: "avatar")
++        #expect(cachedImage === image)
+     }
+ 
+     @Test("RemoteImagePipeline downsampling uses memory cache on repeat load")
+@@ -165,35 +167,38 @@ private struct TestGETRequest: NetworkRequest {
+ private enum URLProtocolStubRegistry {
+     typealias StubResponse = Result<(HTTPURLResponse, Data), Error>
+ 
+-    private static let lock = NSLock()
+-    private static var responsesByURL: [URL: [StubResponse]] = [:]
+-    private static var countsByURL: [URL: Int] = [:]
++    private struct State {
++        var responsesByURL: [URL: [StubResponse]] = [:]
++        var countsByURL: [URL: Int] = [:]
++    }
++
++    private static let state = OSAllocatedUnfairLock(initialState: State())
+ 
+     static func register(responses: [StubResponse], for url: URL) {
+-        lock.withLock {
+-            responsesByURL[url] = responses
+-            countsByURL[url] = 0
++        state.withLock { state in
++            state.responsesByURL[url] = responses
++            state.countsByURL[url] = 0
+         }
+     }
+ 
+     static func nextResponse(for url: URL) -> StubResponse? {
+-        lock.withLock {
+-            countsByURL[url, default: 0] += 1
+-            guard var responses = responsesByURL[url], !responses.isEmpty else { return nil }
++        state.withLock { state in
++            state.countsByURL[url, default: 0] += 1
++            guard var responses = state.responsesByURL[url], !responses.isEmpty else { return nil }
+             let response = responses.removeFirst()
+-            responsesByURL[url] = responses
++            state.responsesByURL[url] = responses
+             return response
+         }
+     }
+ 
+     static func requestCount(for url: URL) -> Int {
+-        lock.withLock { countsByURL[url, default: 0] }
++        state.withLock { $0.countsByURL[url, default: 0] }
+     }
+ 
+     static func remove(_ url: URL) {
+-        lock.withLock {
+-            responsesByURL.removeValue(forKey: url)
+-            countsByURL.removeValue(forKey: url)
++        state.withLock { state in
++            state.responsesByURL.removeValue(forKey: url)
++            state.countsByURL.removeValue(forKey: url)
+         }
+     }
+ }
+diff --git a/MVVMExampleTests/Performance/PerformanceRegressionTests.swift b/MVVMExampleTests/Performance/PerformanceRegressionTests.swift
+index 481f1e95bd208f29ae0c4de537484a0646fd1d9f..143dcba8919a323195cdda50475b16ac04a3eb4d 100644
+--- a/MVVMExampleTests/Performance/PerformanceRegressionTests.swift
++++ b/MVVMExampleTests/Performance/PerformanceRegressionTests.swift
+@@ -38,18 +38,19 @@ struct PerformanceRegressionTests {
+     }
+ 
+     @Test("Image memory cache insert and lookup stays within unit budget")
+-    func imageMemoryCacheInsertAndLookupStaysWithinUnitBudget() throws {
++    func imageMemoryCacheInsertAndLookupStaysWithinUnitBudget() async throws {
+         let cache = ImageMemoryCache(countLimit: 2_000, totalCostLimit: 64 * 1024 * 1024)
+         let image = try #require(makePerformanceImage())
+ 
+-        let elapsed = measureSeconds {
+-            for index in 0..<1_000 {
+-                cache.insert(image, forKey: "image-\(index)")
+-            }
+-            for index in 0..<1_000 {
+-                #expect(cache.image(forKey: "image-\(index)") != nil)
+-            }
++        let start = Date()
++        for index in 0..<1_000 {
++            await cache.insert(image, forKey: "image-\(index)")
++        }
++        for index in 0..<1_000 {
++            let cachedImage = await cache.image(forKey: "image-\(index)")
++            #expect(cachedImage != nil)
+         }
++        let elapsed = Date().timeIntervalSince(start)
+ 
+         #expect(elapsed < 0.5, "Expected 1,000 cache inserts/lookups under 0.5s, got \(elapsed)s")
+     }

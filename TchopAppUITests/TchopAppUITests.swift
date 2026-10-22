@@ -48,6 +48,33 @@ final class TchopAppUITests: XCTestCase {
         XCTAssertTrue(application.staticTexts[cardText].waitForExistence(timeout: launchTimeout))
     }
 
+    /// Exercises actual dismissal/reopening without publishing the discarded draft.
+    func testDismissedComposerReopensWithEmptyDraft() {
+        continueAfterFailure = false
+        let application = makeApplication(authenticated: true, environment: ["TCHOP_KB_VIDEO_DRAFT": "1"])
+        application.launch()
+        defer { application.terminate() }
+        XCTAssertTrue(element("news.feed", in: application).waitForExistence(timeout: launchTimeout))
+        openComposer(in: application)
+        XCTAssertTrue(application.staticTexts["KB video draft.mp4"].waitForExistence(timeout: launchTimeout))
+        let textView = application.textViews.matching(identifier: "composer.text.body").firstMatch
+        XCTAssertTrue(textView.waitForExistence(timeout: launchTimeout))
+        textView.tap()
+        textView.typeText("KB discarded draft")
+        XCTAssertTrue((textView.value as? String ?? "").contains("KB discarded draft"))
+        let cancel = element("composer.cancelButton", in: application)
+        XCTAssertTrue(cancel.waitForExistence(timeout: launchTimeout), application.debugDescription)
+        cancel.tap()
+        XCTAssertTrue(element("composer.screen", in: application).waitForNonExistence(timeout: launchTimeout))
+        XCTAssertFalse(application.staticTexts["KB discarded draft"].exists)
+        openComposer(in: application)
+        XCTAssertTrue(textView.waitForExistence(timeout: launchTimeout))
+        XCTAssertEqual(textView.value as? String, "")
+        XCTAssertFalse(application.staticTexts["KB video draft.mp4"].exists)
+        element("composer.cancelButton", in: application).tap()
+        XCTAssertTrue(element("composer.screen", in: application).waitForNonExistence(timeout: launchTimeout))
+    }
+
     /// Verifies the shell-level plus button hides when the feed scrolls away from the top.
     func testFeedScrollHidesAndRestoresFloatingActionButton() {
         let application = makeApplication(authenticated: true)
@@ -216,17 +243,7 @@ final class TchopAppUITests: XCTestCase {
 
     /// Publishes a plain text feed card through the real app composer UI.
     private func publishTextCard(_ text: String, in application: XCUIApplication) {
-        let floatingActionButton = element("shell.fab.create", in: application)
-        XCTAssertTrue(floatingActionButton.waitForExistence(timeout: launchTimeout))
-        floatingActionButton.tap()
-
-        let newPostButton = application.buttons["New post"].firstMatch.exists
-            ? application.buttons["New post"].firstMatch
-            : application.buttons["Новый пост"].firstMatch
-        XCTAssertTrue(newPostButton.waitForExistence(timeout: launchTimeout))
-        newPostButton.tap()
-
-        XCTAssertTrue(element("composer.screen", in: application).waitForExistence(timeout: launchTimeout))
+        openComposer(in: application)
 
         let textView = application.textViews.matching(identifier: "composer.text.body").firstMatch
         XCTAssertTrue(textView.waitForExistence(timeout: launchTimeout))
@@ -239,6 +256,21 @@ final class TchopAppUITests: XCTestCase {
         publishButton.tap()
 
         XCTAssertTrue(element("composer.screen", in: application).waitForNonExistence(timeout: launchTimeout))
+    }
+
+    private func openComposer(in application: XCUIApplication) {
+        let floatingActionButton = element("shell.fab.create", in: application)
+        XCTAssertTrue(floatingActionButton.waitForExistence(timeout: launchTimeout))
+        floatingActionButton.tap()
+
+        let newPostButton = application.buttons["New post"].firstMatch.exists
+            ? application.buttons["New post"].firstMatch
+            : application.buttons["Новый пост"].firstMatch
+        XCTAssertTrue(newPostButton.waitForExistence(timeout: launchTimeout))
+        newPostButton.tap()
+
+        XCTAssertTrue(element("composer.screen", in: application).waitForExistence(timeout: launchTimeout))
+
     }
 
     /// Resolves a UI element by accessibility identifier without assuming its element type.
@@ -257,6 +289,9 @@ final class TchopAppUITests: XCTestCase {
                 return englishCreateButton
             }
             return application.buttons["Создать"].firstMatch
+
+        case "composer.cancelButton":
+            return application.buttons.matching(NSPredicate(format: "label IN %@", ["Cancel", "Отмена"])).firstMatch
 
         case "composer.publishButton":
             let publishButton = application.buttons["Publish"].firstMatch

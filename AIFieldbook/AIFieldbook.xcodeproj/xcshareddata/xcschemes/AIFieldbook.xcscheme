@@ -21,7 +21,9 @@
                ReferencedContainer = "container:AIFieldbook.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-      </BuildActionEntries>
+      <BuildActionEntry buildForTesting="YES" buildForRunning="NO" buildForProfiling="NO" buildForArchiving="NO" buildForAnalyzing="YES"><BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A1F1B0000000000000000005" BuildableName="AIFieldbookTests.xctest" BlueprintName="AIFieldbookTests" ReferencedContainer="container:AIFieldbook.xcodeproj" /></BuildActionEntry>
+<BuildActionEntry buildForTesting="YES" buildForRunning="NO" buildForProfiling="NO" buildForArchiving="NO" buildForAnalyzing="NO"><BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A1F1C0000000000000000005" BuildableName="AIFieldbookUITests.xctest" BlueprintName="AIFieldbookUITests" ReferencedContainer="container:AIFieldbook.xcodeproj" /></BuildActionEntry>
+</BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
@@ -29,7 +31,9 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-      </Testables>
+<TestableReference skipped="NO" parallelizable="NO"><BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A1F1B0000000000000000005" BuildableName="AIFieldbookTests.xctest" BlueprintName="AIFieldbookTests" ReferencedContainer="container:AIFieldbook.xcodeproj" /></TestableReference>
+      <TestableReference skipped="NO" parallelizable="NO"><BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="A1F1C0000000000000000005" BuildableName="AIFieldbookUITests.xctest" BlueprintName="AIFieldbookUITests" ReferencedContainer="container:AIFieldbook.xcodeproj" /></TestableReference>
+</Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"

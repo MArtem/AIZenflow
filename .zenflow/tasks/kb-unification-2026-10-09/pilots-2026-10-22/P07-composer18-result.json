@@ -1,0 +1,19 @@
+{
+  "exit": 0,
+  "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/TchopApp-eibnejhowamajxdydgfsjklcnyvv/Logs/Test/Test-TchopApp-2026.10.22_17-33-25-+0300.xcresult",
+  "test": "TchopAppTests/AppShellViewModelTests/testDismissedVideoComposerCannotMutateReopenedDraft",
+  "source_sha256": "52057002ca17048f98e024a8753826758c7e25124299e18acdc0edc9e213837c",
+  "summary": {
+    "result": "Passed",
+    "totalTestCount": 1,
+    "passedTests": 1,
+    "failedTests": 0,
+    "skippedTests": 0,
+    "runtimeWarnings": [],
+    "osVersion": "18.2",
+    "deviceId": "FF1C266A-0F58-463D-9002-392BC39AF529",
+    "startTime": 1792679605.758,
+    "finishTime": 1792679637.034
+  },
+  "scope": "Model identity and draft isolation after dismiss/reopen, including mutation through retained old owner. No asynchronous preview-task or rendered UI coverage."
+}

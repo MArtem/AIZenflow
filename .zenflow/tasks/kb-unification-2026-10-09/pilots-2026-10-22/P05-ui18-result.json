@@ -1,0 +1,49 @@
+{
+  "exit": 0,
+  "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/GhibliSwiftUIApp-bukzrhiluregadhbegzkjrvgeieo/Logs/Test/Test-GhibliSwiftUIApp-2026.10.22_20-52-35-+0300.xcresult",
+  "summary": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "FF1C266A-0F58-463D-9002-392BC39AF529",
+          "deviceName": "iPhone 16 Pro",
+          "modelName": "iPhone 16 Pro",
+          "osBuildNumber": "22C150",
+          "osVersion": "18.2",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 0,
+        "passedTests": 1,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "GhibliSwiftUIApp \u00b7 Built with macOS 27.0.1",
+    "expectedFailures": 0,
+    "failedTests": 0,
+    "finishTime": 1792691600.357,
+    "passedTests": 1,
+    "result": "Passed",
+    "runtimeWarnings": [],
+    "skippedTests": 0,
+    "startTime": 1792691555.784,
+    "statistics": [],
+    "testFailures": [],
+    "title": "Test - GhibliSwiftUIApp",
+    "topInsights": [],
+    "totalTestCount": 1
+  },
+  "source_hashes": {
+    "GhibliSwiftUIApp/ContentView.swift": "24ce6381bc950cbb8063b135eed62dec4dab0f15d3d4c5329a2db8b503d9db60",
+    "GhibliSwiftUIApp/Views/FavoriteButton.swift": "24d90d18c9f52945a165697b845c4fa550f5f24b0fd6a5b98dc2cde0948c689f",
+    "GhibliSwiftUIApp/Favorites/Services/DefaultFavoriteStorage.swift": "212fbe94a3ebf5b884cc71f7301b1c43105b6cd42188ffb5549e8cc7c2dc1c7d",
+    "GhibliSwiftUIAppUITests/GhibliSwiftUIAppUITests.swift": "ea818ae88323a9eb9c256b4ebf3f4e3ebfa5c766729618813b5e9bf03a07b804",
+    "GhibliSwiftUIApp.xcodeproj/project.pbxproj": "59e5774ba35ae408dc6535395ed5cdc2ff0fb1edb7c3f586df7dd2cdaae7dd29"
+  },
+  "scope": "Real UI favorite selection, terminate/relaunch persistence, UI removal, second terminate/relaunch absence; Debug offline catalog and UUID-scoped defaults domain; fourth cleanup launch removes owned domain. Standard user domain never selected."
+}

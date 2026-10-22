@@ -1,4 +1,5 @@
 import AppIntents
+import SwiftData
 import SwiftUI
 
 /// Process entry point for the local-only AI Fieldbook app.
@@ -27,7 +28,29 @@ struct AIFieldbookApp: App {
 
 /// Owns retryable process-local SwiftData bootstrap state without ever deleting the store.
 private struct PersistenceRootView: View {
-    @State private var persistence = PersistenceBootstrap.load()
+    @State private var persistence = PersistenceRootView.loadPersistence()
+
+    @MainActor private static func loadPersistence() -> PersistenceBootstrap {
+        #if DEBUG
+        if ProcessInfo.processInfo.environment["AI_FIELDBOOK_KB_UI"] == "1" {
+            do {
+                let schema = Schema(AIFieldbookSchemaV3.models)
+                let container = try ModelContainer(for: schema, configurations: [
+                    ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+                ])
+                let repository = FieldbookRepository(context: container.mainContext)
+                let workspace = try repository.createWorkspace(name: "KB UI Workspace")
+                for title in ["Alpha Note", "Beta Note", "Failure Note"] {
+                    _ = try repository.createTextNote(workspaceID: workspace, title: title, body: "Local UI fixture")
+                }
+                return .ready(container)
+            } catch {
+                return .failed(referenceID: "KB-UI-fixture")
+            }
+        }
+        #endif
+        return PersistenceBootstrap.load()
+    }
 
     var body: some View {
         switch persistence {

@@ -1,0 +1,122 @@
+{
+  "exit": 65,
+  "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/AIFieldbook-euxrocsogdebijcravqrerjjcvwf/Logs/Test/Test-AIFieldbook-2026.10.22_20-41-48-+0300.xcresult",
+  "summary": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "A4320F80-FE71-4A45-A861-6F5405389C2C",
+          "deviceName": "iPhone 18 Pro",
+          "modelName": "iPhone 18 Pro",
+          "osBuildNumber": "24A434",
+          "osVersion": "27.0",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 1,
+        "passedTests": 0,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "AIFieldbook \u00b7 Built with macOS 27.0.1",
+    "expectedFailures": 0,
+    "failedTests": 1,
+    "finishTime": 1792690994.08,
+    "passedTests": 0,
+    "result": "Failed",
+    "runtimeWarnings": [],
+    "skippedTests": 0,
+    "startTime": 1792690908.393,
+    "statistics": [],
+    "testFailures": [
+      {
+        "failureText": "XCTAssertTrue failed",
+        "targetName": "AIFieldbookUITests",
+        "testIdentifier": 1,
+        "testIdentifierString": "LocalSearchUITests/testSearchChangeClearReturnAndRetry()",
+        "testIdentifierURL": "test://com.apple.xcode/AIFieldbook/AIFieldbookUITests/LocalSearchUITests/testSearchChangeClearReturnAndRetry",
+        "testName": "testSearchChangeClearReturnAndRetry()"
+      }
+    ],
+    "title": "Test - AIFieldbook",
+    "topInsights": [],
+    "totalTestCount": 1
+  },
+  "details": {
+    "devices": [
+      {
+        "architecture": "arm64",
+        "deviceId": "A4320F80-FE71-4A45-A861-6F5405389C2C",
+        "deviceName": "iPhone 18 Pro",
+        "modelName": "iPhone 18 Pro",
+        "osBuildNumber": "24A434",
+        "osVersion": "27.0",
+        "platform": "iOS Simulator"
+      }
+    ],
+    "duration": "Ran for 22 seconds",
+    "durationInSeconds": 22.390558004379272,
+    "hasMediaAttachments": false,
+    "hasPerformanceMetrics": false,
+    "startTime": 1792690953.724,
+    "testDescription": "Test case with 1 run",
+    "testIdentifier": "LocalSearchUITests/testSearchChangeClearReturnAndRetry()",
+    "testIdentifierURL": "test://com.apple.xcode/AIFieldbook/AIFieldbookUITests/LocalSearchUITests/testSearchChangeClearReturnAndRetry",
+    "testName": "testSearchChangeClearReturnAndRetry()",
+    "testPlanConfigurations": [
+      {
+        "configurationId": "1",
+        "configurationName": "Test Scheme Action"
+      }
+    ],
+    "testResult": "Failed",
+    "testRuns": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "name": "",
+                    "nodeType": "Source Code Reference",
+                    "sourceLocation": {
+                      "filePath": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/AIFieldbook/AIFieldbookUITests/LocalSearchUITests.swift",
+                      "lineNumber": 16
+                    }
+                  }
+                ],
+                "name": "XCTAssertTrue failed",
+                "nodeType": "Test Case Run",
+                "result": "Failed",
+                "sourceLocation": {
+                  "filePath": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/AIFieldbook/AIFieldbookUITests/LocalSearchUITests.swift",
+                  "lineNumber": 16
+                }
+              }
+            ],
+            "duration": "22s",
+            "durationInSeconds": 22.390558004379272,
+            "name": "Test Scheme Action",
+            "nodeIdentifier": "1",
+            "nodeIdentifierURL": "test://com.apple.xcode/AIFieldbook/AIFieldbookUITests/LocalSearchUITests/testSearchChangeClearReturnAndRetry",
+            "nodeType": "Test Plan Configuration",
+            "result": "Failed"
+          }
+        ],
+        "details": "iOS Simulator 27.0",
+        "duration": "22s",
+        "durationInSeconds": 22.390558004379272,
+        "name": "iPhone 18 Pro",
+        "nodeIdentifier": "A4320F80-FE71-4A45-A861-6F5405389C2C",
+        "nodeType": "Device",
+        "result": "Failed"
+      }
+    ]
+  }
+}

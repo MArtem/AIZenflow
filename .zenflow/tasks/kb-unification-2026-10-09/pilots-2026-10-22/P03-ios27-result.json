@@ -1,0 +1,46 @@
+{
+  "exit": 0,
+  "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/MVVMExample-cfgmgdsybeumsehimdvtxmbfjflu/Logs/Test/Test-MVVMExample-2026.10.22_03-28-13-+0300.xcresult",
+  "summary": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "A4320F80-FE71-4A45-A861-6F5405389C2C",
+          "deviceName": "iPhone 18 Pro",
+          "modelName": "iPhone 18 Pro",
+          "osBuildNumber": "24A434",
+          "osVersion": "27.0",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 0,
+        "passedTests": 7,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Unit Tests"
+        }
+      }
+    ],
+    "environmentDescription": "MVVMExample \u00b7 Built with macOS 27.0.1",
+    "expectedFailures": 0,
+    "failedTests": 0,
+    "finishTime": 1792628943.222,
+    "passedTests": 7,
+    "result": "Passed",
+    "runtimeWarnings": [],
+    "skippedTests": 0,
+    "startTime": 1792628893.362,
+    "statistics": [],
+    "testFailures": [],
+    "title": "Test - MVVMExample",
+    "topInsights": [],
+    "totalTestCount": 7
+  },
+  "test_patch_hashes": {
+    "MVVMExampleTests/Infrastructure/InfrastructureSupportTests.swift": "426e96a6ce9472b21f21dec047df631bad7b8865c8b8a6ad8f880ef84faea197",
+    "MVVMExampleTests/Performance/PerformanceRegressionTests.swift": "d37622a09888551f8369997b5edc61f4d2d2db877148456293a7055c053eb548"
+  },
+  "scope": "3 News cases plus2URLProtocol and2actor cache cases; no full app/production performance claim"
+}

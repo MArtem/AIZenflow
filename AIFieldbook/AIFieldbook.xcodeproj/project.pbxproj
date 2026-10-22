@@ -127,8 +127,16 @@
 		6B1A00000000000000001709 /* AudioPlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001719 /* AudioPlaybackView.swift */; };
 		6B1A00000000000000001801 /* AIFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001811 /* AIFoundation.swift */; };
 		6B1A00000000000000001802 /* VisionTextRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001812 /* VisionTextRecognitionService.swift */; };
+A1F1B0000000000000000001 = {isa = PBXBuildFile; fileRef = A1F1B0000000000000000002; };
+A1F1C0000000000000000001 = {isa = PBXBuildFile; fileRef = A1F1C0000000000000000002; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+A1F1B000000000000000000C = {isa = PBXContainerItemProxy; containerPortal = 6B1A00000000000000000070; proxyType = 1; remoteGlobalIDString = 6B1A00000000000000000040; remoteInfo = AIFieldbook; };
+/* End PBXContainerItemProxy section */
+/* Begin PBXTargetDependency section */
+A1F1B0000000000000000009 = {isa = PBXTargetDependency; target = 6B1A00000000000000000040; targetProxy = A1F1B000000000000000000C; };
+/* End PBXTargetDependency section */
 /* Begin PBXFileReference section */
 		6B1A00000000000000000010 /* AIFieldbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIFieldbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B1A00000000000000000101 /* AIFieldbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFieldbookApp.swift; sourceTree = "<group>"; };
@@ -253,6 +261,10 @@
 		6B1A00000000000000001719 /* AudioPlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlaybackView.swift; sourceTree = "<group>"; };
 		6B1A00000000000000001811 /* AIFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFoundation.swift; sourceTree = "<group>"; };
 		6B1A00000000000000001812 /* VisionTextRecognitionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionTextRecognitionService.swift; sourceTree = "<group>"; };
+A1F1B0000000000000000002 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchTests.swift; sourceTree = "<group>"; };
+A1F1B0000000000000000003 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = AIFieldbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+A1F1C0000000000000000002 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchUITests.swift; sourceTree = "<group>"; };
+A1F1C0000000000000000003 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = AIFieldbookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +275,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+A1F1B0000000000000000008 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+A1F1C0000000000000000008 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -270,6 +284,8 @@
 			isa = PBXGroup;
 			children = (
 				6B1A00000000000000000031 /* AIFieldbook */,
+A1F1B0000000000000000004 /* AIFieldbookTests */,
+A1F1C0000000000000000004 /* AIFieldbookUITests */,
 				6B1A00000000000000000047 /* Documentation */,
 				6B1A00000000000000000033 /* PackagesInUse */,
 				6B1A00000000000000000032 /* Products */,
@@ -293,6 +309,8 @@
 			isa = PBXGroup;
 			children = (
 				6B1A00000000000000000010 /* AIFieldbook.app */,
+A1F1B0000000000000000003 /* AIFieldbookTests.xctest */,
+A1F1C0000000000000000003 /* AIFieldbookUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -852,6 +870,8 @@
 			path = AI;
 			sourceTree = "<group>";
 		};
+A1F1B0000000000000000004 = {isa = PBXGroup; children = (A1F1B0000000000000000002,); path = AIFieldbookTests; sourceTree = "<group>"; };
+A1F1C0000000000000000004 = {isa = PBXGroup; children = (A1F1C0000000000000000002,); path = AIFieldbookUITests; sourceTree = "<group>"; };
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -872,6 +892,8 @@
 			productReference = 6B1A00000000000000000010 /* AIFieldbook.app */;
 			productType = "com.apple.product-type.application";
 		};
+A1F1B0000000000000000005 = {isa = PBXNativeTarget; buildConfigurationList = A1F1B0000000000000000006; buildPhases = (A1F1B0000000000000000007,A1F1B0000000000000000008,); buildRules = (); dependencies = (A1F1B0000000000000000009,); name = AIFieldbookTests; productName = AIFieldbookTests; productReference = A1F1B0000000000000000003; productType = "com.apple.product-type.bundle.unit-test"; };
+A1F1C0000000000000000005 = {isa = PBXNativeTarget; buildConfigurationList = A1F1C0000000000000000006; buildPhases = (A1F1C0000000000000000007,A1F1C0000000000000000008,); buildRules = (); dependencies = (A1F1B0000000000000000009,); name = AIFieldbookUITests; productName = AIFieldbookUITests; productReference = A1F1C0000000000000000003; productType = "com.apple.product-type.bundle.ui-testing"; };
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -901,6 +923,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+A1F1B0000000000000000005 /* AIFieldbookTests */,
+A1F1C0000000000000000005 /* AIFieldbookUITests */,
 				6B1A00000000000000000040 /* AIFieldbook */,
 			);
 		};
@@ -1044,6 +1068,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+A1F1B0000000000000000007 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A1F1B0000000000000000001,); runOnlyForDeploymentPostprocessing = 0; };
+A1F1C0000000000000000007 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A1F1C0000000000000000001,); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -1229,6 +1255,11 @@
 			};
 			name = Release;
 		};
+A1F1B000000000000000000A = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AIFieldbook.app/AIFieldbook"; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 18.2; PRODUCT_BUNDLE_IDENTIFIER = com.zenflow.AIFieldbookTests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; TARGETED_DEVICE_FAMILY = 1; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)","@executable_path/Frameworks","@loader_path/Frameworks",);}; name = Debug; };
+A1F1B000000000000000000B = {isa = XCBuildConfiguration; buildSettings = {BUNDLE_LOADER = "$(TEST_HOST)"; TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AIFieldbook.app/AIFieldbook"; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 18.2; PRODUCT_BUNDLE_IDENTIFIER = com.zenflow.AIFieldbookTests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; TARGETED_DEVICE_FAMILY = 1; LD_RUNPATH_SEARCH_PATHS = ("$(inherited)","@executable_path/Frameworks","@loader_path/Frameworks",);}; name = Release; };
+
+A1F1C000000000000000000A = {isa = XCBuildConfiguration; buildSettings = {GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 18.2; PRODUCT_BUNDLE_IDENTIFIER = com.zenflow.AIFieldbookUITests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; TARGETED_DEVICE_FAMILY = 1; TEST_TARGET_NAME = AIFieldbook; }; name = Debug; };
+A1F1C000000000000000000B = {isa = XCBuildConfiguration; buildSettings = {GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 18.2; PRODUCT_BUNDLE_IDENTIFIER = com.zenflow.AIFieldbookUITests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; TARGETED_DEVICE_FAMILY = 1; TEST_TARGET_NAME = AIFieldbook; }; name = Release; };
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1250,6 +1281,8 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+A1F1B0000000000000000006 = {isa = XCConfigurationList; buildConfigurations = (A1F1B000000000000000000A,A1F1B000000000000000000B,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+A1F1C0000000000000000006 = {isa = XCConfigurationList; buildConfigurations = (A1F1C000000000000000000A,A1F1C000000000000000000B,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
 /* End XCConfigurationList section */
 	};
 	rootObject = 6B1A00000000000000000070 /* Project object */;

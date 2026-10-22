@@ -1,0 +1,42 @@
+{
+  "build_graph_checks": [
+    {
+      "root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next",
+      "project": "AIFieldbook/AIFieldbook.xcodeproj",
+      "app_target_configuration_and_membership_unchanged": true,
+      "only_existing_object_mutations": "project target list and root/product groups",
+      "new_test_targets": [
+        "AIFieldbookTests",
+        "AIFieldbookUITests"
+      ],
+      "testable_dependency_archive_parity": "PASS"
+    },
+    {
+      "root": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui",
+      "project": "CountriesSwiftUI.xcodeproj",
+      "app_target_configuration_and_membership_unchanged": true,
+      "only_existing_object_mutations": "project target list and root/product groups",
+      "new_test_targets": [
+        "KBPilotUITests"
+      ],
+      "testable_dependency_archive_parity": "PASS"
+    }
+  ],
+  "final_runtime_receipts_validated": {
+    "P02-final-unit18-result.json": 5,
+    "P02-final-unit27-result.json": 5,
+    "P02-ui18-fixed-result.json": 1,
+    "P02-ui27-result.json": 1,
+    "P04-ui18-result.json": 1,
+    "P04-ui27-result.json": 1,
+    "P05-ui18-result.json": 1,
+    "P05-ui27-result.json": 1,
+    "P07-ui18-result.json": 2,
+    "P07-ui27-result.json": 2
+  },
+  "application_commits_clean_and_patch_backups_verified": true,
+  "all_download_roots_absent": true,
+  "canonical_override_mirror_equal": true,
+  "json_parse": "PASS",
+  "limits": "Structural/runtime gates support bounded semantic self-review, not independent whole-app/whole-KB certification."
+}

@@ -1,0 +1,50 @@
+{
+  "exit": 65,
+  "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/CountriesSwiftUI-efuvroskjnfzxoamcxczlhudwvgd/Logs/Test/Test-CountriesSwiftUI-2026.10.22_21-00-43-+0300.xcresult",
+  "summary": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "FF1C266A-0F58-463D-9002-392BC39AF529",
+          "deviceName": "iPhone 16 Pro",
+          "modelName": "iPhone 16 Pro",
+          "osBuildNumber": "22C150",
+          "osVersion": "18.2",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 1,
+        "passedTests": 0,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "CountriesSwiftUI \u00b7 Built with macOS 27.0.1",
+    "expectedFailures": 0,
+    "failedTests": 1,
+    "finishTime": 1792692103.188,
+    "passedTests": 0,
+    "result": "Failed",
+    "runtimeWarnings": [],
+    "skippedTests": 0,
+    "startTime": 1792692043.264,
+    "statistics": [],
+    "testFailures": [
+      {
+        "failureText": "XCTAssertTrue failed - Attributes: Application, 0x1041483b0, pid: 44405, label: 'CountriesSwiftUI'\nElement subtree:\n \u2192Application, 0x1041483b0, pid: 44405, label: 'CountriesSwiftUI'\n    Window (Main), 0x104130ec0, {{0.0, 0.0}, {402.0, 874.0}}\n      Other, 0x104134d60, {{0.0, 0.0}, {402.0, 874.0}}\n        Other, 0x104132c40, {{0.0, 0.0}, {402.0, 874.0}}\n          Other, 0x1041385d0, {{0.0, 0.0}, {402.0, 874.0}}\n            Other, 0x104138240, {{0.0, 0.0}, {402.0, 874.0}}\n              StaticText, 0x104131230, {{361.5, 689.0}, {21.0, 17.0}}, label: 'Environment Overrides'\n              Switch, 0x10412f0e0, {{343.5, 723.3}, {57.2, 31.0}}, label: 'Light or Dark', value: 0\n                StaticText, 0x10412a820, {{0.0, 0.0}, {0.0, 0.0}}, label: 'Light or Dark'\n                Switch, 0x104129230, {{351.7, 723.3}, {51.0, 31.0}}, value: 0\n              StaticText, 0x104123b80, {{358.0, 767.1}, {10.0, 14.3}}, label: 'Locale'\n              SegmentedControl, 0x104121650, {{376.0, 758.7}, {10.0, 31.0}}\n                Button, 0x1041219d0, {{376.0, 758.7}, {2.0, 32.0}}, label: 'de'\n                Button, 0x104121d40, {{379.0, 758.7}, {3.0, 32.0}}, label: 'ja'\n                Button, 0x1041141f0, {{383.0, 758.7}, {3.0, 32.0}}, label: 'en', Selected\n              StaticText, 0x104112d30, {{358.0, 797.6}, {10.0, 30.3}}, label: 'Text'\n              StaticText, 0x1041138e0, {{377.5, 825.6}, {7.0, 14.3}}, label: 'L'\n              Slider, 0x10411c4d0, {{376.0, 797.3}, {10.0, 31.0}}, value: 27%\n                Other, 0x10412b000, {{374.0, 797.3}, {14.0, 32.0}}\n                  Image, 0x10412d750, {{369.0, 797.3}, {31.0, 31.0}}\n                    Image, 0x10413bd60, {{356.0, 784.7}, {57.0, 56.0}}\n                  Other, 0x10413ff80, {{377.0, 811.3}, {8.0, 4.0}}\n                    Image, 0x104141b40, {{377.0, 811.3}, {8.0, 4.0}}\n                  Other, 0x1041420d0, {{385.0, 811.3}, {0.0, 4.0}}\n                    Image, 0x104144330, {{377.0, 811.3}, {8.0, 4.0}}\n              Switch, 0x1041446b0, {{343.5, 835.7}, {57.2, 31.0}}, label: 'Inverse Layout', value: 0\n                StaticText, 0x104144a40, {{0.0, 0.0}, {0.0, 0.0}}, label: 'Inverse Layout'\n                Switch, 0x104144dd0, {{351.7, 835.7}, {51.0, 31.0}}, value: 0\n              Switch, 0x104145170, {{343.5, 874.7}, {57.2, 31.0}}, label: 'Accessibility', value: 0\n                StaticText, 0x104145cd0, {{0.0, 0.0}, {0.0, 0.0}}, label: 'Accessibility'\n                Switch, 0x104146050, {{351.7, 874.7}, {51.0, 31.0}}, value: 0\n              Button, 0x1041463b0, {{361.7, 911.7}, {21.0, 19.3}}, label: 'Take Screenshot'\nPath to element:\n \u2192Application, 0x1041483b0, pid: 44405, label: 'CountriesSwiftUI'\nQuery chain:\n \u2192Find: Target Application 'com.swiftui.CountriesSwiftUI'\n  Output: {\n    Application, 0x104135f00, pid: 44405, label: 'CountriesSwiftUI'\n  }\n",
+        "targetName": "KBPilotUITests",
+        "testIdentifier": 1,
+        "testIdentifierString": "CountriesRetryUITests/testDatabaseFailureRetriesToVisibleCountry()",
+        "testIdentifierURL": "test://com.apple.xcode/CountriesSwiftUI/KBPilotUITests/CountriesRetryUITests/testDatabaseFailureRetriesToVisibleCountry",
+        "testName": "testDatabaseFailureRetriesToVisibleCountry()"
+      }
+    ],
+    "title": "Test - CountriesSwiftUI",
+    "topInsights": [],
+    "totalTestCount": 1
+  }
+}

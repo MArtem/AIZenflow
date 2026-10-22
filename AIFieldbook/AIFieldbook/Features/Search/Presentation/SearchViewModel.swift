@@ -10,7 +10,7 @@ import Observation
 @MainActor
 final class SearchViewModel {
     private let repository: FieldbookRepository
-    private let searchIndex: FieldbookSearchIndex
+    private let searchIndex: any FieldbookSearching
     private let stateBuilder: SearchViewStateBuilder
     @ObservationIgnored private var searchTask: Task<Void, Never>?
 
@@ -25,7 +25,7 @@ final class SearchViewModel {
 
     init(
         repository: FieldbookRepository,
-        searchIndex: FieldbookSearchIndex,
+        searchIndex: any FieldbookSearching,
         stateBuilder: SearchViewStateBuilder = SearchViewStateBuilder()
     ) {
         self.repository = repository
@@ -49,6 +49,12 @@ final class SearchViewModel {
 
     func disappeared() {
         cancelSearch()
+    }
+
+    /// Captures completion without exposing cancellation or mutation of the owned task.
+    func searchCompletionSnapshot() -> (@Sendable () async -> Void)? {
+        guard let searchTask else { return nil }
+        return { await searchTask.value }
     }
 
     func queryChanged(_ query: String) {
@@ -104,6 +110,7 @@ final class SearchViewModel {
             } catch is CancellationError {
                 return
             } catch {
+                guard !Task.isCancelled else { return }
                 self?.applySearchFailure(for: criteria)
             }
         }

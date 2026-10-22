@@ -1,0 +1,139 @@
+{
+  "exit": 65,
+  "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/GhibliSwiftUIApp-bukzrhiluregadhbegzkjrvgeieo/Logs/Test/Test-GhibliSwiftUIApp-2026.10.22_20-50-49-+0300.xcresult",
+  "summary": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "FF1C266A-0F58-463D-9002-392BC39AF529",
+          "deviceName": "iPhone 16 Pro",
+          "modelName": "iPhone 16 Pro",
+          "osBuildNumber": "22C150",
+          "osVersion": "18.2",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 1,
+        "passedTests": 0,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "GhibliSwiftUIApp \u00b7 Built with macOS 27.0.1",
+    "expectedFailures": 0,
+    "failedTests": 1,
+    "finishTime": 1792691493.344,
+    "passedTests": 0,
+    "result": "Failed",
+    "runtimeWarnings": [],
+    "skippedTests": 0,
+    "startTime": 1792691449.099,
+    "statistics": [],
+    "testFailures": [
+      {
+        "failureText": "Failed to tap \"favorite.kb-pilot-film\" Button: Find single matching element. Multiple matching elements found for <XCUIElementQuery: 0x60000213f390>.\nSparse tree of matches:\n\u2192Application, pid: 42650, label: 'GhibliSwiftUIApp'\n  \u21b3Window (Main)\n    \u21b3Other\n      \u21b3Other\n        \u21b3Other\n          \u21b3Other\n            \u21b3Other\n              \u21b3Other\n                \u21b3Other\n                  \u21b3Other\n                    \u21b3Other\n                      \u21b3Other\n                        \u21b3Other\n                          \u21b3Other\n                            \u21b3Other\n                              \u21b3Other\n                                \u21b3Other\n                                  \u21b3CollectionView\n                                    \u21b3Cell\n                                      \u21b3Other\n                                        \u21b3Other\n                                          \u21b3Other\n                                            \u21b3Button, identifier: 'favorite.kb-pilot-film', label: 'KB Pilot Film, Directed by Fixture, Released: 2000', value: 1\n                                              \u21b3Button, identifier: 'favorite.kb-pilot-film', label: 'Love'\nPossibly caused by runtime issues:\nAutomation type mismatch: computed Button from legacy attributes vs ActivityIndicator from modern attribute. Input attributes and values: {\n    \"XC_kAXXCAttributeAutomationType\" = 36;\n    \"XC_kAXXCAttributeElementBaseType\" = UIResponder;\n    \"XC_kAXXCAttributeElementType\" = \"SwiftUI.AccessibilityNode\";\n    \"XC_kAXXCAttributeTraits\" = 8589935105;\n}\nSee test report attachments for more detail.",
+        "targetName": "GhibliSwiftUIAppUITests",
+        "testIdentifier": 1,
+        "testIdentifierString": "GhibliSwiftUIAppUITests/testFavoritesSurviveProcessRelaunchAndRemoval()",
+        "testIdentifierURL": "test://com.apple.xcode/GhibliSwiftUIApp/GhibliSwiftUIAppUITests/GhibliSwiftUIAppUITests/testFavoritesSurviveProcessRelaunchAndRemoval",
+        "testName": "testFavoritesSurviveProcessRelaunchAndRemoval()"
+      }
+    ],
+    "title": "Test - GhibliSwiftUIApp",
+    "topInsights": [],
+    "totalTestCount": 1
+  },
+  "details": {
+    "devices": [
+      {
+        "architecture": "arm64",
+        "deviceId": "FF1C266A-0F58-463D-9002-392BC39AF529",
+        "deviceName": "iPhone 16 Pro",
+        "modelName": "iPhone 16 Pro",
+        "osBuildNumber": "22C150",
+        "osVersion": "18.2",
+        "platform": "iOS Simulator"
+      }
+    ],
+    "duration": "Ran for 5,5 seconds",
+    "durationInSeconds": 5.499457001686096,
+    "hasMediaAttachments": false,
+    "hasPerformanceMetrics": false,
+    "startTime": 1792691472.973,
+    "testDescription": "Test case with 1 run",
+    "testIdentifier": "GhibliSwiftUIAppUITests/testFavoritesSurviveProcessRelaunchAndRemoval()",
+    "testIdentifierURL": "test://com.apple.xcode/GhibliSwiftUIApp/GhibliSwiftUIAppUITests/GhibliSwiftUIAppUITests/testFavoritesSurviveProcessRelaunchAndRemoval",
+    "testName": "testFavoritesSurviveProcessRelaunchAndRemoval()",
+    "testPlanConfigurations": [
+      {
+        "configurationId": "1",
+        "configurationName": "Test Scheme Action"
+      }
+    ],
+    "testResult": "Failed",
+    "testRuns": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "name": "Complete Issue Description.txt",
+                    "nodeIdentifier": "7513076D-1AE2-41D1-8F83-006F151DD230",
+                    "nodeType": "Attachment"
+                  },
+                  {
+                    "details": "0~bYE73ANw9xNbcY1o5ne4p7HPXV7vv6uQUf6FFw20FRP25fTrhqiF-MH2rsn3Xh3LBdlo8H2h8fwO0Uyrs3akQw==",
+                    "name": "App UI hierarchy for com.karinprater_0_3EBCF2C9-FB9F-4BC7-9C1A-9149B9BA4F7D.GhibliSwiftUIApp",
+                    "nodeIdentifier": "13856B9D-7FF6-4A15-B102-E6191B2C7B6F",
+                    "nodeType": "Attachment"
+                  },
+                  {
+                    "details": "0~AYB2IASUesOKdW71TlivYSy8eB2Fh3arTn297agbxsyJZUzNSW2_svG5NpRCHGtFM_xbllBprMFzf1a33lB8vQ==",
+                    "name": "UI Snapshot 2026-10-22 at 08.51.17 PM",
+                    "nodeIdentifier": "73B844E1-B35D-4D1E-932F-0F3DB1C7789B",
+                    "nodeType": "Attachment"
+                  },
+                  {
+                    "name": "",
+                    "nodeType": "Source Code Reference",
+                    "sourceLocation": {
+                      "filePath": "/Users/Artem/.zenflow/library-acceptance-projects/GhibliSwiftUIApp/GhibliSwiftUIAppUITests/GhibliSwiftUIAppUITests.swift",
+                      "lineNumber": 40
+                    }
+                  }
+                ],
+                "name": "Failed to tap \"favorite.kb-pilot-film\" Button: Find single matching element. Multiple matching elements found for <XCUIElementQuery: 0x60000213f390>.\nSparse tree of matches:\n\u2192Application, pid: 42650, label: 'GhibliSwiftUIApp'\n  \u21b3Window (Main)\n    \u21b3Other\n      \u21b3Other\n        \u21b3Other\n          \u21b3Other\n            \u21b3Other\n              \u21b3Other\n                \u21b3Other\n                  \u21b3Other\n                    \u21b3Other\n                      \u21b3Other\n                        \u21b3Other\n                          \u21b3Other\n                            \u21b3Other\n                              \u21b3Other\n                                \u21b3Other\n                                  \u21b3CollectionView\n                                    \u21b3Cell\n                                      \u21b3Other\n                                        \u21b3Other\n                                          \u21b3Other\n                                            \u21b3Button, identifier: 'favorite.kb-pilot-film', label: 'KB Pilot Film, Directed by Fixture, Released: 2000', value: 1\n                                              \u21b3Button, identifier: 'favorite.kb-pilot-film', label: 'Love'\nPossibly caused by runtime issues:\nAutomation type mismatch: computed Button from legacy attributes vs ActivityIndicator from modern attribute. Input attributes and values: {\n    \"XC_kAXXCAttributeAutomationType\" = 36;\n    \"XC_kAXXCAttributeElementBaseType\" = UIResponder;\n    \"XC_kAXXCAttributeElementType\" = \"SwiftUI.AccessibilityNode\";\n    \"XC_kAXXCAttributeTraits\" = 8589935105;\n}\nSee test report attachments for more detail.",
+                "nodeType": "Test Case Run",
+                "result": "Failed",
+                "sourceLocation": {
+                  "filePath": "/Users/Artem/.zenflow/library-acceptance-projects/GhibliSwiftUIApp/GhibliSwiftUIAppUITests/GhibliSwiftUIAppUITests.swift",
+                  "lineNumber": 40
+                }
+              }
+            ],
+            "duration": "5s",
+            "durationInSeconds": 5.499457001686096,
+            "name": "Test Scheme Action",
+            "nodeIdentifier": "1",
+            "nodeIdentifierURL": "test://com.apple.xcode/GhibliSwiftUIApp/GhibliSwiftUIAppUITests/GhibliSwiftUIAppUITests/testFavoritesSurviveProcessRelaunchAndRemoval",
+            "nodeType": "Test Plan Configuration",
+            "result": "Failed"
+          }
+        ],
+        "details": "iOS Simulator 18.2",
+        "duration": "5s",
+        "durationInSeconds": 5.499457001686096,
+        "name": "iPhone 16 Pro",
+        "nodeIdentifier": "FF1C266A-0F58-463D-9002-392BC39AF529",
+        "nodeType": "Device",
+        "result": "Failed"
+      }
+    ]
+  }
+}

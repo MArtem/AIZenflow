@@ -1,0 +1,60 @@
+[
+  {
+    "name": "MVVMExample",
+    "root": "/Users/Artem/.zenflow/worktrees/mvvmexample-3c80",
+    "branch": "Development",
+    "trusted_local_task_base": "a7e243f466bad7753d5616955ecba68ab6a9bdc6",
+    "head": "5bacbda3df3582a7c6798934672d094750c13797",
+    "range": "a7e243f466bad7753d5616955ecba68ab6a9bdc6..5bacbda3df3582a7c6798934672d094750c13797",
+    "files": [
+      "MVVMExampleTests/Infrastructure/InfrastructureSupportTests.swift",
+      "MVVMExampleTests/Performance/PerformanceRegressionTests.swift"
+    ],
+    "patch_sha256": "101d795a7cc4981db9d38b857a708cc465ba9a14dc22929a46ad11a53caa0ce1",
+    "exact_committed_diff_matches_reviewed_patch": true,
+    "clean": true,
+    "publication": "Local preservation commit only; no upstream application remote mutation",
+    "review": "Complete owned diff/consumer/authority/failure semantics self-review; no known P0-P2 in owned changes. Earlier warnings and scoped test limits retained; not independent whole-app certification."
+  },
+  {
+    "name": "GhibliSwiftUIApp",
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/GhibliSwiftUIApp",
+    "branch": "codex/preserve-ghibli-favorites-20261007",
+    "trusted_local_task_base": "9e647491fa7d39d58971dadf86c9faa5c6a08e43",
+    "head": "794c4778536f2a5a9a3addb72d689e41e5892d7f",
+    "range": "9e647491fa7d39d58971dadf86c9faa5c6a08e43..794c4778536f2a5a9a3addb72d689e41e5892d7f",
+    "files": [
+      "GhibliSwiftUIApp.xcodeproj/project.pbxproj",
+      "GhibliSwiftUIApp/ContentView.swift",
+      "GhibliSwiftUIApp/Favorites/Services/DefaultFavoriteStorage.swift",
+      "GhibliSwiftUIApp/Views/FavoriteButton.swift",
+      "GhibliSwiftUIAppTests/FavoritesCatalogStateTests.swift",
+      "GhibliSwiftUIAppUITests/GhibliSwiftUIAppUITests.swift"
+    ],
+    "patch_sha256": "77ac90d118d5e50eb4647be3855e46e78be81a7b0c67c6797535c75c36035a29",
+    "exact_committed_diff_matches_reviewed_patch": true,
+    "clean": true,
+    "publication": "Local preservation commit only; no upstream application remote mutation",
+    "review": "Complete owned diff/consumer/authority/failure semantics self-review; no known P0-P2 in owned changes. Earlier warnings and scoped test limits retained; not independent whole-app certification."
+  },
+  {
+    "name": "CountriesSwiftUI",
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui",
+    "branch": "codex/countries-db-error-contract",
+    "trusted_local_task_base": "3bfd869fcd11fa4ca04e065750ebfeff9d8f33ba",
+    "head": "bdb3e0f7883dcd23417c364fedffdbaef83a2e77",
+    "range": "3bfd869fcd11fa4ca04e065750ebfeff9d8f33ba..bdb3e0f7883dcd23417c364fedffdbaef83a2e77",
+    "files": [
+      "CountriesSwiftUI.xcodeproj/project.pbxproj",
+      "CountriesSwiftUI.xcodeproj/xcshareddata/xcschemes/CountriesSwiftUI.xcscheme",
+      "CountriesSwiftUI/Core/App.swift",
+      "CountriesSwiftUI/DependencyInjection/AppEnvironment.swift",
+      "KBPilotUITests/CountriesRetryUITests.swift"
+    ],
+    "patch_sha256": "fbca167aa76105a0cc390a5a243ff1f4ea2e488b34fd9a33c1acec2adbbd459d",
+    "exact_committed_diff_matches_reviewed_patch": true,
+    "clean": true,
+    "publication": "Local preservation commit only; no upstream application remote mutation",
+    "review": "Complete owned diff/consumer/authority/failure semantics self-review; no known P0-P2 in owned changes. Earlier warnings and scoped test limits retained; not independent whole-app certification."
+  }
+]

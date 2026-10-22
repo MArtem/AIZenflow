@@ -99,6 +99,28 @@ final class AppShellViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.activeComposer?.selectedChannelTitle, AppChannel.community.title)
     }
 
+    func testDismissedVideoComposerCannotMutateReopenedDraft() throws {
+        let viewModel = makeShellViewModel()
+        viewModel.presentComposer()
+        let oldComposer = try XCTUnwrap(viewModel.activeComposer)
+        oldComposer.selectPickedFile(kind: .video, displayTitle: "Old video", fileURL: nil)
+        oldComposer.updateText("Old draft", for: .text)
+        XCTAssertNotNil(oldComposer.media)
+
+        viewModel.dismissComposer()
+        XCTAssertNil(viewModel.activeComposer)
+        viewModel.presentComposer()
+        let reopenedComposer = try XCTUnwrap(viewModel.activeComposer)
+        XCTAssertFalse(oldComposer === reopenedComposer)
+        XCTAssertNil(reopenedComposer.media)
+        XCTAssertTrue(reopenedComposer.textValue(for: .text).isEmpty)
+
+        oldComposer.updateText("Late update to dismissed draft", for: .text)
+        oldComposer.selectPickedFile(kind: .video, displayTitle: "Late video", fileURL: nil)
+        XCTAssertNil(reopenedComposer.media)
+        XCTAssertTrue(reopenedComposer.textValue(for: .text).isEmpty)
+    }
+
     /// Verifies selecting a channel updates feed scope and syncs share-extension session context.
     func testSelectChannelRefreshesFeedScopeAndShareExtensionContext() throws {
         let channelsStore = makeTestChannelsStore(selectedChannelID: AppChannel.product.id)

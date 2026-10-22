@@ -22,6 +22,12 @@ struct FieldbookSearchCriteria: Equatable, Sendable {
     }
 }
 
+/// Search boundary shared by the SwiftData actor and controlled verification providers.
+/// Values crossing this boundary are immutable snapshots, never live SwiftData records.
+protocol FieldbookSearching: Sendable {
+    func search(criteria: FieldbookSearchCriteria) async throws -> [KnowledgeItemSummary]
+}
+
 /// Sendable snapshot used by optional system indexing.
 ///
 /// The value contains only user-visible metadata approved by the local privacy contract.
@@ -50,7 +56,7 @@ struct SpotlightIndexEntry: Sendable {
 /// reads execute through this separate SwiftData model actor. Returned values are Sendable
 /// snapshots, never live persistent models.
 @ModelActor
-actor FieldbookSearchIndex {
+actor FieldbookSearchIndex: FieldbookSearching {
     private let maximumSearchResultCount = 100
 
     /// Searches local knowledge items without exposing live SwiftData records to the UI.

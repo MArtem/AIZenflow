@@ -40,6 +40,7 @@ struct SearchScreen: View {
                     viewModel.queryChanged(query)
                 }
             ),
+            placement: .navigationBarDrawer(displayMode: .always),
             prompt: "Title, text, filename, or tag"
         )
         .onAppear {

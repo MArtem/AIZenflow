@@ -1,0 +1,63 @@
+{
+  "test": "BattleshipGameUITests/BoardInteractionTests/testScrolledPlacementFireDuplicateAndReset",
+  "source_hashes": {
+    "BattleshipGame/BattleshipGame/GameModel.swift": "a4dd935d45917c35a123f445b6a55fd0f645bb42ffd8cfa113a9d5423c758776",
+    "BattleshipGame/BattleshipGame/ContentView.swift": "d9134483db19a9d1e7e8edcca42f06120f66bb410c2cea124b86700146b010c1",
+    "BattleshipGame/BattleshipGameUITests/BoardInteractionTests.swift": "650de8fba466bed9d8cf5bb1430680d636ebb88856bb6d85eb72d86f92992796",
+    "BattleshipGame/BattleshipGame.xcodeproj/project.pbxproj": "1382ee516cf4d957d430f9f9a4754244fa7027bde96a670fd3f2cf3722467e95",
+    "BattleshipGame/BattleshipGame.xcodeproj/xcshareddata/xcschemes/BattleshipGame.xcscheme": "0634e1a0c0ef747928ba9db12b1707e1b3bb086ca813b661a63b7144fe70ec79"
+  },
+  "ios18_2": {
+    "status": "PASS",
+    "exit": 0,
+    "tests": 1,
+    "failures": 0,
+    "duration_seconds": 42.695,
+    "device": "iPhone16Pro",
+    "udid": "FF1C266A-0F58-463D-9002-392BC39AF529",
+    "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/BattleshipGame-fvgieusgacfoajddglrqpnknqsqp/Logs/Test/Test-BattleshipGame-2026.10.22_03-10-13-+0300.xcresult"
+  },
+  "ios27": {
+    "status": "PASS",
+    "xcodebuild_exit": 0,
+    "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/BattleshipGame-fvgieusgacfoajddglrqpnknqsqp/Logs/Test/Test-BattleshipGame-2026.10.22_03-11-52-+0300.xcresult",
+    "summary": {
+      "devicesAndConfigurations": [
+        {
+          "device": {
+            "architecture": "arm64",
+            "deviceId": "A4320F80-FE71-4A45-A861-6F5405389C2C",
+            "deviceName": "iPhone 18 Pro",
+            "modelName": "iPhone 18 Pro",
+            "osBuildNumber": "24A434",
+            "osVersion": "27.0",
+            "platform": "iOS Simulator"
+          },
+          "expectedFailures": 0,
+          "failedTests": 0,
+          "passedTests": 1,
+          "skippedTests": 0,
+          "testPlanConfiguration": {
+            "configurationId": "1",
+            "configurationName": "Test Scheme Action"
+          }
+        }
+      ],
+      "environmentDescription": "BattleshipGame \u00b7 Built with macOS 27.0.1",
+      "expectedFailures": 0,
+      "failedTests": 0,
+      "finishTime": 1792628013.008,
+      "passedTests": 1,
+      "result": "Passed",
+      "runtimeWarnings": [],
+      "skippedTests": 0,
+      "startTime": 1792627912.386,
+      "statistics": [],
+      "testFailures": [],
+      "title": "Test - BattleshipGame",
+      "topInsights": [],
+      "totalTestCount": 1
+    }
+  },
+  "limits": "Single existing UI scenario, no physical/iPad/actualVoiceOver or whole-app readiness; no source/test changes"
+}

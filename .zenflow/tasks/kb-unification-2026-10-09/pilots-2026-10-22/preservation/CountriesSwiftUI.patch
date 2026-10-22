@@ -1,0 +1,284 @@
+diff --git a/CountriesSwiftUI.xcodeproj/project.pbxproj b/CountriesSwiftUI.xcodeproj/project.pbxproj
+index 98ef3bb11a929373924f74f4ae9415a5b7655979..9b82c6389e4abcd9bd0e611c8012aa1113a9db8b 100644
+--- a/CountriesSwiftUI.xcodeproj/project.pbxproj
++++ b/CountriesSwiftUI.xcodeproj/project.pbxproj
+@@ -9,6 +9,7 @@
+ /* Begin PBXBuildFile section */
+ 		4819F10E2CDF5819003CA0AE /* EnvironmentOverrides in Frameworks */ = {isa = PBXBuildFile; productRef = 4819F10D2CDF5819003CA0AE /* EnvironmentOverrides */; };
+ 		4819F1172CDF6DD4003CA0AE /* ViewInspector in Frameworks */ = {isa = PBXBuildFile; productRef = 4819F1162CDF6DD4003CA0AE /* ViewInspector */; };
++C04A00000000000000000001 = {isa = PBXBuildFile; fileRef = C04A00000000000000000002; };
+ /* End PBXBuildFile section */
+ 
+ /* Begin PBXContainerItemProxy section */
+@@ -19,11 +20,14 @@
+ 			remoteGlobalIDString = 488734162CDCA2DB00B400A3;
+ 			remoteInfo = CountriesSwiftUI;
+ 		};
++C04A0000000000000000000C = {isa = PBXContainerItemProxy; containerPortal = 4887340F2CDCA2DB00B400A3; proxyType = 1; remoteGlobalIDString = 488734162CDCA2DB00B400A3; remoteInfo = CountriesSwiftUI; };
+ /* End PBXContainerItemProxy section */
+ 
+ /* Begin PBXFileReference section */
+ 		488734172CDCA2DB00B400A3 /* CountriesSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CountriesSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+ 		488734292CDCA2DD00B400A3 /* UnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
++C04A00000000000000000002 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesRetryUITests.swift; sourceTree = "<group>"; };
++C04A00000000000000000003 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = KBPilotUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+ /* End PBXFileReference section */
+ 
+ /* Begin PBXFileSystemSynchronizedRootGroup section */
+@@ -56,12 +60,14 @@
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
++C04A00000000000000000008 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+ /* End PBXFrameworksBuildPhase section */
+ 
+ /* Begin PBXGroup section */
+ 		4887340E2CDCA2DB00B400A3 = {
+ 			isa = PBXGroup;
+ 			children = (
++C04A00000000000000000004,
+ 				488734192CDCA2DB00B400A3 /* CountriesSwiftUI */,
+ 				4887342C2CDCA2DD00B400A3 /* UnitTests */,
+ 				488734182CDCA2DB00B400A3 /* Products */,
+@@ -71,12 +77,14 @@
+ 		488734182CDCA2DB00B400A3 /* Products */ = {
+ 			isa = PBXGroup;
+ 			children = (
++C04A00000000000000000003,
+ 				488734172CDCA2DB00B400A3 /* CountriesSwiftUI.app */,
+ 				488734292CDCA2DD00B400A3 /* UnitTests.xctest */,
+ 			);
+ 			name = Products;
+ 			sourceTree = "<group>";
+ 		};
++C04A00000000000000000004 = {isa = PBXGroup; children = (C04A00000000000000000002,); path = KBPilotUITests; sourceTree = "<group>"; };
+ /* End PBXGroup section */
+ 
+ /* Begin PBXNativeTarget section */
+@@ -127,6 +135,7 @@
+ 			productReference = 488734292CDCA2DD00B400A3 /* UnitTests.xctest */;
+ 			productType = "com.apple.product-type.bundle.unit-test";
+ 		};
++C04A00000000000000000005 = {isa = PBXNativeTarget; buildConfigurationList = C04A00000000000000000006; buildPhases = (C04A00000000000000000007,C04A00000000000000000008,); buildRules = (); dependencies = (C04A00000000000000000009,); name = KBPilotUITests; productName = KBPilotUITests; productReference = C04A00000000000000000003; productType = "com.apple.product-type.bundle.ui-testing"; };
+ /* End PBXNativeTarget section */
+ 
+ /* Begin PBXProject section */
+@@ -167,6 +176,7 @@
+ 			projectDirPath = "";
+ 			projectRoot = "";
+ 			targets = (
++C04A00000000000000000005,
+ 				488734162CDCA2DB00B400A3 /* CountriesSwiftUI */,
+ 				488734282CDCA2DD00B400A3 /* UnitTests */,
+ 			);
+@@ -205,6 +215,7 @@
+ 			);
+ 			runOnlyForDeploymentPostprocessing = 0;
+ 		};
++C04A00000000000000000007 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (C04A00000000000000000001,); runOnlyForDeploymentPostprocessing = 0; };
+ /* End PBXSourcesBuildPhase section */
+ 
+ /* Begin PBXTargetDependency section */
+@@ -213,6 +224,7 @@
+ 			target = 488734162CDCA2DB00B400A3 /* CountriesSwiftUI */;
+ 			targetProxy = 4887342A2CDCA2DD00B400A3 /* PBXContainerItemProxy */;
+ 		};
++C04A00000000000000000009 = {isa = PBXTargetDependency; target = 488734162CDCA2DB00B400A3; targetProxy = C04A0000000000000000000C; };
+ /* End PBXTargetDependency section */
+ 
+ /* Begin XCBuildConfiguration section */
+@@ -441,6 +453,8 @@
+ 			};
+ 			name = Release;
+ 		};
++C04A0000000000000000000A = {isa = XCBuildConfiguration; buildSettings = {GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 18.0; PRODUCT_BUNDLE_IDENTIFIER = com.zenflow.CountriesKBPilotUITests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; TEST_TARGET_NAME = CountriesSwiftUI; }; name = Debug; };
++C04A0000000000000000000B = {isa = XCBuildConfiguration; buildSettings = {GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 18.0; PRODUCT_BUNDLE_IDENTIFIER = com.zenflow.CountriesKBPilotUITests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 5.0; TARGETED_DEVICE_FAMILY = 1; TEST_TARGET_NAME = CountriesSwiftUI; }; name = Release; };
+ /* End XCBuildConfiguration section */
+ 
+ /* Begin XCConfigurationList section */
+@@ -471,6 +485,7 @@
+ 			defaultConfigurationIsVisible = 0;
+ 			defaultConfigurationName = Release;
+ 		};
++C04A00000000000000000006 = {isa = XCConfigurationList; buildConfigurations = (C04A0000000000000000000A,C04A0000000000000000000B,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+ /* End XCConfigurationList section */
+ 
+ /* Begin XCRemoteSwiftPackageReference section */
+diff --git a/CountriesSwiftUI.xcodeproj/xcshareddata/xcschemes/CountriesSwiftUI.xcscheme b/CountriesSwiftUI.xcodeproj/xcshareddata/xcschemes/CountriesSwiftUI.xcscheme
+index c612aabd51e2eaeea9dbe3d3f6b422ab950e0b1b..7e2e5da003c2b97ea4239e27e4000f6f275fdde7 100644
+--- a/CountriesSwiftUI.xcodeproj/xcshareddata/xcschemes/CountriesSwiftUI.xcscheme
++++ b/CountriesSwiftUI.xcodeproj/xcshareddata/xcschemes/CountriesSwiftUI.xcscheme
+@@ -21,7 +21,8 @@
+                ReferencedContainer = "container:CountriesSwiftUI.xcodeproj">
+             </BuildableReference>
+          </BuildActionEntry>
+-      </BuildActionEntries>
++      <BuildActionEntry buildForTesting="YES" buildForRunning="NO" buildForProfiling="NO" buildForArchiving="NO" buildForAnalyzing="NO"><BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="C04A00000000000000000005" BuildableName="KBPilotUITests.xctest" BlueprintName="KBPilotUITests" ReferencedContainer="container:CountriesSwiftUI.xcodeproj" /></BuildActionEntry>
++</BuildActionEntries>
+    </BuildAction>
+    <TestAction
+       buildConfiguration = "Debug"
+@@ -41,7 +42,8 @@
+                ReferencedContainer = "container:CountriesSwiftUI.xcodeproj">
+             </BuildableReference>
+          </TestableReference>
+-      </Testables>
++      <TestableReference skipped="NO" parallelizable="NO"><BuildableReference BuildableIdentifier="primary" BlueprintIdentifier="C04A00000000000000000005" BuildableName="KBPilotUITests.xctest" BlueprintName="KBPilotUITests" ReferencedContainer="container:CountriesSwiftUI.xcodeproj" /></TestableReference>
++</Testables>
+    </TestAction>
+    <LaunchAction
+       buildConfiguration = "Debug"
+diff --git a/CountriesSwiftUI/Core/App.swift b/CountriesSwiftUI/Core/App.swift
+index d83c145419161f5cf5d6264276c210249f06cead..873c3b1c06edc724ab171a886fc0f173e2e3a42e 100644
+--- a/CountriesSwiftUI/Core/App.swift
++++ b/CountriesSwiftUI/Core/App.swift
+@@ -7,6 +7,7 @@
+ //
+ 
+ import SwiftUI
++import UIKit
+ import EnvironmentOverrides
+ 
+ @main
+@@ -38,7 +39,26 @@ extension AppEnvironment {
+                 }
+             }
+         }
++        #if DEBUG
++        .transformEnvironment(\.accessibilityEnabled) { enabled in
++            if ProcessInfo.processInfo.environment["COUNTRIES_KB_UI"] == "1" { enabled = true }
++        }
++        .onAppear { updateKBPilotActivation(UIApplication.shared.applicationState == .active) }
++        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
++            updateKBPilotActivation(true)
++        }
++        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification)) { _ in
++            updateKBPilotActivation(false)
++        }
++        #endif
++    }
++
++    #if DEBUG
++    private func updateKBPilotActivation(_ active: Bool) {
++        guard ProcessInfo.processInfo.environment["COUNTRIES_KB_UI"] == "1" else { return }
++        diContainer.appState[\.system.isActive] = active
+     }
++    #endif
+ 
+     private var onChangeHandler: (EnvironmentValues.Diff) -> Void {
+         return { diff in
+diff --git a/CountriesSwiftUI/DependencyInjection/AppEnvironment.swift b/CountriesSwiftUI/DependencyInjection/AppEnvironment.swift
+index 5758cef36038c097e01d8ee359da40f6454d466c..45d560cf2d6798b8bab8988f81540d160703d834 100644
+--- a/CountriesSwiftUI/DependencyInjection/AppEnvironment.swift
++++ b/CountriesSwiftUI/DependencyInjection/AppEnvironment.swift
+@@ -20,6 +20,12 @@ struct AppEnvironment {
+ extension AppEnvironment {
+ 
+     static func bootstrap() -> AppEnvironment {
++        #if DEBUG
++        if ProcessInfo.processInfo.environment["COUNTRIES_KB_UI"] == "1" {
++            do { return try kbUIEnvironment() }
++            catch { preconditionFailure("Could not create isolated KB UI database") }
++        }
++        #endif
+         let appState = Store<AppState>(AppState())
+         /*
+          To see the deep linking in action:
+@@ -110,3 +116,70 @@ extension AppEnvironment {
+                      userPermissions: userPermissions)
+     }
+ }
++
++#if DEBUG
++private extension AppEnvironment {
++    static func kbUIEnvironment() throws -> AppEnvironment {
++        let model = try ModelContainer.appModelContainer(inMemoryOnly: true, isStub: false)
++        let repository = MainDBRepository(modelContainer: model)
++        let interactors = DIContainer.Interactors(
++            images: StubImagesInteractor(),
++            countries: RealCountriesInteractor(webRepository: KBPilotWebRepository(),
++                dbRepository: KBPilotDBRepository(real: repository)),
++            userPermissions: StubUserPermissionsInteractor()
++        )
++        let container = DIContainer(interactors: interactors)
++        return AppEnvironment(isRunningTests: false, diContainer: container,
++                              modelContainer: model, systemEventsHandler: KBPilotSystemEvents(appState: container.appState))
++    }
++}
++
++private struct KBPilotWebRepository: CountriesWebRepository {
++    let session = URLSession(configuration: .ephemeral)
++    let baseURL = "https://invalid.example"
++    func countries() async throws -> [ApiModel.Country] {
++        [.init(name: "KB Retry Country", translations: [:], population: 1, flag: nil, alpha3Code: "KBP")]
++    }
++    func details(country: DBModel.Country) async throws -> ApiModel.CountryDetails {
++        throw ValueIsMissingError()
++    }
++}
++
++private actor KBPilotFailureGate {
++    private var first = true
++    func consume() -> Bool {
++        defer { first = false }
++        return first
++    }
++}
++
++private struct KBPilotDBRepository: CountriesDBRepository {
++    let real: MainDBRepository
++    private let gate = KBPilotFailureGate()
++    init(real: MainDBRepository) { self.real = real }
++    func store(countries: [ApiModel.Country]) async throws {
++        if await gate.consume() { throw KBPilotDatabaseError() }
++        try await real.store(countries: countries)
++    }
++    @MainActor
++    func countryDetails(for country: DBModel.Country) async throws -> DBModel.CountryDetails? {
++        try await real.countryDetails(for: country)
++    }
++    func store(countryDetails: ApiModel.CountryDetails, for country: DBModel.Country) async throws {
++        throw ValueIsMissingError()
++    }
++}
++
++private struct KBPilotDatabaseError: LocalizedError {
++    var errorDescription: String? { "KB database unavailable" }
++}
++
++private struct KBPilotSystemEvents: SystemEventsHandler {
++    let appState: Store<AppState>
++    func sceneOpenURLContexts(_ urlContexts: Set<UIOpenURLContext>) {}
++    func sceneDidBecomeActive() { appState[\.system.isActive] = true }
++    func sceneWillResignActive() { appState[\.system.isActive] = false }
++    func handlePushRegistration(result: Result<Data, Error>) {}
++    func appDidReceiveRemoteNotification(payload: [AnyHashable: Any]) async -> UIBackgroundFetchResult { .noData }
++}
++#endif
+diff --git a/KBPilotUITests/CountriesRetryUITests.swift b/KBPilotUITests/CountriesRetryUITests.swift
+new file mode 100644
+index 0000000000000000000000000000000000000000..219ffa0e6fdb419816b4db3e2908ecbfe9d27c28
+--- /dev/null
++++ b/KBPilotUITests/CountriesRetryUITests.swift
+@@ -0,0 +1,21 @@
++import XCTest
++
++@MainActor
++final class CountriesRetryUITests: XCTestCase {
++    func testDatabaseFailureRetriesToVisibleCountry() {
++        continueAfterFailure = false
++        let app = XCUIApplication()
++        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
++        app.launchEnvironment["COUNTRIES_KB_UI"] = "1"
++        app.launch()
++        defer { app.terminate() }
++        XCTAssertTrue(app.staticTexts["KB database unavailable"].waitForExistence(timeout: 15), app.debugDescription)
++        XCTAssertFalse(app.staticTexts["KB Retry Country"].exists)
++        let retry = app.buttons.matching(NSPredicate(format: "label IN %@", ["Retry", "Повторить", "Повторить попытку"])).firstMatch
++        XCTAssertTrue(retry.waitForExistence(timeout: 10), app.debugDescription)
++        retry.tap()
++        XCTAssertTrue(app.staticTexts["KB Retry Country"].waitForExistence(timeout: 15), app.debugDescription)
++        XCTAssertFalse(app.staticTexts["KB database unavailable"].exists)
++        XCTAssertFalse(retry.exists)
++    }
++}

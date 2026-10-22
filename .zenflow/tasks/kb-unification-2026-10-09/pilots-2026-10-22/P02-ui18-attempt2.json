@@ -1,0 +1,50 @@
+{
+  "exit": 65,
+  "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/AIFieldbook-euxrocsogdebijcravqrerjjcvwf/Logs/Test/Test-AIFieldbook-2026.10.22_20-38-34-+0300.xcresult",
+  "summary": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "FF1C266A-0F58-463D-9002-392BC39AF529",
+          "deviceName": "iPhone 16 Pro",
+          "modelName": "iPhone 16 Pro",
+          "osBuildNumber": "22C150",
+          "osVersion": "18.2",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 1,
+        "passedTests": 0,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "AIFieldbook \u00b7 Built with macOS 27.0.1",
+    "expectedFailures": 0,
+    "failedTests": 1,
+    "finishTime": 1792690772.865,
+    "passedTests": 0,
+    "result": "Failed",
+    "runtimeWarnings": [],
+    "skippedTests": 0,
+    "startTime": 1792690714.91,
+    "statistics": [],
+    "testFailures": [
+      {
+        "failureText": "XCTAssertTrue failed - Attributes: Application, 0x103230a30, pid: 39935, label: 'AI Fieldbook'\nElement subtree:\n \u2192Application, 0x103230a30, pid: 39935, label: 'AI Fieldbook'\n    Window (Main), 0x103209170, {{0.0, 0.0}, {402.0, 874.0}}\n      Other, 0x103237430, {{0.0, 0.0}, {402.0, 874.0}}\n        Other, 0x10323c810, {{0.0, 0.0}, {402.0, 874.0}}\n          Other, 0x10321bea0, {{0.0, 0.0}, {402.0, 874.0}}\n            Other, 0x103230fc0, {{0.0, 0.0}, {402.0, 874.0}}\n              Other, 0x103236470, {{0.0, 0.0}, {402.0, 874.0}}\n                Other, 0x10321d220, {{0.0, 0.0}, {402.0, 874.0}}\n                  Other, 0x103236eb0, {{0.0, 0.0}, {402.0, 874.0}}\n                    Other, 0x10321c750, {{0.0, 0.0}, {402.0, 874.0}}\n                      Other, 0x10321d770, {{0.0, 0.0}, {402.0, 874.0}}\n                        Other, 0x1032083f0, {{0.0, 0.0}, {402.0, 874.0}}\n                          Other, 0x10321bc60, {{0.0, 0.0}, {402.0, 874.0}}\n                            NavigationBar, 0x10321bd80, {{0.0, 56.3}, {402.0, 96.0}}, identifier: '\u041f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0441\u0442\u0432\u043e'\n                              Button, 0x103227320, {{352.0, 56.3}, {42.0, 44.0}}, label: '\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0441\u0442\u0432\u043e'\n                              StaticText, 0x103227440, {{16.0, 104.0}, {238.0, 40.7}}, label: '\u041f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0441\u0442\u0432\u043e'\n                            Other, 0x103227560, {{0.0, 0.0}, {402.0, 874.0}}\n                              Other, 0x10322b200, {{0.0, 0.0}, {402.0, 874.0}}\n                                Other, 0x10322b320, {{0.0, 0.0}, {402.0, 874.0}}\n                                  Other, 0x10322b440, {{0.0, 0.0}, {402.0, 874.0}}\n                                    CollectionView, 0x10322b560, {{0.0, 0.0}, {402.0, 874.0}}\n                                      Other, 0x10322b680, {{-20.0, -1595.7}, {442.0, 3584.3}}\n                                      Cell, 0x10322b7a0, {{20.0, 152.3}, {362.0, 68.3}}\n                                        Other, 0x103229af0, {{20.0, 152.3}, {362.0, 68.3}}\n                                          Other, 0x103229c10, {{20.0, 152.3}, {362.0, 68.3}}\n                                        Other, 0x103229d30, {{20.0, 152.3}, {362.0, 68.3}}\n                                          Other, 0x103229e50, {{20.0, 152.3}, {362.0, 68.3}}\n                                            Other, 0x103225070, {{20.0, 152.3}, {362.0, 68.3}}\n                                              Button, 0x103225190, {{20.0, 152.3}, {362.0, 68.3}}, label: 'KB UI Workspace, 3 \u043e\u0431\u044a\u0435\u043a\u0442\u0430'\n                                                StaticText, 0x1032252b0, {{40.0, 163.3}, {136.7, 20.3}}, label: 'KB UI Workspace'\n                                                StaticText, 0x1032253d0, {{40.0, 191.7}, {70.7, 18.0}}, label: '3 \u043e\u0431\u044a\u0435\u043a\u0442\u0430'\n                                      Other, 0x103227e60, {{369.0, 106.0}, {30.0, 685.0}}, label: '\u0412\u0435\u0440\u0442\u0438\u043a\u0430\u043b\u044c\u043d\u0430\u044f \u043f\u043e\u043b\u043e\u0441\u0430 \u043f\u0440\u043e\u043a\u0440\u0443\u0442\u043a\u0438, 1\u00a0\u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430', value: 0\u00a0%\n                                        Other, 0x103227f80, {{396.0, 781.0}, {3.0, 7.0}}\n                                      Other, 0x1032280a0, {{369.0, 106.0}, {30.0, 685.0}}, label: '\u0412\u0435\u0440\u0442\u0438\u043a\u0430\u043b\u044c\u043d\u0430\u044f \u043f\u043e\u043b\u043e\u0441\u0430 \u043f\u0440\u043e\u043a\u0440\u0443\u0442\u043a\u0438, 1\u00a0\u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430', value: 0\u00a0%\n                                        Other, 0x1032281c0, {{396.0, 781.0}, {3.0, 7.0}}\n                TabBar, 0x1032282e0, {{0.0, 791.0}, {402.0, 83.0}}, label: '\u041f\u0430\u043d\u0435\u043b\u044c \u0432\u043a\u043b\u0430\u0434\u043e\u043a'\n                  Button, 0x10322a730, {{2.0, 792.0}, {97.0, 48.0}}, label: '\u041f\u0440\u043e\u0441\u0442\u0440\u0430\u043d\u0441\u0442\u0432\u043e', Selected\n                    Image, 0x10322a850, {{37.0, 797.0}, {27.0, 25.0}}, identifier: 'square.grid.2x2.fill', label: '\u0441\u0435\u0442\u043a\u0430 2\u00a0\u00d7\u00a02'\n                  Button, 0x10322a970, {{103.0, 792.0}, {96.0, 48.0}}, label: '\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c'\n                  Button, 0x103222970, {{203.0, 792.0}, {97.0, 48.0}}, label: '\u041f\u043e\u0438\u0441\u043a'\n                  Button, 0x103222a90, {{304.0, 792.0}, {96.0, 48.0}}, label: '\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438'\nPath to element:\n \u2192Application, 0x103230a30, pid: 39935, label: 'AI Fieldbook'\nQuery chain:\n \u2192Find: Target Application 'com.zenflow.AIFieldbook'\n  Output: {\n    Application, 0x10380c200, pid: 39935, label: 'AI Fieldbook'\n  }\n",
+        "targetName": "AIFieldbookUITests",
+        "testIdentifier": 1,
+        "testIdentifierString": "LocalSearchUITests/testSearchChangeClearReturnAndRetry()",
+        "testIdentifierURL": "test://com.apple.xcode/AIFieldbook/AIFieldbookUITests/LocalSearchUITests/testSearchChangeClearReturnAndRetry",
+        "testName": "testSearchChangeClearReturnAndRetry()"
+      }
+    ],
+    "title": "Test - AIFieldbook",
+    "topInsights": [],
+    "totalTestCount": 1
+  }
+}

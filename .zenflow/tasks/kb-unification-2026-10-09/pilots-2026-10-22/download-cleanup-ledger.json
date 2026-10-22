@@ -1,0 +1,91 @@
+{
+  "authority": "User explicitly approves dependency downloads only inside .zenflow; remove every newly downloaded package/dependency after testing; existing inputs preserved. Native DerivedData/cache/log exception retained.",
+  "owned_roots": [
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-pilots-2026-10-22/downloads-countries",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-pilots-2026-10-22/downloads-countries-ui"
+  ],
+  "preexisting_countries_dependency_root": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui/.zenflow/source-dependencies (preserve)",
+  "status": "ALL_DOWNLOADED_DEPENDENCIES_REMOVED",
+  "countries_resolution": {
+    "exit": 0,
+    "pins": [
+      {
+        "identity": "environmentoverrides",
+        "kind": "remoteSourceControl",
+        "location": "https://github.com/nalexn/EnvironmentOverrides",
+        "state": {
+          "revision": "d0b763a678d254e51c74c48e83119bd063250ba3",
+          "version": "0.0.4"
+        }
+      },
+      {
+        "identity": "viewinspector",
+        "kind": "remoteSourceControl",
+        "location": "https://github.com/nalexn/ViewInspector",
+        "state": {
+          "revision": "2dacb6e514be19379c605a5a11564d0f3fea89d9",
+          "version": "0.10.5"
+        }
+      }
+    ],
+    "surfaces": "Both packages MIT; manifests reviewed; no transitive dependencies, plugins, macros, binary targets. Not an exhaustive dependency security audit.",
+    "package_cache": "Contained under owned root; -disablePackageRepositoryCache supplied",
+    "manifest_hashes": {
+      "SourcePackages/checkouts/EnvironmentOverrides/Package.swift": "a89133aba04723d3e9171c8d605cd9fe7927147f5f3bad7058762f4f8eb47fc8",
+      "SourcePackages/checkouts/ViewInspector/Package.swift": "25674681f26a4810b4a4208f7f146a02ed318d5e9c101684b606a2a8ee4d1377"
+    }
+  },
+  "current_owned_bytes": 4937923,
+  "current_owned_files": 435,
+  "cleanup": {
+    "status": "COMPLETE",
+    "deleted_root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-pilots-2026-10-22/downloads-countries",
+    "file_count": 435,
+    "logical_bytes_removed": 4937923,
+    "absence_verified": true,
+    "preserved": "Existing Countries .zenflow/source-dependencies, project sources, generated resolution metadata, test reports; native DerivedData/caches/logs retained as authorized"
+  },
+  "countries_ui_resolution": {
+    "exit": 0,
+    "manifest_hashes": {
+      "SourcePackages/checkouts/EnvironmentOverrides/Package.swift": "a89133aba04723d3e9171c8d605cd9fe7927147f5f3bad7058762f4f8eb47fc8",
+      "SourcePackages/checkouts/ViewInspector/Package.swift": "25674681f26a4810b4a4208f7f146a02ed318d5e9c101684b606a2a8ee4d1377"
+    },
+    "same_as_reviewed_packages": true,
+    "pins": [
+      {
+        "identity": "environmentoverrides",
+        "kind": "remoteSourceControl",
+        "location": "https://github.com/nalexn/EnvironmentOverrides",
+        "state": {
+          "revision": "d0b763a678d254e51c74c48e83119bd063250ba3",
+          "version": "0.0.4"
+        }
+      },
+      {
+        "identity": "viewinspector",
+        "kind": "remoteSourceControl",
+        "location": "https://github.com/nalexn/ViewInspector",
+        "state": {
+          "revision": "2dacb6e514be19379c605a5a11564d0f3fea89d9",
+          "version": "0.10.5"
+        }
+      }
+    ]
+  },
+  "ui_cleanup": {
+    "status": "COMPLETE",
+    "deleted_root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-pilots-2026-10-22/downloads-countries-ui",
+    "file_count": 435,
+    "logical_bytes_removed": 4937120,
+    "absence_verified": true
+  },
+  "all_owned_download_roots_absent": true,
+  "total_logical_bytes_removed": 9875043,
+  "generated_metadata_cleanup": {
+    "old_empty_workspace_state_removed": true,
+    "owned_ignored_resolution_file_removed": true,
+    "resolution_metadata_preserved_in": "P04-resolution-metadata.json",
+    "reason": "Restore initially absent generated resolution file and remove own earlier failed-run empty workspace state; no existing packages deleted."
+  }
+}

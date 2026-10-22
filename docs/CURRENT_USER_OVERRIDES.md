@@ -74,6 +74,25 @@ the current app or task boundary, not here.
   Only an explicit security pass naming that path may override this. Keep real secrets out of chat,
   Git, bundles, and normal AI-readable worktree files.
 
+## Native Xcode And Simulator Paths
+
+<!-- Rule ID: USER.XCODE.RUNTIME.PATHS v1.0 -->
+User-approved 2026-10-22, cross-project: authorized Xcode builds/tests and Simulator work may
+use their standard system locations outside `.zenflow` for DerivedData, generated build products,
+compiler caches, temporary files, result bundles, logs and normal CoreSimulator service/device
+state. Prefer those native defaults rather than redirecting them into the project sandbox.
+This explicit exception supersedes earlier requirements to keep those runtime/build artifacts
+inside `.zenflow`; it does not itself authorize an otherwise unrequested build or test.
+
+Maintained source code, project files, source dependency checkouts, fixtures and project resources
+must remain under `/Users/Artem/.zenflow`. Dependency source resolution needs a contained source
+checkout path and its own current authority; a default external package cache is not permission
+to relocate maintained inputs. Ordinary use of installed Xcode/Simulator services is covered;
+toolchain/runtime installation, upgrades, unrelated host changes, credentials/signing/publication
+and other external actions still require their own explicit scope. Do not read unrelated personal
+Library data. Before tests, remove only identified owned temporary build/cache products inside
+`.zenflow`; preserve source, resources, reports, evidence and ambiguous files.
+
 ## Verification And Quality
 
 <!-- Rule ID: USER.VERIFICATION.SCOPE v1.0 -->

@@ -1,0 +1,48 @@
+{
+  "exit": 0,
+  "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/GhibliSwiftUIApp-bukzrhiluregadhbegzkjrvgeieo/Logs/Test/Test-GhibliSwiftUIApp-2026.10.22_18-13-02-+0300.xcresult",
+  "summary": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "FF1C266A-0F58-463D-9002-392BC39AF529",
+          "deviceName": "iPhone 16 Pro",
+          "modelName": "iPhone 16 Pro",
+          "osBuildNumber": "22C150",
+          "osVersion": "18.2",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 0,
+        "passedTests": 4,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "GhibliSwiftUIApp \u00b7 Built with macOS 27.0.1",
+    "expectedFailures": 0,
+    "failedTests": 0,
+    "finishTime": 1792682008.996,
+    "passedTests": 4,
+    "result": "Passed",
+    "runtimeWarnings": [],
+    "skippedTests": 0,
+    "startTime": 1792681982.885,
+    "statistics": [],
+    "testFailures": [],
+    "title": "Test - GhibliSwiftUIApp",
+    "topInsights": [],
+    "totalTestCount": 4
+  },
+  "source_hashes": {
+    "GhibliSwiftUIApp/Favorites/Services/DefaultFavoriteStorage.swift": "212fbe94a3ebf5b884cc71f7301b1c43105b6cd42188ffb5549e8cc7c2dc1c7d",
+    "GhibliSwiftUIAppTests/FavoritesCatalogStateTests.swift": "570af5e239e0ffb51bca89343bcd9abbe537ac2635667f00faf7caaff403d159",
+    "GhibliSwiftUIApp.xcodeproj/project.pbxproj": "59e5774ba35ae408dc6535395ed5cdc2ff0fb1edb7c3f586df7dd2cdaae7dd29"
+  },
+  "scope": "Three catalog cases plus real storage owner-recreation/removal case in unique cleaned defaults suite. Not process relaunch/crash durability.",
+  "build_diagnostics": "Existing unused decode warnings and repeated command-exit0/no-output diagnostics retained; not warning-clean."
+}

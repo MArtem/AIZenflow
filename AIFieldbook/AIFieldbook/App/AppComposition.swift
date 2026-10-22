@@ -56,7 +56,13 @@ final class AppComposition {
         self.exportService = FieldbookExportService(modelContainer: container)
         workspaceListModel = WorkspaceListViewModel(repository: repository)
         captureWorkspaceModel = WorkspaceListViewModel(repository: repository)
+        #if DEBUG
+        let provider: any FieldbookSearching = ProcessInfo.processInfo.environment["AI_FIELDBOOK_KB_UI"] == "1"
+            ? FieldbookUISearchProvider(index: searchIndex) : searchIndex
+        searchModel = SearchViewModel(repository: repository, searchIndex: provider)
+        #else
         searchModel = SearchViewModel(repository: repository, searchIndex: searchIndex)
+        #endif
         settingsModel = SettingsViewModel(
             repository: repository,
             exportService: exportService,
@@ -197,6 +203,10 @@ final class AppComposition {
     }
 
     func started() async {
+        #if DEBUG
+        // The UI fixture is in-memory and must never reconcile real app files or Spotlight.
+        if ProcessInfo.processInfo.environment["AI_FIELDBOOK_KB_UI"] == "1" { return }
+        #endif
         do {
             try await fileStore.recoverAbandonedStaging(activeReferences: repository.allFileReferences())
         } catch {
@@ -366,3 +376,23 @@ private struct DetailModelCache<Value> {
         accessOrder.append(id)
     }
 }
+
+#if DEBUG
+/// Debug UI fixture: one controlled failure, then the real local search actor.
+private actor FieldbookUISearchProvider: FieldbookSearching {
+    private let index: FieldbookSearchIndex
+    private var shouldFail = true
+
+    init(index: FieldbookSearchIndex) { self.index = index }
+
+    func search(criteria: FieldbookSearchCriteria) async throws -> [KnowledgeItemSummary] {
+        if criteria.query == "Failure", shouldFail {
+            shouldFail = false
+            throw FixtureError.unavailable
+        }
+        return try await index.search(criteria: criteria)
+    }
+
+    private enum FixtureError: Error { case unavailable }
+}
+#endif

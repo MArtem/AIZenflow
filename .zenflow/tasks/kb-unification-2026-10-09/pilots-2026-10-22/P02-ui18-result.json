@@ -1,0 +1,49 @@
+{
+  "exit": 0,
+  "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/AIFieldbook-euxrocsogdebijcravqrerjjcvwf/Logs/Test/Test-AIFieldbook-2026.10.22_20-40-31-+0300.xcresult",
+  "summary": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "FF1C266A-0F58-463D-9002-392BC39AF529",
+          "deviceName": "iPhone 16 Pro",
+          "modelName": "iPhone 16 Pro",
+          "osBuildNumber": "22C150",
+          "osVersion": "18.2",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 0,
+        "passedTests": 1,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "AIFieldbook \u00b7 Built with macOS 27.0.1",
+    "expectedFailures": 0,
+    "failedTests": 0,
+    "finishTime": 1792690873.899,
+    "passedTests": 1,
+    "result": "Passed",
+    "runtimeWarnings": [],
+    "skippedTests": 0,
+    "startTime": 1792690831.118,
+    "statistics": [],
+    "testFailures": [],
+    "title": "Test - AIFieldbook",
+    "topInsights": [],
+    "totalTestCount": 1
+  },
+  "source_hashes": {
+    "AIFieldbook/AIFieldbook/App/AIFieldbookApp.swift": "758f25e3ee55f802b60dc4f72be4e725078546b71e50d2c9dbf76daf40116ca8",
+    "AIFieldbook/AIFieldbook/App/AppComposition.swift": "a79fa5024c9f7b54b30b63461e7b1a66233ed86f345323c56f5d76749e1f8d0b",
+    "AIFieldbook/AIFieldbookUITests/LocalSearchUITests.swift": "596109ad371d7bdee12945245948b5f2a01f3872ca1f47fcb474714818f59c97",
+    "AIFieldbook/AIFieldbook.xcodeproj/project.pbxproj": "4ea35b5fffe5254c3274a089940763ab5e019e9335e8d39e552941a2e80666a3",
+    "AIFieldbook/AIFieldbook.xcodeproj/xcshareddata/xcschemes/AIFieldbook.xcscheme": "1855cb69d795b25a97cc237b41af8642a78197217411d3a65cb638b58d0116c6"
+  },
+  "scope": "Real UI query change, tab leave/return, clear and controlled failure/retry with real SwiftData search. Debug in-memory fixture bypasses real file/Spotlight startup; actual RU selectors used; Release path unchanged."
+}

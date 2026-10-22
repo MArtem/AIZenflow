@@ -1,0 +1,40 @@
+{
+  "MVVMExample_initial": {
+    "status": "BUILD_FAILED",
+    "exit": 65,
+    "reason": "Two static mutable dictionaries in test URLProtocol fail Swift6 isolation",
+    "affected": "MVVMExampleTests/Infrastructure/InfrastructureSupportTests.swift",
+    "initial_patch": "Auto-review denied until user explicitly authorized minimal test edits; no workaround used",
+    "current": "RESOLVED test-only: OSAllocatedUnfairLock-owned state plus async actor-cache callers;7/7PASS18.2and27; prior65 failures retained"
+  },
+  "Countries": {
+    "status": "RESOLVED_SCOPED_TESTS_PASS",
+    "exit": 74,
+    "reason": "No Package.resolved with automatic resolution disabled; ViewInspector/EnvironmentOverrides are source dependencies",
+    "xcresult": "/var/folders/bg/06n42tv1495gz9_76gx710sw0000gq/T/ResultBundle_2026-22-10_03-22-0024.xcresult",
+    "ios27": "NOT_RUN same unresolved prerequisite",
+    "scope": "No package download/upgrade authorization inferred; contained source checkout path supplied",
+    "user_decision": "2026-10-22: user explicitly chose to record blockers for now; dependency preparation/download deferred. Runtime remains NOT_RUN, never PASS.",
+    "current": "Dependency prerequisite resolved under new grant; DB3/3 plus selected failure/UI6/6PASS18.2, combined9/9PASS27; owned downloaded dependencies removed after tests. Existing warnings and full UI journey limits retained."
+  },
+  "Firefox": {
+    "status": "BLOCKED_BY_USER_TOOL_INSTALLATION_DECISION",
+    "runtime": "NOT_RUN18/27",
+    "reasons": [
+      "Fennec links BrowserKit package products and remote dependencies",
+      "Referenced Nimbus generator file missing at exact build phase path",
+      "Glean generator creates .venv and invokes pip install --upgrade; not executed",
+      "Build phases can remove/regenerate source metrics; not run without bounded setup review"
+    ],
+    "nimbus_path_exists": false,
+    "source_mutation": "None; no bootstrap/install/build executed",
+    "user_decision": "2026-10-22: user explicitly declined isolated generator/tool preparation. Do not install or retry/request again without later explicit user change. Both runtimes NOT_RUN, never PASS.",
+    "current": "No Firefox downloads, installations or builds performed. Tool-preparation prohibition is current.",
+    "venv_exists": false
+  },
+  "Ghibli18": {
+    "status": "RESOLVED_SCOPED",
+    "reason": "Existing project deployment target26.0; no unsafe lowering override performed",
+    "current": "RESOLVED for scoped Debug test configuration: Debug project/unit floor18.0, Release26 unchanged; 3/3PASS on18.2 and27. Structured receipts P05-ios18-debug-result.json and P05-ios27-debug-result.json. Shipping support not established."
+  }
+}

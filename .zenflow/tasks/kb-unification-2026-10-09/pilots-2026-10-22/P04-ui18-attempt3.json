@@ -1,0 +1,127 @@
+{
+  "exit": 65,
+  "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/CountriesSwiftUI-efuvroskjnfzxoamcxczlhudwvgd/Logs/Test/Test-CountriesSwiftUI-2026.10.22_21-03-37-+0300.xcresult",
+  "summary": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "FF1C266A-0F58-463D-9002-392BC39AF529",
+          "deviceName": "iPhone 16 Pro",
+          "modelName": "iPhone 16 Pro",
+          "osBuildNumber": "22C150",
+          "osVersion": "18.2",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 1,
+        "passedTests": 0,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "CountriesSwiftUI \u00b7 Built with macOS 27.0.1",
+    "expectedFailures": 0,
+    "failedTests": 1,
+    "finishTime": 1792692277.5,
+    "passedTests": 0,
+    "result": "Failed",
+    "runtimeWarnings": [],
+    "skippedTests": 0,
+    "startTime": 1792692217.984,
+    "statistics": [],
+    "testFailures": [
+      {
+        "failureText": "XCTAssertTrue failed - Attributes: Application, 0x100f75f40, pid: 44934, label: 'CountriesSwiftUI'\nElement subtree:\n \u2192Application, 0x100f75f40, pid: 44934, label: 'CountriesSwiftUI'\n    Window (Main), 0x100f215e0, {{0.0, 0.0}, {402.0, 874.0}}\n      Other, 0x100f22210, {{0.0, 0.0}, {402.0, 874.0}}\n        Other, 0x100f22c60, {{0.0, 0.0}, {402.0, 874.0}}\n          Other, 0x100f21ea0, {{0.0, 0.0}, {402.0, 874.0}}\n            Other, 0x100f21950, {{0.0, 0.0}, {402.0, 874.0}}\n              StaticText, 0x100f238e0, {{361.5, 689.0}, {21.0, 17.0}}, label: 'Environment Overrides'\n              Switch, 0x100f22fb0, {{343.5, 723.3}, {57.2, 31.0}}, label: 'Light or Dark', value: 0\n                StaticText, 0x100f23c40, {{0.0, 0.0}, {0.0, 0.0}}, label: 'Light or Dark'\n                Switch, 0x100f23fc0, {{351.7, 723.3}, {51.0, 31.0}}, value: 0\n              StaticText, 0x100f24ae0, {{358.0, 767.1}, {10.0, 14.3}}, label: 'Locale'\n              SegmentedControl, 0x100f24e40, {{376.0, 758.7}, {10.0, 31.0}}\n                Button, 0x100f251d0, {{376.0, 758.7}, {2.0, 32.0}}, label: 'de'\n                Button, 0x100f25530, {{379.0, 758.7}, {3.0, 32.0}}, label: 'ja'\n                Button, 0x100f258c0, {{383.0, 758.7}, {3.0, 32.0}}, label: 'en', Selected\n              StaticText, 0x100f25c10, {{358.0, 797.6}, {10.0, 30.3}}, label: 'Text'\n              StaticText, 0x100f25f80, {{377.5, 825.6}, {7.0, 14.3}}, label: 'L'\n              Slider, 0x100f262e0, {{376.0, 797.3}, {10.0, 31.0}}, value: 27%\n                Other, 0x100f26640, {{374.0, 797.3}, {14.0, 32.0}}\n                  Image, 0x100f269b0, {{369.0, 797.3}, {31.0, 31.0}}\n                    Image, 0x100f26d10, {{356.0, 784.7}, {57.0, 56.0}}\n                  Other, 0x100f27080, {{377.0, 811.3}, {8.0, 4.0}}\n                    Image, 0x100f275d0, {{377.0, 811.3}, {8.0, 4.0}}\n                  Other, 0x100f27940, {{385.0, 811.3}, {0.0, 4.0}}\n                    Image, 0x100f27cc0, {{377.0, 811.3}, {8.0, 4.0}}\n              Switch, 0x100f28040, {{343.5, 835.7}, {57.2, 31.0}}, label: 'Inverse Layout', value: 0\n                StaticText, 0x100f28390, {{0.0, 0.0}, {0.0, 0.0}}, label: 'Inverse Layout'\n                Switch, 0x100f28710, {{351.7, 835.7}, {51.0, 31.0}}, value: 0\n              Switch, 0x100f28a90, {{343.5, 874.7}, {57.2, 31.0}}, label: 'Accessibility', value: 0\n                StaticText, 0x100f28de0, {{0.0, 0.0}, {0.0, 0.0}}, label: 'Accessibility'\n                Switch, 0x100f29170, {{351.7, 874.7}, {51.0, 31.0}}, value: 0\n              Button, 0x100f294c0, {{361.7, 911.7}, {21.0, 19.3}}, label: 'Take Screenshot'\nPath to element:\n \u2192Application, 0x100f75f40, pid: 44934, label: 'CountriesSwiftUI'\nQuery chain:\n \u2192Find: Target Application 'com.swiftui.CountriesSwiftUI'\n  Output: {\n    Application, 0x1018286d0, pid: 44934, label: 'CountriesSwiftUI'\n  }\n",
+        "targetName": "KBPilotUITests",
+        "testIdentifier": 1,
+        "testIdentifierString": "CountriesRetryUITests/testDatabaseFailureRetriesToVisibleCountry()",
+        "testIdentifierURL": "test://com.apple.xcode/CountriesSwiftUI/KBPilotUITests/CountriesRetryUITests/testDatabaseFailureRetriesToVisibleCountry",
+        "testName": "testDatabaseFailureRetriesToVisibleCountry()"
+      }
+    ],
+    "title": "Test - CountriesSwiftUI",
+    "topInsights": [],
+    "totalTestCount": 1
+  },
+  "details": {
+    "devices": [
+      {
+        "architecture": "arm64",
+        "deviceId": "FF1C266A-0F58-463D-9002-392BC39AF529",
+        "deviceName": "iPhone 16 Pro",
+        "modelName": "iPhone 16 Pro",
+        "osBuildNumber": "22C150",
+        "osVersion": "18.2",
+        "platform": "iOS Simulator"
+      }
+    ],
+    "duration": "Ran for 19 seconds",
+    "durationInSeconds": 19.48278307914734,
+    "hasMediaAttachments": false,
+    "hasPerformanceMetrics": false,
+    "startTime": 1792692242.939,
+    "testDescription": "Test case with 1 run",
+    "testIdentifier": "CountriesRetryUITests/testDatabaseFailureRetriesToVisibleCountry()",
+    "testIdentifierURL": "test://com.apple.xcode/CountriesSwiftUI/KBPilotUITests/CountriesRetryUITests/testDatabaseFailureRetriesToVisibleCountry",
+    "testName": "testDatabaseFailureRetriesToVisibleCountry()",
+    "testPlanConfigurations": [
+      {
+        "configurationId": "1",
+        "configurationName": "Test Scheme Action"
+      }
+    ],
+    "testResult": "Failed",
+    "testRuns": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "name": "Complete Issue Description.txt",
+                    "nodeIdentifier": "7F007A2F-4517-4F29-A863-2482D8F95ECF",
+                    "nodeType": "Attachment"
+                  },
+                  {
+                    "name": "",
+                    "nodeType": "Source Code Reference",
+                    "sourceLocation": {
+                      "filePath": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui/KBPilotUITests/CountriesRetryUITests.swift",
+                      "lineNumber": 12
+                    }
+                  }
+                ],
+                "name": "XCTAssertTrue failed - Attributes: Application, 0x100f75f40, pid: 44934, label: 'CountriesSwiftUI'\nElement subtree:\n \u2192Application, 0x100f75f40, pid: 44934, label: 'CountriesSwiftUI'\n    Window (Main), 0x100f215e0, {{0.0, 0.0}, {402.0, 874.0}}\n      Other, 0x100f22210, {{0.0, 0.0}, {402.0, 874.0}}\n        Other, 0x100f22c60, {{0.0, 0.0}, {402.0, 874.0}}\n          Other, 0x100f21ea0, {{0.0, 0.0}, {402.0, 874.0}}\n            Other, 0x100f21950, {{0.0, 0.0}, {402.0, 874.0}}\n              StaticText, 0x100f238e0, {{361.5, 689.0}, {21.0, 17.0}}, label: 'Environment Overrides'\n              Switch, 0x100f22fb0, {{343.5, 723.3}, {57.2, 31.0}}, label: 'Light or Dark', value: 0\n                StaticText, 0x100f23c40, {{0.0, 0.0}, {0.0, 0.0}}, label: 'Light or Dark'\n                Switch, 0x100f23fc0, {{351.7, 723.3}, {51.0, 31.0}}, value: 0\n              StaticText, 0x100f24ae0, {{358.0, 767.1}, {10.0, 14.3}}, label: 'Locale'\n              SegmentedControl, 0x100f24e40, {{376.0, 758.7}, {10.0, 31.0}}\n                Button, 0x100f251d0, {{376.0, 758.7}, {2.0, 32.0}}, label: 'de'\n                Button, 0x100f25530, {{379.0, 758.7}, {3.0, 32.0}}, label: 'ja'\n                Button, 0x100f258c0, {{383.0, 758.7}, {3.0, 32.0}}, label: 'en', Selected\n              StaticText, 0x100f25c10, {{358.0, 797.6}, {10.0, 30.3}}, label: 'Text'\n              StaticText, 0x100f25f80, {{377.5, 825.6}, {7.0, 14.3}}, label: 'L'\n              Slider, 0x100f262e0, {{376.0, 797.3}, {10.0, 31.0}}, value: 27%\n                Other, 0x100f26640, {{374.0, 797.3}, {14.0, 32.0}}\n                  Image, 0x100f269b0, {{369.0, 797.3}, {31.0, 31.0}}\n                    Image, 0x100f26d10, {{356.0, 784.7}, {57.0, 56.0}}\n                  Other, 0x100f27080, {{377.0, 811.3}, {8.0, 4.0}}\n                    Image, 0x100f275d0, {{377.0, 811.3}, {8.0, 4.0}}\n                  Other, 0x100f27940, {{385.0, 811.3}, {0.0, 4.0}}\n                    Image, 0x100f27cc0, {{377.0, 811.3}, {8.0, 4.0}}\n              Switch, 0x100f28040, {{343.5, 835.7}, {57.2, 31.0}}, label: 'Inverse Layout', value: 0\n                StaticText, 0x100f28390, {{0.0, 0.0}, {0.0, 0.0}}, label: 'Inverse Layout'\n                Switch, 0x100f28710, {{351.7, 835.7}, {51.0, 31.0}}, value: 0\n              Switch, 0x100f28a90, {{343.5, 874.7}, {57.2, 31.0}}, label: 'Accessibility', value: 0\n                StaticText, 0x100f28de0, {{0.0, 0.0}, {0.0, 0.0}}, label: 'Accessibility'\n                Switch, 0x100f29170, {{351.7, 874.7}, {51.0, 31.0}}, value: 0\n              Button, 0x100f294c0, {{361.7, 911.7}, {21.0, 19.3}}, label: 'Take Screenshot'\nPath to element:\n \u2192Application, 0x100f75f40, pid: 44934, label: 'CountriesSwiftUI'\nQuery chain:\n \u2192Find: Target Application 'com.swiftui.CountriesSwiftUI'\n  Output: {\n    Application, 0x1018286d0, pid: 44934, label: 'CountriesSwiftUI'\n  }\n",
+                "nodeType": "Test Case Run",
+                "result": "Failed",
+                "sourceLocation": {
+                  "filePath": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui/KBPilotUITests/CountriesRetryUITests.swift",
+                  "lineNumber": 12
+                }
+              }
+            ],
+            "duration": "19s",
+            "durationInSeconds": 19.48278307914734,
+            "name": "Test Scheme Action",
+            "nodeIdentifier": "1",
+            "nodeIdentifierURL": "test://com.apple.xcode/CountriesSwiftUI/KBPilotUITests/CountriesRetryUITests/testDatabaseFailureRetriesToVisibleCountry",
+            "nodeType": "Test Plan Configuration",
+            "result": "Failed"
+          }
+        ],
+        "details": "iOS Simulator 18.2",
+        "duration": "19s",
+        "durationInSeconds": 19.48278307914734,
+        "name": "iPhone 16 Pro",
+        "nodeIdentifier": "FF1C266A-0F58-463D-9002-392BC39AF529",
+        "nodeType": "Device",
+        "result": "Failed"
+      }
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "exit": 0,
+  "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/TchopApp-eibnejhowamajxdydgfsjklcnyvv/Logs/Test/Test-TchopApp-2026.10.22_21-17-46-+0300.xcresult",
+  "summary": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "FF1C266A-0F58-463D-9002-392BC39AF529",
+          "deviceName": "iPhone 16 Pro",
+          "modelName": "iPhone 16 Pro",
+          "osBuildNumber": "22C150",
+          "osVersion": "18.2",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 0,
+        "passedTests": 2,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "TchopApp \u00b7 Built with macOS 27.0.1",
+    "expectedFailures": 0,
+    "failedTests": 0,
+    "finishTime": 1792693131.097,
+    "passedTests": 2,
+    "result": "Passed",
+    "runtimeWarnings": [],
+    "skippedTests": 0,
+    "startTime": 1792693066.351,
+    "statistics": [],
+    "testFailures": [],
+    "title": "Test - TchopApp",
+    "topInsights": [],
+    "totalTestCount": 2
+  },
+  "source_hashes": {
+    "TchopApp/ViewModels/AppShellViewModel.swift": "acf5121449cf853e08978f7a083ac26604a017fec90a088b465146ed4ce8f167",
+    "TchopAppUITests/TchopAppUITests.swift": "c1b872dfc6268be52cb2191aeda48132a4ead869d88a96397954617c32ab568b"
+  },
+  "scope": "2 actual UI cases: first composer contains Debug video file-row metadata and typed text; cancel, reopen, both absent and no publication; normal text publication control. Video fixture uses nil URL because composer inline preview is file metadata, not an asynchronous video thumbnail/player. Existing real video renderer and old-owner unit evidence retained separately. Share follow-up untouched."
+}

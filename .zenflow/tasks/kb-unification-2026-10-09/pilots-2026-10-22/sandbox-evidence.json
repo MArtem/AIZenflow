@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-22",
+  "method": "Read installed toolchain documentation, wrapper and backend strings; inspect owned native receipt/artifact paths. No Simulator/service/help/bootstrap or new build execution.",
+  "evidence": [
+    {
+      "path": "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+      "sha256": "3aa7fb5fe56ffa521705ebd884d23750e9005ce51c2b51c48d96bca1b09ef932"
+    },
+    {
+      "path": "/Applications/Xcode.app/Contents/Developer/usr/share/man/man1/xcodebuild.1",
+      "sha256": "0c3bbc6c997ffd6130ebeb4278e90eeae8987bc6811a3295aa3229693db0bd2d"
+    },
+    {
+      "path": "/Library/Developer/PrivateFrameworks/CoreSimulator.framework/Versions/A/Resources/bin/simctl",
+      "sha256": "3f644d5dc842574dec0124bd9e240c4d55b7b065f69231e03f813876baa00c82"
+    }
+  ],
+  "findings": {
+    "simctl_wrapper": "Conditional xcodebuild -runFirstLaunch before exec system CoreSimulator backend",
+    "backend_strings": "usage includes --set <path> and --profiles <path>; static evidence only, no custom-device-set run",
+    "xcodebuild_man": "derivedDataPath and resultBundlePath documented; no universal filesystem containment promise",
+    "owned_native_artifacts": "tmp,module-cache,clang-cache,compile.log,run.log,receipt.json exist, resolve inside .zenflow, top-level paths not symlinks",
+    "native_receipt": "Reused compile/run exit0 and12/12 cases; no new run; no iOS evidence"
+  },
+  "limits": [
+    "No syscall/file-write trace or OS-enforced containment certification",
+    "No inspection of personal Library directories",
+    "No guarantee that native tool/OS background writes are absent",
+    "No new runtime or networking calls"
+  ],
+  "runtime_decision": "BLOCKED_BY_USER_SANDBOX; external path access declined, not pending approval"
+}

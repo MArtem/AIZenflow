@@ -1,0 +1,121 @@
+# План практических пилотов KB — 2026-10-22
+
+**RESUMED by user, 2026-10-22.** Historical [pause checkpoint](pause-checkpoint.md) retained. Current results: [pilot status](current-status.md).
+
+Модель GPT-6.1 Sol / medium; эконом. Docs route: Level0 + governance-documentation/task-state + ios-project-work-system + testing strategy. Skill: ios-test-strategy. Это наблюдение за работой KB на реальных текущих исходниках, не повтор закрытого эксперимента/holdout и не доказательство преимущества модели.
+
+## Разрешённая область и порядок
+
+Пользователь поручил составить план с учётом всех обсуждавшихся проектов и начать выполнять проверки последовательно. Минимальная поддерживаемая линия пилотов — iOS18; runtime-матрица — iPhone Simulator iOS18.2 (доступный minor18) и27.0. Это не доказательство работы на18.0. Не понижать target26/не менять upstream deployment settings одним override ради зелёной сборки. Совместимость проверяется до такой миграции; необходимые изменения — отдельный небольшой блок после анализа.
+
+Выполнять один pilot/check block за раз, записывать terminal result до следующего. Сначала проверка существующего контракта/тестов; не добавлять произвольную функцию ради эксперимента. Ошибка app, ошибка теста, stale docs и ошибка выбора/применения KB различаются. Исправление confirmed defect планируется в пределах согласованной области; массовые изменения, >3 source files, зависимости, signing/CI и большие расходы требуют checkpoint. Новых агентов/моделей/сервисов, downloads, installers, remote CI, Git/PR в приложениях запрос не разрешает. Test creation/modification не нужна для первого блока; для следующих использовать существующие тесты, предложить недостающую регрессию при конкретной необходимости.
+
+Все артефакты, DerivedData, Swift/Clang module cache, temporary products и логи — .zenflow. iPad/physical/actual VoiceOver OMITTED_BY_USER. CoreSimulator по умолчанию обращается к ~/Library; до запуска UI необходимо отдельное точное разрешение на системные runtime state/log paths либо доказанно работающее размещение в .zenflow. Установка runtimes не нужна: первая inventory-команда сообщила18.2/27.0 available; последующая sandbox-команда потеряла доступ к сервису. Это не runtime PASS.
+
+## Семь приложений
+
+| Порядок / ID | Проект, текущий checkout / selector | Сценарий, ожидаемая проверка |
+|---|---|---|
+| P01 | knowledge-base-next / BattleshipGame/BattleshipGame.xcodeproj | Существующие placement/start/fire/duplicate/reset invariants. Сначала native ModelRegressionTests (actual GameModel), затем ровно UI testScrolledPlacementFireDuplicateAndReset на18.2, затем27.0. macOS model PASS не заменяет iOS. |
+| P02 | knowledge-base-next / AIFieldbook/AIFieldbook.xcodeproj | Локальный поиск: быстрые query/filter changes, clear, уход/возврат, failure/retry; не публиковать старые результаты. Read owner/task lifetime, затем разрешённый детерминированный/Simulator сценарий; новых AI/cloud функций нет. |
+| P03 | mvvmexample-3c80 / MVVMExample.xcodeproj | News refresh↔pagination↔retry: прежний контент при отказе, нет устаревшего overwrite/дублей; actual list/repository consumers. Сначала текущая защита, не объявлять generation guards дефектом без causal trace. |
+| P04 | library-acceptance-projects/clean-architecture-swiftui / CountriesSwiftUI.xcodeproj | DB error→UI failure→retry: не показывать ошибку чтения как пустой успешный список. Сначала актуальные CountriesDBRepositoryTests и Loadable; затем один сценарий списка на обеих iOS. Не повторять старую оценку DB-error KB. |
+| P05 | library-acceptance-projects/GhibliSwiftUIApp / GhibliSwiftUIApp.xcodeproj | Favorites/catalog: выбор, смена фильтра/загрузка, relaunch, stale selection; начать с текущих FavoritesCatalogStateTests. Сначала проверить совместимость18: project settings сейчас26.0, поэтому18 пока BLOCKED_COMPATIBILITY, не PASS. |
+| P06 | library-acceptance-projects/firefox-ios / firefox-ios/Client.xcodeproj (Fennec) | Один существующий reader-mode boundary: URL/scheme request→validation→failure/cleanup, привязать ReaderModeSchemeHandlerTests к actual consumers. Не полный аудит monorepo. Dependencies/build scripts/network effects сначала прочитать; bootstrap/install не запускать автоматически. |
+| P07 | knowledge-base-next / TchopApp.xcodeproj | Только app-side composer/video draft preview→dismiss→reopen: прежний preview не меняет новый draft, cancellation освобождает owned work. Сначала сверить текущий app contract; Share Extension follow-up остаётся PAUSED. |
+
+Порядок каждого P02–P07: свежая identity/dirty/membership→короткий контракт и выбор relevant KB→проверка existing test/source→один минимальный check на18.2→тот же на27→сводка. Конкретные scheme/test IDs фиксировать только после проверки actual membership. Исторические memory grants не активируются. Канонические app docs доступны для intake; чужие app решения не копировать в reusable.
+
+## Наблюдённые конфигурации и границы
+
+Battleship/Tchop/MVVM currently17.0; AIFieldbook18.2 (старый product doc описывает26.0); Countries18.0/18.1 по разным конфигурациям; Ghibli26.0; Firefox15.0/16.4 по целям. Это сырые значения source settings, не resolved build settings и не доказательство runtime compatibility. User baseline18 применяется в плане; постоянная нормализация каждого проекта не входит в первую проверку. Target выше18 — compatibility blocker, ниже18 — не мешает запуску на18, но требует отдельного решения конфигурации перед утверждением новой поддерживаемой baseline.
+
+Состояние исходных checkout на intake: перечисленные OSS и MVVM clean; активный KB/app checkout был clean до создания этого плана. Новые task docs — текущие owned изменения. Дубли GhibliSwiftUIApp-entry/lib004-firefox-reader-cache и закрытые экспериментальные каталоги не открывать. Focus/SampleBrowser/SampleComponentLibraryApp, BrowserKit, reusable packages/architecture demos и QC tools — отдельные products/components, не самостоятельные семь app pilots; подключать только если authoritative target graph выбранного сценария включает их. Не заявлять полный обзор всего диска или тестирование всех схем.
+
+## Приёмка одного пилота
+
+Записать запрос/ожидаемое поведение до исполнения; текущие SHA/affected input hashes и permissions; выбранные маршруты, действительно нужные вопросы, static/runtime distinction; команды, version/destination, exit code, log/xcresult; findings с causal path и disposition; полный owned diff и residual risk. KB оценивается по правильности решения/маршрута, недостающим требованиям, ложным findings, лишним вопросам/чтениям и точности claims. Успех одного сценария не означает production readiness, freshness всех API или измеренную экономию.
+
+- [x] Найти все семь обсуждаемых приложений и исключить дубли/закрытые эксперименты.
+- [x] Составить последовательный план и матрицу18.2/27.0.
+- [x] P01: native model regression — 12/12 PASS, compile/run exit0; see P01-native-result.json.
+- [x] P01: UI scenario18.2 — 1/1 PASS, exit0.
+- [x] P01: UI scenario27.0 — 1/1 PASS, exit0; scoped pilot PASS, details P01-ios-results.json.
+- [ ] P02 AIFieldbook.
+- [x] P03 MVVMExample scoped7cases PASS18.2/27 after two authorized test-file repairs; no production changes.
+- [ ] P04 Countries.
+- [ ] P05 Ghibli.
+- [ ] P06 Firefox.
+- [ ] P07 Tchop.
+- [ ] Consolidate observed KB gaps; no speculative rule expansion.
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
+
+## Текущая остановка исполнения
+
+Первый последовательный check завершён: actual GameModel + существующий ModelRegressionTests.swift, Swift6 strict-concurrency, 12/12 PASS на macOS. Source/test файлы не изменены. Следующий check — testScrolledPlacementFireDuplicateAndReset на iPhone18.2, потом27.0. Он BLOCKED_EXTERNAL_RUNTIME_SCOPE: CoreSimulator пытается использовать системное состояние/логи в ~/Library, а абсолютное правило sandbox требует отдельного разрешения на именованные пути. Ни UI/build18, ни UI/build27 не объявляются PASS. Нужен ответ пользователя только на разрешение этих системных runtime paths, а не повторное одобрение самого тестирования. До него не начинать P02 вместо незавершённого P01.
+
+## Current sandbox decision (supersedes earlier permission-wait wording)
+
+User explicitly declined all external runtime paths. UI18.2/27 is BLOCKED_BY_USER_SANDBOX, not awaiting approval. Do not request those paths again. [Sandbox report](sandbox-report.md) and sandbox-evidence.json record installed simctl wrapper conditional runFirstLaunch, backend --set and unknown full service/log containment. No CoreSimulator/elevated runtime retry. Native12/12 PASS retains its macOS-only scope.
+
+## Current execution authority - supersedes historical sandbox denial
+
+User explicitly authorizes normal Xcode/CoreSimulator operation, standard external DerivedData/cache/temp/log/service paths. App source/projects/resources remain under .zenflow; no other external action granted. Confirmed temporary products cleaned before runtime; evidence retained in cleanup-2026-10-22.json. Do not supply custom in-sandbox DerivedData/module-cache/TMPDIR/result paths for subsequent Xcode runs. Existing P01 UI18.2 then27 authorized sequentially; no source/test change needed initially. Historical BLOCKED_BY_USER_SANDBOX is superseded, not a current blocker.
+
+## P02 current bounded block
+
+Testing phase authorized by user plan/execution request. Add one non-shipping Swift Testing target and one real SwiftData in-memory search integration case (project+scheme+test=3 files). No app/runtime logic change, no mocks or new dependency. Contract: empty criteria return none; title/body matching with workspace/kind/tag intersection returns only owned expected IDs; real producer/consumer mapping used; fixture lifetime is test-local and cannot touch persisted user data. First18.2, then27. Cancellation/latest-query ViewModel and failure/retry remain separate uncovered checks, not inferred PASS.
+
+P02 block2: one test-file addition, observation-driven bounded wait with1minute test limit; no production hooks or sleep-based synchronization. Expected latest query, synchronous clear, cancel/disappear/reappear and workspace filter reconciliation. Does not force late-error ordering or fault-inject SwiftData. Previous index-case18/27PASS retained separately with source hashes.
+
+P02 core: index/filter plus ordinary query/clear/disappear-reappear/workspace state tests2/2PASS18.2 and27, no skips. Production unchanged. Fault-injected persistence failure/retry and forced late-error ordering NOT_RUN, not silently credited; full original P02 remains partial. Continue P03 existing bounded tests without creating speculative production seams.
+
+## Current test-authoring authority - 2026-10-22
+
+User explicitly authorizes creating and modifying tests for all seven involved projects for this KB-testing task: BattleshipGame, AIFieldbook, MVVMExample, Countries, Ghibli, Firefox and Tchop. This includes minimal necessary test-target/scheme/configuration/fixture edits within the current bounded pilot; no recurring approval for the same test-writing scope. Authority ends with this task. Production feature changes, tool installation, unrelated dependency adoption, signing/CI, app Git/publication, agents and unrelated external paths remain separately governed. Prior per-file approval limits/denials are historical and superseded for current test work. Native Xcode/Simulator system artifact exception remains active; maintained source/resources stay .zenflow.
+
+P07 block2: one new existing-target XCTest verifies dismissed video composer identity/draft isolation when reopened, including updates through retained old owner. In-memory/local test dependencies; no real file import, Share context or publish. Existing renderer regression3functions/8argumentcases PASS18.2/27 remains independent; new model test does not claim SwiftUI preview task/race coverage. All-project test-writing grant covers this block.
+
+## Resumed check results — 2026-10-22
+
+- [x] Read final Ghibli27 structured summary:3/3PASS,0skips; current Debug18 candidate now checked on both runtimes. Release26 unchanged.
+- [x] Run new Tchop composer owner-isolation case18.2 then27:1/1PASS each,0skips.
+- [x] Consolidate observed limits in current-status.md; no causal KB benefit or full original scenario completion claim.
+- [x] Record user decision: defer Countries/Firefox dependency preparation; retain blockers and NOT_RUN runtime status. No downloads/installers.
+
+## P02 result-envelope regression
+
+One test-only file block: real isolated in-memory SwiftData,105matching then105newer nonmatching notes. Contract: text filtering precedes the100-result cap; returned IDs are unique and belong to matching fixtures. No disk user data, failure injection, production seam, ordering-tie claim or whole-query memory bound. Run only this new test18.2 then27. Existing PASS unchanged.
+
+- [x] P02 result-envelope regression18.2/27:1/1PASS each,0skips;210in-memory records. JSON receipts P02-envelope18/27-result.json. Full added test reviewed against cap/filter/unique-ID contract; previous test bodies unchanged. Fault injection and UI gaps remain.
+
+## Current expanded authority and cleanup — supersedes dependency deferral
+
+User authorizes minimal production test seams, remaining tests, bounded dependency preparation and final Git preservation after review. Downloads only within .zenflow and must be removed after tests; preserve pre-existing packages/resources. Native DerivedData/caches/logs remain system paths. Start Countries sequentially with a new exact owned root recorded in download-cleanup-ledger.json; inspect resolved manifests before executing dependency build surfaces. No tool/SDK installation inferred. Cleanup must finish even after failed/blocked tests and record bytes removed.
+
+- [x] Countries resolution / dependency surface review /18.2 then27 / owned-download cleanup.
+- [x] Firefox preparation review: user declined isolated tools; BLOCKED_BY_USER_TOOL_INSTALLATION_DECISION. No downloads to clean; runtime NOT_RUN.
+- [x] AIFieldbook search seam + controlled failure/retry:4/4 each18.2/27.
+- [x] Ghibli isolated defaults seam + owner reconstruction/removal:4/4 each18.2/27.
+- [x] Correct Tchop scope against actual composer/feed owners; no speculative loader.
+- [ ] Original full UI/forced-late-error/process-relaunch gaps remain explicitly unverified.
+- [ ] Final evidence/semantic review, Git preservation within confirmed repository scope.
+
+## Current bounded seams — 2026-10-22
+
+AIFieldbook contract: Sendable async search protocol implemented by existing SwiftData actor; only immutable criteria/results cross actors. AppComposition/Spotlight retain real actor. Cancellation suppresses generic errors as well as CancellationError; existing current-criteria guards remain. Three-file patch. Controlled failure→retry preserves criteria and transitions searching/failure/results;4/4testsPASS18.2/27. Forced late error interleaving remains static-reviewed, not dynamically certified.
+
+Ghibli contract: inject UserDefaults with .standard default and unchanged key/encoding. Two-file patch; unique test suite verifies save→fresh storage/model load→remove→fresh load. Test cleans only its own suite. This is owner recreation with real persistence API, not process relaunch or crash durability. Existing catalog cases run alongside new one18.2 then27.
+
+Tchop scope correction: actual composer video uses file metadata/teaser and AVPlayer detail, not feed thumbnail generator. No new speculative composer video loader. Existing owner-isolation test supports dismissed/reopened draft separation; feed renderer tests support thumbnail geometry. Do not conflate either with a rendered asynchronous UI race proof.
+
+## Final requested closure — 2026-10-22
+
+User explicitly requests completing all remaining work except the forbidden Firefox preparation. Bounded sequential blocks:
+- [x] AIFieldbook forced late cancelled generic error after same-criteria replacement: captured old/new task handles awaited;5/5PASS18.2/27.
+- [ ] AIFieldbook real UI query change/clear/tab-return/failure-retry; Debug in-memory fixture, no real file/Spotlight maintenance. New UI target;3Swift sources maximum in this block. Initial two locale-selector failures preserved, corrected18.2PASS;27 pending.
+- [ ] Ghibli true process terminate/relaunch favorite preservation/removal via unique owned defaults suite and offline catalog; cleanup suite after test.
+- [ ] Countries real UI failure→retry→country row with isolated store and controlled dependency; contained dependency downloads cleaned again after this final block.
+- [ ] Tchop real composer UI dismiss/reopen with discarded draft, combined with existing video-owner regression; no fabricated thumbnail task.
+- [ ] Complete semantic diff/evidence review; canonical synchronization and authorized Git preservation. Firefox remains NOT_RUN by user decision, never PASS. No new agents or tools.

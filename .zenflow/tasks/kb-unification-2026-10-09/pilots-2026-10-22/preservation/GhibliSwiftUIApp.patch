@@ -1,0 +1,203 @@
+diff --git a/GhibliSwiftUIApp.xcodeproj/project.pbxproj b/GhibliSwiftUIApp.xcodeproj/project.pbxproj
+index 7a8d2d0a9d613a1b490442381905abdb0ed38c96..afa74d968bbfd3e3917351f5e5b88b2fa08a47d1 100644
+--- a/GhibliSwiftUIApp.xcodeproj/project.pbxproj
++++ b/GhibliSwiftUIApp.xcodeproj/project.pbxproj
+@@ -342,7 +342,7 @@
+ 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+ 				GCC_WARN_UNUSED_FUNCTION = YES;
+ 				GCC_WARN_UNUSED_VARIABLE = YES;
+-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
++				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+ 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+ 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+ 				MTL_FAST_MATH = YES;
+@@ -486,7 +486,7 @@
+ 				CURRENT_PROJECT_VERSION = 1;
+ 				DEVELOPMENT_TEAM = 54YLWD89Z8;
+ 				GENERATE_INFOPLIST_FILE = YES;
+-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
++				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+ 				MARKETING_VERSION = 1.0;
+ 				PRODUCT_BUNDLE_IDENTIFIER = com.karinprater.GhibliSwiftUIAppTests;
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+diff --git a/GhibliSwiftUIApp/ContentView.swift b/GhibliSwiftUIApp/ContentView.swift
+index 36f71c509ef96473db47a8df6e303c333ff5aa5b..8573ed5e6133bd9bcc0eebeab69ed628a245ca12 100644
+--- a/GhibliSwiftUIApp/ContentView.swift
++++ b/GhibliSwiftUIApp/ContentView.swift
+@@ -9,8 +9,20 @@ import SwiftUI
+ 
+ struct ContentView: View {
+     
+-    @State private var filmsViewModel = FilmsViewModel()
+-    @State private var favoritesViewModel = FavoritesViewModel()
++    @State private var filmsViewModel: FilmsViewModel
++    @State private var favoritesViewModel: FavoritesViewModel
++
++    init() {
++        #if DEBUG
++        if let models = KBPilotFavoritesComposition.models {
++            _filmsViewModel = State(initialValue: models.0)
++            _favoritesViewModel = State(initialValue: models.1)
++            return
++        }
++        #endif
++        _filmsViewModel = State(initialValue: FilmsViewModel())
++        _favoritesViewModel = State(initialValue: FavoritesViewModel())
++    }
+     
+     var body: some View {
+         TabView {
+@@ -43,3 +55,35 @@ struct ContentView: View {
+ #Preview {
+     ContentView()
+ }
++
++#if DEBUG
++@MainActor
++private enum KBPilotFavoritesComposition {
++    static let models: (FilmsViewModel, FavoritesViewModel)? = {
++        let prefix = "KBPilot.UI."
++        guard let name = ProcessInfo.processInfo.environment["GHIBLI_KB_UI_SUITE"],
++              name.hasPrefix(prefix), UUID(uuidString: String(name.dropFirst(prefix.count))) != nil,
++              let defaults = UserDefaults(suiteName: name) else { return nil }
++        if ProcessInfo.processInfo.environment["GHIBLI_KB_UI_CLEANUP"] == "1" {
++            defaults.removePersistentDomain(forName: name)
++        }
++        return (
++            FilmsViewModel(service: KBPilotCatalog()),
++            FavoritesViewModel(service: DefaultFavoriteStorage(defaults: defaults))
++        )
++    }()
++}
++
++private struct KBPilotCatalog: GhibliService {
++    func fetchFilms() async throws -> [Film] {
++        [Film(id: "kb-pilot-film", title: "KB Pilot Film", description: "Offline fixture",
++              director: "Fixture", producer: "Fixture", releaseYear: "2000", score: "100",
++              duration: "1", image: "", bannerImage: "", people: [])]
++    }
++    func searchFilm(for searchTerm: String) async throws -> [Film] {
++        try await fetchFilms().filter { $0.title.localizedStandardContains(searchTerm) }
++    }
++    func fetchPerson(from URLString: String) async throws -> Person { throw FixtureError.unavailable }
++    private enum FixtureError: Error { case unavailable }
++}
++#endif
+diff --git a/GhibliSwiftUIApp/Favorites/Services/DefaultFavoriteStorage.swift b/GhibliSwiftUIApp/Favorites/Services/DefaultFavoriteStorage.swift
+index c4b73d8f37f7fb4ae8da4b9e16d7980f7d93c50e..5a4f9b96527d555ffc3b9c30eefc8bf48338dd19 100644
+--- a/GhibliSwiftUIApp/Favorites/Services/DefaultFavoriteStorage.swift
++++ b/GhibliSwiftUIApp/Favorites/Services/DefaultFavoriteStorage.swift
+@@ -10,13 +10,18 @@ import Foundation
+ struct DefaultFavoriteStorage: FavoriteStorage {
+     
+     private let favoritesKey = "GhibliExplorer.FavoriteFilms"
++    private let defaults: UserDefaults
++
++    init(defaults: UserDefaults = .standard) {
++        self.defaults = defaults
++    }
+     
+     func load() -> Set<String> {
+-        let array = UserDefaults.standard.stringArray(forKey: favoritesKey) ?? []
++        let array = defaults.stringArray(forKey: favoritesKey) ?? []
+          return Set(array)
+     }
+     
+     func save(favoriteIDs: Set<String>) {
+-        UserDefaults.standard.set(Array(favoriteIDs), forKey: favoritesKey)
++        defaults.set(Array(favoriteIDs), forKey: favoritesKey)
+     }
+ }
+diff --git a/GhibliSwiftUIApp/Views/FavoriteButton.swift b/GhibliSwiftUIApp/Views/FavoriteButton.swift
+index 4b18cf23c9c0505e891879a05ff723162d7066a3..73d03b2ac9096f64474ef341bee421b8223347ec 100644
+--- a/GhibliSwiftUIApp/Views/FavoriteButton.swift
++++ b/GhibliSwiftUIApp/Views/FavoriteButton.swift
+@@ -24,5 +24,6 @@ struct FavoriteButton: View {
+             Image(systemName: isFavorite ? "heart.fill" : "heart")
+                 .foregroundStyle(isFavorite ? Color.pink : Color.gray)
+         }
++        .accessibilityIdentifier("favorite.\(filmID)")
+     }
+ }
+\ No newline at end of file
+diff --git a/GhibliSwiftUIAppTests/FavoritesCatalogStateTests.swift b/GhibliSwiftUIAppTests/FavoritesCatalogStateTests.swift
+index 0a4b586a4e0db73edb4f54d7adb66796f04a3f41..f27749fc4eb2fe93e6dbb128bf76190ff23e6dbe 100644
+--- a/GhibliSwiftUIAppTests/FavoritesCatalogStateTests.swift
++++ b/GhibliSwiftUIAppTests/FavoritesCatalogStateTests.swift
+@@ -11,6 +11,30 @@ struct FavoritesCatalogStateTests {
+         bannerImage: "", people: []
+     )
+ 
++    @Test("Real favorites storage survives owner recreation and persists removal")
++    func realStorageRestoresFavorites() throws {
++        let suiteName = "KBPilot.Favorites.\(UUID().uuidString)"
++        let firstDefaults = try #require(UserDefaults(suiteName: suiteName))
++        defer { firstDefaults.removePersistentDomain(forName: suiteName) }
++        let first = FavoritesViewModel(service: DefaultFavoriteStorage(defaults: firstDefaults))
++        first.load()
++        #expect(first.favoriteIDs.isEmpty)
++        first.toggleFavorite(filmID: film.id)
++        #expect(first.favoriteIDs == [film.id])
++
++        let recreatedDefaults = try #require(UserDefaults(suiteName: suiteName))
++        let recreated = FavoritesViewModel(service: DefaultFavoriteStorage(defaults: recreatedDefaults))
++        recreated.load()
++        #expect(recreated.favoriteIDs == [film.id])
++        recreated.toggleFavorite(filmID: film.id)
++        #expect(recreated.favoriteIDs.isEmpty)
++
++        let lastDefaults = try #require(UserDefaults(suiteName: suiteName))
++        let last = FavoritesViewModel(service: DefaultFavoriteStorage(defaults: lastDefaults))
++        last.load()
++        #expect(last.favoriteIDs.isEmpty)
++    }
++
+     @Test("Loading and successful catalog refresh preserve saved favorites")
+     func loadingThenSuccess() async {
+         let service = ControlledCatalogService()
+diff --git a/GhibliSwiftUIAppUITests/GhibliSwiftUIAppUITests.swift b/GhibliSwiftUIAppUITests/GhibliSwiftUIAppUITests.swift
+index ee5c24b0b32308a155b2e72431e28bdf055d881d..27e17c51f0b1a5635041650f63083053737d6a53 100644
+--- a/GhibliSwiftUIAppUITests/GhibliSwiftUIAppUITests.swift
++++ b/GhibliSwiftUIAppUITests/GhibliSwiftUIAppUITests.swift
+@@ -22,6 +22,41 @@ final class GhibliSwiftUIAppUITests: XCTestCase {
+         // Put teardown code here. This method is called after the invocation of each test method in the class.
+     }
+ 
++    @MainActor
++    func testFavoritesSurviveProcessRelaunchAndRemoval() {
++        let app = XCUIApplication()
++        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
++        app.launchEnvironment["GHIBLI_KB_UI_SUITE"] = "KBPilot.UI.\(UUID().uuidString)"
++        defer {
++            app.terminate()
++            app.launchEnvironment["GHIBLI_KB_UI_CLEANUP"] = "1"
++            app.launch()
++            XCTAssertTrue(app.buttons.matching(identifier: "favorite.kb-pilot-film").matching(NSPredicate(format: "label == %@", "Love")).firstMatch.waitForExistence(timeout: 15))
++            app.terminate()
++        }
++        app.launch()
++        let favorite = app.buttons.matching(identifier: "favorite.kb-pilot-film").matching(NSPredicate(format: "label == %@", "Love")).firstMatch
++        XCTAssertTrue(favorite.waitForExistence(timeout: 15), app.debugDescription)
++        favorite.tap()
++        app.tabBars.buttons["Favorites"].tap()
++        XCTAssertTrue(app.staticTexts["KB Pilot Film"].waitForExistence(timeout: 10))
++
++        app.terminate()
++        app.launch()
++        XCTAssertTrue(app.tabBars.buttons["Favorites"].waitForExistence(timeout: 15))
++        app.tabBars.buttons["Favorites"].tap()
++        XCTAssertTrue(app.staticTexts["KB Pilot Film"].waitForExistence(timeout: 10))
++        app.buttons.matching(identifier: "favorite.kb-pilot-film").matching(NSPredicate(format: "label == %@", "Love")).firstMatch.tap()
++        XCTAssertTrue(app.staticTexts["No Favorites yet"].waitForExistence(timeout: 10))
++
++        app.terminate()
++        app.launch()
++        XCTAssertTrue(app.tabBars.buttons["Favorites"].waitForExistence(timeout: 15))
++        app.tabBars.buttons["Favorites"].tap()
++        XCTAssertTrue(app.staticTexts["No Favorites yet"].waitForExistence(timeout: 10))
++        XCTAssertFalse(app.buttons.matching(identifier: "favorite.kb-pilot-film").matching(NSPredicate(format: "label == %@", "Love")).firstMatch.exists)
++    }
++
+     @MainActor
+     func testExample() throws {
+         // UI tests must launch the application that they test.

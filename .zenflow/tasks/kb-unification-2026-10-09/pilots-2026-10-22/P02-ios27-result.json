@@ -1,0 +1,49 @@
+{
+  "xcodebuild_exit": 0,
+  "xcresult": "/Users/Artem/Library/Developer/Xcode/DerivedData/AIFieldbook-euxrocsogdebijcravqrerjjcvwf/Logs/Test/Test-AIFieldbook-2026.10.22_03-16-23-+0300.xcresult",
+  "summary": {
+    "devicesAndConfigurations": [
+      {
+        "device": {
+          "architecture": "arm64",
+          "deviceId": "A4320F80-FE71-4A45-A861-6F5405389C2C",
+          "deviceName": "iPhone 18 Pro",
+          "modelName": "iPhone 18 Pro",
+          "osBuildNumber": "24A434",
+          "osVersion": "27.0",
+          "platform": "iOS Simulator"
+        },
+        "expectedFailures": 0,
+        "failedTests": 0,
+        "passedTests": 1,
+        "skippedTests": 0,
+        "testPlanConfiguration": {
+          "configurationId": "1",
+          "configurationName": "Test Scheme Action"
+        }
+      }
+    ],
+    "environmentDescription": "AIFieldbook \u00b7 Built with macOS 27.0.1",
+    "expectedFailures": 0,
+    "failedTests": 0,
+    "finishTime": 1792628236.4,
+    "passedTests": 1,
+    "result": "Passed",
+    "runtimeWarnings": [],
+    "skippedTests": 0,
+    "startTime": 1792628183.657,
+    "statistics": [],
+    "testFailures": [],
+    "title": "Test - AIFieldbook",
+    "topInsights": [],
+    "totalTestCount": 1
+  },
+  "source_hashes": {
+    "AIFieldbook/AIFieldbookTests/LocalSearchTests.swift": "6dead1e87437ea523884956c93af83e520a40e969b45a24ea827938b0b1cdf05",
+    "AIFieldbook/AIFieldbook.xcodeproj/project.pbxproj": "199cd7b953ca74f3f90721a63beb7e3972a5080781a9787f56ea51291b743252",
+    "AIFieldbook/AIFieldbook.xcodeproj/xcshareddata/xcschemes/AIFieldbook.xcscheme": "41094eb82c90851fbae2dd8d417f196509858899a97a41a693ecdd67a1ffc259",
+    "AIFieldbook/AIFieldbook/Core/Search/FieldbookSearchIndex.swift": "c84bef5fa519a47fbfa34efd49d0f40774cfb0d5a66cc3628186d4ecf9bd11b6",
+    "AIFieldbook/AIFieldbook/Core/Persistence/FieldbookRepository.swift": "d22ef31eee0860cdd9f379077682494de163320db9ae85741ea79b26e9c20d75"
+  },
+  "scope": "Single in-memory search producer/consumer integration; ViewModel cancellation and failure not yet verified"
+}

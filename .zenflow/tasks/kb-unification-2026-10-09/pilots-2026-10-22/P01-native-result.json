@@ -1,0 +1,32 @@
+{
+  "source_head": "7aefeedc63a60e2e89e41c93c7de1e21c3deeb8a",
+  "sources": {
+    "BattleshipGame/BattleshipGame/GameModel.swift": "a4dd935d45917c35a123f445b6a55fd0f645bb42ffd8cfa113a9d5423c758776",
+    "BattleshipGame/Verification/ModelRegressionTests.swift": "66e261c1cdb511a3cfc6267f9859571af6b9d095f247c9688e4fbad8caac693c"
+  },
+  "platform": "macOS native; no iOS runtime coverage",
+  "compile_command": [
+    "xcrun",
+    "swiftc",
+    "-swift-version",
+    "6",
+    "-strict-concurrency=complete",
+    "-module-cache-path",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-pilots-2026-10-22/P01-native/module-cache",
+    "BattleshipGame/BattleshipGame/GameModel.swift",
+    "BattleshipGame/Verification/ModelRegressionTests.swift",
+    "-o",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-pilots-2026-10-22/P01-native/model-regression"
+  ],
+  "compile_exit": 0,
+  "ui18": "NOT_RUN",
+  "ui27": "NOT_RUN",
+  "run_exit": 0,
+  "toolchain": "Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx27.0.0",
+  "result": "PASS 12/12 native model cases",
+  "remaining": "iPhone Simulator18.2/27 UI not run; CoreSimulator external-state/log permission needed",
+  "logs": {
+    "compile": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-pilots-2026-10-22/P01-native/compile.log",
+    "run": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/task-artifacts/kb-pilots-2026-10-22/P01-native/run.log"
+  }
+}

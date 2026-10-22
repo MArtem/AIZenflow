@@ -392,6 +392,9 @@ final class AppShellViewModel {
     private let shareExtensionSessionContextManager: ShareExtensionSessionContextManager?
     let channelsStore: ChannelsStore
     private let feedCardStore: FeedCardStore
+    #if DEBUG
+    @ObservationIgnored private var didSeedKBPilotVideo = false
+    #endif
 
     var isMenuOpen: Bool { state.isMenuOpen }
     var showsFloatingActionButton: Bool { state.showsFloatingActionButton }
@@ -465,6 +468,14 @@ final class AppShellViewModel {
             channelsStore: channelsStore,
             feedCardStore: feedCardStore
         )
+        #if DEBUG
+        let environment = ProcessInfo.processInfo.environment
+        if !didSeedKBPilotVideo, environment["TCHOP_UI_TEST_MODE"] == "1",
+           environment["TCHOP_KB_VIDEO_DRAFT"] == "1" {
+            didSeedKBPilotVideo = true
+            state.activeComposer?.selectPickedFile(kind: .video, displayTitle: "KB video draft.mp4", fileURL: nil)
+        }
+        #endif
     }
 
     func dismissComposer() {
