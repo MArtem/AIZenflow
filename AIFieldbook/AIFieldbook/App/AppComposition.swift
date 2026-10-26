@@ -33,7 +33,7 @@ final class AppComposition {
     private(set) var alertTitle: String?
     private(set) var alertMessage: String?
 
-    private var workspaceDetails = DetailModelCache<WorkspaceDetailViewModel>(limit: 24)
+    @ObservationIgnored private var workspaceDetails = DetailModelCache<WorkspaceDetailViewModel>(limit: 24)
     private var textDetails = DetailModelCache<TextNoteDetailViewModel>(limit: 24)
     private var importedDetails = DetailModelCache<ImportedItemDetailViewModel>(limit: 24)
     private var urlDetails = DetailModelCache<URLReferenceDetailViewModel>(limit: 24)

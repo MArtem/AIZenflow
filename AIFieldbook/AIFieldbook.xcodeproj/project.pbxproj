@@ -128,6 +128,7 @@
 		6B1A00000000000000001801 /* AIFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001811 /* AIFoundation.swift */; };
 		6B1A00000000000000001802 /* VisionTextRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001812 /* VisionTextRecognitionService.swift */; };
 A1F1B0000000000000000001 = {isa = PBXBuildFile; fileRef = A1F1B0000000000000000002; };
+A1E260000000000000000001 = {isa = PBXBuildFile; fileRef = A1E260000000000000000002; };
 A1F1C0000000000000000001 = {isa = PBXBuildFile; fileRef = A1F1C0000000000000000002; };
 /* End PBXBuildFile section */
 
@@ -262,6 +263,7 @@ A1F1B0000000000000000009 = {isa = PBXTargetDependency; target = 6B1A000000000000
 		6B1A00000000000000001811 /* AIFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFoundation.swift; sourceTree = "<group>"; };
 		6B1A00000000000000001812 /* VisionTextRecognitionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionTextRecognitionService.swift; sourceTree = "<group>"; };
 A1F1B0000000000000000002 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchTests.swift; sourceTree = "<group>"; };
+A1E260000000000000000002 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceContractTests.swift; sourceTree = "<group>"; };
 A1F1B0000000000000000003 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = AIFieldbookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 A1F1C0000000000000000002 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchUITests.swift; sourceTree = "<group>"; };
 A1F1C0000000000000000003 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = AIFieldbookUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -870,7 +872,7 @@ A1F1C0000000000000000003 /* AIFieldbookUITests.xctest */,
 			path = AI;
 			sourceTree = "<group>";
 		};
-A1F1B0000000000000000004 = {isa = PBXGroup; children = (A1F1B0000000000000000002,); path = AIFieldbookTests; sourceTree = "<group>"; };
+A1F1B0000000000000000004 = {isa = PBXGroup; children = (A1F1B0000000000000000002,A1E260000000000000000002,); path = AIFieldbookTests; sourceTree = "<group>"; };
 A1F1C0000000000000000004 = {isa = PBXGroup; children = (A1F1C0000000000000000002,); path = AIFieldbookUITests; sourceTree = "<group>"; };
 /* End PBXGroup section */
 
@@ -1068,7 +1070,7 @@ A1F1C0000000000000000005 /* AIFieldbookUITests */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-A1F1B0000000000000000007 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A1F1B0000000000000000001,); runOnlyForDeploymentPostprocessing = 0; };
+A1F1B0000000000000000007 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A1F1B0000000000000000001,A1E260000000000000000001,); runOnlyForDeploymentPostprocessing = 0; };
 A1F1C0000000000000000007 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (A1F1C0000000000000000001,); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 

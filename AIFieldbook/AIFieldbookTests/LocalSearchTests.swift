@@ -1,5 +1,6 @@
 import Foundation
 import Observation
+import os
 import SwiftData
 import Testing
 @testable import AIFieldbook
@@ -243,6 +244,30 @@ struct LocalSearchTests {
         }
         #expect(model.state.form.selectedWorkspaceID == secondWorkspace)
         #expect(model.state.rows.map(\.id) == [beta])
+    }
+
+    @Test @MainActor
+    func workspaceCacheLookupDoesNotInvalidateObservation() throws {
+        let schema = Schema(AIFieldbookSchemaV3.models)
+        let container = try ModelContainer(
+            for: schema,
+            configurations: [ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)]
+        )
+        let composition = AppComposition(container: container)
+        let id = try composition.repository.createWorkspace(name: "Cache observation fixture")
+        let first = composition.workspaceDetailModel(id: id)
+        let invalidations = OSAllocatedUnfairLock(initialState: 0)
+        var observed: WorkspaceDetailViewModel?
+        withObservationTracking {
+            observed = composition.workspaceDetailModel(id: id)
+        } onChange: {
+            invalidations.withLock { $0 += 1 }
+        }
+        let next = composition.workspaceDetailModel(id: id)
+        #expect(first === observed)
+        #expect(first === next)
+        #expect(invalidations.withLock { $0 } == 0,
+                "Operational LRU lookup invalidates the destination that reads it")
     }
 
 }

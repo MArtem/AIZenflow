@@ -455,6 +455,10 @@ actor AppFileStore {
         cleanupExports()
         try createManagedDirectory(exportsURL)
         let exportURL = exportsURL.appending(path: "AIFieldbook-Export-\(UUID().uuidString)", directoryHint: .isDirectory)
+        var completed = false
+        defer {
+            if !completed { try? fileManager.removeItem(at: exportURL) }
+        }
         try createManagedDirectory(exportURL)
         try manifest.write(to: exportURL.appending(path: "manifest.json"), options: .atomic)
         try applyProtectionAndBackupPolicy(to: exportURL.appending(path: "manifest.json"))
@@ -465,6 +469,7 @@ actor AppFileStore {
             try applyProtectionAndBackupPolicy(to: exportedContentURL)
         }
         try Task.checkCancellation()
+        completed = true
         return exportURL
     }
 
