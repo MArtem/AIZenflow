@@ -126,4 +126,6 @@ worktree copies/task records remain uncommitted. No application source/tests, bu
 Instruments, CI, signing, archive, or tools were run/changed. No live profiling task or behavioral
 skill evaluation was run, so future-project effectiveness and actual token use remain unverified.
 
+At the user's request on 2026-10-30, the untracked `candidate.patch` archive copy was deleted after the reviewed candidate documents and review receipts were committed. The canonical source changes and this review record remain available in Git.
+
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

@@ -2,6 +2,10 @@
 
 Scope: `BattleshipGame/BattleshipGame.xcodeproj`, app and UI-test target, iPhone Simulator. Reviewer GPT-6.1 Terra per explicit user selection; mode эконом. Project/scheme hashes match current BattleshipGame memory. App source was not changed; `BattleshipGameUITests/BoardInteractionTests.swift` was extended under explicit test authority. No dependencies, app accounts or network/backend were introduced.
 
+## Evidence retention update (2026-10-30)
+
+At the user's request, the 22 raw `.trace` bundles, 52 `.xcresult` bundles and 12 top-level XML exports of at least 1 MB were deleted after the findings and limits had been summarized here. Artifact names in the table remain as historical provenance; raw captures are unavailable for reanalysis. Compact JSON metric summaries remain tracked in Git.
+
 ## Evidence and coverage
 
 | Scenario | Evidence | Result / limits |

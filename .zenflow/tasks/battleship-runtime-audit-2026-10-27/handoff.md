@@ -1,6 +1,6 @@
 # BattleshipGame runtime audit — handoff
 
-Mode эконом; GPT-6.1 Terra, explicitly selected by user for this broad audit. ProjectID `6a655f50-2a48-49df-9b5a-bdff693564de`; selector `BattleshipGame/BattleshipGame.xcodeproj`; worktree `/Users/Artem/.zenflow/worktrees/knowledge-base-next`. User authorized app launch, builds, tests, Simulator, Instruments, test creation/modification and app code changes. No tool installation, download, Git publishing, signing, CI or archive. iPad, physical devices and actual VoiceOver OMITTED_BY_USER; Firefox, Share and Library/holdout remain closed.
+Mode эконом; GPT-6.1 Terra, explicitly selected by user for this broad audit. ProjectID `6a655f50-2a48-49df-9b5a-bdff693564de`; selector `BattleshipGame/BattleshipGame.xcodeproj`; worktree `/Users/Artem/.zenflow/worktrees/knowledge-base-next`. User authorized app launch, builds, tests, Simulator, Instruments, test creation/modification and app code changes. At audit time Git publication was not authorized; a later explicit user instruction authorized the current preservation commit and push only. No tool installation, download, signing, CI or archive. iPad, physical devices and actual VoiceOver OMITTED_BY_USER; Firefox, Share and Library/holdout remain closed.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
 
@@ -47,3 +47,5 @@ Scoped static review of `GameModel.swift` and `ContentView.swift`: model work is
 ## Latest iteration: app-targeted XCTest CPU metrics
 
 Added `XCTCPUMetric(application:)` beside clock/memory metrics in eight existing manually bounded UI-test intervals. The local XCTest UIAutomation header documents this process-targeted initializer, and an isolated Swift type-check passed using the iOS Simulator SDK and a task-local module cache. The Release test attempt did not reach tests because CoreSimulatorService disconnected; a subsequent generic `build-for-testing` failed with a malformed `SwiftUIMacros.StateMacro` plugin response while Simulator discovery was unavailable. Thus CPU values and full UI-test target compilation remain unverified. No app source changed. Preserve the patch, but do not treat it as runtime-validated; retry once the local Xcode/Simulator environment is available. The default standalone `swiftc` module-cache attempt was denied outside `.zenflow`; retry used `.zenflow/tasks/.../cpu-metric-module-cache`. No external cache was written.
+
+**Evidence retention update (2026-10-30):** at the user's request, 22 trace bundles, 52 `.xcresult` bundles and 12 top-level XML exports ≥1 MB were removed after their summarized findings and compact metrics were committed. Raw captures cannot be reopened; `report.md` retains conclusions and limitations.
