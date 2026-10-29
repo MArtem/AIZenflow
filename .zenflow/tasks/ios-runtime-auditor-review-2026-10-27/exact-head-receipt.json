@@ -1,0 +1,15 @@
+{
+  "target": "origin/main",
+  "target_sha": "55079f5b5926e63790a722fae05ac5eee9755abe",
+  "merge_base": "55079f5b5926e63790a722fae05ac5eee9755abe",
+  "head": "1ab4f813a55f3b7099993de3a1374bf86f5388b1",
+  "range": "55079f5b5926e63790a722fae05ac5eee9755abe..1ab4f813a55f3b7099993de3a1374bf86f5388b1",
+  "canonical_worktree": "clean",
+  "contract": "app-specific scenarios, distinct permission and evidence, comparable metrics, exact mirrors",
+  "findings": "No known P0-P2 in adopted documentation; rejected archive findings remain in review",
+  "checks": "manifest, vault, active-worktree index/consistency/router/bootstrap/boundaries, parity, scoped credential patterns, diff whitespace",
+  "limitations": "distribution baseline index/router/bootstrap fail in its layout; unrelated baseline drift 3 missing and 8 stale; runtime, tests and independent review not run",
+  "push": "PASS",
+  "remote_sha": "1ab4f813a55f3b7099993de3a1374bf86f5388b1",
+  "remote_state_check": "PASS"
+}

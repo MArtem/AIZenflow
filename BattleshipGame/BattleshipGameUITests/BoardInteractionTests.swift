@@ -74,6 +74,387 @@ final class BoardInteractionTests: XCTestCase {
     }
 
     @MainActor
+    func testApplicationLaunchPerformance() {
+        let app = XCUIApplication()
+        app.launchArguments = ["-AppleLanguages", "(en)", "-AppleLocale", "en_US"]
+        let options = XCTMeasureOptions()
+        options.iterationCount = 3
+        measure(metrics: [XCTApplicationLaunchMetric()], options: options) {
+            app.launch()
+        }
+        XCTAssertTrue(app.buttons["New game"].waitForExistence(timeout: 15))
+    }
+
+    @MainActor
+    func testPlayUntilFinishedAndStartFresh() {
+        let app = launch()
+        let board = boards(app)
+        for row in 1...5 {
+            let target = cell(board[0], row: row, column: 1)
+            reveal(target, in: board[0], app: app)
+            target.tap()
+        }
+        revealHeader(app)
+        XCTAssertTrue(app.buttons["Start"].isEnabled)
+        app.buttons["Start"].tap()
+        let enemy = board[1]
+        let finished = app.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'won'")).firstMatch
+        for row in 1...10 {
+            for column in 1...10 {
+                if finished.exists { break }
+                let target = cell(enemy, row: row, column: column)
+                reveal(target, in: enemy, app: app)
+                target.tap()
+            }
+            if finished.exists { break }
+        }
+        XCTAssertTrue(finished.waitForExistence(timeout: 5), "Game must reach a win or loss")
+        let outcome = XCTAttachment(string: finished.label)
+        outcome.name = "Game outcome"
+        outcome.lifetime = .keepAlways
+        add(outcome)
+        revealHeader(app)
+        app.buttons["New game"].tap()
+        XCTAssertFalse(app.buttons["Start"].isEnabled)
+        XCTAssertTrue(app.staticTexts["Place your Carrier."].waitForExistence(timeout: 5))
+    }
+
+    @MainActor
+    func testBoardScrollingPerformance() {
+        let app = launch()
+        let human = boards(app)[0]
+        reveal(cell(human, row: 1, column: 1), in: human, app: app)
+        let farCell = cell(human, row: 1, column: 10)
+        let initialX = farCell.frame.minX
+        human.swipeLeft()
+        XCTAssertLessThan(farCell.frame.minX, initialX - 1, "Swipe must move board content")
+        human.swipeRight()
+        let options = XCTMeasureOptions()
+        options.iterationCount = 3
+        options.invocationOptions = [.manuallyStart, .manuallyStop]
+        var metrics: [XCTMetric] = [XCTClockMetric(), XCTCPUMetric(application: app), XCTMemoryMetric(application: app)]
+        if #available(iOS 26.0, *) {
+            metrics.append(XCTHitchMetric(application: app))
+        }
+        measure(metrics: metrics, options: options) {
+            let beforeX = farCell.frame.minX
+            startMeasuring()
+            human.swipeLeft()
+            stopMeasuring()
+            XCTAssertLessThan(farCell.frame.minX, beforeX - 1, "Each measured swipe must move board content")
+            human.swipeRight()
+        }
+        XCTAssertTrue(cell(human, row: 1, column: 1).exists)
+    }
+
+    @MainActor
+    func testShootingCoordinateControl() {
+        let app = launch()
+        let board = boards(app)
+        for row in 1...5 {
+            let target = cell(board[0], row: row, column: 1)
+            reveal(target, in: board[0], app: app)
+            target.tap()
+        }
+        revealHeader(app)
+        app.buttons["Start"].tap()
+        let enemy = board[1]
+        let targets = (1...5).map { cell(enemy, row: 1, column: $0) }
+        reveal(targets[0], in: enemy, app: app)
+        let origin = app.windows.firstMatch.coordinate(withNormalizedOffset: .zero)
+        let windowFrame = app.windows.firstMatch.frame
+        let points = targets.map { target -> XCUICoordinate in
+            XCTAssertTrue(target.isHittable)
+            let frame = target.frame
+            return origin.withOffset(CGVector(dx: frame.midX - windowFrame.minX, dy: frame.midY - windowFrame.minY))
+        }
+        for _ in 0..<3 {
+            for point in points { point.tap() }
+        }
+        XCTAssertTrue(app.staticTexts["You already fired there."].waitForExistence(timeout: 5))
+    }
+
+    @MainActor
+    func testShootingQueryControl() {
+        let app = launch()
+        let board = boards(app)
+        for row in 1...5 {
+            let target = cell(board[0], row: row, column: 1)
+            reveal(target, in: board[0], app: app)
+            target.tap()
+        }
+        revealHeader(app)
+        app.buttons["Start"].tap()
+        let enemy = board[1]
+        reveal(cell(enemy, row: 1, column: 1), in: enemy, app: app)
+        for _ in 0..<3 {
+            for column in 1...5 {
+                cell(enemy, row: 1, column: column).tap()
+            }
+        }
+        XCTAssertTrue(app.staticTexts["You already fired there."].waitForExistence(timeout: 5))
+    }
+
+    @MainActor
+    func testRepeatedPlacementResetMemory() {
+        let app = launch()
+        let human = boards(app)[0]
+        let first = cell(human, row: 1, column: 1)
+        let options = XCTMeasureOptions()
+        options.iterationCount = 3
+        measure(metrics: [XCTMemoryMetric(application: app)], options: options) {
+            for _ in 0..<2 {
+                reveal(first, in: human, app: app)
+                first.tap()
+                XCTAssertTrue(app.staticTexts["Place your Battleship."].waitForExistence(timeout: 5))
+                revealHeader(app)
+                app.buttons["New game"].tap()
+                XCTAssertTrue(app.staticTexts["Place your Carrier."].waitForExistence(timeout: 5))
+            }
+        }
+    }
+
+    @MainActor
+    func testAccessibilityQueriesWithoutGameChanges() {
+        let app = launch()
+        let human = boards(app)[0]
+        for _ in 0..<500 {
+            XCTAssertTrue(cell(human, row: 1, column: 1).exists)
+        }
+        XCTAssertTrue(app.staticTexts["Place your Carrier."].exists)
+    }
+
+    @MainActor
+    func testFreshShotQueryMemoryControl() {
+        let app = launch()
+        let human = boards(app)[0]
+        let target = cell(human, row: 1, column: 1)
+        reveal(target, in: human, app: app)
+
+        let options = XCTMeasureOptions()
+        options.iterationCount = 19
+        options.invocationOptions = [.manuallyStart, .manuallyStop]
+        measure(metrics: [XCTClockMetric(), XCTCPUMetric(application: app), XCTMemoryMetric(application: app)], options: options) {
+            startMeasuring()
+            let exists = target.exists
+            stopMeasuring()
+            XCTAssertTrue(exists, "The query-only control should keep reading the same visible cell")
+        }
+
+        XCTAssertTrue(app.staticTexts["Place your Carrier."].exists)
+    }
+
+    @MainActor
+    func testAccessibilityQueryBatchMemoryControl() {
+        let app = launch()
+        let human = boards(app)[0]
+        let target = cell(human, row: 1, column: 1)
+        reveal(target, in: human, app: app)
+
+        let options = XCTMeasureOptions()
+        options.iterationCount = 1
+        options.invocationOptions = [.manuallyStart, .manuallyStop]
+        measure(metrics: [XCTClockMetric(), XCTCPUMetric(application: app), XCTMemoryMetric(application: app)], options: options) {
+            startMeasuring()
+            for _ in 0..<500 {
+                let exists = target.exists
+                XCTAssertTrue(exists)
+            }
+            stopMeasuring()
+        }
+        XCTAssertTrue(app.staticTexts["Place your Carrier."].exists)
+    }
+
+    @MainActor
+    func testBackgroundResumePerformance() {
+        let app = launch()
+        let human = boards(app)[0]
+        let first = cell(human, row: 1, column: 1)
+        reveal(first, in: human, app: app)
+        first.tap()
+        XCTAssertTrue(app.staticTexts["Place your Battleship."].waitForExistence(timeout: 5))
+        let options = XCTMeasureOptions()
+        options.iterationCount = 3
+        options.invocationOptions = [.manuallyStart, .manuallyStop]
+        measure(metrics: [XCTClockMetric(), XCTCPUMetric(application: app), XCTMemoryMetric(application: app)], options: options) {
+            XCUIDevice.shared.press(.home)
+            startMeasuring()
+            app.activate()
+            stopMeasuring()
+            XCTAssertTrue(app.staticTexts["Place your Battleship."].waitForExistence(timeout: 5))
+            XCTAssertTrue(cell(human, row: 1, column: 1).label.hasPrefix("Ship cell"))
+        }
+    }
+
+    @MainActor
+    func testBackgroundResumeDuringBattle() {
+        let app = launch()
+        let board = boards(app)
+        for row in 1...5 {
+            let target = cell(board[0], row: row, column: 1)
+            reveal(target, in: board[0], app: app)
+            target.tap()
+        }
+        revealHeader(app)
+        app.buttons["Start"].tap()
+        XCTAssertTrue(app.staticTexts["Your turn. Fire at the enemy board."].waitForExistence(timeout: 5))
+        XCUIDevice.shared.press(.home)
+        app.activate()
+        XCTAssertTrue(app.staticTexts["Your turn. Fire at the enemy board."].waitForExistence(timeout: 5))
+        XCTAssertFalse(app.buttons["Start"].isEnabled)
+        let target = cell(board[1], row: 1, column: 1)
+        reveal(target, in: board[1], app: app)
+        XCTAssertTrue(target.isEnabled)
+        target.tap()
+        XCTAssertFalse(cell(board[1], row: 1, column: 1).label.hasPrefix("Empty cell"))
+    }
+
+    @MainActor
+    func testStartGamePerformance() {
+        let app = launch()
+        let human = boards(app)[0]
+        let options = XCTMeasureOptions()
+        options.iterationCount = 3
+        options.invocationOptions = [.manuallyStart, .manuallyStop]
+        measure(metrics: [XCTClockMetric(), XCTCPUMetric(application: app), XCTMemoryMetric(application: app)], options: options) {
+            for row in 1...5 {
+                let target = cell(human, row: row, column: 1)
+                reveal(target, in: human, app: app)
+                target.tap()
+            }
+            revealHeader(app)
+            XCTAssertTrue(app.buttons["Start"].isEnabled)
+            startMeasuring()
+            app.buttons["Start"].tap()
+            stopMeasuring()
+            XCTAssertTrue(app.staticTexts["Your turn. Fire at the enemy board."].waitForExistence(timeout: 5))
+            app.buttons["New game"].tap()
+            XCTAssertTrue(app.staticTexts["Place your Carrier."].waitForExistence(timeout: 5))
+        }
+    }
+
+    @MainActor
+    func testResetPerformance() {
+        let app = launch()
+        let human = boards(app)[0]
+        let options = XCTMeasureOptions()
+        options.iterationCount = 3
+        options.invocationOptions = [.manuallyStart, .manuallyStop]
+        measure(metrics: [XCTClockMetric(), XCTCPUMetric(application: app), XCTMemoryMetric(application: app)], options: options) {
+            let target = cell(human, row: 1, column: 1)
+            reveal(target, in: human, app: app)
+            target.tap()
+            XCTAssertTrue(app.staticTexts["Place your Battleship."].waitForExistence(timeout: 5))
+            revealHeader(app)
+            startMeasuring()
+            app.buttons["New game"].tap()
+            stopMeasuring()
+            XCTAssertTrue(app.staticTexts["Place your Carrier."].waitForExistence(timeout: 5))
+            XCTAssertTrue(cell(human, row: 1, column: 1).label.hasPrefix("Empty cell"))
+        }
+    }
+
+    @MainActor
+    func testFreshShotPerformance() {
+        let app = launch()
+        let board = boards(app)
+        for row in 1...5 {
+            let target = cell(board[0], row: row, column: 1)
+            reveal(target, in: board[0], app: app)
+            target.tap()
+        }
+        revealHeader(app)
+        app.buttons["Start"].tap()
+        XCTAssertTrue(app.staticTexts["Your turn. Fire at the enemy board."].waitForExistence(timeout: 5))
+
+        let enemy = board[1]
+        let coordinates = (1...4).flatMap { row in
+            (1...10).filter { (row + $0).isMultiple(of: 2) }.map { (row, $0) }
+        }
+        let targets = coordinates.map { cell(enemy, row: $0.0, column: $0.1) }
+        reveal(targets[0], in: enemy, app: app)
+        let options = XCTMeasureOptions()
+        options.iterationCount = targets.count - 1
+        options.invocationOptions = [.manuallyStart, .manuallyStop]
+        var shotIndex = 0
+        measure(metrics: [XCTClockMetric(), XCTCPUMetric(application: app), XCTMemoryMetric(application: app)], options: options) {
+            XCTAssertLessThan(shotIndex, targets.count, "Measured more shots than the prepared distinct targets")
+            let target = targets[shotIndex]
+            reveal(target, in: enemy, app: app)
+            XCTAssertTrue(target.isHittable)
+            startMeasuring()
+            target.tap()
+            stopMeasuring()
+
+            let outcome = target.label
+            XCTAssertTrue(
+                outcome.hasPrefix("Hit") || outcome.hasPrefix("Miss") || outcome.hasPrefix("Sunk ship"),
+                "Fresh shot should expose a hit, miss, or sunk result"
+            )
+            let outcomeAttachment = XCTAttachment(string: "Fresh shot \(shotIndex + 1): \(outcome)")
+            outcomeAttachment.name = "Fresh shot outcome \(shotIndex + 1)"
+            outcomeAttachment.lifetime = .keepAlways
+            add(outcomeAttachment)
+            XCTAssertTrue(
+                app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "Your turn.")).firstMatch
+                    .waitForExistence(timeout: 5),
+                "A non-terminal computer response should return the turn to the player"
+            )
+            shotIndex += 1
+        }
+    }
+
+    @MainActor
+    func testOrientationTogglePerformance() {
+        let app = launch()
+        revealHeader(app)
+        let rotate = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Rotate:'")).firstMatch
+        XCTAssertTrue(rotate.label.contains("Horizontal"))
+
+        let options = XCTMeasureOptions()
+        options.iterationCount = 3
+        options.invocationOptions = [.manuallyStart, .manuallyStop]
+        var expectsVertical = false
+        measure(metrics: [XCTClockMetric(), XCTCPUMetric(application: app), XCTMemoryMetric(application: app)], options: options) {
+            XCTAssertTrue(rotate.label.contains(expectsVertical ? "Vertical" : "Horizontal"))
+            startMeasuring()
+            rotate.tap()
+            stopMeasuring()
+
+            expectsVertical.toggle()
+            let expectedOrientation = expectsVertical ? "Vertical" : "Horizontal"
+            let updated = expectation(for: NSPredicate(format: "label CONTAINS %@", expectedOrientation), evaluatedWith: rotate)
+            wait(for: [updated], timeout: 5)
+        }
+    }
+
+    @MainActor
+    func testInvalidPlacementPreservesFleetAndAllowsRecovery() {
+        let app = launch()
+        let human = boards(app)[0]
+        let edge = cell(human, row: 1, column: 10)
+        reveal(edge, in: human, app: app)
+        edge.tap()
+        XCTAssertTrue(app.staticTexts["That ship does not fit there."].waitForExistence(timeout: 5))
+        XCTAssertEqual(human.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Ship cell'")).count, 0)
+        let first = cell(human, row: 1, column: 1)
+        reveal(first, in: human, app: app)
+        first.tap()
+        XCTAssertTrue(app.staticTexts["Place your Battleship."].waitForExistence(timeout: 5))
+        XCTAssertEqual(human.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Ship cell'")).count, 5)
+        let overlap = cell(human, row: 1, column: 2)
+        reveal(overlap, in: human, app: app)
+        overlap.tap()
+        XCTAssertTrue(app.staticTexts["That ship does not fit there."].waitForExistence(timeout: 5))
+        XCTAssertEqual(human.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Ship cell'")).count, 5)
+        let next = cell(human, row: 2, column: 1)
+        reveal(next, in: human, app: app)
+        next.tap()
+        XCTAssertTrue(app.staticTexts["Place your Cruiser."].waitForExistence(timeout: 5))
+        XCTAssertEqual(human.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Ship cell'")).count, 9)
+    }
+
+    @MainActor
     func testScrolledPlacementFireDuplicateAndReset() {
         let app = launch()
         let board = boards(app)

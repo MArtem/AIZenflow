@@ -1,0 +1,95 @@
+{
+  "scope": "archive review and implementation plan only",
+  "date": "2026-10-27",
+  "canonical_revision": "55079f5b5926e63790a722fae05ac5eee9755abe",
+  "worktree_revision": "53efae82aabd0cc8ae4896a887854eb6195e37f8",
+  "canonical_available": true,
+  "portable_snapshot": "NOT_USED_CANONICAL_AVAILABLE",
+  "CODEX_HOME": "UNSET",
+  "python_parser_version": "3.9.6",
+  "archive_sha256": "c0baf50a88acf4f5a99435c694459b96f8e9c99cbb018a1e8323ed3730e34d60",
+  "checks": {
+    "extraction": {
+      "files": 57,
+      "bytes": 163955,
+      "result": "PASS_BOUNDED_PATH_TYPE_SIZE_CRC_CHECK"
+    },
+    "bundle_hashes": {
+      "matched": 52,
+      "expected": 52,
+      "uncovered": [
+        "BUNDLE_SHA256.json",
+        "CODEX_TASK.md",
+        "PROMPT_TO_CODEX.txt",
+        "START_HERE_RU.md",
+        "bootstrap.py"
+      ]
+    },
+    "inner_hashes": {
+      "matched": 50,
+      "expected": 50,
+      "uncovered": [
+        "MANIFEST.json",
+        "SHA256SUMS.txt"
+      ]
+    },
+    "syntax": {
+      "python_ast": 9,
+      "bash_n": 4,
+      "json_parse": 6,
+      "result": "PASS_SYNTAX_ONLY_NO_IMPORT_OR_EXECUTION"
+    },
+    "canonical_mirror_parity": {
+      "pairs": 3,
+      "result": "IDENTICAL_BEFORE_CHANGE"
+    },
+    "semantic_review": "57-file source/data review; R01-R12 retained in review.md; no dynamic verification"
+  },
+  "owners": [
+    {
+      "path": "reusable/local-ios-skills/ios-performance-profiler/SKILL.md",
+      "sha256": "e3e488ecf20a332c1f767aca29487f9f96e65435b409478f5671eb27c66e07ab",
+      "words_before": 223
+    },
+    {
+      "path": "reusable/knowledge-global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md",
+      "sha256": "5d7e46328c6b127f440556b5254f9c31cae3edb4e829b81287269bd4dbf21d91",
+      "words_before": 1298
+    },
+    {
+      "path": "reusable/agent-prompts/ios-performance-audit.md",
+      "sha256": "9e5aa44823d8db684b211b2e802af429829eebe2506277c14cd6772126d07c9b",
+      "words_before": 66
+    }
+  ],
+  "not_run": [
+    "archive scripts/bootstrap/doctor/self-checks/unittest",
+    "builds/tests/app/Simulator/Instruments/CI/signing/archive",
+    "tool installation/download",
+    "independent agent/behavioral evaluation",
+    "canonical changes/commit/push",
+    "remote freshness check"
+  ],
+  "limitations": [
+    "Static review does not prove runtime behavior or adoption effectiveness",
+    "Declared historical nine-test PASS was not independently reproduced",
+    "No malicious network uploader observed in direct source; transitive build effects unverified"
+  ],
+  "failed_attempts": [
+    "hashlib.file_digest unavailable; replaced by streamed sha256",
+    "Initial skill-creator path absent; resolved catalog system/skill-creator successfully",
+    "Two guessed KB inventory helper paths absent; resolved actual root-scripts paths",
+    "Apple SwiftUI page markdown unavailable through web tool; not counted as full source read"
+  ],
+  "final_task_checks": {
+    "all_57_dispositions_present": true,
+    "archive_bytes_unchanged": true,
+    "executable_bits_removed": true,
+    "task_whitespace": "PASS",
+    "plan_handoff_words": 2104,
+    "git_diff_check": "PASS; tracked diff empty; untracked task files checked separately",
+    "canonical_clean_unchanged": "55079f5b5926e63790a722fae05ac5eee9755abe",
+    "project_tracked_and_staged_changes": "NONE",
+    "publication": "NOT_PERFORMED_REVIEW_ONLY"
+  }
+}

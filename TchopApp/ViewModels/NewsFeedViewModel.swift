@@ -314,7 +314,11 @@ final class NewsFeedViewModel {
 
     /// Current screen-level presentation snapshot for `NewsFeedView`.
     var screenState: NewsFeedScreenState {
-        let cardStates = visibleContent.cards.map(makeCardViewState)
+        let hasTranslatableCards = visibleContent.cards.contains { !$0.translationPayload.isEmpty }
+        let translationTargetLanguages = hasTranslatableCards ? self.translationTargetLanguages() : []
+        let cardStates = visibleContent.cards.map { card in
+            makeCardViewState(for: card, translationTargetLanguages: translationTargetLanguages)
+        }
         let showsNoSearchResults = showsNoSearchResults
 
         return NewsFeedScreenState(
@@ -396,10 +400,16 @@ final class NewsFeedViewModel {
         }
     }
 
-    private func makeCardViewState(for card: NewsFeedCard) -> NewsFeedCardViewState {
+    private func makeCardViewState(
+        for card: NewsFeedCard,
+        translationTargetLanguages: [OnDeviceLanguage]
+    ) -> NewsFeedCardViewState {
         let feedCard = card.feedCard
         let translatedCard = translatedFeedCard(feedCard)
-        let translationTapBehavior = makeTranslationTapBehavior(for: card)
+        let translationTapBehavior = makeTranslationTapBehavior(
+            for: card,
+            targetLanguages: translationTargetLanguages
+        )
         let translation: NewsFeedCardTranslationViewState? = translationTapBehavior.map { tapBehavior in
             NewsFeedCardTranslationViewState(
                 title: translationActionTitle(for: card.id),
@@ -440,17 +450,15 @@ final class NewsFeedViewModel {
         return .cards(cardStates)
     }
 
-    private func makeTranslationTapBehavior(for card: NewsFeedCard) -> NewsFeedCardTranslationTapBehavior? {
+    private func makeTranslationTapBehavior(
+        for card: NewsFeedCard,
+        targetLanguages: [OnDeviceLanguage]
+    ) -> NewsFeedCardTranslationTapBehavior? {
         if isCardTranslated(card.id) {
             return .restoreOriginal(cardID: card.id)
         }
 
-        guard AppLocalization.supportedLocaleIdentifiers.count > 1 else {
-            return nil
-        }
-
-        let targetLanguages = translationTargetLanguages(for: card)
-        guard !targetLanguages.isEmpty else {
+        guard !card.translationPayload.isEmpty, !targetLanguages.isEmpty else {
             return nil
         }
 
@@ -464,13 +472,21 @@ final class NewsFeedViewModel {
     func showsTranslationAction(for card: NewsFeedCard) -> Bool {
         isCardTranslated(card.id) ||
             (
-                AppLocalization.supportedLocaleIdentifiers.count > 1 &&
-            !translationTargetLanguages(for: card).isEmpty
+                !card.translationPayload.isEmpty &&
+                    !translationTargetLanguages().isEmpty
             )
     }
 
     func translationTargetLanguages(for card: NewsFeedCard) -> [OnDeviceLanguage] {
         guard !card.translationPayload.isEmpty else {
+            return []
+        }
+
+        return translationTargetLanguages()
+    }
+
+    private func translationTargetLanguages() -> [OnDeviceLanguage] {
+        guard AppLocalization.supportedLocaleIdentifiers.count > 1 else {
             return []
         }
 

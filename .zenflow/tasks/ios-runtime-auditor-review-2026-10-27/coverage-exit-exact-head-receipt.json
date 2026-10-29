@@ -1,0 +1,22 @@
+{
+  "target": "origin/main",
+  "target_sha": "84b70658e2f1dc1ee763064746c32138ca3967a1",
+  "merge_base": "84b70658e2f1dc1ee763064746c32138ca3967a1",
+  "head": "250cf52b0a452071117fbc5916764f4524aefada",
+  "range": "84b70658e2f1dc1ee763064746c32138ca3967a1..250cf52b0a452071117fbc5916764f4524aefada",
+  "canonical_worktree": "clean; one commit ahead of origin/main before push",
+  "contract": "Coverage-accounting completion is distinct from exhaustive measurement, defect absence, or PASS; every in-scope path and applicable metric has a result or explicit gap/reason.",
+  "findings": "No P0-P2 semantic issues. Wording explicitly states that completed accounting with unresolved gaps is not a clean performance verdict.",
+  "checks": [
+    "generate_manifest.py --check PASS",
+    "check_documentation_vault.py PASS",
+    "active index, bootstrap, boundary, router and consistency checks PASS",
+    "local and canonical git diff --check PASS",
+    "all three canonical owners match exact baseline mirrors and active copies byte-for-byte"
+  ],
+  "omitted_or_reused": "No app source/test changes, build, tests, Simulator, Instruments, CI, signing, archive, tool installation, or live profiling.",
+  "residual_risk": "No live project behavior evaluation. Scope completeness depends on accurate journey discovery; explicitly reported gaps remain unresolved evidence.",
+  "push": "PASS",
+  "remote_sha": "250cf52b0a452071117fbc5916764f4524aefada",
+  "remote_state_check": "PASS: check_documentation_remote_state.py; ls-remote origin refs/heads/main matched exact HEAD"
+}

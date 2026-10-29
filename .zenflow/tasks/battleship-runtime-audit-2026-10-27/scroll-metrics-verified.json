@@ -1,0 +1,37 @@
+[
+  {
+    "testIdentifier" : "BoardInteractionTests/testBoardScrollingPerformance()",
+    "testIdentifierURL" : "test://com.apple.xcode/BattleshipGame/BattleshipGameUITests/BoardInteractionTests/testBoardScrollingPerformance",
+    "testRuns" : [
+      {
+        "device" : {
+          "deviceId" : "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+          "deviceName" : "BG-T01-new-task-be0b-iPhone-iOS27"
+        },
+        "metrics" : [
+          {
+            "baselineAverage" : 0,
+            "baselineName" : "",
+            "displayName" : "Clock Monotonic Time",
+            "identifier" : "com.apple.dt.XCTMetric_Clock.time.monotonic",
+            "maxPercentRegression" : 10,
+            "maxPercentRelativeStandardDeviation" : 10,
+            "maxRegression" : 0,
+            "maxStandardDeviation" : 10,
+            "measurements" : [
+              2.2485607450000002,
+              2.07028639,
+              2.081225067
+            ],
+            "polarity" : "prefers smaller",
+            "unitOfMeasurement" : "s"
+          }
+        ],
+        "testPlanConfiguration" : {
+          "configurationId" : "1",
+          "configurationName" : "Test Scheme Action"
+        }
+      }
+    ]
+  }
+]

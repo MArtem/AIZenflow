@@ -1,0 +1,88 @@
+[
+  {
+    "testIdentifier" : "BoardInteractionTests/testOrientationTogglePerformance()",
+    "testIdentifierURL" : "test://com.apple.xcode/BattleshipGame/BattleshipGameUITests/BoardInteractionTests/testOrientationTogglePerformance",
+    "testRuns" : [
+      {
+        "device" : {
+          "deviceId" : "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+          "deviceName" : "BG-T01-new-task-be0b-iPhone-iOS27"
+        },
+        "metrics" : [
+          {
+            "baselineAverage" : 0,
+            "baselineName" : "",
+            "displayName" : "Clock Monotonic Time",
+            "identifier" : "com.apple.dt.XCTMetric_Clock.time.monotonic",
+            "maxPercentRegression" : 10,
+            "maxPercentRelativeStandardDeviation" : 10,
+            "maxRegression" : 0,
+            "maxStandardDeviation" : 10,
+            "measurements" : [
+              0.384154953,
+              0.38791682600000005,
+              0.38976773000000003
+            ],
+            "polarity" : "prefers smaller",
+            "unitOfMeasurement" : "s"
+          },
+          {
+            "baselineAverage" : 0,
+            "baselineName" : "",
+            "displayName" : "Memory Peak Physical (BattleshipGame)",
+            "identifier" : "com.apple.dt.XCTMetric_Memory-com.zenflow.BattleshipGame.physical_peak",
+            "maxPercentRegression" : 10,
+            "maxPercentRelativeStandardDeviation" : 10,
+            "maxRegression" : 0,
+            "maxStandardDeviation" : 10,
+            "measurements" : [
+              42994.088,
+              42863.016,
+              42846.632
+            ],
+            "polarity" : "prefers smaller",
+            "unitOfMeasurement" : "kB"
+          },
+          {
+            "baselineAverage" : 0,
+            "baselineName" : "",
+            "displayName" : "Memory Physical (BattleshipGame)",
+            "identifier" : "com.apple.dt.XCTMetric_Memory-com.zenflow.BattleshipGame.physical",
+            "maxPercentRegression" : 10,
+            "maxPercentRelativeStandardDeviation" : 10,
+            "maxRegression" : 0,
+            "maxStandardDeviation" : 10,
+            "measurements" : [
+              81.92,
+              98.304,
+              114.688
+            ],
+            "polarity" : "prefers smaller",
+            "unitOfMeasurement" : "kB"
+          },
+          {
+            "baselineAverage" : 0,
+            "baselineName" : "",
+            "displayName" : "Absolute Memory Physical (BattleshipGame)",
+            "identifier" : "com.apple.dt.XCTMetric_Memory-com.zenflow.BattleshipGame.physical_absolute",
+            "maxPercentRegression" : 10,
+            "maxPercentRelativeStandardDeviation" : 10,
+            "maxRegression" : 0,
+            "maxStandardDeviation" : 10,
+            "measurements" : [
+              42912.168,
+              42830.248,
+              42830.248
+            ],
+            "polarity" : "prefers smaller",
+            "unitOfMeasurement" : "kB"
+          }
+        ],
+        "testPlanConfiguration" : {
+          "configurationId" : "1",
+          "configurationName" : "Test Scheme Action"
+        }
+      }
+    ]
+  }
+]

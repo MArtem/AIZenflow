@@ -28,7 +28,7 @@ private enum FeedPerformanceSignpost {
             .event,
             log: feedPerformanceLog,
             name: "FeedCardAppear",
-            "%{public}s",
+            "%{private}s",
             cardID
         )
     }
@@ -40,7 +40,7 @@ private enum FeedPerformanceSignpost {
             log: feedPerformanceLog,
             name: "FeedMediaPreviewLoad",
             signpostID: signpostID,
-            "%{public}s %{public}s",
+            "%{public}s %{private}s",
             kind.rawValue,
             fileURLString ?? "nil"
         )

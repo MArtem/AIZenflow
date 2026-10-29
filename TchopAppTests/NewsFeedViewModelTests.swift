@@ -1,4 +1,5 @@
 import XCTest
+import os
 @testable import TchopApp
 
 /// Verifies local-created feed-card runtime state, search, interactions, and persistence boundaries.
@@ -144,6 +145,35 @@ final class NewsFeedViewModelTests: XCTestCase {
         default:
             XCTFail("Expected direct translation start behavior")
         }
+    }
+
+    /// Verifies a screen snapshot resolves translation availability once for all eligible cards.
+    func testScreenStateResolvesTranslationAvailabilityOnceForMultipleCards() throws {
+        let targetLocaleIdentifiers = AppLocalization.supportedLocaleIdentifiers.filter {
+            $0 != AppLocalization.preferredLocaleIdentifier
+        }
+        guard !targetLocaleIdentifiers.isEmpty else {
+            throw XCTSkip("The configured localization set has no translation target.")
+        }
+
+        let manager = CountingOnDeviceAIManager(
+            availability: .available(
+                supportedLanguages: Set(targetLocaleIdentifiers.map {
+                    OnDeviceLanguage(localeIdentifier: $0)
+                })
+            )
+        )
+        let viewModel = makeViewModel(cards: [
+            makeTextFeedCard(id: "card-1", text: "First"),
+            makeTextFeedCard(id: "card-2", text: "Second"),
+            makeTextFeedCard(id: "card-3", text: "Third")
+        ], onDeviceAIManager: manager)
+
+        let state = viewModel.screenState
+
+        XCTAssertEqual(state.cardStates.count, 3)
+        XCTAssertTrue(state.cardStates.allSatisfy { $0.translation != nil })
+        XCTAssertEqual(manager.translationAvailabilityCallCount, 1)
     }
 
     /// Verifies translated card state owns the restore-original tap decision.
@@ -370,6 +400,32 @@ private struct TestOnDeviceAIManager: OnDeviceAIManaging {
 
     func translationAvailability(for localeIdentifier: String?) -> OnDeviceAIAvailability {
         availability
+    }
+
+    func translate(_ request: OnDeviceTranslationRequest) async throws -> OnDeviceTranslationResult {
+        OnDeviceTranslationResult(
+            targetLanguage: request.targetLanguage,
+            segments: request.segments
+        )
+    }
+}
+
+/// Counts synchronous availability queries while retaining the deterministic test manager contract.
+private struct CountingOnDeviceAIManager: OnDeviceAIManaging {
+    let availability: OnDeviceAIAvailability
+    private let callCount = OSAllocatedUnfairLock(initialState: 0)
+
+    init(availability: OnDeviceAIAvailability) {
+        self.availability = availability
+    }
+
+    var translationAvailabilityCallCount: Int {
+        callCount.withLock { $0 }
+    }
+
+    func translationAvailability(for localeIdentifier: String?) -> OnDeviceAIAvailability {
+        callCount.withLock { $0 += 1 }
+        return availability
     }
 
     func translate(_ request: OnDeviceTranslationRequest) async throws -> OnDeviceTranslationResult {
@@ -633,11 +689,14 @@ final class AppContentRepositoryTests: XCTestCase {
         let databaseManager = try makeInMemoryAppDatabaseManager()
         let repository = FeedCardRepository(databaseManager: databaseManager)
         let card = makeTextFeedCard(id: "card-1", text: "Text", headline: "Headline")
+        let otherCard = makeTextFeedCard(id: "card-2", text: "Other", headline: "Other headline")
         let userID = "test-user"
 
-        try repository.saveCards([card], for: userID)
+        try repository.saveCards([card, otherCard], for: userID)
         var loadedCards = try repository.loadCards(for: userID)
-        XCTAssertEqual(loadedCards, [card])
+        XCTAssertEqual(loadedCards.count, 2)
+        XCTAssertEqual(loadedCards.first(where: { $0.id == card.id }), card)
+        XCTAssertEqual(loadedCards.first(where: { $0.id == otherCard.id }), otherCard)
 
         let updatedCard = card.replacingInteractionState(
             isLiked: true,
@@ -647,7 +706,9 @@ final class AppContentRepositoryTests: XCTestCase {
         try repository.saveCard(updatedCard, for: userID)
 
         loadedCards = try repository.loadCards(for: userID)
-        XCTAssertEqual(loadedCards, [updatedCard])
+        XCTAssertEqual(loadedCards.count, 2)
+        XCTAssertEqual(loadedCards.first(where: { $0.id == card.id }), updatedCard)
+        XCTAssertEqual(loadedCards.first(where: { $0.id == otherCard.id }), otherCard)
     }
 
 

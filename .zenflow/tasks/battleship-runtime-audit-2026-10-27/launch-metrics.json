@@ -1,0 +1,37 @@
+[
+  {
+    "testIdentifier" : "BoardInteractionTests/testApplicationLaunchPerformance()",
+    "testIdentifierURL" : "test://com.apple.xcode/BattleshipGame/BattleshipGameUITests/BoardInteractionTests/testApplicationLaunchPerformance",
+    "testRuns" : [
+      {
+        "device" : {
+          "deviceId" : "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+          "deviceName" : "BG-T01-new-task-be0b-iPhone-iOS27"
+        },
+        "metrics" : [
+          {
+            "baselineAverage" : 0,
+            "baselineName" : "",
+            "displayName" : "Duration (AppLaunch)",
+            "identifier" : "com.apple.dt.XCTMetric_ApplicationLaunch-AppLaunch.duration",
+            "maxPercentRegression" : 10,
+            "maxPercentRelativeStandardDeviation" : 10,
+            "maxRegression" : 0,
+            "maxStandardDeviation" : 10,
+            "measurements" : [
+              2.8575306670000002,
+              2.736357625,
+              2.6894142910000003
+            ],
+            "polarity" : "prefers smaller",
+            "unitOfMeasurement" : "s"
+          }
+        ],
+        "testPlanConfiguration" : {
+          "configurationId" : "1",
+          "configurationName" : "Test Scheme Action"
+        }
+      }
+    ]
+  }
+]

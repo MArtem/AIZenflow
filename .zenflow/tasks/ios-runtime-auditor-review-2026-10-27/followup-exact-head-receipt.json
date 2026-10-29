@@ -1,0 +1,27 @@
+{
+  "target": "origin/main",
+  "target_sha": "789abe5da8e1162305d396f8fe9a0c24d46a3260",
+  "merge_base": "789abe5da8e1162305d396f8fe9a0c24d46a3260",
+  "head": "5b2c001bca74720a601f984f09bfba34183e729a",
+  "range": "789abe5da8e1162305d396f8fe9a0c24d46a3260..5b2c001bca74720a601f984f09bfba34183e729a",
+  "canonical_worktree": "clean; one commit ahead of origin/main before push",
+  "contract": "Reusable iOS profile-to-fix workflow; all applicable scoped journeys and metrics considered; distinct authority; trustworthy evidence; code attribution; comparable re-profile; exact owner/mirror parity.",
+  "findings": "No P0-P2 semantic issues in the adopted patch. Clarified that manual driving can collect authorized evidence without UI tests. Existing archive review findings and unrelated mirror drift were not reopened or changed.",
+  "checks": [
+    "generate_manifest.py --check PASS",
+    "check_documentation_vault.py PASS",
+    "active check_docs_index.py PASS",
+    "active check_bootstrap_contract.py PASS",
+    "active check_documentation_boundaries.py PASS",
+    "active check_task_type_documentation_router.py PASS",
+    "active check_docs_consistency.py PASS",
+    "git diff --check and exact-range diff check PASS",
+    "all three canonical owners match baseline mirrors and active-worktree copies byte-for-byte"
+  ],
+  "context_cost": "Profiler skill 223 -> 883 words; audit prompt 66 -> 188 words; observability owner 1298 -> 2862 words. Documentation route-cost script does not include trigger-loaded skills; actual token/read telemetry is unavailable.",
+  "omitted_or_reused": "No app source/test changes, builds, tests, Simulator, Instruments, CI, signing, archive, tool install, independent behavioral evaluation, or live-project validation. Existing current-task exclusions and grants were not expanded.",
+  "residual_risk": "The workflow has not been validated against future live profiling tasks; metric/tool availability still depends on the project's Xcode/runtime and active permissions. Simulator hardware/energy claims remain limited.",
+  "push": "PASS",
+  "remote_sha": "5b2c001bca74720a601f984f09bfba34183e729a",
+  "remote_state_check": "PASS: check_documentation_remote_state.py; ls-remote origin refs/heads/main matched exact HEAD"
+}

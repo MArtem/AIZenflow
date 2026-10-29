@@ -47,9 +47,16 @@ struct FeedCardRepository: FeedCardPersisting {
         try databaseManager.write(
             DatabaseWriteOperation(swiftData: { context in
                 let payloadData = try JSONEncoder().encode(card)
-                let existingRecords = try context.fetch(FetchDescriptor<FeedCardRecord>())
+                let targetCardID = card.id
+                var descriptor = FetchDescriptor<FeedCardRecord>(
+                    predicate: #Predicate { record in
+                        record.id == targetCardID
+                    }
+                )
+                descriptor.fetchLimit = 1
+                let existingRecord = try context.fetch(descriptor).first
 
-                if let existingRecord = existingRecords.first(where: { $0.id == card.id && $0.ownerUserID == userID }) {
+                if let existingRecord, existingRecord.ownerUserID == userID {
                     Self.apply(card, ownerUserID: userID, payloadData: payloadData, to: existingRecord)
                 } else {
                     context.insert(Self.makeRecord(from: card, ownerUserID: userID, payloadData: payloadData))

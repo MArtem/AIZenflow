@@ -1,0 +1,23 @@
+{
+  "target": "origin/main",
+  "target_sha": "5b2c001bca74720a601f984f09bfba34183e729a",
+  "merge_base": "5b2c001bca74720a601f984f09bfba34183e729a",
+  "head": "53eb49fe4703a4da63f49bfa202d1f9a3fe3d72c",
+  "range": "5b2c001bca74720a601f984f09bfba34183e729a..53eb49fe4703a4da63f49bfa202d1f9a3fe3d72c",
+  "canonical_worktree": "clean; one commit ahead of origin/main before push",
+  "contract": "Keep current permission gates and user-excluded iPad, physical-device, and actual VoiceOver checks explicit; distinguish planning, existing artifact review, and new runtime capture.",
+  "findings": "No P0-P2. The skill clarification restores these active boundaries in the reusable entrypoint.",
+  "checks": [
+    "generate_manifest.py --check PASS",
+    "check_documentation_vault.py PASS",
+    "active check_task_type_documentation_router.py PASS",
+    "active check_docs_consistency.py PASS",
+    "git diff --cached --check and exact-range diff check PASS",
+    "profiler skill owner, baseline mirror, and active worktree copy match byte-for-byte"
+  ],
+  "omitted_or_reused": "No app source/test changes, build/test execution, Simulator, Instruments, CI, signing, archive, tool installation, or live profiling.",
+  "residual_risk": "No live behavior evaluation of the skill; future task routes and explicit permissions remain necessary.",
+  "push": "PASS",
+  "remote_sha": "53eb49fe4703a4da63f49bfa202d1f9a3fe3d72c",
+  "remote_state_check": "PASS: check_documentation_remote_state.py; ls-remote origin refs/heads/main matched exact HEAD"
+}
