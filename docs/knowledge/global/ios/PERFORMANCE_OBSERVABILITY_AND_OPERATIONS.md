@@ -58,11 +58,18 @@ evidence and exit decision for each stage remain distinct:
 For a phase handoff, preserve a compact evidence bundle: task/project identity and scope; source
 revision/configuration and runtime/toolchain; readiness matrix and permissions; scenario IDs, fixture
 envelopes, actual outcomes and resets; metric names/units/process/intervals/sample counts and
-limitations; observed values and linked artifact paths; candidate finding/severity/status/confidence;
-and unresolved questions. Keep raw traces in the authorized task boundary, link them rather than
-embedding private content, and label assumptions and unavailable data. This bundle should let the next
-reviewer continue cause localization without repeating valid discovery; it is not a new metric schema
-or permission grant.
+limitations; candidate finding, severity, status and confidence; observed values and unresolved questions.
+In this `.zenflow` workspace, store full
+profiling reports, scenario matrices, structured metric exports, and retained raw outputs under
+`/Users/Artem/.zenflow/profiling-results/<ProjectSlug>/<TaskId>/`; put traces, result bundles, logs,
+and attachments in `artifacts/`, and metric exports in `metrics/`. Keep only active `plan.md` and a
+compact `handoff.md` in the project task directory as task state; link them to the central report and
+manifest instead of duplicating full reports. Maintain a per-task `manifest.md` and root `README.md`
+and `INDEX.md`. The shared evidence root is local and outside Git/the documentation vault. In other
+environments, use a task-approved private path rather than assuming this host path. Link artifacts
+instead of embedding private content, and label assumptions and unavailable data. This bundle should let the next reviewer
+continue cause localization without repeating valid discovery; it is not a new metric schema or
+permission grant.
 
 Discovery coverage accounting is complete only after every identified journey has an observed
 outcome or an explicit not-run reason/status, every applicable metric domain has a result or stated

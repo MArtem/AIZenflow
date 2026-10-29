@@ -59,6 +59,15 @@ permissions/readiness, scenario/fixture/branch, metric/unit/process/interval, sa
 artifact references, limitations, and unresolved questions. Follow the detailed stage contract in
 `PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md`; do not invent a new status taxonomy.
 
+For this `.zenflow` workspace, store full profiling reports, scenario matrices, metric exports, and
+retained raw profiling outputs under `/Users/Artem/.zenflow/profiling-results/<ProjectSlug>/<TaskId>/`;
+use `artifacts/` for traces, result bundles, logs, and attachments, and `metrics/` for structured
+metric exports. Keep the active `plan.md` and compact `handoff.md` in the project task directory as
+task state; they must link to the central report and manifest instead of duplicating full reports.
+Create the per-task `manifest.md` in the central directory and update the root `README.md` and
+`INDEX.md`. Keep the shared evidence root local and outside Git/the documentation vault. In another
+environment, use only a task-approved private artifact path; do not assume this host path is available.
+
 ### Required Finding Disposition
 
 Every signal that may indicate a code defect—including a confirmed defect, a plausible static
@@ -83,9 +92,11 @@ contract, preserve the executable next steps and name the blocker rather than cl
 For every corrected finding, report correctness/guardrail verification and explicitly decide whether
 comparable re-profiling is needed. Re-profile when needed to verify a runtime/performance claim or
 when the change's risk warrants it; otherwise explain why existing permitted evidence or a static
-contract check is sufficient and leave performance improvement unclaimed. Every finding must finish
-as fixed and verified, fixed with runtime re-profile outstanding, unresolved with a concrete plan and
-blocker, or explicitly rejected with evidence; none may disappear from the final report.
+contract check is sufficient and leave performance improvement unclaimed. Every finding must finish as
+fixed and verified, fixed with comparable runtime re-profile outstanding, unresolved with a concrete
+plan and blocker, or explicitly rejected with evidence; none may disappear from the final report. Use
+the project's existing finding/task status vocabulary; these reporting outcomes do not define a new
+status enum.
 
 Coverage accounting is complete only when every identified journey has an observed outcome or an
 explicit not-run status/reason, every applicable metric domain has a result or stated gap, and no

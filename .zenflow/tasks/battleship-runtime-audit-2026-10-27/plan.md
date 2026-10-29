@@ -6,7 +6,7 @@ Mode эконом; model GPT-6.1 Terra under explicit user override. ProjectID 6
 - [x] Map game flows and prioritize functional/performance risk.
 - [x] Run permitted targeted iPhone Simulator UI scenarios and collect results.
 - [ ] Capture and interpret applicable Instruments evidence for every relevant flow: PARTIAL; launch trace, hitch, fresh-shot CPU attribution and long-session memory retention remain unmeasured; XCTest launch duration, board gestures, start, reset and fresh shots have selected clock/memory observations.
-- [x] Review findings and report observed/inferred/unmeasured areas; see report.md.
+- [x] Review findings and report observed/inferred/unmeasured areas; see `/Users/Artem/.zenflow/profiling-results/BattleshipGame/battleship-runtime-audit-2026-10-27/report.md`.
 
 Runtime results cover only selected app/target/environment and not real hardware or production readiness.
 
@@ -14,7 +14,7 @@ Runtime results cover only selected app/target/environment and not real hardware
 
 User intent: choose projects and bounded features independently; use user journeys as workloads to expose technical weaknesses, including leaks, rendering, hitches, threads and memory. This is a trial of the profiling system itself. Expand this checklist as evidence reveals gaps.
 
-- [x] Define a feature-specific scenario and measurement matrix, with explicit evidence and unavailable-metric statuses (`scenario-matrix.md`; update with new evidence).
+- [x] Define a feature-specific scenario and measurement matrix, with explicit evidence and unavailable-metric statuses (`/Users/Artem/.zenflow/profiling-results/BattleshipGame/battleship-runtime-audit-2026-10-27/scenario-matrix.md`; update with new evidence).
 - [x] Separate clock and memory from hitch availability, retain terminal outcome, and validate movement outside each measured interval. Scroll passed on iOS 18.2 and 27; player-win attachment verified on iOS 27. Hitch remains unmeasured.
 - [x] Measure New game reset separately in Release on iOS 27 and assert the board and state are cleared.
 - [x] Measure the ship-orientation toggle separately in Release on iOS 27 and assert both orientation labels.
@@ -34,4 +34,4 @@ User intent: choose projects and bounded features independently; use user journe
 - [x] Compare the 49 unattributed 32-byte Leaks objects against idle and query-only controls and inspect available stacks. Counts were 49 during cycles, one idle, and 46 during XCTest queries without game changes; stacks are truncated. Automation is a plausible alternative, not proven ownership; no app leak is confirmed.
 - [ ] Record repeatable baselines and collect applicable Instruments evidence per prioritized scenario; distinguish automation effects and unmeasured parameters.
 - [x] Correct and publish validated reusable process and documentation gaps in their canonical owner, following documentation governance. Prior guidance updates are `52955ead47149dd8c78001de444c3bf95f133b6a` and `da5b7240ba95ec45250ddf6520f39fd7b33afe37`; the latest outcome-branch and router fix is `789abe5da8e1162305d396f8fe9a0c24d46a3260`, pushed to `main` and remote-verified.
-- [ ] Produce a first-stage findings report with evidence, uncertainty and coverage. The second stage diagnoses causes and produces a code-fix plan; the third repeats profiling to verify fixes. User authorizes app source changes.
+- [ ] Produce/update the first-stage findings report with evidence, uncertainty and coverage at `/Users/Artem/.zenflow/profiling-results/BattleshipGame/battleship-runtime-audit-2026-10-27/report.md`. The second stage diagnoses causes and produces a code-fix plan; the third repeats profiling to verify fixes. User authorizes app source changes.
