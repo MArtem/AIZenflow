@@ -148,3 +148,35 @@ and the adopted backend's versioned mutation contract.
 - [Core Data](https://developer.apple.com/documentation/coredata)
 - [CloudKit](https://developer.apple.com/documentation/cloudkit)
 - [File system programming](https://developer.apple.com/documentation/foundation/file_system)
+
+## File-backed upgrade and new-process recipe
+
+Select when changing a persisted representation. The persistence owner maintains this recipe after
+schema/framework or data-loss incidents. Choose fixtures from every supported shipped schema;
+keep original fixture bytes immutable and operate only on approved owned copies.
+
+1. Record schema/profile/source digest and expected stable IDs, values, relationships, attachments,
+   delete rules and uniqueness behavior. A clean-install store is not an old-data fixture.
+2. Process A creates or copies the old on-disk store and closes all handles/contexts. For database
+   fixtures use framework-supported backup/checkpoint methods; never copy only SQLite's main file
+   while ignoring live WAL/SHM data.
+3. Process B opens the owned copy with the new version and actual migration plan; wait for committed
+   completion, close it, and retain bounded structured diagnostics. Check old-version support policy;
+   do not assume a downgrade can open the new schema or call restoring an old backup lossless rollback.
+4. Process C reopens from disk and checks IDs, counts, relationships, exact user values/files and
+   the new schema. Recreating only a repository in the same in-memory container is not this step.
+5. Inject a failure before publication/save and check original/previous committed data remains intact;
+   separately select framework-supported interrupted/disk-full/corruption cases where permitted.
+   A simulated pre-commit exception is not actual power-loss, fsync durability or disk-full evidence.
+6. Verify user-visible recovery without deleting the only copy; clean only owned fixture roots after
+   processes/contexts finish. Record unsupported upgrade paths as gaps, never PASS.
+
+The small [FileMigrationProbe.py](examples/FileMigrationProbe.py) illustrates this process boundary
+with a deliberately simple versioned JSON format and real files. Run seed, migrate and verify in
+separate processes; compare source/previous-target hashes after injected pre-replace failure and
+malformed input. It is not SwiftData/CoreData/CloudKit code, an app migration implementation, a
+production atomic-durability guarantee or coverage of every shipped schema. Actual adoption still
+requires the real store, ModelContainer/SchemaMigrationPlan or Core Data mapping, relationships and
+framework error paths under the project's permissions.
+
+Primary framework contract: [SchemaMigrationPlan](https://developer.apple.com/documentation/swiftdata/schemamigrationplan).

@@ -35,3 +35,10 @@ review and permitted iPhone Simulator checks; exclusion does not establish cover
 - Known limitations
 - Owner
 - Source revision/date and evidence status
+
+## Journey evidence
+
+Bind each approved runtime row to selected critical journeys using
+[QA journey selection](QA_TEST_PLAN_STANDARD.md#critical-iphone-journey-selection).
+Compilation/API availability, fixture UI, ordinary launch and visual checks are separate evidence.
+Record exactly which runtime/configuration was observed; one version does not stand for a range.

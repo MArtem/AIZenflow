@@ -314,10 +314,16 @@ final class NewsFeedViewModel {
 
     /// Current screen-level presentation snapshot for `NewsFeedView`.
     var screenState: NewsFeedScreenState {
-        let hasTranslatableCards = visibleContent.cards.contains { !$0.translationPayload.isEmpty }
+        let cards = visibleContent.cards
+        let translationPayloads = cards.map(\.translationPayload)
+        let hasTranslatableCards = translationPayloads.contains { !$0.isEmpty }
         let translationTargetLanguages = hasTranslatableCards ? self.translationTargetLanguages() : []
-        let cardStates = visibleContent.cards.map { card in
-            makeCardViewState(for: card, translationTargetLanguages: translationTargetLanguages)
+        let cardStates = cards.indices.map { index in
+            makeCardViewState(
+                for: cards[index],
+                translationPayload: translationPayloads[index],
+                translationTargetLanguages: translationTargetLanguages
+            )
         }
         let showsNoSearchResults = showsNoSearchResults
 
@@ -402,12 +408,14 @@ final class NewsFeedViewModel {
 
     private func makeCardViewState(
         for card: NewsFeedCard,
+        translationPayload: NewsFeedCardTranslationPayload,
         translationTargetLanguages: [OnDeviceLanguage]
     ) -> NewsFeedCardViewState {
         let feedCard = card.feedCard
         let translatedCard = translatedFeedCard(feedCard)
         let translationTapBehavior = makeTranslationTapBehavior(
             for: card,
+            translationPayload: translationPayload,
             targetLanguages: translationTargetLanguages
         )
         let translation: NewsFeedCardTranslationViewState? = translationTapBehavior.map { tapBehavior in
@@ -452,13 +460,14 @@ final class NewsFeedViewModel {
 
     private func makeTranslationTapBehavior(
         for card: NewsFeedCard,
+        translationPayload: NewsFeedCardTranslationPayload,
         targetLanguages: [OnDeviceLanguage]
     ) -> NewsFeedCardTranslationTapBehavior? {
         if isCardTranslated(card.id) {
             return .restoreOriginal(cardID: card.id)
         }
 
-        guard !card.translationPayload.isEmpty, !targetLanguages.isEmpty else {
+        guard !translationPayload.isEmpty, !targetLanguages.isEmpty else {
             return nil
         }
 

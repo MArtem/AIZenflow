@@ -87,3 +87,23 @@ new default-isolation or Observation behavior, an availability incident, or a re
 This standard defines the profile and interpretation contract. It does not claim that a consuming
 project has a current toolchain receipt, successful build, runtime proof, device matrix or release
 readiness until that evidence is collected under the project's permissions.
+
+## Swift 6.4 adoption cards
+
+Select these cards only for a compiler/testing/build change that uses the mechanism; they are not
+new defaults. Primary-source review: 2026-10-25, limited to the cards below. The earlier review date
+covers its original scope. A compiler version does not establish standard-library runtime availability.
+
+| Mechanism | Adoption rule | Failure/control and older-toolchain path |
+| --- | --- | --- |
+| Async `defer` (SE-0493) | In an async scope, await teardown before returning; preserve reverse defer order and enclosing isolation. Account for reentrancy during teardown. | Do not spawn an unawaited Task as a cleanup guarantee. On older compilers use explicit awaited success/error cleanup paths; validate both, including cancellation. |
+| `withTaskCancellationShield` (SE-0504) | Use only for bounded required teardown/integrity work. It masks cancellation observation inside the region and shields structured children; it does not undo cancellation. | Outside the region the cancelled state remains. Already-cancelled external handles are not repaired. Check actual SDK/runtime declaration and availability; on older runtimes use an explicitly cancellation-tolerant cleanup API with the same bounded contract, not a guessed shim. |
+| Swift Testing/XCTest interoperability (ST-0021) | Preserve the owning framework and result reporting during an approved incremental migration. Check actual test-plan interoperability settings and versions. | Compiler 6.4 alone is not a test-runner compatibility receipt. Keep framework-native assertions on older profiles; retain XCTest UI/performance suites. |
+| `@diagnose` (SE-0522) | Source-level warning control is a compiler capability. Promoting an appropriate diagnostic to error may strengthen a selected check. | Existing prohibition on warning-suppression workarounds remains. An ignored diagnostic is not a correctness fix or a clean-warning claim. |
+| SwiftPM Swift Build / SBOM (SE-0509) | Select only for a project that actually adopts SwiftPM; inspect the selected build system and product graph. | Do not migrate source-only integration or require a new toolchain to fill an inventory. See the build/supply-chain reference. |
+
+Before adoption, type-check under the actual language/default-isolation settings and minimum target;
+exercise the positive and negative behavior where authorized. Source review is not executed evidence.
+References: [Swift 6.4](https://www.swift.org/blog/swift-6.4-released/),
+[SE-0493](https://github.com/swiftlang/swift-evolution/blob/main/proposals/0493-defer-async.md),
+[SE-0504](https://github.com/swiftlang/swift-evolution/blob/main/proposals/0504-task-cancellation-shields.md).

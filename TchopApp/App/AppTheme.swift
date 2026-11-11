@@ -98,7 +98,8 @@ enum AppTheme {
         AppBranding.theme.glass.style(for: role)
     }
 
-    private static func dynamicColor(light: UIColor, dark: UIColor) -> Color {
+    // UIKit may resolve this provider while SwiftUI renders on a non-main executor.
+    nonisolated private static func dynamicColor(light: UIColor, dark: UIColor) -> Color {
         Color(
             uiColor: UIColor { trait in
                 trait.userInterfaceStyle == .dark ? dark : light

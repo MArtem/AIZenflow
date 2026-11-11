@@ -1,10 +1,22 @@
 import XCTest
 import os
+import SwiftUI
 @testable import TchopApp
 
 /// Verifies local-created feed-card runtime state, search, interactions, and persistence boundaries.
 @MainActor
 final class NewsFeedViewModelTests: XCTestCase {
+    /// Verifies dynamic theme colors can be resolved outside the main actor during SwiftUI rendering.
+    func testThemeDynamicColorResolvesFromDetachedExecutor() async {
+        let color = AppTheme.canvasBackground
+
+        await Task.detached {
+            var environment = EnvironmentValues()
+            environment.colorScheme = .dark
+            _ = color.resolve(in: environment)
+        }.value
+    }
+
     /// Verifies the feed starts empty when no card is persisted for the selected channel.
     func testInitialStateIsEmptyWhenSelectedChannelHasNoCards() {
         let viewModel = makeViewModel(cards: [])
@@ -731,6 +743,36 @@ final class AppContentRepositoryTests: XCTestCase {
         try repository.saveCards([olderCard, newerCard], for: userID)
 
         XCTAssertEqual(try repository.loadCards(for: userID).map(\.id), ["newer-card", "older-card"])
+    }
+
+    /// Verifies owner filtering happens without exposing another user's cards in the result.
+    func testFeedCardRepositoryLoadsOnlyCardsForOwner() throws {
+        let databaseManager = try makeInMemoryAppDatabaseManager()
+        let repository = FeedCardRepository(databaseManager: databaseManager)
+        let ownerID = "test-user"
+        let olderOwnerCard = makeTextFeedCard(
+            id: "owner-card-older",
+            text: "Older",
+            createdAt: Date(timeIntervalSince1970: 1)
+        )
+        let newerOwnerCard = makeTextFeedCard(
+            id: "owner-card-newer",
+            text: "Newer",
+            createdAt: Date(timeIntervalSince1970: 2)
+        )
+        let otherOwnersNewestCard = makeTextFeedCard(
+            id: "other-owner-card",
+            text: "Other owner",
+            createdAt: Date(timeIntervalSince1970: 3)
+        )
+
+        try repository.saveCards([olderOwnerCard, newerOwnerCard], for: ownerID)
+        try repository.saveCards([otherOwnersNewestCard], for: "different-user")
+
+        XCTAssertEqual(
+            try repository.loadCards(for: ownerID).map(\.id),
+            ["owner-card-newer", "owner-card-older"]
+        )
     }
 
     /// Verifies saving one card can insert a new record without requiring a batch call.

@@ -125,6 +125,17 @@ process, unit, action interval, expected data, and limitation. Unsupported tools
 attachments, or invalid process identity are gaps, never zero cost or PASS. Simulator energy, thermal,
 and graphics results are diagnostic proxies, not physical-device claims.
 
+Choose project control, scenario driving, and measurement collection independently. Inspect the live
+Xcode MCP and XcodeBuildMCP registry/schema rather than assuming tools from a server name or an older
+session. Xcode MCP project discovery/build/run/device operations and XcodeBuildMCP automation can
+prepare or exercise a workload; neither is itself an Instruments trace unless the actual returned
+artifact is a valid trace with the requested populated data. Use Instruments/`xctrace` or an applicable
+authorized XCTest metric/signpost for the measurement. Select one primary UI driver per capture and
+account for AX queries, screenshots, logs and other automation inside the timed interval. Validate
+each requested track against the exact destination/runtime: unsupported Hitches or an empty track is
+an evidence gap, not proof of smoothness. For tool-role details, field-diagnostic distinctions and
+artifact checks, follow the matrix in `PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md`.
+
 ### 3. Make Capture Trustworthy
 
 - Use safe, representative, bounded fixtures. Record seed/actual outcome, data size, cache/network
@@ -170,6 +181,45 @@ process/interval, revision/configuration, repetitions/variance, artifact, result
 with existing severity, confirmed-vs-hypothesis status, impact, reproduction, code location, causal
 evidence, and confidence; authorized changes/tests and before/after results; residual risk and the
 smallest next permitted step.
+
+## Filesystem And Artifact Containment
+
+- Treat the user's explicitly allowed root (for this workspace, `/Users/Artem/.zenflow`) as a
+  hard policy boundary for every agent-owned read, write, delete, move, command output, cache,
+  trace, screenshot, test result, and report. Check the active sandbox separately: it may grant
+  less access or expose writable paths outside this user boundary. Never widen or bypass either.
+- Use one retained evidence root across projects: `/Users/Artem/.zenflow/profiling-results/<ProjectSlug>/<TaskId>/`.
+  Put all reports, traces, screenshots, `.xcresult` bundles, logs and metrics there in task-owned
+  subdirectories; do not create alternate retained-result roots under `tmp/ActionArtifacts`, app
+  worktrees, or the documentation vault. Create a unique run subdirectory and use private
+  permissions where supported. If the active sandbox cannot write the root, stop; do not substitute
+  an outside temp directory.
+- The current user explicitly keeps Xcode `DerivedData` at Xcode's normal system location outside
+  `.zenflow`. Do not pass a custom `.zenflow` DerivedData path, copy DerivedData into the evidence
+  root, or clean/read it manually. This narrow build-cache exception is not a profiling-result
+  location and does not authorize a build by itself.
+- Set `TMPDIR` to a run-local directory where the tool honors it. For `xcodebuild`, explicitly set
+  supported result-bundle and other retained-output paths inside the central evidence root, and
+  redirect stdout/stderr there; let DerivedData use the normal Xcode location. For `xctrace`, pass
+  an explicit trace output path inside the evidence root. These options do not prove that every
+  tool cache, Simulator/CoreSimulator file, service log or temporary file is confined there;
+  record what remains uncontrolled.
+- Read-only exception: the user authorizes opening MCP-generated report/artifact files inside an
+  `ActionArtifacts` directory when the MCP response directly returns their paths, solely to
+  interpret that operation's result. Read only the referenced files needed for interpretation;
+  do not enumerate unrelated directory contents or inspect sibling/system files. Do not modify,
+  copy, move, delete, or treat those temporary files as retained profiling results. Keep retained
+  evidence under the shared `profiling-results` root. If the active sandbox blocks the authorized
+  read, stop and report the technical limit; never bypass or expand sandbox access. Structured
+  fields already present in an MCP response may still be analyzed in memory. Report
+  service-created external paths and any limits on containment.
+- If an MCP service cannot accept an approved output root, do not claim its artifacts are isolated
+  or try symlink, privilege, configuration or sandbox workarounds. Use only safe structured
+  response data, or stop before the dependent action if it needs a write outside the approved root.
+  Service-generated files outside the root are not retained profiling results and must not be
+  moved into the evidence root.
+- Do not claim technical isolation from these instructions alone. State separately which process
+  created each artifact and whether the host sandbox actually enforced the boundary.
 
 ## References
 

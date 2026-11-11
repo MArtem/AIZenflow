@@ -19,6 +19,21 @@ the current app or task boundary, not here.
   routes. Use `DOCUMENT_BOUNDARY_STANDARD.md` and `SOURCE_OF_TRUTH_MAP.md` for documentation moves
   or reusable-rule changes.
 
+## Canonical Knowledge Home
+
+<!-- Rule ID: USER.KB.SINGLE_HOME v1.0 -->
+User-directed 2026-11-11: `/Users/Artem/.zenflow/worktrees/documentation-vault` is the single
+canonical home and authoring destination for durable shared knowledge across projects: reusable
+rules, skills, prompts, references, indexes/manifests, app-specific decisions, and completed task
+knowledge/recovery records. Add or update that material only in its correct owner inside this
+repository. Existing project-worktree `docs/`, `.codex/skills/`, portable snapshots, and `AGENTS.md`
+files are distribution or operational entrypoints, not competing knowledge sources; do not author
+new durable KB content in them. Active task execution state may remain in its governed task
+checkout while work is in progress, but durable conclusions belong in this vault. The separate
+`/Users/Artem/.zenflow/profiling-results/` root remains the dedicated profiling-output store, not a
+second knowledge base. Preserve user-provided exports as source material unless separately asked
+to move or delete them.
+
 ## Model, Reporting, And Economy
 
 - Apply `MODEL_ROUTING_RULE.md` before meaningful work. If the current route is inadequate, stop
@@ -66,8 +81,9 @@ the current app or task boundary, not here.
   `/Users/Artem/.zenflow`.
 - An otherwise-authorized command may read only the already-installed system executables and SDK
   files it requires. It never permits unrelated external browsing, external writes, or toolchain/
-  Simulator installation. Keep outputs, caches, DerivedData, logs, and temporary artifacts inside
-  the sandbox.
+  Simulator installation. Profiling reports, traces, screenshots, result bundles, logs, and other
+  retained diagnostic outputs belong only under `/Users/Artem/.zenflow/profiling-results/`; see the
+  scoped Xcode DerivedData exception below.
 - Do not install, download, replace, detach, mount, unmount, or delete Simulator runtimes or other
   machine-wide developer assets without separate authorization.
 - **Secret deny boundary:** do not access `/Users/Artem/.zenflow/secrets/` during normal work.
@@ -76,22 +92,35 @@ the current app or task boundary, not here.
 
 ## Native Xcode And Simulator Paths
 
-<!-- Rule ID: USER.XCODE.RUNTIME.PATHS v1.0 -->
-User-approved 2026-10-22, cross-project: authorized Xcode builds/tests and Simulator work may
-use their standard system locations outside `.zenflow` for DerivedData, generated build products,
-compiler caches, temporary files, result bundles, logs and normal CoreSimulator service/device
-state. Prefer those native defaults rather than redirecting them into the project sandbox.
-This explicit exception supersedes earlier requirements to keep those runtime/build artifacts
-inside `.zenflow`; it does not itself authorize an otherwise unrequested build or test.
+<!-- Rule ID: USER.XCODE.RUNTIME.PATHS v1.2 -->
+User-approved 2026-10-22 and clarified 2026-10-30, cross-project: when a build is separately
+authorized, keep Xcode DerivedData at Xcode's normal system location outside `.zenflow`; do not
+redirect it into the profiling-results tree, copy it there, or clean it as profiling output. This is
+the narrow explicit exception for Xcode's DerivedData writes and does not itself authorize an
+otherwise unrequested build or test.
+
+All retained profiling outputs across projects have one canonical location:
+`/Users/Artem/.zenflow/profiling-results/<ProjectSlug>/<TaskId>/`. Put traces, `.xcresult` bundles,
+screenshots, logs, metric exports and reports there using task-owned subdirectories. Do not retain
+profiling results in `tmp/ActionArtifacts`, project folders, or the documentation vault.
+
+XcodeService may independently create temporary files such as MCP `ActionArtifacts` outside
+`.zenflow`. The user explicitly authorizes read-only access to MCP-generated report/artifact files
+inside an `ActionArtifacts` directory when the MCP response directly returns their paths, solely
+to interpret that operation's result. Read only the referenced files needed for interpretation; do
+not enumerate unrelated directory contents or inspect sibling/system files. Do not modify, copy,
+move, delete, or treat those temporary files as retained profiling results. Keep retained reports,
+traces and other evidence under the shared `profiling-results` root. If the active sandbox blocks
+the authorized read, stop and report the technical limit; never bypass or expand sandbox access.
+Report service-created external paths and any limits on containment. Other system service state is
+not evidence storage. Toolchain/runtime installation, unrelated host changes,
+credentials/signing/publication and other external actions still require their own explicit scope.
 
 Maintained source code, project files, source dependency checkouts, fixtures and project resources
 must remain under `/Users/Artem/.zenflow`. Dependency source resolution needs a contained source
 checkout path and its own current authority; a default external package cache is not permission
-to relocate maintained inputs. Ordinary use of installed Xcode/Simulator services is covered;
-toolchain/runtime installation, upgrades, unrelated host changes, credentials/signing/publication
-and other external actions still require their own explicit scope. Do not read unrelated personal
-Library data. Before tests, remove only identified owned temporary build/cache products inside
-`.zenflow`; preserve source, resources, reports, evidence and ambiguous files.
+to relocate maintained inputs. Do not read unrelated personal Library data or manually inspect,
+move, or delete DerivedData. Preserve source, resources, reports, evidence and ambiguous files.
 
 ## Verification And Quality
 

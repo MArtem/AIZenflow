@@ -132,3 +132,122 @@ screen is not a supported root cause; compare falsifiable hypotheses before a sp
 - [Instruments](https://developer.apple.com/documentation/xcode/instruments)
 
 Review after Swift Testing/XCTest changes, new diagnostic tooling, CI migration, or repeated flaky/crash classes.
+
+## Awaited completion recipes
+
+Select when a test starts work that can finish after its lexical scope. This section refines the
+existing determinism rule; it does not prescribe a test framework migration or grant execution.
+
+`confirmation` counts events during its async body; it is not an XCTest-style wait-until mechanism.
+Register/start the producer inside that body, then await a real operation completion or an explicit
+callback-lifetime barrier before the body returns. For a callback API that returns before callbacks
+end, awaiting registration alone is insufficient. A controlled actor/event stream or a reviewed
+exact-once continuation bridge may provide the barrier. `Task.yield()` is not that barrier.
+
+This minimal Swift Testing sketch has one stored, awaited operation and no scheduler assumption:
+
+```swift
+import Testing
+
+@Test func awaitedEvent() async {
+    await confirmation("owned operation completes") { confirmed in
+        let operation = Task { confirmed() }
+        await operation.value
+    }
+}
+```
+
+It illustrates only confirmation lifetime, not an SDK bridge or concurrency-safety certification.
+For `expectedCount: 0`, delimit and await the full relevant operation/registration lifetime; returning
+immediately proves only that no event happened before return. A timeout bounds a failed wait; it
+must not be treated as proof that no callback can ever occur later.
+
+| Behavior | Controlled recipe | Required falsification |
+| --- | --- | --- |
+| Debounce/backoff/TTL | Inject the clock/sleeper and current-time source actually used by the owner; signal wait registration before advancing time; await the observable terminal step. | Advancing just before/at the boundary distinguishes no action from one action; cancellation removes pending work. |
+| Late obsolete result/error | Capture invocation completion snapshots; complete current then obsolete producer, awaiting each; inspect final state. | Removing the relevant publication guard makes the test fail. |
+| Callback cancellation | Drive callback-before-return, cancel-before-handle-assignment, duplicate and late callbacks through the real adapter. | A double completion, lost cancellation handle or leaked registration is observed, not inferred from a mock count. |
+| Fixture lifetime | Install per-test store/root and teardown; await owned work before deleting it. | A competing test cannot read or delete this test's data. |
+
+Do not add an external clock library solely for a test; reuse an existing seam or the smallest
+explicit time dependency. A global serial executor, broad `.serialized`, retries or longer sleeps
+must not conceal a production ordering defect. Property/generated cases retain a seed and the
+smallest failing input. Use bounded test time limits supported by the actual runner, plus owned
+operation cancellation/cleanup; a timeout is not safe teardown of an uncooperative producer.
+
+Primary source reviewed2026-10-25:
+[confirmation lifetime](https://developer.apple.com/documentation/testing/confirmation(_:expectedcount:isolation:sourcelocation:_:)-5mqz2).
+The sketch and framework semantics require verification on the actual adopted test runner;
+the standalone publication fixture tests ordering, not Swift Testing runner integration.
+
+## Small KB regression corpus
+
+Use only when changing an owning rule/example or explicitly evaluating KB behavior. It is not a
+universal startup read, app-test requirement, model benchmark or authority to run checks. The
+knowledge/testing owner maintains this set; add cases for a concrete escaped mistake rather than
+increasing a coverage count. Keep expected decisions separate from observed answers.
+
+| ID / input | Required decision | Failing answer / control | Owning section |
+| --- | --- | --- | --- |
+| KB-C01: old search error arrives after current success | Current result remains; await both controlled completions. | Old error becomes visible. | Concurrency: Invocation Publication Practical Slice |
+| KB-C02: A→B→A inputs and first A completes last | Distinct invocation authority despite equal query. | Equality of query accepts the first A. | Same slice |
+| KB-C03: old defer runs while replacement is pending | Replacement handle survives and is cancellable. | Cleanup clears the owner's current handle. | Same slice |
+| KB-C04: required teardown on cancellation | Await bounded teardown; cancellation remains meaningful afterward. | Unawaited Task is called completed cleanup. | Toolchain: Swift 6.4 adoption cards |
+| KB-T01: confirmation body returns before callback | Await operation/registration terminal barrier in the body. | Confirmation itself is called a waiting API. | Awaited completion recipes |
+| KB-D01: in-memory migration succeeds | File-backed old-store/new-process preservation remains unverified. | In-memory PASS becomes migration durability PASS. | Persistence: Migration |
+| KB-B01: checksum matches downloaded binary | Byte identity only; review publisher/code/license/slices separately. | Checksum is called trusted provenance. | Build: Dependency Identity And Slice Example |
+| KB-E01: raw test artifact has been deleted | Retain scoped recorded result, mark raw evidence unavailable. | Link is still presented as reproducible raw proof. | Testing: Evidence lifecycle |
+
+Score each observed answer per case: PASS only if the required decision is explicit and the failing
+answer is absent; FAIL for the listed false-success conclusion; UNKNOWN for omitted/ambiguous output.
+Record input, observed answer, expected owner/source revision, reviewer and result. Do not score a
+curated expected-answer table against itself as successful agent behavior. No new model comparison
+or closed experiment follows from this corpus.
+
+Executable subset: append [PublicationChecks.swift](examples/PublicationChecks.swift) to the exact
+Swift fence under Illustrative Owner Example. Compile with the adopted Swift6 profile, run all six
+controlled scenarios, then separately remove success guard, generic-error guard and old-cleanup
+identity check in disposable copies. Each negative must compile and fail its relevant assertion;
+a compilation error, crash, timeout or unrelated failure is not a detected behavioral regression.
+Keep both ordinary and default-MainActor profiles when supported. Type-checking against the minimum
+iPhone Simulator SDK target is source compatibility evidence, not a Simulator run.
+
+[CleanupChecks.swift](examples/CleanupChecks.swift) is a separate Swift6.4 host probe for awaited
+cleanup and masked cancellation observation. It deliberately self-cancels only its owned test task.
+It does not implement a resource transaction, iOS18 fallback or a production cleanup adapter.
+For reruns, extract the owning Swift fence into an approved derived directory and append the
+fixture; invoke the installed compiler with `-parse-as-library -swift-version 6 -warnings-as-errors`
+and an approved `-module-cache-path`. Store source digests, exact command/profile, exit status and
+bounded diagnostics. Execute only with current permission; do not download a toolchain or package.
+
+## Fixture versus ordinary-composition evidence
+
+Select for UI/integration fixtures, launch-environment overrides or test seams. Keep a compact
+composition delta with the scenario: production consumer, substituted provider/store, launch key,
+configuration, network/file/indexing side effects disabled, accessibility/lifecycle overrides,
+cleanup owner and the exact claims still exercised through real adapters.
+
+| Fixture boundary | What its PASS may establish | Separate evidence needed for the broader claim |
+| --- | --- | --- |
+| Offline stub → real view/owner | Visible loading/error/retry/navigation for the supplied responses. | Ordinary dependency construction, real transport/auth mapping and failures. |
+| In-memory store → real repository | Query/mapping/transaction behavior inside that container. | File durability, migration, relaunch and cross-process ownership. |
+| Forced lifecycle/accessibility state | UI workflow under that declared state. | Normal lifecycle propagation or accessibility exposure without the override. |
+| Launch-only seeded data | User interaction with the seed and cleanup behavior. | Import, media decoding, asynchronous loading or publishing not actually exercised. |
+
+Use the smallest ordinary-launch control when the fixture replaces a release-critical composition
+path: launch without fixture keys in the relevant supported configuration, observe initial state
+and the affected boundary. Run it only with current permission; if unavailable, narrow the claim
+rather than silently calling the fixture production-equivalent. Release exclusion of test seams
+needs target/conditional-compilation evidence; a Debug UI PASS alone is insufficient.
+
+Keep fixture flags explicit, default-off and restricted to the intended test/Debug surface. Never
+open the user's real database or reconcile real files/Spotlight while pretending to use an isolated
+fixture. Give stores/domains/files unique owned identifiers and clean only those identifiers after
+all owned operations finish. A passing normal control does not extend to unselected features.
+
+## Evidence lifecycle
+
+Resolve `DOC:EVIDENCE_BASED_ENGINEERING_RULES.md` through the active task router and select
+Evidence lifecycle and cleanup before raw results/log cleanup or reuse. A recorded scoped test result and current raw-artifact
+availability are independent. Preserve compact identity/result/limits and deletion status; do not
+present a deleted xcresult/log as inspectable proof or silently rerun tests to recreate it.

@@ -332,7 +332,9 @@
         "./docs/DEPENDENCY_POLICY.md",
         "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md"
       ],
-      "optional_documents": [],
+      "optional_documents": [
+        "./docs/PACKAGE_DOC_MIRROR_CONTRACT.md"
+      ],
       "trigger_patterns": [
         "./PackagesInUse/**/README.md"
       ]

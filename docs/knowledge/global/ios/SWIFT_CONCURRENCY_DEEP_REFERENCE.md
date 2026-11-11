@@ -228,3 +228,30 @@ evidence choices, not authority to write tests or run builds/runtime. Missing ev
 - [Swift migration strategy](https://www.swift.org/migration/documentation/swift-6-concurrency-migration-guide/migrationstrategy/)
 - [The Swift Programming Language](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/)
 - [Swift Evolution](https://www.swift.org/swift-evolution/)
+
+## Practical mechanism selection and negative controls
+
+Load only for the corresponding asynchronous boundary. These recipes refine existing contracts;
+they do not prescribe new architecture or grant execution. The reusable knowledge owner maintains
+them after language/API changes or an escaped ownership defect.
+
+| Boundary | Mechanism and required order | Negative control that must be rejected |
+| --- | --- | --- |
+| Replaceable search | Revoke old publication authority, request cancellation, start replacement; check identity and cancellation at success and generic-error consumers; await controlled old/new completions. | Old generic failure after current success changes the UI; equal A→B→A inputs reuse authority; old defer clears new handle. |
+| Required teardown after cancellation | In an async scope on a supported compiler, use awaited async defer; shield only bounded cleanup where supported by the actual runtime. Otherwise use an explicitly cancellation-tolerant awaited teardown on every exit. | Launching unawaited Task in defer is called completed cleanup; shield covers retries or the whole user operation. |
+| Callback bridge | Register cancellation and callback ownership with one synchronized terminal state; handle callback-before-registration-return and cancellation-before-handle-assignment. Resume the checked continuation once; late callback becomes a no-op after a terminal transition. | Two callbacks resume twice; cancellation loses the late-assigned underlying handle; holding the terminal-state lock while invoking arbitrary callbacks deadlocks on reentry. |
+| Bounded producer stream | Select buffering and overflow behavior from product semantics; keep producer stop handle and terminate it when consumer ends. A latest-value buffer is suitable only where dropping intermediate values is allowed. | An unbounded event buffer grows without limit; latest-only buffering silently drops payment or durable mutation events. |
+
+For callback/stream SDK adoption, test the real registration/cancellation adapter; an actor ledger
+alone proves neither SDK thread safety nor resource release. Do not introduce a general bridge or
+buffering policy without the concrete consumer contract. Current callback/stream rows are reviewed
+recipes, not executed SDK examples.
+
+For the publication example, the small [executable control fixture](examples/PublicationChecks.swift)
+is appended to the exact Illustrative Owner Example code block when verification is authorized.
+Keep the block as the single implementation input; do not maintain another copy of PublicationOwner.
+The fixture controls request starts/completions with actor events and awaits every created handle.
+Remove success/error guards or invocation-owned cleanup in separate candidate copies to ensure the
+fixture detects those regressions. Do not mutate the canonical example to create controls.
+Example verification is recorded by source digest/toolchain in task evidence, never a permanent
+claim that a future revision or consuming application has passed.

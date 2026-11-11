@@ -138,3 +138,39 @@ and the versioned `ResolvedPackagesStore` schema; a higher-level overview does n
 - [Distributing binary frameworks as Swift packages](https://developer.apple.com/documentation/xcode/distributing-binary-frameworks-as-swift-packages)
 
 Review after Xcode/SwiftPM releases, dependency or plugin adoption, binary distribution changes, signing changes, or supply-chain advisories.
+
+## Product-specific inventory and SwiftPM 6.4 SBOM recipe
+
+Select when adding/updating dependencies or making a dependency-composition claim. The build/supply
+chain owner maintains this recipe after SwiftPM/generator changes. It does not require SwiftPM for
+source-only integration or authorize manifests/plugins, fetching, building, credentials or new tools.
+
+1. Identify actual integration: SwiftPM package graph, Xcode target membership with copied source,
+   vendor binary/resources, generated code or a combination. Bind inventory to source/artifact,
+   configuration, destination, selected product, traits and toolchain.
+2. For source-only integration record component/source URL, exact upstream revision or provenance
+   uncertainty, local patch digest, compiled source/resource membership, owner, license obligations,
+   executable generators and privacy inputs. No Package.resolved is expected when SwiftPM is absent.
+3. For adopted SwiftPM6.4, inspect installed `swift package generate-sbom --help` and
+   `swift build --help`. A package-only report and a selected-product build report have different
+   scopes. Where separately authorized, choose CycloneDX or SPDX and an approved output/cache/root;
+   retain exact arguments and report digest rather than assume a fixed schema version forever.
+4. A non-building command recipe is `swift package generate-sbom --product <selected-product>
+   --sbom-spec cyclonedx --sbom-output-dir <approved-report-dir>` with the project's approved package,
+   scratch, manifest-cache and dependency-cache paths. Use `--disable-automatic-resolution` where
+   its frozen resolution policy applies. This rejects an outdated resolution file; it is not an
+   offline guarantee and may still need missing pinned sources. Stop before an unapproved download.
+5. `generate-sbom` uses the package graph, not the SwiftBuild build dependency graph. A separately
+   approved `swift build --build-system swiftbuild --product <selected-product> --sbom-spec cyclonedx
+   --sbom-output-dir <approved-report-dir>` can use build-graph conditions. Do not claim that either
+   SwiftPM report inventories an entire Xcode app, copied source, every binary or embedded resource.
+6. Reconcile emitted components/products against the actual selected graph and non-SwiftPM inputs;
+   review transitive changes, licenses, vulnerabilities, scripts/macros/plugins, privacy and slices.
+   Preserve warnings and generator failures. `--sbom-warning-only` must not turn a missing report into
+   a successful inventory check. A report is neither a vulnerability-free verdict nor legal approval.
+
+Commands above are schematic, not established project commands or evidence of successful generation.
+They require current action/path/network authority. The local CLI capability check and source review
+are distinct from actual SBOM generation/build evidence.
+Primary source reviewed2026-10-25:
+[SE-0509](https://github.com/swiftlang/swift-evolution/blob/main/proposals/0509-swift-sboms-via-swiftpm.md).

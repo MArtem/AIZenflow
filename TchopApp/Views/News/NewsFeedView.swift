@@ -1192,10 +1192,13 @@ enum FeedMediaPreviewKind: String, Hashable, Sendable {
 private final class FeedMediaPreviewMemoryCache {
     static let shared = FeedMediaPreviewMemoryCache()
 
+    // NSCache treats this as an eviction target, not a strict process-memory cap.
+    private static let totalCostLimit = 64 * 1024 * 1024
     private let cache = NSCache<NSString, UIImage>()
 
     private init() {
         cache.countLimit = 160
+        cache.totalCostLimit = Self.totalCostLimit
     }
 
     func image(for key: String) -> UIImage? {
@@ -1203,7 +1206,9 @@ private final class FeedMediaPreviewMemoryCache {
     }
 
     func setImage(_ image: UIImage, for key: String) {
-        cache.setObject(image, forKey: key as NSString)
+        let cost = image.cgImage.map { $0.bytesPerRow * $0.height }
+            ?? Int(image.size.width * image.size.height * image.scale * image.scale * 4)
+        cache.setObject(image, forKey: key as NSString, cost: cost)
     }
 }
 

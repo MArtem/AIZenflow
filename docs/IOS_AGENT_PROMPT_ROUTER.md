@@ -52,6 +52,16 @@ Suggestions outside approved scope stay separate with value, cost and the smalle
 - App Review/privacy manifests/required reasons/compliance → `./.codex/skills/ios-app-store-compliance/SKILL.md`.
 - Done/verified/production-ready claim → `./docs/agent-prompts/evidence-based-completion-review.md`.
 
+### Xcode-specific skill routing
+- SwiftUI code structure/data flow/performance → `./.codex/skills/swiftui-specialist/SKILL.md`; consult `swiftui-whats-new-27` only when the active SDK/deployment scope matches.
+- App Intents implementation/review → `./.codex/skills/app-intents-specialist/SKILL.md`; version-specific changes → `app-intents-whats-new-27` after SDK verification.
+- Device or Simulator UI interaction → `./.codex/skills/device-interaction/SKILL.md`. Runtime interaction, install, build, launch, and artifact access still require current-task authorization and the current registered tool schema.
+- Xcode security settings/hardening → `./.codex/skills/audit-xcode-security-settings/SKILL.md`; it is a review route and does not authorize settings or entitlement changes.
+- C bounds-safety adoption → `./.codex/skills/adopt-c-bounds-safety/SKILL.md`; UIKit API modernization → `./.codex/skills/uikit-app-modernization/SKILL.md`.
+- Swift test-framework migration → `./.codex/skills/modernize-tests/SKILL.md`; document-based SwiftUI app work → `./.codex/skills/building-document-based-swiftui-applications/SKILL.md`.
+
+Imported Xcode skills are domain references. Their presence does not grant permission to run tools or change project files, and their source claims must be checked against the active SDK and current rules.
+
 ## Stop Rule
 If no route clearly fits, run `./docs/agent-prompts/ios-production-readiness-review.md` and list uncertain domains explicitly.
 

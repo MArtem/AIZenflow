@@ -25,9 +25,13 @@ struct FeedCardRepository: FeedCardPersisting {
     func loadCards(for userID: String) throws -> [FeedCard] {
         try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
-                let records = try context.fetch(FetchDescriptor<FeedCardRecord>())
-                    .filter { $0.ownerUserID == userID }
-                    .sorted(by: { $0.createdAt > $1.createdAt })
+                let descriptor = FetchDescriptor<FeedCardRecord>(
+                    predicate: #Predicate { record in
+                        record.ownerUserID == userID
+                    },
+                    sortBy: [SortDescriptor(\FeedCardRecord.createdAt, order: .reverse)]
+                )
+                let records = try context.fetch(descriptor)
                 return try records.map(Self.decodeCard)
             })
         )

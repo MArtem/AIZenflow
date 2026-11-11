@@ -34,6 +34,29 @@ GUI availability from command-line `simctl`; one does not establish the other. K
 non-invasive unless the corresponding build, launch, UI, Instruments, fixture, or service action is
 explicitly permitted. Never install tools as a readiness shortcut.
 
+### Tool Roles And Collector Validation
+
+Treat project control, scenario driving, and metric collection as separate capabilities. Inspect the
+currently registered tool names and exact schemas before use; server names, counts, and old examples
+do not prove that a capability is available in this session. For each selected operation, record its
+provider/version when known, required permission, process/target, side effects, returned data, and
+output path. Availability is not authorization.
+
+| Mechanism | Use it for | It does not establish | Validate before relying on it |
+| --- | --- | --- | --- |
+| Xcode MCP (`mcp__xcode__`, when registered) | Xcode-owned workspace/project, scheme, target and destination discovery; selected build/run/test, debugger/log or device-interaction operations exposed by the current registry. | Registration or a successful build/run/UI action is not a performance trace. Field crash/performance issue tools, when present and authorized, are service/field evidence, not a local scenario capture. | Inspect the live schema and Xcode authorization; classify the call as read, project mutation, build, runtime, UI, debugger or service access. Verify returned structured values and any required artifact paths. Read only MCP report/artifact files directly returned under `ActionArtifacts` when authorized; no directory sweep or mutation. |
+| Build iOS Apps plugin / XcodeBuildMCP (`mcp__xcodebuildmcp__`, when registered) | Project/scheme/simulator defaults, build/run/test orchestration, simulator actions, UI scenario driving, logs, screenshots/video, debugger or coverage tools when exposed. | It is an orchestration/automation path, not an Instruments collector. UI snapshots, accessibility queries, logging and screenshots can perturb a timed interval. | Inspect current schemas and defaults; choose one primary scenario driver per capture. Verify app identity/PID before and after, actual UI outcome, output destinations, and whether automation overhead overlaps the measured interval. Do not infer a tool's complete output containment from its returned path. |
+| Instruments / `xctrace` | Native trace recording and analysis with instruments/templates supported by the installed Xcode and selected target/runtime. | CLI availability does not prove the Instruments GUI is available; a listed template or saved trace does not prove that a requested instrument produced usable data. | Check CLI and GUI availability separately when each is needed. Check template/instrument support for the exact destination, then verify the saved trace contains the expected instrument, process, interval, units and nonempty usable tables/samples. Pass an explicit retained-output path under the evidence root where supported. |
+| XCTest performance metrics / app signposts, when authorized and applicable | Reproducible feature workloads and supported measured quantities such as clock, CPU, memory, hitch or signpost intervals. | A passing functional test does not mean every metric was collected; these metrics do not automatically identify the complete cause or replace an appropriate Instruments trace. | Verify the metric is supported on the selected OS/destination, that the measured app process and interval match the user action, and that result data is populated. Test creation, modification and execution each require current authority. |
+
+Use MCPs to discover/control the project or drive a bounded workload; use a profiler/metric API to
+collect the metric it actually supports. Do not claim native profiling just because an MCP can launch
+the app or return logs. If a requested track (for example, Hitches) is unsupported on the selected
+Simulator/runtime, mark that track `UNSUPPORTED` for that environment, preserve other valid metrics,
+and state any alternative as a weaker or different signal. Unsupported, empty, invalid and not-run
+data are never zero, “no issue,” or PASS. Keep the exact task/project status vocabulary; these labels
+describe evidence availability and do not create a new project status system.
+
 Keep the investigation in three reviewable stages; a user may authorize them together, but the
 evidence and exit decision for each stage remain distinct:
 
