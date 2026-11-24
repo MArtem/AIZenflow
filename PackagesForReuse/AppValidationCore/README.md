@@ -100,13 +100,9 @@ import AppValidationCore
 
 ## Verification
 
-From this package folder, run:
+Package verification is currently `UNAVAILABLE`. `Scripts/verify_package.sh` is fail-closed until its build/test scratch lifecycle passes the required success and failure scenarios. It exits nonzero and performs no package verification; do not use it as a passing gate. Package verification evidence remains `NOT RUN`.
 
-```zsh
-./Scripts/verify_package.sh
-```
-
-For source-only app integration, also run the host app's required verification, usually:
+For source-only app integration, after the consuming project's task permissions authorize those checks, follow its required verification, usually:
 
 ```zsh
 plutil -lint ./TchopApp.xcodeproj/project.pbxproj

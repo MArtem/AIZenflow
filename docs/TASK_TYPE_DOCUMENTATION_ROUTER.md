@@ -115,7 +115,7 @@ Read archive/history/recovery material only when active docs conflict, current s
 - Level 0 has a validator-enforced word budget. Importance alone is not a reason to expand it.
 - Keep one canonical rule plus short links. Do not copy long rules or startup lists across `AGENTS.md`, onboarding docs, continuity docs, overrides, or templates.
 - App-specific decisions and exceptions remain in the matching app/task boundary unless the user explicitly approves app-neutral promotion.
-- After routing changes, run `./scripts/check_task_type_documentation_router.py`, `./scripts/check_docs_index.py`, `./scripts/check_docs_consistency.py`, and `./scripts/check_documentation_boundaries.py` when available.
+- After routing changes, run `./scripts/check_task_type_documentation_router.py`, `./scripts/check_docs_index.py`, `./scripts/check_docs_consistency.py`, and `./scripts/check_documentation_boundaries.py` when available. From a consumer worktree, pass the canonical documentation-vault root selected by the active bootstrap; the default current-directory root is for running from the vault itself.
 
 ## Non-Goals
 

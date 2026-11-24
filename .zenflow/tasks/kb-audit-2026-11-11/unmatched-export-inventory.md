@@ -1,0 +1,189 @@
+# Historical export — unmatched byte inventory
+
+Checked 2026-11-12 against vault content present at HEAD a4b13e9 plus untracked local task records; 174 source files lack an exact file-byte match. This is triage, not evidence of unique knowledge or semantic coverage. Candidates match filename only and are capped at three; verify ownership, content, provenance and dependencies before moving or removing anything. Git object internals and symlinks were excluded.
+
+- `README.md` — `README.md`; `apps/BattleshipGame/history/README.md`; `apps/MVVMExample/history/README.md` (+164 other same-name files)
+- `app-specific/.codex/skills/ios-content-cards/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `app-specific/.codex/skills/ios-reusable-packages/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `app-specific/.codex/skills/ios-reusable-packages/references/package-rules.md` — `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/references/package-rules.md`; `apps/Tchop/legacy-reference/TchopApp/skills/tchop-packages/references/package-rules.md`
+- `app-specific/.zenflow/tasks/new-task-be0b/handoff.md` — `apps/Tchop/legacy-reference/TchopApp/baseline/.zenflow/tasks/new-task-be0b/handoff.md`; `tasks/apple-xcode-skills-adoption-2026-10-30/handoff.md`; `tasks/battleship-runtime-audit-2026-10-27/handoff.md` (+30 other same-name files)
+- `app-specific/.zenflow/tasks/new-task-be0b/share-extension-validation-report.md` — `apps/Tchop/legacy-reference/TchopApp/baseline/.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`; `retired/task-boundary-misplacements/new-task-be0b/share-extension-validation-report.md`
+- `app-specific/AGENTS.md` — `AGENTS.md`; `apps/MVVMExample/legacy-reference/root-docs/AGENTS.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/AGENTS.md` (+21 other same-name files)
+- `app-specific/APPLE_SIGN_IN_SETUP.md` — `apps/Tchop/legacy-reference/TchopApp/baseline/APPLE_SIGN_IN_SETUP.md`; `apps/Tchop/legacy-reference/TchopApp/root-docs/APPLE_SIGN_IN_SETUP.md`
+- `app-specific/APP_SPECIFIC_MANIFEST.md` — `apps/Tchop/legacy-reference/TchopApp/baseline/APP_SPECIFIC_MANIFEST.md`
+- `app-specific/PROJECT_DOCUMENTATION.md` — `apps/MVVMExample/legacy-reference/root-docs/PROJECT_DOCUMENTATION.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/PROJECT_DOCUMENTATION.md`; `apps/Tchop/legacy-reference/TchopApp/root-docs/PROJECT_DOCUMENTATION.md` (+1 other same-name files)
+- `app-specific/PROJECT_HEALTH.md` — `apps/MVVMExample/legacy-reference/root-docs/PROJECT_HEALTH.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/PROJECT_HEALTH.md`; `apps/Tchop/legacy-reference/TchopApp/root-docs/PROJECT_HEALTH.md` (+1 other same-name files)
+- `app-specific/TESTING_INSTRUCTIONS.md` — `apps/MVVMExample/legacy-reference/root-docs/TESTING_INSTRUCTIONS.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/TESTING_INSTRUCTIONS.md`; `apps/Tchop/legacy-reference/TchopApp/root-docs/TESTING_INSTRUCTIONS.md`
+- `app-specific/docs/AGENT_RULES.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/AGENT_RULES.md`; `apps/MVVMExample/legacy-reference/root-docs/docs/AGENT_RULES.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/docs/AGENT_RULES.md` (+2 other same-name files)
+- `app-specific/docs/CURRENT_USER_OVERRIDES.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/CURRENT_USER_OVERRIDES.md`; `apps/MVVMExample/legacy-reference/root-docs/docs/CURRENT_USER_OVERRIDES.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/docs/CURRENT_USER_OVERRIDES.md` (+2 other same-name files)
+- `app-specific/docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md` — `apps/Tchop/legacy-reference/TchopApp/baseline/docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
+- `app-specific/docs/PACKAGES_AND_MANAGERS.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/PACKAGES_AND_MANAGERS.md`; `apps/MVVMExample/legacy-reference/root-docs/docs/PACKAGES_AND_MANAGERS.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/docs/PACKAGES_AND_MANAGERS.md` (+2 other same-name files)
+- `app-specific/docs/PACKAGE_USAGE_SOURCE_ONLY.md` — no same-name vault file
+- `app-specific/docs/README.md` — `README.md`; `apps/BattleshipGame/history/README.md`; `apps/MVVMExample/history/README.md` (+164 other same-name files)
+- `app-specific/docs/SHARE_EXTENSION_VALIDATION.md` — `apps/Tchop/legacy-reference/TchopApp/baseline/docs/SHARE_EXTENSION_VALIDATION.md`
+- `app-specific/docs/UI_PIXEL_PERFECT_WORKFLOW.md` — `apps/Tchop/legacy-reference/TchopApp/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md`; `reusable/baseline/docs/UI_PIXEL_PERFECT_WORKFLOW.md`
+- `app-specific/docs/WORK_CONTINUITY.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/WORK_CONTINUITY.md`; `apps/MVVMExample/legacy-reference/root-docs/docs/WORK_CONTINUITY.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/docs/WORK_CONTINUITY.md` (+2 other same-name files)
+- `app-specific/docs/agent-prompts/README.md` — `README.md`; `apps/BattleshipGame/history/README.md`; `apps/MVVMExample/history/README.md` (+164 other same-name files)
+- `app-specific/docs/knowledge/global/README.md` — `README.md`; `apps/BattleshipGame/history/README.md`; `apps/MVVMExample/history/README.md` (+164 other same-name files)
+- `app-specific/docs/knowledge/global/prompt-presets/README.md` — `README.md`; `apps/BattleshipGame/history/README.md`; `apps/MVVMExample/history/README.md` (+164 other same-name files)
+- `app-specific/docs/knowledge/source-app/README.md` — `README.md`; `apps/BattleshipGame/history/README.md`; `apps/MVVMExample/history/README.md` (+164 other same-name files)
+- `app-specific/docs/knowledge/source-app/feed-and-composer-summary.md` — `apps/Tchop/legacy-reference/TchopApp/baseline/docs/knowledge/TchopApp/feed-and-composer-summary.md`; `apps/Tchop/legacy-reference/TchopApp/knowledge/feed-and-composer-summary.md`
+- `reusable/.codex/skills/ios-accessibility/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-api-contracts/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-architecture-router/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-code-documentation/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-concurrency-runtime/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-configuration-environments/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-data-migration/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-error-handling/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-evidence-gate/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-incident-ops/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-input-validation/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-lifecycle-background/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-memory-cache-media/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-modular-architecture/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-network-resilience/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-offline-sync/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-performance-profiler/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-product-governance/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-production-auditor/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-qa-localization/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-release-engineering/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-security-privacy/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/.codex/skills/ios-test-strategy/SKILL.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/external-environment/skills/codex-home/swiftui-expert-skill/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-feed-cards/SKILL.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/.codex/skills/tchop-packages/SKILL.md` (+145 other same-name files)
+- `reusable/EXTERNAL_SKILL_DEPENDENCIES.md` — `reusable/baseline/EXTERNAL_SKILL_DEPENDENCIES.md`
+- `reusable/NEW_PROJECT_PORTING_GUIDE.md` — `reusable/baseline/NEW_PROJECT_PORTING_GUIDE.md`
+- `reusable/REUSABLE_MANIFEST.md` — `reusable/baseline/REUSABLE_MANIFEST.md`
+- `reusable/REUSABLE_USER_AND_AGENT_RULES.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/reusable-baseline/REUSABLE_USER_AND_AGENT_RULES.md`; `reusable/baseline/REUSABLE_USER_AND_AGENT_RULES.md`
+- `reusable/TRANSFER_CHECKLIST.md` — `reusable/baseline/TRANSFER_CHECKLIST.md`
+- `reusable/docs/AGENT_PREFLIGHT_CHECKLIST.md` — `reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md`
+- `reusable/docs/AGENT_RULES.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/AGENT_RULES.md`; `apps/MVVMExample/legacy-reference/root-docs/docs/AGENT_RULES.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/docs/AGENT_RULES.md` (+2 other same-name files)
+- `reusable/docs/ALL_DOCUMENTS_INVENTORY.md` — `apps/Tchop/legacy-reference/TchopApp/root-docs/docs/ALL_DOCUMENTS_INVENTORY.md`
+- `reusable/docs/API_CONTRACT_AND_INTEGRATION_RULES.md` — `reusable/baseline/docs/API_CONTRACT_AND_INTEGRATION_RULES.md`
+- `reusable/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md` — `reusable/baseline/docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
+- `reusable/docs/ARCHITECTURE_DECISION_GOVERNANCE.md` — `reusable/baseline/docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
+- `reusable/docs/CI_CD_QUALITY_GATES.md` — `reusable/baseline/docs/CI_CD_QUALITY_GATES.md`
+- `reusable/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md` — `reusable/baseline/docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md`
+- `reusable/docs/COMPATIBILITY_MATRIX.md` — `reusable/baseline/docs/COMPATIBILITY_MATRIX.md`
+- `reusable/docs/DEFINITION_OF_DONE.md` — `reusable/baseline/docs/DEFINITION_OF_DONE.md`
+- `reusable/docs/DEPENDENCY_POLICY.md` — `reusable/baseline/docs/DEPENDENCY_POLICY.md`
+- `reusable/docs/DESIGN_SYSTEM_GOVERNANCE.md` — `reusable/baseline/docs/DESIGN_SYSTEM_GOVERNANCE.md`
+- `reusable/docs/DOCUMENT_BOUNDARY_STANDARD.md` — `reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md`
+- `reusable/docs/DOCUMENT_LIBRARY_GUIDE.md` — `DOCUMENT_LIBRARY_GUIDE.md`; `apps/Tchop/legacy-reference/TchopApp/root-docs/docs/DOCUMENT_LIBRARY_GUIDE.md`; `reusable/baseline/docs/DOCUMENT_LIBRARY_GUIDE.md`
+- `reusable/docs/EVIDENCE_BASED_ENGINEERING_RULES.md` — `reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md`
+- `reusable/docs/FEATURE_FLAGS_AND_ROLLOUTS.md` — `reusable/baseline/docs/FEATURE_FLAGS_AND_ROLLOUTS.md`
+- `reusable/docs/IOS_ACCESSIBILITY_STANDARD.md` — `reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md`
+- `reusable/docs/IOS_AGENT_PROMPT_ROUTER.md` — `reusable/baseline/docs/IOS_AGENT_PROMPT_ROUTER.md`
+- `reusable/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md` — `reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md`
+- `reusable/docs/IOS_CODE_DOCUMENTATION_STANDARD.md` — `reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md`
+- `reusable/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md` — `reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`; `tasks/kb-library-effectiveness-2026-10-07/kb-first-01/before/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`
+- `reusable/docs/IOS_DATA_MIGRATION_STANDARD.md` — `reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md`
+- `reusable/docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md` — `reusable/baseline/docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`
+- `reusable/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md` — `reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`
+- `reusable/docs/IOS_NETWORK_RESILIENCE_STANDARD.md` — `reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md`
+- `reusable/docs/IOS_OBSERVABILITY_STANDARD.md` — `reusable/baseline/docs/IOS_OBSERVABILITY_STANDARD.md`
+- `reusable/docs/IOS_OFFLINE_SYNC_STANDARD.md` — `reusable/baseline/docs/IOS_OFFLINE_SYNC_STANDARD.md`
+- `reusable/docs/IOS_PERFORMANCE_BUDGETS.md` — `reusable/baseline/docs/IOS_PERFORMANCE_BUDGETS.md`
+- `reusable/docs/IOS_PRODUCTION_AUDIT_MATRIX.md` — `reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md`
+- `reusable/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md` — `reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`
+- `reusable/docs/IOS_PRODUCTION_FRAMEWORK.md` — `reusable/baseline/docs/IOS_PRODUCTION_FRAMEWORK.md`
+- `reusable/docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md` — `reusable/baseline/docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`
+- `reusable/docs/IOS_PR_REVIEW_TEMPLATE.md` — `reusable/baseline/docs/IOS_PR_REVIEW_TEMPLATE.md`
+- `reusable/docs/IOS_RELEASE_CHECKLIST.md` — `reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md`
+- `reusable/docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md` — `reusable/baseline/docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`
+- `reusable/docs/IOS_SECURITY_PRIVACY_GATE.md` — `reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md`
+- `reusable/docs/IOS_STOREKIT_PAYMENTS_STANDARD.md` — `reusable/baseline/docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`
+- `reusable/docs/IOS_TESTING_STRATEGY.md` — `reusable/baseline/docs/IOS_TESTING_STRATEGY.md`
+- `reusable/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md` — `reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`
+- `reusable/docs/MODULAR_ARCHITECTURE_STANDARD.md` — `reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md`
+- `reusable/docs/NEW_PROJECT_START_CONTRACT.md` — `reusable/baseline/docs/NEW_PROJECT_START_CONTRACT.md`
+- `reusable/docs/PACKAGES_AND_MANAGERS.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/PACKAGES_AND_MANAGERS.md`; `apps/MVVMExample/legacy-reference/root-docs/docs/PACKAGES_AND_MANAGERS.md`; `apps/Tchop/legacy-reference/TchopApp/baseline/docs/PACKAGES_AND_MANAGERS.md` (+2 other same-name files)
+- `reusable/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`; `reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`
+- `reusable/docs/PRODUCTION_QUALITY_GATES.md` — `apps/MVVMExample/legacy-reference/app-specific-matches/docs/PRODUCTION_QUALITY_GATES.md`; `reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md`
+- `reusable/docs/PRODUCT_REQUIREMENTS_STANDARD.md` — `reusable/baseline/docs/PRODUCT_REQUIREMENTS_STANDARD.md`
+- `reusable/docs/QA_TEST_PLAN_STANDARD.md` — `reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md`
+- `reusable/docs/RISK_REGISTER.md` — `reusable/baseline/docs/RISK_REGISTER.md`
+- `reusable/docs/SOURCE_OF_TRUTH_MAP.md` — `reusable/baseline/docs/SOURCE_OF_TRUTH_MAP.md`
+- `reusable/docs/STATIC_QUALITY_GATE_POLICY.md` — `reusable/baseline/docs/STATIC_QUALITY_GATE_POLICY.md`
+- `reusable/docs/TASK_STATE_DOCUMENTATION_STANDARD.md` — `reusable/baseline/docs/TASK_STATE_DOCUMENTATION_STANDARD.md`
+- `reusable/docs/TECH_DEBT_REGISTER.md` — `reusable/baseline/docs/TECH_DEBT_REGISTER.md`
+- `reusable/docs/agent-prompts/README.md` — `README.md`; `apps/BattleshipGame/history/README.md`; `apps/MVVMExample/history/README.md` (+164 other same-name files)
+- `reusable/docs/agent-prompts/evidence-based-completion-review.md` — `reusable/agent-prompts/evidence-based-completion-review.md`; `reusable/baseline/docs/agent-prompts/evidence-based-completion-review.md`
+- `reusable/docs/agent-prompts/ios-performance-audit.md` — `reusable/agent-prompts/ios-performance-audit.md`; `reusable/baseline/docs/agent-prompts/ios-performance-audit.md`
+- `reusable/docs/agent-prompts/ios-production-readiness-review.md` — `reusable/agent-prompts/ios-production-readiness-review.md`; `reusable/baseline/docs/agent-prompts/ios-production-readiness-review.md`
+- `reusable/docs/agent-prompts/ios-security-privacy-review.md` — `reusable/agent-prompts/ios-security-privacy-review.md`; `reusable/baseline/docs/agent-prompts/ios-security-privacy-review.md`
+- `reusable/docs/knowledge/global/ios/README.md` — `README.md`; `apps/BattleshipGame/history/README.md`; `apps/MVVMExample/history/README.md` (+164 other same-name files)
+- `reusable/docs/knowledge/global/prompt-presets/README.md` — `README.md`; `apps/BattleshipGame/history/README.md`; `apps/MVVMExample/history/README.md` (+164 other same-name files)
+- `reusable/external-environment/skills/agents-home/skill-creator/assets/eval_review.html` — no same-name vault file
+- `reusable/external-environment/skills/agents-home/skill-creator/eval-viewer/viewer.html` — no same-name vault file
+- `reusable/external-environment/skills/agents-home/zen-comprehensive-review/scripts/post_review_strict.js` — no same-name vault file
+- `reusable/external-environment/skills/codex-home/.system__imagegen/assets/imagegen-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/codex-home/.system__imagegen/assets/imagegen.png` — no same-name vault file
+- `reusable/external-environment/skills/codex-home/.system__openai-docs/assets/openai-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/codex-home/.system__openai-docs/assets/openai.png` — no same-name vault file
+- `reusable/external-environment/skills/codex-home/.system__openai-docs/scripts/resolve-latest-model-info.js` — no same-name vault file
+- `reusable/external-environment/skills/codex-home/.system__plugin-creator/assets/plugin-creator-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/codex-home/.system__plugin-creator/assets/plugin-creator.png` — no same-name vault file
+- `reusable/external-environment/skills/codex-home/.system__skill-creator/assets/skill-creator-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/codex-home/.system__skill-creator/assets/skill-creator.png` — no same-name vault file
+- `reusable/external-environment/skills/codex-home/.system__skill-installer/assets/skill-installer-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/codex-home/.system__skill-installer/assets/skill-installer.png` — no same-name vault file
+- `reusable/external-environment/skills/codex-system/imagegen/assets/imagegen-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/codex-system/imagegen/assets/imagegen.png` — no same-name vault file
+- `reusable/external-environment/skills/codex-system/openai-docs/assets/openai-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/codex-system/openai-docs/assets/openai.png` — no same-name vault file
+- `reusable/external-environment/skills/codex-system/openai-docs/scripts/resolve-latest-model-info.js` — no same-name vault file
+- `reusable/external-environment/skills/codex-system/plugin-creator/assets/plugin-creator-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/codex-system/plugin-creator/assets/plugin-creator.png` — no same-name vault file
+- `reusable/external-environment/skills/codex-system/skill-creator/assets/skill-creator-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/codex-system/skill-creator/assets/skill-creator.png` — no same-name vault file
+- `reusable/external-environment/skills/codex-system/skill-installer/assets/skill-installer-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/codex-system/skill-installer/assets/skill-installer.png` — no same-name vault file
+- `reusable/external-environment/skills/plugin-github/gh-address-comments/assets/github-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/plugin-github/gh-address-comments/assets/github.png` — no same-name vault file
+- `reusable/external-environment/skills/plugin-github/gh-fix-ci/assets/github-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/plugin-github/gh-fix-ci/assets/github.png` — no same-name vault file
+- `reusable/external-environment/skills/plugin-github/github/assets/github-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/plugin-github/github/assets/github.png` — no same-name vault file
+- `reusable/external-environment/skills/plugin-github/yeet/assets/yeet-small.svg` — no same-name vault file
+- `reusable/external-environment/skills/plugin-github/yeet/assets/yeet.png` — no same-name vault file
+- `reusable/external-environment/skills/plugin-openai-primary-runtime/documents__26.426.12240__skills__documents/assets/file-document.png` — no same-name vault file
+- `reusable/external-environment/skills/plugin-openai-primary-runtime/presentations__26.426.12240__skills__presentations/assets/file-presentation.png` — no same-name vault file
+- `reusable/external-environment/skills/plugin-openai-primary-runtime/presentations__26.426.12240__skills__presentations/scripts/check_presentation_quality.js` — no same-name vault file
+- `reusable/external-environment/skills/plugin-openai-primary-runtime/presentations__26.426.12240__skills__presentations/scripts/create_presentation_workspace.js` — no same-name vault file
+- `reusable/external-environment/skills/plugin-openai-primary-runtime/spreadsheets__26.426.12240__skills__spreadsheets/assets/file-spreadsheet.png` — no same-name vault file
+- `reusable/infrastructure-sdk/.gitignore` — `.gitignore`; `reusable/architecture-cases/AllArchitectureCases/01-swiftui-native-state-mv/.gitignore`; `reusable/architecture-cases/AllArchitectureCases/02-mvvm-explicit-intents/.gitignore` (+13 other same-name files)
+- `reusable/infrastructure-sdk/Catalog/PACKAGE_STATUS_MATRIX.md` — `reusable/baseline/infrastructure-sdk/Catalog/PACKAGE_STATUS_MATRIX.md`; `reusable/sdk-creation/Catalog/PACKAGE_STATUS_MATRIX.md`
+- `reusable/infrastructure-sdk/Catalog/SDK_PACKAGE_ROADMAP_50.md` — `reusable/baseline/infrastructure-sdk/Catalog/SDK_PACKAGE_ROADMAP_50.md`; `reusable/sdk-creation/Catalog/SDK_PACKAGE_ROADMAP_50.md`
+- `reusable/infrastructure-sdk/Docs/CONCURRENCY_POLICY.md` — `reusable/baseline/infrastructure-sdk/Docs/CONCURRENCY_POLICY.md`; `reusable/sdk-creation/Docs/CONCURRENCY_POLICY.md`
+- `reusable/infrastructure-sdk/Docs/INTEGRATION_HELPERS_RULES.md` — `reusable/baseline/infrastructure-sdk/Docs/INTEGRATION_HELPERS_RULES.md`; `reusable/sdk-creation/Docs/INTEGRATION_HELPERS_RULES.md`
+- `reusable/infrastructure-sdk/Docs/PACKAGES_CREATION_STANDARD.md` — `reusable/baseline/infrastructure-sdk/Docs/PACKAGES_CREATION_STANDARD.md`; `reusable/sdk-creation/Docs/PACKAGES_CREATION_STANDARD.md`
+- `reusable/infrastructure-sdk/Docs/PACKAGE_CHECKLIST.md` — `reusable/baseline/infrastructure-sdk/Docs/PACKAGE_CHECKLIST.md`; `reusable/sdk-creation/Docs/PACKAGE_CHECKLIST.md`
+- `reusable/infrastructure-sdk/Docs/PACKAGE_NAMING_POLICY.md` — `reusable/baseline/infrastructure-sdk/Docs/PACKAGE_NAMING_POLICY.md`; `reusable/sdk-creation/Docs/PACKAGE_NAMING_POLICY.md`
+- `reusable/infrastructure-sdk/Docs/PRIVACY_TELEMETRY_POLICY.md` — `reusable/baseline/infrastructure-sdk/Docs/PRIVACY_TELEMETRY_POLICY.md`; `reusable/sdk-creation/Docs/PRIVACY_TELEMETRY_POLICY.md`
+- `reusable/infrastructure-sdk/Docs/TEMPLATE_VERIFICATION_REPORT.md` — `reusable/baseline/infrastructure-sdk/Docs/TEMPLATE_VERIFICATION_REPORT.md`; `reusable/sdk-creation/Docs/TEMPLATE_VERIFICATION_REPORT.md`
+- `reusable/infrastructure-sdk/Docs/TESTING_POLICY.md` — `reusable/baseline/infrastructure-sdk/Docs/TESTING_POLICY.md`; `reusable/sdk-creation/Docs/TESTING_POLICY.md`
+- `reusable/infrastructure-sdk/README.md` — `README.md`; `apps/BattleshipGame/history/README.md`; `apps/MVVMExample/history/README.md` (+164 other same-name files)
+- `reusable/root-scripts/check_bootstrap_contract.py` — `reusable/baseline/root-scripts/check_bootstrap_contract.py`
+- `reusable/root-scripts/check_docs_consistency.py` — `reusable/baseline/root-scripts/check_docs_consistency.py`
+- `reusable/root-scripts/check_documentation_boundaries.py` — `reusable/baseline/root-scripts/check_documentation_boundaries.py`
+- `reusable/root-scripts/check_forbidden_patterns.py` — `reusable/architecture-cases/AllArchitectureCases/01-swiftui-native-state-mv/scripts/check_forbidden_patterns.py`; `reusable/architecture-cases/AllArchitectureCases/02-mvvm-explicit-intents/scripts/check_forbidden_patterns.py`; `reusable/architecture-cases/AllArchitectureCases/03-coordinator-flow/scripts/check_forbidden_patterns.py` (+12 other same-name files)
+- `reusable/root-scripts/check_secrets.py` — `reusable/architecture-cases/AllArchitectureCases/01-swiftui-native-state-mv/scripts/check_secrets.py`; `reusable/architecture-cases/AllArchitectureCases/02-mvvm-explicit-intents/scripts/check_secrets.py`; `reusable/architecture-cases/AllArchitectureCases/03-coordinator-flow/scripts/check_secrets.py` (+12 other same-name files)
+- `reusable/root-scripts/run_static_quality_gates.sh` — `reusable/architecture-cases/AllArchitectureCases/01-swiftui-native-state-mv/scripts/run_static_quality_gates.sh`; `reusable/architecture-cases/AllArchitectureCases/02-mvvm-explicit-intents/scripts/run_static_quality_gates.sh`; `reusable/architecture-cases/AllArchitectureCases/03-coordinator-flow/scripts/run_static_quality_gates.sh` (+11 other same-name files)
+- `reusable/scripts/install_reusable_baseline.sh` — `reusable/baseline/scripts/install_reusable_baseline.sh`
+- `reusable/scripts/sync_reusable_baseline_to_project.sh` — `reusable/baseline/scripts/sync_reusable_baseline_to_project.sh`
+- `reusable/templates/AGENTS.template.md` — `reusable/baseline/templates/AGENTS.template.md`
+- `reusable/templates/docs/CURRENT_USER_OVERRIDES.template.md` — `reusable/baseline/templates/docs/CURRENT_USER_OVERRIDES.template.md`
+- `reusable/templates/docs/README.template.md` — `reusable/baseline/templates/docs/README.template.md`
+- `reusable/templates/docs/WORK_CONTINUITY.template.md` — `reusable/baseline/templates/docs/WORK_CONTINUITY.template.md`
+
+## Later source revision check
+
+After the scanner repair, 177 files lack a standalone exact match in the current vault checkout: the three newly unmatched files are `reusable/root-scripts/check_large_files.py`, `check_localization.py` and `check_swiftui_hot_path_patterns.py`. Each is byte-identical to its canonical baseline version at vault commit `a4b13e9e2911675175a6dbb8ed1c14b6a6b90863`; current versions were intentionally repaired. Comparing the unmatched files with all entries of `library-frozen.zip` found no additional exact matches. This is a bounded hash check, not semantic equivalence.
+
+## Follow-up comparisons, 2026-11-12
+
+- `app-specific/APP_SPECIFIC_MANIFEST.md`: comparison with the Tchop legacy manifest shows product-name and historical path substitutions; it is a historical inventory, not current routing. No semantic conclusion for each referenced file follows from this comparison.
+- `app-specific/.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`: the Tchop legacy report differs in source-app/path substitutions, including an erroneous substitution in the phrase “real source app”; the original Tchop report remains historical and does not grant runtime verification.
+- `app-specific/.codex/skills/ios-reusable-packages/references/package-rules.md`: comparison with the Tchop legacy rules showed only the source-app name substitution. Current Tchop reference requires revalidation; historical SwiftData/SyncCore assumptions are not global rules.
+- Exported content-card and package skill entrypoints differ from later preserved entrypoints in paths, trigger wording and routing, not just bytes; both are historical context, and current applicability is governed by the canonical skill and Tchop identity boundary. The export remains until overall provenance and coverage are resolved.

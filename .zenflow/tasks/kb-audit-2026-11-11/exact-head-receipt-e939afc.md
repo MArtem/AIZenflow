@@ -1,0 +1,3 @@
+# Exact HEAD receipt — e939afc
+
+Base 9b32b6a882a6fae484bd037bcf830ad0f5576745; HEAD e939afcc03166d8c836046882dca6b2db9bfcaf2; canonical worktree clean. One-file diff reviewed: historical license headers and absent same-revision asset paths are evidence only, not a claim of ownership, licensing, or distribution rights; no third-party content was copied, published, executed, or deleted. Initial shell loop failed because a shell-special variable altered command lookup in that process; corrected loop ran read-only. Vault static and diff checks passed; licensing/legal correctness, unexamined origins and dependency behavior remain UNKNOWN. Remote before push 9b32b6a; verify HEAD and confirm remote after push.

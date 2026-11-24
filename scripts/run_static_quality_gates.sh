@@ -72,6 +72,13 @@ from fnmatch import fnmatch
 from pathlib import Path
 
 root = Path(sys.argv[1]).resolve()
+sys.path.insert(0, str(root / "scripts"))
+from static_gate_scope import (
+    MAX_IGNORED_METADATA_BYTES,
+    MAX_IGNORED_METADATA_PATHS,
+    iter_git_nul_records,
+)
+
 inputs = (
     "AGENTS.md",
     "PROJECT_DOCUMENTATION.md",
@@ -133,31 +140,31 @@ for relative in inputs:
                 ):
                     raise SystemExit(f"Static metadata input must not be a symlink: {relative_path}")
 
-result = subprocess.run(
+unexpected_ignored = None
+for raw_entry in iter_git_nul_records(
     [
         "git", "-C", str(root), "ls-files", "--others", "--ignored", "--exclude-standard",
         "--directory", "--no-empty-directory", "-z", "--", *inputs,
     ],
-    capture_output=True,
-)
-if result.returncode != 0:
-    raise SystemExit("Cannot establish Git-ignored metadata exclusions.")
-ignored = [entry.decode("utf-8", errors="surrogateescape") for entry in result.stdout.split(b"\0") if entry]
-unexpected_ignored = [
-    entry
-    for entry in ignored
-    if not any(fnmatch(entry, pattern) for pattern in ALLOWED_IGNORED_TASK_ARTIFACTS)
-]
-if unexpected_ignored:
-    raise SystemExit(f"Static metadata inputs include Git-ignored content: {unexpected_ignored[0]}")
+    "Cannot establish Git-ignored metadata exclusions.",
+    max_output_bytes=MAX_IGNORED_METADATA_BYTES,
+    max_records=MAX_IGNORED_METADATA_PATHS,
+):
+    entry = raw_entry.decode("utf-8", errors="surrogateescape")
+    if unexpected_ignored is None and not any(
+        fnmatch(entry, pattern) for pattern in ALLOWED_IGNORED_TASK_ARTIFACTS
+    ):
+        unexpected_ignored = entry
+if unexpected_ignored is not None:
+    raise SystemExit(f"Static metadata inputs include Git-ignored content: {unexpected_ignored}")
 
-flags = subprocess.run(
+has_assume_unchanged = False
+for entry in iter_git_nul_records(
     ["git", "-C", str(root), "ls-files", "-v", "-z", "--", *inputs],
-    capture_output=True,
-)
-if flags.returncode != 0:
-    raise SystemExit("Cannot establish Git metadata index flags.")
-if any(entry[:1].islower() for entry in flags.stdout.split(b"\0") if entry):
+    "Cannot establish Git metadata index flags.",
+):
+    has_assume_unchanged = has_assume_unchanged or entry[:1].islower()
+if has_assume_unchanged:
     raise SystemExit("Static metadata inputs contain assume-unchanged entries.")
 PY
 }
@@ -216,12 +223,104 @@ counts = {
     "warning": sum("[warning]" in line for line in output.splitlines()),
     "review_candidate": sum("[review-candidate]" in line for line in output.splitlines()),
 }
+severity_names = {
+    "blocking": "blocking",
+    "warning": "warning",
+    "review-candidate": "review_candidate",
+}
+reported_severity_counts = {name: 0 for name in severity_names.values()}
+for line in output.splitlines():
+    if not line.startswith("- ["):
+        continue
+    marker = line[3:].split("]", 1)[0]
+    if marker in severity_names:
+        reported_severity_counts[severity_names[marker]] += 1
+
+scanner_checks = {
+    "secrets",
+    "large-files",
+    "forbidden-patterns",
+    "localization",
+    "swiftui-hot-path-patterns",
+}
+scanner_counts = None
+scanner_summary_complete = None
+severity_counts_complete = None
+scanner_severity_counts = None
+omitted_severity_counts = None
+if sys.argv[6] in scanner_checks:
+    import re
+
+    summaries = re.findall(
+        r"^Finding counts: total=(\d+), reported=(\d+), omitted=(\d+)$",
+        output,
+        flags=re.MULTILINE,
+    )
+    severity_summaries = re.findall(
+        r"^Finding severity totals: blocking=(\d+), warning=(\d+), review-candidate=(\d+)$",
+        output,
+        flags=re.MULTILINE,
+    )
+    if sys.argv[9] == "not-applicable":
+        if summaries or severity_summaries:
+            raise SystemExit("Not-applicable receipt unexpectedly contains scanner summaries.")
+        scanner_summary_complete = False
+        severity_counts_complete = False
+    elif len(summaries) == 1:
+        total, reported, omitted = map(int, summaries[0])
+        if total != reported + omitted or reported != sum(reported_severity_counts.values()):
+            raise SystemExit("Scanner summary does not match its reported finding markers.")
+        scanner_counts = {"total": total, "reported": reported, "omitted": omitted}
+        scanner_summary_complete = True
+        if len(severity_summaries) == 1:
+            blocking, warning, review_candidate = map(int, severity_summaries[0])
+            scanner_severity_counts = {
+                "blocking": blocking,
+                "warning": warning,
+                "review_candidate": review_candidate,
+            }
+            if sum(scanner_severity_counts.values()) != total:
+                raise SystemExit("Scanner severity totals do not match total findings.")
+            if any(scanner_severity_counts[name] < reported_severity_counts[name] for name in severity_names.values()):
+                raise SystemExit("Reported severity markers exceed scanner severity totals.")
+            omitted_severity_counts = {
+                name: scanner_severity_counts[name] - reported_severity_counts[name]
+                for name in severity_names.values()
+            }
+            severity_counts_complete = True
+        elif len(severity_summaries) > 1:
+            raise SystemExit("Scanner output contains duplicate severity-total summaries.")
+        elif int(sys.argv[5]) in (0, 1):
+            exact_identity = sys.argv[3] == "true" and sys.argv[4] == "commit" and sys.argv[8] == "true"
+            if exact_identity:
+                raise SystemExit("Scanner output is missing its required severity-total summary.")
+            severity_counts_complete = False
+        else:
+            severity_counts_complete = False
+    elif len(summaries) > 1:
+        raise SystemExit("Scanner output contains duplicate finding-count summaries.")
+    elif int(sys.argv[5]) in (0, 1):
+        exact_identity = sys.argv[3] == "true" and sys.argv[4] == "commit" and sys.argv[8] == "true"
+        if exact_identity:
+            raise SystemExit("Scanner output is missing its required finding-count summary.")
+        scanner_summary_complete = False
+        severity_counts_complete = False
+    else:
+        scanner_summary_complete = False
+        severity_counts_complete = False
+
 exit_code = int(sys.argv[5])
 cleanliness_established = sys.argv[3] != "unknown"
 exact_identity = sys.argv[4] == "commit" and sys.argv[3] == "true"
 head_unchanged = sys.argv[8] == "true"
 not_applicable = sys.argv[9] == "not-applicable"
-advisory = "warning" if counts["warning"] else "review_candidate" if counts["review_candidate"] else "none"
+if severity_counts_complete is True:
+    advisory_counts = scanner_severity_counts
+elif scanner_summary_complete is True:
+    advisory_counts = reported_severity_counts
+else:
+    advisory_counts = counts
+advisory = "warning" if advisory_counts["warning"] else "review_candidate" if advisory_counts["review_candidate"] else "none"
 status = "FAIL" if exit_code or not cleanliness_established or not head_unchanged else "BLOCKED" if not exact_identity else "NOT_APPLICABLE" if not_applicable else "PASS"
 print(json.dumps({
     "kind": "static-gate-evidence",
@@ -236,6 +335,12 @@ print(json.dumps({
     "scope": json.loads(sys.argv[7]),
     "exit_code": exit_code,
     "finding_counts": counts,
+    "scanner_finding_counts": scanner_counts,
+    "scanner_summary_complete": scanner_summary_complete,
+    "reported_severity_counts": reported_severity_counts if sys.argv[6] in scanner_checks else None,
+    "severity_counts": scanner_severity_counts if severity_counts_complete is True else None,
+    "omitted_severity_counts": omitted_severity_counts if severity_counts_complete is True else None,
+    "severity_counts_complete": severity_counts_complete,
     "advisory": advisory,
 }, sort_keys=True))
 ' "$SOURCE_SHA" "$RULE_VERSION" "$worktree_clean" "$SOURCE_IDENTITY_KIND" "$exit_code" "$check" "$scope_json" "$head_unchanged" "$applicability"

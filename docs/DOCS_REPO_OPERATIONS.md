@@ -31,8 +31,8 @@ From the active project worktree:
 ```bash
 python3 scripts/check_docs_index.py
 python3 scripts/check_bootstrap_contract.py
-python3 scripts/check_documentation_boundaries.py
-python3 scripts/check_documentation_remote_state.py
+python3 scripts/check_documentation_boundaries.py /Users/Artem/.zenflow/worktrees/documentation-vault
+python3 scripts/check_documentation_remote_state.py /Users/Artem/.zenflow/worktrees/documentation-vault
 git diff --check
 ```
 

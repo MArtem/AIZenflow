@@ -21,7 +21,7 @@ quality metrics.
   `build-evidence` boundary. This is a repository status snapshot, not independent verification,
   production attestation, or a stable-release claim; recheck the source before relying on a capability.
 - Machine schemas, adapters, fixtures, workflows, and verifier self-tests belong in the versioned
-  `MArtem/AIZenflowQualityControl` repository. Missing or not-yet-validated executable behavior
+  separately versioned quality-control engine repository. Missing or not-yet-validated executable behavior
   remains governed by this human policy and cannot be represented as normal `PASS` evidence.
 - Project facts and selected permissions belong in each project profile and local exception
   records, not in this reusable rule.

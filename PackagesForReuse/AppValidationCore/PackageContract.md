@@ -14,7 +14,7 @@ The package must keep the following guarantees:
 3. Source-owned DocC lives at `Sources/AppValidationCore/Documentation.docc/AppValidationCore.md`.
 4. Tests live under `Tests/AppValidationCoreTests/`.
 5. Verification lives under `Scripts/verify_package.sh`.
-6. The verifier uses a worktree-local scratch path outside the package folder: `WorktreeScratch/AppValidationCore`.
+6. If enabled, the verifier requires an explicitly caller-approved scratch root, creates one unique child owned by that invocation, and cleans only that child. The current verifier remains disabled until the shared success/failure scenario requirements are met; this contract is not evidence that verification ran.
 7. No sibling path dependencies are allowed.
 8. No remote package dependencies are allowed.
 9. No imports of sibling SDK packages are allowed.

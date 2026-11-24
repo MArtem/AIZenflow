@@ -1,0 +1,8 @@
+# Exact-HEAD receipt — 2026-11-15
+
+- Target: canonical documentation-vault `main`; trusted base/merge-base `c7c8c9cb7cfa744aa9e63e10fa5420be7e567771`; reviewed HEAD `4637dfd624cdb0c0d1e18b9daac5d970e593a864`; range `c7c8c9c..4637dfd`.
+- Contract: preserve project boundaries and historical evidence, clarify verification authority and unsupported claims, retire the unsafe network helper, and specify recoverable local/outbox ordering without inventing product decisions. No third-party residuals or application code are included.
+- Complete changed non-script text reviewed; 13 helper changes have identical reviewed replacement and original blob. No new blocking finding identified in this bounded patch. Separate open audit/follow-up risks remain in canonical follow-up; no full semantic-completeness or independent-review claim.
+- Vault tree clean after commit; exact-range diff check passed. Vault shape and boundary checks passed on unchanged contents; both distribution drift checks passed at committed HEAD (285 exact, zero stale/missing/unexpected); zsh syntax passed for the 13 stubs before commit. No script execution, network request, build, test, Simulator, hardware or service verification. iPad/physical/actual VoiceOver remain OMITTED_BY_USER.
+- User forbids additional agents; self-review is not independent review. Third-party provenance/rights, incomplete semantic review and scanner/fallback gaps remain open. Remote freshness and post-push SHA require separate confirmation immediately before/after push.
+- Pre-push direct remote `main` was `c7c8c9cb7cfa744aa9e63e10fa5420be7e567771`; HEAD and merge-base unchanged. Push completed; direct post-push remote `main` is `4637dfd624cdb0c0d1e18b9daac5d970e593a864`.

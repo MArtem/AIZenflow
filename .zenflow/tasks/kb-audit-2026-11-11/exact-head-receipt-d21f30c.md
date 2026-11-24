@@ -1,0 +1,3 @@
+# Exact HEAD receipt — d21f30c
+
+Base 13a18a8de03b4e741899a35187e695141761d9a4; HEAD d21f30c5ba2e0d628d7cfa3b0c0ce0a0b8f3f784; canonical worktree clean. One-file report records metadata of an already tracked historical third-party skill entrypoint, identical SHA to prior inventory, at a path present since a88bb9b; it does not copy, alter, publish anew, execute or delete the entrypoint, or claim rights. Full diff reviewed, static vault/diff checks passed. Licensor, terms, other archive copies and legal disposition remain UNKNOWN; no full license or semantic audit. Remote before push 13a18a8; verify HEAD and remote.

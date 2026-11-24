@@ -1,0 +1,4 @@
+# Exact-HEAD receipt — 2026-11-18
+
+Canonical target main; trusted base/merge-base `ca5e04fac1ffe739bcde9ae33ba89366d6169ae9`; HEAD `eb087dbe602725bb4c394ab0bbb0b5634a254829`. Contract: keep uncertain routing within requested scope while retaining broad readiness review when requested, synchronize two project mirrors, record three historical comparisons. Complete two-file committed diff reviewed; no blocking finding identified. Vault clean; exact diff check, vault structure check on unchanged content and both exact-mirror drift checks passed (285 exact, zero stale). No runtime/tests/agents. Full historical equivalence and broader audit remain unverified. Remote freshness and post-push SHA need direct confirmation.
+Direct remote before push: `ca5e04fac1ffe739bcde9ae33ba89366d6169ae9`; HEAD and merge-base unchanged. Push succeeded; direct remote after push: `eb087dbe602725bb4c394ab0bbb0b5634a254829`.

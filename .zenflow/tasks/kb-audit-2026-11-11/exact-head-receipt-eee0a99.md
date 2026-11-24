@@ -1,0 +1,3 @@
+# Exact HEAD receipt — eee0a99
+
+Base 48faf02313a39e6ab6dbf1e4f0bf8f7e5908a33c; HEAD eee0a99c46662793701f5abfd1c68036e43b6d55; canonical worktree clean. One-file report records static facts from current local API trace helpers: credential/request/response output, system mktemp and possible network, reachable only on execution. The user redirected work to KB; helpers were not changed or run and no secrets were read. Full report diff reviewed; vault and diff static checks passed. No risk remediation or scenario verification claimed. Remote before push 48faf02; verify HEAD and remote; package snapshot manifests need revision refresh.

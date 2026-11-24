@@ -7,7 +7,17 @@ while review candidates are reported for human/agent triage without automaticall
 
 import re
 
-from static_gate_scope import display_path, iter_baseline_gate_files, parse_scope_args, resolve_scan_roots
+from static_gate_scope import (
+    FindingCollector,
+    MAX_SCAN_BYTES,
+    OversizedScanInputError,
+    display_path,
+    iter_baseline_gate_files,
+    iter_matches_with_lines,
+    parse_scope_args,
+    read_text_limited,
+    resolve_scan_roots,
+)
 
 
 PATTERNS = [
@@ -25,30 +35,41 @@ PATTERNS = [
 def main() -> int:
     args = parse_scope_args("Scan blocking and review-candidate forbidden Swift patterns.")
     scan_roots = resolve_scan_roots(args.paths)
-    findings = []
+    findings = FindingCollector(args.max_findings)
+    blocking_found = False
+    scanned = 0
 
     # Test fixtures are not shipped SwiftUI/source hot paths; keep this production-pattern gate
     # aligned across app and package test targets without weakening the shipped-source scan.
-    scanned = 0
     for path in iter_baseline_gate_files(scan_roots, "forbidden-patterns", {"docs"}):
+        try:
+            text = read_text_limited(path, MAX_SCAN_BYTES)
+        except OversizedScanInputError:
+            findings.add(("blocking", "unscanned oversized file", path, 0))
+            blocking_found = True
+            continue
+        except OSError:
+            findings.add(("blocking", "unreadable file", path, 0))
+            blocking_found = True
+            continue
         scanned += 1
-        text = path.read_text(errors="ignore")
-        for severity, name, rx in PATTERNS:
-            for match in rx.finditer(text):
-                line = text[:match.start()].count("\n") + 1
-                findings.append((severity, name, path, line))
+        for severity, name, pattern in PATTERNS:
+            for _, line in iter_matches_with_lines(text, pattern):
+                findings.add((severity, name, path, line))
+                blocking_found = blocking_found or severity == "blocking"
 
-    if not scanned:
+    if not scanned and findings.total == 0:
         raise SystemExit("No eligible files for this scoped scan.")
-    if findings:
+    if findings.total:
         print("Forbidden/high-risk Swift patterns found:")
-        for severity, name, path, line in findings[:args.max_findings]:
-            print(f"- [{severity}] {name}: {display_path(path)}:{line}")
-        if len(findings) > args.max_findings:
-            print(f"... {len(findings) - args.max_findings} more")
-        return 1 if any(severity == "blocking" for severity, *_ in findings) else 0
+        for severity, name, path, line in findings.items:
+            location = display_path(path) if not line else f"{display_path(path)}:{line}"
+            print(f"- [{severity}] {name}: {location}")
+        print(findings.summary())
+        return 1 if blocking_found else 0
 
     print("Forbidden/high-risk Swift pattern scan OK")
+    print(findings.summary())
     return 0
 
 

@@ -1,0 +1,4 @@
+# Exact-HEAD receipt — 2026-11-18
+
+Canonical target main; trusted base/merge-base `9ec04181d4eb423111eba4a6dae917dea55cc5e3`; HEAD `785d4f7eb29e3c9a31d21aa315aa63440ca1666c`. Contract: retain Tchop product ownership and conditional backend scope while aligning prospective local/outbox ordering with the reusable recovery rule; record the exact historical comparison without runtime claims. Complete two-file exact diff reviewed, no new blocking finding. Vault clean; exact diff check and vault structure check passed on unchanged content. No tests, app runtime, independent agent or service action. Historical and runtime gaps remain open. Remote freshness and post-push SHA require direct confirmation.
+Direct remote before push: `9ec04181d4eb423111eba4a6dae917dea55cc5e3`; HEAD and merge-base unchanged. Push succeeded; direct remote after push: `785d4f7eb29e3c9a31d21aa315aa63440ca1666c`.

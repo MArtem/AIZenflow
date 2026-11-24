@@ -15,7 +15,7 @@ A skill never grants permission. Do not infer approval to edit application code,
 
 ## Source material
 
-Read `references/apple-source/SKILL.md` when this topic is active, then read only the linked reference files needed for the concrete question. The original references and helper script are preserved under `references/apple-source/`; they are not run or executed automatically.
+Read `references/apple-source/APPLE_SOURCE_REFERENCE.md` when this topic is active, then read only the linked reference files needed for the concrete question. The original references and helper script are preserved under `references/apple-source/`; they are not run or executed automatically.
 
 ## Tool and helper constraints
 

@@ -14,7 +14,7 @@ from pathlib import Path
 
 
 EXPECTED_REMOTE = "https://github.com/MArtem/AIZenflowDocumentation.git"
-DEFAULT_DOCS_REPO = Path("/Users/Artem/.zenflow/worktrees/documentation-vault")
+DEFAULT_DOCS_REPO = Path.cwd()
 
 
 def run_git(repo: Path, *args: str) -> tuple[int, str, str]:
@@ -36,7 +36,7 @@ def main() -> int:
         nargs="?",
         default=DEFAULT_DOCS_REPO,
         type=Path,
-        help="Local checkout of MArtem/AIZenflowDocumentation.",
+        help="Local checkout of MArtem/AIZenflowDocumentation (defaults to the current directory).",
     )
     args = parser.parse_args()
     repo = args.repo.resolve()
