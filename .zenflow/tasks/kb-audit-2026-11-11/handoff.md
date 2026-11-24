@@ -8,6 +8,7 @@
 - Последняя каноническая публикация: `d6bd1cd01cd48012238e86f023809dc2e0e665bc`, поверх `c27bfd037914edd301076c3c20d2297d3d6956af`. `origin/main` проверен по точному SHA, canonical worktree чистое.
 - `PackagesForReuse/PACKAGE_SNAPSHOT_MANIFEST.json` обновлён на `d6bd1cd…`; `python3 -B scripts/generate_package_snapshot_manifest.py --check` прошёл.
 - KBN commit `b10e3ec8a7ae6fe8f306119b14a21d308029b66e` отправлен в `origin/main` и `origin/development`; обе remote-ссылки проверены по точному SHA. Отдельной ветки `dev` нет, dev-веткой служит существующая `development`. В Documentation Vault `main` и `development` обе указывают на опубликованный `d6bd1cd01cd48012238e86f023809dc2e0e665bc`. Компактный exact-HEAD receipt сохранён рядом.
+- После этого обнаружен отдельный `main` worktree с 855 незакоммиченными tracked-изменениями. Весь снимок сохранён в `40ad58705fd4d85aec4de7eb41a6983896a41ab4` и слит обычным merge `7ba63eeb03720bffac666f1343dced3a0be90e7f` с опубликованным `f7f1949e6b3c3b1372a7c9bf24eb1a20d429821d`, без переписывания истории. Ещё 20 исторических external-environment blobs исключены из активного дерева, но все проверены в исходном base `6d9454f2edd5459531c34a49143cc5b4cdf5247c`; оставшиеся 206 ignored-вложений в worktree не менялись. Итоговый merge receipt сохранён рядом.
 
 ## Результат и evidence
 
