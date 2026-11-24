@@ -47,10 +47,8 @@ The host app owns:
 
 ## Verification After Copy
 
-Run:
-
-```zsh
-./Scripts/verify_package.sh
-```
-
-Then run the host project's build/test/static checks after wiring the package.
+The reviewed package verifier is temporarily disabled because its earlier cleanup could remove
+pre-existing package state and `Package.resolved`. Other copies may differ; inspect their exact
+revision and ownership before use. No package verification is implied by this documentation.
+A safe replacement needs a reviewed ownership/containment contract and separately authorized
+scenario verification. Host-app build, test and runtime checks also require current permission.

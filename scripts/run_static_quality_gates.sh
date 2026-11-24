@@ -308,26 +308,24 @@ if [[ "$metadata_exit_code" -ne 0 ]]; then
 fi
 
 scope_has_eligible_files() {
-  local pattern="$1"
-  local excludes="$2"
-  PYTHONPATH="$ROOT/scripts" STATIC_GATE_PATTERN="$pattern" STATIC_GATE_EXCLUDES="$excludes" python3 - "${SCOPE[@]}" <<'PY'
+  local gate="$1"
+  PYTHONPATH="$ROOT/scripts" STATIC_GATE_NAME="$gate" python3 - "${SCOPE[@]}" <<'PY_GATE'
 import os
-from static_gate_scope import iter_files, parse_scope_args, resolve_scan_roots
+from static_gate_scope import iter_baseline_gate_files, parse_scope_args, resolve_scan_roots
 
 args = parse_scope_args("Resolve static-gate scope.")
-excludes = {value for value in os.environ["STATIC_GATE_EXCLUDES"].split(",") if value}
 roots = resolve_scan_roots(args.paths)
-print("applicable" if any(iter_files(roots, os.environ["STATIC_GATE_PATTERN"], excludes)) else "not-applicable")
-PY
+gate = os.environ["STATIC_GATE_NAME"]
+extra = {"docs"} if gate == "forbidden-patterns" else None
+print("applicable" if any(iter_baseline_gate_files(roots, gate, extra)) else "not-applicable")
+PY_GATE
 }
 
 run_scope_gate() {
   local check="$1"
-  local pattern="$2"
-  local excludes="$3"
-  shift 3
+  shift
   local applicability
-  if ! applicability="$(scope_has_eligible_files "$pattern" "$excludes")"; then
+  if ! applicability="$(scope_has_eligible_files "$check")"; then
     return 2
   fi
   if [[ "$applicability" == "applicable" ]]; then
@@ -364,8 +362,8 @@ SCAN_SCOPE_JSON="$scope_output"
 run_gate "docs-index" "$METADATA_SCOPE_JSON" python3 "$ROOT/scripts/check_docs_index.py"
 run_gate "docs-consistency" "$METADATA_SCOPE_JSON" python3 "$ROOT/scripts/check_docs_consistency.py"
 run_gate "ios-production-framework" "$METADATA_SCOPE_JSON" python3 "$ROOT/scripts/validate_ios_production_framework.py"
-run_scope_gate "secrets" "*" ".zenflow,traces" python3 "$ROOT/scripts/check_secrets.py" "${SCOPE[@]}"
-run_scope_gate "large-files" "*" "traces" python3 "$ROOT/scripts/check_large_files.py" "${SCOPE[@]}"
-run_scope_gate "forbidden-patterns" "*.swift" "TchopAppTests,docs,.zenflow" python3 "$ROOT/scripts/check_forbidden_patterns.py" "${SCOPE[@]}"
-run_scope_gate "localization" "*.swift" "TchopAppTests" python3 "$ROOT/scripts/check_localization.py" "${SCOPE[@]}"
-run_scope_gate "swiftui-hot-path-patterns" "*.swift" "TchopAppTests" python3 "$ROOT/scripts/check_swiftui_hot_path_patterns.py" "${SCOPE[@]}"
+run_scope_gate "secrets" python3 "$ROOT/scripts/check_secrets.py" "${SCOPE[@]}"
+run_scope_gate "large-files" python3 "$ROOT/scripts/check_large_files.py" "${SCOPE[@]}"
+run_scope_gate "forbidden-patterns" python3 "$ROOT/scripts/check_forbidden_patterns.py" "${SCOPE[@]}"
+run_scope_gate "localization" python3 "$ROOT/scripts/check_localization.py" "${SCOPE[@]}"
+run_scope_gate "swiftui-hot-path-patterns" python3 "$ROOT/scripts/check_swiftui_hot_path_patterns.py" "${SCOPE[@]}"

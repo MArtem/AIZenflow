@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+printf '%s\n' 'App verification helper disabled: it previously removed package state before argument validation. No build, test, or cleanup was run.' >&2
+exit 2
 #
 # Legacy app verification helper.
 #

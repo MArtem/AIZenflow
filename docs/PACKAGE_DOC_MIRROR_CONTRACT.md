@@ -16,12 +16,14 @@ Documentation Vault and a consuming worktree.
 ## Consuming-worktree form
 
 - The consuming worktree may specialize neutral host terminology to its real app name.
-- `PackagesForReuse` is the source snapshot; `PackagesInUse` is the active source-only snapshot.
+- Where the consuming project adopts this source-only layout, `PackagesForReuse` is its source snapshot and `PackagesInUse` its active integration snapshot. Other layouts follow their own documented adoption contract.
 - Adoption, target membership, rollback and product policy remain owned by the consuming app docs.
 - A mirror change must preserve package API, ownership, verification and safety semantics.
 
 ## Verification
 
-Review the transformed diff for executable paths and commands, then validate package counts and
-hashes with `scripts/generate_package_snapshot_manifest.py --check`. A package-doc change is not
-complete when only a date or folder count changed without an updated snapshot identity.
+Review the transformed diff for executable paths and commands. Where the selected profile uses
+the source-only snapshot manifest, validate package counts and hashes with
+`scripts/generate_package_snapshot_manifest.py --check`; other profiles use their applicable
+identity checks. A package-doc change is not complete when only a date or folder count changed
+without an updated snapshot identity.

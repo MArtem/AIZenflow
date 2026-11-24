@@ -77,6 +77,7 @@ Read only when the route requires it:
 | Deep iOS specialist knowledge | Select the matching `ios-*` machine route; scope and maturity start at `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md` and `./docs/knowledge/global/ios/README.md` |
 | Code comments/documentation pass | `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`, `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md` |
 | Reusable packages/managers/dependencies/adoption | `./docs/PACKAGES_AND_MANAGERS.md`, `./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md`, `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`, `./docs/DEPENDENCY_POLICY.md`, relevant package README/catalog; load a source-only app overlay when present |
+| Canonical package-documentation mirroring to a consuming worktree | `./docs/PACKAGE_DOC_MIRROR_CONTRACT.md` |
 | Toolchain/compiler/SDK/isolation/availability profile | `./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md`, `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`, `./docs/COMPATIBILITY_MATRIX.md`, and the relevant platform/deep reference |
 | Release/privacy/performance/accessibility matrix | `./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md`, `./docs/IOS_RELEASE_CHECKLIST.md`, `./docs/IOS_SECURITY_PRIVACY_GATE.md`, `./docs/IOS_PERFORMANCE_BUDGETS.md`, and the relevant accessibility/platform route |
 | Current content/feed persistence contract | persistence/migration/data-loss route plus the matching app overlay when present |
@@ -131,8 +132,5 @@ matching routes; this index keeps them discoverable to the local validator,
 not mandatory for startup or every iOS task. Even when a broad route matches,
 read an optional document only when its specific subject affects the task:
 
-- `./docs/SHARE_EXTENSION_VALIDATION.md`
 - `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`
 - `./docs/PACKAGE_DOC_MIRROR_CONTRACT.md`
-- `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
-- `./docs/IOS_ARCHITECTURE_REFERENCE.md`

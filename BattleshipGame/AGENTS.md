@@ -9,7 +9,8 @@ routes first. This overlay cannot weaken those permissions or activate another p
 ## Retired Library entrypoint — 2026-10-11
 
 Task `kb-unification-2026-10-09` retires this overlay's separate Library startup/status/
-second-pass instructions. `./IOSLibrary/` remains inactive historical reference.
+second-pass instructions. The former `./IOSLibrary/` payload was retired after its
+contents were reconciled with the canonical KB; it is not a current task input or installation.
 Original exact payload/pin/handler metadata and overlay are preserved in the
 [frozen task snapshot](../.zenflow/tasks/kb-unification-2026-10-09/archive/library-snapshot/README.md).
 No automatic status command, ON/OFF choice or supporting Library pass is required.

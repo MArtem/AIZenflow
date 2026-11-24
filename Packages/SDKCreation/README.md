@@ -36,9 +36,9 @@ For every new package:
 1. Copy `Templates/PackageTemplate`.
 2. Replace all `{{PackageName}}` placeholders.
 3. Fill in `PackageContract.md` before writing implementation.
-4. Add tests before considering the package complete.
+4. Define risk-based verification; create or run tests only when currently authorized, and report missing evidence as a remaining risk.
 5. Run `Scripts/verify_package_structure.sh <PackagePath>`.
-6. Run the package-local `Scripts/verify_package.sh`.
+6. Generated `Scripts/verify_package.sh` and the aggregate verifier and archive normalizer currently fail closed. Do not claim verification until a safe workflow is separately authorized and actually run; previously generated scripts may retain unsafe behavior.
 7. If the package needs cross-package integration, create an optional helper using `Templates/IntegrationHelperTemplate`.
 
 ## Current roadmap

@@ -41,22 +41,25 @@ Use this checklist for every new package.
 [ ] Shared mutable state is protected by actor/lock/value isolation
 [ ] @MainActor used only when justified
 [ ] Cancellation behavior documented
-[ ] No unnecessary @unchecked Sendable
+[ ] No @unchecked Sendable; resolve ownership and isolation according to CONCURRENCY_POLICY.md
 ```
 
 ## Privacy
 
 ```text
 [ ] No raw tokens/headers/body text in logs/analytics/errors
-[ ] URLs are sanitized before telemetry
+[ ] URL telemetry uses an explicit allowlist/redaction policy; path/slug is not assumed safe
 [ ] Raw error string not emitted by default
 [ ] Redaction tests added where applicable
 ```
 
 ## Testing
 
+The entries describe relevant coverage, not permission to create or run tests. Follow current
+user authorization; record unavailable coverage as not verified, never as a pass.
+
 ```text
-[ ] Happy path tests
+[ ] Risk-based verification for happy path where applicable and permitted
 [ ] Failure path tests
 [ ] Edge case tests
 [ ] Corruption/fallback tests if storage-like
@@ -80,4 +83,4 @@ Use this checklist for every new package.
 
 ## Multi-target note
 
-Multi-target packages are allowed when the targets are inside the same package folder and remain app-independent. The standalone verifier requires at least one source target, at least one test target, and source-owned DocC, but it does not require every package to have exactly one target named after the package.
+Multi-target packages are allowed when the targets are inside the same package folder and remain app-independent. The historical standalone verifier expected at least one source target, one test target, and source-owned DocC; it did not require every package to have exactly one target named after the package. The reviewed verifier templates are disabled pending a safe replacement. Revalidate the selected verifier and current permissions before any use; this note is not verification evidence.

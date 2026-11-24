@@ -1,10 +1,13 @@
 # UI Pixel-Perfect Workflow
 
 ## Purpose
-Rules for implementing UI/design tasks in `source-app` from screenshots, Figma, PDFs, SVG, CSS export, or visual references.
+Rules for implementing UI/design tasks in a target iOS project from screenshots, Figma, PDFs, SVG,
+CSS export, or visual references.
 
-## Mandatory Model Rule
-- Apply `MODEL_ROUTING_RULE.md`. UI/design work based on screenshots, Figma, PDF, SVG, CSS, or visual comparison starts at `GPT-5.6 sol` with high reasoning. Use `tera` only for bounded work with strong visual evidence when the expected fidelity is unchanged; high-risk work and final high-risk review remain on `sol` high.
+## Model And Fidelity Rule
+- Apply `MODEL_ROUTING_RULE.md` before UI/design work. The currently selected route and any scoped
+  user/task override remain authoritative; visual ambiguity and fidelity risk affect the required
+  reasoning level, but this workflow does not impose a permanent model on unrelated work.
 
 ## Figma MCP Prompt Rule
 - If the user provides a Figma link or says the work starts from Figma, read
@@ -28,7 +31,7 @@ Rules for implementing UI/design tasks in `source-app` from screenshots, Figma, 
 Use this priority order:
 1. explicit user-provided numeric values
 2. user-provided screenshot/reference
-3. existing `source-app` design tokens and nearby app patterns
+3. existing target-project design tokens and nearby app patterns
 4. reasonable platform default only if not visible and not specified
 
 If the user explicitly provides a value such as spacing, size, radius, font size, or hex color, that value wins over an existing token.
@@ -51,12 +54,14 @@ Ask before implementation if any of these are unclear:
 ## Implementation Rules
 - Implement only what is visible or explicitly requested.
 - Do not add extra UI states, actions, menus, or fallbacks.
-- Use `AppTheme`, `AppSpacing`, `AppTypography`, `AppRadius`, and `AppLocalization` where they match the design.
+- Use existing project design tokens and localization facades where they match the design; do not
+  introduce a token framework solely because this workflow names one.
 - Literal values are allowed for pixel-specific tuning when the user gives exact px values or the screenshot requires local precision.
 - Literal values should stay local unless there is clear repeated semantic reuse.
 - Preserve accessibility semantics for interactive UI.
 - Avoid heavy computation or formatting inside SwiftUI `body`.
-- Avoid screen-level `private var some View` and `@ViewBuilder private func` helpers; extract dedicated `View` types.
+- Extract a dedicated `View` type when it improves ownership, reuse, or reviewability. Keep a small
+  local helper when it is clearer and does not create a decorative abstraction.
 
 ## Verification Policy
 - Do not run build/simulator/snapshot verification unless the user explicitly asks.

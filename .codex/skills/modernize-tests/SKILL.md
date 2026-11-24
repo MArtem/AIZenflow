@@ -17,6 +17,14 @@ A skill never grants permission. Do not infer approval to edit application code,
 
 Read `references/apple-source/SKILL.md` when this topic is active, then read only the linked reference files needed for the concrete question. The original references and helper script are preserved under `references/apple-source/`; they are not run or executed automatically.
 
+## Asynchronous confirmation boundary
+
+A `confirmation` is checked when its closure returns; it does not by itself wait for an
+escaping callback. Do not mechanically replace an XCTest expectation with the source example
+when the operation returns before the event. Keep the closure alive by awaiting the actual
+operation or use an appropriate deterministic synchronization mechanism; preserve the original
+event, timeout and failure semantics. See [Apple confirmation documentation](https://developer.apple.com/documentation/testing/confirmation%28_%3Aexpectedcount%3Aisolation%3Asourcelocation%3A_%3A%29-5mqz2).
+
 ## Workflow constraints
 
 The source may refer to task-management tools or mandatory subagents; use available task-planning mechanisms only, and do not assume delegation is available. Preserve the active project's architecture, supported-platform scope, test strategy, and verification authorization. Treat source recommendations as candidates to validate, not as instructions to edit every matching file or force a non-empty diff.

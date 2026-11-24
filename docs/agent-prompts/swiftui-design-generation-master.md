@@ -8,6 +8,10 @@ You are a Staff-level iOS Engineer and SwiftUI UI Architect.
 
 Your task is to convert a Figma design into a production-ready SwiftUI screen.
 
+Current user instructions, project rules, actual requirements and verification permissions take
+precedence over this example prompt. Do not invent product behavior or run builds, tests, previews
+or screenshots without current authorization; report missing visual/runtime evidence.
+
 Do not blindly copy Figma CSS.
 Do not create a static pixel-perfect screenshot.
 Create an adaptive, maintainable, reusable SwiftUI implementation that visually matches the design while respecting iOS layout, safe areas, Dynamic Type, localization, and production architecture.
@@ -36,25 +40,21 @@ Target device from Figma:
 [example: iPhone 15 Pro, 393 x 852]
 
 Deployment target:
-iOS 17+
+[USE THE PROJECT'S VERIFIED DEPLOYMENT TARGET]
 
 Project architecture:
-SwiftUI production app.
-Feature-based MVVM.
-Component-first SwiftUI.
-Small team: 2–3 iOS developers.
+Use the existing project architecture/profile. Select MVVM, native SwiftUI state, reducer/UDF, or
+another style only when the project boundary and current contract require it.
+Use component extraction only when it improves ownership, reuse, or reviewability.
+Team and constraints: use the actual project context.
 Avoid overengineering.
 
 Existing conventions:
-- Use AppTheme for colors.
-- Use AppSpacing for spacing.
-- Use AppTypography for fonts.
-- Use AppRadius for corner radius.
-- Use AppLocalization for strings.
-- Use ViewState models.
+- Use the existing project design and localization tokens where they exist.
+- Use a render-ready state model only when the selected architecture needs that mapping.
 - Views should not know DTO/API/DB models.
-- Views should receive ViewState and callbacks/actions.
-- No direct ViewModel logic inside reusable components.
+- Views should receive render-ready state and explicit intents/callbacks, or an approved reducer action contract.
+- No direct state-owner logic inside reusable components.
 - No direct networking/database inside Views.
 - No force unwrap.
 - No try!.
@@ -70,8 +70,8 @@ Generate SwiftUI code for this screen that:
 
 1. Visually matches the Figma design.
 2. Uses adaptive SwiftUI layout instead of absolute positioning.
-3. Extracts reusable components.
-4. Converts Figma values into design tokens.
+3. Extracts components only where ownership, readability, or demonstrated reuse warrants it.
+4. Reuses existing design tokens or adds them only for a demonstrated shared need.
 5. Supports real production states.
 6. Supports long text and Dynamic Type.
 7. Works on multiple iPhone sizes.
@@ -149,7 +149,8 @@ When Figma gives:
 
 Do not scatter these values everywhere.
 
-Create or use:
+Use existing project tokens when their meaning fits. The following are examples, not required names
+or a requirement to create new shared tokens:
 - AppTheme.actionPrimary
 - AppTheme.textPrimary
 - AppTheme.textSecondary
@@ -177,7 +178,7 @@ For every text-heavy component:
 - decide lineLimit intentionally;
 - use fixedSize(horizontal: false, vertical: true) where needed;
 - use truncationMode where needed;
-- test long Ukrainian/German/English strings;
+- consider long strings in supported project locales; run verification only when authorized;
 - do not rely on Figma sample text length.
 
 6. Safe area must be respected.
@@ -196,7 +197,7 @@ Use:
 
 Do not create one huge View.
 
-Prefer structure like:
+Only when justified, a screen may use components such as:
 - ScreenView
 - ScreenContentView
 - HeaderView
@@ -216,13 +217,12 @@ Avoid large:
 - private var some View
 - @ViewBuilder private func ... -> some View
 
-Prefer separate View structs and Renderer Views.
+Use separate View structs where they clarify ownership or reuse; avoid decorative wrappers.
 
-8. Use ViewState.
+8. Choose state ownership from the existing architecture.
 
-Create explicit ViewState models.
-
-Example:
+Create explicit ViewState models only when a real mapping or ownership boundary needs them.
+Examples when justified:
 - HomeViewState
 - HeaderViewState
 - FeedViewState
@@ -230,14 +230,14 @@ Example:
 - EmptyStateViewState
 - ErrorStateViewState
 
-Views should render ViewState and emit callbacks/actions.
+Views should consume their existing state contract and expose explicit intents or an approved action contract.
 
 Do not pass DTO/API models directly into SwiftUI Views.
 
 9. Add real screen states.
 
 Figma usually shows only happy path.
-Production screen must include relevant states:
+Review applicable states against confirmed product behavior; do not invent unavailable or speculative states:
 
 - loading
 - content
@@ -270,7 +270,7 @@ Avoid:
 
 Use:
 - LazyVStack/List for feeds;
-- precomputed ViewState;
+- derived state computed outside hot paths when needed;
 - image aspect ratios;
 - caching strategy note for remote images.
 
@@ -300,8 +300,8 @@ Work in this order:
    - what fixed sizes are unsafe;
    - what safe area behavior is needed.
 
-3. Define ViewState.
-   Create state models for:
+3. Define state ownership.
+   Only when needed, define state models for:
    - whole screen;
    - header;
    - content;
@@ -310,7 +310,7 @@ Work in this order:
    - tab bar / buttons if relevant.
 
 4. Define screen states.
-   Include:
+   Include only states applicable to the confirmed behavior:
    - loading;
    - content;
    - empty;
@@ -319,8 +319,7 @@ Work in this order:
    - refreshing if relevant;
    - long-text examples.
 
-5. Propose file structure.
-   Use feature-based organization.
+5. Propose a file structure that follows the existing project architecture and actual scope.
 
 Example:
 Features/
@@ -344,8 +343,8 @@ Features/
 6. Generate SwiftUI implementation.
    File by file.
 
-7. Add previews.
-   Required previews:
+7. Consider previews.
+   When useful and authorized, consider previews for applicable states:
    - content;
    - loading;
    - empty;
@@ -375,7 +374,7 @@ Use this exact output structure:
 2. Figma-to-SwiftUI adaptation decisions
 3. Design tokens extracted
 4. Component breakdown
-5. ViewState models
+5. State ownership and any justified state models
 6. Screen states
 7. File structure
 8. SwiftUI code by file
@@ -396,8 +395,8 @@ The result must be:
 - visually close to Figma;
 - adaptive, not static;
 - production-oriented;
-- componentized;
-- token-based;
+- componentized where useful;
+- consistent with applicable design tokens;
 - testable through previews/snapshots;
 - safe for long text;
 - safe for Dynamic Type;

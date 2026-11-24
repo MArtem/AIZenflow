@@ -17,7 +17,7 @@ Resolve `DOC:` identifiers through the active task router in canonical
 ## Workflow
 1. State the claim or symptom, environment, earliest incorrect state, and evidence already available.
 2. Select the cheapest evidence that can falsify the leading hypothesis.
-3. Choose unit, component, integration, UI, snapshot, property/fuzz, performance, or manual/device coverage from the failure mode.
+3. Select evidence from the failure mode and current authorization. Apply `DOC:CURRENT_USER_OVERRIDES.md`: omit iPad, physical-device and actual VoiceOver checks from plans and gates; preserve excluded evidence as `OMITTED_BY_USER`, never PASS. Report unverified behavior and do not execute tests or runtime checks without current permission.
 4. Control clocks, randomness, scheduling, files, locale, network, and global state where they affect determinism.
 5. Preserve failing evidence before changing code.
 6. Verify the invariant and state every unexecuted gate.

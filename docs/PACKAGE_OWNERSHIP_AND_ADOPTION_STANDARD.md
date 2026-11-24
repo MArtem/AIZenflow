@@ -12,10 +12,11 @@ rollback history for current and future projects.
 - `reusable/package-vault-docs/PACKAGE_CATALOG.md` is the reusable capability inventory.
 - A catalog entry describes the mechanism, supported products/targets, package source revision or
   published version policy, limitations and host-owned responsibilities.
-- `PackagesForReuse` is a reviewed source snapshot. A package is identified by its package path,
-  content revision or published tag, and the Documentation Vault revision used for its contract.
-- `PackagesInUse` is an app-owned integration snapshot. Its adoption, target membership, local
-  wiring, migration and rollback history belongs under `apps/<AppName>/` or the consuming task.
+- Where a project adopts this layout, `PackagesForReuse` is its reviewed source snapshot and
+  `PackagesInUse` its app-owned integration snapshot. Identify each package by its actual source
+  path, content revision or published tag and the Documentation Vault revision of its contract.
+  Adoption, target membership, wiring, migration and rollback history belongs under
+  `apps/<AppName>/` or the consuming task. Other layouts follow their own adopted profile.
 
 The reusable catalog must not be the authority for whether a package is active in a particular
 app. App-specific names, endpoints, product policy, target membership, rollout decisions and

@@ -7,7 +7,7 @@ secrets as blocking findings because token leakage is a security/privacy stop co
 
 import re
 
-from static_gate_scope import display_path, iter_files, parse_scope_args, resolve_scan_roots
+from static_gate_scope import display_path, iter_baseline_gate_files, parse_scope_args, resolve_scan_roots
 
 
 PATTERNS = [
@@ -36,12 +36,16 @@ def main() -> int:
     scan_roots = resolve_scan_roots(args.paths)
     findings = []
     unreadable = []
+    oversized = []
+    scanned = 0
 
-    for path in iter_files(scan_roots, "*", {".zenflow", "traces"}):
+    for path in iter_baseline_gate_files(scan_roots, "secrets"):
         try:
             if path.stat().st_size > MAX_SECRET_SCAN_BYTES:
+                oversized.append(path)
                 continue
             text = path.read_text(errors="ignore")
+            scanned += 1
         except OSError:
             unreadable.append(path)
             continue
@@ -50,8 +54,7 @@ def main() -> int:
                 literal_match = re.search(r'["\']([^"\']+)["\']\s*$', match.group(0))
                 literal = literal_match.group(1) if literal_match else ""
                 if name == "generic token assignment" and (
-                    literal.startswith(("dev-access-", "dev-refresh-", "reqres-demo-refresh-"))
-                    or literal.startswith("${")
+                    literal.startswith("${")
                     # These exact values are bounded authentication fixtures in XCTest sources,
                     # not credentials. Keep the allowlist literal- and path-specific.
                     or (path.name.endswith("Tests.swift") and literal in SAFE_TEST_FIXTURE_LITERALS)
@@ -60,13 +63,18 @@ def main() -> int:
                 line = text[:match.start()].count("\n") + 1
                 findings.append((name, path, line))
 
-    if findings or unreadable:
+    if not scanned and not unreadable and not oversized:
+        raise SystemExit("No eligible files for this scoped scan.")
+    if findings or unreadable or oversized:
         print("Secret scan failed (blocking until reviewed):")
-        for path in unreadable[:args.max_findings]:
-            print(f"- [blocking] unreadable file: {display_path(path)}")
-        for name, path, line in findings[:args.max_findings]:
-            print(f"- [blocking] {name}: {display_path(path)}:{line}")
-        remaining = len(unreadable) + len(findings) - args.max_findings
+        entries = (
+            [f"- [blocking] unscanned oversized file: {display_path(path)}" for path in oversized]
+            + [f"- [blocking] unreadable file: {display_path(path)}" for path in unreadable]
+            + [f"- [blocking] {name}: {display_path(path)}:{line}" for name, path, line in findings]
+        )
+        for entry in entries[:args.max_findings]:
+            print(entry)
+        remaining = len(entries) - args.max_findings
         if remaining > 0:
             print(f"... {remaining} more")
         return 1

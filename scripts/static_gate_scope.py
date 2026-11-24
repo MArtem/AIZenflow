@@ -10,6 +10,7 @@ findings from sibling apps or legacy folders.
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 from functools import lru_cache
 from pathlib import Path
@@ -30,6 +31,17 @@ def repo_root() -> Path:
     return Path(__file__).resolve().parents[1]
 
 
+def nonnegative_findings_limit(raw: str) -> int:
+    """Reject invalid output limits before any scan starts."""
+    try:
+        value = int(raw)
+    except ValueError as error:
+        raise argparse.ArgumentTypeError("expected a nonnegative integer") from error
+    if value < 0:
+        raise argparse.ArgumentTypeError("expected a nonnegative integer")
+    return value
+
+
 def parse_scope_args(description: str) -> argparse.Namespace:
     """Parse common scanner arguments used by static gate scripts."""
     parser = argparse.ArgumentParser(description=description)
@@ -40,9 +52,9 @@ def parse_scope_args(description: str) -> argparse.Namespace:
     )
     parser.add_argument(
         "--max-findings",
-        type=int,
+        type=nonnegative_findings_limit,
         default=150,
-        help="Maximum findings to print before truncating output.",
+        help="Requested output limit; support varies by scanner and does not bound memory.",
     )
     return parser.parse_args()
 
@@ -282,6 +294,100 @@ def iter_files(
                 and not should_exclude(resolved_path, extra_excludes)
             ):
                 yield resolved_path
+
+
+# Canonical baseline gate eligibility. The scanner and its wrapper must use this exact
+# shared iterator so a non-applicable result cannot hide a different file universe.
+BASELINE_GATE_RULES = {
+    "secrets": ("*", (".zenflow", "traces", "docs/reusable-baseline/external-environment")),
+    "large-files": ("*", (".zenflow", "traces", "docs/reusable-baseline/external-environment")),
+    "forbidden-patterns": ("*.swift", ("Tests", ".zenflow", "docs/archive", "docs/reusable-baseline/external-environment")),
+    "localization": ("*.swift", ("Tests", ".zenflow", "docs/reusable-baseline/external-environment")),
+    "swiftui-hot-path-patterns": ("*.swift", ("Tests", ".zenflow", "docs/reusable-baseline/external-environment")),
+}
+
+
+def iter_baseline_gate_files(
+    roots: Iterable[Path], gate: str, extra_excludes: set[str] | None = None,
+) -> Iterable[Path]:
+    """Yield the exact eligible universe shared by a named baseline gate and its wrapper."""
+    if gate not in BASELINE_GATE_RULES:
+        raise SystemExit(f"Unknown baseline gate: {gate}")
+    pattern, excluded_substrings = BASELINE_GATE_RULES[gate]
+    root = repo_root().resolve()
+    roots = list(roots)
+    ignored = ignored_untracked_paths(root, roots)
+    submodules = submodule_paths(root)
+
+    def excluded(path: Path) -> bool:
+        relative = path.relative_to(root)
+        def matches(value: str) -> bool:
+            if value in {".zenflow", "traces"}:
+                return value in relative.parts
+            if value == "Tests":
+                return any(part == "Tests" or part.endswith("Tests") or part.endswith("Tests.swift")
+                           for part in relative.parts)
+            return value in relative.as_posix()
+
+        return any(part in (extra_excludes or set()) for part in relative.parts) or any(
+            matches(value) for value in excluded_substrings
+        )
+
+    def on_walk_error(error: OSError) -> None:
+        raise SystemExit(f"Cannot enumerate scan directory: {error.filename}") from error
+
+    def checked_file(path: Path) -> Path | None:
+        if (should_exclude(path) or excluded(path) or is_ignored_path(path, ignored)
+                or is_submodule_path(path, submodules)):
+            return None
+        resolved = path.resolve()
+        try:
+            resolved.relative_to(root)
+        except ValueError as error:
+            raise SystemExit(f"Static scan symlink escapes repository root: {path}") from error
+        if path.is_symlink() and not resolved.is_file():
+            raise SystemExit(f"Static scan link is not a readable file: {path}")
+        if path.is_symlink() and is_ignored_untracked_target(root, resolved, ignored):
+            return None
+        if not resolved.is_file():
+            raise SystemExit(f"Static scan entry is not a readable file: {path}")
+        if resolved.match(pattern) and not excluded(resolved):
+            return resolved
+        return None
+
+    seen: set[Path] = set()
+    for scan_root in roots:
+        lexical = scan_root.absolute()
+        if (should_exclude(lexical) or excluded(lexical) or is_ignored_path(lexical, ignored)
+                or is_submodule_path(lexical, submodules)):
+            continue
+        if lexical.is_file():
+            candidate = checked_file(lexical)
+            if candidate is not None and candidate not in seen:
+                seen.add(candidate)
+                yield candidate
+            continue
+        if lexical.is_symlink():
+            raise SystemExit(f"Directory symlink cannot provide complete scan evidence: {lexical}")
+        # Walk with explicit error handling: pathlib.rglob may silently skip
+        # inaccessible directories and incorrectly leave an empty success.
+        for directory, directories, files in os.walk(lexical, topdown=True, onerror=on_walk_error, followlinks=False):
+            parent = Path(directory)
+            kept = []
+            for name in directories:
+                child = parent / name
+                if (should_exclude(child) or excluded(child) or is_ignored_path(child, ignored)
+                        or is_submodule_path(child, submodules)):
+                    continue
+                if child.is_symlink():
+                    raise SystemExit(f"Directory symlink cannot provide complete scan evidence: {child}")
+                kept.append(name)
+            directories[:] = kept
+            for name in files:
+                candidate = checked_file(parent / name)
+                if candidate is not None and candidate not in seen:
+                    seen.add(candidate)
+                    yield candidate
 
 
 def display_path(path: Path) -> str:

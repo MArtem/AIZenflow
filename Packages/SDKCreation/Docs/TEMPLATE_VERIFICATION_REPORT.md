@@ -1,5 +1,8 @@
 # Template Verification Report
 
+**Historical result:** these templates later changed and their verification scripts now fail closed.
+Earlier smoke results do not verify the current templates or authorize new execution.
+
 The Iteration 00 package and integration helper templates were smoke-tested in this environment.
 
 ## Package template

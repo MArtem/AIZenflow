@@ -1,23 +1,3 @@
-# source-app Feed And Composer Summary
+# Tchop Feed And Composer — Compatibility Entry
 
-## Card Types
-- `text`
-- `photo`
-- `video`
-- `audio`
-- `pdf`
-
-## Text Field Order
-1. `text`
-2. `headline`
-3. `subheadline`
-4. `source`
-
-## Runtime Direction
-- Locally created cards should converge with future API cards into the same feed-card semantics.
-- Published feed cards must persist through SwiftData and durable media files.
-- Feed rendering should not maintain permanent local-vs-remote split behavior unless product requires it.
-
-## Canonical Detailed Contracts
-- `../../../.codex/skills/ios-content-cards/references/feed-card-contract.md`
-- `../../LOCAL_FEED_PERSISTENCE_CONTRACT.md`
+The recorded project-specific summary is `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/skills/feed-and-composer-summary.md`. Read `apps/Tchop/skills/README.md` first and revalidate the selected project and current product contract. This local file is a pointer, not an independent rule source.

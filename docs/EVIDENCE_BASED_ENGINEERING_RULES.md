@@ -14,7 +14,8 @@ Every strong completion claim must include evidence:
 - simulator/manual verification
 - Instruments/profiler metric
 - release/CI result
-- or explicit remaining risk when evidence is unavailable
+
+When adequate evidence is unavailable, report the claim as unverified and state the remaining risk; recording a risk is not evidence that the claim is true.
 
 Evidence classes do not imply one another. A source/document/diff check, compiled target,
 passing test, runtime observation or production cohort supports only its declared scope and

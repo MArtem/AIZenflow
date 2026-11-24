@@ -18,7 +18,7 @@ The reusable core must support production engineering for:
 - shared iOS and iPadOS frameworks, app extensions, distribution, privacy, accessibility, localization, testing, diagnostics, and operations;
 - current Swift, Xcode, iOS, and iPadOS behavior needed to reason safely about the code being changed.
 
-An iPhone-only implementation must not be treated as complete when the product supports iPad. Compact and regular size classes are evidence inputs, not substitutes for testing representative iPhone and iPad configurations.
+An iPhone-only implementation must not be treated as complete when the product supports iPad. Compact and regular size classes alone do not prove behavior on every supported platform. Apply the current verification exclusions below without weakening implementation requirements or treating omitted evidence as PASS.
 
 ### Verification Scope
 Mandatory knowledge and implementation coverage is distinct from currently permitted

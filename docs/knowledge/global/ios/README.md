@@ -1,7 +1,7 @@
 # Global iOS Production Knowledge
 
 ## Purpose
-Reusable iOS production knowledge that is not tied to one app. The mandatory core covers iPhone and iPad. watchOS, visionOS, tvOS, and macOS-specific guidance is added only when an explicit task trigger requires it.
+Reusable iOS production knowledge that is not tied to one app. The implementation core covers supported iPhone and iPad platforms; verification remains subject to `CURRENT_USER_OVERRIDES.md` and current permission. watchOS, visionOS, tvOS, and macOS-specific guidance is added only when an explicit task trigger requires it.
 
 ## Scope And Maturity
 - `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`
@@ -40,7 +40,7 @@ The former monolithic senior/lead/staff handbook is retained only in the canonic
 - `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`
 - `./scripts/validate_ios_production_framework.py`
 
-## Recommended Standards To Copy Into New iOS Projects
+## Recommended Standards To Route When Applicable
 - `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`
 - `./docs/IOS_TESTING_STRATEGY.md`
 - `./docs/IOS_SECURITY_PRIVACY_GATE.md`
@@ -55,7 +55,7 @@ The former monolithic senior/lead/staff handbook is retained only in the canonic
 - `./docs/CI_CD_QUALITY_GATES.md`
 - `./docs/DEPENDENCY_POLICY.md`
 
-## Additional Enterprise Standards To Copy Into New iOS Projects
+## Additional Standards To Route When Applicable
 - `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`
 - `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
 - `./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md`

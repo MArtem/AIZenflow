@@ -23,12 +23,15 @@ Apply `./docs/DOCUMENT_BOUNDARY_STANDARD.md` before moving, copying, promoting, 
 Local project exceptions stay under the matching app or task area and never weaken reusable rules without explicit promotion approval.
 
 ## Startup / Current Task Rules
-Use the active worktree's `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` as the sole source of truth for Level 0. Read Level 0 once, including the current task handoff/plan when present, then select only task-relevant routes.
+Use the canonical `reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` selected by the global bootstrap as the sole source of truth for Level 0. If canonical is unavailable, follow the governed portable snapshot and report `canonical-baseline-unavailable`. Read Level 0 once, including the current task handoff/plan when present, then select only task-relevant routes.
 
 ### Scope-Specific Active Docs
 After startup, read only the docs needed for the actual task scope:
 
-- UI/design/Figma: `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`, `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`
+- UI/design/Figma: start with `./docs/agent-prompts/FIGMA_TASK_ROUTER.md`; it adds
+  `./docs/UI_PIXEL_PERFECT_WORKFLOW.md` and `./docs/DESIGN_SYSTEM_GOVERNANCE.md`. Load
+  `./docs/agent-prompts/figma-mcp-swiftui-implementation.md` only for the router's explicit
+  deep-reference triggers.
 - Saved Codex App prompts: `./docs/saved-prompts/README.md`
 - Full canonical inventory: `/Users/Artem/.zenflow/worktrees/documentation-vault/MANIFEST.md`
 - iOS production standards: route through `./docs/IOS_AGENT_PROMPT_ROUTER.md`
@@ -36,10 +39,7 @@ After startup, read only the docs needed for the actual task scope:
 
 ## Central Library Areas
 - `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/`: reusable non-app-specific docs, prompts, skills, templates, package docs, architecture cases, package/manager docs, reusable scripts, and app-neutral knowledge.
-- `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/`: Tchop-specific snapshots, local rules, exceptions, histories, plans, and app decisions.
-- `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/MVVMExample/`: MVVMExample-specific snapshots, local rules, exceptions, histories, plans, and app decisions.
-- `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/BattleshipGame/`: BattleshipGame-specific snapshots, local rules, exceptions, histories, plans, and app decisions.
-- `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/AIFieldbook/`: AIFieldbook-specific snapshots, local rules, exceptions, histories, plans, and app decisions.
+- `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/`: the matching project's snapshots, local rules, exceptions, histories, plans, and app decisions. Discover current project boundaries in the canonical root manifest.
 - `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/`: task and assistant recovery archives.
 
 ## Resource Rule

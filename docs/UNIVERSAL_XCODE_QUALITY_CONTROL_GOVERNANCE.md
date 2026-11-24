@@ -15,8 +15,11 @@ quality metrics.
 
 - This is the canonical human-readable governance entry point in
   `MArtem/AIZenflowDocumentation`.
-- Status: active human policy. The public `MArtem/AIZenflowQualityControl` repository now owns the
-  bounded Stage 5 executable foundation, but it is not yet a verified verifier or stable release.
+- Status: active human policy. At QualityControl source commit
+  `d2a57878a40364b221b4e1efcd7a58162070afee` (2026-09-08), its README reports a permission
+  evaluator, verifier, bounded `quality static` and `static-evidence` commands, and one profile-bound
+  `build-evidence` boundary. This is a repository status snapshot, not independent verification,
+  production attestation, or a stable-release claim; recheck the source before relying on a capability.
 - Machine schemas, adapters, fixtures, workflows, and verifier self-tests belong in the versioned
   `MArtem/AIZenflowQualityControl` repository. Missing or not-yet-validated executable behavior
   remains governed by this human policy and cannot be represented as normal `PASS` evidence.
@@ -42,6 +45,23 @@ Project repository
 Do not maintain a separately evolving verifier implementation in every project. A project-local
 `verify.sh` may remain an app-specific helper, but it is not universal authority merely because of
 its name.
+
+## Engine Versioning And Release
+
+- Use Semantic Versioning for released engine behavior. Treat `0.x` releases as pre-stable; make
+  every breaking change explicit and include a migration note.
+- Version schemas and machine-policy contracts independently when consumers need to distinguish
+  their formats. Never reassign a stable gate, finding, status, or verdict identifier to a new
+  meaning. Consumers must reject unsupported major versions.
+- A release requires explicit user authorization, verifier self-tests and adversarial fixtures
+  appropriate to the released behavior, documented compatibility and migration impact, an exact
+  source revision with reproducible build information, published checksums, a rollback path, and
+  recorded residual risk.
+- The first stable release requires a signed tag and published checksums. A branch, version-like
+  string, or unreviewed artifact is not a stable release.
+- Consumers pin an approved engine release and compatible profile/schema set. Rollback returns to a
+  previously verified set; it does not rewrite prior evidence or relabel bypassed results as normal
+  success.
 
 ## Authority, Verdict, And Readiness Contract
 

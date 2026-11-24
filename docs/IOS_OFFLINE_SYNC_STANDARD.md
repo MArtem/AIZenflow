@@ -11,6 +11,7 @@ Keep app data correct across offline use, relaunch, multi-device sync, extension
 - Never hide unsynced data loss behind optimistic UI.
 - Do not model sync as a single boolean such as `isSynced` when create/update/delete order, retry, or failure explanation matters.
 - Use an outbox/pending-operation model for durable mutations that must survive relaunch, process death, duplicate replay, and partial backend failure.
+- Persist a local mutation and its required outbound operation in one atomic transaction when they share a transactional store. If they cannot share one, define and verify a durable recovery protocol that prevents a committed change from silently losing its pending operation or an orphan operation from sending an uncommitted change, including interruption at each boundary. Apply remote changes and advance their cursor atomically where possible; otherwise provide equivalent recoverable ordering. Do not claim crash durability from a design or static review alone.
 - Deletes that must sync remotely need tombstones or explicit pending-deletion operations; do not physically remove the only local record before the delete is durably recorded.
 - Conflict strategy must be explicit per entity/field: last-write-wins, server-wins, client-wins, field-level merge, or user-mediated resolution.
 - Extension/widget/app-group data must define ownership, atomic writes, quarantine/corruption handling, and cleanup.

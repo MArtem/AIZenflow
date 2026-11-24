@@ -5,7 +5,7 @@ Large artifacts often indicate build output, traces, media fixtures, or accident
 The script respects explicit scan scope through `static_gate_scope`.
 """
 
-from static_gate_scope import display_path, iter_files, parse_scope_args, resolve_scan_roots
+from static_gate_scope import display_path, iter_baseline_gate_files, parse_scope_args, resolve_scan_roots
 
 
 LIMIT = 5 * 1024 * 1024
@@ -16,11 +16,15 @@ def main() -> int:
     scan_roots = resolve_scan_roots(args.paths)
     large = []
 
-    for path in iter_files(scan_roots, "*", {"traces"}):
+    scanned = 0
+    for path in iter_baseline_gate_files(scan_roots, "large-files"):
+        scanned += 1
         size = path.stat().st_size
         if size > LIMIT:
             large.append((path, size))
 
+    if not scanned:
+        raise SystemExit("No eligible files for this scoped scan.")
     if large:
         print("Large files over 5MB:")
         for path, size in large[:args.max_findings]:

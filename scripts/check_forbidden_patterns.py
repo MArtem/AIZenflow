@@ -7,7 +7,7 @@ while review candidates are reported for human/agent triage without automaticall
 
 import re
 
-from static_gate_scope import display_path, iter_files, parse_scope_args, resolve_scan_roots
+from static_gate_scope import display_path, iter_baseline_gate_files, parse_scope_args, resolve_scan_roots
 
 
 PATTERNS = [
@@ -29,17 +29,17 @@ def main() -> int:
 
     # Test fixtures are not shipped SwiftUI/source hot paths; keep this production-pattern gate
     # aligned across app and package test targets without weakening the shipped-source scan.
-    for path in iter_files(
-        scan_roots,
-        "*.swift",
-        {"TchopAppTests", "Tests", "UITests", "docs", ".zenflow"},
-    ):
+    scanned = 0
+    for path in iter_baseline_gate_files(scan_roots, "forbidden-patterns", {"docs"}):
+        scanned += 1
         text = path.read_text(errors="ignore")
         for severity, name, rx in PATTERNS:
             for match in rx.finditer(text):
                 line = text[:match.start()].count("\n") + 1
                 findings.append((severity, name, path, line))
 
+    if not scanned:
+        raise SystemExit("No eligible files for this scoped scan.")
     if findings:
         print("Forbidden/high-risk Swift patterns found:")
         for severity, name, path, line in findings[:args.max_findings]:

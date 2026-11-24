@@ -135,19 +135,11 @@ let result = try await engine.format(snapshot)
 
 ## Verification
 
-From this package folder, run:
-
-```zsh
-./Scripts/verify_package.sh
-```
-
-For source-only app integration, also run the host app's required verification:
-
-```zsh
-plutil -lint ./TchopApp.xcodeproj/project.pbxproj
-./scripts/verify.sh low
-git diff --check
-```
+The reviewed package verifier is temporarily disabled because its earlier cleanup could remove
+pre-existing package state and `Package.resolved`. Other copies may differ; inspect their exact
+revision and ownership before use. No package verification is implied by this documentation.
+A safe replacement needs a reviewed ownership/containment contract and separately authorized
+scenario verification. Host-app build, test and runtime checks also require current permission.
 
 ## More Documentation
 

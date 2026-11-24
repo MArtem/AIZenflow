@@ -21,11 +21,14 @@ Local checkout: `/Users/Artem/.zenflow/worktrees/documentation-vault`
 | Task handoff/resume state | `./.zenflow/tasks/<TaskId>/handoff.md` |
 | Task archive/recovery | `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/<TaskId>/` |
 | Reusable package contract | `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/package-vault-docs/<PackageName>/` |
-| Active source-only package code | `./PackagesInUse/<PackageName>/` |
-| Reusable package vault source | `./PackagesForReuse/<PackageName>/` |
+| Active source-only package code, where that project layout is adopted | `./PackagesInUse/<PackageName>/` in that project |
+| Reusable package vault source, where that project layout is adopted | `./PackagesForReuse/<PackageName>/` in that project |
 | Architecture catalog | `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/architecture-cases/` |
 | Prompt presets | `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/agent-prompts/`; active `./docs/agent-prompts/` is a distribution mirror |
 | Temporary note | current task docs only; promote deliberately or delete |
+
+For other integration layouts, identify package source and adoption from the selected project and
+its actual dependency/profile records. The example paths above do not adopt a package layout.
 
 ## Rule
 If a fact applies to more than one app, it may be reusable only after app-neutral rewriting.

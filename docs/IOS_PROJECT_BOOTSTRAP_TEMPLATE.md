@@ -27,13 +27,13 @@ boundaries are introduced only when the current state/lifecycle/dependency bound
 - repository-root `AGENTS.md` that activates the canonical global bootstrap;
 - governed root `GLOBAL_RULES_PORTABLE_SNAPSHOT.md` fallback;
 - project/app documentation boundary and task state where applicable;
-- versioned project quality profile with authoritative Xcode project/workspace, shared schemes,
-  targets, source membership, configurations, destinations, test plans, permissions, and
-  applicability facts;
-- thin local quality launcher and a `workflow_dispatch`-only GitHub workflow that invoke the same
-  pinned canonical engine/profile contract;
+- an applicable project quality-adoption decision, including an owned deferral where the engine is
+  not adopted;
+- when explicitly adopted, a versioned project quality profile and thin local/manual-workflow
+  wiring for the same pinned canonical engine/profile contract;
 - project-local copy or documented reference to `./docs/IOS_PR_REVIEW_TEMPLATE.md`; and
-- `./docs/STATIC_GATE_ADOPTION.md` completed as the quality-control adoption record.
+- when the selected profile requires it, `./docs/STATIC_GATE_ADOPTION.md` completed with an
+  adopted configuration or owned deferral.
 
 Do not copy reusable policy, engine implementation, prompts, skills, or generic scripts into the
 project merely to make them available. Route to canonical documentation first; the portable snapshot
@@ -43,7 +43,7 @@ Apply `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md` to each non-trivial implem
 review through the active global baseline.
 
 ## Project-Specific Layer
-Create a project-specific docs area for:
+Create the project-specific docs area under `documentation-vault/apps/<AppName>/` for:
 - product contracts
 - app architecture
 - API endpoints
@@ -57,10 +57,11 @@ Create a project-specific docs area for:
   PR form, and conditional applicability;
   or an explicit deferral with owner, reason, and revisit date.
 
-Create `./docs/STATIC_GATE_ADOPTION.md` from the reusable template and fill it before claiming the
-bootstrap contract passes. The bootstrap checker blocks an empty template record.
+When the selected iOS profile requires `./docs/STATIC_GATE_ADOPTION.md`, complete it with either
+an adopted configuration or an owned deferral before claiming that profile passes. The bootstrap
+checker blocks an empty required record. A deferral does not grant engine coverage or runtime rights.
 
-The workflow is user-triggered by default. Do not add `pull_request`, `push`, `schedule`, merge-queue,
+The GitHub workflow is user-triggered via `workflow_dispatch` by default. Do not add `pull_request`, `push`, `schedule`, merge-queue,
 or release triggers without an explicit local exception. Tests, snapshots/UI tests, archive/signing,
 feature flags, privacy, observability, and platform capabilities must each be marked applicable,
 not applicable, or deferred with an owner and revisit condition.

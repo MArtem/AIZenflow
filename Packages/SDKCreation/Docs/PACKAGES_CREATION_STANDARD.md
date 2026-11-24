@@ -24,7 +24,7 @@ Bad package responsibility:
 News screen state
 Profile edit copy
 Feed-specific routing
-Tchop-specific flags
+app-specific flags
 Product-specific analytics domains
 ```
 
@@ -120,4 +120,4 @@ A package is complete only when it has:
 
 ## Multi-target note
 
-Multi-target packages are allowed when the targets are inside the same package folder and remain app-independent. The standalone verifier requires at least one source target, at least one test target, and source-owned DocC, but it does not require every package to have exactly one target named after the package.
+Multi-target packages are allowed when the targets are inside the same package folder and remain app-independent. The historical standalone verifier expected at least one source target, one test target, and source-owned DocC, without requiring exactly one target named after the package. Reviewed verifier templates are disabled pending a safe replacement; revalidate the selected verifier and current authorization before use.

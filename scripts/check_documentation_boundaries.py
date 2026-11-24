@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 
-APP_TOKENS = ["Tchop", "TchopApp", "AIFieldbook", "MVVMExample", "BattleshipGame"]
+APP_TOKENS = ["Tchop", "TchopApp", "AIFieldbook", "MVVMExample", "BattleshipGame", "ZenflowAssistant"]
 REUSABLE_FORBIDDEN_TERMS = ["new-task-be0b"]
 ALLOWED_REUSABLE_TOKEN_PATHS = {
     Path("baseline/docs/DOCUMENT_LIBRARY_GUIDE.md"),

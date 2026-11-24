@@ -47,7 +47,7 @@ Adjust per product/device class when real targets exist.
 - Avoid broad implicit animations on large containers.
 - Debounce or throttle high-frequency user input, sensors, timers, search, and local AI/ML inference. Prefer `.task(id:)` for SwiftUI query-driven async work when view lifecycle cancellation is the intended owner.
 - Avoid polling when push, event streams, user-triggered refresh, background tasks, or TTL cache can satisfy the product requirement.
-- Images must be downsampled to target pixel size before repeated display; compressed file size is not a proxy for decoded memory footprint.
+- For repeated image display, downsample raster derivatives to the appropriate target pixel size when useful; preserve originals when required by the product. Compressed file size is not a proxy for decoded memory footprint.
 
 ## Measurement Rule
 Use the cheapest evidence that can prove the claim, but do not claim real-user launch, energy, memory, or hitch performance from Simulator-only evidence.

@@ -1,7 +1,7 @@
 # Packages And Managers Guide
 
 ## Purpose
-This document explains the reusable package and manager layer for an active app worktree.
+This document describes the reusable package and manager layer. Apply an integration profile only when the selected project has adopted it; project-specific integration decisions remain with that project.
 
 Use it for:
 - package integration work
@@ -24,13 +24,15 @@ When a project selects source-only local integration, use this layout:
 
 This mode is a disk-usage control decision while building a large package library. It does not lower the package quality bar: each package must still keep SwiftPM metadata, docs, tests, DocC, contracts, and verify scripts so it can later be used as a real Swift Package.
 
-When adopting new package functionality in this worktree, copy the package into `./PackagesForReuse` first, then into `./PackagesInUse` only if the app can use it now. Add only the required source/resources to Xcode targets and keep generated artifacts out of package folders.
+When the selected project has adopted this source-only layout, copy new package functionality into `./PackagesForReuse` first, then into `./PackagesInUse` only if the app can use it now. Add only the required source/resources to Xcode targets and keep generated artifacts out of package folders.
 
 ## Core Rule
-- Reusable packages and managers are the foundation.
-- If behavior is generic, repeatable, and entity-agnostic, it should live in the package.
-- App code should keep only project-specific mapping, endpoint semantics, persistence schema application, routing, and UI composition.
-- Do not add decorative adapters or protocols when the package surface already fits the need.
+- Reuse an adopted package or manager when its existing contract fits a real project need.
+- Put generic, entity-agnostic mechanics in a reusable package only when a real reuse or ownership
+  boundary justifies that extraction; generic behavior alone does not require a new package.
+- Keep project-specific mapping, endpoint semantics, schema application, routing, and UI policy
+  in the app or feature that owns them.
+- Do not add decorative adapters or protocols when an adopted package surface already fits the need.
 
 ## Package Inventory
 ### `AppNetworking`
@@ -59,7 +61,7 @@ App keeps:
 
 ### `AppSwiftDataDatabase`
 Use for:
-- active SwiftData-backed database manager
+- SwiftData-backed database management when selected by the app
 
 App keeps:
 - schema registration
@@ -68,11 +70,9 @@ App keeps:
 
 ### `AppCoreDataDatabase`
 Use for:
-- legacy rollback-only Core Data manager
+- Core Data-backed database management when selected by the app
 
-Current rule:
-- do not design new app runtime behavior around it
-- keep it only as fallback material when explicitly needed
+The status of a package and whether a particular app uses it are separate decisions; verify the package catalog and selected app context. Historical rollback-only status in one app is not a cross-project rule.
 
 ### `AppDatabaseComposition`
 Use for:
@@ -285,7 +285,7 @@ When reusing these packages elsewhere:
 
 
 ## Neutral Reuse For New Projects
-The old `source-app infrastructure` compatibility bundle has been retired from this worktree. New projects should copy only the needed standalone package folders, using neutral package names such as:
+The old `SourceAppInfrastructure` compatibility bundle has been retired from the original source project. If a new project chooses source-copy integration, select only packages needed by its current requirements; the following are examples, not mandatory dependencies:
 
 - `AppInfrastructure`
 - `AppNetworking`
@@ -300,11 +300,11 @@ The old `source-app infrastructure` compatibility bundle has been retired from t
 
 Use source package behavior as implementation reference, not as branding. Keep app-specific endpoint semantics, copy, route payloads, schemas, session policy, and product behavior in the target app.
 
-For small demo/test projects, start with networking, errors, localization, configuration, and logging only. Add database, sync, widgets, push, share, media, AI, or payments packages only when the project has current requirements for those areas.
+For small demo/test projects, select only capabilities justified by current requirements; do not assume a fixed package set.
 
 ## Xcode Project Organization For Source-Only Packages
 
-Active package source files must be grouped in the active Xcode project's `project.pbxproj` under a logical `PackagesInUse` group with one subgroup per package. This is an Xcode navigation rule only; physical files remain under `./PackagesInUse/<PackageName>`. Future package additions must keep this structure and must not leave package files only in `Recovered References`.
+For projects using the `PackagesInUse` source-only layout, active package source files must be grouped in the active Xcode project's `project.pbxproj` under a logical `PackagesInUse` group with one subgroup per package. This is an Xcode navigation rule only; physical files remain under `./PackagesInUse/<PackageName>`. Future package additions must keep this structure and must not leave package files only in `Recovered References`.
 
 ### `AppIntentSupport`
 Use for:
@@ -336,16 +336,10 @@ Every reusable package must be self-documenting. Before a new package is conside
 11. verification instructions;
 12. links to `PackageContract.md`, `REUSE.md`, `USAGE.md` or DocC where present.
 
-The common package selector must also stay current:
+The canonical reusable capability selector is `reusable/package-vault-docs/PACKAGE_CATALOG.md`. For projects adopting the `PackagesForReuse` / `PackagesInUse` layout, keep the project integration catalogs current as follows:
 
 - `./PackagesForReuse/PACKAGE_CATALOG.md` lists every reusable package and integration helper with a short purpose, products and active/inactive status.
 - `./PackagesInUse/PACKAGE_CATALOG.md` lists the source-only packages currently compiled into active app targets.
 - `./PackagesForReuse/README.md` and `./PackagesInUse/README.md` must state package counts, usage mode and maintenance rules.
 
-When adding a new package:
-
-1. update the package `README.md`;
-2. update `./PackagesForReuse/PACKAGE_CATALOG.md`;
-3. if active in the app, update `./PackagesInUse/PACKAGE_CATALOG.md` and `./PackagesInUse/README.md`;
-4. keep matching central documentation-vault package docs current under `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/package-vault-docs`;
-5. run docs/static verification and `git diff --check`.
+When adding a package, update its `README.md`, the applicable canonical package documentation and the selected project’s adoption records. For projects using this layout, update `./PackagesForReuse/PACKAGE_CATALOG.md` and, when active, `./PackagesInUse/PACKAGE_CATALOG.md` and `./PackagesInUse/README.md`. Perform only documentation and static checks allowed by the current task and record omitted verification.

@@ -11,8 +11,8 @@ This overlay cannot weaken the complete KB chain or activate another project.
 ## Retired Library entrypoint — 2026-10-11
 
 Task `kb-unification-2026-10-09` retires this overlay's separate Library startup/status/
-second-pass instructions. `./IOSLibrary/` is retained as inactive historical reference;
-it is not normal task input, installed skill, release or global Codex configuration.
+second-pass instructions. The former `./IOSLibrary/` payload was retired after its
+contents were reconciled with the canonical KB; it is not a current task input or installation.
 Original exact payload/pin/handler metadata and overlay are preserved in the
 [frozen task snapshot](../.zenflow/tasks/kb-unification-2026-10-09/archive/library-snapshot/README.md).
 No automatic status command, ON/OFF choice or supporting Library pass is required.

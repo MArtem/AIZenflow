@@ -7,7 +7,7 @@ does not accidentally ship user-facing strings outside the localization system.
 
 import re
 
-from static_gate_scope import display_path, iter_files, parse_scope_args, resolve_scan_roots
+from static_gate_scope import display_path, iter_baseline_gate_files, parse_scope_args, resolve_scan_roots
 
 
 # Heuristic only: flags simple Text("literal") occurrences that do not look like previews/debug/system symbols.
@@ -19,7 +19,9 @@ def main() -> int:
     scan_roots = resolve_scan_roots(args.paths)
     findings = []
 
-    for path in iter_files(scan_roots, "*.swift", {"TchopAppTests"}):
+    scanned = 0
+    for path in iter_baseline_gate_files(scan_roots, "localization"):
+        scanned += 1
         text = path.read_text(errors="ignore")
         for match in TEXT_LITERAL.finditer(text):
             literal = match.group(1)
@@ -29,6 +31,8 @@ def main() -> int:
             line = text[:match.start()].count("\n") + 1
             findings.append((path, line, literal))
 
+    if not scanned:
+        raise SystemExit("No eligible files for this scoped scan.")
     if findings:
         print("Potential hard-coded user-facing Text literals (blocking until reviewed/localized):")
         for path, line, literal in findings[:args.max_findings]:

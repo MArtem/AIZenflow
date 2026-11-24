@@ -57,11 +57,13 @@ an owner and reason, or blocked; an unmentioned gate is not a pass.
 
 - Product invariants, acceptance criteria, non-goals, and destructive-action confirmation are
   explicit before coding.
-- Dependencies point one way: UI → feature/domain → infrastructure; reusable mechanics remain
-  app-neutral and product policy remains in the app/feature layer.
+- Dependency direction is acyclic and follows the selected architecture and actual ownership
+  boundaries. Where Clean/Layered or Hexagonal architecture is selected, keep domain independent
+  of infrastructure implementations and use only justified dependency seams. Reusable mechanics
+  remain app-neutral; product policy remains in the app/feature layer.
 - There is one source of truth for each state concept. ViewModels expose explicit intent methods;
-  generic action dispatch is used only when a documented reducer/state-machine contract requires
-  it.
+  generic action dispatch or UI action enums require explicit user approval and a documented
+  reducer/state-machine rationale.
 - DTOs, domain models, and UI models are separated at real boundaries. Identity is stable;
   invalid domain states are rejected at construction or mapping boundaries.
 - New protocols, factories, managers, wrappers, or packages require a concrete seam, ownership,
@@ -75,20 +77,26 @@ an owner and reason, or blocked; an unmentioned gate is not a pass.
 - Shared mutable state has a real owner: an actor, an isolated value, or a checked synchronization
   primitive with a documented lock/queue owner. Sendability is proven by value semantics or a real
   ownership boundary.
-- `@unchecked Sendable`, `nonisolated(unsafe)`, `@preconcurrency`, warning suppression, and
-  cosmetic `@MainActor` annotations are not migration strategies. A boundary must explain who may
-  access state, when, and why the compiler can verify it.
-- Main-actor code is limited to UI state and APIs that actually require it. File I/O, decoding,
-  image/video/PDF work, hashing, compression/encryption, database work, large transforms, and
-  network orchestration run outside the main actor with cancellation and stale-result protection.
+- `@unchecked Sendable`, `nonisolated(unsafe)`, `@preconcurrency`, warning suppressions, and
+  blanket or cosmetic `@MainActor` annotations are prohibited by the current agent baseline;
+  existing occurrences are blocking migration findings. Replace them with a real ownership or
+  isolation boundary that the compiler can verify. Any higher-authority user exception remains
+  exact, scoped, and documented; it does not change this shared rule.
+- Main-actor isolation follows UI-state ownership and APIs that require it. Keep blocking file or
+  database I/O and substantial synchronous decoding, media processing, hashing, cryptography,
+  compression and large transforms off the main actor. An asynchronous network wait may suspend
+  from the main actor without blocking it; `async` alone does not prove executor placement or make
+  synchronous preparation and processing cheap. Choose isolation from actual state ownership and
+  work, with cancellation and stale-result protection where applicable.
 - Tasks have bounded lifetime, cancellation, ownership, and result ordering. Detached work captures
   only Sendable values and returns values rather than sharing mutable objects.
 
 ### 3. UI, rendering, accessibility, and localization
 
-- `body`, layout callbacks, row builders, gestures, animations, and scroll callbacks are cheap,
-  deterministic, and side-effect free. No synchronous I/O, network, persistence, media decoding,
-  or large collection transform occurs in a render path.
+- Keep `body`, layout calculations, and row builders deterministic and free of side effects.
+  Gesture and scroll event handlers may forward user intent or update owned state; keep their work
+  bounded and avoid repeated side effects or feedback loops. No synchronous I/O, network,
+  persistence, media decoding, or large collection transform occurs in a render path.
 - Lists/grids use stable identity, lazy containers where appropriate, bounded pagination and
   backpressure, cancellable media loading, and stable placeholders. One item update does not
   invalidate an unrelated collection without a documented reason.
@@ -104,12 +112,15 @@ an owner and reason, or blocked; an unmentioned gate is not a pass.
 - Source-of-truth data, user-owned files, temporary files, and regenerable caches are distinct.
   User data survives relaunch and offline use where the product promises it; cache eviction cannot
   delete the source of truth.
-- File/provider URLs are copied into app-owned durable storage before the provider scope expires.
+- Imported content that the app must own durably is copied into app-owned storage while source
+  access is valid. When the product edits an external document in place, use coordinated access,
+  manage security scope where required for the work lifetime, and revalidate access and availability.
   Schema and Codable changes have backward-compatibility, migration, rollback, and partial-failure
   behavior. No migration silently discards data.
 - Reads and writes are scoped and bounded. Large payloads are streamed or processed off-main;
-  images are downsampled, previews are cancellable and cacheable, and temporary artifacts have a
-  cleanup policy.
+  downsample display derivatives when appropriate without discarding originals the product must
+  preserve. Preview work is cancellable, caching follows the actual contract, and temporary
+  artifacts have a cleanup policy.
 - Persistence errors preserve recoverable user work and surface an actionable state rather than
   reporting false success.
 
@@ -141,9 +152,11 @@ an owner and reason, or blocked; an unmentioned gate is not a pass.
 - The authoritative project/workspace, schemes, targets, configurations, source membership, and
   generated outputs are versioned and reviewable. Debug and Release settings are compared; release
   builds use the exact signing, entitlements, privacy, and optimization inputs intended for users.
-- Dependencies are minimal, pinned to immutable revisions, reviewed for license/security/runtime
-  impact, and represented by a committed lockfile. Binary artifacts have provenance, architecture,
-  symbol, and update/rollback evidence.
+- Dependencies are minimal, reproducibly identified, and reviewed for license/security/runtime
+  impact. Pin resolved versions or revisions and commit the applicable lockfile when the adopted
+  dependency manager uses one. For source-only integration, record component identity, provenance
+  and exact source revision or content identity; do not invent a package-manager lockfile. Binary
+  artifacts have provenance, architecture, symbol, and update/rollback evidence.
 - Generated files have a reproducible owner and hash. Build products, archives, credentials, and
   caches are excluded from source; temporary build output stays in the task-approved sandbox.
 - New first-party warnings, strict concurrency diagnostics, forbidden hot-path patterns, format,
@@ -152,6 +165,10 @@ an owner and reason, or blocked; an unmentioned gate is not a pass.
 
 ### 8. Testing, diagnostics, performance, and operations
 
+- Within an authorized change, a statically demonstrated correctness, ownership or resource-bound
+  defect need not wait for profiling to be corrected. This does not establish a runtime bottleneck,
+  improvement, leak closure or production budget: report the evidence gap and follow any selected
+  profiling workflow and current verification permissions for those claims.
 - Verification is layered: deterministic static checks; unit/component tests for invariants;
   integration tests for persistence/network/auth boundaries; UI/accessibility tests for critical
   flows; representative simulator/device tests; release-build install/update tests; and measured

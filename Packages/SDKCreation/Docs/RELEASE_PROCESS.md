@@ -1,5 +1,7 @@
 # Release Process
 
+The checklist describes release evidence, not permission to run commands or create tests. Apply current authorization; unavailable evidence remains unverified and blocks a release-ready claim. Reviewed verifier templates are disabled pending a safe replacement.
+
 ## Per-package release checklist
 
 Before a package becomes part of the SDK baseline:
