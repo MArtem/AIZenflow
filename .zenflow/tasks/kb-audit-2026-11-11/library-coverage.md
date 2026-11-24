@@ -1,0 +1,30 @@
+# Library-to-KB coverage — active audit
+
+This is a progress ledger, not a fresh independent proof of equivalence. The prior `block-223-final-migration-acceptance.md` records a completed bounded semantic disposition of all 1,403 original files and 4,285 canonical units against active KB owners. Current verification matched all 1,403 source hashes and all 4,285 exact source fragments, and found every referenced owner and heading; 33 of 54 owner files changed since the earlier review, so this does not prove semantic equivalence of all later edits. The rows below record this task's additional targeted checks.
+
+| Candidate | Current comparison / remaining work |
+| --- | --- |
+| Repository safety | Bounded dirty-state, scoped write, control-plane and recovery comparison in vault `tasks/kb-audit-2026-11-11/library-review-safety-coordination.md`; no OS enforcement or full semantic proof. |
+| Concurrency | Bounded lifetime, cancellation/publication, continuations and bridges comparison recorded in vault `tasks/kb-audit-2026-11-11/library-runtime-architecture-ui-review.md`; runtime and full-unit equivalence unverified. |
+| API contract | Bounded schema/version/nullability, producer-consumer, retry/idempotency, cancellation and redaction comparison recorded in vault `tasks/kb-audit-2026-11-11/library-network-security-review.md`; backend compatibility and full semantics remain unverified. |
+| Persistence and migration | Bounded migration, cache, offline and app-group review recorded in vault `tasks/kb-audit-2026-11-11/library-data-performance-ops-review.md`; no runtime or full semantic proof. |
+| Network | Bounded retry/replay and auth-refresh session race comparison recorded in `tasks/kb-audit-2026-11-11/library-network-security-review.md`; runtime reliability and complete semantic equivalence remain unverified. |
+| Observability | Bounded privacy, sampling, crash evidence and recovery/operations comparison recorded in `tasks/kb-audit-2026-11-11/library-data-performance-ops-review.md`; no live telemetry or full semantic proof. |
+| StoreKit | Bounded transaction, entitlement and recovery comparison in vault `tasks/kb-audit-2026-11-11/library-intents-purchases-ai-review.md`; no purchase/runtime/policy freshness verification. |
+| Verification strategy | Bounded deterministic, failure-path, fixture and permission comparison recorded in vault `tasks/kb-audit-2026-11-11/library-verification-build-release-review.md`; no test execution or complete semantic proof. |
+| Code review | Bounded scope, producer/consumer, failure and evidence comparison in `tasks/kb-audit-2026-11-11/library-review-safety-coordination.md`; complete domain-unit equivalence unverified. |
+| Build and modularity | Bounded source/resource target, dependency, generated-output, cache and public-consumer comparison in `tasks/kb-audit-2026-11-11/library-verification-build-release-review.md`; no build or full source-unit proof. |
+| Accessibility | Bounded semantics, focus, localization and user-verification exclusion comparison in `tasks/kb-audit-2026-11-11/library-verification-build-release-review.md`; no device, UI or complete semantic proof. |
+| Security | Selected identity, input, WebKit, trust, storage and telemetry owners compared in `tasks/kb-audit-2026-11-11/library-network-security-review.md`; no live security, secret or platform validation performed. |
+| Architecture | Bounded style, ownership, consumers and legacy migration comparison in `tasks/kb-audit-2026-11-11/library-runtime-architecture-ui-review.md`; no actual app migration or full-unit equivalence claimed. |
+| Swift runtime | Bounded ownership, unsafe memory, macro and public API comparison in `tasks/kb-audit-2026-11-11/library-runtime-architecture-ui-review.md`; compiler/runtime and complete source semantics unverified. |
+| Performance | Bounded scenario, memory, cache, retention, energy and permission comparison recorded in `tasks/kb-audit-2026-11-11/library-data-performance-ops-review.md`; no runtime or full semantic proof. |
+| Release | Bounded artifact identity, privacy, flags, containment and rollback comparison in `tasks/kb-audit-2026-11-11/library-verification-build-release-review.md`; no release or policy-freshness verification. |
+| App Intents | Bounded entity, authorization, repeated action and handoff comparison in `tasks/kb-audit-2026-11-11/library-intents-purchases-ai-review.md`; no system-surface execution or complete source proof. |
+| AI | Bounded trust, retrieval, confirmation, evaluation and permission comparison in `tasks/kb-audit-2026-11-11/library-intents-purchases-ai-review.md`; no provider, model or policy-freshness verification. |
+| Full audit | Bounded target/scope, domain statuses, evidence and remaining-risk comparison in `tasks/kb-audit-2026-11-11/library-review-safety-coordination.md`; no application audit or full equivalence claimed. |
+| Agent coordination | Bounded scope, integrator, evidence and partial-result comparison in `tasks/kb-audit-2026-11-11/library-review-safety-coordination.md`; no agents authorized or used. |
+| UI | Bounded identity, Observation, navigation, UIKit lifecycle and accessibility comparison in `tasks/kb-audit-2026-11-11/library-runtime-architecture-ui-review.md`; UI behavior and complete source semantics unverified. |
+| System integration; design | Bounded comparison of 14 integration and eight design source files against current owner sections recorded in `documentation-vault/tasks/kb-audit-2026-11-11/library-system-design-review.md`; verified source hashes and owner paths. This does not establish full-body semantic equivalence, runtime behavior or technical freshness. |
+
+The full preservation receipt and 1,474-file verified ZIP remain in the KB task archive. The separately retained library was removed after the user requested retirement and the historical acceptance, current source identity, owner locations and archive were checked. The task has not independently re-reviewed all 4,285 semantic decisions or all later owner changes; this remains a reported evidence limit. Preserve historical evidence and user-specific rules.

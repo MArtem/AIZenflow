@@ -121,7 +121,6 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 
 ### Reusable Package And App Runtime Docs
 - `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`
-- `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
 - `./docs/PACKAGES_AND_MANAGERS.md`
 - `./docs/PACKAGE_DOC_MIRROR_CONTRACT.md`
 - `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`
@@ -154,8 +153,6 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./PackagesForReuse/README.md`
 - `./PackagesForReuse/PACKAGE_CATALOG.md`
 - `./PackagesForReuse/CONNECTING_PACKAGES.md`
-- `./docs/IOS_ARCHITECTURE_REFERENCE.md`
-- `./docs/SHARE_EXTENSION_VALIDATION.md`
 
 ### Prompt Templates And Knowledge
 - `./docs/agent-prompts/README.md`
@@ -163,7 +160,7 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./docs/agent-prompts/ios-architecture-style-review.md`
 - `./docs/agent-prompts/FIGMA_TASK_ROUTER.md`
 - `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`
-- `./docs/agent-prompts/swiftui-design-generation-master.md`
+- `./docs/agent-prompts/swiftui-design-generation-master.md` — exact distribution copy of the canonical prompt.
 - `./docs/knowledge/global/README.md`
 - `./docs/knowledge/global/ios/README.md`
 - `./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md`
@@ -201,10 +198,10 @@ The following export is retained for provenance only. It is not an active bootst
 - `./.zenflow/tasks/new-task-be0b/documentation-cleanup-audit.md`
 
 ### Local Skills
-- `./.codex/skills/ios-content-cards/SKILL.md`
-- `./.codex/skills/ios-content-cards/references/feed-card-contract.md`
+- `./.codex/skills/ios-content-cards/SKILL.md` — Tchop-only skill entrypoint.
+- `./.codex/skills/ios-content-cards/references/feed-card-contract.md` — Tchop-only compatibility pointer.
 - `./.codex/skills/ios-reusable-packages/SKILL.md`
-- `./.codex/skills/ios-reusable-packages/references/package-rules.md`
+- `./.codex/skills/ios-reusable-packages/references/package-rules.md` — Tchop-only compatibility pointer.
 - `./.codex/skills/ios-production-auditor/SKILL.md`
 - `./.codex/skills/ios-performance-profiler/SKILL.md`
 - `./.codex/skills/ios-security-privacy/SKILL.md`

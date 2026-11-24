@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+printf '%s\n' 'Package verification disabled: fixed scratch cleanup is not proven to own its target. No verification was run.' >&2
+exit 2
 set -euo pipefail
 
 PACKAGE_ROOT="$(cd "$(dirname "$0")/.." && pwd)"

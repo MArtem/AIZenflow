@@ -24,7 +24,7 @@ exceptions.
 | Applicability | `applicable`, `not_applicable`, or `unknown` with a project fact for `not_applicable` |
 | Budget or requirement | measurable target, current Apple requirement, data-lifecycle rule, or explicit qualitative criterion |
 | Evidence route | static, archive/artifact, build, runtime, device, Instruments/MetricKit, manual, release or legal review |
-| Evidence state | `fresh`, `stale`, `partial`, `not_run`, `denied`, `unavailable`, `malformed`, or `skipped` |
+| Evidence state | `fresh`, `stale`, `partial`, `not_run`, `denied`, `unavailable`, `malformed`, `skipped`, or `OMITTED_BY_USER` |
 | Fallback and rollback | availability fallback, data-preserving failure path, feature disablement, release rollback or owner decision |
 | Decision | `PASS`, `NOT_READY`, `READY_WITH_ACCEPTED_RISK`, `BLOCKED`, or `NOT_APPLICABLE` under the shared verdict contract |
 
@@ -74,11 +74,12 @@ all iPad and physical-device checks, including actual VoiceOver, are omitted fro
 and prerequisites. Supported-platform metadata and source accessibility requirements
 remain; historical or omitted evidence must not be presented as verified coverage.
 
-For each supported platform row, record iPhone/iPad idiom, size classes, orientation, resizing or
-multiple windows, keyboard/pointer, VoiceOver, Dynamic Type, contrast, Reduce Motion, RTL and any
-hardware/region prerequisite. A single iPhone screenshot does not prove iPad, window, keyboard,
-VoiceOver, Dynamic Type, RTL or Reduce Motion behavior. Missing device or runtime evidence remains
-visible as `partial`, `not_run` or `unavailable`.
+Record supported platform, window/input and hardware/region metadata separately from the
+verification plan. For permitted iPhone Simulator and source-review rows, select relevant
+orientation, Dynamic Type, contrast, Reduce Motion, RTL, keyboard/pointer and state semantics.
+Do not create iPad, physical-device or actual VoiceOver verification rows or prerequisites.
+A screenshot does not prove assistive-technology or other unobserved behavior. Preserve prior
+results as history and mark excluded checks `OMITTED_BY_USER`, never PASS.
 
 ## Experimental AI and new platform capabilities
 

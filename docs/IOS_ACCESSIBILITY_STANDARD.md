@@ -3,9 +3,11 @@
 ## Purpose
 Accessibility gate for production iOS UI.
 
-Record supported iPhone/iPad/window, VoiceOver, Dynamic Type, RTL, keyboard/pointer, contrast and
-Reduce Motion rows in `./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md`. A screenshot is supporting
-visual evidence only; it does not prove assistive-technology or device behavior.
+Record applicable permitted iPhone Simulator and source-review coverage for Dynamic Type, RTL,
+keyboard/pointer, contrast and Reduce Motion in `./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md`.
+Preserve accessibility implementation requirements across supported platforms without adding excluded
+iPad, physical-device or actual VoiceOver checks to the matrix. A screenshot is supporting visual
+evidence only; it does not prove assistive-technology or device behavior.
 
 Planning scope: apply [USER.VERIFICATION.SCOPE](CURRENT_USER_OVERRIDES.md#verification-and-quality).
 Exclude all iPad verification and every physical-device check, including actual VoiceOver,

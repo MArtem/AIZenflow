@@ -1,0 +1,4 @@
+# Exact-HEAD receipt — 2026-11-15
+
+Target `documentation-vault/main`; trusted base/merge-base `4637dfd624cdb0c0d1e18b9daac5d970e593a864`, HEAD `6a6c181b3450c3c4cecd7326890f5fbc8e0dac63`. Contract: restore existing valid Tchop documentation route IDs, correct the audit report and keep the paused app task paused. Full two-file exact diff reviewed; no remaining finding in this change. Clean vault; exact diff check and vault structure check passed. Resolver returned all four selected routes with zero missing/unclassified; dynamic task docs omitted because this was a baseline-only route check. No app runtime/tests or independent agent review; remaining broader audit gaps unchanged. Remote must be revalidated immediately before push and confirmed afterward.
+Pre-push remote was base `4637dfd624cdb0c0d1e18b9daac5d970e593a864`; HEAD and merge-base revalidated. Push completed; direct post-push remote `main` is `6a6c181b3450c3c4cecd7326890f5fbc8e0dac63`.

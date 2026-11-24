@@ -1,0 +1,3 @@
+# Exact HEAD receipt — bf16339
+
+Base 8ec23aa6da448e7033d901525d1640efda6f1bc8; HEAD bf163391b5229df08a7a02e2977fa920a2ad192f; canonical worktree clean. The four-line generic catalog change states verifier behavior varies by snapshot, some reviewed copies are disabled, and execution needs current authorization; it claims no test PASS or app-specific policy. Local package-root READMEs in both worktrees independently mark disabled verifiers and retain other content. Canonical diff and local scoped changes reviewed; vault, boundary and diff checks passed. Tests/runtime not run, safe replacement and other copies remain open. Remote before push 8ec23aa; verify HEAD and remote.

@@ -32,32 +32,22 @@
       "default_mode": "exact",
       "overlay_patterns": [
         "CI_CD_QUALITY_GATES.md",
-        "CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md",
-        "DESIGN_SYSTEM_GOVERNANCE.md",
         "DOCS_REPO_OPERATIONS.md",
         "DOCUMENT_LIBRARY_GUIDE.md",
         "DOCUMENT_ROUTING_REGISTRY.json",
         "IOS_OFFLINE_SYNC_STANDARD.md",
         "IOS_PERFORMANCE_BUDGETS.md",
-        "IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md",
         "IOS_SECURITY_PRIVACY_GATE.md",
-        "PACKAGES_AND_MANAGERS.md",
         "README.md",
         "STATIC_GATE_ADOPTION.md",
-        "TASK_TYPE_DOCUMENTATION_ROUTER.md",
-        "UI_PIXEL_PERFECT_WORKFLOW.md",
-        "agent-prompts/README.md"
+        "TASK_TYPE_DOCUMENTATION_ROUTER.md"
       ],
       "canonical_only_patterns": [
         "templates/IOS_PROJECT_MEMORY.template.md"
       ],
       "local_only_patterns": [
-        "IOS_ARCHITECTURE_REFERENCE.md",
-        "LOCAL_FEED_PERSISTENCE_CONTRACT.md",
         "PACKAGE_USAGE_SOURCE_ONLY.md",
         "TASK_DOCUMENT_ROUTES.overlay.json",
-        "SHARE_EXTENSION_VALIDATION.md",
-        "agent-prompts/swiftui-design-generation-master.md",
         "archive/**",
         "documentation-split/**",
         "knowledge/global/README.md",
@@ -101,7 +91,7 @@
       "canonical_only_patterns": [],
       "local_only_patterns": [
         "skills/ios-content-cards/**",
-        "skills/ios-reusable-packages/**"
+        "skills/ios-reusable-packages/references/**"
       ]
     }
   ]

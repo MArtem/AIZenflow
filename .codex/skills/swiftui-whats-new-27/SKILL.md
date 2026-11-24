@@ -15,6 +15,10 @@ A skill never grants permission. Do not infer approval to edit application code,
 
 ## Source material
 
-Read `references/apple-source/SKILL.md` when this topic is active, then read only the linked reference files needed for the concrete question. The original references and helper script are preserved under `references/apple-source/`; they are not run or executed automatically.
+Read `references/apple-source/APPLE_SOURCE_REFERENCE.md` when this topic is active, then read only the linked reference files needed for the concrete question. The original references and helper script are preserved under `references/apple-source/`; they are not run or executed automatically.
 
 Version-specific availability, behavior, and performance statements in the source must be checked against the project's deployment targets and active SDK before implementation. Do not present unverified source claims as current platform guarantees.
+
+## Calendar-year labels
+
+Prefer platform and SDK version numbers over calendar-year labels. Apple's [SwiftUI updates](https://developer.apple.com/documentation/updates/swiftui) page dates Xcode 27 changes to June 2026, while Apple's [WWDC26 SwiftUI code-along](https://developer.apple.com/videos/play/wwdc2026/271/) uses the phrase “2027 releases.” Those references do not by themselves settle the OS calendar-year label or verify every bundled API claim. Check the exact availability in the active SDK or current official API documentation.

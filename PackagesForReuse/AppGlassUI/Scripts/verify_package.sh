@@ -1,4 +1,6 @@
 #!/bin/sh
+printf '%s\n' 'Package verification disabled: package-state cleanup is not proven to own its target. No verification was run.' >&2
+exit 2
 set -eu
 
 package_dir="$(cd "$(dirname "$0")/.." && pwd)"

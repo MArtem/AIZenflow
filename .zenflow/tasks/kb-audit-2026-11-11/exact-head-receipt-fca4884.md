@@ -1,0 +1,4 @@
+# Exact-HEAD receipt — 2026-11-18
+
+Canonical target main; trusted base/merge-base `f7892e459e7d8c798bdbe1c7d951c8b2a851c98a`; HEAD `fca4884e20aba61d719f2033500594ed53c08380`. Contract: retain applicable production quality gates while requiring current execution authority and distinguishing accepted risk from proof. Entire two-file exact diff reviewed; no new blocking finding. Vault clean; exact diff check, vault structure check on unchanged content and both project drift checks passed (285 exact; zero stale). No application runtime, tests, independent reviewer or external policy-freshness verification. Remaining full-audit and third-party-rights questions are unchanged. Remote freshness and post-push SHA require confirmation.
+Direct remote before push: `f7892e459e7d8c798bdbe1c7d951c8b2a851c98a`; HEAD and merge-base unchanged. Push succeeded; direct remote after push: `fca4884e20aba61d719f2033500594ed53c08380`.

@@ -4,14 +4,7 @@
 
 A single-folder standalone package can be copied as one folder into a new project and used without any sibling packages from this repository.
 
-The package must work as:
-
-```bash
-cd PackageName
-./Scripts/verify_package.sh
-```
-
-when platform requirements are satisfied.
+Standalone portability is a design requirement, not a verified result. The reviewed verifier templates are disabled pending a safe replacement. Do not execute an existing copy without reviewing its safety and obtaining current authorization; report unavailable verification as not run.
 
 ## Hard constraints
 
@@ -84,4 +77,4 @@ Integration helpers available: optional list
 
 ## Multi-target note
 
-Multi-target packages are allowed when the targets are inside the same package folder and remain app-independent. The standalone verifier requires at least one source target, at least one test target, and source-owned DocC, but it does not require every package to have exactly one target named after the package.
+Multi-target packages are allowed when the targets are inside the same package folder and remain app-independent. The historical standalone verifier expected at least one source target, one test target, and source-owned DocC, without requiring exactly one target named after the package. Reviewed verifier templates are disabled pending a safe replacement; revalidate the selected verifier and current authorization before use.

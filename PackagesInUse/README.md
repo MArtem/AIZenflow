@@ -34,6 +34,12 @@ Every active package must appear in `./TchopApp.xcodeproj/project.pbxproj` under
 
 When adding/removing a package, validate the project with `./scripts/migrate_packages_in_use_project.py --check`; use the explicit `--apply` mode only for an approved migration, or make an equivalent deterministic project edit.
 
+## Verification status
+
+Some package verification scripts are temporarily disabled because earlier cleanup could remove
+pre-existing state. Review the exact script and current permission before any verification; an
+unrun or disabled check is not PASS.
+
 ## Adding A Future Package
 
 1. Review and verify the package in `./PackagesForReuse/<PackageName>`.
@@ -42,4 +48,4 @@ When adding/removing a package, validate the project with `./scripts/migrate_pac
 4. Copy/sync the package into `./PackagesInUse/<PackageName>` only if TchopApp uses it now.
 5. Update `./PackagesInUse/PACKAGE_CATALOG.md` and this file.
 6. Add required sources/resources through `./scripts/migrate_packages_in_use_project.py --apply`, then confirm the result with `--check`.
-7. Run `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `./scripts/verify.sh low` and `git diff --check`.
+7. Select relevant static and host verification; run builds or tests only with current authorization and report omitted checks.

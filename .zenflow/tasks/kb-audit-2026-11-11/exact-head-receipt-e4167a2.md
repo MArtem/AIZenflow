@@ -1,0 +1,3 @@
+# Exact HEAD receipt — e4167a2
+
+Base 23595b83eb8151fd5c6624b74adf9030c2316017; HEAD e4167a2596a4c3f8b1849c4e7d24c494caef8f4f; canonical worktree clean. Report records full reading of two retained Tchop engineering overlays, distinguishes historical rigid instructions and old migration/cleanup proposals from present authority, and does not change app policy. Exact one-file diff reviewed; vault and diff static checks passed. Tests, source execution, migration and deletion omitted; current runtime/data behavior not proven. Remote before push 23595b8; verify HEAD and remote. The two package snapshot manifests previously recorded 23595b8 and must be refreshed against the final vault SHA.

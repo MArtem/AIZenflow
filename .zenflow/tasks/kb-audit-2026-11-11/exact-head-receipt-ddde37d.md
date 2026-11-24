@@ -1,0 +1,3 @@
+# Exact HEAD receipt — ddde37d
+
+Base 716c707dd0625ced5a1ae885ef6d3633ee8055dc; HEAD ddde37df6b1b95d8d43e950989422b8bfefed151; canonical worktree clean. One-file diff records user's iOS 18.2 decision and bounded literal project-name and Tchop historical-document inspection; it does not claim runtime compatibility, semantic isolation, future-app coverage or source revalidation. Exact diff reviewed, no confirmed P0–P3 in this documentation change. Vault and diff checks passed; builds/tests/runtime omitted. The literal search excludes non-Markdown and cannot detect aliases or unnamed app policy; automated token-list risk remains open. Remote before push 716c707; verify HEAD and confirm remote.

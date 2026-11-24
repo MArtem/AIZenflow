@@ -1,0 +1,4 @@
+# Exact-HEAD receipt — 2026-11-18
+
+Canonical target main; trusted base/merge-base `eb087dbe602725bb4c394ab0bbb0b5634a254829`; HEAD `f7892e459e7d8c798bdbe1c7d951c8b2a851c98a`. Contract: preserve AI Fieldbook's current product and permission decisions while fixing a wrong acceptance link, historical grant wording, approved D1 status, Spotlight opt-in and tutorial-only scope. Complete three-file exact diff reviewed; no new blocking finding. Vault clean; exact diff check and vault checker passed on unchanged content; target link exists. App P1, Simulator acceptance and platform-baseline discrepancy remain open; no app code, build, tests, Simulator, provider or API verification, agents or messages. Remote freshness and post-push SHA need direct confirmation.
+Direct remote before push: `eb087dbe602725bb4c394ab0bbb0b5634a254829`; HEAD and merge-base unchanged. Push succeeded; direct remote after push: `f7892e459e7d8c798bdbe1c7d951c8b2a851c98a`.

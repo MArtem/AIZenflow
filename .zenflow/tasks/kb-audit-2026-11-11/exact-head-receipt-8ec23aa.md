@@ -1,0 +1,3 @@
+# Exact HEAD receipt — 8ec23aa
+
+Base ebd6f38e0a58c8717ff29c802b2c8684b524cf5c; HEAD 8ec23aa6da448e7033d901525d1640efda6f1bc8; canonical worktree clean. Four-file diff removes stale claims that AppInputFormatting verifier works or safely cleans, records fail-closed status and current permission requirements. Three corresponding docs in each of two package worktrees were updated, preserving unrelated local content; no app Git commit. Canonical and local sections inspected, vault/boundary and scoped diff checks passed; no scripts/tests/runtime run. Safe replacement, other package copies and runtime validation remain open. Exact diff reviewed, no confirmed P0–P3 in this documentation change. Remote before push ebd6f38; verify HEAD and confirm remote.

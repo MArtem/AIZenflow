@@ -1,3 +1,7 @@
+# Historical canary proposal — Library retired
+
+This preserved proposal is not an active project entrypoint. Its Library payload was removed after exact verification against `documentation-vault/tasks/kb-unification-2026-10-09/archive/library-snapshot/library-frozen.zip`; the original entrypoint is preserved there at `project-entrypoints/TchopApp/AGENTS.md`. Do not reactivate its modes, commands, or historical grants.
+
 # Tchop — IOS Library canary overlay
 
 Applies only to exact `TchopApp.xcodeproj` in this active repository. Apply root AGENTS,

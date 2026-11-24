@@ -63,10 +63,8 @@ Root-level DocC catalogs are not used.
 
 ## Verification
 
-`Scripts/verify_package.sh` uses a worktree-local scratch path outside the package folder:
-
-```text
-WorktreeScratch/AppInputFormatting
-```
-
-It does not use `/tmp`, `${TMPDIR}`, `TMPDIR`, `/Users/Artem/Library`, or any global scratch path. It cleans scratch/build artifacts after verification and fails when SwiftPM emits `warning:` or `error:` lines.
+The reviewed package verifier is temporarily disabled because its earlier cleanup could remove
+pre-existing package state and `Package.resolved`. Other copies may differ; inspect their exact
+revision and ownership before use. No package verification is implied by this documentation.
+A safe replacement needs a reviewed ownership/containment contract and separately authorized
+scenario verification. Host-app build, test and runtime checks also require current permission.

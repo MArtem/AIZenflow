@@ -22,19 +22,21 @@ Required behavior:
   continue under tracked rules while explicitly reporting an unavailable canonical checkout;
 - create or update the task plan and handoff under `./.zenflow/tasks/<TaskId>/` when the current worktree owns the task state;
 - create or update the durable task recovery area under `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/<TaskId>/` when the task needs durable recovery outside the current worktree;
-- create or update the app-specific vault root under `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/` for every app or Xcode project that has its own product decisions, architecture, history, ADRs, local rules, or exceptions;
+- create or update a separate project-specific vault root under `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/` for every new project or app, even before it has documented product decisions, architecture, history, ADRs, local rules, or exceptions; project-specific material applies only to that project;
 - keep reusable rules in `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/` and never mix app-specific decisions into reusable docs without explicit promotion approval;
 - continue maintaining the relevant plan, handoff, app-specific docs, and task recovery notes throughout the project lifecycle.
-- install a versioned project quality profile, thin local launcher, and `workflow_dispatch`-only
-  GitHub workflow that consume the canonical quality engine without copying reusable policy;
-- record quality-control adoption plus testing, feature-flag, release, privacy, and other conditional
-  applicability decisions; and
-- pin the quality engine by reviewed release/SHA and keep project facts and local exceptions in the
-  consumer repository rather than in reusable defaults.
+- record the applicable quality-control adoption state and testing, feature-flag, release, privacy,
+  and other conditional applicability decisions;
+- when the current project profile and explicit scope adopt the quality engine, install its
+  versioned project profile and thin local/manual-workflow wiring, and pin the reviewed engine
+  release/SHA; otherwise record the applicable owned deferral and do not claim engine adoption;
+- keep project facts and local exceptions in the matching project boundary, not reusable defaults.
 
 If one task creates or modifies multiple Xcode projects/apps, each project/app must have a separate app-specific documentation boundary. Do not merge their product plans, histories, ADRs, local exceptions, bundle decisions, architecture decisions, or runtime assumptions into one shared app folder merely because the work happened in one Codex task.
 
 ## Required Fields
+Record profile-specific fields as not applicable with a reason when they do not apply; an engine
+field is not an implicit engine-adoption grant.
 - Project/App name:
 - Task ID:
 - Worktree path:
@@ -61,14 +63,17 @@ If one task creates or modifies multiple Xcode projects/apps, each project/app m
 - Explicit non-goals:
 
 ## Mandatory Startup Gates
-Before implementation:
+Before implementation, select the applicable project profile. The iOS/Xcode and engine-specific
+items below apply only when that profile and scope select them; record non-applicability or an
+owned deferral rather than silently adopting an engine in unrelated projects. A full-profile
+bootstrap checker result is not automatically a verdict for a partial or non-iOS profile.
 
 1. Confirm the repository-root `AGENTS.md` contains `AIZENFLOW_GLOBAL_RULES_BOOTSTRAP_V1` and
    directly loads
    `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md`.
 2. Confirm `./GLOBAL_RULES_PORTABLE_SNAPSHOT.md` contains
    `AIZENFLOW_GLOBAL_RULES_PORTABLE_SNAPSHOT_V1`.
-3. Run or satisfy `scripts/check_bootstrap_contract.py`.
+3. Run or satisfy the bootstrap check for the selected profile; use `scripts/check_bootstrap_contract.py` only when its full-profile assumptions apply.
 4. Read `./docs/DOCUMENT_BOUNDARY_STANDARD.md`.
 5. Read `./docs/SOURCE_OF_TRUTH_MAP.md`.
 6. Apply the canonical task router already loaded by the global bootstrap; if canonical is unavailable, report that state and use the tracked local router under the governed portable snapshot. Select only task-relevant bootstrap, app, package, prompt, skill, and deep-reference docs. A project-local route overlay adds optional candidates only when the actual subtask needs them; do not reread a mirror when canonical is available or treat every optional candidate as mandatory.
@@ -79,21 +84,20 @@ Before implementation:
 11. Confirm app-specific docs are not copied from another app.
 12. Confirm local exceptions are recorded only in app/task docs.
 13. Confirm task plan/handoff docs exist or are intentionally deferred with a reason.
-14. Confirm every Xcode project/app in scope has its own app-specific docs boundary.
+14. Confirm every new project or app in scope has its own project-specific vault boundary.
 15. Confirm reusable/global documentation changes are committed and pushed to `MArtem/AIZenflowDocumentation`.
 16. Install or explicitly reference the reusable `IOS_PR_REVIEW_TEMPLATE.md` risk card in the
     project's PR/review workflow, and record any equivalent local form as a documented overlay.
-17. Complete `./docs/STATIC_GATE_ADOPTION.md`: define the project-specific source membership and
-    deterministic rules/remediation, or record an explicit deferral with owner and revisit
-    condition. A copied generic gate alone is not adoption and may not claim whole-target coverage.
-18. Install and validate the versioned project quality profile: project/workspace, shared schemes,
-    targets, source-membership authority, configurations, destinations, test plans, permissions,
-    sandbox/cache roots, applicability, and pinned engine identity.
-19. Install a thin local launcher and a GitHub workflow whose reusable trigger is
-    `workflow_dispatch` only. Automatic PR/push/schedule triggers require a separately approved
-    local exception.
-20. Confirm the local and GitHub launchers execute the same engine/profile contract and cannot
-    silently substitute missing checks with PASS.
+17. When the selected profile requires `./docs/STATIC_GATE_ADOPTION.md`, define the project-specific
+    source membership and deterministic rules/remediation, or record an explicit owned deferral
+    with a revisit condition. A copied generic gate alone is not adoption or whole-target coverage.
+18. If the project explicitly adopts the quality engine, install and validate the versioned quality
+    profile, including project/workspace, targets, source membership, permissions, scope and pin.
+    Otherwise retain the owned deferral and do not claim an adopted engine or its coverage.
+19. If adopted, install a thin local launcher and a `workflow_dispatch`-only GitHub workflow.
+    Automatic triggers require a separately approved local exception.
+20. If adopted, confirm local and GitHub launchers execute the same engine/profile contract and
+    cannot silently substitute missing checks with PASS.
 21. Record whether tests, snapshot/UI suites, feature flags, release/archive/signing, privacy,
     observability, and extensions/capabilities are applicable, deferred, or unavailable, with owner
     and revisit condition.
@@ -106,9 +110,9 @@ All projects use the strongest reusable engineering rules by default:
 
 - production-shaped file structure from the first screen;
 - composition root and explicit dependency ownership;
-- coordinator/router navigation when the app has navigation;
-- feature state owners above views;
-- explicit ViewModel intent methods;
+- coordinator/router navigation when the actual flow needs a separate navigation boundary;
+- explicit state ownership appropriate to the feature, including local view state where sufficient;
+- explicit ViewModel intent methods when a ViewModel is selected;
 - accessibility, localization, privacy, error, loading, empty, and verification posture;
 - evidence-based completion reports.
 
@@ -127,7 +131,7 @@ The project start contract is satisfied only when:
 - `.gitignore` or equivalent secret ignore baseline exists;
 - real secrets are outside normal AI-readable workspace files or documented as an explicit security-intake/remediation risk;
 - task plan/handoff exists and points to the correct docs, or the intentional deferral is recorded;
-- app-specific vault area exists for every app/Xcode project in scope, or the intentional deferral is recorded;
+- a separate project-specific vault area exists for every new project or app in scope;
 - the PR risk card is installed or explicitly referenced in the review workflow, or its deferral is recorded;
 - `STATIC_GATE_ADOPTION.md` records completed adoption, or its explicit deferral with owner and
   revisit condition;

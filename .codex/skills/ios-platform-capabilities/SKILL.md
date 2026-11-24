@@ -19,9 +19,9 @@ Resolve `DOC:` identifiers through the active task router in canonical
 1. Define product behavior, supported iPhone/iPad versions, and fallback.
 2. Inventory framework, target, entitlement, provisioning, identifier, associated domain, App Group, account, server, and privacy prerequisites.
 3. Assign app/extension/shared-data ownership and lifecycle.
-4. Classify what can be proven statically, in Simulator, on physical device, across devices/services, and after distribution.
+4. Classify applicable static, permitted iPhone Simulator, service, and distribution evidence. Apply `DOC:CURRENT_USER_OVERRIDES.md`: omit iPad, physical-device and actual VoiceOver checks from plans and gates; retain excluded evidence as `OMITTED_BY_USER`, never PASS. Do not remove supported-platform implementation requirements.
 5. Compare native capability alternatives and explain UX, scheduling, privacy, reliability, and maintenance tradeoffs.
-6. Verify stale/missing data, denied permission, disabled capability, relaunch, and system-controlled scheduling.
+6. Review applicable stale/missing data, denied permission, disabled capability, relaunch, and system-controlled scheduling. Execute runtime, service, build or test checks only with current authorization; otherwise report them as not run and retain the evidence gap.
 
 ## Guardrails
 - Compiling an API does not prove capability configuration.

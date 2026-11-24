@@ -1,0 +1,4 @@
+# Exact-HEAD receipt — 2026-11-18
+
+Target canonical main; trusted base/merge-base `785d4f7eb29e3c9a31d21aa315aa63440ca1666c`; HEAD `5439266d3c466da622707f0b4636869c9588d373`. Contract: describe expired Tchop canary permissions and task cards as historical, preserve administrative closure and app findings, and record seven scoped historical/current comparisons and the scanner limitation. Entire three-file committed diff reviewed; no new blocking finding identified. Vault clean; diff check and vault structure check passed on unchanged content. No app code, runtime, tests, agents or messaging. Scanner limitation, source rights and full historical equivalence remain open; remote freshness and post-push SHA require confirmation.
+Direct remote before push: `785d4f7eb29e3c9a31d21aa315aa63440ca1666c`; HEAD and merge-base unchanged. Push succeeded; direct remote after push: `5439266d3c466da622707f0b4636869c9588d373`.

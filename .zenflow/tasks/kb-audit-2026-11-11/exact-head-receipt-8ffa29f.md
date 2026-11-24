@@ -1,0 +1,4 @@
+# Exact-HEAD receipt — 2026-11-18
+
+Canonical target main; trusted base/merge-base `5439266d3c466da622707f0b4636869c9588d373`; HEAD `8ffa29fdf0b0743d3be43dc24e3510601be0226a`. Contract: reconcile dated AI Fieldbook roadmap with approved no-cloud scope, disabled-by-default Spotlight and user verification exclusions without inventing product decisions; report static review and unchanged 18.2/26.0 discrepancy. Entire two-file exact diff reviewed; no new blocking finding identified. Vault clean; exact diff check and vault structure check passed on unchanged content. No app source, build, tests, provider/API or runtime verification, agents or messaging; platform freshness remains unverified. Remote freshness and post-push SHA require direct confirmation.
+Direct remote before push: `5439266d3c466da622707f0b4636869c9588d373`; HEAD and merge-base unchanged. Push succeeded; direct remote after push: `8ffa29fdf0b0743d3be43dc24e3510601be0226a`.

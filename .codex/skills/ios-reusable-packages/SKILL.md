@@ -1,45 +1,10 @@
 ---
 name: ios-reusable-packages
-description: Use this skill whenever the task touches iOS reusable packages, managers, sync foundations, database/runtime ownership, package extraction, package integration, or app-vs-package responsibility decisions. Trigger even if the user only mentions managers, package cleanup, wrappers, adapters, sync, persistence, or reusable infrastructure.
+description: Route iOS reusable-package adoption, ownership, integration, and extraction to the canonical package standards and the selected project's own rules.
 ---
 
 # iOS Reusable Packages
 
-Use this skill for iOS project work involving:
-- package boundaries
-- manager ownership
-- package-first cleanup
-- SyncCore integration
-- database runtime decisions
+Use the reusable package/adoption route in `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`. Read the relevant package contract and the selected project's own app boundary. Do not assume a persistence engine, package integration, product policy, or target membership for an unrelated project.
 
-## Read Order
-Resolve `DOC:` identifiers through the active task router in canonical
-`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
-1. [references/package-rules.md](./references/package-rules.md)
-2. `DOC:PACKAGES_AND_MANAGERS.md`
-3. `../../../PROJECT_HEALTH.md`
-4. `../../../PackagesInUse/README.md`
-5. `../../../PackagesForReuse/README.md`
-
-## Working Rules
-- Start from the reusable package contract.
-- Do not add app-local wrappers if the package already fits.
-- Move generic behavior downward into the package when possible.
-- Keep only project-specific policy and mapping in app code.
-- Treat `AppSyncCore` / sync package mechanics as the root sync foundation when active in the current package mode.
-- Treat `SwiftData` as the active persistence runtime unless explicitly told otherwise.
-
-## Important Areas
-- `../../../PackagesInUse` for active source-only package code compiled into app/share/widget targets
-- `../../../PackagesForReuse` for validated reusable package vault code
-- `../../../Packages` for SDK/package creation docs/templates only
-- app repository composition
-- app persistence bootstrap
-- app user/session repositories
-
-## Output Expectation
-When changing this area:
-- reduce redundant seams
-- preserve real seams
-- keep package/app ownership explicit
-- avoid decorative abstractions
+Keep generic mechanisms and contracts in reusable package owners; keep product policy, composition, integration and app-specific decisions in the selected app. Avoid decorative wrappers and speculative package extraction. This skill grants no build, test, runtime, or Git permission.

@@ -1,0 +1,3 @@
+# Exact HEAD receipt — 9712ae5
+
+Base ca45e3f6b9c82dbf2b640ae60cb1aadc2ce63244; HEAD 9712ae538556bd1222af9f91ce2c8e088c2a24dd; canonical worktree clean. Exact one-file diff reviewed: identifies historical Apple sign-in record already inside the existing Tchop archive, requiring identity/source revalidation and granting no operational action; no product behavior or app source inferred. Archive entry read statically. Vault static check and diff check passed; tests, builds, account and runtime verification omitted by user. No confirmed P0–P3 in this change. Remote before push ca45e3f; recheck HEAD and confirm remote after push.

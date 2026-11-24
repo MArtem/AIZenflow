@@ -48,6 +48,4 @@ Vault-only. `TchopApp` уже использует более высокий for
 
 ## Проверка
 
-```bash
-./Scripts/verify_package.sh
-```
+Проверка пакета сейчас `UNAVAILABLE`: `Scripts/verify_package.sh` оставлен fail-closed до проверки безопасного scratch lifecycle по сценариям успеха и ошибки. Он завершится ненулевым кодом и не выполняет проверку пакета; evidence остаётся `NOT RUN`. Не считайте этот скрипт доступным gate или PASS.

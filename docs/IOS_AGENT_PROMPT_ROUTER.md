@@ -34,10 +34,19 @@ material gate, or a handoff for continuation. Reuse the existing owner and omit 
 Suggestions outside approved scope stay separate with value, cost and the smallest alternative.
 
 ## Routing Rules
+
+Paths below identify the relevant skills, not a guarantee that a skill is installed or discoverable.
+For canonical instruction lookup, resolve `./.codex/skills/<name>/` to
+`/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/local-ios-skills/<name>/` when
+that canonical source exists. A session skill must still be available through its actual skill
+catalog and accessed under current tool and filesystem permissions. If the canonical vault is
+unavailable, use only the governed fallback and report missing skill availability.
+
 - Feature request → `./docs/agent-prompts/product-requirements-review.md` then relevant domain prompts.
 - UI/scroll/performance → `./docs/agent-prompts/ios-ui-state-rendering-review.md` and `./docs/agent-prompts/ios-performance-audit.md`.
 - Async/tasks/main-thread → `./docs/agent-prompts/ios-concurrency-review.md`.
 - Swift language/runtime/public API/ABI → `./.codex/skills/ios-swift-runtime/SKILL.md`.
+- Reusable package ownership/adoption/integration → `./.codex/skills/ios-reusable-packages/SKILL.md` and the current project boundary.
 - Media/files/cache → `./docs/agent-prompts/ios-memory-cache-media-review.md`.
 - API/network → `./docs/agent-prompts/ios-network-resilience-review.md` and `./docs/agent-prompts/ios-api-contract-review.md`.
 - Offline/sync/extensions/widgets → `./docs/agent-prompts/ios-offline-sync-review.md` and `./docs/agent-prompts/ios-lifecycle-background-review.md`.
@@ -63,7 +72,7 @@ Suggestions outside approved scope stay separate with value, cost and the smalle
 Imported Xcode skills are domain references. Their presence does not grant permission to run tools or change project files, and their source claims must be checked against the active SDK and current rules.
 
 ## Stop Rule
-If no route clearly fits, run `./docs/agent-prompts/ios-production-readiness-review.md` and list uncertain domains explicitly.
+If no route clearly fits, state the uncertainty and select the smallest relevant owner or clarify a material scope ambiguity. Use `./docs/agent-prompts/ios-production-readiness-review.md` for a requested broad readiness review; do not expand a bounded task into one merely because routing is unclear.
 
 ## Architecture Style Routing
 - Use `./docs/agent-prompts/ios-architecture-style-review.md` with `./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md` when code or requirements mention MVVM, SwiftUI native state, Clean/Layered, Coordinator, Modular, Hexagonal, TCA, Redux/Elm/UDF, ReactorKit, VIP/Clean Swift, VIPER, MVP, RIBs, or MVC migration.
