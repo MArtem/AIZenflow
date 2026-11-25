@@ -45,6 +45,9 @@ evidence.
   undeclared temporary storage.
 - A read of an instruction does not authorize a permission-sensitive command. The command owner
   records whether execution was permitted, skipped, denied or unavailable.
+- Per-package README/REUSE verification recipes may be historical. Check the current package
+  catalog and exact verifier status before use; disabled or unavailable scripts do not verify a
+  package.
 - Package verification claims identify package revision, toolchain/profile, source universe,
   commands and terminal results. A historical template example is not fresh evidence.
 

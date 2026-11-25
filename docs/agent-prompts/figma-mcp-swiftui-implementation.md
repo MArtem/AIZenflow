@@ -11,22 +11,22 @@ visual mismatch, or an explicit request for a full Figma implementation plan.
 
 # 0. Входные данные
 
-Figma selection/frame URL:  
+Figma selection/frame URL:
 [ВСТАВИТЬ FIGMA LINK TO SELECTION]
 
-Название экрана/компонента:  
+Название экрана/компонента:
 [ВСТАВИТЬ SCREEN OR COMPONENT NAME]
 
-Целевая платформа:  
+Целевая платформа:
 iOS / SwiftUI
 
-Минимальная версия iOS:  
-[например iOS 17+]
+Минимальная версия iOS:
+[прочитай из текущей конфигурации проекта; не предполагай версию]
 
-Архитектура проекта:  
+Архитектура проекта:
 [например SwiftUI Native State / MVVM / MVVM + Clean / Coordinator / Modular]
 
-Пути к релевантным файлам проекта, если известны:  
+Пути к релевантным файлам проекта, если известны:
 [например:
 
 - DesignSystem/
@@ -35,15 +35,15 @@ iOS / SwiftUI
 - Assets.xcassets
 - Typography.swift
 - Colors.swift
-- Spacing.swift  
+- Spacing.swift
 ]
 
-Контекст задачи:  
-[например:  
-Нужно сверстать экран Home из Figma.  
-Логика/API/DB пока не нужны.  
-Данные временно моковые.  
-Нужно использовать существующий DesignSystem.  
+Контекст задачи:
+[например:
+Нужно сверстать экран Home из Figma.
+Логика/API/DB пока не нужны.
+Данные временно моковые.
+Нужно использовать существующий DesignSystem.
 ]
 
 ## 0.1. Figma Design Intake Gate
@@ -224,60 +224,60 @@ Can proceed with assumptions if approved:
 
 Используй такую мапу:
 
-Figma Frame / Auto Layout vertical:  
+Figma Frame / Auto Layout vertical:
 → `VStack`
 
-Figma Frame / Auto Layout horizontal:  
+Figma Frame / Auto Layout horizontal:
 → `HStack`
 
-Figma absolute overlay/layers:  
+Figma absolute overlay/layers:
 → `ZStack` или `.overlay`
 
-Figma scrollable content:  
+Figma scrollable content:
 → `ScrollView` + `LazyVStack` если много элементов
 
-Figma background:  
+Figma background:
 → `.background(...)`
 
-Figma fill color:  
+Figma fill color:
 → `Color` из DesignSystem или asset catalog
 
-Figma gradient:  
+Figma gradient:
 → `LinearGradient` / `RadialGradient` / `AngularGradient`
 
-Figma corner radius:  
-→ `.clipShape(RoundedRectangle(cornerRadius: ...))`  
+Figma corner radius:
+→ `.clipShape(RoundedRectangle(cornerRadius: ...))`
 или project DesignSystem radius
 
-Figma stroke:  
+Figma stroke:
 → `.overlay(RoundedRectangle(...).stroke(...))`
 
-Figma shadow:  
-→ `.shadow(...)`  
+Figma shadow:
+→ `.shadow(...)`
 или project elevation token
 
-Figma text style:  
-→ project typography token  
+Figma text style:
+→ project typography token
 или `.font(...)` если token отсутствует
 
-Figma image:  
-→ `Image(...)` из assets  
+Figma image:
+→ `Image(...)` из assets
 или placeholder с TODO, если asset недоступен
 
-Figma icon:  
+Figma icon:
 → existing icon asset / SF Symbol / exported vector asset
 
-Figma component:  
+Figma component:
 → reusable SwiftUI component
 
-Figma variants:  
+Figma variants:
 → Swift enum / component state
 
-Figma button:  
-→ project Button component  
+Figma button:
+→ project Button component
 или custom SwiftUI Button style
 
-Figma list/cards:  
+Figma list/cards:
 → reusable cell/card component + mock ViewState
 
 # 7. DesignSystem rules

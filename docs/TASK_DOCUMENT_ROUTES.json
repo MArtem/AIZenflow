@@ -73,7 +73,6 @@
         "./docs/PRODUCT_REQUIREMENTS_STANDARD.md",
         "./docs/PRODUCTION_QUALITY_GATES.md",
         "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
-        "./docs/README.md",
         "./docs/CURRENT_USER_OVERRIDES.md",
         "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md"
       ]
@@ -336,6 +335,7 @@
         "./docs/PACKAGE_DOC_MIRROR_CONTRACT.md"
       ],
       "trigger_patterns": [
+        "./PackagesForReuse/PACKAGE_CATALOG.md",
         "./PackagesInUse/**/README.md"
       ]
     },
